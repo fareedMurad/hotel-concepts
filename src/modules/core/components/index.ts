@@ -12,4 +12,4 @@ export * from './modal';
 export * from './toast';
 export * from './switch';
 export * from './select';
-export * from './filter';
+export * from './button-filter';

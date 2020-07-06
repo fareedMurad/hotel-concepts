@@ -34,7 +34,8 @@
       "@profile/*": ["./src/modules/profile/*"],
       "@home": ["./src/modules/home/index"],
       "@home/*": ["./src/modules/home/*"],
-      "@pages/*": ["./src/modules/pages/*"]
+      "@pages/*": ["./src/modules/pages/*"],
+      "@pages": ["./src/modules/pages/index"]
     }
   },
   "include": ["./src/**/*"],

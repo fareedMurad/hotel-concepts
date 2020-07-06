@@ -11,7 +11,9 @@ enum Preloaders {
   settings = 'settings',
 
   // Uikit
-  uikit = 'uikit'
+  uikit = 'uikit',
+
+  getVacancies = 'get vacancies'
 }
 
 export { Preloaders };
