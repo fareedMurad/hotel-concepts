@@ -1,0 +1,67 @@
+@import 'core.scss';
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 25px 22px;
+}
+
+.image {
+  position: absolute;
+  background-size: cover;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+}
+
+.header {
+  &-content {
+    @include container();
+  }
+  &-caption {
+    @include font($white, 60px, 600, 70px);
+    width: 50%;
+    margin-top: 185px;
+    font-family: $EBGaramond;
+  }
+  &-description {
+    @include font($white, 24px, 400, 34px);
+    width: 67%;
+    margin-top: 25px;
+    font-family: $IBMPlex;
+  }
+}
+
+.arrow {
+  position: absolute;
+  bottom: 22px;
+  left: 140px;
+  color: $white;
+}
+
+.meet-kordie {
+  @include container();
+  margin-top: 60px;
+  &--title {
+    @include font($primary-gray, 48px, 600, 58px);
+    letter-spacing: -0.48px;
+  }
+  &--description {
+    @include font($primary-gray, 18px, 400, 28px);
+    width: 50%;
+    margin-top: 14px;
+    font-family: $IBMPlex;
+  }
+}
+
+.hr {
+  width: 95%;
+  height: 1px;
+  margin: 50px auto;
+  opacity: 0.5;
+  background: $primary-gray;
+}

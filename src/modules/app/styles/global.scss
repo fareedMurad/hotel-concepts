@@ -1,18 +1,17 @@
 @import './normalize.scss';
-
+@import 'core.scss';
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   text-decoration: none;
   color: inherit;
   box-sizing: border-box;
 }
 
 html {
-  font-size: 10px;
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: $IBMPlex;
 }

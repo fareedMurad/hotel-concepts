@@ -1,0 +1,47 @@
+@import 'core.scss';
+
+.wrapper {
+  @include flex($align: center);
+  position: relative;
+}
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.header {
+  @include flex($align: center);
+  @include container();
+  position: relative;
+}
+.navigation {
+  @include flex($align: center);
+  &-links {
+    @include font($white, 18px, 500);
+    font-family: $IBMPlex;
+    & > a {
+      margin-left: 39px;
+    }
+  }
+}
+
+.item {
+  @include font($white, 18px, 500);
+  @include flex($align: center);
+  font-family: $IBMPlex;
+  &-menu {
+    @include flex($align: center);
+    &--caption {
+      margin-left: 8px;
+    }
+  }
+  &-programs {
+    @include flex($align: center);
+    margin-left: 39px;
+    &--icon {
+      position: relative;
+      bottom: 2px;
+      left: 6px;
+    }
+  }
+}

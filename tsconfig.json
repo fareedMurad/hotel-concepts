@@ -33,7 +33,9 @@
       "@profile": ["./src/modules/profile/index"],
       "@profile/*": ["./src/modules/profile/*"],
       "@home": ["./src/modules/home/index"],
-      "@home/*": ["./src/modules/home/*"]
+      "@home/*": ["./src/modules/home/*"],
+      "@pages": ["./src/modules/pages/index"],
+      "@pages/*": ["./src/modules/pages/*"]
     }
   },
   "include": ["./src/**/*"],

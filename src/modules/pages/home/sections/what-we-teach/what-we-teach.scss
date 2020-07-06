@@ -1,0 +1,54 @@
+@import 'core.scss';
+
+.what-we-teach {
+}
+
+.caption {
+  @include font($primary-gray, 48px, 600, 58px);
+  @include container();
+  margin-bottom: 38px;
+  font-family: $EBGaramond;
+}
+
+.card-container {
+  display: flex;
+  width: 95%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  & > div:not(:nth-child(3n)) {
+    margin-right: 2.6%;
+  }
+  & > div {
+    margin-bottom: 1%;
+  }
+}
+
+.card {
+  @include flex($align: stretch, $direction: column);
+  position: relative;
+  background-color: #f5f1f0;
+  width: 30vw;
+  padding: 32px 16px;
+  border-radius: 4px;
+  &-rate {
+    @include font($primary-orange, 36px, 600, 48px);
+    font-family: $EBGaramond;
+    letter-spacing: -0.36px;
+  }
+  &-caption {
+    @include font($primary-gray, 24px, 400, 34px);
+    margin: 20px 0px;
+    font-family: $IBMPlex;
+  }
+  &-description {
+    @include font($primary-gray, 18px, 400, 28px);
+    margin-bottom: 70px;
+    font-family: $IBMPlex;
+  }
+  &-button {
+    @include flex($justify: space-between);
+    position: absolute;
+    bottom: 16px;
+    width: 60%;
+  }
+}

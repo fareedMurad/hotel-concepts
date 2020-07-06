@@ -4,15 +4,15 @@
   @include flex(center, center);
   width: fit-content;
   border: 0;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   outline: none;
 
   &--primary {
-    font-weight: 600;
-    color: $white;
-    background: $primary;
-    border: 1px solid $primary;
+    @include font($white, 16px, 500, 22px);
+    font-family: $IBMPlex;
+    background: $primary-orange;
+    border: 1px solid $primary-orange;
   }
 
   &--secondary {
@@ -36,7 +36,7 @@
   }
 
   &--md {
-    padding: 16px;
+    padding: 11px 16px;
     font-size: 16px;
     line-height: 20px;
   }
