@@ -4,7 +4,7 @@ import * as styles from './home.scss';
 import { Header } from '@core/components/header';
 import { useHomeData } from './home.hook';
 import { Icon } from '@core/components';
-import { WhatWeTeach, HowWeTeach } from './sections';
+import { WhatWeTeach, HowWeTeach, ExperiencedAssignment } from './sections';
 
 const Hr = () => <div className={styles.hr} />;
 /**
@@ -17,7 +17,9 @@ const Home: React.FC<HomeProps> = ({}) => {
       <div className={styles.header}>
         <Header navigation={navigation} />
         <div
-          style={{ backgroundImage: `url(${require('img/home.png')})` }}
+          style={{
+            backgroundImage: `url(${require('img/home.png')})`
+          }}
           className={styles.image}
         />
         <main className={styles.headerContent}>
@@ -45,6 +47,7 @@ const Home: React.FC<HomeProps> = ({}) => {
       <WhatWeTeach />
       <Hr />
       <HowWeTeach />
+      <ExperiencedAssignment />
     </div>
   );
 };
