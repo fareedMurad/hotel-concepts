@@ -1,8 +1,5 @@
 @import 'core.scss';
 
-.what-we-teach {
-}
-
 .caption {
   @include font($primary-gray, 48px, 600, 58px);
   @include container();
