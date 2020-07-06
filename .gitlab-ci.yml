@@ -1,0 +1,57 @@
+image: node:14.4
+
+stages:
+  - build
+
+cache:
+  paths:
+    - node_modules/
+
+dev:
+  stage: build
+  only:
+    - dev
+  before_script:
+    - apt-get update -qy
+    - apt-get -y install zip unzip
+  script:
+    - npm i --production
+    - npm run build:dev
+    - echo "$OMNICHANNEL"
+    - chmod 400 "$OMNICHANNEL"
+    - ls
+    - zip -r dist.zip ./dist
+    - scp -o StrictHostKeyChecking=no -i "$OMNICHANNEL" ./dist.zip ubuntu@ec2-18-157-205-127.eu-central-1.compute.amazonaws.com:~/frontend/dev/hello-chat-front/
+    - echo "Files are copied, unzipping..."
+    - ssh -o StrictHostKeyChecking=no -i "$OMNICHANNEL" ubuntu@ec2-18-157-205-127.eu-central-1.compute.amazonaws.com "cd ~/frontend/dev/hello-chat-front/ && unzip -o /home/ubuntu/frontend/dev/hello-chat-front/dist.zip"
+    - echo "All done!"
+  cache:
+    untracked: true
+  artifacts:
+    name: dist.zip
+    paths:
+      - ./dist
+uat:
+  stage: build
+  only:
+    - uat
+  before_script:
+    - apt-get update -qy
+    - apt-get -y install zip unzip
+  script:
+    - npm i --production
+    - npm run build:uat
+    - echo "$OMNICHANNEL"
+    - chmod 400 "$OMNICHANNEL"
+    - ls
+    - zip -r dist.zip ./dist
+    - scp -o StrictHostKeyChecking=no -i "$OMNICHANNEL" ./dist.zip ubuntu@ec2-52-58-129-51.eu-central-1.compute.amazonaws.com:~/hello-chat-front/
+    - echo "Files are copied, unzipping..."
+    - ssh -o StrictHostKeyChecking=no -i "$OMNICHANNEL" ubuntu@ec2-52-58-129-51.eu-central-1.compute.amazonaws.com "cd ~/hello-chat-front/ && unzip -o /home/ubuntu/hello-chat-front/dist.zip"
+    - echo "All done!"
+  cache:
+    untracked: true
+  artifacts:
+    name: dist.zip
+    paths:
+      - ./dist

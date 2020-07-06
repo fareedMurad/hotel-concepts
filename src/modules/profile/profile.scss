@@ -1,0 +1,35 @@
+@import 'core.scss';
+
+.profile {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+  background: #edf0f3;
+}
+
+.navigation {
+  @include flex(center, center);
+  background: $white;
+}
+
+.link {
+  @include font($black, 24px);
+  padding: 20px 0;
+  transition: $transition;
+
+  &:not(:first-child) {
+    margin-left: 16px;
+  }
+
+  &:hover {
+    color: $primary;
+  }
+
+  &--active {
+    color: $primary;
+  }
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}

@@ -1,0 +1,17 @@
+/*
+* Applied on ltr global class
+*/
+@mixin ltr() {
+  :global(.direction-ltr) {
+    @content;
+  }
+}
+
+/*
+* Applied on rtl global class
+*/
+@mixin rtl() {
+  :global(.direction-rtl) {
+    @content;
+  }
+}
