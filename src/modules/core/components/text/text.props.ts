@@ -11,11 +11,15 @@ type TextProps = ControlProps & {
   /**
    * Input type
    */
-  type?: 'text' | 'password' | 'email' | 'phone';
+  type?: 'text' | 'password' | 'email' | 'phone' | 'file';
   /**
    * Input mask
    */
   mask?: string;
+  /**
+   * Ref
+   */
+  ref?: any;
 };
 
 export { TextProps };

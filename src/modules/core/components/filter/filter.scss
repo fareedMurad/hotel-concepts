@@ -1,0 +1,33 @@
+@import 'core.scss';
+
+.filter {
+  width: fit-content;
+  margin-right: 12px;
+  padding: 12px;
+  font-family: $IBMPlexSans;
+  border: 1px solid $light-grey;
+  border-radius: 3px;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+
+  cursor: pointer;
+  @include font($primary-grey, 18px, 400, 28px);
+  @include flex(flex-start, flex-start, row);
+  &:hover {
+    border: 1px solid $primary-orange;
+  }
+  &__title {
+    margin-right: 5px;
+    font-family: $IBMPlexSans;
+  }
+  &__count {
+    font-family: $IBMPlexSans;
+    color: $light-grey;
+    &__active {
+      color: $primary-grey;
+    }
+  }
+  &__active {
+    border: 1px solid $primary-orange;
+  }
+}
