@@ -29,9 +29,9 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({
             })}
           </div>
           <div className={styles.sliderButtons}>
-            <div className={styles.ellipse} />
-            <div className={styles.ellipseDefault} />
-            <div className={styles.ellipseDefault} />
+            <Icon name='ellipse-active' />
+            <Icon name='ellipse-default' />
+            <Icon name='ellipse-default' />
           </div>
         </div>
         <div
