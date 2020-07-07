@@ -6,27 +6,25 @@ import { NavLink } from 'react-router-dom';
 const HeroCard = ({ img, activity, captions }) => {
   return (
     <div className={styles.card}>
-      <div className={styles.cardImageOverlay}>
-        <div
-          className={styles.cardImage}
-          style={{
-            backgroundImage: `url(${require(`img/insights/insights-${img}.png`)})`
-          }}
-        />
-        <div className={styles.cardActivity}>{activity}</div>
-        <div className={styles.cardCaptions}>
-          {captions[1]}
-          <br />
-          {captions[2]}
-          <br />
-          {captions[3]}
-          <br />
-        </div>
-
-        <NavLink to={`/to/${captions[0]}`} className={styles.cardLink}>
-          Read more
-        </NavLink>
+      <div
+        className={styles.cardImage}
+        style={{
+          backgroundImage: `url(${require(`img/insights/insights-${img}.png`)})`
+        }}
+      />
+      <div className={styles.cardActivity}>{activity}</div>
+      <div className={styles.cardCaptions}>
+        {captions[1]}
+        <br />
+        {captions[2]}
+        <br />
+        {captions[3]}
+        <br />
       </div>
+
+      <NavLink to={`/to/${captions[0]}`} className={styles.cardLink}>
+        Read more
+      </NavLink>
     </div>
   );
 };
@@ -37,13 +35,12 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
   return (
     <div className={styles.heroBlock}>
       <div className={styles.heroMain}>
-        <div className={styles.overlay}>
-          <div
-            className={styles.heroMainPic}
-            style={{
-              backgroundImage: `url(${require(`img/insights/insights-1.png`)})`
-            }}
-          />
+        <div
+          className={styles.heroMainPic}
+          style={{
+            backgroundImage: `url(${require(`img/insights/insights-1.png`)})`
+          }}
+        >
           <div className={styles.heroMainContent}>
             <div>New</div>
             <div>Cordie Insights</div>
@@ -51,6 +48,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
           </div>
         </div>
       </div>
+
       <div className={styles.heroSubmain}>
         <HeroCard
           img='2'

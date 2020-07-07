@@ -2,19 +2,19 @@
 
 .hero-block {
   display: flex;
-  width: 95%;
+  width: 97%;
   margin: 0 auto;
 }
 
 .hero {
   &__main {
-    width: fit-content;
-    height: 100%;
+    width: 60vw;
     &--pic {
       position: absolute;
       z-index: -1;
-      width: 876px;
-      height: 672px;
+      //   width: 936px;
+      width: 60vw;
+      height: calc(100% - 77px);
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -40,26 +40,16 @@
     }
   }
 }
-
-.overlay {
-  z-index: 1;
-  width: 876px;
-  height: 672px;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.13) 0%,
-    rgba(0, 0, 0, 0.13068977591036413) 100%
-  );
-}
-
 .hero-submain {
-  width: fit-content;
+  position: relative;
+  width: 40vw;
+  height: calc(100vh - 77px);
   & > div:last-child {
-    top: 20px;
+    bottom: 0;
   }
   & > div {
-    left: 20px;
+    position: absolute;
+    right: 0;
   }
 }
 
@@ -67,15 +57,17 @@
   position: relative;
   &--image {
     z-index: -1;
-    width: 428px;
-    height: 326px;
+    min-width: 428px;
+    width: 100%;
+    min-height: 326px;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
   }
   &__captions {
     @include font($white, 36px, 600, 46px);
     position: absolute;
-    top: 80px;
+    top: 130px;
     left: 20px;
     font-family: $EBGaramond;
   }
@@ -87,8 +79,6 @@
     padding: 6px 24px;
     background-color: #f5f1f0;
     border-radius: 8px;
-  }
-  &__overlay {
   }
 }
 
