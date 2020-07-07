@@ -10,6 +10,7 @@ import { State } from '@app/store/state';
 import { Toast } from '@core/components';
 import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
+import { ForCompanies } from '@pages/for-companies';
 
 /**
  * Renders Routes
@@ -28,6 +29,8 @@ const Routes: React.FC = () => {
         {/* JOB ROUTES */}
         <Route path='/jobs/job-details/:id' component={JobDetails} />
         <Route path='/jobs' component={JobsList} />
+        {/* FOR_COMPANIES ROUTE */}
+        <Route path='/for-companies' component={ForCompanies} />
       </Switch>
     </div>
   );

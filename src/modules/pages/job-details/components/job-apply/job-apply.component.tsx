@@ -3,6 +3,7 @@ import { JobApplyProps } from './job-apply.props';
 import * as styles from './job-apply.scss';
 import { Form, Field, Button, Icon } from '@core/components';
 import { Formik } from 'formik';
+import { jobDetailsValidationSchema } from '@pages/job-details/models';
 
 const defaultValues = {
   name: '',
@@ -13,6 +14,7 @@ const defaultValues = {
   linkedIn: '',
   coverLetter: ''
 };
+
 /**
  * Renders JobForm
  */
@@ -26,9 +28,9 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
         onSubmit={values => {
           console.log(values);
         }}
-        // validationSchema={SignInValidationSchema}
+        validationSchema={jobDetailsValidationSchema}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, validateForm }) => (
           <Form handleSubmit={handleSubmit}>
             <div className={styles.formSection}>
               <div>
@@ -72,7 +74,7 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                 <Field.Text
                   name='location'
                   placeholder='location'
-                  type='text'
+                  type='select'
                   className={styles.input}
                   label='location*'
                 />
@@ -103,7 +105,9 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
               label='linkedIn'
             />
             <Button
-              onClick={() => handleSubmit()}
+              onClick={() => {
+                handleSubmit(), validateForm();
+              }}
               className={styles.buttonSubmit}
               type='submit'
             >

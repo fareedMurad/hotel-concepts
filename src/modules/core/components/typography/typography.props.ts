@@ -13,4 +13,15 @@ type HeadingProps = {
   className?: string;
 };
 
-export { TypographyProps, HeadingProps };
+/**
+ * Body props
+ */
+
+type BodyProps = {
+  /**
+   * Classname
+   */
+  className?: string;
+};
+
+export { TypographyProps, HeadingProps, BodyProps };
