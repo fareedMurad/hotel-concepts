@@ -1,0 +1,102 @@
+@import 'core.scss';
+
+.hero-block {
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.hero {
+  &__main {
+    width: fit-content;
+    height: 100%;
+    &--pic {
+      position: absolute;
+      z-index: -1;
+      width: 876px;
+      height: 672px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &__content {
+      @include flex($justify: center, $direction: column);
+      width: 50%;
+      height: 100%;
+      margin-left: 120px;
+      & > div:first-child {
+        @include font(#cbd0d3, 36px, 600, 46px);
+        font-family: $EBGaramond;
+        letter-spacing: -0.36px;
+      }
+      & > div:nth-child(2) {
+        @include font($white, 60px, 500, 70px);
+        margin: 15px 0px;
+        font-family: $EBGaramond;
+      }
+      & > div:last-child {
+        @include font($white, 24px, 300, 34px);
+        font-family: $IBMPlex;
+      }
+    }
+  }
+}
+
+.overlay {
+  z-index: 1;
+  width: 876px;
+  height: 672px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.13) 0%,
+    rgba(0, 0, 0, 0.13068977591036413) 100%
+  );
+}
+
+.hero-submain {
+  width: fit-content;
+  & > div:last-child {
+    top: 20px;
+  }
+  & > div {
+    left: 20px;
+  }
+}
+
+.card {
+  position: relative;
+  &--image {
+    z-index: -1;
+    width: 428px;
+    height: 326px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__captions {
+    @include font($white, 36px, 600, 46px);
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    font-family: $EBGaramond;
+  }
+  &__activity {
+    @include font($primary-gray, 16px, 400, 22px);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 6px 24px;
+    background-color: #f5f1f0;
+    border-radius: 8px;
+  }
+  &__overlay {
+  }
+}
+
+.card-link {
+  @include font($white, 16px, 500, 22px);
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-family: $IBMPlex;
+  text-decoration: underline;
+}
