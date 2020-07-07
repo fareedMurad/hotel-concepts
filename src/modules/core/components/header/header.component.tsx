@@ -4,7 +4,7 @@ import * as styles from './header.scss';
 import { NavLink } from 'react-router-dom';
 import { Icon } from '../icon';
 import classNames from 'classnames';
-import { useHomeData } from '@pages/home/home.hook';
+import { useHomeData } from '@pages/learning-approach/learning-approach.hook';
 
 /**
  * Renders Header

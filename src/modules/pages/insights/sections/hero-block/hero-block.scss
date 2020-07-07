@@ -1,9 +1,8 @@
 @import 'core.scss';
 
 .hero-block {
-  display: flex;
-  width: 97%;
-  margin: 0 auto;
+  @include flex($justify: space-between);
+  margin: 0 20px;
 }
 
 .hero {
@@ -41,28 +40,29 @@
   }
 }
 .hero-submain {
+  @include flex($direction: column, $justify: space-between);
   position: relative;
-  width: 40vw;
+  width: 35vw;
   height: calc(100vh - 77px);
   & > div:last-child {
-    bottom: 0;
+    margin-top: 2%;
   }
   & > div {
-    position: absolute;
     right: 0;
   }
 }
 
 .card {
   position: relative;
+  height: 48%;
+  min-width: 35vw;
   &--image {
     z-index: -1;
-    min-width: 428px;
     width: 100%;
-    min-height: 326px;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom;
   }
   &__captions {
     @include font($white, 36px, 600, 46px);

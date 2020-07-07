@@ -1,5 +1,5 @@
 {
-  "name": "omnichannel",
+  "name": "Kordie",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,7 @@
     "stylelint": "stylelint --fix \"./src/**/*.scss\" && prettier --write \"./src/**/*.scss\"",
     "update:module:paths": "node ./scripts/update-module-paths.js"
   },
-  "author": "Omnichannel",
+  "author": "Kordie",
   "license": "ISC",
   "dependencies": {
     "@types/react-datepicker": "^2.11.0",

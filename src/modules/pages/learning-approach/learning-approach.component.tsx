@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { HomeProps } from './home.props';
-import * as styles from './home.scss';
+import * as styles from './learning-approach.scss';
 import { Header } from '@core/components/header';
-import { useHomeData } from './home.hook';
 import { Icon, H1, H2, Paragraph, Footer } from '@core/components';
 import {
   WhatWeTeach,
@@ -15,9 +13,10 @@ import { HeroBottom } from './sections/hero-bottom';
 
 const Hr = () => <div className={styles.hr} />;
 /**
- * Renders Home
+ * Renders Learning approach page
  */
-const Home: React.FC<HomeProps> = ({}) => {
+const LearningApproach: React.FC = ({}) => {
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -29,7 +28,6 @@ const Home: React.FC<HomeProps> = ({}) => {
           className={styles.image}
         />
         <main className={styles.headerContent}>
-          {/* <div className={styles.headerCaption}>Our Learning Approach </div> */}
           <H1 className={styles.headerCaption}>Our Learning Approach</H1>
           <div className={styles.headerDescription}>
             Experience transformational hospitality e-learning bringing together
@@ -50,7 +48,6 @@ const Home: React.FC<HomeProps> = ({}) => {
         </Paragraph>
       </div>
       <Hr />
-      {/* TEACH SECTION */}
       <WhatWeTeach />
       <Hr />
       <HowWeTeach />
@@ -64,4 +61,4 @@ const Home: React.FC<HomeProps> = ({}) => {
   );
 };
 
-export { Home };
+export { LearningApproach };
