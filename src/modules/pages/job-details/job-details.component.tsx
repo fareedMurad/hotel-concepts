@@ -4,7 +4,7 @@ import * as styles from './job-details.scss';
 import classNames from 'classnames';
 import { JobApply } from './components/job-apply';
 import { useJobDetailsData } from './job-details.hook';
-import { H2, Body, H5, H3 } from '@core/components';
+import { H2, Paragraph, H5, H3 } from '@core/components';
 
 /**
  * Renders JobPage
@@ -26,7 +26,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
           {/* {location} */}
           London, United Kingdom
         </H5>
-        <Body>
+        <Paragraph>
           {/* {body} */}
           We are looking for a passionate and seasoned Project Manager that{' '}
           <br />
@@ -37,15 +37,15 @@ const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
           <br /> deliver the optimal Spotify experience to millions of users.
           Above <br /> all, your work will impact the way the world experiences
           music.
-        </Body>
+        </Paragraph>
       </section>
       <section className={styles.sectionB}>
         <H3 className={styles.titleOrange}>Apply for this job</H3>
-        <Body>
+        <Paragraph>
           {' '}
           If you would like to take this module <br /> separately from a
           program, please contact us
-        </Body>
+        </Paragraph>
       </section>
       <JobApply />
     </div>

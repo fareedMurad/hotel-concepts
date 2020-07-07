@@ -24,8 +24,6 @@ const Routes: React.FC = () => {
       <Route path='/profile' component={Profile} />
       <Route path='/auth' component={Auth} />
       <Route path='/uikit' component={Uikit} />
-      {/* <Route exact path='/' component={Home} /> */}
-      <Route exact path='/' component={Home} />
       <Switch>
         <Route path='/profile' component={Profile} />
         <Route path='/auth' component={Auth} />

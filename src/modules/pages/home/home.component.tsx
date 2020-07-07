@@ -3,13 +3,15 @@ import { HomeProps } from './home.props';
 import * as styles from './home.scss';
 import { Header } from '@core/components/header';
 import { useHomeData } from './home.hook';
-import { Icon } from '@core/components';
+import { Icon, H1, H2, Paragraph, Footer } from '@core/components';
 import {
   WhatWeTeach,
   HowWeTeach,
   ExperiencedAssignment,
-  OurMaterials
+  OurMaterials,
+  ReadingMaterials
 } from './sections';
+import { HeroBottom } from './sections/hero-bottom';
 
 const Hr = () => <div className={styles.hr} />;
 /**
@@ -28,7 +30,8 @@ const Home: React.FC<HomeProps> = ({}) => {
           className={styles.image}
         />
         <main className={styles.headerContent}>
-          <div className={styles.headerCaption}>Our Learning Approach </div>
+          {/* <div className={styles.headerCaption}>Our Learning Approach </div> */}
+          <H1 className={styles.headerCaption}>Our Learning Approach</H1>
           <div className={styles.headerDescription}>
             Experience transformational hospitality e-learning bringing together
             the best in industry and academia, dedicated mentorship, new
@@ -39,13 +42,13 @@ const Home: React.FC<HomeProps> = ({}) => {
       </div>
       <div className={styles.meetKordie}>
         <Icon name='abstract-1' />
-        <div className={styles.meetKordieTitle}>Meet Kordie</div>
-        <div className={styles.meetKordieDescription}>
+        <H2 className={styles.meetKordieTitle}>Meet Kordie</H2>
+        <Paragraph className={styles.meetKordieDescription}>
           Kordie - is online university for hospitality. We deliver practical
           programs and courses developed in team with key industry leaders, most
           relevant approach to education, case based assignments and mentorship
           from leading experts.
-        </div>
+        </Paragraph>
       </div>
       <Hr />
       {/* TEACH SECTION */}
@@ -55,6 +58,9 @@ const Home: React.FC<HomeProps> = ({}) => {
       <ExperiencedAssignment />
       <Hr />
       <OurMaterials />
+      <ReadingMaterials />
+      <HeroBottom />
+      <Footer />
     </div>
   );
 };
