@@ -1,0 +1,22 @@
+@import 'core.scss';
+
+.our-programs {
+  background-color: #f5f1f0;
+}
+
+.container {
+  @include container();
+  padding-top: 60px;
+}
+
+.cards {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  @include flex(center);
+  margin: 0 auto;
+  margin-top: 30px;
+  padding-bottom: 60px;
+}

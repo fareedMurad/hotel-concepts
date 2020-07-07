@@ -1,0 +1,21 @@
+@import 'core.scss';
+
+.our-programs-card {
+  background-color: $white;
+  width: 30vw;
+  min-height: 340px;
+  margin-right: 3%;
+  padding: 16px 32px 16px 53px;
+  border-radius: 5px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.orange {
+  color: $primary-orange;
+}
+
+.subtitle {
+  font-size: 28px;
+}

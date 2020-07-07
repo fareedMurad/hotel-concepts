@@ -8,6 +8,7 @@ import { Benefits } from './sections/benefits';
 import { HowWeWork } from './sections/how-we-work';
 import { OurApproach } from './sections/our-approach';
 import { WhyCordie } from './sections/why-cordie';
+import { OurPrograms } from './sections/our-programs';
 
 /**
  * Renders ForCompanies
@@ -51,6 +52,21 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
       <HowWeWork />
       <OurApproach />
       <WhyCordie />
+      <OurPrograms />
+      <div className={styles.container}>
+        <Icon name='abstract-1' />
+        <H3>
+          Increase your competitive <br /> advantage with new <br /> knowledge.{' '}
+        </H3>
+        <Paragraph className={styles.competitiveText}>
+          Kordie innovates the way hospitality professionals learn and travel
+          organisations <br /> develop talent. Powerful knowledge is brought
+          directly to you in a convenient, <br /> flexible way. Connect with
+          Kordie’s renowned faculty and mentors from all over <br /> the world
+          to deepen your expertise. Scale the learning across your hospitality{' '}
+          <br /> business to drive powerful results.
+        </Paragraph>
+      </div>
     </div>
   );
 };
