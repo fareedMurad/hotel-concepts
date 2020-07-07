@@ -11,7 +11,7 @@ const HeroBottom: React.FC<HeroBottomProps> = ({}) => {
     <div
       className={styles.heroBottom}
       style={{
-        backgroundImage: `url(${require(`img/home-footer-1.png`)})`
+        backgroundImage: `url(${require(`img/home/home-footer-1.png`)})`
       }}
     >
       <div className={styles.overlay}>

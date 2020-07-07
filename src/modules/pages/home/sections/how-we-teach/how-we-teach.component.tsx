@@ -43,12 +43,12 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
       <section className={styles.wrapper}>
         <div className={styles.wccCards}>
           <WorldClassCard
-            img={'wcc-1'}
+            img={'home/wcc-1'}
             title='Cutting Edge Curriculum '
             description='Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high-impact practical skills needed in hospitality of today and tomorrow. '
           />
           <WorldClassCard
-            img={'wcc-2'}
+            img={'home/wcc-2'}
             title='Relevant approach to education'
             description='Programs developed with a combination of best practices in best traditional hospitality education and most innovative e-learning approaches and technology.'
           />

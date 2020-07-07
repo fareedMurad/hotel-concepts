@@ -18,14 +18,13 @@ const Hr = () => <div className={styles.hr} />;
  * Renders Home
  */
 const Home: React.FC<HomeProps> = ({}) => {
-  const { navigation } = useHomeData();
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <Header navigation={navigation} />
+        <Header />
         <div
           style={{
-            backgroundImage: `url(${require('img/home.png')})`
+            backgroundImage: `url(${require('img/home/home.png')})`
           }}
           className={styles.image}
         />
@@ -41,7 +40,7 @@ const Home: React.FC<HomeProps> = ({}) => {
         <div className={styles.arrow}>&#8595; Scroll</div>
       </div>
       <div className={styles.meetKordie}>
-        <Icon name='abstract-1' />
+        <Icon name='home/abstract-1' />
         <H2 className={styles.meetKordieTitle}>Meet Kordie</H2>
         <Paragraph className={styles.meetKordieDescription}>
           Kordie - is online university for hospitality. We deliver practical

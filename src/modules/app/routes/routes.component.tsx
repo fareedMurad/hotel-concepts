@@ -11,6 +11,7 @@ import { Home } from 'src/modules/pages';
 import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
+import { Insights } from '@pages/insights';
 
 /**
  * Renders Routes
@@ -29,6 +30,7 @@ const Routes: React.FC = () => {
         <Route path='/auth' component={Auth} />
         <Route path='/uikit' component={Uikit} />
         <Route exact path='/' component={Home} />
+        <Route path='/insights' component={Insights} />
         {/* JOB ROUTES */}
         <Route path='/jobs/job-details/:id' component={JobDetails} />
         <Route path='/jobs' component={JobsList} />

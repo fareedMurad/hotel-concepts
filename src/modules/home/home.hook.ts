@@ -1,9 +1,9 @@
 const useHomeData = () => {
   const navigation = [
-    { caption: 'Home', to: '/' },
-    { caption: 'Uikit', to: '/uikit' },
-    { caption: 'Auth', to: '/auth' },
-    { caption: 'Profile', to: '/profile' }
+    { id: 1, caption: 'Home', to: '/' },
+    { id: 2, caption: 'Uikit', to: '/uikit' },
+    { id: 3, caption: 'Auth', to: '/auth' },
+    { id: 4, caption: 'Profile', to: '/profile' }
   ];
 
   return { navigation };

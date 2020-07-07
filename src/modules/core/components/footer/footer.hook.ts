@@ -8,14 +8,14 @@ const useFooterData = () => {
   ];
   const weprovideLinks = [
     { id: 1, caption: 'For Companies', to: '/' },
-    { id: 1, caption: 'Consulting', to: '/' },
-    { id: 1, caption: 'Marketplace', to: '/' },
-    { id: 1, caption: 'Insights', to: '/' }
+    { id: 2, caption: 'Consulting', to: '/' },
+    { id: 3, caption: 'Marketplace', to: '/' },
+    { id: 4, caption: 'Insights', to: '/' }
   ];
 
   const moreLinks = [
     { id: 1, caption: 'Support', to: '/' },
-    { id: 1, caption: 'Technology Requirements', to: '/' }
+    { id: 2, caption: 'Technology Requirements', to: '/' }
   ];
 
   return { companyLinks, weprovideLinks, moreLinks };

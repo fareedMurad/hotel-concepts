@@ -2,11 +2,7 @@
  * Props
  */
 type HeaderProps = {
-  navigation: {
-    id: number;
-    title: string;
-    to: string;
-  }[];
+  whiteBackground?: boolean;
 };
 
 export { HeaderProps };
