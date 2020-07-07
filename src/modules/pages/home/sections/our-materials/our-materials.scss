@@ -1,5 +1,24 @@
-@import "core.scss";
+@import 'core.scss';
 
 .our-materials {
-	
+}
+
+.title {
+  @include font($primary-gray, 60px, 600, 70px);
+  @include container();
+  letter-spacing: -0.6px;
+  font-family: $EBGaramond;
+}
+
+.video-cards {
+  @include flex($align: stretch);
+  flex-wrap: wrap;
+  width: 95%;
+  margin: 0 auto;
+  & > div:not(:nth-child(3n)) {
+    margin-right: 2.7%;
+  }
+  & > div {
+    margin-bottom: 20px;
+  }
 }

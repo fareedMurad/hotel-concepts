@@ -4,7 +4,12 @@ import * as styles from './home.scss';
 import { Header } from '@core/components/header';
 import { useHomeData } from './home.hook';
 import { Icon } from '@core/components';
-import { WhatWeTeach, HowWeTeach, ExperiencedAssignment } from './sections';
+import {
+  WhatWeTeach,
+  HowWeTeach,
+  ExperiencedAssignment,
+  OurMaterials
+} from './sections';
 
 const Hr = () => <div className={styles.hr} />;
 /**
@@ -48,6 +53,8 @@ const Home: React.FC<HomeProps> = ({}) => {
       <Hr />
       <HowWeTeach />
       <ExperiencedAssignment />
+      <Hr />
+      <OurMaterials />
     </div>
   );
 };

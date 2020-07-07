@@ -2,6 +2,7 @@ import * as React from 'react';
 import { HowWeTeachProps } from './how-we-teach.props';
 import * as styles from './how-we-teach.scss';
 import { useHowWeTeachData } from './how-we-teach.hook';
+import { Caption } from '@pages/components';
 
 /**
  * Instrument and Tools Card
@@ -25,23 +26,6 @@ const WorldClassCard = ({ img, title, description }) => {
         <div className={styles.wccTextTitle}>{title}</div>
         <div className={styles.wccTextDescription}>{description}</div>
       </div>
-    </div>
-  );
-};
-/**
- * Caption
- */
-const Caption: React.FC<{ rate: string; title: string; children?: string }> = ({
-  rate,
-  title,
-  children
-}) => {
-  return (
-    <div className={styles.caption}>
-      <div className={styles.captionRate}>{rate}</div>
-      <div className={styles.captionTitle}>{title}</div>
-      <div className={styles.captionHr} />
-      {children && <div className={styles.captionContent}>{children}</div>}
     </div>
   );
 };

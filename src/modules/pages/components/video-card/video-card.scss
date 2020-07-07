@@ -1,0 +1,52 @@
+@import 'core.scss';
+
+.overlay {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.34077380952380953) 41%,
+    rgba(255, 255, 255, 0.07746848739495793) 100%
+  );
+}
+.info {
+  margin-left: 10px;
+  &-title {
+    @include font($white, 16px, 500, 22px);
+    font-family: $IBMPlex;
+  }
+  &-duration {
+    @include font($white, 12px, 400, 20px);
+    opacity: 0.5;
+    font-family: $IBMPlex;
+  }
+}
+.video-card {
+  position: relative;
+  width: 428px;
+  height: 279px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.controls {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  @include flex($align: center);
+  color: white;
+}
+.button-play {
+  @include size(40px);
+  @include flex($align: center, $justify: center);
+  z-index: 999;
+  background: $white;
+  border-radius: 50%;
+  &-icon {
+    @include size(14px);
+    clip-path: polygon(100% 52%, 0 0, 0 100%);
+    background: $primary-orange;
+  }
+}
