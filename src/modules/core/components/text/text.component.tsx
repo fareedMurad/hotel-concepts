@@ -23,6 +23,7 @@ const Text: React.FC<TextProps> = ({
   tabIndex,
   mask,
   error,
+  ref,
   isError
 }) => {
   const [focused, setFocused] = useState(false);

@@ -1,0 +1,26 @@
+@import 'core.scss';
+
+.vacancy {
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $light-grey;
+  @include flex(space-between, center);
+  &__title {
+    font-family: $EBGaramond;
+    @include font($primary-orange, 18px, 600);
+  }
+  &__description {
+    padding: 18px 0;
+    font-family: $IBMPlexSans;
+    @include font($primary-grey, 24px, 400, 34px);
+  }
+}
+
+.details {
+  width: 204px;
+  height: 44px;
+  padding: 14px 10px;
+  border: 1px solid $primary-orange;
+  border-radius: 3px;
+  @include flex(space-between);
+}

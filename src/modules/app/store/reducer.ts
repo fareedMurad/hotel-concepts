@@ -4,6 +4,7 @@ import { router } from '@router/store';
 import { combineReducers } from 'redux';
 import { ui } from '@ui';
 import { profile } from '@profile/store';
+import { jobs } from '@pages/jobs-list/store';
 /**
  * App rd
  */
@@ -12,7 +13,8 @@ const app = combineReducers({
   localization,
   general,
   profile,
-  ui
+  ui,
+  jobs
 });
 
 export { app };

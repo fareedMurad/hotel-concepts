@@ -1,0 +1,73 @@
+@import 'core.scss';
+
+.job-form {
+  width: 750px;
+}
+
+.title {
+  margin: 22px 0 20px 0;
+  font-family: $IBMPlexSans;
+  @include font($primary-grey, 16px, 400, 22px);
+}
+
+.form-section {
+  @include flex(space-between);
+}
+
+.input {
+  margin-bottom: 16px;
+  label {
+    @include font($primary-grey, 14px, 500, 14px);
+  }
+  input {
+    width: 360px;
+    background: #f5f1f0;
+    border-radius: 4px;
+    border: unset;
+  }
+}
+
+.hint {
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 360px;
+  padding: 18px;
+  transition: 0.3;
+  cursor: pointer;
+  background: #f5f1f0;
+  border-radius: 4px;
+  @include flex(flex-end, center);
+}
+
+.upload {
+  display: none;
+}
+
+.label-upload {
+  @include font($primary-grey, 14px, 500, 14px);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input-bottom {
+  label {
+    @include font($primary-grey, 14px, 500, 14px);
+  }
+
+  input {
+    width: 100%;
+    background: #f5f1f0;
+    border-radius: 4px;
+    border: unset;
+  }
+}
+
+.button-submit {
+  background-color: $primary-orange;
+  border-radius: 4px;
+  width: 204px;
+  border: unset;
+  @include font(#ffffff, 16px, 500, 22px);
+  @include flex(space-between);
+}
