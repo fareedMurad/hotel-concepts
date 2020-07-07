@@ -3,6 +3,13 @@
 .jobs-list {
   margin-left: 134px;
   margin-right: 22px;
+  @include container();
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  padding: 25px 22px;
 }
 
 .title {

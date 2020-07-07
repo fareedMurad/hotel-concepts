@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BrochureProps } from './brochure.props';
 import * as styles from './brochure.scss';
 import { H2, Paragraph } from '@core/components';
+import { DownloadButton } from '@pages/components';
 
 /**
  * Renders Brochure
@@ -23,14 +24,9 @@ const Brochure: React.FC<BrochureProps> = ({}) => {
             Find out more about how we can <br /> collaborate towards your
             future.
           </Paragraph>
-
-          <a
-            className={styles.downloadButton}
-            href='path_to_file'
-            download='proposed_file_name'
-          >
-            Download
-          </a>
+          <div className={styles.downloadButton}>
+            <DownloadButton caption='Brochure' filetype='PDF' size='15mb' />
+          </div>
         </div>
       </div>
     </div>

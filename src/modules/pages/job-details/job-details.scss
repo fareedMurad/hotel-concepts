@@ -2,13 +2,20 @@
 
 .job-page {
   position: relative;
-  padding-left: 134px;
-  padding-right: 570px;
+  // padding-left: 134px;
+  // padding-right: 570px;
+  @include container();
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  padding: 25px 22px;
 }
 
 .back {
   position: absolute;
-  left: 22px;
+  left: -123px;
   display: flex;
   width: 92px;
   padding: 8px 13px;
@@ -21,13 +28,7 @@
 
 .section-a {
   margin-bottom: 32px;
-  // &__title {
-  //   font-family: $EBGaramond;
-  //   @include font($primary-grey, 48px, 600, 58px);
-  //   &__orange {
-  //     color: $primary-orange;
-  //   }
-  // }
+
   &__subtitle {
     font-family: $EBGaramond;
     @include font($primary-orange, 18px, 600, 58px);
@@ -39,11 +40,6 @@
 }
 
 .section-b {
-  // &__title {
-  //   margin-bottom: 11px;
-  //   font-family: $EBGaramond;
-  //   @include font($primary-orange, 48px, 600, 58px);
-  // }
   &__description {
     font-family: $IBMPlexSans;
     @include font($primary-grey, 18px, 400, 28px);

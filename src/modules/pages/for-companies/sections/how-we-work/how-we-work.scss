@@ -13,6 +13,6 @@
 .cards-container {
   width: 95%;
   margin: 0 auto;
-  @include flex();
+  @include flex(flex-start, stretch);
   margin-bottom: 80px;
 }

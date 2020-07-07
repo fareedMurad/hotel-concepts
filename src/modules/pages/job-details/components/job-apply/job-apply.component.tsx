@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { JobApplyProps } from './job-apply.props';
 import * as styles from './job-apply.scss';
-import { Form, Field, Button, Icon } from '@core/components';
+import { Form, Field, Button, Icon, Select } from '@core/components';
 import { Formik } from 'formik';
 import { jobDetailsValidationSchema } from '@pages/job-details/models';
+import { useJobDetailsData } from '@pages/job-details/job-details.hook';
 
 const defaultValues = {
   name: '',
@@ -20,6 +21,9 @@ const defaultValues = {
  */
 const JobApply: React.FC<JobApplyProps> = ({}) => {
   const input = React.useRef<HTMLInputElement>();
+  const { locations } = useJobDetailsData();
+  const [location, setLocation] = React.useState('');
+  console.log(locations);
   return (
     <div className={styles.jobForm}>
       <div className={styles.title}>Fields marked * are required.</div>
@@ -71,12 +75,12 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                   className={styles.input}
                   label='Email*'
                 />
-                <Field.Text
-                  name='location'
-                  placeholder='location'
-                  type='select'
+                <Select
+                  value='hello'
+                  options={locations}
+                  placeholder=''
                   className={styles.input}
-                  label='location*'
+                  label='Location*'
                 />
                 <label htmlFor='upload-letter' className={styles.labelUpload}>
                   Cover Letter*

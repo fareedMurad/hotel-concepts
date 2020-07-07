@@ -22,6 +22,10 @@ const withClassName = (className: string) => ({
 );
 
 /**
+ * Custom select indicator
+ */
+
+/**
  * Select parts
  */
 const components: Partial<typeof Components> = {

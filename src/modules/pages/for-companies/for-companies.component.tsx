@@ -2,8 +2,7 @@ import * as React from 'react';
 import { ForCompaniesProps } from './for-companies.props';
 import * as styles from './for-companies.scss';
 import { Header } from '@core/components/header';
-import { useForCompaniesData } from './for-companies.hook';
-import { H1, Button, H3, Icon, Paragraph } from '@core/components';
+import { H1, Button, H3, Icon, Paragraph, Footer } from '@core/components';
 import { Benefits } from './sections/benefits';
 import { HowWeWork } from './sections/how-we-work';
 import { OurApproach } from './sections/our-approach';
@@ -15,11 +14,10 @@ import { Brochure } from './sections/brochure';
  * Renders ForCompanies
  */
 const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
-  const navigation = useForCompaniesData();
   return (
     <div className={styles.forCompanies}>
       <div className={styles.header}>
-        <Header navigation={navigation} />
+        <Header />
         <div
           style={{
             backgroundImage: `url(${require('img/for-companies.png')})`
@@ -41,7 +39,7 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
         <div className={styles.arrow}>&#8595; Scroll</div>
       </div>
       <div className={styles.talentMatters}>
-        <Icon name='abstract-1' />
+        <Icon name='home/abstract-1' />
         <H3>Talent matters</H3>
         <Paragraph className={styles.talentMattersParagraph}>
           Investing in your people solves skills shortages, <br /> develops new
@@ -55,7 +53,7 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
       <WhyCordie />
       <OurPrograms />
       <div className={styles.container}>
-        <Icon name='abstract-1' />
+        <Icon name='home/abstract-1' />
         <H3>
           Increase your competitive <br /> advantage with new <br /> knowledge.{' '}
         </H3>
@@ -69,6 +67,7 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
         </Paragraph>
       </div>
       <Brochure />
+      <Footer />
     </div>
   );
 };

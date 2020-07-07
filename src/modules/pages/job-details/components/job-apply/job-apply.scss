@@ -2,6 +2,7 @@
 
 .job-form {
   width: 750px;
+  padding-bottom: 195px;
 }
 
 .title {
@@ -15,7 +16,7 @@
 }
 
 .input {
-  margin-bottom: 16px;
+  margin-bottom: 25px;
   label {
     @include font($primary-grey, 14px, 500, 14px);
   }

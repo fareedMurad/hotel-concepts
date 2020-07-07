@@ -12,6 +12,27 @@ const useJobDetailsData = () => {
   //   }, []);
 
   //   return { jobDetails };
+  const locations = [
+    {
+      id: '1',
+      location: 'Ukraine',
+      label: 'Ukraine',
+      value: 'Ukraine'
+    },
+    {
+      id: '2',
+      location: 'Spain',
+      label: 'Spain',
+      value: 'Spain'
+    },
+    {
+      id: '3',
+      location: 'USA',
+      label: 'USA',
+      value: 'USA'
+    }
+  ];
+  return { locations };
 };
 
 export { useJobDetailsData };

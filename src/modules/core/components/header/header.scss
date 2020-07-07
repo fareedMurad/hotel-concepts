@@ -5,9 +5,7 @@
   position: relative;
 }
 .logo {
-  position: absolute;
-  top: 0;
-  left: 0;
+  margin-right: 25px;
 }
 .header {
   @include flex($align: center);

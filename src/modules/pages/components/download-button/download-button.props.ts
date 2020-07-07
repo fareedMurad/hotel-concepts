@@ -3,7 +3,7 @@
  */
 type DownloadButtonProps = {
   caption: string;
-  description: string;
+  description?: string;
   filetype: string;
   size: string;
 };
