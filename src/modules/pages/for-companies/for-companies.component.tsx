@@ -9,6 +9,7 @@ import { HowWeWork } from './sections/how-we-work';
 import { OurApproach } from './sections/our-approach';
 import { WhyCordie } from './sections/why-cordie';
 import { OurPrograms } from './sections/our-programs';
+import { Brochure } from './sections/brochure';
 
 /**
  * Renders ForCompanies
@@ -67,6 +68,7 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
           <br /> business to drive powerful results.
         </Paragraph>
       </div>
+      <Brochure />
     </div>
   );
 };

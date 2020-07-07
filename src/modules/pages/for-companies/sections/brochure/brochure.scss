@@ -1,0 +1,30 @@
+@import 'core.scss';
+
+.brochure {
+}
+
+.image {
+  height: 581px;
+  background-size: cover;
+  @include flex(center, center);
+}
+
+.content {
+  width: 40%;
+  text-align: center;
+}
+.title {
+  @include font($white, 36px, 400, 46px);
+}
+
+.body {
+  @include font($white, 24px, 300, 34px);
+}
+
+.download-button {
+  display: block;
+  width: 356px;
+  height: 84px;
+  background-color: #f5f1f0;
+  border-radius: 6px;
+}
