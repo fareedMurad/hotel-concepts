@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as styles from './typography.scss';
 import classNames from 'classnames';
-import { HeadingProps } from './typography.props';
+import { HeadingProps, BodyProps } from './typography.props';
 
 /**
  * Renders h1
@@ -45,4 +45,8 @@ const H6: React.FC<HeadingProps> = ({ className, children }) => (
   <h6 className={classNames(className, styles.h6)}>{children}</h6>
 );
 
-export { H1, H2, H3, H4, H5, H6 };
+const Body: React.FC<BodyProps> = ({ className, children }) => (
+  <p className={classNames(className, styles.p)}>{children}</p>
+);
+
+export { H1, H2, H3, H4, H5, H6, Body };

@@ -11,7 +11,7 @@ type TextProps = ControlProps & {
   /**
    * Input type
    */
-  type?: 'text' | 'password' | 'email' | 'phone' | 'file';
+  type?: 'text' | 'password' | 'email' | 'phone' | 'file' | 'select';
   /**
    * Input mask
    */

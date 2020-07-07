@@ -4,11 +4,12 @@ import * as styles from './job-details.scss';
 import classNames from 'classnames';
 import { JobApply } from './components/job-apply';
 import { useJobDetailsData } from './job-details.hook';
+import { H2, Body, H5, H3 } from '@core/components';
 
 /**
  * Renders JobPage
  */
-const JobDetails: React.FC<JobDetailsProps> = ({}) => {
+const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
   // const { jobDetails } = useJobDetailsData();
   return (
     <div className={styles.jobPage}>
@@ -17,11 +18,16 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
         <div>Back</div>
       </div>
       <section className={styles.sectionA}>
-        <div className={styles.sectionATitle}>
+        <H2>
+          {/* {title} */}
           Project Manager, <br /> Hardware.
-        </div>
-        <div className={styles.sectionASubtitle}>London, United Kingdom</div>
-        <div className={styles.sectionADescription}>
+        </H2>
+        <H5 className={styles.titleOrange}>
+          {/* {location} */}
+          London, United Kingdom
+        </H5>
+        <Body>
+          {/* {body} */}
           We are looking for a passionate and seasoned Project Manager that{' '}
           <br />
           will contribute in the creation of innovative Spotify experiences via
@@ -31,14 +37,15 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
           <br /> deliver the optimal Spotify experience to millions of users.
           Above <br /> all, your work will impact the way the world experiences
           music.
-        </div>
+        </Body>
       </section>
       <section className={styles.sectionB}>
-        <div className={styles.sectionBTitle}>Apply for this job</div>
-        <div className={styles.sectionBDescription}>
+        <H3 className={styles.titleOrange}>Apply for this job</H3>
+        <Body>
+          {' '}
           If you would like to take this module <br /> separately from a
           program, please contact us
-        </div>
+        </Body>
       </section>
       <JobApply />
     </div>
