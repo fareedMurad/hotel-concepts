@@ -1,0 +1,15 @@
+@import 'core.scss';
+
+.why-cordie {
+  @include container();
+  margin-bottom: 65px;
+}
+
+.wrapper {
+  margin-top: 60px;
+  @include flex(space-between);
+}
+
+.block {
+  width: 40%;
+}

@@ -1,0 +1,18 @@
+@import 'core.scss';
+
+.how-we-work {
+  &__container {
+    @include container();
+  }
+  &__title {
+    margin-top: 120px;
+    margin-bottom: 38px;
+  }
+}
+
+.cards-container {
+  width: 95%;
+  margin: 0 auto;
+  @include flex();
+  margin-bottom: 80px;
+}

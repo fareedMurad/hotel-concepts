@@ -1,0 +1,21 @@
+@import 'core.scss';
+
+.benefits-card {
+  width: 449px;
+  margin-bottom: 16px;
+  padding: 12px 20px;
+  @include flex(flex-start);
+  border-radius: 5px;
+  background-color: $white;
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.description {
+  margin: 0;
+}
+
+.dot {
+  margin-right: 12px;
+}

@@ -17,11 +17,11 @@ type HeadingProps = {
  * Body props
  */
 
-type BodyProps = {
+type ParagraphProps = {
   /**
    * Classname
    */
   className?: string;
 };
 
-export { TypographyProps, HeadingProps, BodyProps };
+export { TypographyProps, HeadingProps, ParagraphProps };

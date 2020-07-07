@@ -1,0 +1,30 @@
+@import 'core.scss';
+
+.how-we-work-card {
+  width: 33vw;
+  height: 224px;
+  margin-right: 20px;
+  border-radius: 4px;
+  padding: 16px 23px 29px 18px;
+  background-color: #f5f1f0;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.orange {
+  position: relative;
+  padding-bottom: 14px;
+  line-height: 35px;
+  color: $primary-orange;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 44px;
+    height: 2px;
+    background-color: $light-grey;
+  }
+}

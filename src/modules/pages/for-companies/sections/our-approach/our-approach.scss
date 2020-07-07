@@ -1,0 +1,26 @@
+@import 'core.scss';
+
+.our-approach {
+  margin-bottom: 120px;
+}
+
+.image {
+  height: 581px;
+  background-size: cover;
+  @include flex(center, center);
+}
+
+.content {
+  width: 40%;
+  text-align: center;
+}
+.title {
+  color: $white;
+}
+
+.body {
+  font-family: $EBGaramond;
+  font-size: 36px;
+  line-height: 46px;
+  color: $white;
+}
