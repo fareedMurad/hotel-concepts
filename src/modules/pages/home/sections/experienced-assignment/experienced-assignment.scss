@@ -36,15 +36,6 @@
   }
 }
 
-.ellipse {
-  @include size(24px);
-  background: $primary-orange;
-  border-radius: 100%;
-  &-default {
-    background: $primary-gray;
-  }
-}
-
 .image {
   width: 428px;
   height: 317px;

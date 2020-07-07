@@ -1,0 +1,17 @@
+@import 'core.scss';
+
+.reading-materials {
+}
+.wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+.cards-container {
+  @include flex($align: center);
+  flex-wrap: wrap;
+  width: 100%;
+  & > div {
+    margin-bottom: 20px;
+    margin-right: 2.7%;
+  }
+}

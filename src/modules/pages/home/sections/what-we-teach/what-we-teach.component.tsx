@@ -2,7 +2,7 @@ import * as React from 'react';
 import { WhatWeTeachProps } from './what-we-teach.props';
 import * as styles from './what-we-teach.scss';
 import { useWhatWeTeachData } from './what-we-teach.hook';
-import { Button } from '@core/components';
+import { Button, H2 } from '@core/components';
 
 const Card = ({ card }) => {
   const { id, rate, caption, description } = card;
@@ -26,7 +26,7 @@ const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
 
   return (
     <div className={styles.whatWeTeach}>
-      <div className={styles.caption}>What do we teach</div>
+      <H2 className={styles.caption}>What do we teach</H2>
       <main className={styles.cardContainer}>
         {data.map(card => (
           <Card card={card} key={card.id} />

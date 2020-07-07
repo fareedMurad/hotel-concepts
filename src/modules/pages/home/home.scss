@@ -23,10 +23,10 @@
     @include container();
   }
   &-caption {
-    @include font($white, 60px, 600, 70px);
     width: 50%;
     margin-top: 185px;
     font-family: $EBGaramond;
+    color: $white;
   }
   &-description {
     @include font($white, 24px, 400, 34px);
@@ -47,11 +47,9 @@
   @include container();
   margin-top: 60px;
   &--title {
-    @include font($primary-gray, 48px, 600, 58px);
     letter-spacing: -0.48px;
   }
   &--description {
-    @include font($primary-gray, 18px, 400, 28px);
     width: 50%;
     margin-top: 14px;
     font-family: $IBMPlex;

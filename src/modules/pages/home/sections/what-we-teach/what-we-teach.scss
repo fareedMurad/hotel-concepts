@@ -1,10 +1,8 @@
 @import 'core.scss';
 
 .caption {
-  @include font($primary-gray, 48px, 600, 58px);
   @include container();
   margin-bottom: 38px;
-  font-family: $EBGaramond;
 }
 
 .card-container {

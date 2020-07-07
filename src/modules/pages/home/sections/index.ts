@@ -3,3 +3,4 @@ export * from './how-we-teach';
 export * from './our-materials';
 export * from './experienced-assignment';
 export * from './our-materials';
+export * from './reading-materials';

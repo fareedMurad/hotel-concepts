@@ -22,6 +22,9 @@
     & > a {
       margin-left: 39px;
     }
+    &--gray {
+      @include font($primary-gray, 18px, 500);
+    }
   }
 }
 
@@ -43,5 +46,8 @@
       bottom: 2px;
       left: 6px;
     }
+  }
+  &--gray {
+    color: $primary-gray;
   }
 }

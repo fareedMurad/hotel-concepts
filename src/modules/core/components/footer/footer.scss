@@ -1,0 +1,85 @@
+@import 'core.scss';
+
+.footer {
+  width: 100%;
+  background-color: #f5f1f0;
+}
+.content {
+  @include container();
+  @include flex($align: stretch);
+  padding: 24px 0px 16px 0px;
+}
+
+.subscribe {
+  width: 100%;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  margin-top: 22px;
+  &--input {
+    @include flex($align: stretch, $direction: column);
+    width: 60%;
+    label {
+      margin-bottom: 8px;
+    }
+    input {
+      padding: 13px 16px;
+      background: $white;
+      border-radius: 4px;
+      outline: none;
+      border: none;
+    }
+  }
+  &--button {
+    position: absolute;
+    bottom: 0;
+    left: 300px;
+    margin-left: 16px;
+    button {
+      padding: 11px 16px;
+    }
+  }
+}
+
+.navigation {
+  @include flex($align: stretch);
+  width: 100%;
+  margin-left: 100px;
+  & > div:not(:last-child) {
+    margin-right: 100px;
+  }
+  &--caption {
+    @include font($primary-gray, 18px, 500, 28px);
+    font-family: $IBMPlex;
+  }
+  &__links {
+    @include flex($align: stretch, $direction: column);
+    margin-top: 13px;
+    & > a {
+      @include font($primary-gray, 16px, 400, 22px);
+      width: 112px;
+      margin-bottom: 13px;
+    }
+  }
+}
+
+.hr {
+  @include container();
+  height: 2px;
+  background: $primary-gray;
+  opacity: 0.2;
+}
+
+.copyrights {
+  @include container();
+  @include flex($justify: space-between);
+  @include font($primary-gray, 12px, 500, 16px);
+  padding: 22px 0px;
+  font-family: $IBMPlex;
+  &--link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

@@ -13,3 +13,4 @@ export * from './toast';
 export * from './switch';
 export * from './select';
 export * from './button-filter';
+export * from './footer';

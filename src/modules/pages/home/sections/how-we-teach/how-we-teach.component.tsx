@@ -3,6 +3,7 @@ import { HowWeTeachProps } from './how-we-teach.props';
 import * as styles from './how-we-teach.scss';
 import { useHowWeTeachData } from './how-we-teach.hook';
 import { Caption } from '@pages/components';
+import { H1 } from '@core/components';
 
 /**
  * Instrument and Tools Card
@@ -37,17 +38,17 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
 
   return (
     <div className={styles.howWeTeach}>
-      <div className={styles.title}>How we teach</div>
+      <H1 className={styles.title}>How we teach</H1>
       <Caption rate='1.0' title='World class content' />
       <section className={styles.wrapper}>
         <div className={styles.wccCards}>
           <WorldClassCard
-            img={'wcc-1'}
+            img={'home/wcc-1'}
             title='Cutting Edge Curriculum '
             description='Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high-impact practical skills needed in hospitality of today and tomorrow. '
           />
           <WorldClassCard
-            img={'wcc-2'}
+            img={'home/wcc-2'}
             title='Relevant approach to education'
             description='Programs developed with a combination of best practices in best traditional hospitality education and most innovative e-learning approaches and technology.'
           />
