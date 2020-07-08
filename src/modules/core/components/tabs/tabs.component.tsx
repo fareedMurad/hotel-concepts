@@ -32,9 +32,9 @@ const Tabs: React.FC<TabsProps> = ({
           }}
         >
           {id === value ? (
-            <Icon name='home/ellipse-active' />
+            <Icon name='learning-approach/ellipse-active' />
           ) : (
-            <Icon name='home/ellipse-default' />
+            <Icon name='learning-approach/ellipse-default' />
           )}
           <div className={styles.content}>
             <div
