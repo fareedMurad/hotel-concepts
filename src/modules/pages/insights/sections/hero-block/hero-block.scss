@@ -15,6 +15,7 @@
       height: calc(100% - 77px);
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: center bottom;
     }
     &__content {
       @include flex($justify: center, $direction: column);

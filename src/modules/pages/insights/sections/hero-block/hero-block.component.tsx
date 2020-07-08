@@ -51,7 +51,6 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
         </div>
         <div className={styles.arrow}>&#8595; Scroll</div>
       </div>
-
       <div className={styles.heroSubmain}>
         <HeroCard
           img='2'

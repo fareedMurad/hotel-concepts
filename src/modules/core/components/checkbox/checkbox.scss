@@ -35,8 +35,8 @@
 }
 
 .label {
-  @include font(#383e50, 12px, 500, 120%);
+  @include font($primary-gray, 16px, 400, 22px);
   margin-bottom: 0;
-  margin-left: 4px;
+  margin-left: 10px;
   cursor: pointer;
 }
