@@ -47,6 +47,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
             <div>Talks recommended just for you, delivered to your inbox.</div>
           </div>
         </div>
+        <div className={styles.arrow}>&#8595; Scroll</div>
       </div>
 
       <div className={styles.heroSubmain}>

@@ -90,3 +90,10 @@
   font-family: $IBMPlex;
   text-decoration: underline;
 }
+
+.arrow {
+  position: absolute;
+  bottom: 22px;
+  left: 140px;
+  color: $white;
+}

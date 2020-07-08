@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ButtonFilterProps } from './button-filter.props';
 import * as styles from './button-filter.scss';
 import classNames from 'classnames';
+import { Icon } from '../icon';
 
 /**
  * Renders Filter
@@ -10,7 +11,8 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
   title,
   count,
   onClick,
-  active
+  active,
+  icon
 }) => {
   return (
     <div
@@ -25,7 +27,8 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
           [styles.filterCountActive]: active
         })}
       >
-        ({count})
+        {count && `(${count})`}
+        {icon && <Icon name={icon} className={styles.icon}/>}
       </div>
     </div>
   );

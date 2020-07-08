@@ -21,6 +21,12 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         <H2>Featured Articles</H2>
       </div>
       <div className={styles.filters}>
+        <ButtonFilter
+          title='Filter'
+          icon='filter'
+          onClick={() => {}}
+          active={false}
+        />
         {filters.map(filter => {
           const { id, title, count } = filter;
           const activeFilter = isActive === filter.id;
