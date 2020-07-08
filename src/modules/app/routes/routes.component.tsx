@@ -12,6 +12,7 @@ import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
+import { Homepage } from '@pages/homepage';
 
 /**
  * Renders Routes
@@ -26,6 +27,7 @@ const Routes: React.FC = () => {
       <Route path='/auth' component={Auth} />
       <Route path='/uikit' component={Uikit} />
       <Switch>
+        <Route path='/home' component={Homepage} />
         <Route path='/profile' component={Profile} />
         <Route path='/auth' component={Auth} />
         <Route path='/uikit' component={Uikit} />
