@@ -14,35 +14,6 @@
   width: 100%;
 }
 
-.form {
-  position: relative;
-  display: flex;
-  margin-top: 22px;
-  &--input {
-    @include flex($align: stretch, $direction: column);
-    width: 60%;
-    label {
-      margin-bottom: 8px;
-    }
-    input {
-      padding: 13px 16px;
-      background: $white;
-      border-radius: 4px;
-      outline: none;
-      border: none;
-    }
-  }
-  &--button {
-    position: absolute;
-    bottom: 0;
-    left: 300px;
-    margin-left: 16px;
-    button {
-      padding: 11px 16px;
-    }
-  }
-}
-
 .navigation {
   @include flex($align: stretch);
   width: 100%;
@@ -81,5 +52,31 @@
   &--link {
     text-decoration: underline;
     cursor: pointer;
+  }
+}
+
+
+.submit-form {
+  @include flex($align: stretch);
+  position: relative;
+  width: 100%;
+}
+.button-submit {
+  @include flex($justify: space-between);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  padding: 11px 16px;
+  border-radius: 4px;
+}
+.form-input {
+  width: 60%;
+  input {
+    padding: 13px 16px;
+    background: $white;
+    border-radius: 4px;
+    outline: none;
+    border: none;
   }
 }

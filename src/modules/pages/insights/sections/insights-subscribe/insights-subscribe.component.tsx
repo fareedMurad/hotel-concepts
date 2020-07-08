@@ -20,9 +20,10 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
         <Formik
           initialValues={{ email: '', subscribeType: '0' }}
           onSubmit={values => {
+            console.log(values);
             // dispatch(action(values));
           }}
-          // validationSchema={signUpValidationSchema}
+          // validationSchema={} add later
         >
           {({ handleSubmit }) => (
             <Form handleSubmit={handleSubmit}>

@@ -5,6 +5,9 @@ import { H2 } from '../typography';
 import { Button } from '../button';
 import { NavLink } from 'react-router-dom';
 import { useFooterData } from './footer.hook';
+import { Formik } from 'formik';
+import { Form } from '../form';
+import { Field } from '../field';
 
 const Navigation: React.FC<{ caption: string; navigation: any[] }> = ({
   caption,
@@ -40,13 +43,34 @@ const Footer: React.FC<FooterProps> = ({}) => {
             Sign up <br />
             to newsletter
           </H2>
-          <form className={styles.form}>
-            <div className={styles.formInput}>
-              <label htmlFor='email'>E-mail</label>
-              <input type='email' id='email' name='email' />
-            </div>
-            <Button className={styles.formButton}>Subscribe &#8594;</Button>
-          </form>
+          <Formik
+            initialValues={{ email: '' }}
+            onSubmit={values => {
+              // dispatch(action(values));
+              console.log(values)
+            }}
+            // validationSchema={} add later
+          >
+            {({ handleSubmit }) => (
+              <Form handleSubmit={handleSubmit}>
+                <div className={styles.submitForm}>
+                  <Field.Text
+                    name='email'
+                    label='E-mail'
+                    type='email'
+                    className={styles.formInput}
+                  />
+                  <Button
+                    onClick={() => handleSubmit()}
+                    className={styles.buttonSubmit}
+                    type='submit'
+                  >
+                    <div>Subscribe</div> <div>&#8594;</div>
+                  </Button>
+                </div>
+              </Form>
+            )}
+          </Formik>
         </section>
         <section className={styles.navigation}>
           <Navigation caption='Company' navigation={companyLinks} />

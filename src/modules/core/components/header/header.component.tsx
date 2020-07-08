@@ -11,6 +11,7 @@ import { useHomeData } from '@pages/learning-approach/learning-approach.hook';
  */
 const Header: React.FC<HeaderProps> = ({ whiteBackground }) => {
   const { navigation } = useHomeData();
+  // temporary this component needs another wrapper inside your page with paddings: { padding: 25px 22px; }
   return (
     <React.Fragment>
       <div className={styles.wrapper}>
