@@ -29,14 +29,16 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({
             })}
           </div>
           <div className={styles.sliderButtons}>
-            <Icon name='home/ellipse-active' />
-            <Icon name='home/ellipse-default' />
-            <Icon name='home/ellipse-default' />
+            <Icon name='learning-approach/ellipse-active' />
+            <Icon name='learning-approach/ellipse-default' />
+            <Icon name='learning-approach/ellipse-default' />
           </div>
         </div>
         <div
           className={styles.image}
-          style={{ backgroundImage: `url(${require('img/home/ear-1.png')})` }}
+          style={{
+            backgroundImage: `url(${require('img/learning-approach/ear-1.png')})`
+          }}
         />
       </main>
     </div>

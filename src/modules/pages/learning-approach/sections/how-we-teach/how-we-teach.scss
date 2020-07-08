@@ -34,19 +34,19 @@
   }
 }
 .tools-cards {
-  @include flex($align: stretch);
-  flex-wrap: wrap;
-  width: 95%;
-  margin: 0 auto;
-  & > div:not(:nth-child(3n)) {
-    margin-right: 2.6%;
-  }
-  & > div {
-    margin-bottom: 32px;
+  display: grid;
+  margin: 0px 22px;
+
+  grid-template-columns: 459px 459px 459px;
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 40px;
+  column-gap: 10px;
+  @include desktop-lg() {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 .tools-card {
-  width: 30vw;
+  width: 100%;
   padding: 16px;
   border: 1px solid #cbd0d3;
   border-radius: 8px;

@@ -7,14 +7,14 @@
 }
 
 .video-cards {
-  @include flex($align: stretch);
-  flex-wrap: wrap;
-  width: 95%;
-  margin: 0 auto;
-  & > div:not(:nth-child(3n)) {
-    margin-right: 2.6%;
-  }
-  & > div {
-    margin-bottom: 20px;
+  display: grid;
+  margin: 0px 22px;
+
+  grid-template-columns: 459px 459px 459px;
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 40px;
+  column-gap: 10px;
+  @include desktop-lg() {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

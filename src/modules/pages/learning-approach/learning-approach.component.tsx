@@ -23,7 +23,7 @@ const LearningApproach: React.FC = ({}) => {
         <Header />
         <div
           style={{
-            backgroundImage: `url(${require('img/home/home.png')})`
+            backgroundImage: `url(${require('img/learning-approach/home.png')})`
           }}
           className={styles.image}
         />

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HeaderProps } from './header.props';
 import * as styles from './header.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Icon } from '../icon';
 import classNames from 'classnames';
 import { useHomeData } from '@pages/learning-approach/learning-approach.hook';
@@ -15,10 +15,12 @@ const Header: React.FC<HeaderProps> = ({ whiteBackground }) => {
   return (
     <React.Fragment>
       <div className={styles.wrapper}>
-        <Icon
-          name={!whiteBackground ? 'logo' : 'logo-b'}
-          className={styles.logo}
-        />
+        <Link to='/'>
+          <Icon
+            name={!whiteBackground ? 'logo' : 'logo-b'}
+            className={styles.logo}
+          />
+        </Link>
 
         <div className={styles.navigation}>
           <div
