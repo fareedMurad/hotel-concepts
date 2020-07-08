@@ -56,6 +56,10 @@ type ControlProps<V = string> = {
    * Control tabindex
    */
   tabIndex?: number;
+  /**
+   * Description for tabs
+   */
+  description?: string;
 };
 
 export { ControlProps };

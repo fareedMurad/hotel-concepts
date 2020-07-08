@@ -6,7 +6,6 @@ import { useJobsListData } from './jobs-list.hook';
 import { Vacancy } from './components';
 import { Preloaders } from '@ui/models';
 import { useDispatch } from 'react-redux';
-import { getVacancies } from './store';
 
 /**
  * Renders JobsList
@@ -44,7 +43,6 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
           );
         })}
       </div>
-      <button onClick={() => dispatch(getVacancies())}>Fetch</button>
       <Preloader id={Preloaders.getVacancies}>
         <div className={styles.vacancies}>
           {vacancies.map(vacancy => {

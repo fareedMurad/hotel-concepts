@@ -1,0 +1,42 @@
+@import 'core.scss';
+
+.tabs {
+  @include error();
+  position: relative;
+}
+
+.container {
+  @include flex($align: stretch, $direction: column);
+}
+
+.tab {
+  @include flex($align: stretch);
+  //   padding: 14px;
+  margin-bottom: 16px;
+  color: $primary;
+  background: transparent;
+  transition: $transition;
+  border-radius: 8px;
+  cursor: pointer;
+  &--selected {
+    // color: $white;
+    // background: $primary;
+  }
+}
+.content {
+  width: 30%;
+  margin-left: 10px;
+}
+.caption {
+  @include font($primary-gray, 16px, 400);
+  font-family: $IBMPlex;
+  &--selected {
+    @include font($primary-gray, 16px, 500);
+  }
+}
+
+.description {
+  @include font($primary-gray, 16px, 400, 22px);
+  margin-top: 10px;
+  font-family: $IBMPlex;
+}

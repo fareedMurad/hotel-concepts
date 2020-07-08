@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FeaturedArticlesProps } from './featured-articles.props';
 import * as styles from './featured-articles.scss';
-import { H2, ButtonFilter } from '@core/components';
+import { H2, ButtonFilter, Button } from '@core/components';
 import { useJobsListData } from '@pages/jobs-list/jobs-list.hook';
 import { useFeaturedArticlesData } from './featured-articles.hook';
 import { ArticleCard } from '@pages/insights/components';
@@ -49,6 +49,9 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
           className={styles.articleImg}
         />
       </div>
+      <Button className={styles.showMore}>
+        <div>Show more</div> <div>&#8595;</div>
+      </Button>
     </div>
   );
 };
