@@ -15,7 +15,7 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
       <div className={styles.titleWrapper}>
         <div className={styles.title}>
           <div>We support <br/> the future generation of hospitality industry</div>
-          <hr/>
+          <div />
           <div>
             While there is much talk of machines
             replacing people in the workplace, at Cordie

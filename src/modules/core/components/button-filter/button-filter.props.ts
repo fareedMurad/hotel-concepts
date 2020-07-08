@@ -7,6 +7,7 @@ type ButtonFilterProps = {
   onClick: () => void;
   active: boolean;
   icon?: string;
+  className?: string;
 };
 
 export { ButtonFilterProps };

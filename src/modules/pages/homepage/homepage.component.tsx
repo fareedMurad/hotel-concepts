@@ -2,7 +2,11 @@ import * as React from 'react';
 import { HomepageProps } from './homepage.props';
 import * as styles from './homepage.scss';
 import { Intro } from './sections/intro';
-import { SupportInfo } from './support-info';
+import { SupportInfo } from './sections/support-info';
+import { OnlineCourses } from './sections/online-courses';
+import { Quote } from './sections/quote';
+import { About } from './sections/about';
+import { TrainingInfo } from './sections/training-info';
 
 /**
  * Renders Homepage
@@ -12,6 +16,10 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
     <div className={styles.homepage}>
       <Intro />
       <SupportInfo />
+      <OnlineCourses />
+      <Quote />
+      <About />
+      <TrainingInfo />
     </div>
   );
 };

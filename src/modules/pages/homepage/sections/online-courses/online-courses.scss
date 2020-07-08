@@ -1,0 +1,88 @@
+@import "core.scss";
+
+.online-courses {
+  padding: 100px 0;
+}
+
+.title {
+  padding-left: $left-offset;
+  & > div:first-child {
+    @include font($primary-grey, 48px, 500, 50px);
+    font-family: $EBGaramond;
+    position: relative;
+    &::before {
+      content: url('../../../../../assets/img/text-decorator.svg');
+      position: absolute;
+      top: -40px;
+    }
+  }
+  & > div:nth-child(2) {
+    @include font($primary-grey, 24px, 400, 26px);
+    max-width: 500px;
+    font-family: $IBMPlex;
+    margin-top: 15px;
+  }
+}
+
+.courses-wrapper {
+  margin: 0 auto;
+}
+
+.content {
+  padding: 0 25px;
+}
+
+.filters {
+  display: flex;
+  margin: 30px 0;
+}
+
+.info {
+  margin-bottom: 30px;
+  font-family: $IBMPlex;
+  @include font($primary-grey, 18px, 400, 20px);
+  max-width: 660px;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-left: $left-offset;
+
+}
+
+.footer-title {
+  font-family: $EBGaramond;
+  @include font($primary-grey, 36px, 400, 38px);
+}
+
+.button {
+  width: 100%;
+  margin-top: 20px;
+  width: 230px;
+  @include flex($justify: space-between);
+}
+
+.courses {
+  @include flex($justify: "between");
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 728px) {
+  .title {
+    padding-left: $default-offset;
+  }
+
+  .footer {
+    padding-left: $default-offset;
+  }
+
+  .filter-button {
+    width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+}

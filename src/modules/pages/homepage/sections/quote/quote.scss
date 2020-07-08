@@ -1,0 +1,23 @@
+@import "core.scss";
+
+.quote {
+  background: url('../../../../../assets/img/home/quote-background.png') no-repeat center center;
+  height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  min-height: 500px;
+  padding: 0 $default-offset;
+	@include flex($justify: center, $align: center);
+}
+
+.text {
+  @include font($white, 36px, 400, 38px);
+  max-width: 500px;
+  font-family: $EBGaramond;
+  text-align: center;
+}
