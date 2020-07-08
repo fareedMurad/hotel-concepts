@@ -8,8 +8,7 @@
 
 .select-container {
   position: relative;
-  width: 360px;
-  margin-bottom: 25px;
+  width: 100%;
 }
 
 .dropdown {
@@ -20,7 +19,7 @@
   right: 0;
   width: 100%;
   max-height: 200px;
-  background: darkblue;
+  background: $gray;
   overflow-y: auto;
   box-shadow: 0 0 20px 0 rgba($black, 0.1);
   border-radius: 0 4px 4px;
@@ -42,6 +41,13 @@
 
 .menu-list {
   max-height: 200px;
+}
+
+.select--white {
+  .control {
+    width: 100%;
+    background: $white;
+  }
 }
 
 .control {

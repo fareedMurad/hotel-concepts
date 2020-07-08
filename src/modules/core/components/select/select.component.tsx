@@ -5,6 +5,8 @@ import ReactSelect, { components as Components } from 'react-select';
 import { useState } from 'react';
 import { Option } from '@core/models';
 import { Label } from '../label';
+import classNames from 'classnames';
+import { Icon } from '../icon';
 
 /**
  * Sub component with class name
@@ -38,6 +40,11 @@ const components: Partial<typeof Components> = {
   Placeholder: withClassName(styles.placeholder),
   ValueContainer: withClassName(styles.valueContainer),
   SelectContainer: withClassName(styles.selectContainer),
+  DropdownIndicator: () => (
+    <div>
+      <Icon name='arrow-down-g' />
+    </div>
+  ),
   NoOptionsMessage: props => (
     <div className={styles.noOptions}>
       {props.selectProps.inputValue
@@ -61,12 +68,17 @@ const Select: React.FC<SelectProps> = ({
   placeholder,
   searchable,
   disabled,
-  getOptionValue
+  getOptionValue,
+  whiteBackground
 }) => {
   const [focused, setFocused] = useState(false);
 
   return (
-    <div className={styles.select}>
+    <div
+      className={classNames(styles.select, {
+        [styles.selectWhite]: whiteBackground
+      })}
+    >
       {label && <Label className={styles.label}>{label}</Label>}
 
       <ReactSelect

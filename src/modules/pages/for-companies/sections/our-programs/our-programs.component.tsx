@@ -21,22 +21,14 @@ const OurPrograms: React.FC<OurProgramsProps> = ({}) => {
         </Paragraph>
       </div>
       <div className={styles.cards}>
-        <div className={styles.wrapper}>
-          {cardsData
-            .filter((el, idx) => idx < 3)
-            .map(card => {
-              const { id, text, title, count } = card;
-              return (
-                <OurProgramsCard
-                  key={id}
-                  text={text}
-                  title={title}
-                  count={count}
-                />
-              );
-            })}
-        </div>
-        <div className={styles.wrapper}>
+        {cardsData.map(card => {
+          const { id, text, title, count } = card;
+          return (
+            <OurProgramsCard key={id} text={text} title={title} count={count} />
+          );
+        })}
+
+        {/* <div className={styles.wrapper}>
           {cardsData
             .filter((el, idx) => idx >= 3)
             .map(card => {
@@ -50,7 +42,7 @@ const OurPrograms: React.FC<OurProgramsProps> = ({}) => {
                 />
               );
             })}
-        </div>
+        </div> */}
       </div>
     </div>
   );

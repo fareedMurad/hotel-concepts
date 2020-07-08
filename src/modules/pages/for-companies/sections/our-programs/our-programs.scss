@@ -12,10 +12,14 @@
 .cards {
   width: 95%;
   margin: 0 auto;
+  @include flex(center, stretch);
+  flex-wrap: wrap;
+  padding-bottom: calc(60px - 2%);
 }
 
 .wrapper {
   @include flex(center, stretch);
+  flex-wrap: wrap;
   margin: 0 auto;
   margin-top: 30px;
   padding-bottom: 60px;

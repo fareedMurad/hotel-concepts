@@ -49,7 +49,6 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
             );
           })}
         </div>
-        <button onClick={() => dispatch(getVacancies())}>Fetch</button>
         <Preloader id={Preloaders.getVacancies}>
           <div className={styles.vacancies}>
             {vacancies.map(vacancy => {

@@ -5,6 +5,7 @@
   // padding-left: 134px;
   // padding-right: 570px;
   @include container();
+  margin-top: 32px;
 }
 
 .header {
@@ -22,6 +23,7 @@
   background-color: #f5f1f0;
   border-radius: 3px;
   font-family: 'IBM Plex Sans';
+  cursor: pointer;
   @include font($primary-grey, 15px, 500, 20px);
   @include flex(space-between);
 }

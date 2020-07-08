@@ -75,13 +75,15 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                   className={styles.input}
                   label='Email*'
                 />
-                <Select
-                  value='hello'
-                  options={locations}
-                  placeholder=''
-                  className={styles.input}
-                  label='Location*'
-                />
+                <div className={styles.select}>
+                  <Select
+                    value='hello'
+                    options={locations}
+                    placeholder=''
+                    className={styles.input}
+                    label='Location*'
+                  />
+                </div>
                 <label htmlFor='upload-letter' className={styles.labelUpload}>
                   Cover Letter*
                 </label>

@@ -1,0 +1,47 @@
+@import 'core.scss';
+
+.container {
+  background-color: $background;
+}
+.consult-request {
+  @include container();
+  padding: 50px 0;
+}
+
+.orange {
+  margin: 0;
+  color: $primary-orange;
+}
+
+.main-field {
+  @include flex(flex-start, flex-start, row);
+  margin-bottom: 25px;
+}
+
+.select {
+  margin-bottom: 25px;
+}
+.input {
+  width: 204px;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.contact-me-button {
+  @include flex(space-between);
+  width: 230px;
+}
+
+.form-section {
+  width: 650px;
+  margin-top: 22px;
+}
+.hr {
+  @include container();
+  height: 2px;
+  background: $primary-gray;
+  opacity: 0.2;
+}

@@ -2,6 +2,7 @@
 
 .benefits {
   background-color: #f5f1f0;
+  
   &__container {
     @include container();
     @include flex(space-between);

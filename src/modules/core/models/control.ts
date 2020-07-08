@@ -56,6 +56,10 @@ type ControlProps<V = string> = {
    * Control tabindex
    */
   tabIndex?: number;
+  /**
+   * is Background white
+   */
+  whiteBackground?: boolean;
 };
 
 export { ControlProps };

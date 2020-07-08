@@ -9,6 +9,7 @@ import { OurApproach } from './sections/our-approach';
 import { WhyCordie } from './sections/why-cordie';
 import { OurPrograms } from './sections/our-programs';
 import { Brochure } from './sections/brochure';
+import { ConsultRequest } from './sections/consult-request';
 
 /**
  * Renders ForCompanies
@@ -67,6 +68,7 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
         </Paragraph>
       </div>
       <Brochure />
+      <ConsultRequest />
       <Footer />
     </div>
   );

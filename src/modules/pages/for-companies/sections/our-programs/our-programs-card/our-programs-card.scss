@@ -2,11 +2,13 @@
 
 .our-programs-card {
   background-color: $white;
-  width: 30vw;
-  margin-right: 3%;
+  width: 29vw;
+  margin-bottom: 2%;
+  margin-right: 2%;
+
   padding: 18px 16px;
   border-radius: 5px;
-  &:last-child {
+  &:nth-child(2n + 3) {
     margin-right: 0;
   }
 }

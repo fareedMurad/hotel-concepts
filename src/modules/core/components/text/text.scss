@@ -6,7 +6,7 @@
 
   &--focused {
     .input {
-      border-color: $primary;
+      border-color: $primary-orange;
     }
     .label {
       color: $primary-orange;
@@ -18,9 +18,9 @@
   @include font($black, 14px, 500, 17px);
   width: 100%;
   padding: 18px;
-  background: transparent;
-  border: 1px solid #969ba3;
-  border-radius: 8px;
+  background: $white;
+  border: unset;
+  border-radius: 5px;
   outline: none;
   transition: $transition;
 

@@ -6,12 +6,23 @@ import { JobApply } from './components/job-apply';
 import { useJobDetailsData } from './job-details.hook';
 import { H2, Paragraph, H5, H3 } from '@core/components';
 import { Header } from '@core/components/header';
+import { useHistory } from 'react-router';
+
+/**
+ * History hook
+ *
+ */
 
 /**
  * Renders JobPage
  */
 const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
   // const { jobDetails } = useJobDetailsData();
+  let history = useHistory();
+
+  const handleClick = () => {
+    history.goBack();
+  };
 
   return (
     <React.Fragment>
@@ -19,12 +30,12 @@ const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
         <Header whiteBackground />
       </div>
       <div className={styles.jobPage}>
-        <div className={styles.back}>
+        <div onClick={() => handleClick()} className={styles.back}>
           <div>&#8592;</div>
           <div>Back</div>
         </div>
         <section className={styles.sectionA}>
-          <H2>
+          <H2 className={styles.title}>
             {/* {title} */}
             Project Manager, <br /> Hardware.
           </H2>
