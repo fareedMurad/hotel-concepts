@@ -17,10 +17,10 @@
 .input {
   @include font($black, 14px, 500, 17px);
   width: 100%;
-  padding: 18px;
+  padding: 14px 16px;
   background: $white;
-  border: unset;
-  border-radius: 5px;
+  border: 1px solid $white;
+  border-radius: 8px;
   outline: none;
   transition: $transition;
 

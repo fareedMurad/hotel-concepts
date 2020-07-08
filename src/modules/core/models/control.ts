@@ -60,6 +60,10 @@ type ControlProps<V = string> = {
    * is Background white
    */
   whiteBackground?: boolean;
+  /*
+   * Description for tabs
+   */
+  description?: string;
 };
 
 export { ControlProps };

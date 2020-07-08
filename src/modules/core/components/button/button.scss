@@ -16,16 +16,15 @@
   }
 
   &--secondary {
-    font-weight: 600;
-    color: $primary;
+    @include font($primary-gray, 16px, 500, 22px);
     background: transparent;
-    border: 1px solid $primary;
+    border: 1px solid $primary-orange;
     transition: $transition;
 
     &:hover {
       color: $white;
-      background: $primary;
-      border-color: $primary;
+      background: $primary-orange;
+      border-color: $primary-orange;
     }
   }
 
