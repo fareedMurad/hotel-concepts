@@ -5,6 +5,7 @@ import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { ScrollButton } from '@core/components/scroll-button';
+import { Button } from '@core/components';
 // import introVideo from '../../../../../assets/videos/HomePage.preview.mov';
 
 /**
@@ -44,6 +45,9 @@ const Intro: React.FC<IntroProps> = ({}) => {
         <div>Cutting edge online education for hospitality</div>
         <div>Bridging the skills  gap for hotel managers</div>
       </div>
+      <Button className={styles.findButton}>
+        <div>Find the program</div> <div>→</div>
+      </Button>
       <Popup
         contentStyle={{
           border: 'none',
@@ -77,6 +81,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         src={'../../../../../assets/videos/HomePage.preview.mov'}
         muted={true}
       /> */}
+
       <ScrollButton text="Scroll" className={styles.scrollButton} />
 
     </section>

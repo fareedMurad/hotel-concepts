@@ -35,11 +35,16 @@
   position: absolute;
 }
 
+.find-button {
+  width: 230px;
+  margin-bottom: 30px;
+  @include flex($justify: space-between);
+}
+
 @media screen and (max-width: 768px) {
   .intro {
     padding-left: $default-offset;
   }
-
   .title {
     & > div:first-child {
       @include font($white, 50px, 500, 40px);

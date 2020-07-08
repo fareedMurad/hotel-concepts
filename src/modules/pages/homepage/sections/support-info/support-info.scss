@@ -1,0 +1,64 @@
+@import "core.scss";
+
+.support-info {
+  min-height: 455px;
+  background-color: $background;
+  @include flex($align: center);
+  padding: $default-offset 0;
+}
+
+.title-wrapper {
+  flex: 1;
+}
+
+.title {
+  padding-right: $default-offset;
+  padding-left: $left-offset;
+  max-width: 560px;
+  & > div:first-child {
+    @include font($primary-gray, 48px, 500, 50px);
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(3) {
+    @include font($primary-gray, 18px, 400, 25px);
+    font-family: $IBMPlexSans;
+  }
+  hr {
+    height: 2px;
+    margin: 25px 0;
+  }
+}
+
+.info {
+  flex: 1;
+  flex-wrap: wrap;
+  margin: $default-offset 0;
+  @include flex($justify: center);
+}
+
+.info-item {
+  width: 204px;
+  height: 47px;
+  background-color: $white;
+  border-radius: 4px;
+  margin: 10px;
+  @include flex($align: center);
+  &:before {
+    content: '■';
+    padding: 0 15px;
+    color: $primary-orange;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .support-info {
+    flex-direction: column;
+  }
+  .intro {
+    padding-left: $default-offset;
+  }
+  .title {
+    padding-left: $default-offset;
+  }
+}
