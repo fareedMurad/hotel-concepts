@@ -1,0 +1,27 @@
+@import 'core.scss';
+
+.slider {
+}
+
+.container {
+  @include container();
+}
+.subtitle-orange {
+  color: $primary-orange;
+}
+
+.cards-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.slider-nav {
+  display: flex;
+  margin-left: 100px;
+  &__arrow:first-child {
+    margin-right: 12px;
+  }
+}

@@ -12,6 +12,7 @@ import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
+import { Marketplace } from '@pages/marketplace';
 
 /**
  * Renders Routes
@@ -36,6 +37,8 @@ const Routes: React.FC = () => {
         <Route path='/jobs' component={JobsList} />
         {/* FOR_COMPANIES ROUTE */}
         <Route path='/for-companies' component={ForCompanies} />
+        {/* MARKETPLACE ROUTE */}
+        <Route path='/marketplace' component={Marketplace} />
       </Switch>
     </div>
   );
