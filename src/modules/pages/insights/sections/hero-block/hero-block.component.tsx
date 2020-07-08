@@ -11,20 +11,22 @@ const HeroCard = ({ img, activity, captions }) => {
         style={{
           backgroundImage: `url(${require(`img/insights/insights-${img}.png`)})`
         }}
-      />
-      <div className={styles.cardActivity}>{activity}</div>
-      <div className={styles.cardCaptions}>
-        {captions[1]}
-        <br />
-        {captions[2]}
-        <br />
-        {captions[3]}
-        <br />
-      </div>
+      >
+        <div className={styles.cardActivity}>{activity}</div>
+        <div className={styles.cardCaptions}>
+          {captions[1]}
+          <br />
+          {captions[2]}
+          <br />
+          {captions[3]}
+          <br />
+        </div>
 
-      <NavLink to={`/to/${captions[0]}`} className={styles.cardLink}>
-        Read more
-      </NavLink>
+        <NavLink to={`/to/${captions[0]}`} className={styles.cardLink}>
+          Read more
+        </NavLink>
+      </div>
+      <div className={styles.overlay} />
     </div>
   );
 };

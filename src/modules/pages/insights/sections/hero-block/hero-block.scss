@@ -47,48 +47,59 @@
   & > div:last-child {
     margin-top: 2%;
   }
-  & > div {
-    right: 0;
-  }
 }
-
+.overlay {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, -24, 0, 900998) 0%,
+    rgba(0, 0, 0, 0.550578) 25%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0.7;
+}
 .card {
   position: relative;
-  height: 48%;
+  height: 100%;
   min-width: 35vw;
   &--image {
-    z-index: -1;
+    @include flex($align: stretch, $justify: space-evenly, $direction: column);
+    // display: block;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
   }
+
   &__captions {
     @include font($white, 36px, 600, 46px);
-    position: absolute;
-    top: 130px;
-    left: 20px;
+    margin-left: 20px;
     font-family: $EBGaramond;
+    z-index: 99;
   }
   &__activity {
     @include font($primary-gray, 16px, 400, 22px);
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    width: fit-content;
+    margin-left: 20px;
     padding: 6px 24px;
     background-color: #f5f1f0;
     border-radius: 8px;
+    z-index: 99;
   }
 }
 
 .card-link {
   @include font($white, 16px, 500, 22px);
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
+  margin-left: 20px;
   font-family: $IBMPlex;
   text-decoration: underline;
+  z-index: 99;
 }
 
 .arrow {

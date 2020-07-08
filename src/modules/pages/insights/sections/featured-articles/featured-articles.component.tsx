@@ -53,7 +53,19 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
             backgroundImage: `url(${require('img/insights/article-main.png')})`
           }}
           className={styles.articleImg}
-        />
+        >
+          <div className={styles.articleContent}>
+            <div>Jan 10, 2019</div>
+            <div>
+              Chatbots in <br />
+              Hospitality and <br />
+              Travel Industries
+            </div>
+            <Button className={styles.articleButton}>
+              <div>Read article</div> <div> &#8594; </div>
+            </Button>
+          </div>
+        </div>
       </div>
       <Button className={styles.showMore}>
         <div>Show more</div> <div>&#8595;</div>

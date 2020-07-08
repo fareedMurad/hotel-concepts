@@ -17,11 +17,33 @@
   margin: 22px 0px 40px 22px;
 }
 
-.article-img {
-  grid-row: 2;
-  grid-column: 2 / 2 span;
-  background-size: cover;
-  background-repeat: no-repeat;
+.article {
+  &-img {
+    grid-row: 2;
+    grid-column: 2 / 2 span;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &-content {
+    @include flex($justify: space-evenly, $direction: column);
+    height: 100%;
+    padding: 80px 110px;
+    & > div:first-child {
+      @include font(#cbd0d3, 28px, 400, 35px);
+      font-family: $EBGaramond;
+    }
+    & > div:nth-child(2) {
+      @include font($white, 48px, 500, 58px);
+      font-family: $EBGaramond;
+    }
+  }
+  &-button {
+    @include flex($justify: space-between);
+    width: 204px;
+    button {
+      width: 100%;
+    }
+  }
 }
 
 .articles {
