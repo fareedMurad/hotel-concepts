@@ -8,6 +8,7 @@ import { useHomeData } from '@pages/learning-approach/learning-approach.hook';
 import { HeaderState } from './header.state';
 import { ActiveMenuType } from './active-menu.enum';
 import { BurgerButton } from './burger-button';
+import { BurgerMenu } from './burger-menu';
 
 /**
  * Renders Header
@@ -50,23 +51,34 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   }
 
+  public closeMenu() {
+    this.setState({
+      activeMenuType: ActiveMenuType.none
+    });
+  }
+
   // temporary this component needs another wrapper inside your page with paddings: { padding: 25px 22px; }
   render () {
     const { navigation } = useHomeData();
 
     return (
-      <header className={classNames(styles.header, {
-          [styles.inverted]: this.isInvertHeader
-        })}>
-        <NavLink to={'/'}>
-          <img
-            className={styles.logo}
-            src={require(!this.isInvertHeader ?
-                  'img/header-logo.png' :
-                  'img/header-logo-dark.png')}
-            alt="Kordie"
-          />
-        </NavLink>
+      <>
+        <BurgerMenu
+          isOpened={this.state.activeMenuType === ActiveMenuType.menu}
+          closeMenu={() => this.closeMenu()}
+        />
+        <header className={classNames(styles.header, {
+            [styles.inverted]: this.isInvertHeader
+          })}>
+          <NavLink to={'/'}>
+            <img
+              className={styles.logo}
+              src={require(!this.isInvertHeader ?
+                    'img/header-logo.png' :
+                    'img/header-logo-dark.png')}
+              alt="Kordie"
+            />
+          </NavLink>
           <BurgerButton
             isOpened={this.state.activeMenuType === ActiveMenuType.menu}
             isInverted={this.isInvertHeader}
@@ -86,7 +98,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               );
             })}
           </div>
-      </header>
+        </header>
+
+      </>
     )
   }
 };
