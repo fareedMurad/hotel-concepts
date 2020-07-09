@@ -30,3 +30,11 @@
   }
   @include buttonHover;
 }
+
+@media screen and (max-width: 330px) {
+  .button {
+    margin-right: 10px;
+    width: 190px;
+    font-size: 14px;
+  }
+}

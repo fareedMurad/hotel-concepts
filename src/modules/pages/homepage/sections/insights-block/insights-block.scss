@@ -2,6 +2,7 @@
 
 .insights-block {
   position: relative;
+  padding: 0 10px;
   padding-bottom: 50px;
 }
 
@@ -37,7 +38,8 @@
   .title {
     padding-left: $default-offset;
   }
-  .controls {
+  .controls,
+  .slider {
     padding-left: 0;
   }
 }
