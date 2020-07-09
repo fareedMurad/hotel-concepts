@@ -11,11 +11,11 @@
     &--pic {
       position: absolute;
       z-index: -1;
-      //   width: 936px;
       width: 60vw;
       height: calc(100% - 77px);
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: center bottom;
     }
     &__content {
       @include flex($justify: center, $direction: column);
@@ -79,27 +79,27 @@
 
   &__captions {
     @include font($white, 36px, 600, 46px);
+    z-index: 99;
     margin-left: 20px;
     font-family: $EBGaramond;
-    z-index: 99;
   }
   &__activity {
     @include font($primary-gray, 16px, 400, 22px);
+    z-index: 99;
     width: fit-content;
     margin-left: 20px;
     padding: 6px 24px;
     background-color: #f5f1f0;
     border-radius: 8px;
-    z-index: 99;
   }
 }
 
 .card-link {
   @include font($white, 16px, 500, 22px);
+  z-index: 99;
   margin-left: 20px;
   font-family: $IBMPlex;
   text-decoration: underline;
-  z-index: 99;
 }
 
 .arrow {
