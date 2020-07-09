@@ -10,10 +10,11 @@ import { Icon, H2, Paragraph } from '@core/components';
 const HeroCaption: React.FC<HeroCaptionProps> = ({
   className,
   title,
-  description
+  description,
+  id
 }) => {
   return (
-    <div className={classNames(styles.caption, className)}>
+    <div className={classNames(styles.caption, className)} id={id}>
       <Icon name='abstract-1' />
       <H2>{title}</H2>
       {description && <Paragraph>{description}</Paragraph>}

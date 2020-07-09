@@ -36,7 +36,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
   const { companyLinks, weprovideLinks, moreLinks } = useFooterData();
 
   return (
-    <div className={styles.footer}>
+    <div className={styles.footer} id='footer'>
       <div className={styles.content}>
         <section className={styles.subscribe}>
           <H2>
@@ -47,7 +47,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             initialValues={{ email: '' }}
             onSubmit={values => {
               // dispatch(action(values));
-              console.log(values)
+              console.log(values);
             }}
             // validationSchema={} add later
           >

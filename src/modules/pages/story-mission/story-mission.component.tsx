@@ -60,13 +60,17 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
                 />
               );
             })}
-            <Button className={styles.headerBtn}>
-              <div>Contact us</div> <div>&#8594;</div>
-            </Button>
+
+            <a style={{ height: '100%' }} href='#get-involved'>
+              <Button className={styles.headerBtn}>
+                <div>Contact us</div> <div>&#8594;</div>
+              </Button>
+            </a>
           </div>
         </div>
       </header>
       <HeroCaption
+        id='overview'
         className={styles.captionContainer}
         title='Hospitality education designed for impact'
         description='Kordie - is online university for hospitality. We deliver practical programs and courses developed in team with key industry leaders, most relevant approach to education, case based assignments and mentorship from leading experts.'

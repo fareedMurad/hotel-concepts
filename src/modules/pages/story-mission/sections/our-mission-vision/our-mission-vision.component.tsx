@@ -38,7 +38,7 @@ const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
   const { programs } = useOurMissionVisionData();
 
   return (
-    <div className={styles.ourMissionVision}>
+    <div className={styles.ourMissionVision} id="mission">
       <section
         className={styles.heroBlock}
         style={{

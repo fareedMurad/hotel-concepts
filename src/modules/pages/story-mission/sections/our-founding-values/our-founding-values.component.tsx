@@ -12,7 +12,7 @@ const OurFoundingValues: React.FC<OurFoundingValuesProps> = ({}) => {
   const { data } = useOurFoundingValuesData();
 
   return (
-    <div className={styles.ourFoundingValues}>
+    <div className={styles.ourFoundingValues} id='values'>
       <div className={styles.wrapper}>
         <HeroCaption title='Our Founding Values' className={styles.caption} />
       </div>

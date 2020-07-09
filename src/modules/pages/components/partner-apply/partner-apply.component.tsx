@@ -27,7 +27,7 @@ const defaultValues = {
 
 const PartnerApply: React.FC<PartnerApplyProps> = ({}) => {
   return (
-    <div className={styles.partnerApply}>
+    <div className={styles.partnerApply} id='get-involved'>
       <div className={styles.container}>
         <div className={styles.formWrapper}>
           <H2>Want to get involved?</H2>
