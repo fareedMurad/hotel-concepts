@@ -6,7 +6,6 @@ import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { ScrollButton } from '@core/components/scroll-button';
 import { Button } from '@core/components';
-import introVideo from '../../../../../assets/videos/HomePage.preview.mov';
 
 /**
  * Renders Intro
