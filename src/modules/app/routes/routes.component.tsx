@@ -12,6 +12,7 @@ import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
+import classNames from 'classnames';
 
 /**
  * Renders Routes
