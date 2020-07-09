@@ -9,6 +9,7 @@ import { About } from './sections/about';
 import { TrainingInfo } from './sections/training-info';
 import { Impact } from './sections/impact';
 import { Mentors } from './sections/mentors';
+import { FaqBlock } from './sections/faq-block';
 
 /**
  * Renders Homepage
@@ -24,6 +25,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <TrainingInfo />
       <Impact />
       <Mentors />
+      <FaqBlock />
     </div>
   );
 };

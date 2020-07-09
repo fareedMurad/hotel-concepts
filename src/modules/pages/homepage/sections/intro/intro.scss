@@ -16,6 +16,18 @@
 	@include flex($justify: center, $direction: column);
 }
 
+.video {
+  width: 100%;
+  min-height: 735px;
+  height: 100vh;
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+}
+
 .title {
   & > div:first-child {
     @include font($white, 60px, 500, 65px);

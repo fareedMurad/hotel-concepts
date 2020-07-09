@@ -77,8 +77,8 @@ const Intro: React.FC<IntroProps> = ({}) => {
 
       {/* <video
         ref={videoRef}
-        className="Intro-screen__video"
-        src={'../../../../../assets/videos/HomePage.preview.mov'}
+        className={styles.video}
+        src={require("/videos/HomePage.preview.mov")}
         muted={true}
       /> */}
 

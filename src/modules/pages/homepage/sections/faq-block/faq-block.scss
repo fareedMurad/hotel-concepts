@@ -1,0 +1,21 @@
+@import "core.scss";
+
+.faq-block {
+  padding: 100px $default-offset;
+  @include flex($direction: column)
+}
+
+.filters {
+  display: flex;
+  margin: 30px 0;
+}
+
+@media screen and (max-width: 728px) {
+  .filter-button {
+    width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+}
