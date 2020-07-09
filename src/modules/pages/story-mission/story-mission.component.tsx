@@ -2,10 +2,12 @@ import * as React from 'react';
 import { StoryMissionProps } from './story-mission.props';
 import * as styles from './story-mission.scss';
 import { Header } from '@core/components/header';
-import { Button, H2, Paragraph } from '@core/components';
+import { Button, H2, Paragraph, Footer } from '@core/components';
 import { useStoryMissionData } from './story-mission.hook';
 import { HeroCaption } from './components';
 import { ManagingHospitality, OurMissionVision } from './sections';
+import { OurFoundingValues } from './sections/our-founding-values';
+import { PartnerApply } from '@pages/components';
 
 const Hr = () => {
   return <div className={styles.hr} />;
@@ -91,6 +93,9 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
         </main>
       </section>
       <OurMissionVision />
+      <OurFoundingValues />
+      <PartnerApply />
+      <Footer />
     </div>
   );
 };

@@ -1,0 +1,43 @@
+@import 'core.scss';
+
+.card {
+  height: 100%;
+  background: $background;
+  border-radius: 4px;
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+  &__title {
+    @include font($white, 36px, 600, 46px);
+    position: absolute;
+    z-index: 222;
+    bottom: 10px;
+    padding: 0px 20px;
+    font-family: $EBGaramond;
+  }
+  &__description {
+    @include font($primary-gray, 18px, 400, 28px);
+    padding: 20px;
+    font-family: $IBMPlex;
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgba(62, 62, 62, 0) 0%,
+    rgba(62, 62, 62, 0.87) 100%
+  );
+  height: 100%;
+}

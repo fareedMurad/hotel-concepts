@@ -19,8 +19,10 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
         <div className={styles.programBlockRate}>{rate}</div>
         <div className={styles.programBlockCaption}>{caption}</div>
       </div>
-      <Paragraph className={styles.programBlockDescription}>{description}</Paragraph>
-      <Link to={`/in-progress/${id}`}>
+      <Paragraph className={styles.programBlockDescription}>
+        {description}
+      </Paragraph>
+      <Link to={`/in-progress/${id}`} className={styles.programBlockBtn}>
         <Button theme='secondary'>
           <div>Explore programs</div>
           <div>&#8594;</div>
@@ -57,7 +59,7 @@ const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
       <section className={styles.kordie}>
         <div className={styles.kordieWrapper}>
           <H2>The Kordie Impact</H2>
-          <Paragraph>
+          <Paragraph className={styles.kordieParagraph}>
             Kordie provides world-class online education for hospitality that is
             innovative, practical, and results-focused to prepare individuals
             and organisations for greater success.

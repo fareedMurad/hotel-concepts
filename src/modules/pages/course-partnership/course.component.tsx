@@ -6,7 +6,7 @@ import { H1, Button, Icon, H2, Paragraph, Footer } from '@core/components';
 import { HowBecomePartner } from './sections ';
 import { PartnerBenefits } from './sections /partner-benefits';
 import { Criteria } from './sections /criteria';
-import { PartnerApply } from './sections /partner-apply';
+import { PartnerApply } from '@pages/components';
 
 /**
  * Renders Course
