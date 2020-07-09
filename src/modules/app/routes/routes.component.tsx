@@ -13,6 +13,7 @@ import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
 import { Marketplace } from '@pages/marketplace';
+import { StoryMission } from '@pages/story-mission';
 
 /**
  * Renders Routes
@@ -29,6 +30,7 @@ const Routes: React.FC = () => {
         <Route path='/uikit' component={Uikit} />
 
         {/* ROUTES */}
+        <Route path='/about-us' component={StoryMission} />
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
         <Route exact path='/learning-approach' component={LearningApproach} />
