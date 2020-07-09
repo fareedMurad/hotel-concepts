@@ -1,0 +1,46 @@
+@import 'core.scss';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  padding: 25px 22px;
+  padding-top: 25px;
+
+  &-content {
+    @include container();
+  }
+  &-caption {
+    @include font($white, 60px, 600, 70px);
+    width: 50%;
+    margin-top: 185px;
+    font-family: $EBGaramond;
+  }
+  &-description {
+    @include font($white, 24px, 300, 34px);
+    width: 67%;
+    margin-top: 25px;
+    font-family: $IBMPlex;
+  }
+}
+
+.filter-wrapper {
+  @include flex($align: flex-end);
+  height: 50vh;
+}
+.filters-field {
+  width: 100%;
+  margin-bottom: 70px;
+  padding: 20px;
+  @include flex($align: flex-end);
+  border-radius: 5px;
+  background-color: $white;
+}
+
+.marketplace-filter {
+  width: 20%;
+  padding: 6px;
+}
+
+.footer {
+  margin-top: 120px;
+}
