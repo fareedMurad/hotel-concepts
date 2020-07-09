@@ -5,7 +5,7 @@ const useMarketplaceData = () => {
     { id: 3, title: 'Tools', count: 24 },
     { id: 4, title: 'Casse studies', count: 4 },
     { id: 5, title: 'Research', count: 4 },
-    { id: 5, title: 'Collections', count: 4 }
+    { id: 6, title: 'Collections', count: 4 }
   ];
 
   const goodsData = [
@@ -32,23 +32,23 @@ const useMarketplaceData = () => {
   const books = [
     {
       id: 4,
-      name: 'What Stellar Hospitality Means in 2019 ',
+      name: ' "Twilight of the Money Gods" ',
       img: '4',
-      price: '$39.90',
+      price: '$29.90',
       author: 'John Rapley'
     },
     {
       id: 5,
-      name: 'What Stellar Hospitality Means in 2019 ',
+      name: '"Twilight of the Money Gods"',
       img: '4',
-      price: '$39.90',
+      price: '$29.90',
       author: 'John Rapley'
     },
     {
       id: 6,
-      name: 'What Stellar Hospitality Means in 2019 ',
+      name: '"Twilight of the Money Gods"',
       img: '4',
-      price: '$39.90',
+      price: '$29.90',
       author: 'John Rapley'
     }
   ];

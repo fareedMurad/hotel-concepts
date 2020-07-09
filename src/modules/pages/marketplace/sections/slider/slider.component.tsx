@@ -17,9 +17,16 @@ const Slider: React.FC<SliderProps> = ({ subtitle, title, data }) => {
       </div>
       <div className={styles.cardsRow}>
         {data.map(el => {
-          const { img, name, price, id } = el;
-
-          return <SliderCard key={id} img={img} name={name} price={price} />;
+          const { img, name, price, id, author } = el;
+          return (
+            <SliderCard
+              key={id}
+              img={img}
+              name={name}
+              price={price}
+              author={author}
+            />
+          );
         })}
       </div>
       <div className={styles.sliderNav}>

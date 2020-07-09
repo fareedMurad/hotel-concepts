@@ -26,6 +26,12 @@
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(62, 62, 62, 0.2);
 }
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
 
 .price {
   width: fit-content;
@@ -36,6 +42,10 @@
   background-color: $white;
 
   line-height: unset;
+}
+
+.author {
+  @include font($primary-grey, 18px, 400, 28px);
 }
 
 .description {
