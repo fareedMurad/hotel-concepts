@@ -6,7 +6,7 @@ import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { ScrollButton } from '@core/components/scroll-button';
 import { Button } from '@core/components';
-// import introVideo from '../../../../../assets/videos/HomePage.preview.mov';
+import introVideo from '../../../../../assets/videos/HomePage.preview.mov';
 
 /**
  * Renders Intro
@@ -40,7 +40,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
   };
 
   return (
-    <section className={styles.intro}>
+    <section className={styles.intro} >
       <div className={styles.title}>
         <div>Cutting edge online education for hospitality</div>
         <div>Bridging the skills  gap for hotel managers</div>
@@ -78,7 +78,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
       {/* <video
         ref={videoRef}
         className={styles.video}
-        src={require("/videos/HomePage.preview.mov")}
+        src={require('videos/HomePage.preview.mov')}
         muted={true}
       /> */}
 

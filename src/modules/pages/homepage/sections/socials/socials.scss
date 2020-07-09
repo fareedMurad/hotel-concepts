@@ -8,7 +8,7 @@
 }
 
 .left-side {
-  background: url('../../../../../assets/img/home/mobile.png') no-repeat bottom center;
+  background: url('../../../../../assets/img/learning-approach/mobile.png') no-repeat bottom center;
   width: 50%;
 }
 
@@ -46,5 +46,8 @@
   @include flex($align: center);
   img {
     margin-right: 10px;
+  }
+  &:hover {
+    color: $primary_orange;
   }
 }
