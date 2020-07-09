@@ -2,7 +2,7 @@ import * as React from 'react';
 import { SliderProps } from './slider.props';
 import * as styles from './slider.scss';
 import { H1, Paragraph, Button } from '@core/components';
-import { SliderCard } from './slider-card';
+import { SliderCard } from '../slider-card';
 import { useMarketplaceData } from '@pages/marketplace/marketplace.hook';
 
 /**
