@@ -13,7 +13,7 @@ import { Icon, H1, H2, Paragraph } from '@core/components';
 const WhyCordie: React.FC<WhyCordieProps> = ({}) => {
   return (
     <div className={styles.whyCordie}>
-      <Icon name='learning-approach/abstract-1' />
+      <Icon name='abstract-1' />
       <H1>Why Kordie?</H1>
 
       <div className={styles.wrapper}>

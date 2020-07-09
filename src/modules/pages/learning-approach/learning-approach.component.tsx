@@ -38,7 +38,7 @@ const LearningApproach: React.FC = ({}) => {
         <div className={styles.arrow}>&#8595; Scroll</div>
       </div>
       <div className={styles.meetKordie}>
-        <Icon name='learning-approach/abstract-1' />
+        <Icon name='abstract-1' />
         <H2 className={styles.meetKordieTitle}>Meet Kordie</H2>
         <Paragraph className={styles.meetKordieDescription}>
           Kordie - is online university for hospitality. We deliver practical

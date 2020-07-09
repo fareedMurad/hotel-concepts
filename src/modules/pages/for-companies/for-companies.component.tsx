@@ -40,7 +40,7 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
         <div className={styles.arrow}>&#8595; Scroll</div>
       </div>
       <div className={styles.talentMatters}>
-        <Icon name='learning-approach/abstract-1' />
+        <Icon name='abstract-1' />
         <H3>Talent matters</H3>
         <Paragraph className={styles.talentMattersParagraph}>
           Investing in your people solves skills shortages, <br /> develops new
@@ -54,7 +54,7 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
       <WhyCordie />
       <OurPrograms />
       <div className={styles.container}>
-        <Icon name='learning-approach/abstract-1' />
+        <Icon name='abstract-1' />
         <H3>
           Increase your competitive <br /> advantage with new <br /> knowledge.{' '}
         </H3>
