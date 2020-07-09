@@ -12,7 +12,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ closeMenu, isOpened }) => {
   const { mainLinks, secondaryLinks } = useMenuData();
   return (
     <div className={classNames(styles.burgerMenu, {[styles.opened]: isOpened})}>
-      <div onClick={closeMenu} className={styles.blur}></div>
+      {/* <div onClick={closeMenu} className={styles.blur}></div> */}
       <div className={styles.content}>
         <div className={styles.linksContainer}>
           {mainLinks.map((link, i) => (
@@ -39,29 +39,3 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ closeMenu, isOpened }) => {
 };
 
 export { BurgerMenu };
-
-{/* <div className={`Burger-menu ${activeMenu === EActiveMenuType.menu ? 'opened' : ''}`}>
-<div onClick={closeMenu} className="Burger-menu__blur"></div>
-<div className="Burger-menu__content">
-  <div className="Burger-menu__links-container">
-    {mainLinks.map((link, i) => (
-      <Link to={link.path} key={i} className="Burger-menu__link">
-        <div className="Burger-menu__link-name">
-          {link.name}
-        </div>
-      </Link>
-    ))}
-  </div>
-  <div className="separator my-3"></div>
-  <div className="Burger-menu__secondary-container">
-    {secondaryLinks.map((link, i) => (
-      <Link to={link.path} key={i} className="Burger-menu__secondary-link">
-        <div>
-          {link.name}
-        </div>
-      </Link>
-    ))}
-  </div>
-</div>
-</div>
-); */}

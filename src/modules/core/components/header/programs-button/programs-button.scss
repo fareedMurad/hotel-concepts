@@ -6,7 +6,9 @@
   cursor: pointer;
   font-family: $IBMPlex;
   margin-left: 39px;
+  user-select: none;
   .icon {
+    @include fill(white);
     margin-left: 10px;
     padding-bottom: 1px;
     transition: transform ease-in-out 0.35s;
@@ -16,6 +18,7 @@
     }
   }
   &.inverted {
+    @include fill($primary-gray);
     color: $primary-gray;
   }
 }

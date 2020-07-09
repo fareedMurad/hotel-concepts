@@ -10,6 +10,7 @@ import { ActiveMenuType } from './active-menu.enum';
 import { BurgerButton } from './burger-button';
 import { BurgerMenu } from './burger-menu';
 import { ProgramsButton } from './programs-button';
+import { ProgramsMenu } from './programs-menu';
 
 /**
  * Renders Header
@@ -65,6 +66,10 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <>
         <BurgerMenu
           isOpened={this.state.activeMenuType === ActiveMenuType.menu}
+          closeMenu={() => this.closeMenu()}
+        />
+        <ProgramsMenu
+          isOpened={this.state.activeMenuType === ActiveMenuType.programs}
           closeMenu={() => this.closeMenu()}
         />
         <header className={classNames(styles.header, {
