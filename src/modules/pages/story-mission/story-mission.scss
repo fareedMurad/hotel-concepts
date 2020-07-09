@@ -82,3 +82,34 @@
   margin: 40px 22px;
   background: #cbd0d3;
 }
+
+.why-kordie {
+  &--title {
+    @include container();
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 100px;
+    margin: 50px 22px;
+    & > div:first-child {
+      justify-self: center;
+    }
+    & > div:last-child {
+      justify-self: start;
+    }
+  }
+  &__paragraph {
+    & > p {
+      width: 38vw;
+    }
+  }
+}
+
+.animation {
+  @include flex($align: center, $justify: center);
+  width: 100%;
+  background-color: $background;
+  border-radius: 8px;
+}
