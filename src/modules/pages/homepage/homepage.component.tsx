@@ -12,6 +12,8 @@ import { Mentors } from './sections/mentors';
 import { FaqBlock } from './sections/faq-block';
 import { InsightsBlock } from './sections/insights-block';
 import { Socials } from './sections/socials';
+import { Header } from '@core/components/header';
+import { Footer } from '@core/components';
 
 /**
  * Renders Homepage
@@ -19,6 +21,7 @@ import { Socials } from './sections/socials';
 const Homepage: React.FC<HomepageProps> = ({}) => {
   return (
     <div className={styles.homepage}>
+      {/* <Header /> */}
       <Intro />
       <SupportInfo />
       <OnlineCourses />
@@ -30,6 +33,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <FaqBlock />
       <InsightsBlock />
       <Socials />
+      {/* <Footer /> */}
     </div>
   );
 };

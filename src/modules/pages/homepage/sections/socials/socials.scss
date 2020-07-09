@@ -51,3 +51,15 @@
     color: $primary_orange;
   }
 }
+
+@media screen and (max-width: 850px) {
+  .left-side {
+    display: none;
+  }
+  .right-side {
+    width: 100%;
+  }
+  .socials {
+    padding: 0 $default-offset;
+  }
+}
