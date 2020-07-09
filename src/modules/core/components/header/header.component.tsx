@@ -9,6 +9,7 @@ import { HeaderState } from './header.state';
 import { ActiveMenuType } from './active-menu.enum';
 import { BurgerButton } from './burger-button';
 import { BurgerMenu } from './burger-menu';
+import { ProgramsButton } from './programs-button';
 
 /**
  * Renders Header
@@ -57,7 +58,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   }
 
-  // temporary this component needs another wrapper inside your page with paddings: { padding: 25px 22px; }
   render () {
     const { navigation } = useHomeData();
 
@@ -83,6 +83,11 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             isOpened={this.state.activeMenuType === ActiveMenuType.menu}
             isInverted={this.isInvertHeader}
             openBurger={() => this.toggleOpenMenu(ActiveMenuType.menu)}
+          />
+          <ProgramsButton
+            isOpened={this.state.activeMenuType === ActiveMenuType.programs}
+            isInverted={this.isInvertHeader}
+            openMenu={() => this.toggleOpenMenu(ActiveMenuType.programs)}
           />
           <div
             className={classNames(styles.navigationLinks, {

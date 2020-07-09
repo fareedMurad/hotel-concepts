@@ -12,7 +12,7 @@
     }
   }
   .text {
-    @include font($primary-gray, 18px, 500);
+    @include font($white, 18px, 500);
     font-family: $IBMPlex;
     padding-left: 10px;
     &.inverted {
