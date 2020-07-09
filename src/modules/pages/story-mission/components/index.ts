@@ -1,1 +1,2 @@
-export * from './caption';
+export * from './hero-caption';
+export * from './tip-card';

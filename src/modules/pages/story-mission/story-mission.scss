@@ -1,8 +1,5 @@
 @import 'core.scss';
 
-.story-mission {
-}
-
 .nav {
   padding: 25px 22px;
 }
@@ -70,4 +67,18 @@
   & > div:first-child {
     margin-top: 500px;
   }
+}
+
+.caption-container {
+  @include container();
+  margin: 80px auto;
+  & > * {
+    width: 30vw;
+  }
+}
+
+.hr {
+  height: 2px;
+  margin: 40px 22px;
+  background: #cbd0d3;
 }

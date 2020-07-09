@@ -4,7 +4,15 @@ import * as styles from './story-mission.scss';
 import { Header } from '@core/components/header';
 import { Button } from '@core/components';
 import { useStoryMissionData } from './story-mission.hook';
+import { HeroCaption } from './components';
+import { ManagingHospitality } from './sections';
 
+const Hr = () => {
+  return <div className={styles.hr} />;
+};
+/**
+ * Renders anchors
+ */
 const Anchor: React.FC<{ anchor: string; rate: string; caption: string }> = ({
   anchor,
   rate,
@@ -56,6 +64,14 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
           </div>
         </div>
       </header>
+      <HeroCaption
+        className={styles.captionContainer}
+        title='Hospitality education designed for impact'
+        description='Kordie - is online university for hospitality. We deliver practical programs and courses developed in team with key industry leaders, most relevant approach to education, case based assignments and mentorship from leading experts.'
+      />
+      <Hr />
+      <ManagingHospitality />
+      <Hr />
     </div>
   );
 };
