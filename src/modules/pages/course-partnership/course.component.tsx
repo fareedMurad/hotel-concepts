@@ -2,9 +2,11 @@ import * as React from 'react';
 import { CourseProps } from './course.props';
 import * as styles from './course.scss';
 import { Header } from '@core/components/header';
-import { H1, Button, Icon, H2, Paragraph } from '@core/components';
+import { H1, Button, Icon, H2, Paragraph, Footer } from '@core/components';
 import { HowBecomePartner } from './sections ';
 import { PartnerBenefits } from './sections /partner-benefits';
+import { Criteria } from './sections /criteria';
+import { PartnerApply } from './sections /partner-apply';
 
 /**
  * Renders Course
@@ -68,6 +70,9 @@ const Course: React.FC<CourseProps> = ({}) => {
       </div>
       <HowBecomePartner />
       <PartnerBenefits />
+      <Criteria />
+      <PartnerApply />
+      <Footer />
     </div>
   );
 };

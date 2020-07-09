@@ -3,7 +3,7 @@ import { HowBecomePartnerProps } from './how-become-partner.props';
 import * as styles from './how-become-partner.scss';
 import { H2, Icon } from '@core/components';
 import { Card } from './card';
-import { useCourseHook } from '@pages/course/course.hook';
+import { useCourseHook } from '@pages/course-partnership/course.hook';
 
 /**
  * Renders HowBecomePartner

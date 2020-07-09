@@ -1,9 +1,9 @@
 @import 'core.scss';
 
 .partner-benefits {
+  display: flex;
   @include container();
   margin-top: 120px;
-  display: flex;
 }
 
 .content {

@@ -5,9 +5,9 @@
   background-color: #f5f1f0;
 }
 .content {
+  padding: 24px 0px 16px 0px;
   @include container();
   @include flex($align: stretch);
-  padding: 24px 0px 16px 0px;
 }
 
 .subscribe {

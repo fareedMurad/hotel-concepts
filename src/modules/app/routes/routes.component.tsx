@@ -14,7 +14,7 @@ import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
 import { Marketplace } from '@pages/marketplace';
 import { Product } from '@pages/product';
-import { Course } from '@pages/course';
+import { Course } from '@pages/course-partnership';
 
 /**
  * Renders Routes
