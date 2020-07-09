@@ -11,6 +11,7 @@ import {
   Select
 } from '@core/components';
 import { Formik } from 'formik';
+import classNames from 'classnames';
 
 /**
  * Default values
@@ -26,6 +27,7 @@ const defaultValues = {
  */
 
 const PartnerApply: React.FC<PartnerApplyProps> = ({}) => {
+  const [focused, setFocused] = React.useState(false);
   return (
     <div className={styles.partnerApply}>
       <div className={styles.container}>
@@ -57,12 +59,20 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({}) => {
                       label='E-mail'
                     />
                   </div>
-                  <div>
-                    <Field.Text
+                  <div
+                    className={classNames(styles.comment, {
+                      [styles.commentFocused]: focused
+                    })}
+                  >
+                    <label htmlFor='comment' className={styles.label}>
+                      Comment
+                    </label>
+                    <textarea
+                      id='comment'
                       name='Comment'
-                      type='text'
-                      className={styles.comment}
-                      label='Comment'
+                      className={styles.input}
+                      onFocus={() => setFocused(true)}
+                      onBlur={() => setFocused(false)}
                     />
                   </div>
                 </div>
