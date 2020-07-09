@@ -4,11 +4,9 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  padding: 25px 22px;
-  padding-top: 25px;
-
   &-content {
     @include container();
+    padding: 0 30px;
   }
   &-caption {
     @include font($white, 60px, 600, 70px);
@@ -22,6 +20,10 @@
     margin-top: 25px;
     font-family: $IBMPlex;
   }
+}
+
+.header {
+  padding: 25px 22px;
 }
 
 .button {
@@ -41,6 +43,7 @@
   box-sizing: border-box;
   @include container();
   margin-top: 65px;
+  padding: 0 30px;
   padding-bottom: 60px;
 }
 
@@ -53,17 +56,25 @@
 }
 
 .how-program {
+  padding: 0 30px;
   padding-top: 57px;
   &__title {
     @include container();
   }
   &__description {
-    display: flex;
-    justify-content: space-between;
-    @include container();
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    width: 100%;
+    padding: 0 100px;
+    @include md {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     margin-top: 35px;
     &__block {
-      width: 49%;
+      width: 100%;
+      margin-bottom: 20px;
       padding: 65px 20px;
       border-radius: 5px;
       border: 1px solid $light-grey;
