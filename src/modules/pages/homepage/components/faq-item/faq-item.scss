@@ -1,7 +1,7 @@
 @import "core.scss";
 
 .faq-item {
-  border-bottom: 1px solid $background;
+  border-bottom: 1px solid $light-grey;
   width: 100%;
 }
 
@@ -13,7 +13,7 @@
   color: $primary-gray;
   font-weight: 200;
   user-select: none;
-  margin-top: 10px;
+  margin-top: 20px;
   padding-bottom: 10px;
   &.opened {
     font-weight: 400;

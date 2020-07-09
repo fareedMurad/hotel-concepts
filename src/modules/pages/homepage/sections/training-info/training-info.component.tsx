@@ -34,7 +34,7 @@ const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
           ))}
         </div>
       </div>
-      <div className={styles.footer}></div>
+      <div className={styles.img}></div>
     </section>
   );
 };
