@@ -23,7 +23,6 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
         }}
       >
         <Header />
-        {/* <div className={styles.image} /> */}
         <main className={styles.wrapperContent}>
           <H1 className={styles.wrapperCaption}>Marketplace</H1>
           <div className={styles.wrapperDescription}>

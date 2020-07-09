@@ -1,0 +1,80 @@
+@import 'core.scss';
+
+.course {
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 25px 22px;
+  padding-top: 25px;
+
+  &-content {
+    @include container();
+  }
+  &-caption {
+    @include font($white, 60px, 600, 70px);
+    width: 50%;
+    margin-top: 10%;
+    font-family: $EBGaramond;
+  }
+  &-description {
+    @include font($white, 24px, 300, 34px);
+    width: 67%;
+    margin-top: 25px;
+    font-family: $IBMPlex;
+  }
+}
+
+.button {
+  width: 230px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 22px;
+  left: 140px;
+  color: $white;
+}
+
+.partnering {
+  box-sizing: border-box;
+  @include container();
+  margin-top: 65px;
+  padding-bottom: 60px;
+}
+
+.hr {
+  width: 90%;
+  height: 2px;
+  margin: 0 auto;
+
+  background-color: $light-grey;
+}
+
+.how-program {
+  padding-top: 57px;
+  &__title {
+    @include container();
+  }
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    @include container();
+    margin-top: 35px;
+    &__block {
+      width: 49%;
+      padding: 65px 20px;
+      border-radius: 5px;
+      border: 1px solid $light-grey;
+      @include font($primary-gray, 24px, 400, 34px);
+    }
+  }
+}
+
+.button {
+  justify-content: space-between;
+}

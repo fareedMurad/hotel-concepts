@@ -1,0 +1,21 @@
+@import 'core.scss';
+
+.card {
+  max-width: 23%;
+  margin-right: 20px;
+  padding: 30px 16px;
+  border-radius: 5px;
+  background-color: $background;
+  &:last-child {
+    margin-right: 0;
+  }
+  &__title-orange {
+    color: $primary-orange;
+  }
+}
+
+.hr {
+  width: 10%;
+  height: 2px;
+  background-color: $light-grey;
+}
