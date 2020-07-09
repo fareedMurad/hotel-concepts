@@ -20,11 +20,12 @@
   @include size(16px);
   @include min-size(16px);
   border: 1px solid #969ba3;
+  background-color: $white;
   border-radius: 4px;
   transition: $transition;
   &--checked {
-    border-color: $primary;
-    background: $primary;
+    border-color: $primary-orange;
+    background: $primary-orange;
   }
 }
 

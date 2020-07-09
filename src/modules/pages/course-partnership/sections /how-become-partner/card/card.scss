@@ -1,0 +1,19 @@
+@import 'core.scss';
+
+.card {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 30px 16px;
+  border-radius: 5px;
+  background-color: $background;
+
+  &__title-orange {
+    color: $primary-orange;
+  }
+}
+
+.hr {
+  width: 10%;
+  height: 2px;
+  background-color: $light-grey;
+}
