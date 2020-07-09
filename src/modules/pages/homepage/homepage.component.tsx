@@ -7,6 +7,7 @@ import { OnlineCourses } from './sections/online-courses';
 import { Quote } from './sections/quote';
 import { About } from './sections/about';
 import { TrainingInfo } from './sections/training-info';
+import { Impact } from './sections/impact';
 
 /**
  * Renders Homepage
@@ -20,6 +21,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <Quote />
       <About />
       <TrainingInfo />
+      <Impact />
     </div>
   );
 };
