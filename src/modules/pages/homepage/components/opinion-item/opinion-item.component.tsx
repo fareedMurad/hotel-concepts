@@ -6,8 +6,6 @@ import * as styles from './opinion-item.scss';
  * Renders OpinionItem
  */
 const OpinionItem: React.FC<OpinionItemProps> = ({ name, text, from, img }) => {
-  console.log(`img/${img}.png`);
-
   return (
     <section className={styles.opinionItem}>
       <div className={styles.text}>

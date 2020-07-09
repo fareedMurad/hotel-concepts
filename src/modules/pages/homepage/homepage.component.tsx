@@ -8,6 +8,7 @@ import { Quote } from './sections/quote';
 import { About } from './sections/about';
 import { TrainingInfo } from './sections/training-info';
 import { Impact } from './sections/impact';
+import { Mentors } from './sections/mentors';
 
 /**
  * Renders Homepage
@@ -22,6 +23,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <About />
       <TrainingInfo />
       <Impact />
+      <Mentors />
     </div>
   );
 };

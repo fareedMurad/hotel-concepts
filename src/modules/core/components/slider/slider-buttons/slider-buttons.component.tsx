@@ -11,14 +11,14 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
   next, previous, className, isBordered, path, btnText
 }) => {
   return (
-    <div className={classNames(styles.sliderButtons, classNames)}>
+    <div className={classNames(styles.sliderButtons, className)}>
       {btnText && <Button className={styles.button} >
-        <div>{btnText}</div>
+        <div>{btnText}</div> <div>&#8594;</div>
       </Button>}
-      <button onClick={previous} className={styles.previous}>
+      <button onClick={previous} className={classNames(styles.previous, { [styles.bordered]: isBordered })}>
         <div>&#8592;</div>
       </button>
-      <button onClick={next} className={styles.next}>
+      <button onClick={next} className={classNames(styles.next, { [styles.bordered]: isBordered })}>
         <div>&#8594;</div>
       </button>
     </div>

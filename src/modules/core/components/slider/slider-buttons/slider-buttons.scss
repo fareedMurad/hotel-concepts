@@ -9,7 +9,9 @@
 
 .button {
   margin-right: 10px;
-  width: 205px;
+  width: 204px;
+  height: 36px;
+  @include flex($justify: space-between, $align: center);
 }
 
 .previous,
@@ -23,4 +25,8 @@
   cursor: pointer;
   position: relative;
   margin: 5px;
+  &.bordered {
+    border: 1px solid #98A2A8;
+  }
+  @include buttonHover;
 }
