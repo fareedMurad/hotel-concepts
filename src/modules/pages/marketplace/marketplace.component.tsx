@@ -4,7 +4,7 @@ import * as styles from './marketplace.scss';
 import { Header } from '@core/components/header';
 import { H1, ButtonFilter, Footer } from '@core/components';
 import { useMarketplaceData } from './marketplace.hook';
-import { Slider } from './sections';
+import { Slider } from '@pages/components/slider';
 
 /**
  * Renders Marketplace
