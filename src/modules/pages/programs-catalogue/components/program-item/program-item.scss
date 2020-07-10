@@ -1,5 +1,59 @@
 @import "core.scss";
 
 .program-item {
-	
+  @include flex($justify: space-between);
+  height: 250px;
+  overflow: hidden;
+  padding: $default-offset;
 }
+
+.container {
+  display: flex;
+  img {
+    max-width: 315px;
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+.info {
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.type {
+  @include font($primary-orange, 18px, 600, 26px);
+}
+
+.name {
+  @include font($primary-grey, 36px, 500, 38px);
+  font-family: $EBGaramond;
+}
+
+.secondary-info {
+  margin: 10px 0;
+}
+
+.description {
+  @include font($primary-grey, 16px, 300, 18px);
+  font-family: $IBMPlex;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.button-container {
+  @include flex($align: flex-end);
+  height: 100%;
+}
+
+.button {
+  @include flex($justify: space-between);
+  width: 230px;
+  height: 44px;
+}
+
+

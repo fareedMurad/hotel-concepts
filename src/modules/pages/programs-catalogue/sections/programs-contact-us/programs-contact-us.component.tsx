@@ -26,6 +26,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
 
   const submitHandler = (event: any) => {
     event.preventDefault();
+    console.log(formValues);
   }
 
   return (
@@ -54,7 +55,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
             <input name="website" onChange={changeTextValue} type="text" className={styles.inputField} />
           </div>
 
-          <div className={styles.inputSelectContainer}>
+          <div className={classNames(styles.inputSelectContainer, styles.inputGroup)}>
             <select name="employees"
               onChange={changeTextValue}
               className={classNames(styles.inputField, styles.inputSelect)}
@@ -66,7 +67,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
             </select>
           </div>
 
-          <div className={styles.inputSelectContainer}>
+          <div className={classNames(styles.inputSelectContainer, styles.inputGroup)}>
             <select name="interest"
               onChange={changeTextValue}
               className={classNames(styles.inputField, styles.inputSelect)}
@@ -77,7 +78,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
               <option value="3">3</option>
             </select>
           </div>
-          <Button className={styles.button}>
+          <Button type="submit" className={styles.button}>
             <div>Contact me</div> <div> &#8594; </div>
           </Button>
         </form>

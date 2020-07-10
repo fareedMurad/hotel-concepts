@@ -49,13 +49,17 @@
   flex-wrap: wrap;
 }
 
-.inputTitle {
+.input-title {
   @include font($primary-grey, 16px, 400, 18px);
   padding-left: 5px;
   padding-bottom: 2px;
 }
 
-.inputField {
+.input-group {
+  margin: 10px 0;
+}
+
+.input-field {
   height: 44px;
   width: 204px;
   border: none;
