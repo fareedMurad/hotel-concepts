@@ -1,7 +1,8 @@
 @import "core.scss";
 
 .faq-block {
-  padding: 100px $default-offset;
+  padding: 50px $default-offset;
+  padding-bottom: 100px;
   @include flex($direction: column)
 }
 

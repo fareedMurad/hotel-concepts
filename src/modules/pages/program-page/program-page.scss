@@ -4,8 +4,30 @@
 
 }
 
+.img {
+  background: url('../../../assets/img/program-page.png') no-repeat center center;
+  height: 400px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  min-height: 300px;
+  padding: 0 $default-offset;
+	@include flex($justify: center, $align: center, $direction: column);
+}
+
 .hr {
   background-color: $hr;
   height: 2px;
   margin: 0 $default-offset;
+}
+
+.faq-title {
+  @include font($primary-grey, 48px, 500, 50px);
+  font-family: $EBGaramond;
+  margin-top: 120px;
+  padding-left: $left-offset;
 }
