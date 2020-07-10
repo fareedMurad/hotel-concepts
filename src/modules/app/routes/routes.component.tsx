@@ -12,10 +12,12 @@ import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
+import { Homepage } from '@pages/homepage';
 import { Marketplace } from '@pages/marketplace';
 import { StoryMission } from '@pages/story-mission';
 import { Product } from '@pages/product';
 import { CoursePartnership } from '@pages/course-partnership';
+import { PrivacyPolicy } from '@pages/privacy-policy';
 
 /**
  * Renders Routes
@@ -32,6 +34,7 @@ const Routes: React.FC = () => {
         <Route path='/uikit' component={Uikit} />
 
         {/* ROUTES */}
+        <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
@@ -48,6 +51,7 @@ const Routes: React.FC = () => {
         <Route path='/product/:id' component={Product} />
         {/* COURSE-PARTNERSHIP ROUTE */}
         <Route path='/course-partnership' component={CoursePartnership} />
+        <Route path='/' component={Homepage} />
       </Switch>
     </div>
   );

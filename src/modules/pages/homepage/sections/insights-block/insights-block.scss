@@ -1,0 +1,46 @@
+@import "core.scss";
+
+.insights-block {
+  position: relative;
+  padding: 0 10px;
+  padding-bottom: 50px;
+}
+
+.title {
+  padding-left: $left-offset;
+  & > div:first-child {
+    @include font($primary-gray, 48px, 600, 50px);
+    max-width: 600px;
+    letter-spacing: -0.36px;
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    @include font($primary-gray, 24px, 400, 26px);
+    margin-top: 15px;
+    font-family: $IBMPlex;
+    margin-bottom: 40px;
+  }
+}
+
+.slider {
+  @include flex($justify: space-between, $align: center);
+  padding-bottom: 60px;
+  overflow: hidden;
+  position: relative;
+  padding-left: $default-offset;
+}
+
+.controls {
+  padding-left: $left-offset;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    padding-left: $default-offset;
+  }
+  .controls,
+  .slider {
+    padding-left: 0;
+  }
+}
+

@@ -7,6 +7,8 @@
   border-radius: 4px;
   cursor: pointer;
   outline: none;
+  position: relative;
+  @include buttonHover;
 
   &--primary {
     @include font($white, 16px, 500, 22px);

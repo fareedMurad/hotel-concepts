@@ -1,0 +1,59 @@
+@import "core.scss";
+
+.faq-item {
+  border-bottom: 1px solid $light-grey;
+  width: 100%;
+}
+
+.name {
+  cursor: pointer;
+  @include flex($align: center);
+  font-family: $IBMPlexSans;
+  font-size: 18px;
+  color: $primary-gray;
+  font-weight: 200;
+  user-select: none;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  &.opened {
+    font-weight: 400;
+  }
+}
+
+.indicator {
+  height: 34px;
+  width: 34px;
+  background-color: $background;
+  border-radius: 50%;
+  margin-right: 10px;
+  &::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    content: '+';
+    transition: transform 0.1s ease-in;
+    color: $primary-gray;
+  }
+  &.opened {
+    &::after {
+      transition: transform 0.1s ease-in;
+      transform: rotate(45deg);
+      padding-left: 4px;
+    }
+  }
+}
+
+.description {
+  max-height: 0;
+  transition: 1s cubic-bezier(0, 1, 0, 1);
+  padding-left: 42px;
+  overflow: hidden;
+  max-width: 500px;
+
+  &.opened {
+    margin: 15px 0;
+    max-height: 500px;
+    transition: max-height 0.7s ease-in;
+  }
+}

@@ -1,0 +1,27 @@
+@import 'core.scss';
+
+.header {
+  padding: 25px 22px;
+}
+
+.container {
+  @include container();
+}
+
+.title {
+  margin-bottom: 34px;
+}
+
+.block {
+  width: 60vw;
+  margin-bottom: 24px;
+  &--id {
+    @include font($primary-orange, 18px, 600, 58px);
+    font-family: $EBGaramond;
+  }
+  &--title {
+    @include font($primary-gray, 28px, 400, 35px);
+    margin-bottom: 12px;
+    font-family: $EBGaramond;
+  }
+}
