@@ -1,0 +1,132 @@
+@import 'core.scss';
+
+.heading {
+  @include container();
+  margin-top: 60px;
+  &__caption {
+    color: $primary-orange;
+  }
+  &__title {
+  }
+  &__paragraph {
+    width: 36%;
+  }
+  &__hr {
+    width: 38%;
+    height: 1px;
+    background: #cbd0d3;
+  }
+  &__statistic {
+    @include flex($align: stretch);
+    margin: 30px 0px;
+    & > div:first-child {
+      margin-right: 50px;
+    }
+  }
+}
+.contributorsList {
+  display: grid;
+  width: 100%;
+  margin: 37px auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  & > div {
+    position: relative;
+    margin-bottom: 47px;
+    justify-self: center;
+  }
+}
+.contributor {
+  &__photo {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+
+  &__info {
+    &--person {
+      @include font($primary-gray, 24px, 400, 34px);
+      font-family: $IBMPlex;
+    }
+    &--details {
+      @include font($primary-gray, 14px, 400, 22px);
+      font-family: $IBMPlex;
+    }
+  }
+  &__hidden {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    &:hover {
+      opacity: 1;
+      background-color: rgba(62, 62, 62, 0.5);
+    }
+    &__content {
+      @include flex($direction: column-reverse);
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: auto;
+      cursor: pointer;
+      & > div:first-child {
+        @include font($white, 16px, 400, 22px);
+        z-index: 3;
+        display: block;
+        width: fit-content;
+        margin: 0 auto 31px auto;
+        opacity: 1;
+        font-family: $IBMPlex;
+        text-align: center;
+        border-bottom: 1px solid $white;
+      }
+    }
+  }
+}
+
+.modal {
+  position: relative;
+  width: 50vw;
+  & > div:first-child {
+    @include flex($align: stretch);
+  }
+  &__person {
+    width: 47%;
+    &--photo {
+      height: auto;
+      max-width: 100%;
+    }
+    &__wrapper {
+      @include flex($align: center, $justify: space-between);
+    }
+  }
+  &__content {
+    width: 50%;
+    margin-left: 20px;
+    &--caption {
+      @include font($primary-gray, 24px, 400, 34px);
+      font-family: $IBMPlex;
+    }
+    &--description {
+      @include font($primary-gray, 14px, 400, 22px);
+      margin-top: 8px;
+      font-family: $IBMPlex;
+    }
+  }
+  &__icon {
+    position: absolute;
+    top: 0;
+    right: -40px;
+  }
+}

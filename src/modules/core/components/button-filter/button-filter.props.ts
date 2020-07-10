@@ -5,9 +5,10 @@ type ButtonFilterProps = {
   title: string;
   count?: string | number;
   onClick: () => void;
-  active: boolean;
+  active?: boolean;
   icon?: string;
-  className?: string;
+  id?: number | string;
+  className?: any;
 };
 
 export { ButtonFilterProps };

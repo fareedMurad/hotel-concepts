@@ -17,7 +17,7 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
 }) => {
   return (
     <div
-      className={classNames(styles.filter, {
+      className={classNames(styles.filter, className, {
         [styles.filterActive]: active
       }, className)}
       onClick={onClick}
@@ -29,7 +29,7 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
         })}
       >
         {count && `(${count})`}
-        {icon && <Icon name={icon} className={styles.icon}/>}
+        {icon && <Icon name={icon} className={styles.icon} />}
       </div>
     </div>
   );
