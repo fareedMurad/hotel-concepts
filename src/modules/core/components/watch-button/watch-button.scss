@@ -1,0 +1,38 @@
+@import "core.scss";
+
+.watch-button {
+	@include flex($align: center);
+}
+
+.container {
+  @include flex($justify: center, $direction: column);
+  margin-left: 15px;
+
+  & > span:first-child {
+    @include font($color: $white, $size: 16px, $weight: 500);
+    font-family: $IBMPlex;
+  }
+  & > span:nth-child(2) {
+    @include font($color: $white, $size: 16px, $weight: 400);
+    opacity: .5;
+    font-family: $IBMPlex;
+    margin-top: 5px;
+  }
+}
+
+.button-play {
+  @include size(40px);
+  @include flex($align: center, $justify: center);
+  z-index: 999;
+  background: $white;
+  border-radius: 50%;
+  cursor: pointer;
+  &-icon {
+    @include size(14px);
+    clip-path: polygon(100% 52%, 0 0, 0 100%);
+    background: $primary-orange;
+  }
+  &:hover {
+    background-color: rgb(219, 219, 219);
+  }
+}

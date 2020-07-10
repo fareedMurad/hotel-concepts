@@ -1,0 +1,65 @@
+@import "core.scss";
+
+.socials {
+  min-height: 580px;
+  background-color: $background;
+  padding-left: $left-offset;
+  display: flex;
+}
+
+.left-side {
+  background: url('../../../../../assets/img/learning-approach/mobile.png') no-repeat bottom center;
+  width: 50%;
+}
+
+.right-side {
+  width: 50%;
+  @include flex($justify: center, $direction: column);
+}
+
+.title {
+  & > div:first-child {
+    @include font($primary-grey, 36px, 400, 40px);
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    height: 2px;
+    margin: 25px 0;
+    max-width: 450px;
+    background: #cbd0d3;
+  }
+  & > div:nth-child(3) {
+    @include font($primary-grey, 16px, 400, 20px);
+    max-width: 450px;
+    font-family: $IBMPlex;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.links {
+  @include flex($direction: column);
+}
+
+.link {
+  margin: 10px 0;
+  @include flex($align: center);
+  img {
+    margin-right: 10px;
+  }
+  &:hover {
+    color: $primary_orange;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .left-side {
+    display: none;
+  }
+  .right-side {
+    width: 100%;
+  }
+  .socials {
+    padding: 0 $default-offset;
+  }
+}

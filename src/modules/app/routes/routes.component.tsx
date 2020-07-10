@@ -12,6 +12,7 @@ import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
+import { Homepage } from '@pages/homepage';
 import { Marketplace } from '@pages/marketplace';
 import { StoryMission } from '@pages/story-mission';
 import { Product } from '@pages/product';
@@ -28,6 +29,7 @@ const Routes: React.FC = () => {
     <div className={styles.routes}>
       {isToastVisible && <Toast />}
       <Switch>
+        <Route path='/' component={Homepage} />
         <Route path='/profile' component={Profile} />
         <Route path='/auth' component={Auth} />
         <Route path='/uikit' component={Uikit} />

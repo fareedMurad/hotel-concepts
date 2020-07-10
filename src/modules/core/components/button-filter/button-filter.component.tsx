@@ -19,7 +19,7 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
     <div
       className={classNames(styles.filter, className, {
         [styles.filterActive]: active
-      })}
+      }, className)}
       onClick={onClick}
     >
       <div className={styles.filterTitle}>{title}</div>

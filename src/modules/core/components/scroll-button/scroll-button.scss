@@ -1,0 +1,19 @@
+@import "core.scss";
+
+.scroll-button {
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.scroll {
+  color: $white;
+  &:hover {
+    color: rgb(235, 235, 235);
+  }
+}
