@@ -9,6 +9,7 @@ import { Footer } from '@core/components';
 import { ProgramIntro } from './sections/program-intro';
 import { ProgramOverview } from './sections/program-overview';
 import { ProgramAbout } from './sections/program-about';
+import { Enroll } from './sections/enroll';
 
 /**
  * Renders ProgramPage
@@ -22,6 +23,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <div className={styles.hr}></div>
       <ProgramAbout />
       <div className={styles.hr}></div>
+      <Enroll />
       <Mentors />
       <Impact />
       <FaqBlock />
