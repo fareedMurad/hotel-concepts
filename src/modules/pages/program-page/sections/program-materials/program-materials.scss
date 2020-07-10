@@ -1,0 +1,32 @@
+@import "core.scss";
+
+.program-materials {
+  padding: 80px $left-offset;
+  background-color: $background;
+}
+.title {
+  @include font($primary-grey, 48px, 500, 50px);
+  font-family: $EBGaramond;
+  margin-bottom: 32px;
+  position: relative;
+  &::before {
+    content: url('../../../../../assets/img/text-decorator.svg');
+    position: absolute;
+    top: -40px;
+  }
+}
+
+.item {
+  width: 540px;
+  height: 47px;
+  background-color: $white;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  @include flex($align: center);
+  &:before {
+    content: '■';
+    padding: 0 15px;
+    color: $primary-orange;
+    font-size: 13px;
+  }
+}
