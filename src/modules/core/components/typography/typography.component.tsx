@@ -45,8 +45,14 @@ const H6: React.FC<HeadingProps> = ({ className, children }) => (
   <h6 className={classNames(className, styles.h6)}>{children}</h6>
 );
 
-const Paragraph: React.FC<ParagraphProps> = ({ className, children }) => (
-  <p className={classNames(className, styles.p)}>{children}</p>
+const Paragraph: React.FC<ParagraphProps> = ({ className, children, sm }) => (
+  <p
+    className={classNames(className, styles.p, {
+      [styles.sm]: sm
+    })}
+  >
+    {children}
+  </p>
 );
 
 export { H1, H2, H3, H4, H5, H6, Paragraph };

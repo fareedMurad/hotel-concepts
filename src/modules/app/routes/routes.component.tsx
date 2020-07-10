@@ -16,6 +16,7 @@ import { Marketplace } from '@pages/marketplace';
 import { StoryMission } from '@pages/story-mission';
 import { Product } from '@pages/product';
 import { Course } from '@pages/course-partnership';
+import { PrivacyPolicy } from '@pages/privacy-policy';
 
 /**
  * Renders Routes
@@ -32,6 +33,7 @@ const Routes: React.FC = () => {
         <Route path='/uikit' component={Uikit} />
 
         {/* ROUTES */}
+        <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
