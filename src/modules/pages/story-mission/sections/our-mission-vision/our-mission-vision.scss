@@ -1,0 +1,86 @@
+@import 'core.scss';
+
+.hero {
+  &__block {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 561px;
+  }
+  &__caption {
+    z-index: 333;
+    width: fit-content;
+    margin-left: 133px;
+    padding: 146px 0px 40px 0px;
+    border-bottom: 2px solid #c2c2c262;
+    & > * {
+      color: white;
+    }
+  }
+  &__description {
+    z-index: 333;
+    width: 30vw;
+    margin: 50px 0px 0px 133px;
+    color: white;
+  }
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #3e3e3e60;
+}
+
+.kordie {
+  padding-bottom: 100px;
+  background: $background;
+  &__wrapper {
+    @include container();
+    padding: 58px 0px;
+  }
+  &__paragraph {
+    width: 30vw;
+  }
+}
+.programs-list {
+  @include container();
+  & > div:first-child {
+    border-top: 2px solid $hr;
+  }
+  & > div {
+    border-bottom: 2px solid $hr;
+    padding: 20px 0px;
+  }
+}
+.program {
+  display: grid;
+  grid-template-columns: 204px 2fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  &__block {
+    // width: 15vw;
+    &--rate {
+      @include font($primary-orange, 18px, 400);
+      font-family: $EBGaramond;
+    }
+    &--caption {
+      @include font($primary-gray, 24px, 400, 37px);
+      font-family: $IBMPlex;
+    }
+    &--description {
+      @include font($primary-gray, 18px, 300, 28px);
+      //   width: 25vw;
+      justify-self: center;
+    }
+    &--btn {
+      justify-self: end;
+      & > button {
+        @include flex($justify: space-between);
+        width: 224px;
+      }
+    }
+  }
+}

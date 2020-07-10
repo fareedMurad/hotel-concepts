@@ -1,0 +1,87 @@
+@import "core.scss";
+
+.course-item {
+  height: 550px;
+  flex-basis: 33%;
+  -ms-flex: auto;
+  width: 259px;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  @include flex($justify: center);
+}
+
+.header {
+  position: relative;
+}
+
+.name {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  max-width: 300px;
+  @include font($white, 36px, 500, 38px);
+  font-family: $EBGaramond;
+}
+
+.card {
+  min-width: 300px;
+  max-width: 440px;
+  border: 1px solid #98A2A8;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 242px;
+    object-fit: cover;
+    filter: brightness(70%);
+  }
+}
+
+.description-block {
+  height: 280px;
+  padding: 10px;
+  @include flex($justify: space-between, $direction: column);
+}
+
+.description {
+  font-family: $IBMPlex;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+}
+
+.bottom {
+  width: 100%;
+  @include flex($justify: space-between, $direction: column);
+}
+
+.info {
+  font-family: $EBGaramond;
+  width: 100%;
+  @include font($primary-grey, 18px, 500, 38px);
+  @include flex($justify: space-between);
+}
+
+.button {
+  width: 100%;
+  margin-top: 20px;
+  @include flex($justify: space-between);
+}
+
+@media screen and (max-width: 1308px) {
+  .course-item {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: 828px) {
+  .course-item {
+    flex-basis: 100%;
+  }
+}

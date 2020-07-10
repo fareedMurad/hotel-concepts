@@ -1,0 +1,110 @@
+@import 'core.scss';
+
+.nav {
+  padding: 25px 22px;
+}
+.header {
+  position: relative;
+  height: 100vh;
+  &-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &-content {
+    @include font($white, 60px, 600, 70px);
+    @include container();
+    margin-top: calc(100vh - 412px);
+    font-family: $EBGaramond;
+    & > div:nth-child(2) {
+      @include font($white, 24px, 400, 34px);
+      width: 50%;
+      margin: 24px 0px;
+    }
+  }
+  &--bar {
+    @include container();
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    margin-top: 48px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 20px;
+  }
+  &__btn {
+    @include flex($align: center, $justify: space-between);
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.anchor {
+  @include font($black, 14px, 400px, 22px);
+  @include flex($align: center);
+  background-color: #f5f1f0;
+  border-radius: 4px;
+  //   margin-right: 20px;
+  padding: 0px 20px;
+  &--rate {
+    @include font($primary-orange, 18px, 600, 58px);
+    font-family: $EBGaramond;
+  }
+  &--caption {
+    @include font($primary-gray, 16px, 500, 22px);
+    margin-left: 8px;
+    font-family: $IBMPlex;
+  }
+}
+
+.caption-container {
+  @include container();
+  margin: 80px auto;
+  padding-top: 10px;
+  & > * {
+    width: 30vw;
+  }
+}
+
+.hr {
+  height: 2px;
+  margin: 40px 22px;
+  background: #cbd0d3;
+}
+
+.why-kordie {
+  &--title {
+    @include container();
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 100px;
+    margin: 50px 22px;
+    & > div:first-child {
+      justify-self: center;
+    }
+    & > div:last-child {
+      justify-self: start;
+    }
+  }
+  &__paragraph {
+    & > p {
+      width: 38vw;
+    }
+  }
+}
+
+.animation {
+  @include flex($align: center, $justify: center);
+  width: 100%;
+  background-color: $background;
+  border-radius: 8px;
+}
