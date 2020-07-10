@@ -35,10 +35,18 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   public componentDidMount() {
     window.addEventListener('scroll', this.toggleBgColor);
+    window.addEventListener('resize', this.resize)
   }
 
   public componentWillUnmount() {
     window.removeEventListener('scroll', this.toggleBgColor);
+    window.removeEventListener('resize', this.resize)
+  }
+
+  public resize = () => {
+    if(window.innerWidth < 933 && this.state.activeMenuType === ActiveMenuType.programs) {
+      this.closeMenu();
+    }
   }
 
   public get isInvertHeader(): boolean {

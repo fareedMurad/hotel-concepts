@@ -9,9 +9,10 @@ import { Formik } from 'formik';
 import { Form } from '../form';
 import { Field } from '../field';
 
-const Navigation: React.FC<{ caption: string; navigation: any[] }> = ({
+const Navigation: React.FC<{ caption: string; navigation: any[], socials?: any[] }> = ({
   caption,
-  navigation
+  navigation,
+  socials
 }) => {
   return (
     <div className={styles.navigationItem}>
@@ -26,6 +27,12 @@ const Navigation: React.FC<{ caption: string; navigation: any[] }> = ({
           );
         })}
       </div>
+      {socials &&
+        socials.map(item => (
+          <a href={item.to} className={styles.social} key={item.id}>
+            <img src={require(`img/socials/${item.img}.png`)} alt=""/>
+          </a>
+      ))}
     </div>
   );
 };
@@ -33,7 +40,7 @@ const Navigation: React.FC<{ caption: string; navigation: any[] }> = ({
  * Renders Footer
  */
 const Footer: React.FC<FooterProps> = ({}) => {
-  const { companyLinks, weprovideLinks, moreLinks } = useFooterData();
+  const { companyLinks, weprovideLinks, moreLinks, socials } = useFooterData();
 
   return (
     <div className={styles.footer} id='footer'>
@@ -73,9 +80,9 @@ const Footer: React.FC<FooterProps> = ({}) => {
           </Formik>
         </section>
         <section className={styles.navigation}>
-          <Navigation caption='Company' navigation={companyLinks} />
-          <Navigation caption='We provide' navigation={weprovideLinks} />
-          <Navigation caption='More' navigation={moreLinks} />
+          <Navigation caption='Explore Programs' navigation={companyLinks} />
+          <Navigation caption='About' navigation={weprovideLinks} />
+          <Navigation caption='Support' navigation={moreLinks} socials={socials} />
         </section>
       </div>
       <div className={styles.hr} />
