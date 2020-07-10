@@ -1,14 +1,14 @@
 @import "core.scss";
 
 .program-intro {
-  background: url('../../../../../assets/img/learning-approach/home.png') no-repeat center center;
+  background: url('../../../../../assets/img/program-intro.png') no-repeat center center;
   height: 100vh;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
   background-repeat: no-repeat;
   background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.164);
   background-size: cover;
   min-height: 500px;
   padding-right: $default-offset;
@@ -39,6 +39,7 @@
     @include font($white, 24px, 400, 40px);
     margin: 35px 0px;
     font-family: $IBMPlex;
+    max-width: 550px;
   }
 }
 
@@ -47,14 +48,26 @@
   position: absolute;
 }
 
-.find-button {
-  width: 230px;
-  margin-bottom: 30px;
+.page-navigator {
+  @include flex($justify: space-between);
+  background-color: $white;
+  height: 84px;
+  position: absolute;
+  left: $default-offset;
+  right: $default-offset;
+  bottom: 36px;
+  border-radius: 6px;
+  padding: 20px 10px;
+}
+
+.button {
+  margin: 0 5px;
+  flex: 1;
   @include flex($justify: space-between);
 }
 
 @media screen and (max-width: 768px) {
-  .intro {
+  .program-intro {
     padding-left: $default-offset;
   }
   .title {

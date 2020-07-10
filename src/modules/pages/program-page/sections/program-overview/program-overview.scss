@@ -1,0 +1,35 @@
+@import "core.scss";
+
+.program-overview {
+  min-height: 180px;
+  @include flex($align: center, $justify: space-between);
+  padding-left: $left-offset;
+  padding-right: 106px;
+  @include font($primary-grey, 48px, 500, 50px);
+  font-family: $EBGaramond;
+}
+
+.block {
+  margin: 0 50px;
+}
+
+.name {
+  @include font($primary-orange, 18px, 500, 20px);
+  font-family: $IBMPlexSans;
+}
+
+.item {
+  display: flex;
+}
+
+.info {
+  margin-top: 10px;
+  @include font($primary-grey, 18px, 400, 20px);
+  font-family: $IBMPlexSans;
+}
+
+.hr {
+  height: 52px;
+  width: 2px;
+  background-color: $hr;
+}

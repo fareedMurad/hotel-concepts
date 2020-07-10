@@ -5,14 +5,16 @@ import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { Button } from '@core/components';
+import { useProgramData } from './progtam-intro.hook';
+import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 
 /**
  * Renders ProgramIntro
  */
 const ProgramIntro: React.FC<ProgramIntroProps> = ({}) => {
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
-
   const [video, setVideo] = React.useState<HTMLVideoElement>();
+  const { navButtons } = useProgramData();
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -40,12 +42,9 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({}) => {
   return (
     <section className={styles.programIntro}>
       <div className={styles.title}>
-        <div>Cutting edge online education for hospitality</div>
-        <div>Bridging the skills  gap for hotel managers</div>
+        <div>Intial Hotel Planning Decisions Course</div>
+        <div>We know which problems hoteliers face every day and we are ready to solve these problems.</div>
       </div>
-      <Button className={styles.findButton}>
-        <div>Find the program</div> <div>→</div>
-      </Button>
       <Popup
         contentStyle={{
           border: 'none',
@@ -72,6 +71,15 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({}) => {
           style={{ margin: 'auto', maxWidth: '100%' }}
         />
       </Popup>
+
+      <div className={styles.pageNavigator}>
+        {navButtons.map((button, index) => (
+          <ProgramNavButton name={button} index={index} key={index} />
+        ))}
+        <Button className={styles.button}>
+          <div>Enroll now</div> <div>→</div>
+        </Button>
+      </div>
 
       {/* <video
         ref={videoRef}
