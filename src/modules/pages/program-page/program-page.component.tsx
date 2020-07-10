@@ -12,6 +12,7 @@ import { ProgramAbout } from './sections/program-about';
 import { Enroll } from './sections/enroll';
 import { ProgramResults } from './sections/program-results';
 import { ProgramMaterials } from './sections/program-materials';
+import { ProgramQuote } from './sections/program-quote';
 
 /**
  * Renders ProgramPage
@@ -30,6 +31,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <Mentors />
       <ProgramMaterials />
       <Impact />
+      <ProgramQuote />
       <FaqBlock />
       <Footer />
     </div>
