@@ -13,6 +13,7 @@ import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
 import { Marketplace } from '@pages/marketplace';
+import { ProgramsCatalogue } from '@pages/programs-catalogue';
 
 /**
  * Renders Routes
@@ -31,6 +32,7 @@ const Routes: React.FC = () => {
         {/* ROUTES */}
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
+        <Route path='/programs-catalogue' component={ProgramsCatalogue} />
         <Route exact path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
         {/* JOB ROUTES */}
