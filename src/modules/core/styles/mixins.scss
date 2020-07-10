@@ -94,8 +94,8 @@ $screen-md-max: 768px;
 }
 
 @mixin heroImage {
+  position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  
 }

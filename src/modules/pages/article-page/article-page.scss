@@ -1,0 +1,18 @@
+@import 'core.scss';
+
+.article-page {
+}
+
+.content {
+  padding-top: 60px;
+}
+
+.back {
+  width: 92px;
+  margin-left: 22px;
+  padding: 8px 13px;
+  background-color: #f5f1f0;
+  border-radius: 3px;
+  font-family: 'IBM Plex Sans';
+  @include flex(space-between);
+}
