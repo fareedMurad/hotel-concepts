@@ -9,3 +9,111 @@
 .container {
   @include container();
 }
+
+.cards-list {
+  display: grid;
+  margin: 45px 22px 70px 22px;
+  grid-template: 1fr;
+  @include tablet() {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  @include desktop() {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  gap: 20px;
+
+  & > div:nth-child(3) {
+    @include flex($direction: column);
+    & > div:first-child {
+      margin-bottom: 90px;
+    }
+  }
+}
+
+.card {
+  @include flex($align: stretch, $justify: space-between, $direction: column);
+  padding: 32px 22px;
+  border: 1px solid $primary-orange;
+  min-height: 316px;
+  border-radius: 4px;
+  &--link {
+    transition: $transition;
+    border-bottom: 1px solid $black;
+    width: fit-content;
+    &:hover {
+      color: $primary-orange;
+      transition: $transition;
+      border-bottom: 1px solid $primary-orange;
+    }
+  }
+}
+.heading {
+  @include font($primary-orange, 18px, 500, 28px);
+}
+.footer {
+  @include flex($align: stretch);
+  padding: 60px 25px;
+  background: $background;
+  &__form {
+    margin-right: 0;
+    @include desktop() {
+      margin-right: 100px;
+    }
+  }
+  &__img {
+    display: none;
+    @include desktop() {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.input-group {
+  &__a {
+    @include flex($align: center);
+    & > div:first-child {
+      width: 35%;
+      padding-top: 24px;
+    }
+  }
+  &__b {
+    @include flex($align: center);
+    & > div:first-child {
+      width: 20%;
+      padding-top: 24px;
+    }
+  }
+}
+
+.input {
+  &--name {
+    width: 40%;
+    margin: 0px 20px;
+  }
+
+  &--surname {
+    width: 40%;
+  }
+  &--email {
+    width: 65%;
+    margin-left: 20px;
+  }
+}
+
+.text-area {
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.button-send {
+  @include flex($justify: space-between);
+  width: 204px;
+}

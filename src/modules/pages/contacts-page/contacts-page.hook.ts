@@ -17,7 +17,7 @@ const useContactsPageData = () => {
     {
       id: 3,
       title: 'Media Enquiries',
-      description: 'Please send an email to: support@cordie.co',
+      description: 'Please send an email to:',
       href: 'mailto:support@cordie.co',
       link: 'support@cordie.co'
     },
