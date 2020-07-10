@@ -2,9 +2,9 @@ import * as React from 'react';
 import { ProductProps } from './product.props';
 import * as styles from './product.scss';
 import { Header } from '@core/components/header';
-import { ProductSlider } from '@pages/components/product-slider';
+import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
-import { Slider } from '@pages/components/slider';
+
 import { useMarketplaceData } from '@pages/marketplace/marketplace.hook';
 import { Footer } from '@core/components';
 
@@ -53,7 +53,7 @@ const Product: React.FC<ProductProps> = ({}) => {
           price={price}
         />
       </div>
-      <Slider title='Recomendedbooks' data={books} />
+      <ProductSlider />
       <div className={styles.footer}>
         <Footer />
       </div>

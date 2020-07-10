@@ -3,9 +3,9 @@ import { CoursePartnershipProps } from './course-partnership.props';
 import * as styles from './course-partnership.scss';
 import { Header } from '@core/components/header';
 import { H1, Button, Icon, H2, Paragraph, Footer } from '@core/components';
-import { HowBecomePartner } from './sections ';
-import { PartnerBenefits } from './sections /partner-benefits';
-import { Criteria } from './sections /criteria';
+import { HowBecomePartner } from './sections';
+import { PartnerBenefits } from './sections/partner-benefits';
+import { Criteria } from './sections/criteria';
 import { PartnerApply } from '@pages/components';
 
 /**

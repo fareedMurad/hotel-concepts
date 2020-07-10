@@ -16,24 +16,26 @@ const SliderCard: React.FC<SliderCardProps> = ({
   onClick
 }) => {
   return (
-    <NavLink to={`/product/${id}`} className={styles.sliderCard}>
-      <div className={styles.imgWrap}>
-        <img
-          className={styles.cardGoodsPic}
-          src={`${require(`img/marketplace/marketplace-${img}.png`)}`}
-          alt='goods'
-        />
-      </div>
-
-      <div className={styles.description}>
-        <div className={styles.wrap}>
-          <H4 className={styles.price}>{price}</H4>
-          {author && <div className={styles.author}>{author}</div>}
+    <div className={styles.sliderCard}>
+      <NavLink to={`/product/${id}`}>
+        <div className={styles.imgWrap}>
+          <img
+            className={styles.cardGoodsPic}
+            src={`${require(`img/marketplace/marketplace-${img}.png`)}`}
+            alt='goods'
+          />
         </div>
 
-        <H3>{name}</H3>
-      </div>
-    </NavLink>
+        <div className={styles.description}>
+          <div className={styles.wrap}>
+            <H4 className={styles.price}>{price}</H4>
+            {author && <div className={styles.author}>{author}</div>}
+          </div>
+
+          <H3>{name}</H3>
+        </div>
+      </NavLink>
+    </div>
   );
 };
 

@@ -2,9 +2,9 @@ import * as React from 'react';
 import { MarketplaceProps } from './marketplace.props';
 import * as styles from './marketplace.scss';
 import { Header } from '@core/components/header';
-import { H1, ButtonFilter, Footer } from '@core/components';
+import { H1, ButtonFilter, Footer, Paragraph, H2 } from '@core/components';
 import { useMarketplaceData } from './marketplace.hook';
-import { Slider } from '@pages/components/slider';
+import { ProductsSlider } from '@pages/components/products-slider';
 
 /**
  * Renders Marketplace
@@ -33,7 +33,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
         <div className={styles.filterWrapper}>
           <div className={styles.filtersField}>
             {maketplaceFiltersData.map(el => {
-              const { title, id, count } = el;
+              const { title, id, count, anchor } = el;
               const activeFilter = isActive === el.id;
               return (
                 <ButtonFilter
@@ -42,29 +42,46 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
                   count={count}
                   title={title}
                   active={activeFilter}
-                  onClick={() => {
-                    setIsActive(id);
-                  }}
+                  anchor={anchor}
+                  onClick={() => setIsActive(id)}
                 />
               );
             })}
           </div>
         </div>
       </div>
-      <Slider
-        subtitle='Popular items in'
-        title='Web templates'
-        data={goodsData}
-      />
-      <Slider subtitle='Popular items in' title='Books' data={books} />
-      <Slider
-        subtitle='Popular items in'
-        title='Collections'
-        data={goodsData}
-      />
-      <Slider subtitle='Popular items in' title='Case study' data={goodsData} />
-      <Slider subtitle='Popular items in' title='Researches' data={goodsData} />
-      <Slider subtitle='Popular items in' title='Tools' data={goodsData} />
+
+      <div className={styles.slyderTitle} id='web-templates'>
+        <Paragraph>Popular items in</Paragraph>
+        <H2>Web templates</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
+
+      <div className={styles.slyderTitle} id='books'>
+        <Paragraph>New item in</Paragraph>
+        <H2>Books</H2>
+      </div>
+      <ProductsSlider data={books} />
+      <div className={styles.slyderTitle} id='collections'>
+        <Paragraph>New item in </Paragraph>
+        <H2>Collections</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
+      <div className={styles.slyderTitle} id='case-study'>
+        <Paragraph>Popular items in</Paragraph>
+        <H2>Case study</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
+      <div className={styles.slyderTitle} id='researches'>
+        <Paragraph>Popular items in</Paragraph>
+        <H2>Researches</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
+      <div className={styles.slyderTitle} id='tools'>
+        <Paragraph>Popular items in</Paragraph>
+        <H2>Tools</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
       <div className={styles.footer}>
         <Footer />
       </div>
