@@ -1,0 +1,51 @@
+@import "core.scss";
+
+.insight-block-item {
+  max-width: 430px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $light-grey;
+}
+
+.img-container {
+  position: relative;
+}
+
+.img {
+  object-fit: cover;
+  height: 270px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.activity {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  color: $primary-gray;
+  background-color: $background;
+  padding: 4px 20px;
+  border-radius: 5px;
+  font-family: $IBMPlex;
+  font-weight: 200;
+}
+
+.date {
+  @include font($light-grey, 16px, 400, 28px);
+  font-family: $IBMPlex;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.description {
+  max-width: 300px;
+  @include font($primary-grey, 18px, 400, 20px);
+  font-family: $IBMPlex;
+}
+
+.button {
+  @include flex($justify: space-between);
+  width: 100%;
+  margin-top: 20px;
+  height: 44px;
+  color: $primary-grey;
+}

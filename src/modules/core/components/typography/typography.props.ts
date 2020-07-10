@@ -22,6 +22,10 @@ type ParagraphProps = {
    * Classname
    */
   className?: string;
+  /**
+   * smaller
+   */
+  sm?: boolean;
 };
 
 export { TypographyProps, HeadingProps, ParagraphProps };

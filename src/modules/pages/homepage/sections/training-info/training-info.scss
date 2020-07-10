@@ -1,0 +1,94 @@
+@import "core.scss";
+
+.training-info {
+  min-height: 455px;
+}
+
+.container {
+  @include flex($align: center);
+  padding: $default-offset 0;
+}
+
+.title-wrapper {
+  flex: 1;
+}
+
+.title {
+  padding-right: $default-offset;
+  padding-left: $left-offset;
+  max-width: 700px;
+  & > div:first-child {
+    @include font($primary-orange, 18px, 500, 20px);
+    font-family: $IBMPlexSans;
+  }
+  & > div:nth-child(2) {
+    @include font($primary-gray, 48px, 500, 50px);
+    font-family: $EBGaramond;
+    margin-top: 12px;
+    max-width: 500px;
+  }
+  & > div:nth-child(3) {
+    @include font($primary-gray, 18px, 400, 30px);
+    font-family: $IBMPlexSans;
+    margin-top: 24px;
+    max-width: 400px;
+  }
+}
+
+.info {
+  flex: 1;
+  flex-wrap: wrap;
+  margin: $default-offset 0;
+  @include flex($justify: center);
+  max-width: 700px;
+}
+
+.info-item {
+  width: 204px;
+  height: 47px;
+  background-color: $white;
+  border-radius: 4px;
+  margin: 10px;
+  background-color: $background;
+  @include flex($align: center);
+  &:before {
+    content: '■';
+    padding: 0 15px;
+    color: $primary-orange;
+    font-size: 13px;
+  }
+}
+
+.button {
+  width: 224px;
+  margin-top: 20px;
+  margin-left: $left-offset;
+  @include flex($justify: space-between);
+}
+
+.img {
+  background: url('../../../../../assets/img/learning-approach/training-footer.png') no-repeat center center;
+  height: 350px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  padding-right: $default-offset;
+  padding-left: $left-offset;
+  @include flex($justify: center, $direction: column);
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .intro,.title  {
+    padding-left: $default-offset;
+  }
+  .button {
+    margin-left: $default-offset;
+  }
+}
