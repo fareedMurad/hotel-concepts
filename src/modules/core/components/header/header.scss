@@ -16,8 +16,8 @@
   }
   .logo {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 15px;
   }
   .navigation {
     @include flex($align: center);
@@ -34,5 +34,15 @@
         @include font($primary-gray, 18px, 500);
       }
     }
+  }
+}
+
+@media screen and (max-width: 933px) {
+  .header {
+    @include flex($align: center, $justify: flex-end);
+    padding-right: 15px;
+  }
+  .navigation-links {
+    display: none;
   }
 }

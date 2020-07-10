@@ -3,24 +3,22 @@
 .footer {
   width: 100%;
   background-color: #f5f1f0;
+  padding-left: $left-offset;
+  padding-right: $default-offset;
 }
 .content {
   padding: 24px 0px 16px 0px;
-  @include container();
-  @include flex($align: stretch);
+  @include flex($justify: space-between);
 }
 
 .subscribe {
-  width: 100%;
+  width: 90%;
+  padding-right: 30px;
 }
 
 .navigation {
-  @include flex($align: stretch);
+  @include flex($justify: space-between);
   width: 100%;
-  margin-left: 100px;
-  & > div:not(:last-child) {
-    margin-right: 100px;
-  }
   &--caption {
     @include font($primary-gray, 18px, 500, 28px);
     font-family: $IBMPlex;
@@ -28,23 +26,22 @@
   &__links {
     @include flex($align: stretch, $direction: column);
     margin-top: 13px;
+    width: 33%;
     & > a {
       @include font($primary-gray, 16px, 400, 22px);
-      width: 112px;
+      width: 140px;
       margin-bottom: 13px;
     }
   }
 }
 
 .hr {
-  @include container();
   height: 2px;
   background: $primary-gray;
   opacity: 0.2;
 }
 
 .copyrights {
-  @include container();
   @include flex($justify: space-between);
   @include font($primary-gray, 12px, 500, 16px);
   padding: 22px 0px;
@@ -56,26 +53,60 @@
 }
 
 .submit-form {
-  @include flex($align: stretch);
   position: relative;
   width: 100%;
+  margin-right: 10px;
 }
 .button-submit {
   @include flex($justify: space-between);
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 35%;
+  width: 38%;
   padding: 11px 16px;
   border-radius: 4px;
+  margin-left: 10px;
 }
 .form-input {
-  width: 60%;
   input {
     padding: 13px 16px;
     background: $white;
     border-radius: 4px;
     outline: none;
     border: none;
+    width: 60%;
+  }
+}
+
+.social {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1010px) {
+  .footer {
+    padding-left: $default-offset;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .content {
+    @include flex($direction: column);
+  }
+  .subscribe {
+    margin-bottom: 20px;
+    width: 100%;
+    padding-right: 30px;
+  }
+  .navigation {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 441px) {
+  .copyrights {
+    @include flex($direction: column-reverse, $align: center);
+  }
+  .subscribe {
+    padding-right: 0;
   }
 }
