@@ -10,6 +10,7 @@ import { ProgramIntro } from './sections/program-intro';
 import { ProgramOverview } from './sections/program-overview';
 import { ProgramAbout } from './sections/program-about';
 import { Enroll } from './sections/enroll';
+import { ProgramResults } from './sections/program-results';
 
 /**
  * Renders ProgramPage
@@ -24,6 +25,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ProgramAbout />
       <div className={styles.hr}></div>
       <Enroll />
+      <ProgramResults />
       <Mentors />
       <Impact />
       <FaqBlock />

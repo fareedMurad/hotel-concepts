@@ -24,7 +24,7 @@ const Enroll: React.FC<EnrollProps> = ({}) => {
       </div>
       <div className={styles.roles}>
         {data.map(role => (
-          <div className={styles.role}>{role}</div>
+          <div key={role} className={styles.role}>{role}</div>
         ))}
       </div>
     </section>

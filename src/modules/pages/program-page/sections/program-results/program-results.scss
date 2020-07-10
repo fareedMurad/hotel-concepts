@@ -1,0 +1,38 @@
+@import "core.scss";
+
+.program-results {
+  padding: $left-offset;
+}
+
+.title {
+  @include font($primary-grey, 48px, 500, 50px);
+  font-family: $EBGaramond;
+  margin-bottom: 40px;
+}
+
+.hr {
+  height: 2px;
+  background-color: $hr;
+  width: 100%;
+}
+
+.container {
+  @include flex($align: center);
+}
+
+.icon {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background-color: $background;
+  margin-right: 20px;
+  &:before {
+    content: '✔';
+    @include flex($justify: center);
+    padding-top: 7px;
+  }
+}
+
+.result {
+  margin: 32px 0;
+}

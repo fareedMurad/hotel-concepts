@@ -23,8 +23,8 @@ const ProgramAbout: React.FC<ProgramAboutProps> = ({}) => {
       </div>
       <div className={styles.skills}>
         <div>Skills covered</div>
-        {data.map(item => (
-          <div className={styles.item} key={item}>{item}</div>
+        {data.map((item, index) => (
+          <div className={styles.item} key={index}>{item}</div>
         ))}
       </div>
     </section>
