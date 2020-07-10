@@ -7,6 +7,7 @@ import { ProgramsContactUs } from './sections/programs-contact-us';
 import { useOnlineCoursesData } from '@pages/homepage/sections/online-courses/online-courses.hook';
 import { Header } from '@core/components/header';
 import { ProgramItem } from './components/program-item';
+import { Footer } from '@core/components';
 
 /**
  * Renders ProgramsCatalogue
@@ -40,6 +41,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
         </div>
         <ProgramsContactUs />
       </div>
+      <Footer />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { CatalogueHeaderProps } from './catalogue-header.props';
 import * as styles from './catalogue-header.scss';
+import { ScrollButton } from '@core/components/scroll-button';
 
 /**
  * Renders CatalogueHeader
@@ -16,6 +17,7 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({}) => {
           course to suit your transition needs, at every stage of your career.
         </div>
       </div>
+      <ScrollButton text="Scroll" className={styles.scrollButton} />
     </section>
   );
 };

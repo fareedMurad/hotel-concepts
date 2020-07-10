@@ -31,3 +31,9 @@
     font-family: $IBMPlexSans;
   }
 }
+
+.scroll-button {
+  bottom: 15px;
+  position: absolute;
+  left: $left-offset;
+}
