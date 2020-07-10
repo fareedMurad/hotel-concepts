@@ -1,0 +1,130 @@
+@import "core.scss";
+
+.burger-menu {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 320;
+  .separator {
+    width: 100%;
+    height: 2px;
+    background-color: $background;
+  }
+  .blur {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: background-color .25s linear;
+    visibility: hidden;
+  }
+  .links-container {
+    padding-left: 120px;
+  }
+  .link {
+    text-decoration: none !important;
+    margin: 20px 0;
+    .link-name {
+      @include font($primary-grey, 36px, 500, 80px);
+      font-family: $EBGaramond;
+    }
+    .description {
+      @include font($primary-grey, 18px, 200);
+      font-family: $IBMPlex;
+    }
+    &:hover {
+      .link-name {
+        color: $primary-orange;
+        text-decoration: underline;
+      }
+      .description {
+        color: $primary-orange;
+        text-decoration: none;
+      }
+    }
+  }
+  .secondary-container {
+    padding: 20px 25px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .secondary-link {
+    font-family: $IBMPlex;
+    font-weight: 200;
+    @include font($primary-grey, 18px, 400, 30px);
+    text-decoration: underline;
+    &:hover {
+      color: $primary-orange;
+    }
+  }
+  .content {
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    max-height: calc(100vh - #{$header-height});
+    z-index: 5;
+    top: -100vh;
+    width: 100%;
+    transition: top .25s linear;
+    overflow: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: rgb(201, 201, 201);
+    }
+  }
+  &.opened {
+    .content {
+      top: $header-height;
+      transition: top .25s linear;
+    }
+    .blur {
+      visibility: visible;
+      background-color: rgba(0, 0, 0, 0.466);
+      transition: background-color .25s linear;
+    }
+  }
+}
+
+@media screen and (max-width: 892px) {
+  .secondary-container {
+    flex-direction: column;
+    margin-left: 96px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .content {
+    height: 100vh;
+    top: $header-height;
+    left: -100vw;
+    transition: left .25s linear;
+  }
+  .opened {
+    .content {
+      left: 0;
+      transition: left .25s linear;
+    }
+  }
+  .links-container {
+    padding-left: 25px;
+  }
+  .secondary-link {
+    padding: 5px 0;
+  }
+  .secondary-container {
+    padding: 1px 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+

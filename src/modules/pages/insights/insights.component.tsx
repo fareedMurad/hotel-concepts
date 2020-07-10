@@ -13,9 +13,7 @@ import { InsightsSubscribe } from './sections';
 const Insights: React.FC<InsightsProps> = ({}) => {
   return (
     <div className={styles.insights}>
-      <div className={styles.header}>
-        <Header whiteBackground />
-      </div>
+      <Header whiteBackground />
       <HeroBlock />
       <FeaturedArticles />
       <InsightsSubscribe />
