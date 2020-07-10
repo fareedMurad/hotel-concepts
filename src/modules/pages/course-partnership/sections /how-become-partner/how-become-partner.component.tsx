@@ -3,13 +3,13 @@ import { HowBecomePartnerProps } from './how-become-partner.props';
 import * as styles from './how-become-partner.scss';
 import { H2, Icon } from '@core/components';
 import { Card } from './card';
-import { useCourseHook } from '@pages/course-partnership/course.hook';
+import { useCoursePartnershipHook } from '@pages/course-partnership/course-partnership.hook';
 
 /**
  * Renders HowBecomePartner
  */
 const HowBecomePartner: React.FC<HowBecomePartnerProps> = ({}) => {
-  const { cardsData } = useCourseHook();
+  const { cardsData } = useCoursePartnershipHook();
   return (
     <div className={styles.howBecomePartner}>
       <div className={styles.howBecomePartnerTitle}>

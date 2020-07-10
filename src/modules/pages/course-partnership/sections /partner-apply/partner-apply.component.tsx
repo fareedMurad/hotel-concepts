@@ -87,6 +87,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({}) => {
                     // onClick={() => {
                     //   handleSubmit(), validateForm();
                     // }}
+                    //
                     className={styles.buttonSubmit}
                     type='submit'
                   >

@@ -14,7 +14,7 @@ import { ForCompanies } from '@pages/for-companies';
 import { Insights } from '@pages/insights';
 import { Marketplace } from '@pages/marketplace';
 import { Product } from '@pages/product';
-import { Course } from '@pages/course-partnership';
+import { CoursePartnership } from '@pages/course-partnership';
 
 /**
  * Renders Routes
@@ -45,7 +45,7 @@ const Routes: React.FC = () => {
         {/* PRODUCT ROUTE */}
         <Route path='/product' component={Product} />
         {/* PRODUCT ROUTE */}
-        <Route path='/course' component={Course} />
+        <Route path='/course' component={CoursePartnership} />
       </Switch>
     </div>
   );

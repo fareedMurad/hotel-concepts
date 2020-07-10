@@ -1,4 +1,4 @@
-const useCourseHook = () => {
+const useCoursePartnershipHook = () => {
   const cardsData = [
     {
       id: 1,
@@ -25,4 +25,4 @@ const useCourseHook = () => {
   return { cardsData };
 };
 
-export { useCourseHook };
+export { useCoursePartnershipHook };
