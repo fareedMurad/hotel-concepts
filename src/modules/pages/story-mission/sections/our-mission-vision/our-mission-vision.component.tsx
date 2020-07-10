@@ -45,7 +45,6 @@ const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
           backgroundImage: `url(${require('img/story-mission/story-mission-2.png')})`
         }}
       >
-        <div className={styles.overlay} />
         <HeroCaption
           title='Our mission & Vision'
           className={styles.heroCaption}

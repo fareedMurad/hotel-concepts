@@ -58,9 +58,9 @@
 }
 
 .container {
+  @include container();
   padding-top: 120px;
   padding-bottom: 120px;
-  @include container();
 }
 
 .competitive-text {
