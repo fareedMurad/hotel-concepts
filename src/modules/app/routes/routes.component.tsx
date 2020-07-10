@@ -45,7 +45,7 @@ const Routes: React.FC = () => {
         {/* PRODUCT ROUTE */}
         <Route path='/product' component={Product} />
         {/* PRODUCT ROUTE */}
-        <Route path='/course' component={CoursePartnership} />
+        <Route path='/course-partnership' component={CoursePartnership} />
       </Switch>
     </div>
   );
