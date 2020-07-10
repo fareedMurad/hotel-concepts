@@ -7,7 +7,7 @@
 .container {
   @include container();
   @include flex($align: center);
-  padding: 24px 0px;
+  padding: 24px 120px;
 }
 
 .slider {
