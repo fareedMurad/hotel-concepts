@@ -1,0 +1,33 @@
+@import "core.scss";
+
+.catalogue-header {
+  background: url('../../../../../assets/img/programs-catalogue-header.png') no-repeat center center;
+  height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  min-height: 500px;
+}
+
+.title {
+  padding-left: $left-offset;
+  & > div:first-child {
+    max-width: 500px;
+    @include font($white, 60px, 500, 65px);
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    margin-top: 20px;
+    max-width: 880px;
+    @include font($white, 24px, 400, 26px);
+    font-family: $IBMPlexSans;
+  }
+}

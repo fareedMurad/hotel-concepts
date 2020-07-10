@@ -1,0 +1,12 @@
+@import "core.scss";
+
+.catalogue-filters {
+  background-color: $background;
+  padding: 20px 0;
+}
+
+.title {
+  padding-left: $left-offset;
+  font-family: $IBMPlexSans;
+  @include font($primary-grey, 24px, 400, 65px);
+}

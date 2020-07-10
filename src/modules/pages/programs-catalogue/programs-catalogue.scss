@@ -1,5 +1,21 @@
 @import "core.scss";
 
 .programs-catalogue {
-	
+
+}
+
+.title {
+  margin: 40px 0;
+  padding-left: $left-offset;
+  & > div:first-child {
+    max-width: 400px;
+    @include font($primary-grey, 60px, 500, 65px);
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    margin-top: 20px;
+    max-width: 420px;
+    @include font($primary-grey, 18px, 400, 26px);
+    font-family: $IBMPlexSans;
+  }
 }
