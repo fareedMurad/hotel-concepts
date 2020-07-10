@@ -29,7 +29,6 @@ const Routes: React.FC = () => {
     <div className={styles.routes}>
       {isToastVisible && <Toast />}
       <Switch>
-        <Route path='/' component={Homepage} />
         <Route path='/profile' component={Profile} />
         <Route path='/auth' component={Auth} />
         <Route path='/uikit' component={Uikit} />
@@ -52,6 +51,7 @@ const Routes: React.FC = () => {
         <Route path='/product' component={Product} />
         {/* PRODUCT ROUTE */}
         <Route path='/course' component={Course} />
+        <Route path='/' component={Homepage} />
       </Switch>
     </div>
   );
