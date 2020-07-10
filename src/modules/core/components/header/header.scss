@@ -1,51 +1,38 @@
 @import 'core.scss';
 
-.wrapper {
-  @include flex($align: center);
-  position: relative;
-}
-.logo {
-  margin-right: 25px;
-}
 .header {
   @include flex($align: center);
-  @include container();
-  position: relative;
-}
-.navigation {
-  @include flex($align: center);
-  &-links {
-    @include font($white, 18px, 500);
-    font-family: $IBMPlex;
-    & > a {
-      margin-left: 39px;
-    }
-    &--gray {
-      @include font($primary-gray, 18px, 500);
-    }
+  padding-left: $left-offset;
+  height: $header-height;
+  position: fixed;
+  transition: background-color 200ms linear;
+  z-index: 999;
+  width: 100%;
+  top: 0;
+  left: 0;
+  &.inverted {
+    background-color: #ffffff;
+    transition: background-color 200ms linear;
   }
-}
-
-.item {
-  @include font($white, 18px, 500);
-  @include flex($align: center);
-  font-family: $IBMPlex;
-  &-menu {
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .navigation {
     @include flex($align: center);
-    &--caption {
-      margin-left: 8px;
+    &-links {
+      @include font($white, 18px, 500);
+      font-family: $IBMPlex;
+      & > a {
+        margin-left: 39px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      &.inverted {
+        @include font($primary-gray, 18px, 500);
+      }
     }
-  }
-  &-programs {
-    @include flex($align: center);
-    margin-left: 39px;
-    &--icon {
-      position: relative;
-      bottom: 2px;
-      left: 6px;
-    }
-  }
-  &--gray {
-    color: $primary-gray;
   }
 }

@@ -21,7 +21,7 @@ import { Footer } from '@core/components';
 const Homepage: React.FC<HomepageProps> = ({}) => {
   return (
     <div className={styles.homepage}>
-      {/* <Header /> */}
+      <Header />
       <Intro />
       <SupportInfo />
       <OnlineCourses />
