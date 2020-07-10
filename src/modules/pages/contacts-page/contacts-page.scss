@@ -1,0 +1,11 @@
+@import 'core.scss';
+
+.contacts-page {
+}
+.header {
+  padding: 25px 22px;
+}
+
+.container {
+  @include container();
+}
