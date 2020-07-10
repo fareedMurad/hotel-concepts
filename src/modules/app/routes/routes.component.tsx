@@ -7,7 +7,13 @@ import * as styles from './routes.scss';
 import { useSelector } from 'react-redux';
 import { State } from '@app/store/state';
 import { Toast } from '@core/components';
-import { LearningApproach, Faq, Contributors, ContactsPage } from 'src/modules/pages';
+import {
+  LearningApproach,
+  Faq,
+  Contributors,
+  ContactsPage,
+  ArticlePage
+} from 'src/modules/pages';
 import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
@@ -34,6 +40,7 @@ const Routes: React.FC = () => {
         <Route path='/uikit' component={Uikit} />
 
         {/* ROUTES */}
+        <Route path='/insights/article/:id' component={ArticlePage} />
         <Route path='/contact-us' component={ContactsPage} />
         <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />

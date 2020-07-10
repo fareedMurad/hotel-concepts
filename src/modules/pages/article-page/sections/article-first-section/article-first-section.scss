@@ -1,0 +1,29 @@
+@import 'core.scss';
+
+.article-first-section {
+  display: flex;
+  padding-left: 120px;
+}
+
+.tags {
+  @include flex($align: stretch);
+
+  &__item {
+    width: 122px;
+    margin-right: 12px;
+    padding: 6px 24px;
+    text-align: center;
+    background: $background;
+    border-radius: 4px;
+  }
+}
+
+.heading {
+  &__options {
+    display: flex;
+  }
+}
+
+.share {
+  display: flex;
+}
