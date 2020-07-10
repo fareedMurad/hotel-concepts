@@ -1,0 +1,82 @@
+@import "core.scss";
+
+.about {
+  padding: 100px 0;
+}
+
+.title {
+  padding-left: $left-offset;
+  padding-right: $default-offset;
+  & > div:first-child {
+    @include font($primary-orange, 18px, 600, 18px);
+    max-width: 600px;
+    letter-spacing: -0.36px;
+    font-family: $IBMPlex;
+  }
+  & > div:nth-child(2) {
+    @include font($primary-gray, 48px, 400, 50px);
+    margin: 15px 0px;
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(3) {
+    @include font($primary-gray, 24px, 400, 26px);
+    margin: 20px 0px;
+    font-family: $IBMPlex;
+  }
+}
+
+.content {
+  @include flex($justify: center);
+  padding: 0 $default-offset;
+  min-height: 350px;
+}
+
+.item {
+  padding: 0 $default-offset;
+  padding-top: 32px;
+  background-color: $background;
+  flex: 1;
+  margin: 10px;
+  min-height: inherit;
+  height: 100%;
+  & > div:first-child {
+    @include font($primary-orange, 36px, 600, 38px);
+    max-width: 600px;
+    letter-spacing: -0.36px;
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    @include font($primary-gray, 24px, 400, 26px);
+    margin: 15px 0px;
+    font-family: $IBMPlex;
+  }
+  & > div:nth-child(3) {
+    @include font($primary-gray, 18px, 200, 20px);
+    margin: 20px 0px;
+    font-family: $IBMPlex;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .title {
+    padding-left: $default-offset;
+    & > div:first-child {
+      @include font($primary-orange, 16px, 600, 18px);
+    }
+    & > div:nth-child(2) {
+      @include font($primary-gray, 38px, 400, 50px);
+    }
+    & > div:nth-child(3) {
+      @include font($primary-gray, 20px, 400, 26px);
+    }
+  }
+
+  .content {
+    @include flex($direction: column);
+  }
+
+  .item {
+    min-height: 200px;
+  }
+}
