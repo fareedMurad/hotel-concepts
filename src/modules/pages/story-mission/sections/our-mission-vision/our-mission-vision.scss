@@ -32,7 +32,7 @@
   background: $background;
   &__wrapper {
     @include container();
-    padding: 58px 0px;
+    padding: 58px 120px;
   }
   &__paragraph {
     width: 30vw;

@@ -123,7 +123,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                 </Form>
               )}
             </Formik>
-            <Paragraph>
+            <Paragraph className={styles.footerCaption}>
               Kordie takes your privacy very seriously. We may process your
               personal information for carefully considered and specific
               purposes which are in our interests and enable us to enhance the

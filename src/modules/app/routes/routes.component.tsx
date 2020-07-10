@@ -40,7 +40,7 @@ const Routes: React.FC = () => {
         <Route path='/uikit' component={Uikit} />
 
         {/* ROUTES */}
-        <Route path='/insights/article/:id' component={ArticlePage} />
+        {/* <Route path='/insights/article/:id' component={ArticlePage} /> */}
         <Route path='/contact-us' component={ContactsPage} />
         <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />
