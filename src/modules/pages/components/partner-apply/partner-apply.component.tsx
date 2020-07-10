@@ -29,7 +29,7 @@ const defaultValues = {
 const PartnerApply: React.FC<PartnerApplyProps> = ({}) => {
   const [focused, setFocused] = React.useState(false);
   return (
-    <div className={styles.partnerApply}>
+    <div className={styles.partnerApply} id='get-involved'>
       <div className={styles.container}>
         <div className={styles.formWrapper}>
           <H2>Want to get involved?</H2>
