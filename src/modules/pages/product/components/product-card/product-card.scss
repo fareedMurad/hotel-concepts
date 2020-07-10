@@ -1,0 +1,59 @@
+@import 'core.scss';
+
+.product-card {
+  width: 50%;
+  padding: 30px 20px;
+  background-color: $background;
+  border-radius: 8px;
+}
+
+.product-card {
+  &__title {
+    width: 50%;
+  }
+}
+
+.desription {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.description {
+  &__block {
+    width: 20%;
+    p {
+      margin: 0;
+    }
+  }
+  &--title {
+    @include font($primary-orange, 18px, 600, 28px);
+    color: $primary-orange;
+  }
+}
+
+.hr {
+  width: 80%;
+  height: 2px;
+  background-color: $light-grey;
+}
+
+.details {
+  width: 50%;
+  margin-top: 11px;
+  &--title {
+    @include font($primary-orange, 18px, 600, 28px);
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.price {
+  margin-top: 100px;
+}
+
+.confirm-button {
+  margin-top: 15px;
+}

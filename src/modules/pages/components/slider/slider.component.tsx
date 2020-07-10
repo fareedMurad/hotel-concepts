@@ -25,6 +25,8 @@ const Slider: React.FC<SliderProps> = ({ subtitle, title, data }) => {
               name={name}
               price={price}
               author={author}
+              id={id}
+              onClick={() => {}}
             />
           );
         })}
