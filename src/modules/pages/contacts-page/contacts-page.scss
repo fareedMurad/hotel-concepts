@@ -27,7 +27,7 @@
   & > div:nth-child(3) {
     @include flex($direction: column);
     & > div:first-child {
-      margin-bottom: 90px;
+      margin-bottom: 70px;
     }
   }
 }
@@ -39,6 +39,7 @@
   min-height: 316px;
   border-radius: 4px;
   &--link {
+    @include font($primary-gray, 16px, 400px, 22px);
     transition: $transition;
     border-bottom: 1px solid $black;
     width: fit-content;
@@ -47,6 +48,13 @@
       transition: $transition;
       border-bottom: 1px solid $primary-orange;
     }
+  }
+  &--title {
+    @include font($primary-gray, 24px, 400, 34px);
+    font-family: $IBMPlex;
+  }
+  &--description {
+    @include font($primary-gray, 18px, 400px, 28px);
   }
 }
 .heading {
