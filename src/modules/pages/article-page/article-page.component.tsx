@@ -8,6 +8,7 @@ import {
   ArticleLastSection,
   ArticleSecondSection
 } from './sections';
+import { H2, Paragraph, Button } from '@core/components';
 
 /**
  * Renders ArticlePage
@@ -26,6 +27,19 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
         <ArticleSecondSection />
         <ArticleLastSection />
       </main>
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <H2>Read Next</H2>
+          <div className={styles.footerContentDate}>Jan 11, 2019</div>
+          <Paragraph className={styles.footerContentCaption}>
+            Financial Analysis of Hotel Investments course.
+          </Paragraph>
+          <Button theme='secondary' className={styles.button}>
+            <div>Read</div>
+            <div>&#8594;</div>
+          </Button>
+        </div>
+      </footer>
     </div>
   );
 };

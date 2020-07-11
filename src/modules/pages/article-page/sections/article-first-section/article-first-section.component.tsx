@@ -31,14 +31,21 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
           ))}
         </div>
         <div className={styles.headingOptions}>
-          <div>Reading time: {readingTime}</div>
+          <div className={styles.readingTime}>
+            <div>Reading time:</div> <div>{readingTime}</div>
+          </div>
           <div className={styles.share}>
-            Share <Icon name='share' />
+            <div>Share</div> <Icon name='share' />
           </div>
         </div>
-        <Paragraph>{heroDescription}</Paragraph>
+        <Paragraph className={styles.heroDescription}>
+          {heroDescription}
+        </Paragraph>
       </div>
-      <img src={require('img/article-page/article-page-1.png')} />
+      <img
+        src={require('img/article-page/article-page-1.png')}
+        className={styles.image}
+      />
     </div>
   );
 };
