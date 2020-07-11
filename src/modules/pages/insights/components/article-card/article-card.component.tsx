@@ -10,8 +10,14 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
   const { img, activity, date, description } = articles;
   return (
     <div className={styles.articleCard}>
-      <img className={styles.image} src={require(`img/insights/${img}.png`)} />
-      <div className={styles.activity}>{activity}</div>
+      <div className={styles.imageWrapper}>
+        <img
+          className={styles.image}
+          src={require(`img/insights/${img}.png`)}
+        />
+        <div className={styles.activity}>{activity}</div>
+      </div>
+
       <div className={styles.content}>
         <div className={styles.contentDate}>{date}</div>
         <div className={styles.contentDescription}>{description}</div>
