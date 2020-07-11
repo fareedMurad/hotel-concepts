@@ -18,7 +18,10 @@
 }
 
 .footer {
-  padding: 50px 120px;
+  padding: 22px;
+  @include desktop() {
+    padding: 50px 120px;
+  }
   background: $background;
   &_content {
     width: 300px;

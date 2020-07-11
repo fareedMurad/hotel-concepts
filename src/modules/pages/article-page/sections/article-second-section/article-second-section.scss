@@ -2,7 +2,10 @@
 
 .article-second-section {
   position: relative;
-  padding: 0px 350px 0px 120px;
+  padding: 0 22px;
+  @include desktop() {
+    padding: 0px 350px 0px 120px;
+  }
 }
 
 .aside {

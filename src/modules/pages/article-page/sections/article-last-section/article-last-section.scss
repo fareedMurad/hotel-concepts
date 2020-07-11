@@ -2,7 +2,10 @@
 
 .article-last-section {
   position: relative;
-  padding: 0px 350px 0px 120px;
+  padding: 0 22px;
+  @include desktop() {
+    padding: 0px 350px 0px 120px;
+  }
 }
 
 .hr {
@@ -12,26 +15,46 @@
   background: $hr;
 }
 
-.image {
-  @include flex($align: center, $justify: center, $direction: column);
-  height: -webkit-fill-available;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  padding: 0px 120px;
-  min-width: 876px;
-}
-
 .post-image {
-  min-height: 500px;
+  margin-bottom: 20px;
+  @include desktop() {
+    min-height: 500px;
+  }
   text-align: center;
   &--text {
-    @include font($white, 28px, 400, 35px);
-    margin-top: 40px;
+    @include font($white, 16px, 400, 24px);
+    margin-top: 20px;
     font-family: $EBGaramond;
+    @include tablet() {
+      @include font($white, 28px, 400, 35px);
+      margin-top: 40px;
+    }
   }
   &--author {
-    @include font($white, 36px, 600, 48px);
-    margin-top: 30px;
+    @include font($white, 24px, 600, 32px);
+    margin-top: 15px;
+    @include tablet() {
+      @include font($white, 36px, 600, 48px);
+      margin-top: 30px;
+    }
+  }
+}
+
+.image {
+  @include flex($align: center, $justify: center, $direction: column);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  min-height: 200px;
+  @include tablet() {
+    min-height: 400px;
+  }
+  @include desktop() {
+    background-size: contain;
+    background-position: center;
+    height: -webkit-fill-available;
+    min-width: 876px;
+    padding: 0px 120px;
   }
 }

@@ -2,7 +2,10 @@
 
 .article-first-section {
   @include flex($align: center);
-  padding-left: 120px;
+  padding: 22px 22px 0px 22px;
+  @include desktop() {
+    padding-left: 120px;
+  }
 }
 
 .tags {
@@ -19,7 +22,10 @@
 }
 
 .heading {
-  padding-right: 50px;
+  padding-right: 22px;
+  @include desktop() {
+    padding-right: 50px;
+  }
   &__options {
     @include flex($align: center);
     @include font($primary-gray, 16px, 400);
@@ -48,7 +54,7 @@
 }
 
 .image {
-  padding-right: 22px;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  padding-right: 22px;
 }

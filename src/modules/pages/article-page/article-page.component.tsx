@@ -15,6 +15,7 @@ import { H2, Paragraph, Button } from '@core/components';
  */
 const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
   const history = useHistory();
+
   return (
     <div className={styles.articlePage}>
       <Header whiteBackground />

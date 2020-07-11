@@ -3,6 +3,7 @@ import { ArticleFirstSectionProps } from './article-first-section.props';
 import * as styles from './article-first-section.scss';
 import { H1, Icon, Paragraph } from '@core/components';
 import { useArticlePageData } from '@pages/article-page/article-page.hook';
+import { useMediaPoints } from '@core/shared';
 
 /**
  * Renders Tags
@@ -20,6 +21,7 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
     heroTitle,
     heroDescription
   } = useArticlePageData();
+  const { desktop } = useMediaPoints();
 
   return (
     <div className={styles.articleFirstSection}>
@@ -42,10 +44,12 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
           {heroDescription}
         </Paragraph>
       </div>
-      <img
-        src={require('img/article-page/article-page-1.png')}
-        className={styles.image}
-      />
+      {desktop && (
+        <img
+          src={require('img/article-page/article-page-1.png')}
+          className={styles.image}
+        />
+      )}
     </div>
   );
 };
