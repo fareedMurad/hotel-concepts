@@ -1,5 +1,37 @@
-@import "core.scss";
+@import 'core.scss';
 
 .article-last-section {
-	
+  position: relative;
+  padding: 0px 350px 0px 120px;
+}
+
+.hr {
+  width: 60%;
+  height: 2px;
+  margin: 50px 0px;
+  background: $hr;
+}
+
+.image {
+  @include flex($align: center, $justify: center, $direction: column);
+  height: -webkit-fill-available;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 0px 120px;
+  min-width: 876px;
+}
+
+.post-image {
+  min-height: 500px;
+  text-align: center;
+  &--text {
+    @include font($white, 28px, 400, 35px);
+    margin-top: 40px;
+    font-family: $EBGaramond;
+  }
+  &--author {
+    @include font($white, 36px, 600, 48px);
+    margin-top: 30px;
+  }
 }

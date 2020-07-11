@@ -16,3 +16,23 @@
   font-family: 'IBM Plex Sans';
   @include flex(space-between);
 }
+
+.footer {
+  padding: 50px 120px;
+  background: $background;
+  &_content {
+    width: 300px;
+    &--date {
+      @include font($hr, 16px, 500, 22px);
+      margin-top: 6px;
+    }
+    &--caption {
+      margin: 4px 0px;
+    }
+  }
+}
+
+.button {
+  @include flex($justify: space-between);
+  width: 204px;
+}
