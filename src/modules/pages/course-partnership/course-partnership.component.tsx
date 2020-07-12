@@ -7,6 +7,7 @@ import { HowBecomePartner } from './sections';
 import { PartnerBenefits } from './sections/partner-benefits';
 import { Criteria } from './sections/criteria';
 import { PartnerApply } from '@pages/components';
+import { ScrollButton } from '@core/components/scroll-button';
 
 /**
  * Renders Course
@@ -40,7 +41,7 @@ const CoursePartnership: React.FC<CoursePartnershipProps> = ({}) => {
             <div>&rarr;</div>
           </Button>
         </main>
-        <div className={styles.arrow}>&#8595; Scroll</div>
+        <ScrollButton text='Scroll' className={styles.arrow} />
       </div>
       <div className={styles.partnering}>
         <Icon name='abstract-1' />
