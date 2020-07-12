@@ -2,7 +2,7 @@
  * Props
  */
 type FaqBlockProps = {
-    className?: string;
+  className?: string;
 };
 
 export { FaqBlockProps };

@@ -11,7 +11,10 @@
 
 .form {
   @include flex($direction: column);
-  width: 670px;
+  width: 100%;
+  @include desktop() {
+    width: 670px;
+  }
 }
 
 .rule {
@@ -20,8 +23,12 @@
 }
 
 .text-area {
-  width: 653px;
-  height: 97px;
+  width: 100%;
+  min-height: 97px;
+  @include desktop() {
+    width: 653px;
+    height: 97px;
+  }
   border: none;
   outline: none;
   resize: none;
@@ -31,11 +38,17 @@
 .form-group {
   @include flex($align: stretch);
   width: 100%;
+  & > div:not(:last-child) {
+    margin-right: 8px;
+  }
 }
 
 .form-input {
   width: 100%;
   input {
-    width: 317px;
+    width: 100%;
+    @include desktop() {
+      width: 317px;
+    }
   }
 }

@@ -14,8 +14,11 @@
 }
 
 .block {
-  width: 60vw;
+  width: 100%;
   margin-bottom: 24px;
+  @include tablet() {
+    width: 60vw;
+  }
   &--id {
     @include font($primary-orange, 18px, 600, 58px);
     font-family: $EBGaramond;

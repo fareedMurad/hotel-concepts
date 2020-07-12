@@ -8,9 +8,7 @@ import { useMediaPoints } from '@core/shared';
 /**
  * Renders Tags
  */
-const Tag = ({ caption }) => {
-  return <div className={styles.tagsItem}>{caption}</div>;
-};
+const Tag = ({ caption }) => <div className={styles.tagsItem}>{caption}</div>;
 /**
  * Renders ArticleFirstSection
  */
