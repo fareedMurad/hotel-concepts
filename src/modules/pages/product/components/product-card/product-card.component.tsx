@@ -39,7 +39,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <Paragraph>{details}</Paragraph>
       </div>
       <H3 className={styles.price}>{price}</H3>
-      <Button className={styles.confirmButton}>Go to Checkout</Button>
+      <Button className={styles.confirmButton}>
+        <div>Go to Checkout</div> <div>&rarr;</div>
+      </Button>
     </div>
   );
 };

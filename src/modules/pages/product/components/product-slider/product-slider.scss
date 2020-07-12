@@ -1,5 +1,80 @@
-@import "core.scss";
+@import 'core.scss';
 
-.product-slider {
-	
+.product-slider-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 65px;
+}
+.productSlider {
+  width: 100%;
+}
+.container {
+  position: relative;
+  display: flex;
+  width: 500px;
+  overflow: hidden;
+  height: auto;
+  padding-bottom: 32px;
+}
+
+.slider {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform, transition;
+}
+
+.block {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  fill: $light-grey;
+  transition: $transition;
+  &:hover {
+    fill: $primary-grey;
+  }
+}
+.arrow-right {
+  top: calc(50% - 60px);
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.arrow-left {
+  top: calc(50% - 60px);
+  left: 0;
+}
+
+.inactive-dot {
+  background-color: $light-grey;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+}
+
+.active-dot {
+  background-color: $primary-orange;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+}
+.dots {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  display: flex;
 }

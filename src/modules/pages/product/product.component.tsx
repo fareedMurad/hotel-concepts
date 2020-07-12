@@ -6,7 +6,8 @@ import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
 
 import { useMarketplaceData } from '@pages/marketplace/marketplace.hook';
-import { Footer } from '@core/components';
+import { Footer, H2, Icon } from '@core/components';
+import { ProductsSlider } from '@pages/components/products-slider';
 
 /**
  * Product-card Data
@@ -42,7 +43,22 @@ const Product: React.FC<ProductProps> = ({}) => {
         <Header whiteBackground />
       </div>
       <div className={styles.productReview}>
-        <ProductSlider />
+        <div className={styles.slider}>
+          <ProductSlider />
+          <div className={styles.links}>
+            <div className={styles.linksShare}>
+              <a href='#'>Share</a>
+              <button className={styles.shareButton}>
+                <Icon name='share' />
+              </button>
+            </div>
+            <div className={styles.linksDownload}>
+              <button className={styles.downloadBtn}>PDF</button>
+              <button className={styles.downloadBtn}>EPUB</button>
+              <button className={styles.downloadBtn}>FB2</button>
+            </div>
+          </div>
+        </div>
         <ProductCard
           title={title}
           author={author}
@@ -53,7 +69,10 @@ const Product: React.FC<ProductProps> = ({}) => {
           price={price}
         />
       </div>
-      <ProductSlider />
+
+      <H2 className={styles.recomendedBooks}>Recommended books</H2>
+
+      <ProductsSlider data={books} />
       <div className={styles.footer}>
         <Footer />
       </div>
