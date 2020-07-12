@@ -3,17 +3,18 @@
 .hero {
   &__block {
     @include imageOverlay();
+    @include flex($align: stretch, $direction: column, $justify: center);
+    @include container();
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     height: 561px;
+    background-position: center;
   }
   &__caption {
     z-index: 333;
     width: fit-content;
-    margin-left: 133px;
-    padding: 146px 0px 40px 0px;
     border-bottom: 2px solid #c2c2c262;
     & > * {
       color: white;
@@ -21,9 +22,11 @@
   }
   &__description {
     z-index: 333;
-    width: 30vw;
-    margin: 50px 0px 0px 133px;
+    width: 100%;
     color: white;
+    @include desktop() {
+      width: 30vw;
+    }
   }
 }
 
@@ -31,11 +34,16 @@
   padding-bottom: 100px;
   background: $background;
   &__wrapper {
-    @include container();
-    padding: 58px 120px;
+    padding: 24px 22px;
+    @include desktop() {
+      padding: 58px 120px;
+    }
   }
   &__paragraph {
-    width: 30vw;
+    width: 100%;
+    @include desktop() {
+      width: 30vw;
+    }
   }
 }
 .programs-list {
@@ -50,9 +58,10 @@
 }
 .program {
   display: grid;
-  grid-template-columns: 204px 2fr 1fr;
-  grid-template-rows: 1fr;
-  align-items: center;
+  @include desktop() {
+    grid-template-columns: 204px 2fr 1fr;
+    grid-template-rows: 1fr;
+  }
   &__block {
     // width: 15vw;
     &--rate {
@@ -66,10 +75,13 @@
     &--description {
       @include font($primary-gray, 18px, 300, 28px);
       //   width: 25vw;
-      justify-self: center;
+      @include desktop() {
+        justify-self: center;
+      }
     }
     &--btn {
       justify-self: end;
+      align-self: center;
       & > button {
         @include flex($justify: space-between);
         width: 224px;

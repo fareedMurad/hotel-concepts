@@ -5,12 +5,16 @@
 }
 
 .container {
-  @include container();
-  padding-top: 50px;
+  padding: 22px;
+  @include desktop() {
+    padding: 20px 120px;
+  }
 }
 
 .form-wrapper {
-  width: 50%;
+  @include desktop() {
+    width: 50%;
+  }
 }
 
 .form-section {
@@ -35,7 +39,10 @@
 }
 
 .email {
-  width: 70%;
+  width: 100%;
+  @include desktop() {
+    width: 70%;
+  }
 }
 
 .button-submit {

@@ -5,15 +5,19 @@
 }
 
 .caption {
-  @include container();
-  padding: 46px;
+  padding: 22px;
+  @include desktop() {
+    padding: 46px 120px;
+  }
 }
 .card-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
   margin: 0 22px;
   gap: 20px;
+  @include tablet() {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
   & > div {
     justify-self: center;
   }
