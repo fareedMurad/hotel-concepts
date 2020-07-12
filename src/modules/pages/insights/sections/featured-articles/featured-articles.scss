@@ -30,7 +30,7 @@
       margin: 0;
     }
   }
-  @include tablet() {
+  @include desktop() {
     overflow: initial;
     margin: 22px 0px 40px 22px;
   }
