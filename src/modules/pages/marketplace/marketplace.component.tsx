@@ -19,7 +19,8 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
         style={{
           backgroundImage: `url(${require('img/marketplace-bg.png')})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover'
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
         }}
       >
         <Header />
@@ -30,54 +31,52 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
             smart answers to common challenges.
           </div>
         </main>
-        <div className={styles.filterWrapper}>
-          <div className={styles.filtersField}>
-            {maketplaceFiltersData.map(el => {
-              const { title, id, count, anchor } = el;
-              const activeFilter = isActive === el.id;
-              return (
-                <ButtonFilter
-                  className={styles.marketplaceFilter}
-                  key={id}
-                  count={count}
-                  title={title}
-                  active={activeFilter}
-                  anchor={anchor}
-                  onClick={() => setIsActive(id)}
-                />
-              );
-            })}
-          </div>
+        <div className={styles.filtersField}>
+          {maketplaceFiltersData.map(el => {
+            const { title, id, count, anchor } = el;
+            const activeFilter = isActive === el.id;
+            return (
+              <ButtonFilter
+                className={styles.marketplaceFilter}
+                key={id}
+                count={count}
+                title={title}
+                active={activeFilter}
+                anchor={anchor}
+                onClick={() => setIsActive(id)}
+              />
+            );
+          })}
         </div>
       </div>
 
-      <div className={styles.slyderTitle} id='web-templates'>
+      <div className={styles.sliderTitle} id='web-templates'>
         <Paragraph>Popular items in</Paragraph>
         <H2>Web templates</H2>
       </div>
       <ProductsSlider data={goodsData} />
 
-      <div className={styles.slyderTitle} id='books'>
+      <div className={styles.sliderTitle} id='books'>
         <Paragraph>New item in</Paragraph>
         <H2>Books</H2>
       </div>
       <ProductsSlider data={books} />
-      <div className={styles.slyderTitle} id='collections'>
+      <div className={styles.sliderTitle} id='collections'>
         <Paragraph>New item in </Paragraph>
         <H2>Collections</H2>
       </div>
       <ProductsSlider data={goodsData} />
-      <div className={styles.slyderTitle} id='case-study'>
+      <div className={styles.sliderTitle} id='case-study'>
         <Paragraph>Popular items in</Paragraph>
         <H2>Case study</H2>
       </div>
       <ProductsSlider data={goodsData} />
-      <div className={styles.slyderTitle} id='researches'>
+      <div className={styles.sliderTitle} id='researches'>
         <Paragraph>Popular items in</Paragraph>
         <H2>Researches</H2>
       </div>
       <ProductsSlider data={goodsData} />
-      <div className={styles.slyderTitle} id='tools'>
+      <div className={styles.sliderTitle} id='tools'>
         <Paragraph>Popular items in</Paragraph>
         <H2>Tools</H2>
       </div>
