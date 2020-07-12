@@ -44,3 +44,11 @@
 .footer {
   margin-top: 120px;
 }
+
+.slyder-title {
+  @include container();
+  margin-top: 60px;
+  p {
+    color: $primary-orange;
+  }
+}

@@ -13,13 +13,20 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
   onClick,
   active,
   icon,
-  className
+  className,
+  anchor
 }) => {
+  const buttonEl = React.useRef();
   return (
     <div
-      className={classNames(styles.filter, className, {
-        [styles.filterActive]: active
-      }, className)}
+      className={classNames(
+        styles.filter,
+        className,
+        {
+          [styles.filterActive]: active
+        },
+        className
+      )}
       onClick={onClick}
     >
       <div className={styles.filterTitle}>{title}</div>
@@ -28,8 +35,19 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
           [styles.filterCountActive]: active
         })}
       >
-        {count && `(${count})`}
-        {icon && <Icon name={icon} className={styles.icon} />}
+        <React.Fragment>
+          {anchor ? (
+            <a href={`#${anchor}`}>
+              {count && `(${count})`}
+              {icon && <Icon name={icon} className={styles.icon} />}
+            </a>
+          ) : (
+            <React.Fragment>
+              {count && `(${count})`}
+              {icon && <Icon name={icon} className={styles.icon} />}{' '}
+            </React.Fragment>
+          )}
+        </React.Fragment>
       </div>
     </div>
   );

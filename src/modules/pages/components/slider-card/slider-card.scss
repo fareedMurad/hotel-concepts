@@ -1,11 +1,12 @@
 @import 'core.scss';
 
 .slider-card {
-  width: 30%;
+  width: 90%;
   margin-right: 20px;
   background-color: $background;
   padding: 20px;
   border-radius: 5px;
+  cursor: pointer;
   &:last-child {
     margin-right: 0;
   }

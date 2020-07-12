@@ -1,0 +1,18 @@
+@import 'core.scss';
+
+.slider {
+  margin-top: 46px;
+  position: relative;
+  @include flex($justify: space-between, $align: center);
+  padding-bottom: 60px;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.controls {
+  margin-left: 150px;
+  button {
+    background-color: $primary-orange;
+    color: $white;
+  }
+}
