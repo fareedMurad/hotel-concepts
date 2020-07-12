@@ -59,10 +59,10 @@
   }
   .title {
     & > div:first-child {
-      @include font($white, 50px, 500, 40px);
+      @include font($white, 50px, 500, 52px);
     }
     & > div:nth-child(2) {
-      @include font($white, 20px, 400, 20px);
+      @include font($white, 20px, 400, 22px);
     }
   }
 }
