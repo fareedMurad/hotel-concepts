@@ -55,14 +55,6 @@
   }
 }
 
-$screen-md-max: 768px;
-
-@mixin md {
-  @media (max-width: #{$screen-md-max}) {
-    @content;
-  }
-}
-
 @mixin buttonHover {
   &::before {
     content: '';
