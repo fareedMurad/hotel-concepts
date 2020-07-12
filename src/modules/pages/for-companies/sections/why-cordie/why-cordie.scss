@@ -7,6 +7,9 @@
 
 .wrapper {
   @include flex($align: stretch, $direction: column);
+  @include tablet() {
+    @include flex($align: stretch, $justify: space-between);
+  }
   @include desktop() {
     @include flex(space-between);
   }

@@ -10,10 +10,12 @@
 
 .tags {
   @include flex($align: stretch);
+  flex-wrap: wrap;
   margin: 27px 0px;
   &__item {
     width: 122px;
     margin-right: 12px;
+    margin-bottom: 4px;
     padding: 6px 24px;
     text-align: center;
     background: $background;
@@ -23,6 +25,7 @@
 
 .heading {
   padding-right: 22px;
+  width: 100%;
   @include desktop() {
     padding-right: 50px;
   }

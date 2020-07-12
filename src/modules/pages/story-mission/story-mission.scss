@@ -19,7 +19,10 @@
   &-content {
     @include font($white, 60px, 600, 70px);
     @include container();
-    margin-top: calc(100vh - 412px);
+    margin-top: 200px;
+    @include tablet() {
+      margin-top: calc(100vh - 412px);
+    }
     font-family: $EBGaramond;
     & > div:nth-child(2) {
       @include font($white, 24px, 400, 34px);
@@ -39,7 +42,7 @@
     background-color: #ffffff;
     border-radius: 4px;
     padding: 20px;
-    @include tablet(){
+    @include tablet() {
       grid-template-columns: repeat(5, max-content);
     }
     @include desktop() {
