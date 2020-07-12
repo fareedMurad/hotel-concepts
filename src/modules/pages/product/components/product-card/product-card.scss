@@ -1,10 +1,13 @@
 @import 'core.scss';
 
 .product-card {
-  width: 50%;
   padding: 30px 20px;
   background-color: $background;
   border-radius: 8px;
+  width: 100%;
+  @include desktop() {
+    width: 50%;
+  }
   @include tablet() {
     width: auto;
     margin: 20px;
@@ -18,15 +21,20 @@
 }
 
 .desription {
-  display: flex;
+  @include flex($direction: column, $align: stretch);
   flex-wrap: wrap;
-  justify-content: space-between;
   margin-top: 16px;
+  @include desktop() {
+    @include flex($justify: space-between);
+  }
 }
 
 .description {
   &__block {
-    width: 20%;
+    width: 100%;
+    @include desktop() {
+      width: 20%;
+    }
     p {
       margin: 0;
     }
@@ -38,7 +46,7 @@
 }
 
 .hr {
-  width: 80%;
+  width: 100%;
   height: 2px;
   background-color: $light-grey;
 }
@@ -55,7 +63,10 @@
 }
 
 .price {
-  margin-top: 100px;
+  margin-top: 40px;
+  @include desktop() {
+    margin-top: 100px;
+  }
 }
 
 .confirm-button {
