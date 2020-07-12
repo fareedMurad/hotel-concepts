@@ -24,7 +24,6 @@ import { StoryMission } from '@pages/story-mission';
 import { Product } from '@pages/product';
 import { CoursePartnership } from '@pages/course-partnership';
 import { PrivacyPolicy } from '@pages/privacy-policy';
-
 /**
  * Renders Routes
  */
@@ -46,7 +45,7 @@ const Routes: React.FC = () => {
         <Route path='/about-us' component={StoryMission} />
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
-        <Route exact path='/learning-approach' component={LearningApproach} />
+        <Route path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
         {/* JOB ROUTES */}
         <Route path='/jobs/job-details/:id' component={JobDetails} />
@@ -65,5 +64,3 @@ const Routes: React.FC = () => {
   );
 };
 export { Routes };
-
-// test
