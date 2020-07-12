@@ -2,6 +2,7 @@
 
 .hero {
   &__block {
+    @include imageOverlay();
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,20 +27,12 @@
   }
 }
 
-.overlay {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-color: #3e3e3e60;
-}
-
 .kordie {
   padding-bottom: 100px;
   background: $background;
   &__wrapper {
     @include container();
-    padding: 58px 0px;
+    padding: 58px 120px;
   }
   &__paragraph {
     width: 30vw;

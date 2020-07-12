@@ -5,3 +5,5 @@ export * from './job-details';
 export * from './faq';
 export * from './contributors';
 export * from './story-mission';
+export * from './contacts-page';
+export * from './article-page';

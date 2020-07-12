@@ -1,0 +1,54 @@
+@import 'core.scss';
+
+.article-first-section {
+  @include flex($align: center);
+  padding-left: 120px;
+}
+
+.tags {
+  @include flex($align: stretch);
+  margin: 27px 0px;
+  &__item {
+    width: 122px;
+    margin-right: 12px;
+    padding: 6px 24px;
+    text-align: center;
+    background: $background;
+    border-radius: 4px;
+  }
+}
+
+.heading {
+  padding-right: 50px;
+  &__options {
+    @include flex($align: center);
+    @include font($primary-gray, 16px, 400);
+    & > div {
+      @include flex($align: center);
+    }
+  }
+}
+
+.share {
+  margin-left: 16px;
+  & > div:last-child {
+    margin-left: 16px;
+  }
+}
+
+.reading-time {
+  & > div:last-child {
+    margin-left: 16px;
+  }
+}
+
+.hero-description {
+  @include font($primary-gray, 22px, 400, 34px);
+  font-family: $IBMPlex;
+}
+
+.image {
+  padding-right: 22px;
+  height: 100%;
+  width: 100%;
+}

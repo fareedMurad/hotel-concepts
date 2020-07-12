@@ -16,8 +16,11 @@
 }
 
 @mixin container() {
-  width: 1140px;
-  margin: 0 auto;
+  padding: 0px 120px;
+}
+
+@mixin container-sm() {
+  padding: 0px 22px;
 }
 
 @mixin error {
@@ -83,4 +86,16 @@ $screen-md-max: 768px;
       transition: all 170ms cubic-bezier(0.29, 0.04, 0.23, 1);
     }
   }
+}
+
+@mixin imageOverlay {
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+@mixin heroImage {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }

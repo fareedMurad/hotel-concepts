@@ -33,7 +33,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <FaqBlock />
       <InsightsBlock />
       <Socials />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

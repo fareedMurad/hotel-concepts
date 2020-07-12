@@ -22,3 +22,9 @@
     color: $primary-gray;
   }
 }
+
+@media screen and (max-width: 933px) {
+  .programs-button {
+    display: none;
+  }
+}

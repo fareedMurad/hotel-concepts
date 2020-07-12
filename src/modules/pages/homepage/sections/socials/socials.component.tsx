@@ -9,6 +9,7 @@ import { useSocialsData } from './socials.hook';
 const Socials: React.FC<SocialsProps> = ({}) => {
   const { data } = useSocialsData();
   return (
+    <>
     <section className={styles.socials}>
       <div className={styles.leftSide}></div>
       <div className={styles.rightSide}>
@@ -30,6 +31,10 @@ const Socials: React.FC<SocialsProps> = ({}) => {
         </div>
       </div>
     </section>
+    <div className={styles.hrWrapper}>
+      <div className={styles.hr}></div>
+    </div>
+    </>
   );
 };
 
