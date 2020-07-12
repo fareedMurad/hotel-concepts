@@ -37,3 +37,18 @@
   position: absolute;
   left: $left-offset;
 }
+
+@media screen and (max-width: $screen-md-max) {
+  .title {
+    padding: 0 $default-offset;
+    & > div:first-child {
+      @include font($white, 44px, 500, 46px);
+    }
+    & > div:nth-child(2) {
+      @include font($white, 18px, 400, 22px);
+    }
+  }
+  .scroll-button {
+    left: $default-offset;
+  }
+}

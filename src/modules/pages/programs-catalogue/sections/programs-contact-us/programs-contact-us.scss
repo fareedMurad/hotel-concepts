@@ -40,12 +40,13 @@
 .button {
   @include flex($justify: space-between);
   width: 230px;
+  margin-top: 10px;
 }
 
 .contact-form {
   @include flex($justify: space-between);
   padding-left: $left-offset;
-  width: 750px;
+  max-width: 750px;
   flex-wrap: wrap;
 }
 
@@ -73,4 +74,29 @@
 .input-select-container,
 .input-select {
   width: 100%;
+}
+
+@media screen and (max-width: 840px) {
+  .input-field,
+  .input-group {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: $screen-md-max) {
+  .title {
+    padding-left: 0;
+    & > div:first-child {
+      @include font($primary-grey, 44px, 500, 46px);
+    }
+    & > div:nth-child(2) {
+      @include font($primary-grey, 18px, 400, 22px);
+    }
+  }
+  .contact-form {
+    padding-left: 0;
+  }
+  .programs-contact-us {
+    padding: 50px $default-offset;
+  }
 }

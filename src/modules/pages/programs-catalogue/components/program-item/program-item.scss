@@ -9,10 +9,12 @@
 
 .container {
   display: flex;
+  height: 100%;
   img {
     max-width: 315px;
     object-fit: cover;
     height: 100%;
+    border-radius: 6px;
   }
 }
 
@@ -48,12 +50,47 @@
 .button-container {
   @include flex($align: flex-end);
   height: 100%;
+  margin-left: 10px;
 }
 
 .button {
   @include flex($justify: space-between);
   width: 230px;
   height: 44px;
+  margin-top: 20px;
 }
 
+@media screen and (max-width: 930px) {
+  .program-item {
+    flex-direction: column;
+    height: 560px;
+    width: 50%;
+  }
+  .container {
+    flex-direction: column;
+    img {
+      max-height: 250px;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .info {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .button-container {
+    height: auto;
+    width: 100%;
+    margin-left: 0;
+    .button {
+      width: 100%;
+    }
+  }
+}
 
+@media screen and (max-width: $screen-md-max) {
+  .program-item {
+    width: 100%;
+    max-width: 500px;
+  }
+}
