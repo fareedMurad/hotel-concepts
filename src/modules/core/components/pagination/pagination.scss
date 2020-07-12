@@ -1,0 +1,39 @@
+@import "core.scss";
+
+.pagination {
+  @include flex($justify: center);
+  width: 100%;
+  margin: 20px 0;
+}
+
+.nav-button {
+  @include buttonHover();
+  width: 44px;
+  height: 44px;
+  background-color: $background;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    background-color: #faf9f9;
+    color: rgb(148, 148, 148);
+  }
+}
+
+.page-button {
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $light-grey;
+  &.active {
+    color: $primary-grey;
+  }
+  &:focus {
+    outline: none;
+  }
+}

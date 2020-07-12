@@ -9,6 +9,7 @@ import { Header } from '@core/components/header';
 import { ProgramItem } from './components/program-item';
 import { Footer } from '@core/components';
 import { useParams } from 'react-router';
+import { Pagination } from '@core/components/pagination';
 
 /**
  * Renders ProgramsCatalogue
@@ -16,7 +17,21 @@ import { useParams } from 'react-router';
 const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { data } = useOnlineCoursesData();
   const slug = useParams();
-  console.log(slug);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(5);
+  const lastItemIndex = currentPage * itemsPerPage;
+  const firstItemIndex = lastItemIndex - itemsPerPage;
+  const programs = data.slice(firstItemIndex, lastItemIndex);
+  const pages = Math.ceil(data.length/itemsPerPage);
+
+  const changePage = page => () => {
+    setCurrentPage(page);
+  }
+
+  const onUpdateFilters = data => () => {
+    console.log('test');
+  }
+
   return (
     <>
       <Header />
@@ -26,9 +41,9 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
           <div>Find the right course for you</div>
           <div>Choose from our growing range of online courses to meet your professional goals.</div>
         </div>
-        <CatalogueFilters />
+        <CatalogueFilters updateFiltersArray={onUpdateFilters} />
         <div className={styles.content}>
-          {data.map(item => (
+          {programs.map(item => (
             <ProgramItem
               key={item.id}
               name={item.name}
@@ -42,6 +57,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             />
           ))}
         </div>
+        {data.length >= itemsPerPage &&
+          <Pagination currentPage={currentPage} countOfPages={pages} onChangePage={changePage} />}
         <ProgramsContactUs />
       </div>
       <Footer />
