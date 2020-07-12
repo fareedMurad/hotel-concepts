@@ -14,15 +14,31 @@
   display: flex;
   justify-content: space-between;
   margin-top: 85px;
+
+  @include tablet() {
+    flex-direction: column;
+  }
+  @include desktop() {
+    flex-direction: row;
+  }
 }
 
 .recomendedBooks {
   @include container();
   margin-top: 60px;
+  @include tablet() {
+    width: 100%;
+  }
 }
 
 .slider {
   width: 50%;
+  @include tablet() {
+    width: 100%;
+  }
+  @include desktop() {
+    width: 50%;
+  }
 }
 
 .links {
