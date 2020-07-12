@@ -6,10 +6,16 @@
 }
 
 .wrapper {
+  @include flex($align: stretch, $direction: column);
+  @include desktop() {
+    @include flex(space-between);
+  }
   margin-top: 60px;
-  @include flex(space-between);
 }
 
 .block {
-  width: 40%;
+  width: 100%;
+  @include tablet() {
+    width: 40%;
+  }
 }

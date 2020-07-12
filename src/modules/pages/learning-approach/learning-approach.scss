@@ -40,7 +40,7 @@
   bottom: 22px;
   left: 22px;
   color: $white;
-  @include desktop() {
+  @include tablet() {
     left: 118px;
   }
 }

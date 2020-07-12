@@ -15,15 +15,15 @@
   min-height: $size;
 }
 
-@mixin container() {
-  padding: 0px 22px;
-  @include desktop() {
-    padding: 0px 120px;
+@mixin container($top: 0px) {
+  padding: $top 22px;
+  @include tablet() {
+    padding: $top 120px;
   }
 }
 
-@mixin container-sm() {
-  padding: 0px 22px;
+@mixin container-sm($top: 0px) {
+  padding: $top 22px;
 }
 
 @mixin error {

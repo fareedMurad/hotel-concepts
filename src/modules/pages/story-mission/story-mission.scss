@@ -39,9 +39,12 @@
     background-color: #ffffff;
     border-radius: 4px;
     padding: 20px;
-    @include tablet() {
+    @include tablet(){
+      grid-template-columns: repeat(5, max-content);
+    }
+    @include desktop() {
       overflow-x: initial;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(5, auto);
     }
     & > a:last-child {
       padding-right: 20px;

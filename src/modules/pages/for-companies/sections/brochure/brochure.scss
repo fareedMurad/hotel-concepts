@@ -6,12 +6,15 @@
 .image {
   height: 581px;
   background-size: cover;
+  background-position: center;
   @include flex(center, center);
 }
 
 .content {
-  width: 40%;
   text-align: center;
+  @include desktop() {
+    width: 40%;
+  }
 }
 .title {
   @include font($white, 36px, 400, 46px);
