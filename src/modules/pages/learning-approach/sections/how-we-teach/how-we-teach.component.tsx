@@ -22,7 +22,7 @@ const ToolsCard = ({ title, description }) => {
 const WorldClassCard = ({ img, title, description }) => {
   return (
     <div className={styles.wccCard}>
-      <img src={require(`img/${img}`)} />
+      <img src={require(`img/${img}`)} className={styles.wccImage} />
       <div className={styles.wccText}>
         <div className={styles.wccTextTitle}>{title}</div>
         <div className={styles.wccTextDescription}>{description}</div>

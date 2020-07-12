@@ -16,7 +16,10 @@
 }
 
 @mixin container() {
-  padding: 0px 120px;
+  padding: 0px 22px;
+  @include desktop() {
+    padding: 0px 120px;
+  }
 }
 
 @mixin container-sm() {

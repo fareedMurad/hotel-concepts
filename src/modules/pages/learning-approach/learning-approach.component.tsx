@@ -10,32 +10,34 @@ import {
   ReadingMaterials
 } from './sections';
 import { HeroBottom } from './sections/hero-bottom';
+import { ScrollButton } from '@core/components/scroll-button';
 
 const Hr = () => <div className={styles.hr} />;
 /**
  * Renders Learning approach page
  */
 const LearningApproach: React.FC = ({}) => {
-
   return (
-  <div className={styles.main}>
+    <div className={styles.main}>
       <div className={styles.header}>
-        <Header />
         <div
           style={{
             backgroundImage: `url(${require('img/learning-approach/home.png')})`
           }}
           className={styles.image}
-        />
-        <main className={styles.headerContent}>
-          <H1 className={styles.headerCaption}>Our Learning Approach</H1>
-          <div className={styles.headerDescription}>
-            Experience transformational hospitality e-learning bringing together
-            the best in industry and academia, dedicated mentorship, new
-            technologies and intensive support
-          </div>
-        </main>
-        <div className={styles.arrow}>&#8595; Scroll</div>
+        >
+          <Header />
+
+          <main className={styles.headerContent}>
+            <H1 className={styles.headerCaption}>Our Learning Approach</H1>
+            <div className={styles.headerDescription}>
+              Experience transformational hospitality e-learning bringing
+              together the best in industry and academia, dedicated mentorship,
+              new technologies and intensive support
+            </div>
+          </main>
+          <ScrollButton text='Scroll' className={styles.arrow} />
+        </div>
       </div>
       <div className={styles.meetKordie}>
         <Icon name='abstract-1' />

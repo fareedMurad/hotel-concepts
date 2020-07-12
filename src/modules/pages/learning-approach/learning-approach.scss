@@ -1,20 +1,14 @@
 @import 'core.scss';
 
 .header {
-  position: relative;
   width: 100%;
-  height: 100vh;
-  padding: 25px 22px;
 }
 
 .image {
-  position: absolute;
+  @include flex($align: center, $justify: center);
   background-size: cover;
-  z-index: -1;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-position: center;
 }
 
@@ -23,24 +17,32 @@
     @include container();
   }
   &-caption {
-    width: 50%;
-    margin-top: 185px;
+    width: 100%;
     font-family: $EBGaramond;
     color: $white;
+    @include desktop() {
+      width: 50%;
+    }
   }
   &-description {
     @include font($white, 24px, 400, 34px);
-    width: 67%;
+    width: 100%;
     margin-top: 25px;
     font-family: $IBMPlex;
+    @include desktop() {
+      width: 67%;
+    }
   }
 }
 
 .arrow {
   position: absolute;
   bottom: 22px;
-  left: 140px;
+  left: 22px;
   color: $white;
+  @include desktop() {
+    left: 118px;
+  }
 }
 
 .meet-kordie {
@@ -50,9 +52,12 @@
     letter-spacing: -0.48px;
   }
   &--description {
-    width: 50%;
+    width: 100%;
     margin-top: 14px;
     font-family: $IBMPlex;
+    @include desktop() {
+      width: 50%;
+    }
   }
 }
 
