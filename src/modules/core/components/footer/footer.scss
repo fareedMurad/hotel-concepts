@@ -31,6 +31,10 @@
       @include font($primary-gray, 16px, 400, 22px);
       width: 140px;
       margin-bottom: 13px;
+      &:hover {
+        text-decoration: underline;
+        color: $primary-orange;
+      }
     }
   }
 }
@@ -49,6 +53,9 @@
   &--link {
     text-decoration: underline;
     cursor: pointer;
+    &:hover {
+      color: $primary-orange;
+    }
   }
 }
 
@@ -78,6 +85,17 @@
   }
 }
 
+.copyrights-link-container {
+  @include flex($justify: space-between);
+  width: 100%;
+  padding-left: 10px;
+}
+
+.copyright-info {
+  width: 90%;
+}
+
+
 .social {
   margin-right: 10px;
 }
@@ -105,6 +123,17 @@
 @media screen and (max-width: 441px) {
   .copyrights {
     @include flex($direction: column-reverse, $align: center);
+  }
+  .copyrights-link-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .copyright-info {
+    @include flex($justify: center);
+    width: 100%;
+  }
+  .copyrights--link {
+    padding-bottom: 10px;
   }
   .subscribe {
     padding-right: 0;

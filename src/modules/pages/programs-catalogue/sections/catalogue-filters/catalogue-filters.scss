@@ -29,10 +29,20 @@
   display: flex;
   margin: 20px;
   font-family: $IBMPlexSans;
+  cursor: pointer;
 }
 
 @media screen and (max-width: $screen-md-max) {
   .filter-item {
     width: 40%;
+  }
+  .title {
+    padding-left: $default-offset;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .filter-item {
+    width: 100%;
   }
 }

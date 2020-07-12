@@ -8,12 +8,15 @@ import { useOnlineCoursesData } from '@pages/homepage/sections/online-courses/on
 import { Header } from '@core/components/header';
 import { ProgramItem } from './components/program-item';
 import { Footer } from '@core/components';
+import { useParams } from 'react-router';
 
 /**
  * Renders ProgramsCatalogue
  */
 const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { data } = useOnlineCoursesData();
+  const slug = useParams();
+  console.log(slug);
   return (
     <>
       <Header />

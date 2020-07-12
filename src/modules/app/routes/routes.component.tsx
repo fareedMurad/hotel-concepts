@@ -47,7 +47,7 @@ const Routes: React.FC = () => {
         <Route path='/about-us' component={StoryMission} />
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
-        <Route path='/programs-catalogue' component={ProgramsCatalogue} />
+        <Route path='/programs-catalogue/:slug' component={ProgramsCatalogue} />
         <Route exact path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
         {/* JOB ROUTES */}
