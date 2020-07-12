@@ -5,7 +5,11 @@
   background-color: #f5f1f0;
   padding-left: $left-offset;
   padding-right: $default-offset;
+  position: fixed;
+  z-index: -999;
+  bottom: 0;
 }
+
 .content {
   padding: 24px 0px 16px 0px;
   @include flex($justify: space-between);
@@ -64,6 +68,7 @@
   width: 100%;
   margin-right: 10px;
 }
+
 .button-submit {
   @include flex($justify: space-between);
   position: absolute;
@@ -137,5 +142,12 @@
   }
   .subscribe {
     padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 487px) {
+  .footer {
+    position: relative;
+    z-index: 1;
   }
 }

@@ -99,3 +99,16 @@ $screen-md-max: 768px;
   background-repeat: no-repeat;
   height: 100vh;
 }
+
+@mixin footerMargin {
+  margin-bottom: 358px;
+  box-shadow: 0px 4px 10px -1px rgba(135,133,135,0.63);
+  background-color: $white;
+  @media screen and (max-width: 860px) {
+    margin-bottom: 590px;
+  }
+  @media screen and (max-width: 487px) {
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+}

@@ -1,7 +1,7 @@
 @import "core.scss";
 
 .programs-catalogue {
-
+  @include footerMargin;
 }
 
 .title {
