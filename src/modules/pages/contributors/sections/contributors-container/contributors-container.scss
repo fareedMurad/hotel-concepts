@@ -3,9 +3,6 @@
 .heading {
   @include container();
   margin-top: 60px;
-  &__caption {
-    color: $primary-orange;
-  }
   &__paragraph {
     width: 100%;
     @include desktop() {

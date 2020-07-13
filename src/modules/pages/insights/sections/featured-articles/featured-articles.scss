@@ -3,10 +3,6 @@
 .caption {
   margin: 60px auto;
   padding: 0px 22px;
-  & > div:first-child {
-    @include font($primary-orange, 18px, 500, 28px);
-    font-family: $IBMPlex;
-  }
   @include tablet() {
     @include container();
     margin: 60px auto;

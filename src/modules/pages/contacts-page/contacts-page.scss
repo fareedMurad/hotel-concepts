@@ -55,9 +55,7 @@
     @include font($primary-gray, 18px, 400px, 28px);
   }
 }
-.heading {
-  @include font($primary-orange, 18px, 500, 28px);
-}
+
 .footer {
   @include flex($align: stretch);
   padding: 60px 25px;

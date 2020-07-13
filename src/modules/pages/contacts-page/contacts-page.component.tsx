@@ -2,7 +2,15 @@ import * as React from 'react';
 import { ContactsPageProps } from './contacts-page.props';
 import * as styles from './contacts-page.scss';
 import { Header } from '@core/components/header';
-import { H2, Paragraph, Form, Field, Select, Button } from '@core/components';
+import {
+  H2,
+  Paragraph,
+  Form,
+  Field,
+  Select,
+  Button,
+  PreCaption
+} from '@core/components';
 import { useContactsPageData } from './contacts-page.hook';
 import { Formik } from 'formik';
 import classNames from 'classnames';
@@ -48,7 +56,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
     <div className={styles.contactsPage}>
       <Header whiteBackground />
       <div className={styles.container}>
-        <div className={styles.heading}>We're here to help!</div>
+        <PreCaption>We're here to help!</PreCaption>
         <H2>Contact Us</H2>
       </div>
       <section className={styles.cardsList}>

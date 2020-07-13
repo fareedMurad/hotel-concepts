@@ -5,8 +5,7 @@
 }
 
 .wrapper {
-  @include container();
-  padding-top: 50px;
+  @include container($top: 50px);
 }
 
 .form {
