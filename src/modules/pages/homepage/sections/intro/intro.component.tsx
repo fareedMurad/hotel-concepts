@@ -6,6 +6,7 @@ import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { ScrollButton } from '@core/components/scroll-button';
 import { Button } from '@core/components';
+import { useHistory } from 'react-router';
 
 /**
  * Renders Intro
@@ -15,6 +16,8 @@ const Intro: React.FC<IntroProps> = ({}) => {
 
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
+  const history = useHistory();
+  const handleClick = () => history.push(`/programs-catalogue/focused-programs`);
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -48,7 +51,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         <div>Cutting edge online education for hospitality</div>
         <div>Bridging the skills  gap for hotel managers</div>
       </div>
-      <Button className={styles.findButton}>
+      <Button onClick={handleClick} className={styles.findButton}>
         <div>Find the program</div> <div>→</div>
       </Button>
       <Popup

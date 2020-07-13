@@ -2,6 +2,7 @@
  * Props
  */
 type ProgramItemProps = {
+  id: number;
   name: string;
   type: string;
   category: string;

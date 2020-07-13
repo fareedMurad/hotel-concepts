@@ -24,6 +24,7 @@ import { StoryMission } from '@pages/story-mission';
 import { Product } from '@pages/product';
 import { CoursePartnership } from '@pages/course-partnership';
 import { PrivacyPolicy } from '@pages/privacy-policy';
+import { ProgramPage } from '@pages/program-page';
 import { ProgramsCatalogue } from '@pages/programs-catalogue';
 
 /**
@@ -50,6 +51,7 @@ const Routes: React.FC = () => {
         <Route path='/programs-catalogue/:slug' component={ProgramsCatalogue} />
         <Route path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
+        <Route path='/program/:id' component={ProgramPage} />
         {/* JOB ROUTES */}
         <Route path='/jobs/job-details/:id' component={JobDetails} />
         <Route path='/jobs' component={JobsList} />

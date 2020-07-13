@@ -1,0 +1,118 @@
+@import "core.scss";
+
+.program-enroll-now {
+  padding: 60px 0;
+}
+
+.title {
+  @include font($primary-grey, 48px, 500, 50px);
+  font-family: $EBGaramond;
+  margin-bottom: 40px;
+  padding-left: $left-offset;
+}
+
+.container {
+  @include flex($justify: space-around, $align: flex-end);
+  flex-wrap: wrap;
+}
+
+.enroll-item {
+  background-color: $background;
+  min-height: 668px;
+  width: 428px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border-radius: 6px;
+  padding: $default-offset;
+  &.popular {
+    min-height: 706px;
+    border: 1px solid $primary-orange;
+    border-top: 35px solid $primary-orange;
+    position: relative;
+    &::before {
+      @include font($white, 18px, 500, 20px);
+      font-family: $IBMPlex;
+      content: "Most Popular";
+      position: absolute;
+      top: -28px;
+      width: 100%;
+      text-align: center;
+      left:0;
+      right:0;
+    }
+  }
+}
+
+.top-side {
+  height: 327px;
+  @include flex($justify: space-between, $direction: column);
+}
+
+.features {
+  flex: 1;
+}
+
+.feature-title {
+  @include font($primary-grey, 24px, 400, 26px);
+  font-family: $IBMPlex;
+}
+
+.feature-item {
+  padding-top: 24px;
+  @include flex($align: start);
+  & > div:first-child {
+    @include font($light-grey, 22px, 200, 22px);
+  }
+  & > div:nth-child(2) {
+    @include font($primary-grey, 18px, 400, 20px);
+    font-family: $IBMPlex;
+    margin-left: 12px;
+  }
+}
+
+.price-block {
+  width: 100%;
+}
+
+.button {
+  @include flex($justify: space-between);
+  width: 100%;
+}
+
+.hr {
+  height: 2px;
+  background-color: $hr;
+  margin: $default-offset 0;
+}
+
+.name {
+  @include font($primary-orange, 18px, 500, 20px);
+  font-family: $IBMPlex;
+}
+
+.description {
+  @include font($primary-grey, 18px, 400, 20px);
+  font-family: $IBMPlex;
+  margin-top: 16px;
+}
+
+.button {
+  margin-top: 24px;
+}
+
+.price {
+  @include flex($justify: start);
+  .dollar {
+    @include font($primary-grey, 36px, 600, 38px);
+    font-family: $EBGaramond;
+  }
+  @include font($primary-grey, 48px, 600, 50px);
+  font-family: $EBGaramond;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    padding: 0 $default-offset;
+  }
+}

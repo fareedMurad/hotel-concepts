@@ -2,6 +2,7 @@
  * Props
  */
 type CourseItemProps = {
+  id: number;
   name: string;
   description: string;
   price: number;

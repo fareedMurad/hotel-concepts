@@ -4,6 +4,7 @@ import * as styles from './online-courses.scss';
 import { useOnlineCoursesData } from './online-courses.hook';
 import { ButtonFilter, Button } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
+import { useHistory } from 'react-router';
 
 /**
  * Renders OnlineCourses
@@ -25,6 +26,9 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   const onFilterSelect = (name: string) => {
     setCurrentCutegory(name);
   }
+
+  const history = useHistory();
+  const handleClick = () => history.push(`/programs-catalogue/focused-programs`);
 
   return (
     <section className={styles.onlineCourses}>
@@ -56,9 +60,10 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
         <div className={styles.coursesWrapper}>
           <div className={styles.courses}>
             {currentCourses.map((data, index) => {
-              const { name, description, weeks, sprints, img, price } = data;
+              const { id, name, description, weeks, sprints, img, price } = data;
               return (
                 <CourseItem
+                  id={id}
                   key={`${name}+${index}`}
                   name={name}
                   description={description}
@@ -75,7 +80,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
           <div className={styles.footerTitle}>
             Can’t you find course for you in this category?
           </div>
-          <Button className={styles.button}>
+          <Button onClick={handleClick} className={styles.button}>
             <div>See more courses</div> <div>&#8594;</div>
           </Button>
         </div>

@@ -26,8 +26,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
   const currentPrograms = programs.slice(firstItemIndex, lastItemIndex);
-  const pages = Math.ceil(programs.length/itemsPerPage);
   const [filteredPrograms, setFilteredPrograms] = React.useState([...currentPrograms]);
+  const pages = Math.ceil(programs.length/itemsPerPage);
 
   const changePage = page => () => {
     setCurrentPage(page);
@@ -63,6 +63,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
           filteredPrograms.map(item => (
             <ProgramItem
               key={item.id}
+              id={item.id}
               name={item.name}
               description={item.description}
               type={item.type}
@@ -76,7 +77,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             <div className={styles.emptyInfo}>There are no programs with these filters</div>
           }
         </div>
-        {filteredPrograms.length >= itemsPerPage &&
+        {(filteredPrograms.length >= itemsPerPage || currentPage > 1) &&
           <Pagination currentPage={currentPage} countOfPages={pages} onChangePage={changePage} />}
         <ProgramsContactUs />
       </div>

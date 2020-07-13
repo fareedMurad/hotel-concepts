@@ -5,6 +5,7 @@ import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { InsightBlockItem } from '@pages/homepage/components/insight-block-item';
 import { useFeaturedArticlesData } from '@pages/insights/sections/featured-articles/featured-articles.hook';
+import { useHistory } from 'react-router';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -33,6 +34,8 @@ const responsiveBreakpoints = {
  */
 const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
   const { data } = useFeaturedArticlesData();
+  const history = useHistory();
+  const handleClick = () => history.push(`/insights`);
 
   return (
     <section className={styles.insightsBlock}>
@@ -46,7 +49,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
           swipeable={false}
           responsive={responsiveBreakpoints}
           customButtonGroup={
-            <SliderButtons className={styles.controls} isBordered={true} btnText="Read All Insights" />
+            <SliderButtons onClick={handleClick} className={styles.controls} isBordered={true} btnText="Read All Insights" />
           }
         >
         {data.map(article => (

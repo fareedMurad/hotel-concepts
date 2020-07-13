@@ -46,7 +46,7 @@
 
 @media screen and (max-width: 768px) {
   .title {
-    padding-left: $default-offset;
+    padding: 0 $default-offset;
   }
 
   .controls {

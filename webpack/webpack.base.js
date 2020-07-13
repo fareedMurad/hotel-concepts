@@ -123,6 +123,17 @@ const base = {
           }
         ]
       },
+      {
+        test: /\.(pdf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      },
       images(production),
       styles(),
       styles(false)
