@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .socials {
   min-height: 580px;
@@ -8,7 +8,8 @@
 }
 
 .left-side {
-  background: url('../../../../../assets/img/learning-approach/mobile.png') no-repeat bottom center;
+  background: url('../../../../../assets/img/learning-approach/mobile.png')
+    no-repeat bottom center;
   width: 50%;
 }
 
@@ -66,7 +67,6 @@
 
 .hr {
   height: 2px;
-  background-color: $hr;
   width: 100%;
 }
 
