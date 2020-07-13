@@ -2,8 +2,8 @@
 
 .product-slider-wrap {
   width: 100%;
-  @include flex($align: stretch, $justify: center);
-  padding-top: 65px;
+  display: flex;
+  justify-content: center;
 }
 .productSlider {
   width: 100%;
