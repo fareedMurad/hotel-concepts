@@ -1,0 +1,31 @@
+@import "core.scss";
+
+.filter-checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+label input {
+  display: none; /* Hide the default checkbox */
+}
+
+label span {
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+  border-radius: 2px;
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  margin-right: 10px;
+}
+
+[type=checkbox]:checked + span:before {
+  content: '\2714';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  color: $primary-orange;
+}

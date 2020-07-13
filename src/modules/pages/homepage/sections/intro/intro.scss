@@ -22,13 +22,19 @@
   height: 100vh;
   position: absolute;
   object-fit: cover;
-  z-index: -1;
+  z-index: 1;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out;
+  left: 0;
+}
+
+.watch-button {
+  z-index: 2;
 }
 
 .title {
+  z-index: 2;
   & > div:first-child {
     @include font($white, 60px, 500, 65px);
     max-width: 600px;
@@ -45,12 +51,14 @@
 .scroll-button {
   bottom: 15px;
   position: absolute;
+  z-index: 2;
 }
 
 .find-button {
   width: 230px;
   margin-bottom: 30px;
   @include flex($justify: space-between);
+  z-index: 2;
 }
 
 @media screen and (max-width: 768px) {
@@ -59,10 +67,10 @@
   }
   .title {
     & > div:first-child {
-      @include font($white, 50px, 500, 40px);
+      @include font($white, 50px, 500, 52px);
     }
     & > div:nth-child(2) {
-      @include font($white, 20px, 400, 20px);
+      @include font($white, 20px, 400, 22px);
     }
   }
 }

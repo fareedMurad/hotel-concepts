@@ -103,28 +103,32 @@
 }
 
 @media screen and (max-width: 576px) {
-  .content {
-    height: 100vh;
-    top: $header-height;
-    left: -100vw;
-    transition: left .25s linear;
-  }
-  .opened {
+  .burger-menu {
     .content {
-      left: 0;
+      height: 100vh;
+      top: $header-height;
+      left: -100vw;
       transition: left .25s linear;
     }
-  }
-  .links-container {
-    padding-left: 25px;
-  }
-  .secondary-link {
-    padding: 5px 0;
-  }
-  .secondary-container {
-    padding: 1px 25px;
-    display: flex;
-    justify-content: space-between;
+
+    &.opened {
+      .content {
+        left: 0;
+        transition: left .25s linear;
+      }
+    }
+    .links-container {
+      padding-left: $default-offset;
+    }
+    .secondary-link {
+      padding: 5px 0;
+    }
+    .secondary-container {
+      margin-left: 0;
+      padding: 1px $default-offset;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 

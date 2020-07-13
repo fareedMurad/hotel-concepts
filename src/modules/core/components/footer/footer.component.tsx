@@ -87,9 +87,11 @@ const Footer: React.FC<FooterProps> = ({}) => {
       </div>
       <div className={styles.hr} />
       <footer className={styles.copyrights}>
-        <div>© 2019 Cordie. All rights reserved.</div>
-        <div className={styles.copyrightsLink}>Privacy Policy</div>
-        <div className={styles.copyrightsLink}>Terms and Conditions</div>
+        <div className={styles.copyrightInfo}>© 2020 Kordie. All rights reserved.</div>
+        <div className={styles.copyrightsLinkContainer}>
+          <div className={styles.copyrightsLink}>Privacy Policy</div>
+          <div className={styles.copyrightsLink}>Terms and Conditions</div>
+        </div>
       </footer>
     </div>
   );

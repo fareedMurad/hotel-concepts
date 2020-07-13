@@ -16,7 +16,7 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ closeMenu, isOpened }) => {
       <div className={styles.content}>
         <div className={styles.linksContainer}>
           {programs.map((program, i) => (
-            <NavLink to={program.path} key={i} className={styles.link}>
+            <NavLink to={program.path} key={i} className={styles.link} onClick={closeMenu}>
               <div className={styles.linkName}>
                 {program.name}
               </div>

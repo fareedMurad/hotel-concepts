@@ -2,7 +2,7 @@
 
 .faq-block {
   padding: 100px $default-offset;
-  @include flex($direction: column)
+  @include flex($direction: column);
 }
 
 .filters {
