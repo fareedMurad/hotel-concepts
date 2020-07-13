@@ -5,7 +5,7 @@
   @include flex($align: center);
   cursor: pointer;
   font-family: $IBMPlex;
-  margin-left: 39px;
+  margin-left: 30px;
   user-select: none;
   .icon {
     @include fill(white);
@@ -21,9 +21,12 @@
     @include fill($primary-gray);
     color: $primary-gray;
   }
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
-@media screen and (max-width: 933px) {
+@media screen and (max-width: 768px) {
   .programs-button {
     display: none;
   }

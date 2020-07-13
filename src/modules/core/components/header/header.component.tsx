@@ -2,15 +2,14 @@ import * as React from 'react';
 import { HeaderProps } from './header.props';
 import * as styles from './header.scss';
 import { NavLink, Link } from 'react-router-dom';
-import { Icon } from '../icon';
 import classNames from 'classnames';
-import { useHomeData } from '@pages/learning-approach/learning-approach.hook';
 import { HeaderState } from './header.state';
 import { ActiveMenuType } from './active-menu.enum';
 import { BurgerButton } from './burger-button';
 import { BurgerMenu } from './burger-menu';
 import { ProgramsButton } from './programs-button';
 import { ProgramsMenu } from './programs-menu';
+import { useHeaderData } from './header.hook';
 
 /**
  * Renders Header
@@ -68,7 +67,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   }
 
   render () {
-    const { navigation } = useHomeData();
+    const { navigation } = useHeaderData();
 
     return (
       <>

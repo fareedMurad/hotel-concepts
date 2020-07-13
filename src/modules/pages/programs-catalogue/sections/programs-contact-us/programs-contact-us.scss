@@ -1,0 +1,102 @@
+@import "core.scss";
+
+.programs-contact-us {
+  padding: 85px 30px $left-offset 54px;
+  background-color: $background;
+}
+
+.title {
+  margin: 40px 0;
+  padding-left: $left-offset;
+  & > div:first-child {
+    max-width: 400px;
+    @include font($primary-grey, 60px, 500, 65px);
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    margin-top: 20px;
+    max-width: 580px;
+    @include font($primary-grey, 18px, 400, 26px);
+    font-family: $IBMPlexSans;
+  }
+}
+
+.footer {
+  background: url('../../../../../assets/img/catalogue-footer.png') no-repeat center center;
+  height: 350px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.button {
+  @include flex($justify: space-between);
+  width: 230px;
+  margin-top: 10px;
+}
+
+.contact-form {
+  @include flex($justify: space-between);
+  padding-left: $left-offset;
+  max-width: 750px;
+  flex-wrap: wrap;
+}
+
+.input-title {
+  @include font($primary-grey, 16px, 400, 18px);
+  padding-left: 5px;
+  padding-bottom: 2px;
+}
+
+.input-group {
+  margin: 10px 0;
+}
+
+.input-field {
+  height: 44px;
+  width: 204px;
+  border: none;
+  border-radius: 6px;
+  padding: 0 10px;
+  &:focus {
+    border: 1px solid $light-grey;
+    outline: none;
+  }
+}
+.input-select-container,
+.input-select {
+  width: 100%;
+}
+
+@media screen and (max-width: 840px) {
+  .input-field,
+  .input-group {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    padding-left: 0;
+    & > div:first-child {
+      @include font($primary-grey, 44px, 500, 46px);
+    }
+    & > div:nth-child(2) {
+      @include font($primary-grey, 18px, 400, 22px);
+    }
+  }
+  .contact-form {
+    padding-left: 0;
+  }
+  .programs-contact-us {
+    padding: 50px $default-offset;
+  }
+}

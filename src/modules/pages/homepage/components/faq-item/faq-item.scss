@@ -26,6 +26,7 @@
   background-color: $background;
   border-radius: 50%;
   margin-right: 10px;
+  min-width: 34px;
   &::after {
     display: flex;
     align-items: center;
