@@ -45,8 +45,8 @@
 }
 
 .image {
+  background: $hr;
+  @include heroImage();
   width: 428px;
   height: 317px;
-  background-size: cover;
-  background-repeat: no-repeat;
 }

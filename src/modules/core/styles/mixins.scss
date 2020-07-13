@@ -17,7 +17,7 @@
 
 @mixin container($top: 0px) {
   padding: $top 22px;
-  @include tablet() {
+  @include desktop() {
     padding: $top 134px;
   }
 }

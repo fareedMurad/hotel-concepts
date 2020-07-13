@@ -7,13 +7,16 @@
 .container {
   padding: 22px;
   @include desktop() {
-    padding: 20px 134px;
+    padding: 50px 134px;
   }
 }
 
 .form-wrapper {
   width: 100%;
   @include tablet() {
+    width: 80%;
+  }
+  @include desktop() {
     width: 50%;
   }
 }

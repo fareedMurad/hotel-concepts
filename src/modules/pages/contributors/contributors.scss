@@ -4,6 +4,7 @@
   height: 100vh;
   &-img {
     @include imageOverlay();
+    background: $hr;
     @include heroImage();
     @include flex($align: stretch, $justify: center, $direction: column);
     width: 100%;
