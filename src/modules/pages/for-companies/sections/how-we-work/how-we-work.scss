@@ -17,7 +17,12 @@
   & > div {
     margin-bottom: 12px;
   }
+
   @include tablet() {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @include desktop() {
     @include flex(flex-start, stretch);
     & > div {
       margin-bottom: 0px;

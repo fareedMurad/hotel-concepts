@@ -1,8 +1,9 @@
 @import 'core.scss';
 
 .job-form {
-  padding-bottom: 195px;
   width: 100%;
+  padding-bottom: 195px;
+
   @include desktop() {
     width: 750px;
   }

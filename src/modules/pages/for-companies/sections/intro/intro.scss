@@ -2,9 +2,7 @@
 
 .intro {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  @include flex($justify: center, $align: center);
   height: 100vh;
   padding-left: 22px;
   padding-right: 22px;
@@ -16,12 +14,8 @@
   background-color: rgba(0, 0, 0, 0.2);
   background-size: cover;
   min-height: 500px;
-
   flex-direction: column;
-
-  @include tablet() {
-    padding: 120px;
-  }
+  @include container();
   &-caption {
     @include font($white, 60px, 600, 70px);
     width: 100%;
