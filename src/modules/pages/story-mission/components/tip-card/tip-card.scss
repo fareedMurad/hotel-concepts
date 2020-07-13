@@ -1,9 +1,13 @@
 @import 'core.scss';
 
 .tip-card {
-  padding: 42px 92px;
+  padding: 22px;
   background-color: #f5f1f0;
   border-radius: 4px;
+  @include desktop(){
+    padding: 42px 92px;
+
+  }
 }
 
 .card {

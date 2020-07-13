@@ -8,7 +8,7 @@
   @include flex(space-between);
   width: 92px;
   margin-top: 60px;
-  margin-left: 10px;
+  margin-left: 22px;
   padding: 8px 13px;
   background-color: #f5f1f0;
   border-radius: 3px;
@@ -20,7 +20,7 @@
   @include container();
   display: flex;
   justify-content: space-between;
-  margin-top: 85px;
+  // margin-top: 85px;
   flex-direction: column;
   @include desktop() {
     flex-direction: row;

@@ -14,7 +14,10 @@
     @include font($white, 60px, 600, 70px);
     @include container();
     width: 100%;
-    margin-top: 200px;
+    margin-top: 300px;
+    @include iphone7() {
+      margin: 0;
+    }
     @include tablet() {
       margin-top: calc(100vh - 412px);
     }
@@ -30,13 +33,16 @@
     overflow-x: auto;
     overflow-y: hidden;
     display: grid;
-    margin-top: 48px;
     grid-template-columns: repeat(5, max-content);
     grid-template-rows: 1fr;
     gap: 20px;
     background-color: #ffffff;
     border-radius: 4px;
+    margin-top: 48px;
     padding: 20px;
+    @include iphone7() {
+      margin: 0;
+    }
     @include tablet() {
       grid-template-columns: repeat(5, auto);
     }
@@ -52,17 +58,17 @@
     & > a:last-child {
       padding-right: 20px;
     }
-    &::after {
-      @include tablet() {
-        display: none;
-      }
-      content: '\2192';
-      position: absolute;
-      bottom: -24px;
-      left: 2px;
-      font-size: 14px;
-      color: black;
-    }
+    // &::after {
+    //   @include tablet() {
+    //     display: none;
+    //   }
+    //   content: '\2192';
+    //   position: absolute;
+    //   bottom: -24px;
+    //   left: 2px;
+    //   font-size: 14px;
+    //   color: black;
+    // }
   }
   &__btn {
     @include flex($align: center, $justify: space-between);

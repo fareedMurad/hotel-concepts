@@ -10,9 +10,13 @@
   background-size: cover;
   min-height: 500px;
   &-caption {
-    @include font($white, 60px, 600, 70px);
-    width: 70%;
+    @include font($white, 48px, 600, 70px);
+    width: 100%;
     font-family: $EBGaramond;
+    @include tablet() {
+      @include font($white, 60px, 600, 70px);
+      width: 70%;
+    }
   }
   &-description {
     @include font($white, 24px, 300, 34px);

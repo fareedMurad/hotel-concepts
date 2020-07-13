@@ -97,7 +97,7 @@ const CustomRightArrow: React.FC<any> = ({ onClick, ...rest }) => {
 
 const ProductSlider: React.FC<ProductSliderProps> = ({}) => {
   const { books } = useMarketplaceData();
-  console.log(books);
+
   return (
     <div className={styles.productSlider}>
       <div className={styles.productSliderWrap}>

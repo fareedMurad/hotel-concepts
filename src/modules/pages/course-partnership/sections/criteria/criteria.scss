@@ -5,15 +5,23 @@
   @include flex($align: center, $justify: center);
   width: 100%;
   min-height: 100vh;
+  padding: 12px;
+  @include tablet() {
+    padding: 0;
+  }
   &__description {
     width: 100%;
-    color: white;
     @include desktop() {
       width: 80%;
     }
     &__title {
+      @include font($white, 36px, 600, 46px);
       margin-bottom: 30px;
+      font-family: $EBGaramond;
       color: $white;
+      @include tablet() {
+        @include font($white, 48px, 600, 58px);
+      }
     }
   }
 }
