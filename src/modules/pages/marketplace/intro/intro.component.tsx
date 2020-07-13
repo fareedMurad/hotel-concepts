@@ -32,7 +32,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         <div className={styles.filtersField}>
           {maketplaceFiltersData.map(el => {
             const { title, id, count, anchor } = el;
-            const activeFilter = isActive === el.id;
+
             return (
               <a
                 key={id}
