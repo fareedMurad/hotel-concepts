@@ -36,36 +36,35 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
   return (
     <div className={styles.storyMission}>
       <header className={styles.header}>
-        <nav className={styles.nav}>
-          <Header />
-        </nav>
+        <Header />
         <div
           style={{
             backgroundImage: `url(${require('img/story-mission/story-mission-1.png')})`
           }}
           className={styles.headerImg}
-        />
-        <div className={styles.headerContent}>
-          <div>About Kordie</div>
-          <div>New Knowledge for the New Hospitality Economy</div>
-          <div className={styles.headerBar}>
-            {anchors.map(item => {
-              const { anchor, rate, caption } = item;
-              return (
-                <Anchor
-                  anchor={anchor}
-                  rate={rate}
-                  caption={caption}
-                  key={item.id}
-                />
-              );
-            })}
+        >
+          <div className={styles.headerContent}>
+            <div>About Kordie</div>
+            <div>New Knowledge for the New Hospitality Economy</div>
+            <div className={styles.headerBar}>
+              {anchors.map(item => {
+                const { anchor, rate, caption } = item;
+                return (
+                  <Anchor
+                    anchor={anchor}
+                    rate={rate}
+                    caption={caption}
+                    key={item.id}
+                  />
+                );
+              })}
 
-            <a style={{ height: '100%' }} href='#get-involved'>
-              <Button className={styles.headerBtn}>
-                <div>Contact us</div> <div>&#8594;</div>
-              </Button>
-            </a>
+              <a style={{ height: '100%' }} href='#get-involved'>
+                <Button className={styles.headerBtn}>
+                  <div>Contact us</div> <div>&#8594;</div>
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </header>
