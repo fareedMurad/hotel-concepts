@@ -1,0 +1,94 @@
+@import "core.scss";
+
+.program-module-item {
+  margin-bottom: 20px;
+}
+
+.indicator {
+  cursor: pointer;
+  height: 34px;
+  width: 34px;
+  background-color: $white;
+  border-radius: 50%;
+  margin-right: 24px;
+  min-width: 34px;
+  &::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7px;
+    content: '+';
+    transition: transform 0.1s ease-in;
+    color: $primary-gray;
+  }
+  &.opened {
+    &::after {
+      transition: transform 0.1s ease-in;
+      transform: rotate(45deg);
+      padding-left: 9px;
+    }
+  }
+}
+
+.content {
+  @include flex($justify: space-between, $align: flex-end);
+}
+
+.left-side {
+  display: flex;
+  flex: 1;
+}
+
+.button {
+  @include flex($justify: space-between);
+  width: 224px;
+}
+
+.description {
+  max-height: 0;
+  transition: 1s cubic-bezier(0, 1, 0, 1);
+  padding-left: 58px;
+  overflow: hidden;
+  max-width: 700px;
+
+  &.opened {
+    margin: 20px 0;
+    max-height: 500px;
+    transition: max-height 0.7s ease-in;
+  }
+}
+
+.hr {
+  height: 2px;
+  background-color: $hr;
+  margin-top: 24px;
+}
+
+.info-block {
+  @include flex($justify: center);
+  width: 100%;
+  flex: 1;
+}
+
+.name-block {
+  & > div:first-child {
+    @include font($primary-orange, 18px, 500, 22px);
+    max-width: 600px;
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    @include font($primary-grey, 18px, 400, 19px);
+    font-family: $IBMPlex;
+  }
+}
+
+.info-block {
+  display: flex;
+  @include font($primary-grey, 16px, 400, 17px);
+  font-family: $IBMPlex;
+}
+
+.ver-hr {
+  margin: 0 20px;
+  color: $light-grey;
+}

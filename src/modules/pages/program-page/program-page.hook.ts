@@ -29,37 +29,43 @@ const useProgramPageData = () => {
           name: "Marketing Fundamentals",
           weeks: 2,
           hrhWeek: 2,
-          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy."
+          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy.",
+          pdf: "digital-marketing"
         },
         {
           name: "Content strategy",
           weeks: 2,
           hrhWeek: 2,
-          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy."
+          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy.",
+          pdf: "digital-marketing"
         },
         {
           name: "Social Media Marketing",
           weeks: 2,
           hrhWeek: 2,
-          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy."
+          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy.",
+          pdf: "digital-marketing"
         },
         {
           name: "Display Advertising",
           weeks: 2,
           hrhWeek: 2,
-          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy."
+          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy.",
+          pdf: "digital-marketing"
         },
         {
           name: "Email Marketing",
           weeks: 2,
           hrhWeek: 2,
-          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy."
+          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy.",
+          pdf: "digital-marketing"
         },
         {
           name: "Measure and Optimise",
           weeks: 2,
           hrhWeek: 2,
-          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy."
+          description: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy.",
+          pdf: "digital-marketing"
         }
       ],
       results: [

@@ -17,6 +17,7 @@ import { FaqBlock } from '..';
 import { ProgramEnrollNow } from './sections/program-enroll-now';
 import { useParams } from 'react-router';
 import { useProgramPageData } from './program-page.hook';
+import { ProgramModules } from './sections/program-modules';
 
 /**
  * Renders ProgramPage
@@ -35,6 +36,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ProgramAbout about={pageData.about} />
       <div className={styles.hr}></div>
       <Enroll shouldEnroll={pageData.shouldEnroll} />
+      <ProgramModules modules={pageData.modules} />
       <div className={styles.img}></div>
       <ProgramResults />
       <Mentors />
