@@ -30,15 +30,15 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
     <div className={styles.programPage}>
       <Header />
       <ProgramIntro introInfo={pageData.introInfo} />
-      <ProgramOverview />
+      <ProgramOverview overview={pageData.overview} />
       <div className={styles.hr}></div>
-      <ProgramAbout />
+      <ProgramAbout about={pageData.about} />
       <div className={styles.hr}></div>
-      <Enroll />
+      <Enroll shouldEnroll={pageData.shouldEnroll} />
       <div className={styles.img}></div>
       <ProgramResults />
       <Mentors />
-      <ProgramLearningApproach />
+      <ProgramLearningApproach learningApproach={pageData.learningApproach} />
       <ProgramMaterials />
       <Impact />
       <div className={styles.hr}></div>

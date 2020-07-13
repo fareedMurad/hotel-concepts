@@ -26,11 +26,12 @@ const OverviewItem: React.FC<{ sprints: number, month: number, date: string, lan
 /**
  * Renders ProgramOverview
  */
-const ProgramOverview: React.FC<ProgramOverviewProps> = ({}) => {
+const ProgramOverview: React.FC<ProgramOverviewProps> = ({ overview }) => {
+  const { month, sprints, date, languages } = overview;
   return (
     <section className={styles.programOverview}>
       <div className={styles.title}>Overview</div>
-      <OverviewItem sprints={16} month={4} date="September 10, 2019" languages={["English", "Italian"]} />
+      <OverviewItem sprints={sprints} month={month} date={date} languages={languages} />
     </section>
   );
 };

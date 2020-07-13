@@ -5,12 +5,12 @@
   @include flex($align: center, $justify: space-between);
   padding-left: $left-offset;
   padding-right: 106px;
-  @include font($primary-grey, 48px, 500, 50px);
-  font-family: $EBGaramond;
 }
 
-.block {
-  margin: 0 50px;
+.title {
+  width: 70%;
+  @include font($primary-grey, 48px, 500, 50px);
+  font-family: $EBGaramond;
 }
 
 .name {
@@ -19,7 +19,8 @@
 }
 
 .item {
-  display: flex;
+  @include flex($justify: space-between);
+  width: 100%;
 }
 
 .info {
@@ -31,5 +32,48 @@
 .hr {
   height: 52px;
   width: 2px;
+  margin: 0 20px;
   background-color: $hr;
+}
+
+@media screen and (max-width: 900px) {
+  .program-overview {
+    padding-right: $default-offset;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .program-overview {
+    padding: 0 $default-offset;
+  }
+  .title {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .program-overview {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .title {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .program-overview {
+    padding: $default-offset;
+  }
+  .title {
+    margin-bottom: 20px;
+  }
+  .item {
+    flex-direction: column;
+  }
+  .hr {
+    height: 2px;
+    width: 100%;
+    margin: 10px 0;
+  }
 }

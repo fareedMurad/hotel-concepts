@@ -42,3 +42,18 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .program-learning-approach {
+    padding: $default-offset 0;
+  }
+  .title {
+    padding: 0 $default-offset;
+  }
+  .item {
+    min-width: 100% !important;
+  }
+  .button {
+    margin-left: $default-offset;
+  }
+}

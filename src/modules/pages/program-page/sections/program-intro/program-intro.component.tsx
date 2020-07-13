@@ -16,6 +16,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const { navButtons } = useProgramData();
+  const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -28,15 +29,18 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
       video.play();
       video.style.opacity = '1';
       video.style.visibility = 'visible';
+      setVideoPromise(video.play());
     }
   };
 
-  const stopVideo = () => {
+  const stopVideo = async () => {
     if (video) {
+      await videoPromise;
       video.pause();
       video.currentTime = 0;
       video.style.opacity = '0';
       video.style.visibility = 'hidden';
+      setVideoPromise(null);
     }
   };
 
@@ -53,7 +57,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
           width: '100%',
         }}
         trigger={
-          <div>
+          <div className={styles.watchButton}>
             <WatchButton
               onEnter={playVideo}
               onLeave={stopVideo}
@@ -82,12 +86,12 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
         </Button>
       </div>
 
-      {/* <video
+      <video
         ref={videoRef}
         className={styles.video}
-        src={require('videos/HomePage.preview.mov')}
+        src={require(`assets/videos/${videoInfo.path}.mov`)}
         muted={true}
-      /> */}
+      />
     </section>
   );
 };

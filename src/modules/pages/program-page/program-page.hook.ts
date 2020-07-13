@@ -6,7 +6,7 @@ const useProgramPageData = () => {
         name: "Intial Hotel Planning Decisions Course",
         description: "We know which problems hoteliers face every day and we are ready to solve these problems.",
         videoInfo: {
-          path: "",
+          path: "ForCorporateClients.preview",
           time: "0:56"
         }
       },
@@ -18,9 +18,12 @@ const useProgramPageData = () => {
       },
       about: {
         text: "Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy. In this program, you will gain general knowledge about the principles of digital marketing and acquire the skills, analytical techniques and approaches to apply digitalst rategies effectively for customer acquisition, engagement and retention.",
-        skils: ["Digital marketing", "Branding Strategy", "Creative thinking", "Creative thinking"]
+        skills: ["Digital marketing", "Branding Strategy", "Creative thinking", "Creative thinking"]
       },
-      shouldEnroll: ["Operations Admin", "Industry Analyst", "Customer Manager", "Product Manager"],
+      shouldEnroll: {
+        text: "",
+        roles: ["Operations Admin", "Industry Analyst", "Customer Manager", "Product Manager"]
+      },
       modules: [
         {
           name: "Marketing Fundamentals",

@@ -16,10 +16,10 @@
   }
 }
 
-
 .item {
   width: 540px;
-  height: 47px;
+  min-height: 47px;
+  padding: 4px 0;
   background-color: $white;
   border-radius: 4px;
   margin-bottom: 20px;
@@ -29,5 +29,16 @@
     padding: 0 15px;
     color: $primary-orange;
     font-size: 13px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .program-materials {
+    padding: $default-offset;
+    padding-top: 50px;
+  }
+  .item {
+    width: 100%;
   }
 }

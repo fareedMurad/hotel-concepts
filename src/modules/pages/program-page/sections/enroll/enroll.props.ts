@@ -1,6 +1,11 @@
 /**
  * Props
  */
-type EnrollProps = {};
+type EnrollProps = {
+  shouldEnroll: {
+    text: string;
+    roles: string[];
+  }
+};
 
 export { EnrollProps };

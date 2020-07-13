@@ -7,6 +7,7 @@
 }
 
 .title {
+  width: 80%;
   & > div:first-child {
     @include font($primary-grey, 48px, 500, 50px);
     max-width: 600px;
@@ -21,8 +22,12 @@
   }
 }
 
+.skills-wrapper {
+  @include flex($justify: center);
+  width: 100%;
+}
+
 .skills {
-  margin-left: 244px;
   & > div:first-child {
     @include font($primary-grey, 24px, 400, 26px);
     max-width: 600px;
@@ -42,5 +47,29 @@
       color: $primary-orange;
       font-size: 13px;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .program-about {
+    padding: 0 $default-offset;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .program-about {
+    flex-direction: column;
+  }
+  .title {
+    width: 100%;
+  }
+  .skills {
+    width: 100%;
+    .item {
+      width: 100%;
+    }
+  }
+  .skills-wrapper {
+    justify-content: flex-start;
   }
 }
