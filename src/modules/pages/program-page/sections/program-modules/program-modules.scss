@@ -19,3 +19,9 @@
     max-width: 440px;
   }
 }
+
+@media screen and (max-width: 930px) {
+  .program-modules {
+    padding: 60px $default-offset;
+  }
+}
