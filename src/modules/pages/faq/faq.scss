@@ -1,76 +1,14 @@
 @import 'core.scss';
 
 .faq {
-  &__questions {
-    margin: 0px 22px;
+  &__wrapper {
+    padding: 22px;
   }
-}
-
-.header {
-  padding: 25px 22px;
 }
 
 .container {
   @include container();
-}
-
-.filters {
-  @include flex();
-  margin: 38px 22px;
-}
-
-.question {
-  @include flex($align: stretch, $direction: column);
-  margin-bottom: 32px;
-  padding: 15px 0px;
-  border-bottom: 2px solid #cbd0d3;
-  cursor: pointer;
-  &__mark {
-    @include size(34px);
-    @include flex($align: center, $justify: center);
-    @include font(#cbd0d3, 14px);
-    background-color: #f5f1f0;
-    border-radius: 50%;
-    position: relative;
-    &::before {
-      content: '';
-      width: 10px;
-      height: 1px;
-      background: #cbd0d3;
-    }
-    &--closed {
-      &::after {
-        content: '';
-        position: absolute;
-        width: 10px;
-        height: 1px;
-        background: #cbd0d3;
-        transform: rotate(90deg);
-      }
-    }
-  }
-  &__caption {
-    @include font($primary-gray, 18px, 400, 28px);
-    margin-left: 16px;
-    font-family: $IBMPlex;
-    &--opened {
-      @include font($primary-gray, 18px, 500, 28px);
-    }
-  }
-  &__description {
-    display: none;
-    &--opened {
-      @include font($primary-gray, 16px, 400, 22px);
-      display: block;
-      width: 35vw;
-      margin-left: 50px;
-    }
-  }
-  &__content {
-    @include flex($align: center);
-    &--visible {
-    }
-  }
+  margin-top: 100px;
 }
 
 .footer {
@@ -93,24 +31,30 @@
 }
 
 .form {
-  width: fit-content;
+  width: 80%;
+  @include desktop() {
+    width: 50%;
+  }
   &__inputs {
     display: flex;
     & > div:first-child {
-      width: 204px;
+      width: 40%;
       margin-right: 20px;
+      @include desktop() {
+        width: 40%;
+      }
     }
     & > div:last-child {
-      width: 316px;
+      width: 60%;
+      @include desktop() {
+        width: 60%;
+      }
     }
-  }
-
-  &--input {
   }
 }
 
 .text-area {
-  width: 540px;
+  width: 100%;
   height: 152px;
   border: none;
   outline: none;
@@ -120,11 +64,18 @@
 
 .submit {
   &__form {
-    @include flex($align: center, $justify: space-between);
+    @include flex($align: stretch, $justify: space-between, $direction: column);
     width: 100%;
+    @include desktop() {
+      @include flex($align: center, $justify: space-between);
+    }
   }
   &__button {
     @include flex($align: center, $justify: space-between);
     width: 40%;
+    margin-top: 8px;
+    @include desktop() {
+      margin-top: 0;
+    }
   }
 }

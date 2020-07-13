@@ -1,0 +1,38 @@
+@import 'core.scss';
+
+.content {
+  padding-top: 60px;
+}
+
+.back {
+  width: 92px;
+  margin-left: 22px;
+  padding: 8px 13px;
+  background-color: #f5f1f0;
+  border-radius: 3px;
+  font-family: 'IBM Plex Sans';
+  @include flex(space-between);
+}
+
+.footer {
+  padding: 22px;
+  @include desktop() {
+    padding: 50px 120px;
+  }
+  background: $background;
+  &_content {
+    width: 300px;
+    &--date {
+      @include font($hr, 16px, 500, 22px);
+      margin-top: 6px;
+    }
+    &--caption {
+      margin: 4px 0px;
+    }
+  }
+}
+
+.button {
+  @include flex($justify: space-between);
+  width: 204px;
+}

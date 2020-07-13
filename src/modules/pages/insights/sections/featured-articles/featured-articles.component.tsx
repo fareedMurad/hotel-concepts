@@ -56,11 +56,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         >
           <div className={styles.articleContent}>
             <div>Jan 10, 2019</div>
-            <div>
-              Chatbots in <br />
-              Hospitality and <br />
-              Travel Industries
-            </div>
+            <div>Chatbots in Hospitality and Travel Industries</div>
             <Button className={styles.articleButton}>
               <div>Read article</div> <div> &#8594; </div>
             </Button>

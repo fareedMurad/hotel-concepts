@@ -63,3 +63,22 @@
     padding: 0 $default-offset;
   }
 }
+
+.hr {
+  height: 2px;
+  background-color: $hr;
+  width: 100%;
+}
+
+.hr-wrapper {
+  padding-left: $left-offset;
+  padding-right: $default-offset;
+  background-color: $background;
+}
+
+@media screen and (max-width: 1010px) {
+  .hr-wrapper {
+    padding-left: $default-offset;
+    padding-right: $default-offset;
+  }
+}

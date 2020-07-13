@@ -2,8 +2,8 @@ import * as React from 'react';
 import { HowWeWorkProps } from './how-we-work.props';
 import * as styles from './how-we-work.scss';
 import { H2 } from '@core/components';
-import { HowWeWorkCard } from './components/how-we-work-card';
 import { useHowWeWork } from './how-we-work.hook';
+import { HowWeWorkCard } from './components';
 
 /**
  * Renders HowWeWork

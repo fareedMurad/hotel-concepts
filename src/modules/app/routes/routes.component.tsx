@@ -7,7 +7,13 @@ import * as styles from './routes.scss';
 import { useSelector } from 'react-redux';
 import { State } from '@app/store/state';
 import { Toast } from '@core/components';
-import { LearningApproach, Faq, Contributors } from 'src/modules/pages';
+import {
+  LearningApproach,
+  Faq,
+  Contributors,
+  ContactsPage,
+  ArticlePage
+} from 'src/modules/pages';
 import { JobsList } from '@pages/jobs-list';
 import { JobDetails } from '@pages/job-details';
 import { ForCompanies } from '@pages/for-companies';
@@ -18,7 +24,6 @@ import { StoryMission } from '@pages/story-mission';
 import { Product } from '@pages/product';
 import { CoursePartnership } from '@pages/course-partnership';
 import { PrivacyPolicy } from '@pages/privacy-policy';
-import { ContactsPage } from '@pages/contacts-page';
 import { ProgramPage } from '@pages/program-page';
 
 /**
@@ -36,12 +41,13 @@ const Routes: React.FC = () => {
         <Route path='/uikit' component={Uikit} />
 
         {/* ROUTES */}
+        <Route path='/insights/article/:id' component={ArticlePage} />
         <Route path='/contact-us' component={ContactsPage} />
         <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
-        <Route exact path='/learning-approach' component={LearningApproach} />
+        <Route path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
         <Route path='/program/:id' component={ProgramPage} />
         {/* JOB ROUTES */}
@@ -52,8 +58,8 @@ const Routes: React.FC = () => {
         {/* MARKETPLACE ROUTE */}
         <Route path='/marketplace' component={Marketplace} />
         {/* PRODUCT ROUTE */}
-        <Route path='/product' component={Product} />
-        {/* PRODUCT ROUTE */}
+        <Route path='/product/:id' component={Product} />
+        {/* COURSE-PARTNERSHIP ROUTE */}
         <Route path='/course-partnership' component={CoursePartnership} />
         <Route path='/' component={Homepage} />
       </Switch>

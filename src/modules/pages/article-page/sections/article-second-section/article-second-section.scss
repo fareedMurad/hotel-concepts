@@ -1,0 +1,37 @@
+@import 'core.scss';
+
+.article-second-section {
+  position: relative;
+  padding: 0 22px;
+  @include desktop() {
+    padding: 0px 350px 0px 120px;
+  }
+}
+
+.aside {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  min-width: 316px;
+  min-height: 213px;
+  height: max-content;
+  padding: 24px 12px;
+  background: $background;
+  border-radius: 4px;
+}
+
+.button {
+  @include flex($align: center, $justify: space-between);
+  width: 100%;
+}
+
+.title {
+  margin-top: 48px;
+}
+
+.hr {
+  width: 60%;
+  height: 2px;
+  margin: 50px 0px;
+  background: $hr;
+}

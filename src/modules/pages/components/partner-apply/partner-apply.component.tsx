@@ -52,11 +52,13 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({}) => {
                       name='name'
                       className={styles.name}
                       label='Name'
+                      placeholder='John'
                     />
                     <Field.Text
                       name='phone'
                       className={styles.email}
                       label='E-mail'
+                      placeholder='example@gmail.com'
                     />
                   </div>
                   <div

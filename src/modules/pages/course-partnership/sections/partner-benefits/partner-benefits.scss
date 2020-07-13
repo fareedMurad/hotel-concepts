@@ -1,19 +1,20 @@
 @import 'core.scss';
 
 .partner-benefits {
-  display: flex;
   @include container();
-  margin-top: 120px;
   margin-bottom: 100px;
-  padding-left: 30px;
-  @include md {
-    display: grid;
-    grid-template-columns: 1fr;
+  margin-top: 60px;
+  @include desktop() {
+    @include flex($align: stretch);
+    margin-top: 120px;
   }
 }
 
 .content {
-  width: 50%;
+  width: 100%;
+  @include desktop() {
+    width: 50%;
+  }
 }
 
 .content-list-item {
@@ -35,15 +36,20 @@
   height: 2px;
   background-color: $light-grey;
   margin-top: 40px;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
+  @include desktop() {
+    margin-bottom: 100px;
+  }
 }
 
 .content-img {
-  padding-left: 20px;
-  @include md {
-    padding-left: 0;
+  @include desktop() {
+    padding-left: 20px;
   }
   &__description {
-    margin-top: 100px;
+    margin-top: 30px;
+    @include desktop() {
+      margin-top: 100px;
+    }
   }
 }

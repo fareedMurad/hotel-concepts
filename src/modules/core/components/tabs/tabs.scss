@@ -18,14 +18,17 @@
   transition: $transition;
   border-radius: 8px;
   cursor: pointer;
-  &--selected {
-    // color: $white;
-    // background: $primary;
-  }
+  // &--selected {
+  //   // color: $white;
+  //   // background: $primary;
+  // }
 }
 .content {
-  width: 30%;
+  width: 100%;
   margin-left: 10px;
+  @include desktop() {
+    width: 30%;
+  }
 }
 .caption {
   @include font($primary-gray, 16px, 400);

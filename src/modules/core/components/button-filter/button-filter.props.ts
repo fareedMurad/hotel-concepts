@@ -9,6 +9,7 @@ type ButtonFilterProps = {
   icon?: string;
   id?: number | string;
   className?: any;
+  anchor?: string;
 };
 
 export { ButtonFilterProps };

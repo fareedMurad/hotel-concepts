@@ -5,14 +5,22 @@
 }
 
 .container {
-  @include container();
-  @include flex($align: center);
-  padding: 24px 120px;
+  padding: 22px;
+  @include flex($align: center, $direction: column-reverse);
+  @include desktop() {
+    padding: 22px 120px;
+    @include flex($align: center);
+  }
 }
 
 .slider {
-  width: 30%;
-  margin-right: 25px;
+  width: 100%;
+  text-align: center;
+  @include desktop() {
+    width: 30%;
+    margin-right: 25px;
+    text-align: initial;
+  }
   &-title {
     @include font($primary-gray, 24px, 400, 34px);
     font-family: $IBMPlex;

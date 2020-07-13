@@ -46,9 +46,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   ];
   return (
     <div className={styles.contactsPage}>
-      <header className={styles.header}>
-        <Header whiteBackground />
-      </header>
+      <Header whiteBackground />
       <div className={styles.container}>
         <div className={styles.heading}>We're here to help!</div>
         <H2>Contact Us</H2>
@@ -123,7 +121,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                 </Form>
               )}
             </Formik>
-            <Paragraph>
+            <Paragraph className={styles.footerCaption}>
               Kordie takes your privacy very seriously. We may process your
               personal information for carefully considered and specific
               purposes which are in our interests and enable us to enhance the

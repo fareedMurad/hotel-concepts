@@ -11,14 +11,28 @@
   margin: 0 auto;
 }
 .wcc-cards {
-  @include flex($justify: stretch);
-  width: 50%;
+  @include flex($justify: stretch, $direction: column);
+  width: 100%;
+  @include desktop() {
+    @include flex($justify: stretch);
+    width: 50%;
+  }
 }
 
 .wcc {
+  &__image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    min-height: 188px;
+  }
   &__card {
     width: 100%;
-    margin-right: 20px;
+    margin-bottom: 12px;
+    @include desktop() {
+      margin-bottom: 0;
+      margin-right: 20px;
+    }
   }
   &__text {
     &--title {
@@ -36,11 +50,12 @@
 .tools-cards {
   display: grid;
   margin: 0px 22px;
-
-  grid-template-columns: 459px 459px 459px;
-  grid-template-rows: repeat(2, 1fr);
   row-gap: 40px;
-  column-gap: 10px;
+  @include desktop() {
+    grid-template-columns: 459px 459px 459px;
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 10px;
+  }
   @include desktop-lg() {
     grid-template-columns: 1fr 1fr 1fr;
   }

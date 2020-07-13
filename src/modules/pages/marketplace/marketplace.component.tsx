@@ -2,9 +2,9 @@ import * as React from 'react';
 import { MarketplaceProps } from './marketplace.props';
 import * as styles from './marketplace.scss';
 import { Header } from '@core/components/header';
-import { H1, ButtonFilter, Footer } from '@core/components';
+import { H1, ButtonFilter, Footer, Paragraph, H2 } from '@core/components';
 import { useMarketplaceData } from './marketplace.hook';
-import { Slider } from '@pages/components/slider';
+import { ProductsSlider } from '@pages/components/products-slider';
 
 /**
  * Renders Marketplace
@@ -19,7 +19,8 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
         style={{
           backgroundImage: `url(${require('img/marketplace-bg.png')})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover'
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
         }}
       >
         <Header />
@@ -30,41 +31,56 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
             smart answers to common challenges.
           </div>
         </main>
-        <div className={styles.filterWrapper}>
-          <div className={styles.filtersField}>
-            {maketplaceFiltersData.map(el => {
-              const { title, id, count } = el;
-              const activeFilter = isActive === el.id;
-              return (
-                <ButtonFilter
-                  className={styles.marketplaceFilter}
-                  key={id}
-                  count={count}
-                  title={title}
-                  active={activeFilter}
-                  onClick={() => {
-                    setIsActive(id);
-                  }}
-                />
-              );
-            })}
-          </div>
+        <div className={styles.filtersField}>
+          {maketplaceFiltersData.map(el => {
+            const { title, id, count, anchor } = el;
+            const activeFilter = isActive === el.id;
+            return (
+              <ButtonFilter
+                className={styles.marketplaceFilter}
+                key={id}
+                count={count}
+                title={title}
+                active={activeFilter}
+                anchor={anchor}
+                onClick={() => setIsActive(id)}
+              />
+            );
+          })}
         </div>
       </div>
-      <Slider
-        subtitle='Popular items in'
-        title='Web templates'
-        data={goodsData}
-      />
-      <Slider subtitle='Popular items in' title='Books' data={books} />
-      <Slider
-        subtitle='Popular items in'
-        title='Collections'
-        data={goodsData}
-      />
-      <Slider subtitle='Popular items in' title='Case study' data={goodsData} />
-      <Slider subtitle='Popular items in' title='Researches' data={goodsData} />
-      <Slider subtitle='Popular items in' title='Tools' data={goodsData} />
+
+      <div className={styles.sliderTitle} id='web-templates'>
+        <Paragraph>Popular items in</Paragraph>
+        <H2>Web templates</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
+
+      <div className={styles.sliderTitle} id='books'>
+        <Paragraph>New item in</Paragraph>
+        <H2>Books</H2>
+      </div>
+      <ProductsSlider data={books} />
+      <div className={styles.sliderTitle} id='collections'>
+        <Paragraph>New item in </Paragraph>
+        <H2>Collections</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
+      <div className={styles.sliderTitle} id='case-study'>
+        <Paragraph>Popular items in</Paragraph>
+        <H2>Case study</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
+      <div className={styles.sliderTitle} id='researches'>
+        <Paragraph>Popular items in</Paragraph>
+        <H2>Researches</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
+      <div className={styles.sliderTitle} id='tools'>
+        <Paragraph>Popular items in</Paragraph>
+        <H2>Tools</H2>
+      </div>
+      <ProductsSlider data={goodsData} />
       <div className={styles.footer}>
         <Footer />
       </div>

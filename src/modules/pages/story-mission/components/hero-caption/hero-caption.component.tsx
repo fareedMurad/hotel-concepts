@@ -12,14 +12,12 @@ const HeroCaption: React.FC<HeroCaptionProps> = ({
   title,
   description,
   id
-}) => {
-  return (
-    <div className={classNames(styles.caption, className)} id={id}>
-      <Icon name='abstract-1' />
-      <H2>{title}</H2>
-      {description && <Paragraph>{description}</Paragraph>}
-    </div>
-  );
-};
+}) => (
+  <div className={classNames(styles.heroCaption, className)} id={id}>
+    <Icon name='abstract-1' />
+    <H2>{title}</H2>
+    {description && <Paragraph>{description}</Paragraph>}
+  </div>
+);
 
 export { HeroCaption };

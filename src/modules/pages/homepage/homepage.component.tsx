@@ -9,11 +9,11 @@ import { About } from './sections/about';
 import { TrainingInfo } from './sections/training-info';
 import { Impact } from './sections/impact';
 import { Mentors } from './sections/mentors';
-import { FaqBlock } from './sections/faq-block';
 import { InsightsBlock } from './sections/insights-block';
 import { Socials } from './sections/socials';
 import { Header } from '@core/components/header';
 import { Footer } from '@core/components';
+import { FaqBlock } from '@pages/components';
 
 /**
  * Renders Homepage

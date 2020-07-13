@@ -10,6 +10,7 @@ import { WhyCordie } from './sections/why-cordie';
 import { OurPrograms } from './sections/our-programs';
 import { Brochure } from './sections/brochure';
 import { ConsultRequest } from './sections/consult-request';
+import { ScrollButton } from '@core/components/scroll-button';
 
 /**
  * Renders ForCompanies
@@ -24,20 +25,21 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
             backgroundImage: `url(${require('img/for-companies.png')})`
           }}
           className={styles.image}
-        />
-        <main className={styles.headerContent}>
-          <H1 className={styles.headerCaption}>
-            Hospitality education designed for impact
-          </H1>
-          <div className={styles.headerDescription}>
-            Enforce your people and power your future
-          </div>
-          <Button className={styles.button}>
-            <div>Contact Us</div>
-            <div>&rarr;</div>
-          </Button>
-        </main>
-        <div className={styles.arrow}>&#8595; Scroll</div>
+        >
+          <main className={styles.headerContent}>
+            <H1 className={styles.headerCaption}>
+              Hospitality education designed for impact
+            </H1>
+            <div className={styles.headerDescription}>
+              Enforce your people and power your future
+            </div>
+            <Button className={styles.button}>
+              <div>Contact Us</div>
+              <div>&rarr;</div>
+            </Button>
+          </main>
+          <ScrollButton text='Scroll' className={styles.arrow} />
+        </div>
       </div>
       <div className={styles.talentMatters}>
         <Icon name='abstract-1' />

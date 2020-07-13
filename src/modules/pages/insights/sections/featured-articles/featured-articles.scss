@@ -1,37 +1,69 @@
 @import 'core.scss';
 
 .caption {
-  @include container();
   margin: 60px auto;
+  padding: 0px 22px;
   & > div:first-child {
     @include font($primary-orange, 18px, 500, 28px);
     font-family: $IBMPlex;
+  }
+  @include tablet() {
+    @include container();
+    margin: 60px auto;
   }
 }
 
 .filters {
   display: flex;
-  margin: 22px 0px 40px 22px;
+  margin: 22px;
+  overflow-x: scroll;
+  padding-bottom: 8px;
+  &::-webkit-scrollbar {
+    height: 4px;
+    background: $primary-orange;
+  }
+  &::before,
+  &::after {
+    content: '';
+    margin: auto;
+    @include tablet() {
+      margin: 0;
+    }
+  }
+  @include desktop() {
+    overflow: initial;
+    margin: 22px 0px 40px 22px;
+  }
 }
 
 .article {
   &-img {
-    grid-row: 2;
-    grid-column: 2 / 2 span;
+    @include flex($align: center, $justify: center);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 4px;
+    min-height: 301px;
+    grid-row: 2;
+    grid-column: 2 / 2 span;
   }
   &-content {
     @include flex($justify: space-evenly, $direction: column);
     height: 100%;
-    padding: 80px 110px;
+    padding: 20px;
+    @include tablet() {
+      padding: 80px 110px;
+    }
     & > div:first-child {
       @include font(#cbd0d3, 28px, 400, 35px);
       font-family: $EBGaramond;
     }
     & > div:nth-child(2) {
-      @include font($white, 48px, 500, 58px);
+      @include font($white, 34px, 500, 58px);
       font-family: $EBGaramond;
+      @include tablet() {
+        @include font($white, 48px, 500, 58px);
+      }
     }
   }
   &-button {
@@ -44,13 +76,19 @@
 }
 
 .articles {
-  display: grid;
   margin: 0px 22px;
-
-  grid-template-columns: 459px 459px 459px;
-  grid-template-rows: repeat(3, 1fr);
-  row-gap: 40px;
-  column-gap: 10px;
+  @include tablet() {
+    display: grid;
+    row-gap: 40px;
+    column-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include desktop() {
+    display: grid;
+    row-gap: 40px;
+    column-gap: 10px;
+    grid-template-rows: repeat(3, 1fr);
+  }
   @include desktop-lg() {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -58,6 +96,10 @@
 
 .show-more {
   @include flex($justify: space-between);
-  width: 15%;
-  margin: 30px 0px 140px 132px;
+  width: 50%;
+  margin: 30px 22px;
+  @include desktop() {
+    width: 15%;
+    margin: 30px 0px 140px 132px;
+  }
 }

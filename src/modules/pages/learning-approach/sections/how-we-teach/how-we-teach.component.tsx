@@ -8,28 +8,24 @@ import { H1 } from '@core/components';
 /**
  * Instrument and Tools Card
  */
-const ToolsCard = ({ title, description }) => {
-  return (
-    <div className={styles.toolsCard}>
-      <div className={styles.toolsCardTitle}>{title}</div>
-      <div className={styles.toolsCardDescription}>{description}</div>
-    </div>
-  );
-};
+const ToolsCard = ({ title, description }) => (
+  <div className={styles.toolsCard}>
+    <div className={styles.toolsCardTitle}>{title}</div>
+    <div className={styles.toolsCardDescription}>{description}</div>
+  </div>
+);
 /**
  * World Class Card
  */
-const WorldClassCard = ({ img, title, description }) => {
-  return (
-    <div className={styles.wccCard}>
-      <img src={require(`img/${img}`)} />
-      <div className={styles.wccText}>
-        <div className={styles.wccTextTitle}>{title}</div>
-        <div className={styles.wccTextDescription}>{description}</div>
-      </div>
+const WorldClassCard = ({ img, title, description }) => (
+  <div className={styles.wccCard}>
+    <img src={require(`img/${img}`)} className={styles.wccImage} />
+    <div className={styles.wccText}>
+      <div className={styles.wccTextTitle}>{title}</div>
+      <div className={styles.wccTextDescription}>{description}</div>
     </div>
-  );
-};
+  </div>
+);
 /**
  * Renders HowWeTeach
  */

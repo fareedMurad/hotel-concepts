@@ -23,7 +23,6 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
   const input = React.useRef<HTMLInputElement>();
   const { locations } = useJobDetailsData();
   const [location, setLocation] = React.useState('');
-  console.log(locations);
   return (
     <div className={styles.jobForm}>
       <div className={styles.title}>Fields marked * are required.</div>
@@ -40,13 +39,13 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
               <div>
                 <Field.Text
                   name='name'
-                  placeholder='Name'
+                  placeholder='John'
                   className={styles.input}
                   label='Full Name*'
                 />
                 <Field.Text
                   name='phone'
-                  placeholder='Phone'
+                  placeholder='+ (000) 111 222 3334'
                   className={styles.input}
                   label='Phone*'
                 />
@@ -70,18 +69,19 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
               <div>
                 <Field.Text
                   name='email'
-                  placeholder='E-mail'
+                  placeholder='example@gmail.com'
                   type='email'
                   className={styles.input}
                   label='Email*'
                 />
                 <div className={styles.select}>
                   <Select
-                    value='hello'
+                    value={location}
                     options={locations}
-                    placeholder=''
+                    placeholder='click here to select'
                     className={styles.input}
                     label='Location*'
+                    onChange={setLocation}
                   />
                 </div>
                 <label htmlFor='upload-letter' className={styles.labelUpload}>
@@ -105,10 +105,10 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
 
             <Field.Text
               name='linkedIn'
-              placeholder='linkedIn'
+              placeholder='LinkedIn'
               type='text'
               className={styles.inputBottom}
-              label='linkedIn'
+              label='LinkedIn'
             />
             <Button
               onClick={() => {

@@ -6,6 +6,8 @@ type SliderCardProps = {
   name?: string;
   price?: string;
   author?: string;
+  id: string | number;
+  onClick: () => void;
 };
 
 export { SliderCardProps };

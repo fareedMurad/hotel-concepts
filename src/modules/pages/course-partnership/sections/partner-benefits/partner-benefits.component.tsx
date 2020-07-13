@@ -2,12 +2,14 @@ import * as React from 'react';
 import { PartnerBenefitsProps } from './partner-benefits.props';
 import * as styles from './partner-benefits.scss';
 import { H2, Paragraph, Icon, H4 } from '@core/components';
-import { borderRadius } from 'react-select/src/theme';
+import { useMediaPoints } from '@core/shared';
 
 /**
  * Renders PartnerBenefits
  */
 const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
+  const { desktop } = useMediaPoints();
+
   return (
     <div className={styles.partnerBenefits}>
       <div className={styles.content}>
@@ -38,17 +40,19 @@ const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
       </div>
       <div className={styles.content}>
         <div className={styles.contentImg}>
-          <div
-            style={{
-              backgroundImage: `url(${require('img/course/partner.png')})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              width: '120%',
-              backgroundPosition: 'center',
-              height: '420px',
-              borderRadius: '5px'
-            }}
-          />
+          {desktop && (
+            <div
+              style={{
+                backgroundImage: `url(${require('img/course/partner.png')})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                width: '120%',
+                backgroundPosition: 'center',
+                height: '420px',
+                borderRadius: '5px'
+              }}
+            />
+          )}
           <Paragraph className={styles.contentImgDescription}>
             For students, this represents an unrivalled opportunity to learn the
             most-cutting edge skills from the brands leading the industry and

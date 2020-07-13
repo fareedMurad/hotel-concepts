@@ -10,23 +10,23 @@ import {
   ReadingMaterials
 } from './sections';
 import { HeroBottom } from './sections/hero-bottom';
+import { ScrollButton } from '@core/components/scroll-button';
 
 const Hr = () => <div className={styles.hr} />;
 /**
  * Renders Learning approach page
  */
-const LearningApproach: React.FC = ({}) => {
-
-  return (
+const LearningApproach: React.FC = ({}) => (
   <div className={styles.main}>
-      <div className={styles.header}>
+    <div className={styles.header}>
+      <div
+        style={{
+          backgroundImage: `url(${require('img/learning-approach/home.png')})`
+        }}
+        className={styles.image}
+      >
         <Header />
-        <div
-          style={{
-            backgroundImage: `url(${require('img/learning-approach/home.png')})`
-          }}
-          className={styles.image}
-        />
+
         <main className={styles.headerContent}>
           <H1 className={styles.headerCaption}>Our Learning Approach</H1>
           <div className={styles.headerDescription}>
@@ -35,30 +35,30 @@ const LearningApproach: React.FC = ({}) => {
             technologies and intensive support
           </div>
         </main>
-        <div className={styles.arrow}>&#8595; Scroll</div>
+        <ScrollButton text='Scroll' className={styles.arrow} />
       </div>
-      <div className={styles.meetKordie}>
-        <Icon name='abstract-1' />
-        <H2 className={styles.meetKordieTitle}>Meet Kordie</H2>
-        <Paragraph className={styles.meetKordieDescription}>
-          Kordie - is online university for hospitality. We deliver practical
-          programs and courses developed in team with key industry leaders, most
-          relevant approach to education, case based assignments and mentorship
-          from leading experts.
-        </Paragraph>
-      </div>
-      <Hr />
-      <WhatWeTeach />
-      <Hr />
-      <HowWeTeach />
-      <ExperiencedAssignment />
-      <Hr />
-      <OurMaterials />
-      <ReadingMaterials />
-      <HeroBottom />
-      <Footer />
     </div>
-  );
-};
+    <div className={styles.meetKordie}>
+      <Icon name='abstract-1' />
+      <H2 className={styles.meetKordieTitle}>Meet Kordie</H2>
+      <Paragraph className={styles.meetKordieDescription}>
+        Kordie - is online university for hospitality. We deliver practical
+        programs and courses developed in team with key industry leaders, most
+        relevant approach to education, case based assignments and mentorship
+        from leading experts.
+      </Paragraph>
+    </div>
+    <Hr />
+    <WhatWeTeach />
+    <Hr />
+    <HowWeTeach />
+    <ExperiencedAssignment />
+    <Hr />
+    <OurMaterials />
+    <ReadingMaterials />
+    <HeroBottom />
+    <Footer />
+  </div>
+);
 
 export { LearningApproach };

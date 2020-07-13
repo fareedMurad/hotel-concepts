@@ -1,5 +1,67 @@
-@import "core.scss";
+@import 'core.scss';
 
 .product {
-	
+}
+
+.header {
+  padding: 22px 27px;
+}
+.footer {
+  margin-top: 80px;
+}
+
+.product-review {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 85px;
+  flex-direction: column;
+  @include desktop() {
+    flex-direction: row;
+  }
+}
+
+.recomendedBooks {
+  @include container();
+  margin-top: 60px;
+  @include tablet() {
+    width: 100%;
+  }
+}
+
+.slider {
+  width: 100%;
+  @include desktop() {
+    width: 50%;
+  }
+}
+
+.links {
+  @include flex($align: center, $justify: space-between);
+  width: 100%;
+  padding-left: 22px;
+  margin: 22px 0px;
+  @include desktop() {
+    margin-top: 94px;
+    padding-left: 134px;
+  }
+  a {
+    margin-right: 10px;
+  }
+}
+
+.share-button {
+  width: 35px;
+  height: 35px;
+  background-color: $background;
+  border: unset;
+  border-radius: 50%;
+}
+
+.download-btn {
+  width: 56px;
+  height: 56px;
+  margin-right: 12px;
+  background-color: $background;
+  border: unset;
+  border-radius: 50%;
 }

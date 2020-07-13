@@ -4,7 +4,6 @@ import * as styles from './program-page.scss';
 import { Header } from '@core/components/header';
 import { Mentors } from '@pages/homepage/sections/mentors';
 import { Impact } from '@pages/homepage/sections/impact';
-import { FaqBlock } from '@pages/homepage/sections/faq-block';
 import { Footer } from '@core/components';
 import { ProgramIntro } from './sections/program-intro';
 import { ProgramOverview } from './sections/program-overview';
@@ -14,6 +13,7 @@ import { ProgramResults } from './sections/program-results';
 import { ProgramMaterials } from './sections/program-materials';
 import { ProgramQuote } from './sections/program-quote';
 import { ProgramLearningApproach } from './sections/program-learning-approach';
+import { FaqBlock } from '..';
 
 /**
  * Renders ProgramPage

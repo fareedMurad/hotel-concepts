@@ -2,30 +2,25 @@
 
 .job-page {
   position: relative;
-  // padding-left: 134px;
-  // padding-right: 570px;
   @include container();
-  margin-top: 32px;
-}
-
-.header {
-  position: relative;
-  width: 100%;
-  padding: 25px 22px;
+  margin-top: 100px;
 }
 
 .back {
+  @include font($primary-grey, 15px, 500, 20px);
+  @include flex(space-between);
   position: absolute;
-  left: -123px;
-  display: flex;
+  top: -40px;
   width: 92px;
   padding: 8px 13px;
   background-color: #f5f1f0;
   border-radius: 3px;
-  font-family: 'IBM Plex Sans';
+  font-family: $IBMPlex;
   cursor: pointer;
-  @include font($primary-grey, 15px, 500, 20px);
-  @include flex(space-between);
+  @include tablet() {
+    left: 22px;
+    top: 12px;
+  }
 }
 
 .section-a {
