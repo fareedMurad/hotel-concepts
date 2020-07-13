@@ -1,7 +1,8 @@
-@import "core.scss";
+@import 'core.scss';
 
 .intro {
-  background: url('../../../../../assets/img/learning-approach/home.png') no-repeat center center;
+  background: url('../../../../../assets/img/learning-approach/home.png')
+    no-repeat center center;
   height: 100vh;
   position: relative;
   box-sizing: border-box;
@@ -13,7 +14,7 @@
   min-height: 500px;
   padding-right: $default-offset;
   padding-left: $left-offset;
-	@include flex($justify: center, $direction: column);
+  @include flex($justify: center, $direction: column);
 }
 
 .video {
