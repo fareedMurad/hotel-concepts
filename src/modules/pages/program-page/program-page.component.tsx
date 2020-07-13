@@ -25,7 +25,7 @@ import { ProgramModules } from './sections/program-modules';
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const { id } = useParams();
   const { data } = useProgramPageData();
-  const pageData = data.filter(item => item.id == id)[0];
+  const pageData = data.filter(item => item.id == 1)[0];
 
   return (
     <div className={styles.programPage}>
