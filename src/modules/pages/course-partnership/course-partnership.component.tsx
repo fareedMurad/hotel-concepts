@@ -8,6 +8,8 @@ import { PartnerBenefits } from './sections/partner-benefits';
 import { Criteria } from './sections/criteria';
 import { PartnerApply } from '@pages/components';
 import { ScrollButton } from '@core/components/scroll-button';
+import { Hero } from './sections/hero';
+import { PartneringForSuccess } from './sections/partnering-for-success';
 
 /**
  * Renders Course
@@ -15,60 +17,9 @@ import { ScrollButton } from '@core/components/scroll-button';
 const CoursePartnership: React.FC<CoursePartnershipProps> = ({}) => {
   return (
     <div className={styles.course}>
-      <div
-        className={styles.wrapper}
-        style={{
-          backgroundImage: `url(${require('img/course/course.png')})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          width: '100%',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className={styles.header}>
-          <Header />
-        </div>
-        <main className={styles.wrapperContent}>
-          <H1 className={styles.wrapperCaption}>
-            Program Partnership with Kordie
-          </H1>
-          <div className={styles.wrapperDescription}>
-            Combining Kordie’ expertise with the <br /> insights of industry
-            leaders
-          </div>
-          <Button className={styles.button}>
-            <div>Contact Us</div>
-            <div>&rarr;</div>
-          </Button>
-        </main>
-        <ScrollButton text='Scroll' className={styles.arrow} />
-      </div>
-      <div className={styles.partnering}>
-        <Icon name='abstract-1' />
-        <H2>Partnering for Success</H2>
-        <Paragraph>
-          Kordie is proud to partner with a select number of <br />{' '}
-          organisations, partnerships which allow us to provide <br /> access to
-          exclusive knowledge and practice for <br /> specific sectors.
-        </Paragraph>
-      </div>
-      <div className={styles.hr} />
-      <div className={styles.howProgram}>
-        <H2 className={styles.howProgramTitle}>
-          How Program <br /> Partnership works?
-        </H2>
-        <div className={styles.howProgramDescription}>
-          <div className={styles.howProgramDescriptionBlock}>
-            A Kordie partner is an organisation that creates courses together
-            with us by sharing knowledge and expertise.
-          </div>
-          <div className={styles.howProgramDescriptionBlock}>
-            A partner engages in creating the program content, with guidance
-            from us on learning design, and we then work together to put the
-            course onto the platform.
-          </div>
-        </div>
-      </div>
+      <Header />
+      <Hero />
+      <PartneringForSuccess />
       <HowBecomePartner />
       <PartnerBenefits />
       <Criteria />

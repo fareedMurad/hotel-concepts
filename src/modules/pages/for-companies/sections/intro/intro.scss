@@ -1,0 +1,45 @@
+@import 'core.scss';
+
+.intro {
+  &-caption {
+    @include font($white, 60px, 600, 70px);
+    width: 100%;
+    font-family: $EBGaramond;
+    @include desktop() {
+      width: 50%;
+    }
+  }
+  &-description {
+    @include font($white, 24px, 400, 34px);
+    width: 67%;
+    margin-top: 25px;
+    font-family: $IBMPlex;
+  }
+}
+
+.image {
+  @include flex($align: stretch, $justify: center, $direction: column);
+  @include container();
+  width: 100%;
+  background-size: cover;
+  height: 100vh;
+  min-height: 400px;
+  background-position: center;
+}
+
+.button {
+  @include flex(space-between);
+  width: 230px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  color: $white;
+  @include tablet() {
+    left: 120px;
+  }
+}

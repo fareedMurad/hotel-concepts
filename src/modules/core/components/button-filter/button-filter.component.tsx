@@ -13,8 +13,7 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
   onClick,
   active,
   icon,
-  className,
-  anchor
+  className
 }) => {
   const buttonEl = React.useRef();
   return (
@@ -35,19 +34,8 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
           [styles.filterCountActive]: active
         })}
       >
-        <React.Fragment>
-          {anchor ? (
-            <a href={`#${anchor}`}>
-              {count && `(${count})`}
-              {icon && <Icon name={icon} className={styles.icon} />}
-            </a>
-          ) : (
-            <React.Fragment>
-              {count && `(${count})`}
-              {icon && <Icon name={icon} className={styles.icon} />}{' '}
-            </React.Fragment>
-          )}
-        </React.Fragment>
+        {count && `(${count})`}
+        {icon && <Icon name={icon} className={styles.icon} />}{' '}
       </div>
     </div>
   );
