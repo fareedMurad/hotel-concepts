@@ -5,6 +5,7 @@
   @include flex($align: center, $justify: center);
   width: 100%;
   height: 100vh;
+  min-height: 700px;
   &__description {
     width: 100%;
     color: white;

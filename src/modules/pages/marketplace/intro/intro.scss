@@ -1,0 +1,76 @@
+@import 'core.scss';
+
+.wrapper {
+  @include flex($align: stretch, $justify: center, $direction: column);
+  @include container();
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 400px;
+  &-caption {
+    @include font($white, 60px, 600, 70px);
+    width: 100%;
+    font-family: $EBGaramond;
+    @include desktop() {
+      width: 50%;
+    }
+  }
+  &-description {
+    @include font($white, 24px, 300, 34px);
+    width: 67%;
+    margin-top: 25px;
+    padding-bottom: 170px;
+  }
+}
+
+.filters-field {
+  display: grid;
+  width: 100%;
+  padding: 12px;
+  min-height: 70px;
+  grid-template-columns: repeat(6, max-content);
+  gap: 8px;
+  border-radius: 5px;
+  background-color: $white;
+  overflow-x: auto;
+  overflow-y: hidden;
+  @include tablet() {
+    grid-template-columns: repeat(6, auto);
+  }
+  @include desktop() {
+    overflow: initial;
+  }
+  & > div {
+    margin-right: 0;
+    padding: 8px;
+  }
+  & > div:last-child {
+    padding-right: 30px;
+  }
+}
+
+.marketplace-filter {
+  @include flex($justify: flex-start, $align: center, $direction: row);
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid $light-grey;
+  border-radius: 3px;
+  transition: $transition;
+  &-title {
+    margin-right: 12px;
+  }
+  &-quantity {
+    @include font($light-grey, 18px, 300);
+  }
+  &:hover {
+    border: 1px solid $primary-orange;
+  }
+}
+
+.active {
+  border: 1px solid $primary-orange;
+  .marketplace-filter-quantity {
+    color: $primary-grey;
+  }
+}
