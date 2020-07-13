@@ -23,7 +23,7 @@
   border-radius: 4px;
   outline: none;
   transition: $transition;
-
+  -webkit-appearance: none;
   &::placeholder {
     @include font(#969ba3, 14px, 500, 17px);
   }

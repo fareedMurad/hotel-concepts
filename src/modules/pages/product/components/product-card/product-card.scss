@@ -16,7 +16,10 @@
 
 .product-card {
   &__title {
-    width: 50%;
+    width: 100%;
+    @include tablet() {
+      width: 50%;
+    }
   }
 }
 

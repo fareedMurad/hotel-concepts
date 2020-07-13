@@ -10,7 +10,10 @@
   border: 1px solid $hr;
   border-radius: 3px;
   // transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
   cursor: pointer;
+  user-select: none;
+  
   &:hover {
     border: 1px solid $primary-orange;
   }

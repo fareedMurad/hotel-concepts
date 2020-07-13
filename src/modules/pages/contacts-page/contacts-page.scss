@@ -83,7 +83,7 @@
   &__a {
     @include flex($align: center);
     & > div:first-child {
-      width: 35%;
+      width: 40%;
       padding-top: 24px;
     }
   }

@@ -1,7 +1,10 @@
 @import 'core.scss';
 
 .benefits-card {
-  width: 449px;
+  width: 100%;
+  @include desktop() {
+    width: 449px;
+  }
   margin-bottom: 16px;
   padding: 12px 20px;
   @include flex(flex-start);

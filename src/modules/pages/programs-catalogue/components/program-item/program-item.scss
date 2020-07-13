@@ -1,0 +1,96 @@
+@import "core.scss";
+
+.program-item {
+  @include flex($justify: space-between);
+  height: 250px;
+  overflow: hidden;
+  padding: $default-offset;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  img {
+    max-width: 315px;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 6px;
+  }
+}
+
+.info {
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.type {
+  @include font($primary-orange, 18px, 600, 26px);
+}
+
+.name {
+  @include font($primary-grey, 36px, 500, 38px);
+  font-family: $EBGaramond;
+}
+
+.secondary-info {
+  margin: 10px 0;
+}
+
+.description {
+  @include font($primary-grey, 16px, 300, 18px);
+  font-family: $IBMPlex;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.button-container {
+  @include flex($align: flex-end);
+  height: 100%;
+  margin-left: 10px;
+}
+
+.button {
+  @include flex($justify: space-between);
+  width: 230px;
+  height: 44px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 930px) {
+  .program-item {
+    flex-direction: column;
+    height: 560px;
+    width: 50%;
+  }
+  .container {
+    flex-direction: column;
+    img {
+      max-height: 250px;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .info {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .button-container {
+    height: auto;
+    width: 100%;
+    margin-left: 0;
+    .button {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .program-item {
+    width: 100%;
+    max-width: 500px;
+  }
+}
