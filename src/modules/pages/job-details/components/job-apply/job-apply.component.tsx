@@ -5,6 +5,8 @@ import { Form, Field, Button, Icon, Select } from '@core/components';
 import { Formik } from 'formik';
 import { jobDetailsValidationSchema } from '@pages/job-details/models';
 import { useJobDetailsData } from '@pages/job-details/job-details.hook';
+import { set } from 'object-path';
+import classNames from 'classnames';
 
 const defaultValues = {
   name: '',
@@ -20,9 +22,13 @@ const defaultValues = {
  * Renders JobForm
  */
 const JobApply: React.FC<JobApplyProps> = ({}) => {
-  const input = React.useRef<HTMLInputElement>();
+  const inputLetter = React.useRef<HTMLInputElement>();
+  const inputCv = React.useRef<HTMLInputElement>();
   const { locations } = useJobDetailsData();
   const [location, setLocation] = React.useState('');
+  const [letter, setLetter] = React.useState(null);
+  const [cv, setCv] = React.useState(null);
+
   return (
     <div className={styles.jobForm}>
       <div className={styles.title}>Fields marked * are required.</div>
@@ -53,17 +59,28 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                   Resume/CV*
                 </label>
                 <div
-                  className={styles.hint}
-                  onClick={() => input?.current?.click()}
+                  className={classNames(styles.hint, {
+                    [styles.withFile]: cv
+                  })}
+                  onClick={() => inputCv?.current?.click()}
                 >
+                  {cv && <div className={styles.cvFile}>{cv}</div>}
                   <Icon className={styles.uploadIcon} name='upload-icon' />
                 </div>
                 <input
-                  ref={input}
+                  ref={inputCv}
                   id='upload-cv'
                   name='file'
                   className={styles.upload}
                   type='file'
+                  accept='application/*'
+                  onChange={e => {
+                    const {
+                      target: { files }
+                    } = e;
+                    if (!files) return;
+                    setCv(files[0].name);
+                  }}
                 />
               </div>
               <div>
@@ -84,21 +101,33 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                     onChange={setLocation}
                   />
                 </div>
+
                 <label htmlFor='upload-letter' className={styles.labelUpload}>
                   Cover Letter*
                 </label>
                 <div
-                  className={styles.hint}
-                  onClick={() => input?.current?.click()}
+                  className={classNames(styles.hint, {
+                    [styles.withFile]: letter
+                  })}
+                  onClick={() => inputLetter?.current?.click()}
                 >
+                  {letter && <div className={styles.letterFile}>{letter}</div>}
                   <Icon className={styles.uploadIcon} name='upload-icon' />
                 </div>
                 <input
                   name='file'
                   className={styles.upload}
-                  ref={input}
+                  ref={inputLetter}
                   type='file'
                   id='upload-letter'
+                  accept='application/*'
+                  onChange={e => {
+                    const {
+                      target: { files }
+                    } = e;
+                    if (!files) return;
+                    setLetter(files[0].name);
+                  }}
                 />
               </div>
             </div>
