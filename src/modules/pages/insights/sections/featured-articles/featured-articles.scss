@@ -6,7 +6,8 @@
 }
 
 .filters {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, max-content);
   margin: 22px;
   overflow-x: scroll;
   padding-bottom: 8px;
@@ -31,9 +32,8 @@
 .article {
   &-img {
     @include flex($align: center, $justify: center);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: $hr;
+    @include heroImage();
     border-radius: 4px;
     min-height: 301px;
     grid-row: 2;
@@ -43,8 +43,12 @@
     @include flex($justify: space-evenly, $direction: column);
     height: 100%;
     padding: 20px;
+ 
     @include tablet() {
       padding: 80px 110px;
+    }
+    @include ipad-p() {
+      padding: 22px;
     }
     & > div:first-child {
       @include font(#cbd0d3, 28px, 400, 35px);

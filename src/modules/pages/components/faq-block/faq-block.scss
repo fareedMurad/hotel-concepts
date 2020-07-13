@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .faq-block {
   padding: 100px $default-offset;
@@ -6,8 +6,15 @@
 }
 
 .filters {
-  display: flex;
-  margin: 30px 0;
+  @include flex($align: stretch, $direction: column);
+  margin: 30px 0px;
+  @include tablet() {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  & > div {
+    margin-bottom: 4px;
+  }
 }
 
 @media screen and (max-width: 728px) {

@@ -4,6 +4,8 @@
   position: relative;
   width: 100%;
   height: 100%;
+  border-bottom: 2px solid $hr;
+  padding-bottom: 22px;
 }
 
 .image {
@@ -11,6 +13,7 @@
   background-repeat: no-repeat;
   width: 100%;
   height: auto;
+  background: $hr;
 }
 
 .content {
@@ -45,15 +48,15 @@
   margin-top: 8px;
 }
 
-.hr {
-  width: 100%;
-  height: 2px;
-  margin: 22px 0px 22px 0px;
-  background: #cbd0d3;
-  @include desktop() {
-    margin: 22px 0px 0px 0px;
-  }
-}
+// .hr {
+//   width: 100%;
+//   height: 2px;
+//   margin: 22px 0px 22px 0px;
+//   background: #cbd0d3;
+//   @include desktop() {
+//     margin: 22px 0px 0px 0px;
+//   }
+// }
 
 .image-wrapper {
   position: relative;

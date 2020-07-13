@@ -25,7 +25,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
       <Button theme='secondary' className={styles.readMore}>
         <div>Read more</div> <div>&#8594;</div>
       </Button>
-      <div className={styles.hr} />
+      {/* <div className={styles.hr} /> */}
     </div>
   );
 };
