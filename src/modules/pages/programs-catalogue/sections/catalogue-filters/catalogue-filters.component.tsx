@@ -7,7 +7,7 @@ import { FilterCheckbox } from '@pages/programs-catalogue/components/filter-chec
 /**
  * Renders CatalogueFilters
  */
-const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({ updateFiltersArray }) => {
+const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({ updateFilters }) => {
   const {data} = useCatalogueFiltersData();
   const [activatedFilters, setActivatedFilters] = React.useState([0]);
   const onCheck = index => ({ target: { checked } }) => {
@@ -22,7 +22,7 @@ const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({ updateFiltersArray 
   }
 
   React.useEffect(() => {
-    updateFiltersArray;
+    updateFilters(activatedFilters);
   }, [activatedFilters]);
 
   return (

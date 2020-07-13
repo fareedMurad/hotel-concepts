@@ -1,6 +1,9 @@
 /**
  * Props
  */
-type CatalogueHeaderProps = {};
+type CatalogueHeaderProps = {
+  title: string;
+  description: string;
+};
 
 export { CatalogueHeaderProps };
