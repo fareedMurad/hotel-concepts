@@ -20,7 +20,6 @@ const Hr = () => <div className={styles.hr} />;
  */
 const LearningApproach: React.FC = ({}) => (
   <div className={styles.main}>
-<<<<<<< HEAD
     <div className={styles.header}>
       <div
         style={{
@@ -54,11 +53,9 @@ const LearningApproach: React.FC = ({}) => (
         from leading experts.
       </Paragraph>
     </div>
-=======
     <Header />
     <Hero />
     <MeetKordie />
->>>>>>> dd19a0f057f7dae8af83c0a1b16d725981c5bacc
     <Hr />
     <WhatWeTeach />
     <Hr />

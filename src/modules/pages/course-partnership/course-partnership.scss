@@ -1,6 +1,5 @@
 @import 'core.scss';
 
-<<<<<<< HEAD
 .wrapper {
   @include container();
   @include flex($align: center);
@@ -74,8 +73,6 @@
   }
 }
 
-=======
->>>>>>> dd19a0f057f7dae8af83c0a1b16d725981c5bacc
 .button {
   justify-content: space-between;
 }
