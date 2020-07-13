@@ -16,7 +16,11 @@
   @include container-sm();
   @include flex($direction: row, $align: stretch);
   flex-wrap: wrap;
+
   @include tablet() {
+    display: grid;
+  }
+  @include desktop() {
     @include flex(center, stretch);
     & > div {
       width: 29vw;

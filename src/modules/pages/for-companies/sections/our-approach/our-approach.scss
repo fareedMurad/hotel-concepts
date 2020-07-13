@@ -25,7 +25,7 @@
 .body {
   @include font($white, 24px, 400, 46px);
   font-family: $EBGaramond;
-  @include desktop(){
+  @include desktop() {
     @include font($white, 36px, 400, 46px);
   }
 }
