@@ -5,16 +5,20 @@
 }
 
 .container {
-  @include container();
-  padding-top: 60px;
+  @include container($top: 60px);
 }
 
 .cards {
-  width: 95%;
-  margin: 0 auto;
-  @include flex(center, stretch);
+  @include container-sm();
+  @include flex($direction: row, $align: stretch);
   flex-wrap: wrap;
-  padding-bottom: calc(60px - 2%);
+  @include tablet() {
+    @include flex(center, stretch);
+    & > div {
+      width: 29vw;
+      margin-right: 2%;
+    }
+  }
 }
 
 .wrapper {

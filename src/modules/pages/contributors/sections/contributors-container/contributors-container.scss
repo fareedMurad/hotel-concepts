@@ -6,10 +6,11 @@
   &__caption {
     color: $primary-orange;
   }
-  &__title {
-  }
   &__paragraph {
-    width: 36%;
+    width: 100%;
+    @include desktop() {
+      width: 36%;
+    }
   }
   &__hr {
     width: 38%;
@@ -24,12 +25,26 @@
     }
   }
 }
+
 .contributorsList {
-  display: grid;
   width: 100%;
-  margin: 37px auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  @include flex($align: center);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 0 20px;
+  & > div {
+    margin-right: 12px;
+  }
+  & > div:last-child {
+    padding-right: 20px;
+  }
+  @include desktop() {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow: initial;
+    display: grid;
+    gap: 10px;
+    margin-right: 0;
+  }
   & > div {
     position: relative;
     margin-bottom: 47px;
@@ -37,83 +52,93 @@
   }
 }
 .contributor {
+  // width: 316px;
   &__photo {
     display: block;
-    height: auto;
-    max-width: 100%;
+    width: 316px;
+    height: 316px;
     transition: 0.5s ease;
     backface-visibility: hidden;
-    &:hover {
-      opacity: 0.3;
-    }
   }
-
-  &__info {
-    &--person {
-      @include font($primary-gray, 24px, 400, 34px);
-      font-family: $IBMPlex;
-    }
-    &--details {
-      @include font($primary-gray, 14px, 400, 22px);
-      font-family: $IBMPlex;
-    }
-  }
-  &__hidden {
-    transition: 0.5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 85%;
+  &__overlay {
+    position: relative;
+    width: 316px;
+    height: 316px;
+    border-radius: 8px;
     &:hover {
-      opacity: 1;
-      background-color: rgba(62, 62, 62, 0.5);
-    }
-    &__content {
-      @include flex($direction: column-reverse);
-      position: absolute;
-      z-index: 2;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: auto;
-      cursor: pointer;
       & > div:first-child {
-        @include font($white, 16px, 400, 22px);
-        z-index: 3;
-        display: block;
-        width: fit-content;
-        margin: 0 auto 31px auto;
         opacity: 1;
-        font-family: $IBMPlex;
-        text-align: center;
-        border-bottom: 1px solid $white;
+        @include imageOverlay();
       }
     }
+  }
+  &__content {
+    @include flex($align: flex-end, $justify: center);
+    @include size(inherit);
+    position: absolute;
+    top: 0;
+    color: #ffffff00;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 100ms linear;
+    opacity: 0;
+    &--title {
+      @include font($white, 16px, 400, 22px);
+      margin-bottom: 22px;
+      font-family: $IBMPlex;
+      border-bottom: 1px solid $white;
+      cursor: pointer;
+    }
+  }
+  &--info {
+    @include font($primary-gray, 24px, 400, 34px);
+    font-family: $IBMPlex;
+  }
+  &--details {
+    @include font($primary-gray, 14px, 400, 22px);
+    font-family: $IBMPlex;
   }
 }
 
 .modal {
   position: relative;
-  width: 50vw;
+  width: 95vw;
+  margin-top: 70px;
+  @include tablet() {
+    width: 80vw;
+    margin: 0;
+  }
+  @include desktop() {
+    width: 50vw;
+  }
   & > div:first-child {
-    @include flex($align: stretch);
+    @include flex($align: stretch, $direction: column);
+    @include tablet() {
+      @include flex($align: stretch);
+    }
   }
   &__person {
-    width: 47%;
+    // width: 100%;
+    @include desktop() {
+      width: 47%;
+    }
     &--photo {
       height: auto;
-      max-width: 100%;
+      max-width: 50%;
+      @include tablet() {
+        max-width: 100%;
+      }
     }
     &__wrapper {
       @include flex($align: center, $justify: space-between);
     }
   }
   &__content {
-    width: 50%;
-    margin-left: 20px;
+    width: 100%;
+    margin: 0;
+    @include tablet() {
+      width: 50%;
+      margin-left: 20px;
+    }
     &--caption {
       @include font($primary-gray, 24px, 400, 34px);
       font-family: $IBMPlex;
@@ -126,7 +151,11 @@
   }
   &__icon {
     position: absolute;
-    top: 0;
-    right: -40px;
+    top: 15px;
+    right: 15px;
+    @include tablet() {
+      right: -40px;
+      top: 0;
+    }
   }
 }

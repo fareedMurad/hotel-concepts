@@ -4,8 +4,7 @@
   background-color: $background;
 }
 .consult-request {
-  @include container();
-  padding: 50px 120px;
+  @include container($top: 50px);
 }
 
 .orange {
@@ -22,9 +21,11 @@
   margin-bottom: 25px;
 }
 .input {
-  width: 204px;
+  width: 100%;
   margin-right: 20px;
-
+  @include desktop() {
+    width: 204px;
+  }
   &:last-child {
     margin-right: 0;
   }
@@ -36,8 +37,11 @@
 }
 
 .form-section {
-  width: 650px;
+  width: 100%;
   margin-top: 22px;
+  @include desktop() {
+    width: 650px;
+  }
 }
 .hr {
   @include container();

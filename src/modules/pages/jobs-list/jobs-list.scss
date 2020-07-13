@@ -1,31 +1,31 @@
 @import 'core.scss';
 
 .jobs-list {
-  margin-left: 134px;
-  margin-right: 22px;
-}
-
-.header {
-  position: relative;
-  width: 100%;
-  padding: 25px 22px;
+  @include container();
+  margin-top: 100px;
 }
 
 .title {
-  font-family: 'EB Garamond', serif;
   @include font(#3e3e3e, 48px, 600, 58px);
+  font-family: $EBGaramond;
 }
 
 .description {
-  font-family: 'IBM Plex Sans', sans-serif;
   @include font(#3e3e3e, 18px, 400, 28px);
+  font-family: $IBMPlex;
 }
 
 .filters {
+  @include flex($align: stretch);
   margin-top: 24px;
-  @include flex();
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 12px 0px;
+  @include desktop() {
+    overflow: initial;
+  }
 }
 
 .vacancies {
-  margin-top: 89px;
+  margin-top: 70px;
 }

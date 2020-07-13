@@ -6,8 +6,10 @@
 }
 
 .wrapper {
-  @include container();
-  padding-top: 40px;
+  padding: 22px;
+  @include tablet() {
+    padding: 22px 120px;
+  }
 }
 
 .description {
@@ -18,7 +20,10 @@
 .submit-form {
   @include flex($align: stretch);
   position: relative;
-  width: 40%;
+  width: 100%;
+  @include desktop() {
+    width: 40%;
+  }
 }
 
 .button-submit {

@@ -11,8 +11,16 @@
 }
 
 .cards-container {
-  width: 95%;
-  margin: 0 auto;
-  @include flex(flex-start, stretch);
-  margin-bottom: 80px;
+  @include container-sm($top: 24px);
+  @include flex($direction: column, $align: stretch);
+  width: 100%;
+  & > div {
+    margin-bottom: 12px;
+  }
+  @include tablet() {
+    @include flex(flex-start, stretch);
+    & > div {
+      margin-bottom: 0px;
+    }
+  }
 }

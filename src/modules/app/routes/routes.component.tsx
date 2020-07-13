@@ -41,14 +41,14 @@ const Routes: React.FC = () => {
         <Route path='/uikit' component={Uikit} />
 
         {/* ROUTES */}
-        {/* <Route path='/insights/article/:id' component={ArticlePage} /> */}
+        <Route path='/insights/article/:id' component={ArticlePage} />
         <Route path='/contact-us' component={ContactsPage} />
         <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
         <Route path='/programs-catalogue/:slug' component={ProgramsCatalogue} />
-        <Route exact path='/learning-approach' component={LearningApproach} />
+        <Route path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
         {/* JOB ROUTES */}
         <Route path='/jobs/job-details/:id' component={JobDetails} />
@@ -58,8 +58,8 @@ const Routes: React.FC = () => {
         {/* MARKETPLACE ROUTE */}
         <Route path='/marketplace' component={Marketplace} />
         {/* PRODUCT ROUTE */}
-        <Route path='/product' component={Product} />
-        {/* PRODUCT ROUTE */}
+        <Route path='/product/:id' component={Product} />
+        {/* COURSE-PARTNERSHIP ROUTE */}
         <Route path='/course-partnership' component={CoursePartnership} />
         <Route path='/' component={Homepage} />
       </Switch>

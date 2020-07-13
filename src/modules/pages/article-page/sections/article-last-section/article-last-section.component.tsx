@@ -9,7 +9,7 @@ import { H2, Paragraph } from '@core/components';
  */
 const ArticleLastSection: React.FC<ArticleLastSectionProps> = ({}) => {
   const { bodyContent, bodyTitle, bodyPostImage } = useArticlePageData();
-  
+
   return (
     <div className={styles.articleLastSection}>
       <div className={styles.hr} />

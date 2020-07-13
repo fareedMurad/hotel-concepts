@@ -24,38 +24,41 @@ const Contributor = ({ contributor, onClick, visibleModal }) => {
 
   return (
     <div className={styles.contributor}>
-      <img
-        src={`${require(`img/contributors/${photo}.png`)}`}
-        className={styles.contributorPhoto}
-      />
+      <div className={styles.contributorOverlay}>
+        <div className={styles.contributorContent}>
+          <div onClick={onClick} className={styles.contributorContentTitle}>
+            Know about {name}
+          </div>
+        </div>
+        <img
+          src={`${require(`img/${photo}.png`)}`}
+          className={styles.contributorPhoto}
+        />
+      </div>
+
       <div className={styles.contributorInfo}>
-        <div className={styles.contributorInfoPerson}>
-          {name} {surname}
-        </div>
-        <div className={styles.contributorInfoDetails}>
-          {city}, {profession}
-        </div>
+        {name} {surname}
       </div>
-      <div className={styles.contributorHidden}>
-        <div className={styles.contributorHiddenContent}>
-          <div onClick={onClick}>Know about {name}</div>
-        </div>
+      <div className={styles.contributorDetails}>
+        {city}, {profession}
       </div>
+
       {visibleModal && (
         <Modal id={Modals.contributor} className={styles.modal}>
           <div className={styles.modalPerson}>
             <img
-              src={`${require(`img/contributors/${photo}.png`)}`}
+              src={`${require(`img/${photo}.png`)}`}
               className={styles.modalPersonPhoto}
             />
             <div className={styles.modalPersonWrapper}>
               <div className={styles.contributorInfo}>
-                <div className={styles.contributorInfoPerson}>
+                <div className={styles.contributorInfo}>
                   {name} {surname}
                 </div>
-                <div className={styles.contributorInfoDetails}>
+                <div className={styles.contributorDetails}>
                   {city}, {profession}
                 </div>
+                <div className={styles.contributorDetails}>United Kingdom</div>
               </div>
               <Icon name='linkedin' />
             </div>
@@ -82,8 +85,6 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   const { contributors } = useContributorsData();
   const [openedModal, setOpenedModal] = React.useState(null);
 
-  const menuRef = React.useRef();
-  // useClickOutside(menuRef, () => setShowModal(false));
   const dispatch = useDispatch();
 
   return (
@@ -108,7 +109,7 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
           </div>
         </div>
       </div>
-      <main className={styles.contributorsList} ref={menuRef}>
+      <main className={styles.contributorsList}>
         {contributors.map(contributor => (
           <Contributor
             contributor={contributor}

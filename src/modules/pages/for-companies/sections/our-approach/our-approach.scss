@@ -5,22 +5,27 @@
 }
 
 .image {
+  @include flex(center, center);
   height: 581px;
   background-size: cover;
-  @include flex(center, center);
+  background-position: center;
 }
 
 .content {
-  width: 40%;
+  width: 100%;
   text-align: center;
+  @include tablet() {
+    width: 40%;
+  }
 }
 .title {
   color: $white;
 }
 
 .body {
+  @include font($white, 24px, 400, 46px);
   font-family: $EBGaramond;
-  font-size: 36px;
-  line-height: 46px;
-  color: $white;
+  @include desktop(){
+    @include font($white, 36px, 400, 46px);
+  }
 }

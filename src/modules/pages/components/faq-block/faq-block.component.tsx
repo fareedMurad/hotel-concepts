@@ -4,11 +4,12 @@ import * as styles from './faq-block.scss';
 import { useFaqData } from './faq.hook';
 import { ButtonFilter } from '@core/components';
 import { FaqItem } from '@pages/homepage/components/faq-item';
+import classNames from 'classnames';
 
 /**
  * Renders FaqBlock
  */
-const FaqBlock: React.FC<FaqBlockProps> = ({}) => {
+const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
   const { data } = useFaqData();
   const uniqueElements = Array.from(new Set(data.map(item => item.category)));
   const [currentCategory, setCurrentCutegory] = React.useState('All');
@@ -28,7 +29,7 @@ const FaqBlock: React.FC<FaqBlockProps> = ({}) => {
   }
 
   return (
-    <section className={styles.faqBlock}>
+    <section className={classNames(styles.faqBlock, className)}>
       <div className={styles.filters}>
         {categories.map(filter => (
           <ButtonFilter

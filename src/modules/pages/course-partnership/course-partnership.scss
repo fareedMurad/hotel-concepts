@@ -1,17 +1,14 @@
 @import 'core.scss';
 
 .wrapper {
+  @include container();
+  @include flex($align: center);
   position: relative;
   width: 100%;
   height: 100vh;
-  &-content {
-    @include container();
-    padding: 0 30px;
-  }
   &-caption {
     @include font($white, 60px, 600, 70px);
     width: 50%;
-    margin-top: 10%;
     font-family: $EBGaramond;
   }
   &-description {
@@ -22,10 +19,6 @@
   }
 }
 
-.header {
-  padding: 25px 22px;
-}
-
 .button {
   width: 230px;
   margin-top: 24px;
@@ -33,9 +26,12 @@
 }
 
 .arrow {
+  @include tablet() {
+    left: 120px;
+  }
   position: absolute;
   bottom: 22px;
-  left: 140px;
+  left: 22px;
   color: $white;
 }
 
@@ -56,22 +52,16 @@
 }
 
 .how-program {
-  padding: 0 30px;
-  padding-top: 57px;
-  &__title {
-    @include container();
-  }
+  @include container($top: 30px);
   &__description {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(2, 1fr);
     margin-top: 35px;
     column-gap: 20px;
-    padding: 0 100px;
-    @include md {
-      grid-template-columns: repeat(1, 1fr);
+    @include tablet() {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0;
     }
-
     &__block {
       width: 100%;
       margin-bottom: 20px;

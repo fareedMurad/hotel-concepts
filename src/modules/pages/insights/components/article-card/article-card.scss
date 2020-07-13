@@ -1,9 +1,9 @@
 @import 'core.scss';
 
 .article-card {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 .image {
@@ -13,14 +13,14 @@
   height: auto;
 }
 
-.read-more {
-}
-
 .content {
   &-description {
     @include font($primary-gray, 18px, 400, 28px);
-    width: 50%;
+    width: 100%;
     font-family: $IBMPlex;
+    @include desktop() {
+      width: 50%;
+    }
   }
   &-date {
     @include font(#cbd0d3, 16px, 500, 22px);
@@ -32,7 +32,7 @@
 .activity {
   @include font($primary-gray, 16px, 400);
   position: absolute;
-  top: 250px;
+  bottom: 24px;
   left: 16px;
   border-radius: 4px;
   background-color: #f5f1f0;
@@ -48,6 +48,13 @@
 .hr {
   width: 100%;
   height: 2px;
-  margin-top: 22px;
+  margin: 22px 0px 22px 0px;
   background: #cbd0d3;
+  @include desktop() {
+    margin: 22px 0px 0px 0px;
+  }
+}
+
+.image-wrapper {
+  position: relative;
 }

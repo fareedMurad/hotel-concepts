@@ -46,9 +46,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   ];
   return (
     <div className={styles.contactsPage}>
-      <header className={styles.header}>
-        <Header whiteBackground />
-      </header>
+      <Header whiteBackground />
       <div className={styles.container}>
         <div className={styles.heading}>We're here to help!</div>
         <H2>Contact Us</H2>

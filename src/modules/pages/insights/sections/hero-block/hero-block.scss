@@ -1,52 +1,75 @@
 @import 'core.scss';
 
 .hero-block {
-  @include flex($justify: space-between);
-  margin: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin: 0 22px;
+  gap: 20px;
+  @include tablet() {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: calc(100vh - 70px);
+  }
+  @include desktop() {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+  }
 }
 
 .hero {
   &__main {
-    width: 60vw;
+    width: 100%;
+    height: 100%;
     &--pic {
-      position: absolute;
-      z-index: -1;
-      width: 60vw;
-      height: calc(100% - 77px);
+      width: 100%;
+      height: 100%;
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: center bottom;
+      background-position: center;
+      border-radius: 8px;
     }
     &__content {
       @include flex($justify: center, $direction: column);
-      width: 50%;
+      width: 100%;
       height: 100%;
-      margin-left: 120px;
+      padding: 20px;
+      @include desktop() {
+        padding-left: 100px;
+      }
+      // fonts
       & > div:first-child {
-        @include font(#cbd0d3, 36px, 600, 46px);
+        @include font(#cbd0d3, 24px, 600, 46px);
         font-family: $EBGaramond;
         letter-spacing: -0.36px;
+        @include tablet() {
+          @include font(#cbd0d3, 36px, 600, 46px);
+        }
       }
       & > div:nth-child(2) {
-        @include font($white, 60px, 500, 70px);
+        @include font($white, 34px, 500, 70px);
+
         margin: 15px 0px;
         font-family: $EBGaramond;
+        @include tablet() {
+          @include font($white, 60px, 500, 70px);
+        }
       }
       & > div:last-child {
-        @include font($white, 24px, 300, 34px);
+        @include font($white, 14px, 300, 34px);
         font-family: $IBMPlex;
+        @include tablet() {
+          @include font($white, 24px, 300, 34px);
+        }
       }
     }
   }
 }
 .hero-submain {
-  @include flex($direction: column, $justify: space-between);
   position: relative;
-  width: 35vw;
-  height: calc(100vh - 77px);
-  & > div:last-child {
-    margin-top: 2%;
-  }
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
 }
 .overlay {
   position: absolute;
@@ -63,13 +86,14 @@
   );
   opacity: 0.7;
 }
+
 .card {
   position: relative;
+  width: 100%;
   height: 100%;
-  min-width: 35vw;
+  min-height: 300px;
   &--image {
     @include flex($align: stretch, $justify: space-evenly, $direction: column);
-    // display: block;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -78,19 +102,25 @@
   }
 
   &__captions {
-    @include font($white, 36px, 600, 46px);
+    @include font($white, 24px, 600, 46px);
     z-index: 99;
     margin-left: 20px;
     font-family: $EBGaramond;
+    @include tablet() {
+      @include font($white, 36px, 600, 46px);
+    }
   }
   &__activity {
-    @include font($primary-gray, 16px, 400, 22px);
+    @include font($primary-gray, 14px, 400, 22px);
     z-index: 99;
     width: fit-content;
     margin-left: 20px;
     padding: 6px 24px;
     background-color: #f5f1f0;
     border-radius: 8px;
+    @include tablet() {
+      @include font($primary-gray, 16px, 400, 22px);
+    }
   }
 }
 

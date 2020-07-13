@@ -1,0 +1,23 @@
+@import 'core.scss';
+
+.slider {
+  @include flex($justify: space-between, $align: center);
+  margin-top: 46px;
+  position: relative;
+  padding-bottom: 60px;
+  overflow: hidden;
+  padding-left: 12px;
+  @include tablet() {
+    padding-left: 20px;
+  }
+}
+
+.controls {
+  @include tablet() {
+    margin-left: 150px;
+  }
+  button {
+    background-color: $primary-orange;
+    color: $white;
+  }
+}
