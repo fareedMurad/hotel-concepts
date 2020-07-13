@@ -6,9 +6,11 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  padding-top: 70px;
   background: url(/img/course-partnership.png) no-repeat center center;
   background-size: cover;
   min-height: 500px;
+
   &-caption {
     @include font($white, 60px, 600, 70px);
     width: 70%;
