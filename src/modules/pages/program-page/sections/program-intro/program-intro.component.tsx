@@ -11,7 +11,8 @@ import { ProgramNavButton } from '@pages/program-page/components/program-nav-but
 /**
  * Renders ProgramIntro
  */
-const ProgramIntro: React.FC<ProgramIntroProps> = ({}) => {
+const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
+  const { name, description, videoInfo } = introInfo;
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const { navButtons } = useProgramData();
@@ -42,8 +43,8 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({}) => {
   return (
     <section className={styles.programIntro}>
       <div className={styles.title}>
-        <div>Intial Hotel Planning Decisions Course</div>
-        <div>We know which problems hoteliers face every day and we are ready to solve these problems.</div>
+        <div>{name}</div>
+        <div>{description}</div>
       </div>
       <Popup
         contentStyle={{
@@ -56,7 +57,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({}) => {
             <WatchButton
               onEnter={playVideo}
               onLeave={stopVideo}
-              time="0:56"
+              time={videoInfo.time}
               titleText="Watch Trailer"
             />
           </div>

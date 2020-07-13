@@ -14,15 +14,22 @@ import { ProgramMaterials } from './sections/program-materials';
 import { ProgramQuote } from './sections/program-quote';
 import { ProgramLearningApproach } from './sections/program-learning-approach';
 import { FaqBlock } from '..';
+import { ProgramEnrollNow } from './sections/program-enroll-now';
+import { useParams } from 'react-router';
+import { useProgramPageData } from './program-page.hook';
 
 /**
  * Renders ProgramPage
  */
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
+  const { id } = useParams();
+  const { data } = useProgramPageData();
+  const pageData = data.filter(item => item.id == id)[0];
+
   return (
     <div className={styles.programPage}>
       <Header />
-      <ProgramIntro />
+      <ProgramIntro introInfo={pageData.introInfo} />
       <ProgramOverview />
       <div className={styles.hr}></div>
       <ProgramAbout />
@@ -34,6 +41,8 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ProgramLearningApproach />
       <ProgramMaterials />
       <Impact />
+      <div className={styles.hr}></div>
+      <ProgramEnrollNow />
       <ProgramQuote />
       <div className={styles.faqTitle}>Frequently Asked Questions</div>
       <FaqBlock />

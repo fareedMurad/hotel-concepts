@@ -1,0 +1,12 @@
+@import "core.scss";
+
+.program-enroll-now {
+  padding-top: 60px;
+}
+
+.title {
+  @include font($primary-grey, 48px, 500, 50px);
+  font-family: $EBGaramond;
+  margin-bottom: 40px;
+  padding-left: $left-offset;
+}
