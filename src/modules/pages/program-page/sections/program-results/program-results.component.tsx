@@ -5,20 +5,12 @@ import * as styles from './program-results.scss';
 /**
  * Renders ProgramResults
  */
-const ProgramResults: React.FC<ProgramResultsProps> = ({}) => {
-  const data = [
-    "Categorize consumer expectations and behavior across digital platforms.",
-    "Apply market segmentation techniques.",
-    "Interpret digital marketing analytics to distinguishcustomers.",
-    "Develop strategies for customer relationship management.",
-    "Explain the key issues and challenges of digital marketing."
-  ];
-
+const ProgramResults: React.FC<ProgramResultsProps> = ({ results }) => {
   return (
-    <section className={styles.programResults}>
+    <section id="results" className={styles.programResults}>
       <div className={styles.title}>Results</div>
       <div className={styles.hr}></div>
-      {data.map(item => (
+      {results.map(item => (
         <div key={item}>
           <div className={styles.container}>
             <div className={styles.icon}></div>

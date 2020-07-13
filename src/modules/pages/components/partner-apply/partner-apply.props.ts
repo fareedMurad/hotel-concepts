@@ -1,6 +1,9 @@
 /**
  * Props
  */
-type PartnerApplyProps = {};
+type PartnerApplyProps = {
+  title?: string;
+  subtitle?: string;
+};
 
 export { PartnerApplyProps };

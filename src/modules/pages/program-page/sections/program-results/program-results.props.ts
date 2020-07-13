@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type ProgramResultsProps = {};
+type ProgramResultsProps = {
+  results: string[];
+};
 
 export { ProgramResultsProps };

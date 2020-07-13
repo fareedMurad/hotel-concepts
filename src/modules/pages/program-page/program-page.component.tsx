@@ -13,7 +13,7 @@ import { ProgramResults } from './sections/program-results';
 import { ProgramMaterials } from './sections/program-materials';
 import { ProgramQuote } from './sections/program-quote';
 import { ProgramLearningApproach } from './sections/program-learning-approach';
-import { FaqBlock } from '..';
+import { FaqBlock, PartnerApply } from '..';
 import { ProgramEnrollNow } from './sections/program-enroll-now';
 import { useParams } from 'react-router';
 import { useProgramPageData } from './program-page.hook';
@@ -38,7 +38,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <Enroll shouldEnroll={pageData.shouldEnroll} />
       <ProgramModules modules={pageData.modules} />
       <div className={styles.img}></div>
-      <ProgramResults />
+      <ProgramResults results={pageData.results} />
       <Mentors />
       <ProgramLearningApproach learningApproach={pageData.learningApproach} />
       <ProgramMaterials />
@@ -48,6 +48,11 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ProgramQuote />
       <div className={styles.faqTitle}>Frequently Asked Questions</div>
       <FaqBlock />
+      <PartnerApply
+        title="Got questions?"
+        subtitle="Whether you are an individual or an organisation/group, looking for a
+                  programme, get in touch and we can help find the best solution for you."
+      />
       <Footer />
     </div>
   );

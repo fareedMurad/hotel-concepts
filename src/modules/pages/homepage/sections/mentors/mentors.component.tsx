@@ -5,6 +5,7 @@ import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { useMentorsData } from './mentors.hook';
 import { MentorItem } from '@pages/homepage/components/mentor-item';
+import { useHistory } from 'react-router';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -33,6 +34,8 @@ const responsiveBreakpoints = {
  */
 const Mentors: React.FC<MentorsProps> = ({}) => {
   const { data } = useMentorsData();
+  const history = useHistory();
+  const handleClick = () => history.push(`/contributors`);
 
   return (
     <section className={styles.mentors}>
@@ -52,7 +55,7 @@ const Mentors: React.FC<MentorsProps> = ({}) => {
           swipeable={false}
           responsive={responsiveBreakpoints}
           customButtonGroup={
-            <SliderButtons className={styles.controls} isBordered={true} btnText="See All Contributors" />
+            <SliderButtons onClick={handleClick} className={styles.controls} isBordered={true} btnText="See All Contributors" />
           }
         >
         {data.map((coauthor, index) => (

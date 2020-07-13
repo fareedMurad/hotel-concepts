@@ -25,7 +25,10 @@
     &::after {
       transition: transform 0.1s ease-in;
       transform: rotate(45deg);
-      padding-left: 9px;
+      padding-left: 8px;
+      padding-bottom: 1px;
+      padding-top: 5px;
+      padding-right: 2px;
     }
   }
 }

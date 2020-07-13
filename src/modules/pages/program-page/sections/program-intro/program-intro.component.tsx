@@ -7,6 +7,7 @@ import { WatchButton } from '@core/components/watch-button';
 import { Button } from '@core/components';
 import { useProgramData } from './progtam-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
+import { BackButton } from '@core/components/back-button';
 
 /**
  * Renders ProgramIntro
@@ -46,6 +47,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
 
   return (
     <section className={styles.programIntro}>
+      <BackButton className={styles.backButton} />
       <div className={styles.title}>
         <div>{name}</div>
         <div>{description}</div>
@@ -79,11 +81,11 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
 
       <div className={styles.pageNavigator}>
         {navButtons.map((button, index) => (
-          <ProgramNavButton name={button} index={index} key={index} />
+          <ProgramNavButton anchor={button.anchor} name={button.name} index={index} key={index} />
         ))}
-        <Button className={styles.button}>
+        <a href="#enroll" className={styles.button}>
           <div>Enroll now</div> <div>→</div>
-        </Button>
+        </a>
       </div>
 
       <video

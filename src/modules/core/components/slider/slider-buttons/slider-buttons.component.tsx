@@ -8,11 +8,11 @@ import { Button } from '@core/components/button';
  * Renders SliderButtons
  */
 const SliderButtons: React.FC<SliderButtonsProps> = ({
-  next, previous, className, isBordered, path, btnText
+  next, previous, className, isBordered, path, btnText, onClick
 }) => {
   return (
     <div className={classNames(styles.sliderButtons, className)}>
-      {btnText && <Button className={styles.button} >
+      {btnText && <Button onClick={onClick} className={styles.button} >
         <div>{btnText}</div> <div>&#8594;</div>
       </Button>}
       <button onClick={previous} className={classNames(styles.previous, { [styles.bordered]: isBordered })}>

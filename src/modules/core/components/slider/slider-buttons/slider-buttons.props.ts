@@ -8,6 +8,7 @@ interface SliderButtonsProps extends ButtonGroupProps {
   isBordered?: boolean;
   path?: string;
   btnText?: string;
+  onClick?: () => void;
 };
 
 export { SliderButtonsProps };

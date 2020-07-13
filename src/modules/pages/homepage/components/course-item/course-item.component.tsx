@@ -2,12 +2,15 @@ import * as React from 'react';
 import { CourseItemProps } from './course-item.props';
 import * as styles from './course-item.scss';
 import { Button } from '@core/components';
+import { useHistory } from 'react-router-dom';
 
 /**
  * Renders CourseItem
  */
 const CourseItem: React.FC<CourseItemProps> = (props) => {
-  const { name, description, weeks, sprints, img, price } = props;
+  const { id, name, description, weeks, sprints, img, price } = props;
+  const history = useHistory();
+  const handleClick = id => () => history.push(`/program/${id}`);
   return (
     <div className={styles.courseItem}>
       <div className={styles.card}>
@@ -24,7 +27,7 @@ const CourseItem: React.FC<CourseItemProps> = (props) => {
               <div>{price}$</div>
               <div>{weeks} weeks/{sprints} sprints</div>
             </div>
-            <Button className={styles.button}>
+            <Button onClick={handleClick(id)} className={styles.button}>
               <div>Explore Program</div> <div>&#8594;</div>
             </Button>
           </div>

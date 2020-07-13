@@ -10,7 +10,7 @@ import classNames from 'classnames';
  */
 const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ enrollInfo }) => {
   return (
-    <section className={styles.programEnrollNow}>
+    <section id="enroll" className={styles.programEnrollNow}>
       <div className={styles.title}>Enroll Now</div>
       <div className={styles.container}>
         {enrollInfo.map((item, index) => (

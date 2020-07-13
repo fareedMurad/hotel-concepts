@@ -8,7 +8,7 @@ import * as styles from './enroll.scss';
 const Enroll: React.FC<EnrollProps> = ({ shouldEnroll }) => {
   const { text, roles } = shouldEnroll;
   return (
-    <section className={styles.enroll}>
+    <section id="content" className={styles.enroll}>
       <div className={styles.title}>
         <div>Who Should Enroll?</div>
         <div>{text}</div>

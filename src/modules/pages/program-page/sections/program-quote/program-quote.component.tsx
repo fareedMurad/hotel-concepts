@@ -14,9 +14,9 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({}) => {
         own unique digital <br/>
         transformation and skills gap. "
       </div>
-      <Button className={styles.button}>
+      <a href="#enroll" className={styles.button}>
         <div>Enroll now</div> <div>→</div>
-      </Button>
+      </a>
     </section>
   );
 };

@@ -8,7 +8,7 @@ import { ProgramModuleItem } from '@pages/program-page/components/program-module
  */
 const ProgramModules: React.FC<ProgramModulesProps> = ({ modules }) => {
   return (
-    <section className={styles.programModules}>
+    <section id="facility" className={styles.programModules}>
       <div className={styles.title}>
         <div>Modules</div>
         <div>

@@ -26,16 +26,15 @@ const defaultValues = {
  * Renders PartnerApply
  */
 
-const PartnerApply: React.FC<PartnerApplyProps> = ({}) => {
+const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
   const [focused, setFocused] = React.useState(false);
   return (
     <div className={styles.partnerApply} id='get-involved'>
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <H2>Want to get involved?</H2>
+          <H2>{title}</H2>
           <Paragraph>
-            We’re always happy to talk if you are interested in becoming a
-            Partner{' '}
+            {subtitle}{' '}
           </Paragraph>
           <Formik
             initialValues={defaultValues}

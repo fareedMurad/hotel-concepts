@@ -25,5 +25,13 @@
 .button {
   width: 204px;
   margin-top: 50px;
-  @include flex($justify: space-between);
+  cursor: pointer;
+  @include flex($justify: space-between, $align: center);
+  background-color: $primary-orange;
+  @include font($white, 16px, 500, 16px);
+  border-radius: 6px;
+  height: 44px;
+  padding: 0 10px;
+  position: relative;
+  @include buttonHover;
 }

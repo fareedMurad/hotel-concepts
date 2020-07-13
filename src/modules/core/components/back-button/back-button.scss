@@ -1,0 +1,17 @@
+@import "core.scss";
+
+.back-button {
+  cursor: pointer;
+  @include font($white, 15px, 500, 15px);
+  @include flex($justify: space-between, $align: center);
+  background-color: rgba(255, 255, 255, 0.199);
+  backdrop-filter: blur(10px);
+  font-family: $IBMPlex;
+  padding: 0 10px;
+  width: 92px;
+  height: 36px;
+  border-radius: 4px;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.253);
+  }
+}

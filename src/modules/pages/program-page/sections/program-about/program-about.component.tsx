@@ -8,7 +8,7 @@ import * as styles from './program-about.scss';
 const ProgramAbout: React.FC<ProgramAboutProps> = ({ about }) => {
   const { text, skills } = about;
   return (
-    <section className={styles.programAbout}>
+    <section id="about" className={styles.programAbout}>
       <div className={styles.title}>
         <div>About</div>
         <div>{text}</div>
