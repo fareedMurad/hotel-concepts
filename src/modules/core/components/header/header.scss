@@ -6,7 +6,7 @@
   height: $header-height;
   position: fixed;
   transition: background-color 200ms linear;
-  z-index: 999;
+  z-index: 9999;
   width: 100%;
   top: 0;
   left: 0;
@@ -25,7 +25,7 @@
       @include font($white, 18px, 500);
       font-family: $IBMPlex;
       & > a {
-        margin-left: 39px;
+        margin-left: 30px;
         &:hover {
           text-decoration: underline;
         }
@@ -37,7 +37,7 @@
   }
 }
 
-@media screen and (max-width: 933px) {
+@media screen and (max-width: 768px) {
   .header {
     @include flex($align: center, $justify: flex-end);
     padding-right: 15px;

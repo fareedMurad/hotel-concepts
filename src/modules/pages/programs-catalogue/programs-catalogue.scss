@@ -1,0 +1,52 @@
+@import "core.scss";
+
+.programs-catalogue {
+}
+
+.title {
+  margin: 40px 0;
+  padding-left: $left-offset;
+  & > div:first-child {
+    max-width: 400px;
+    @include font($primary-grey, 60px, 500, 65px);
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    margin-top: 20px;
+    max-width: 420px;
+    @include font($primary-grey, 18px, 400, 26px);
+    font-family: $IBMPlexSans;
+  }
+}
+
+.content {
+  padding: 40px 0;
+}
+
+.empty-info {
+  @include flex($justify: center);
+  @include font($primary-grey, 18px, 400, 26px);
+  font-family: $IBMPlexSans;
+}
+
+@media screen and (max-width: 930px) {
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    justify-content: center;
+  }
+  .title {
+    padding: 0 $default-offset;
+    & > div:first-child {
+      @include font($primary-grey, 44px, 500, 46px);
+    }
+    & > div:nth-child(2) {
+      @include font($primary-grey, 18px, 400, 22px);
+    }
+  }
+}

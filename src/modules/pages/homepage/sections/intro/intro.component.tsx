@@ -14,6 +14,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
 
   const [video, setVideo] = React.useState<HTMLVideoElement>();
+  const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -26,15 +27,18 @@ const Intro: React.FC<IntroProps> = ({}) => {
       video.play();
       video.style.opacity = '1';
       video.style.visibility = 'visible';
+      setVideoPromise(video.play());
     }
   };
 
-  const stopVideo = () => {
+  const stopVideo = async () => {
     if (video) {
+      await videoPromise;
       video.pause();
       video.currentTime = 0;
       video.style.opacity = '0';
       video.style.visibility = 'hidden';
+      setVideoPromise(null);
     }
   };
 
@@ -54,7 +58,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
           width: '100%',
         }}
         trigger={
-          <div>
+          <div className={styles.watchButton}>
             <WatchButton
               onEnter={playVideo}
               onLeave={stopVideo}
@@ -74,12 +78,12 @@ const Intro: React.FC<IntroProps> = ({}) => {
         />
       </Popup>
 
-      {/* <video
+      <video
         ref={videoRef}
         className={styles.video}
-        src={require('videos/HomePage.preview.mov')}
+        src={require('assets/videos/HomePage.preview.mov')}
         muted={true}
-      /> */}
+      />
 
       <ScrollButton text="Scroll" className={styles.scrollButton} />
 

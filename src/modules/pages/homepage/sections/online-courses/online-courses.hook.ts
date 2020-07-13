@@ -8,7 +8,8 @@ const useOnlineCoursesData = () => {
       price: 750,
       weeks: 4,
       sprints: 8,
-      img: "article-1"
+      img: "article-1",
+      type: "Middle"
     },
     {
       id: 1,
@@ -18,7 +19,8 @@ const useOnlineCoursesData = () => {
       price: 750,
       weeks: 4,
       sprints: 8,
-      img: "article-2"
+      img: "article-2",
+      type: "Middle"
     },
     {
       id: 2,
@@ -28,7 +30,8 @@ const useOnlineCoursesData = () => {
       price: 750,
       weeks: 4,
       sprints: 8,
-      img: "article-5"
+      img: "article-5",
+      type: "Middle"
     },
     {
       id: 3,
@@ -38,7 +41,8 @@ const useOnlineCoursesData = () => {
       price: 750,
       weeks: 4,
       sprints: 8,
-      img: "article-4"
+      img: "article-4",
+      type: "Middle"
     },
     {
       id: 4,
@@ -48,7 +52,8 @@ const useOnlineCoursesData = () => {
       price: 750,
       weeks: 4,
       sprints: 8,
-      img: "article-1"
+      img: "article-1",
+      type: "Middle"
     },
     {
       id: 5,
@@ -58,7 +63,8 @@ const useOnlineCoursesData = () => {
       price: 750,
       weeks: 4,
       sprints: 8,
-      img: "article-1"
+      img: "article-1",
+      type: "Middle"
     },
     {
       id: 6,
@@ -68,7 +74,8 @@ const useOnlineCoursesData = () => {
       price: 750,
       weeks: 4,
       sprints: 8,
-      img: "article-1"
+      img: "article-1",
+      type: "Middle"
     },
     {
       id: 7,
@@ -78,7 +85,8 @@ const useOnlineCoursesData = () => {
       price: 750,
       weeks: 4,
       sprints: 8,
-      img: "article-1"
+      img: "article-1",
+      type: "Middle"
     }
   ];
 

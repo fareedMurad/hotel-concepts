@@ -59,7 +59,7 @@ const Paragraph: React.FC<ParagraphProps> = ({ className, children, sm }) => (
 /**
  * Renders pre-caption
  */
-const PreCaption: React.FC<{ children: string; className?: string }> = ({
+const PreCaption: React.FC<{ children: any; className?: string }> = ({
   children,
   className
 }) => (
