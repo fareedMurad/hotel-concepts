@@ -12,11 +12,9 @@
 }
 
 .orange {
+  @include font($primary-orange, 28px, 400, 35px);
   position: relative;
   padding-bottom: 14px;
-  line-height: 35px;
-  color: $primary-orange;
-
   &:before {
     content: '';
     position: absolute;
