@@ -107,7 +107,7 @@ const useProgramPageData = () => {
           name: "Self Education",
           description: "For teams that need to create project plans with confidence.",
           price: "39.99",
-          feautures: [
+          features: [
             "180 days of access to high-quality",
             "Self-paced learning content designed by industry experts"
           ],
@@ -118,7 +118,7 @@ const useProgramPageData = () => {
           name: "Flexible Education",
           description: "For teams that need to create project plans with confidence.",
           price: "79.99",
-          feautures: [
+          features: [
             "90 days of access to 5 instructor-led courses",
             "180 days of access to high-quality, self-paced learning content"
           ],
@@ -129,7 +129,7 @@ const useProgramPageData = () => {
           name: "Enterprise",
           description: "For teams that need to create project plans with confidence.",
           price: "",
-          feautures: [
+          features: [
             "Enterprise-class learning management system",
             "Enhanced reporting for individuals and teams",
             "24x7 teaching assistance and support"

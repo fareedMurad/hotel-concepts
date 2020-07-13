@@ -42,7 +42,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ProgramMaterials />
       <Impact />
       <div className={styles.hr}></div>
-      <ProgramEnrollNow />
+      <ProgramEnrollNow enrollInfo={pageData.enrollInfo} />
       <ProgramQuote />
       <div className={styles.faqTitle}>Frequently Asked Questions</div>
       <FaqBlock />
