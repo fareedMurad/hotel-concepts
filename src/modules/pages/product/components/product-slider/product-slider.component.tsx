@@ -122,6 +122,7 @@ const ProductSlider: React.FC<ProductSliderProps> = ({}) => {
             return (
               <div key={id + name} className={styles.block}>
                 <img
+                  className={styles.image}
                   src={require(`img/marketplace/marketplace-${img}.png`)}
                   alt=''
                   width='300px'

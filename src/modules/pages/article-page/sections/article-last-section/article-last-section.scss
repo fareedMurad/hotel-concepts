@@ -17,9 +17,6 @@
 
 .post-image {
   margin-bottom: 20px;
-  @include desktop() {
-    min-height: 500px;
-  }
   text-align: center;
   &--text {
     @include font($white, 16px, 400, 24px);
@@ -42,6 +39,7 @@
 
 .image {
   @include flex($align: center, $justify: center, $direction: column);
+  background: $hr;
   @include heroImage();
   border-radius: 4px;
   min-height: 200px;
@@ -49,9 +47,8 @@
     min-height: 400px;
   }
   @include desktop() {
-    background-size: contain;
+    background-size: cover;
     background-position: center;
-    height: -webkit-fill-available;
     min-width: 876px;
     padding: 0px 134px;
   }

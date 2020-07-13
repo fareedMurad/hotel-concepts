@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { JobsListProps } from './jobs-list.props';
 import * as styles from './jobs-list.scss';
-import { ButtonFilter, Preloader } from '@core/components';
+import { ButtonFilter, Preloader, Footer } from '@core/components';
 import { useJobsListData } from './jobs-list.hook';
 import { Vacancy } from './components';
 import { Preloaders } from '@ui/models';
@@ -65,6 +65,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
           </div>
         </Preloader>
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

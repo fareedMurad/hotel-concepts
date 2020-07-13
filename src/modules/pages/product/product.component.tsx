@@ -8,6 +8,7 @@ import { ProductCard } from './components';
 import { useMarketplaceData } from '@pages/marketplace/marketplace.hook';
 import { Footer, H2, Icon } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
+import { useHistory } from 'react-router';
 
 /**
  * Product-card Data
@@ -27,6 +28,7 @@ const productCardData = {
  */
 const Product: React.FC<ProductProps> = ({}) => {
   const { books } = useMarketplaceData();
+  const history = useHistory();
   const {
     title,
     author,
@@ -41,6 +43,10 @@ const Product: React.FC<ProductProps> = ({}) => {
     <div className={styles.product}>
       <div className={styles.header}>
         <Header whiteBackground />
+      </div>
+      <div onClick={() => history.goBack()} className={styles.back}>
+        <div>&#8592;</div>
+        <div>Back</div>
       </div>
       <div className={styles.productReview}>
         <div className={styles.slider}>

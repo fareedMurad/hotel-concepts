@@ -2,7 +2,7 @@ import * as React from 'react';
 import { JobDetailsProps } from './job-details.props';
 import * as styles from './job-details.scss';
 import { JobApply } from './components/job-apply';
-import { H2, Paragraph, H5, H3 } from '@core/components';
+import { H2, Paragraph, H5, H3, Footer } from '@core/components';
 import { Header } from '@core/components/header';
 import { useHistory } from 'react-router';
 
@@ -14,14 +14,12 @@ const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
 
   return (
     <React.Fragment>
-      <div className={styles.header}>
-        <Header whiteBackground />
+      <div onClick={() => history.goBack()} className={styles.back}>
+        <div>&#8592;</div>
+        <div>Back</div>
       </div>
+      <Header whiteBackground />
       <div className={styles.jobPage}>
-        <div onClick={() => history.goBack()} className={styles.back}>
-          <div>&#8592;</div>
-          <div>Back</div>
-        </div>
         <section className={styles.sectionA}>
           <H2 className={styles.title}>
             Project Manager, <br /> Hardware.
@@ -49,6 +47,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
         </section>
         <JobApply />
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

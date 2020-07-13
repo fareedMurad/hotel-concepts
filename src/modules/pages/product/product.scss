@@ -3,14 +3,21 @@
 .product {
 }
 
-.header {
-  padding: 22px 27px;
-}
-.footer {
-  margin-top: 80px;
+.back {
+  @include font($primary-grey, 15px, 500, 20px);
+  @include flex(space-between);
+  width: 92px;
+  margin-top: 60px;
+  margin-left: 10px;
+  padding: 8px 13px;
+  background-color: #f5f1f0;
+  border-radius: 3px;
+  font-family: $IBMPlex;
+  cursor: pointer;
 }
 
 .product-review {
+  @include container();
   display: flex;
   justify-content: space-between;
   margin-top: 85px;
@@ -38,8 +45,8 @@
 .links {
   @include flex($align: center, $justify: space-between);
   width: 100%;
-  padding-left: 22px;
   margin: 22px 0px;
+  padding-left: 22px;
   @include desktop() {
     margin-top: 94px;
     padding-left: 134px;

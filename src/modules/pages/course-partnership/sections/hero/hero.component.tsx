@@ -9,16 +9,7 @@ import { ScrollButton } from '@core/components/scroll-button';
  */
 const Hero: React.FC<HeroProps> = ({}) => {
   return (
-    <div
-      className={styles.hero}
-      style={{
-        backgroundImage: `url(${require('img/course/course.png')})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        width: '100%',
-        backgroundPosition: 'center'
-      }}
-    >
+    <div className={styles.hero}>
       <main className={styles.heroContent}>
         <H1 className={styles.heroCaption}>Program Partnership with Kordie</H1>
         <PreCaption className={styles.heroDescription}>
