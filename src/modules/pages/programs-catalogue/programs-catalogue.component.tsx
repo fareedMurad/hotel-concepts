@@ -59,7 +59,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
         </div>
         <CatalogueFilters updateFilters={updateFilters} />
         <div className={styles.content}>
-          {filteredPrograms.map(item => (
+          {filteredPrograms.length > 0 ?
+          filteredPrograms.map(item => (
             <ProgramItem
               key={item.id}
               name={item.name}
@@ -71,7 +72,9 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
               price={item.price}
               category={item.category}
             />
-          ))}
+          )):
+            <div className={styles.emptyInfo}>There are no programs with these filters</div>
+          }
         </div>
         {filteredPrograms.length >= itemsPerPage &&
           <Pagination currentPage={currentPage} countOfPages={pages} onChangePage={changePage} />}

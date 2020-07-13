@@ -37,7 +37,7 @@
   }
 }
 
-@media screen and (max-width: $screen-md-max) {
+@media screen and (max-width: 768px) {
   .header {
     @include flex($align: center, $justify: flex-end);
     padding-right: 15px;

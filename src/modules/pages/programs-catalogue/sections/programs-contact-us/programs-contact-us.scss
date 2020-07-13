@@ -83,7 +83,7 @@
   }
 }
 
-@media screen and (max-width: $screen-md-max) {
+@media screen and (max-width: 768px) {
   .title {
     padding-left: 0;
     & > div:first-child {

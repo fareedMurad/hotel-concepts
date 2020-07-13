@@ -38,7 +38,7 @@
   left: $left-offset;
 }
 
-@media screen and (max-width: $screen-md-max) {
+@media screen and (max-width: 768px) {
   .title {
     padding: 0 $default-offset;
     & > div:first-child {
