@@ -23,6 +23,8 @@
     @include desktop() {
       width: 50%;
     }
+    letter-spacing: 1px;
+    line-height: 70px;
   }
   &-description {
     @include font($white, 24px, 400, 34px);
@@ -30,7 +32,7 @@
     margin-top: 25px;
     font-family: $IBMPlex;
     @include desktop() {
-      width: 67%;
+      width: 65%;
     }
   }
 }
@@ -41,7 +43,7 @@
   left: 22px;
   color: $white;
   @include tablet() {
-    left: 118px;
+    left: 128px;
   }
 }
 
@@ -62,9 +64,8 @@
 }
 
 .hr {
-  width: 95%;
   height: 1px;
-  margin: 50px auto;
+  margin: 50px 22px;
   opacity: 0.5;
   background: $primary-gray;
 }

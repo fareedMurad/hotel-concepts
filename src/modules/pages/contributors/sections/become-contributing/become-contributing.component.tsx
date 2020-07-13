@@ -46,11 +46,13 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                   name='name'
                   label='Name*'
                   className={styles.formInput}
+                  placeholder='John'
                 />
                 <Field.Text
                   name='specialisation'
                   label='Specialisation*'
                   className={styles.formInput}
+                  placeholder='Marketing'
                 />
               </div>
               <div className={styles.formGroup}>
@@ -58,11 +60,13 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                   name='linkedIn'
                   label='LinkedIn profile*'
                   className={styles.formInput}
+                  placeholder='linkedin.com/in/username'
                 />
                 <Field.Text
                   name='email'
                   label='Contact e-mail*'
                   className={styles.formInput}
+                  placeholder='example@gmailcom'
                 />
               </div>
 

@@ -1,12 +1,8 @@
 @import 'core.scss';
 
 .caption {
-  margin: 60px auto;
-  padding: 0px 22px;
-  @include tablet() {
-    @include container();
-    margin: 60px auto;
-  }
+  margin-top: 60px;
+  @include container();
 }
 
 .filters {
@@ -28,7 +24,7 @@
   }
   @include desktop() {
     overflow: initial;
-    margin: 22px 0px 40px 22px;
+    margin: 35px 0px 40px 22px;
   }
 }
 

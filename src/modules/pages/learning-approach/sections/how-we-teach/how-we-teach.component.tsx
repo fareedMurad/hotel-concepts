@@ -50,14 +50,14 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
           />
         </div>
       </section>
-      <Caption rate='1.0' title='World class content'>
+      <Caption rate='2.0' title='Flexibility'>
         Each program is spread over weekly sprints which are comprehensive on
         their own. You can enrol for a whole program or for a particular sprints
         to get a custom learning plan tailored to fit your busy life. Along with
         easy monthly payments you can learn at your own pace and reach your
         personal goals.
       </Caption>
-      <Caption rate='2.0' title='Instruments and tools'>
+      <Caption rate='3.0' title='Instruments and tools'>
         We implement innovative and complex learning system to measure and build
         skills. We combine these with mentorship for maximum impact.
       </Caption>
@@ -66,7 +66,7 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
           <ToolsCard key={id} title={title} description={description} />
         ))}
       </div>
-      <Caption rate='3.0' title='Personal approach'>
+      <Caption rate='4.0' title='Personal approach'>
         Personalised coaching at each step, live open sessions with your mentors
         and frequent interaction ensures an immersive and interactive learning
         experience.

@@ -28,7 +28,10 @@ const LearningApproach: React.FC = ({}) => (
         <Header />
 
         <main className={styles.headerContent}>
-          <H1 className={styles.headerCaption}>Our Learning Approach</H1>
+          <H1 className={styles.headerCaption}>
+            Our Learning <br />
+            Approach
+          </H1>
           <div className={styles.headerDescription}>
             Experience transformational hospitality e-learning bringing together
             the best in industry and academia, dedicated mentorship, new
