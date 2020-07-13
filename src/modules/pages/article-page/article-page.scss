@@ -1,12 +1,12 @@
 @import 'core.scss';
 
 .content {
-  padding-top: 60px;
+  padding-top: 72px;
 }
 
 .back {
   width: 92px;
-  margin-left: 22px;
+  margin-left: 14px;
   padding: 8px 13px;
   background-color: #f5f1f0;
   border-radius: 3px;
@@ -15,19 +15,17 @@
 }
 
 .footer {
-  padding: 22px;
-  @include desktop() {
-    padding: 50px 120px;
-  }
+  margin-top: 80px;
+  @include container($top: 50px);
   background: $background;
   &_content {
     width: 300px;
     &--date {
       @include font($hr, 16px, 500, 22px);
-      margin-top: 6px;
+      margin-top: 12px;
     }
     &--caption {
-      margin: 4px 0px;
+      margin: 8px 0px;
     }
   }
 }

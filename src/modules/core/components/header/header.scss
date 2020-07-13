@@ -9,7 +9,7 @@
   z-index: 9999;
   width: 100%;
   top: 0;
-  left: 0;
+  left: 0px;
   &.inverted {
     background-color: #ffffff;
     transition: background-color 200ms linear;
@@ -17,7 +17,7 @@
   .logo {
     position: absolute;
     top: 15px;
-    left: 15px;
+    left: 22px;
   }
   .navigation {
     @include flex($align: center);

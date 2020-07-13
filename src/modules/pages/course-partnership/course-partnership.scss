@@ -1,5 +1,81 @@
 @import 'core.scss';
 
+<<<<<<< HEAD
+.wrapper {
+  @include container();
+  @include flex($align: center);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  &-caption {
+    @include font($white, 60px, 600, 70px);
+    width: 50%;
+    font-family: $EBGaramond;
+  }
+  &-description {
+    @include font($white, 24px, 300, 34px);
+    width: 67%;
+    margin-top: 25px;
+    font-family: $IBMPlex;
+  }
+}
+
+.button {
+  width: 230px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.arrow {
+  @include tablet() {
+    left: 130px;
+  }
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  color: $white;
+}
+
+.partnering {
+  box-sizing: border-box;
+  @include container();
+  margin-top: 65px;
+  padding: 0 30px;
+  padding-bottom: 60px;
+}
+
+.hr {
+  width: 90%;
+  height: 2px;
+  margin: 0 auto;
+
+  background-color: $light-grey;
+}
+
+.how-program {
+  @include container($top: 30px);
+  &__description {
+    display: grid;
+    width: 100%;
+    margin-top: 35px;
+    column-gap: 20px;
+    @include tablet() {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0;
+    }
+    &__block {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 65px 20px;
+      border-radius: 5px;
+      border: 1px solid $light-grey;
+      @include font($primary-gray, 24px, 400, 34px);
+    }
+  }
+}
+
+=======
+>>>>>>> dd19a0f057f7dae8af83c0a1b16d725981c5bacc
 .button {
   justify-content: space-between;
 }

@@ -24,7 +24,7 @@ const HeroBottom: React.FC<HeroBottomProps> = ({}) => {
             Kordie
           </H4>
           <Button className={styles.heroContentButton}>
-            Explore our insights &#8594;
+            <div>Explore our insights</div> <div>&#8594;</div>
           </Button>
         </div>
       </div>

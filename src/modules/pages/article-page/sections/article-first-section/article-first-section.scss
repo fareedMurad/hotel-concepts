@@ -2,9 +2,9 @@
 
 .article-first-section {
   @include flex($align: center);
-  padding: 22px 22px 0px 22px;
+  padding: 22px 0px 0px 22px;
   @include desktop() {
-    padding-left: 120px;
+    padding-left: 134px;
   }
 }
 
@@ -14,8 +14,8 @@
   margin: 27px 0px;
   &__item {
     width: 122px;
-    margin-right: 12px;
     margin-bottom: 4px;
+    margin-right: 12px;
     padding: 6px 24px;
     text-align: center;
     background: $background;
@@ -24,10 +24,10 @@
 }
 
 .heading {
-  padding-right: 22px;
   width: 100%;
+  padding-right: 22px;
   @include desktop() {
-    padding-right: 50px;
+    padding-right: 42px;
   }
   &__options {
     @include flex($align: center);
@@ -52,7 +52,7 @@
 }
 
 .hero-description {
-  @include font($primary-gray, 22px, 400, 34px);
+  @include font($primary-gray, 24px, 300, 34px);
   font-family: $IBMPlex;
 }
 

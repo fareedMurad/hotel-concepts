@@ -9,6 +9,10 @@
       width: 36%;
     }
   }
+  &__caption {
+    @include font($primary-orange, 18px, 600, 58px);
+    font-family: $EBGaramond;
+  }
   &__hr {
     width: 38%;
     height: 1px;

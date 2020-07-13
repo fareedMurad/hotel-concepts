@@ -101,7 +101,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({}) => {
             )}
           </Formik>
         </div>
-        <div className={styles.hr} />
+        {/* <div className={styles.hr} /> */}
       </div>
     </div>
   );

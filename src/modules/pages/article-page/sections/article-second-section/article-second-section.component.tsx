@@ -16,7 +16,7 @@ const ArticleSecondSection: React.FC<ArticleSecondSectionProps> = ({}) => {
   return (
     <div className={styles.articleSecondSection}>
       <div className={styles.hr} />
-      <section>
+      <section className={styles.content}>
         <Paragraph>{bodyContent[0]}</Paragraph>
         <Paragraph>{bodyContent[1]}</Paragraph>
         <H2 className={styles.title}>{bodyTitle[0]}</H2>
