@@ -3,14 +3,15 @@
 .heading {
   @include container();
   margin-top: 60px;
-  &__caption {
-    color: $primary-orange;
-  }
   &__paragraph {
     width: 100%;
     @include desktop() {
       width: 36%;
     }
+  }
+  &__caption {
+    @include font($primary-orange, 18px, 600, 58px);
+    font-family: $EBGaramond;
   }
   &__hr {
     width: 38%;

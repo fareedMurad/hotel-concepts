@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ContributorsContainerProps } from './contributors-container.props';
 import * as styles from './contributors-container.scss';
-import { H2, Paragraph, Modal, Icon } from '@core/components';
+import { H2, Paragraph, Modal, Icon, PreCaption } from '@core/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { Modals } from '@ui/models';
 import { useDispatch } from 'react-redux';
@@ -90,7 +90,7 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   return (
     <div className={styles.contributorsContainer}>
       <div className={styles.heading}>
-        <div className={styles.headingCaption}>Contributors</div>
+        <PreCaption>Contributors</PreCaption>
         <H2 className={styles.headingTitle}>Meet the experts</H2>
         <Paragraph className={styles.headingParagraph}>
           Cordie participants can benefit from a wide spectrum of experts with

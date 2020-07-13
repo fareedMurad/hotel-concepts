@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { InsightsSubscribeProps } from './insights-subscribe.props';
 import * as styles from './insights-subscribe.scss';
-import { H2, Form, Field, Button, Tabs } from '@core/components';
+import { H2, Form, Field, Button, Tabs, PreCaption } from '@core/components';
 import { Formik } from 'formik';
 
 /**
@@ -11,7 +11,7 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
   return (
     <div className={styles.insightsSubscribe}>
       <div className={styles.wrapper}>
-        <div className={styles.description}>Delivered to your inbox.</div>
+        <PreCaption>Delivered to your inbox.</PreCaption>
         <div className={styles.title}>
           <H2>
             Industry insights you <br /> won't delete

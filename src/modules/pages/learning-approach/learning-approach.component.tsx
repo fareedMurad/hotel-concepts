@@ -11,6 +11,8 @@ import {
 } from './sections';
 import { HeroBottom } from './sections/hero-bottom';
 import { ScrollButton } from '@core/components/scroll-button';
+import { Hero } from './sections/hero';
+import { MeetKordie } from './sections/meet-kordie';
 
 const Hr = () => <div className={styles.hr} />;
 /**
@@ -28,7 +30,10 @@ const LearningApproach: React.FC = ({}) => (
         <Header />
 
         <main className={styles.headerContent}>
-          <H1 className={styles.headerCaption}>Our Learning Approach</H1>
+          <H1 className={styles.headerCaption}>
+            Our Learning <br />
+            Approach
+          </H1>
           <div className={styles.headerDescription}>
             Experience transformational hospitality e-learning bringing together
             the best in industry and academia, dedicated mentorship, new
@@ -48,6 +53,9 @@ const LearningApproach: React.FC = ({}) => (
         from leading experts.
       </Paragraph>
     </div>
+    <Header />
+    <Hero />
+    <MeetKordie />
     <Hr />
     <WhatWeTeach />
     <Hr />

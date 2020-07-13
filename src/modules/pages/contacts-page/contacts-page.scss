@@ -1,16 +1,19 @@
 @import 'core.scss';
 
 .contacts-page {
-  margin-top: 100px;
+  margin-top: 92px;
 }
 
 .container {
   @include container();
+  & > div:first-child {
+    margin-bottom: 12px;
+  }
 }
 
 .cards-list {
   display: grid;
-  margin: 45px 22px 70px 22px;
+  margin: 47px 22px 120px 22px;
   grid-template: 1fr;
   @include tablet() {
     grid-template-columns: 1fr 1fr;
@@ -21,23 +24,25 @@
     grid-template-rows: 1fr;
   }
   gap: 20px;
-
-  & > div:nth-child(3) {
-    @include flex($direction: column);
-    & > div:first-child {
-      margin-bottom: 70px;
+  & > div:nth-child(3n) {
+    & > a:last-child {
+      position: static;
     }
   }
 }
 
 .card {
-  @include flex($align: stretch, $justify: space-between, $direction: column);
+  @include flex($align: stretch, $direction: column);
+  position: relative;
   padding: 32px 22px;
   border: 1px solid $primary-orange;
   min-height: 316px;
   border-radius: 4px;
   &--link {
     @include font($primary-gray, 16px, 400px, 22px);
+    position: absolute;
+    bottom: 16px;
+    left: 23px;
     transition: $transition;
     border-bottom: 1px solid $black;
     width: fit-content;
@@ -49,21 +54,29 @@
   }
   &--title {
     @include font($primary-gray, 24px, 400, 34px);
-    font-family: $IBMPlex;
+    margin-bottom: 48px;
   }
   &--description {
     @include font($primary-gray, 18px, 400px, 28px);
   }
 }
-.heading {
-  @include font($primary-orange, 18px, 500, 28px);
-}
+
 .footer {
   @include flex($align: stretch);
   padding: 60px 25px;
   background: $background;
   &__form {
     margin-right: 0;
+    &--paragraph {
+      width: 100%;
+      @include desktop() {
+        width: 75%;
+      }
+    }
+    &--caption {
+      @include font($primary-gray, 24px, 400, 34px);
+      margin-top: 41px;
+    }
     @include desktop() {
       margin-right: 100px;
     }
@@ -77,7 +90,15 @@
     }
   }
   &__caption {
-    text-align: justify;
+    // text-align: justify;
+    @include font($primary-gray, 16px, 400, 22px);
+    width: 100%;
+    @include desktop() {
+      width: 89;
+    }
+    @include desktop-lg() {
+      width: 55%;
+    }
   }
 }
 
@@ -116,10 +137,17 @@
 .text-area {
   width: 100%;
   height: 200px;
-  padding: 20px;
+  padding: 22px;
   border: none;
   outline: none;
   resize: none;
+  &__wrapper {
+    margin-top: 14px;
+    & > div:first-child {
+      @include font($primary-gray, 16px, 400, 22px);
+      margin-bottom: 8px;
+    }
+  }
 }
 
 .button-send {

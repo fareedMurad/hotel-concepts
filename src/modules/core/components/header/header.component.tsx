@@ -10,53 +10,59 @@ import { BurgerMenu } from './burger-menu';
 import { ProgramsButton } from './programs-button';
 import { ProgramsMenu } from './programs-menu';
 import { useHeaderData } from './header.hook';
+import { Icon } from '../icon';
 
 /**
  * Renders Header
  */
 class Header extends React.Component<HeaderProps, HeaderState> {
-
   constructor(props) {
     super(props);
     this.state = {
       isHeaderInvert: false,
       activeMenuType: ActiveMenuType.none
-    }
+    };
   }
 
   public toggleBgColor = () => {
-    const isChangeBg = (window.pageYOffset >= 100);
+    const isChangeBg = window.pageYOffset >= 100;
     !this.props.whiteBackground &&
-    this.state.activeMenuType === ActiveMenuType.none &&
-    isChangeBg !== this.state.isHeaderInvert &&
-    this.setState({ isHeaderInvert: isChangeBg });
-  }
+      this.state.activeMenuType === ActiveMenuType.none &&
+      isChangeBg !== this.state.isHeaderInvert &&
+      this.setState({ isHeaderInvert: isChangeBg });
+  };
 
   public componentDidMount() {
     window.addEventListener('scroll', this.toggleBgColor);
-    window.addEventListener('resize', this.resize)
+    window.addEventListener('resize', this.resize);
   }
 
   public componentWillUnmount() {
     window.removeEventListener('scroll', this.toggleBgColor);
-    window.removeEventListener('resize', this.resize)
+    window.removeEventListener('resize', this.resize);
   }
 
   public resize = () => {
-    if(window.innerWidth < 933 && this.state.activeMenuType === ActiveMenuType.programs) {
+    if (
+      window.innerWidth < 933 &&
+      this.state.activeMenuType === ActiveMenuType.programs
+    ) {
       this.closeMenu();
     }
-  }
+  };
 
   public get isInvertHeader(): boolean {
-    return this.props.whiteBackground ||
-           this.state.activeMenuType !== ActiveMenuType.none ||
-           window.pageYOffset >= 100;
+    return (
+      this.props.whiteBackground ||
+      this.state.activeMenuType !== ActiveMenuType.none ||
+      window.pageYOffset >= 100
+    );
   }
 
   public toggleOpenMenu(type: ActiveMenuType) {
     this.setState({
-      activeMenuType: (type === this.state.activeMenuType) ? ActiveMenuType.none : type
+      activeMenuType:
+        type === this.state.activeMenuType ? ActiveMenuType.none : type
     });
   }
 
@@ -66,7 +72,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   }
 
-  render () {
+  render() {
     const { navigation } = useHeaderData();
 
     return (
@@ -79,17 +85,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           isOpened={this.state.activeMenuType === ActiveMenuType.programs}
           closeMenu={() => this.closeMenu()}
         />
-        <header className={classNames(styles.header, {
+        <header
+          className={classNames(styles.header, {
             [styles.inverted]: this.isInvertHeader
-          })}>
+          })}
+        >
           <NavLink to={'/'}>
-            <img
-              className={styles.logo}
-              src={require(!this.isInvertHeader ?
-                    'img/header-logo.png' :
-                    'img/header-logo-dark.png')}
-              alt="Kordie"
-            />
+            {!this.isInvertHeader ? (
+              <Icon name='logo' className={styles.logo} />
+            ) : (
+              <Icon name='logo-b' className={styles.logo} />
+            )}
           </NavLink>
           <BurgerButton
             isOpened={this.state.activeMenuType === ActiveMenuType.menu}
@@ -116,10 +122,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             })}
           </div>
         </header>
-
       </>
-    )
+    );
   }
-};
+}
 
 export { Header };

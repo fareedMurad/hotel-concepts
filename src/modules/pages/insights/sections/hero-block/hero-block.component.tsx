@@ -2,6 +2,7 @@ import * as React from 'react';
 import { HeroBlockProps } from './hero-block.props';
 import * as styles from './hero-block.scss';
 import { NavLink } from 'react-router-dom';
+import { ScrollButton } from '@core/components/scroll-button';
 
 const HeroCard = ({ img, activity, captions }) => {
   return (
@@ -49,7 +50,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
             <div>Talks recommended just for you, delivered to your inbox.</div>
           </div>
         </div>
-        <div className={styles.arrow}>&#8595; Scroll</div>
+        <ScrollButton text='Scroll' className={styles.arrow} />
       </div>
       <div className={styles.heroSubmain}>
         <HeroCard

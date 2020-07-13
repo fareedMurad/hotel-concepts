@@ -8,13 +8,8 @@
 .wrapper {
   padding: 22px;
   @include tablet() {
-    padding: 22px 120px;
+    padding: 50px 134px;
   }
-}
-
-.description {
-  @include font($primary-orange, 18px, 400, 28px);
-  font-family: $IBMPlex;
 }
 
 .submit-form {

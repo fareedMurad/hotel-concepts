@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FeaturedArticlesProps } from './featured-articles.props';
 import * as styles from './featured-articles.scss';
-import { H2, ButtonFilter, Button } from '@core/components';
+import { H2, ButtonFilter, Button, PreCaption } from '@core/components';
 import { useJobsListData } from '@pages/jobs-list/jobs-list.hook';
 import { useFeaturedArticlesData } from './featured-articles.hook';
 import { ArticleCard } from '@pages/insights/components';
@@ -17,7 +17,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
   return (
     <div className={styles.featuredArticles}>
       <div className={styles.caption}>
-        <div>32 Articles</div>
+        <PreCaption>32 Articles</PreCaption>
         <H2>Featured Articles</H2>
       </div>
       <div className={styles.filters}>

@@ -2,12 +2,10 @@
 
 .become-contributing {
   background-color: #f5f1f0;
-  padding-bottom: 20px;
 }
 
 .wrapper {
-  @include container();
-  padding-top: 50px;
+  @include container($top: 50px);
 }
 
 .form {

@@ -10,10 +10,13 @@
   display: grid;
   padding: 0px 22px;
   row-gap: 40px;
+  column-gap: 10px;
+  @include tablet() {
+    grid-template-columns: repeat(2, 1fr);
+  }
   @include desktop() {
-    grid-template-columns: 459px 459px 459px;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(2, 1fr);
-    column-gap: 10px;
   }
   @include desktop-lg() {
     grid-template-columns: 1fr 1fr 1fr;

@@ -1,0 +1,56 @@
+@import 'core.scss';
+
+.intro {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding-left: 22px;
+  padding-right: 22px;
+  background: url(/img/for-companies-intro.png) no-repeat center center;
+  background-blend-mode: darken;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  min-height: 500px;
+
+  flex-direction: column;
+
+  @include tablet() {
+    padding: 120px;
+  }
+  &-caption {
+    @include font($white, 60px, 600, 70px);
+    width: 100%;
+    font-family: $EBGaramond;
+    @include desktop() {
+      width: 70%;
+    }
+  }
+  &-description {
+    @include font($white, 24px, 300, 34px);
+    width: 67%;
+    margin-top: 25px;
+    font-family: $IBMPlex;
+  }
+}
+
+.button {
+  @include flex(space-between);
+  width: 230px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  color: $white;
+  @include tablet() {
+    left: 120px;
+  }
+}

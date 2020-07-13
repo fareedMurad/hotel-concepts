@@ -1,0 +1,9 @@
+@import 'core.scss';
+
+.talent-matters {
+  @include container();
+  margin-top: 60px;
+  &__paragraph {
+    margin-bottom: 60px;
+  }
+}

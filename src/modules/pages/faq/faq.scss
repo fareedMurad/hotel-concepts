@@ -8,12 +8,12 @@
 
 .container {
   @include container();
-  margin-top: 100px;
+  margin-top: 92px;
 }
 
 .footer {
-  margin-top: 100px;
-  padding: 50px 0px 10px 0px;
+  margin-top: 105px;
+  padding: 50px 0px 22px 0px;
   background-color: #f5f1f0;
   &__content {
     @include container();
@@ -21,12 +21,6 @@
       @include font($primary-orange, 18px, 400, 28px);
       font-family: $IBMPlex;
     }
-  }
-  &__hr {
-    @include container();
-    height: 2px;
-    margin: 50px auto 0px auto;
-    background: #cbd0d3;
   }
 }
 
@@ -56,10 +50,18 @@
 .text-area {
   width: 100%;
   height: 152px;
+  padding: 22px;
   border: none;
   outline: none;
   resize: none;
   border-radius: 4px;
+  &__wrapper {
+    margin-top: 14px;
+    & > div:first-child {
+      @include font($primary-gray, 16px, 400, 22px);
+      margin-bottom: 8px;
+    }
+  }
 }
 
 .submit {
@@ -78,4 +80,8 @@
       margin-top: 0;
     }
   }
+}
+
+.h3 {
+  font-size: 36px;
 }

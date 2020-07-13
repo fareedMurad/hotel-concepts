@@ -4,7 +4,7 @@
   position: relative;
   padding: 0 22px;
   @include desktop() {
-    padding: 0px 350px 0px 120px;
+    padding: 0px 350px 0px 134px;
   }
 }
 
@@ -42,9 +42,7 @@
 
 .image {
   @include flex($align: center, $justify: center, $direction: column);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  @include heroImage();
   border-radius: 4px;
   min-height: 200px;
   @include tablet() {
@@ -55,6 +53,9 @@
     background-position: center;
     height: -webkit-fill-available;
     min-width: 876px;
-    padding: 0px 120px;
+    padding: 0px 134px;
+  }
+  @include desktop-lg() {
+    background-size: cover;
   }
 }

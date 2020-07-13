@@ -2,7 +2,16 @@ import * as React from 'react';
 import { ContactsPageProps } from './contacts-page.props';
 import * as styles from './contacts-page.scss';
 import { Header } from '@core/components/header';
-import { H2, Paragraph, Form, Field, Select, Button } from '@core/components';
+import {
+  H2,
+  Paragraph,
+  Form,
+  Field,
+  Select,
+  Button,
+  PreCaption,
+  Footer
+} from '@core/components';
 import { useContactsPageData } from './contacts-page.hook';
 import { Formik } from 'formik';
 import classNames from 'classnames';
@@ -48,7 +57,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
     <div className={styles.contactsPage}>
       <Header whiteBackground />
       <div className={styles.container}>
-        <div className={styles.heading}>We're here to help!</div>
+        <PreCaption>We're here to help!</PreCaption>
         <H2>Contact Us</H2>
       </div>
       <section className={styles.cardsList}>
@@ -64,14 +73,16 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
       </section>
       <footer className={styles.footer}>
         <div className={styles.footerForm}>
-          <div className={styles.heading}>Still seeking your answer?</div>
+          <PreCaption>Still seeking your answer?</PreCaption>
           <H2>Let us help you directly</H2>
-          <Paragraph>
+          <Paragraph className={styles.footerFormParagraph}>
             Please complete the form below with details of your request. We’ll
             get back to you by email, so make sure you include the right email
             address.
           </Paragraph>
-          <div>What is your question about?</div>
+          <div className={styles.footerFormCaption}>
+            What is your question about?
+          </div>
           <main>
             <Formik
               initialValues={defaultValues}
@@ -92,6 +103,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       type='email'
                       label='E-mail'
                       className={styles.inputEmail}
+                      placeholder='example@gmail.com'
                     />
                   </div>
                   <div className={styles.inputGroupB}>
@@ -106,14 +118,19 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       name='name'
                       label='Name'
                       className={styles.inputName}
+                      placeholder='John'
                     />
                     <Field.Text
                       name='surname'
                       label='Surname'
                       className={styles.inputSurname}
+                      placeholder='Doe'
                     />
                   </div>
-                  <textarea name='comment' className={styles.textArea} />
+                  <div className={styles.textAreaWrapper}>
+                    <div>Comment</div>
+                    <textarea name='comment' className={styles.textArea} />
+                  </div>
                   <Button className={styles.buttonSend}>
                     <div>Send</div>
                     <div>&#8594;</div>
@@ -140,6 +157,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
         </div>
         <img src={require('img/about-us-1.png')} className={styles.footerImg} />
       </footer>
+      <Footer />
     </div>
   );
 };

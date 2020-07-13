@@ -44,7 +44,9 @@ const H5: React.FC<HeadingProps> = ({ className, children }) => (
 const H6: React.FC<HeadingProps> = ({ className, children }) => (
   <h6 className={classNames(className, styles.h6)}>{children}</h6>
 );
-
+/**
+ * Renders paragraph
+ */
 const Paragraph: React.FC<ParagraphProps> = ({ className, children, sm }) => (
   <p
     className={classNames(className, styles.p, {
@@ -54,5 +56,14 @@ const Paragraph: React.FC<ParagraphProps> = ({ className, children, sm }) => (
     {children}
   </p>
 );
+/**
+ * Renders pre-caption
+ */
+const PreCaption: React.FC<{ children: any; className?: string }> = ({
+  children,
+  className
+}) => (
+  <div className={classNames(styles.preCaption, className)}>{children}</div>
+);
 
-export { H1, H2, H3, H4, H5, H6, Paragraph };
+export { H1, H2, H3, H4, H5, H6, Paragraph, PreCaption };
