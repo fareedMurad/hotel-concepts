@@ -5,20 +5,27 @@ import { ButtonFilter, Preloader, Footer } from '@core/components';
 import { useJobsListData } from './jobs-list.hook';
 import { Vacancy } from './components';
 import { Preloaders } from '@ui/models';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getVacancies } from './store';
 import { Header } from '@core/components/header';
+import { State } from '@app/store/state';
 
 /**
  * Renders JobsList
  */
 const JobsList: React.FC<JobsListProps> = ({}) => {
-  const { filters, vacancies } = useJobsListData();
+  const { filters } = useJobsListData();
   const dispatch = useDispatch();
   const [isActive, setIsActive] = React.useState(null);
-  const [specialization, setSpecialization] = React.useState('All');
+  const [jobName, setJobName] = React.useState('');
+  const { vacancies } = useSelector((state: State) => state.jobs);
 
-  console.log(specialization);
+  // const [specialization, setSpecialization] = React.useState('All');
+
+  React.useEffect(() => {
+    dispatch(getVacancies());
+  }, []);
+
   return (
     <React.Fragment>
       <div className={styles.header}>
@@ -45,7 +52,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
                 count={count}
                 onClick={() => {
                   setIsActive(id);
-                  setSpecialization(title);
+                  setJobName(title);
                 }}
                 active={activeFilter}
               />
@@ -54,9 +61,9 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
         </div>
         <Preloader id={Preloaders.getVacancies}>
           <div className={styles.vacancies}>
-            {specialization &&
+            {jobName &&
               vacancies
-                .filter(el => el.specialization === specialization)
+                .filter(el => el.specialization === jobName)
                 .map(vacancy => {
                   const { id, title, description } = vacancy;
                   return (
@@ -68,8 +75,8 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
                     />
                   );
                 })}
-            {!specialization ||
-              (specialization === 'All' &&
+            {(vacancies && !jobName) ||
+              (jobName === 'All' &&
                 vacancies.map(vacancy => {
                   const { id, title, description } = vacancy;
                   return (

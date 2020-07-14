@@ -7,11 +7,41 @@ import { Preloaders } from '@ui/models';
  * mock up
  */
 const vacancies = [
-  { id: 1, title: 'Full time', description: 'Community Manager' },
-  { id: 2, title: 'Full time', description: 'Community Manager' },
-  { id: 3, title: 'Full time', description: 'Community Manager' },
-  { id: 4, title: 'Full time', description: 'Community Manager' },
-  { id: 5, title: 'Full time', description: 'Community Manager' }
+  {
+    id: 1,
+    title: 'Full time',
+    description: 'Marketing Manager',
+    specialization: 'Marketing',
+    location: 'New York, USA'
+  },
+  {
+    id: 2,
+    title: 'Full time',
+    description: 'Media Manager',
+    specialization: 'Media',
+    location: 'Hamburg, Germany'
+  },
+  {
+    id: 3,
+    title: 'Full time',
+    description: 'Finance Manager',
+    specialization: 'Finance',
+    location: 'Madrid, Spain'
+  },
+  {
+    id: 4,
+    title: 'Full time',
+    description: 'Community Manager',
+    specialization: 'Managment',
+    location: 'Kiev, Ukraine'
+  },
+  {
+    id: 5,
+    title: 'Full time',
+    description: 'Marketing Manager',
+    specialization: 'Marketing',
+    location: 'Moscow, Russia'
+  }
 ];
 /**
  * jobs saga
@@ -22,7 +52,6 @@ class JobsSaga {
     yield put(preloaderStart(Preloaders.getVacancies));
     try {
       // const response = yield call(api.jobs.getVacancies);
-      yield delay(3000);
       if (vacancies) yield put(getVacancies.success(vacancies));
     } catch (error) {
       console.log(error);
