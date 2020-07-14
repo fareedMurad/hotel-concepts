@@ -20,7 +20,8 @@
   @include container();
   display: flex;
   justify-content: space-between;
-  margin-top: 85px;
+  align-items: center;
+  margin-top: 15px;
   flex-direction: column;
   @include desktop() {
     flex-direction: row;
