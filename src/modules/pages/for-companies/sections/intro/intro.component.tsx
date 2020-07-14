@@ -17,10 +17,12 @@ const Intro: React.FC<IntroProps> = ({}) => {
         <div className={styles.introDescription}>
           Enforce your people and power your future
         </div>
-        <Button className={styles.button}>
-          <div>Contact Us</div>
-          <div>&rarr;</div>
-        </Button>
+        <a href='#consult-request'>
+          <Button className={styles.button}>
+            <div>Contact Us</div>
+            <div>&rarr;</div>
+          </Button>
+        </a>
       </main>
       <ScrollButton text='Scroll' className={styles.arrow} />
     </div>

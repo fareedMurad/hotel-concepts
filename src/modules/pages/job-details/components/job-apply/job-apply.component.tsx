@@ -5,7 +5,6 @@ import { Form, Field, Button, Icon, Select } from '@core/components';
 import { Formik } from 'formik';
 import { jobDetailsValidationSchema } from '@pages/job-details/models';
 import { useJobDetailsData } from '@pages/job-details/job-details.hook';
-import { set } from 'object-path';
 import classNames from 'classnames';
 
 const defaultValues = {

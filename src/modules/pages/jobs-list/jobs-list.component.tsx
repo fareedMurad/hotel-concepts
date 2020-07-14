@@ -16,7 +16,9 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
   const { filters, vacancies } = useJobsListData();
   const dispatch = useDispatch();
   const [isActive, setIsActive] = React.useState(null);
+  const [specialization, setSpecialization] = React.useState('All');
 
+  console.log(specialization);
   return (
     <React.Fragment>
       <div className={styles.header}>
@@ -43,6 +45,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
                 count={count}
                 onClick={() => {
                   setIsActive(id);
+                  setSpecialization(title);
                 }}
                 active={activeFilter}
               />
@@ -51,17 +54,33 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
         </div>
         <Preloader id={Preloaders.getVacancies}>
           <div className={styles.vacancies}>
-            {vacancies.map(vacancy => {
-              const { id, title, description } = vacancy;
-              return (
-                <Vacancy
-                  key={id}
-                  title={title}
-                  description={description}
-                  id={id}
-                />
-              );
-            })}
+            {specialization &&
+              vacancies
+                .filter(el => el.specialization === specialization)
+                .map(vacancy => {
+                  const { id, title, description } = vacancy;
+                  return (
+                    <Vacancy
+                      key={id}
+                      title={title}
+                      description={description}
+                      id={id}
+                    />
+                  );
+                })}
+            {!specialization ||
+              (specialization === 'All' &&
+                vacancies.map(vacancy => {
+                  const { id, title, description } = vacancy;
+                  return (
+                    <Vacancy
+                      key={id}
+                      title={title}
+                      description={description}
+                      id={id}
+                    />
+                  );
+                }))}
           </div>
         </Preloader>
       </div>

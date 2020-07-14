@@ -24,8 +24,8 @@ const CoursePartnership: React.FC<CoursePartnershipProps> = ({}) => {
       <PartnerBenefits />
       <Criteria />
       <PartnerApply
-        title="Want to get involved?"
-        subtitle="We’re always happy to talk if you are interested in becoming a Partner"
+        title='Want to get involved?'
+        subtitle='We’re always happy to talk if you are interested in becoming a Partner'
       />
       <Footer />
     </div>

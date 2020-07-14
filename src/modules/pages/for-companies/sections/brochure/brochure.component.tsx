@@ -25,7 +25,9 @@ const Brochure: React.FC<BrochureProps> = ({}) => {
             future.
           </Paragraph>
           <div className={styles.downloadButton}>
-            <DownloadButton caption='Brochure' filetype='PDF' size='15mb' />
+            <a href='http://www.africau.edu/images/default/sample.pdf' download>
+              <DownloadButton caption='Brochure' filetype='PDF' size='15mb' />
+            </a>
           </div>
         </div>
       </div>

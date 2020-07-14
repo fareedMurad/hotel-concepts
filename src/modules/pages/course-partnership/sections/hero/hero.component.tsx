@@ -15,10 +15,12 @@ const Hero: React.FC<HeroProps> = ({}) => {
         <PreCaption className={styles.heroDescription}>
           Combining Kordie’ expertise with the insights of industry leaders
         </PreCaption>
-        <Button className={styles.button}>
-          <div>Contact Us</div>
-          <div>&rarr;</div>
-        </Button>
+        <a href='#get-involved'>
+          <Button className={styles.button}>
+            <div>Contact Us</div>
+            <div>&rarr;</div>
+          </Button>
+        </a>
       </main>
       <ScrollButton text='Scroll' className={styles.arrow} />
     </div>

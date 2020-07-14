@@ -4,13 +4,17 @@ import * as styles from './job-details.scss';
 import { JobApply } from './components/job-apply';
 import { H2, Paragraph, H5, H3, Footer } from '@core/components';
 import { Header } from '@core/components/header';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import { useJobsListData } from '@pages/jobs-list/jobs-list.hook';
 
 /**
  * Renders JobPage
  */
-const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
+const JobDetails: React.FC<JobDetailsProps> = ({}) => {
+  const { vacancies } = useJobsListData();
   const history = useHistory();
+  let { id } = useParams();
+  const vacancy = vacancies.filter(el => el.id === Number(id));
 
   return (
     <React.Fragment>
@@ -21,10 +25,8 @@ const JobDetails: React.FC<JobDetailsProps> = ({ title, body, location }) => {
       <Header whiteBackground />
       <div className={styles.jobPage}>
         <section className={styles.sectionA}>
-          <H2 className={styles.title}>
-            Project Manager, <br /> Hardware.
-          </H2>
-          <H5 className={styles.titleOrange}>London, United Kingdom</H5>
+          <H2 className={styles.title}>{vacancy[0].description}</H2>
+          <H5 className={styles.titleOrange}>{vacancy[0].location}</H5>
           <Paragraph>
             We are looking for a passionate and seasoned Project Manager that{' '}
             <br />

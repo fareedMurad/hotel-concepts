@@ -5,6 +5,7 @@ import { combineReducers } from 'redux';
 import { ui } from '@ui';
 import { profile } from '@profile/store';
 import { jobs } from '@pages/jobs-list/store';
+import { contributors } from '@pages/contributors';
 /**
  * App rd
  */
@@ -14,7 +15,8 @@ const app = combineReducers({
   general,
   profile,
   ui,
-  jobs
+  jobs,
+  contributors
 });
 
 export { app };
