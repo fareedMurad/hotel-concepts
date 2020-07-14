@@ -14,9 +14,9 @@
 .title {
   padding-right: $default-offset;
   padding-left: $left-offset;
-  max-width: 560px;
+  max-width: 600px;
   & > div:first-child {
-    @include font($primary-gray, 48px, 500, 50px);
+    @include font($primary-gray, 48px, 500, 54px);
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {

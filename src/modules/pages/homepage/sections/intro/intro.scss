@@ -37,7 +37,7 @@
 .title {
   z-index: 2;
   & > div:first-child {
-    @include font($white, 60px, 500, 65px);
+    @include font($white, 60px, 500, 68px);
     max-width: 600px;
     font-family: $EBGaramond;
     letter-spacing: -0.36px;

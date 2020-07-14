@@ -16,7 +16,7 @@
 }
 
 .text {
-  @include font($white, 36px, 400, 38px);
+  @include font($white, 36px, 400, 44px);
   max-width: 500px;
   font-family: $EBGaramond;
   text-align: center;
