@@ -20,7 +20,7 @@
   bottom: 10px;
   left: 10px;
   max-width: 300px;
-  @include font($white, 36px, 500, 38px);
+  @include font($white, 36px, 500, 44px);
   font-family: $EBGaramond;
 }
 
@@ -47,12 +47,13 @@
 }
 
 .description {
+  @include font($primary-grey, 16px, 400, 22px);
+  margin-top: 20px;
   font-family: $IBMPlex;
-  font-size: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
 
@@ -64,7 +65,7 @@
 .info {
   font-family: $EBGaramond;
   width: 100%;
-  @include font($primary-grey, 18px, 500, 38px);
+  @include font($primary-grey, 18px, 500, 26px);
   @include flex($justify: space-between);
 }
 

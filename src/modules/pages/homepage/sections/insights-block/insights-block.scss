@@ -9,7 +9,7 @@
 .title {
   padding-left: $left-offset;
   & > div:first-child {
-    @include font($primary-gray, 48px, 600, 50px);
+    @include font($primary-gray, 48px, 600, 56px);
     max-width: 600px;
     letter-spacing: -0.36px;
     font-family: $EBGaramond;

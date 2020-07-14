@@ -12,7 +12,7 @@ const FilterCheckbox: React.FC<FilterCheckboxProps> = ({ name, isChecked, onChec
         className={styles.checkbox}
         name="isGoing"
         type="checkbox"
-        defaultChecked={isChecked}
+        checked={isChecked}
         onChange={onCheck}
       />
       <span></span>

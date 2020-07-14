@@ -40,6 +40,13 @@
   }
 }
 
+.name {
+  @include font($primary-gray, 24px, 400, 32px);
+}
+.role {
+  @include font($primary-gray, 16px, 400, 24px);
+}
+
 @media screen and (max-width: 350px) {
   .img {
       max-width: 260px;

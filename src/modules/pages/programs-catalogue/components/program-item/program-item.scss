@@ -37,7 +37,7 @@
 }
 
 .description {
-  @include font($primary-grey, 16px, 300, 18px);
+  @include font($primary-grey, 16px, 300, 22px);
   font-family: $IBMPlex;
   max-width: 400px;
   overflow: hidden;

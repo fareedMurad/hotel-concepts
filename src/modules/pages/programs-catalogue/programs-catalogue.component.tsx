@@ -38,6 +38,12 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   }
 
   React.useEffect(() => {
+    setFilteredPrograms([...currentPrograms]);
+    setCurrentPage(1);
+    setCurrentFilters([0]);
+  }, [slug]);
+
+  React.useEffect(() => {
     const filters = currentFilters.map(index => filterTypes.data[index]);
     const result = programs.filter(item => {
       if (item) {
@@ -57,7 +63,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
           <div>Find the right course for you</div>
           <div>Choose from our growing range of online courses to meet your professional goals.</div>
         </div>
-        <CatalogueFilters updateFilters={updateFilters} />
+        <CatalogueFilters currentFilters={currentFilters} updateFilters={updateFilters} />
         <div className={styles.content}>
           {filteredPrograms.length > 0 ?
           filteredPrograms.map(item => (
