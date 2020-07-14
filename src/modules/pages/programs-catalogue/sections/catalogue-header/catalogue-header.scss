@@ -19,6 +19,7 @@
 
 .title {
   padding-left: $left-offset;
+  padding-right: $default-offset;
   & > div:first-child {
     max-width: 500px;
     @include font($white, 60px, 500, 65px);
@@ -27,13 +28,13 @@
   & > div:nth-child(2) {
     margin-top: 20px;
     max-width: 880px;
-    @include font($white, 24px, 400, 26px);
+    @include font($white, 24px, 400, 34px);
     font-family: $IBMPlexSans;
   }
 }
 
 .scroll-button {
-  bottom: 15px;
+  bottom: 24px;
   position: absolute;
   left: $left-offset;
 }
