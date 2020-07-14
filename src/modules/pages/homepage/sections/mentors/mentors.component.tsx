@@ -3,9 +3,13 @@ import { MentorsProps } from './mentors.props';
 import * as styles from './mentors.scss';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
-import { useMentorsData } from './mentors.hook';
 import { MentorItem } from '@pages/homepage/components/mentor-item';
 import { useHistory } from 'react-router';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import { useDispatch } from 'react-redux';
+import { useContributorsData } from '@pages/contributors/contributor.hook';
+import { MentorModal } from '@pages/homepage/components/mentor-modal';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -33,9 +37,15 @@ const responsiveBreakpoints = {
  * Renders Mentors
  */
 const Mentors: React.FC<MentorsProps> = ({}) => {
-  const { data } = useMentorsData();
   const history = useHistory();
   const handleClick = () => history.push(`/contributors`);
+  const { contributors } = useContributorsData();
+  const [curretnMentor, setCurrentMentor] = React.useState(null);
+  const dispatch = useDispatch();
+  const modalHandle = id => () => {
+    setCurrentMentor(contributors.filter(e => e.id == id)[0]);
+    dispatch(showModal(Modals.contributor));
+  }
 
   return (
     <section className={styles.mentors}>
@@ -58,15 +68,25 @@ const Mentors: React.FC<MentorsProps> = ({}) => {
             <SliderButtons onClick={handleClick} className={styles.controls} isBordered={true} btnText="See All Contributors" />
           }
         >
-        {data.map((coauthor, index) => (
+        {contributors.map(coauthor => (
           <MentorItem
             name={coauthor.name}
-            role={coauthor.role}
-            img={coauthor.img}
-            key={`${coauthor.name}+${index}`}
+            role={coauthor.profession}
+            img={coauthor.photo}
+            key={coauthor.id}
+            onClick={modalHandle(coauthor.id)}
           />
         ))}
       </Slider>
+      {curretnMentor &&
+        <MentorModal
+          name={curretnMentor.name}
+          photo={curretnMentor.photo}
+          surname={curretnMentor.surname}
+          city={curretnMentor.city}
+          profession={curretnMentor.profession}
+          experience={curretnMentor.experience}
+        />}
     </section>
   );
 };
