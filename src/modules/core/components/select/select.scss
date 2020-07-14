@@ -58,6 +58,9 @@
   border: unset;
   border-radius: 4px;
   transition: $transition;
+  @include tablet() {
+    height: 45px;
+  }
 }
 
 .single-value,

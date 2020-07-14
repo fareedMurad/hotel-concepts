@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .online-courses {
   padding: 100px 0;
@@ -47,7 +47,6 @@
 .footer {
   margin-top: 40px;
   padding-left: $left-offset;
-
 }
 
 .footer-title {
@@ -63,7 +62,7 @@
 }
 
 .courses {
-  @include flex($justify: "between");
+  @include flex($justify: 'between');
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -80,6 +79,10 @@
 
   .filter-button {
     width: 100%;
+    margin-bottom: 20px;
+    @include tablet() {
+      margin-bottom: 0;
+    }
   }
 
   .filters {
