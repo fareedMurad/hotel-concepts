@@ -13,3 +13,11 @@
     padding: 0 $default-offset;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .faq {
+    & > div:first-child {
+      padding-left: $default-offset;
+    }
+  }
+}

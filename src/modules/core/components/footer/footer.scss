@@ -103,7 +103,7 @@
   position: relative;
   width: 100%;
   margin-right: 10px;
-  max-width: 450px;
+  max-width: 420px;
   margin-top: 12px;
 }
 
@@ -145,13 +145,13 @@
   margin-right: 10px;
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1080px) {
   .footer {
     padding-left: $default-offset;
   }
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 970px) {
   .content {
     @include flex($direction: column);
   }
@@ -163,18 +163,38 @@
   .navigation {
     flex-wrap: wrap;
   }
+  .policy,
+  .terms {
+    width: 50%;
+  }
 }
 
-@media screen and (max-width: 441px) {
+@media screen and (max-width: 550px) {
+  .navigation-item {
+    width: 49%;
+  }
   .copyrights {
     @include flex($direction: column-reverse, $align: center);
+  }
+  .policy,
+  .terms {
+    width: auto;
   }
   .copyrights-link-container {
     flex-direction: column;
     align-items: center;
   }
   .copyright-info {
-    @include flex($justify: center);
+    width: auto;
+  }
+  .footer {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 441px) {
+  .navigation-item {
     width: 100%;
   }
   .copyrights--link {
@@ -183,11 +203,9 @@
   .subscribe {
     padding-right: 0;
   }
-}
-
-@media screen and (max-width: 487px) {
-  .footer {
-    position: relative;
-    z-index: 1;
+  .button-submit {
+    & > div:nth-child(2) {
+      display: none;
+    }
   }
 }

@@ -18,6 +18,12 @@
   @include flex($justify: center, $direction: column);
 }
 
+.hr {
+  background-color: $hr;
+  height: 2px;
+  width: 100%;
+}
+
 .title {
   & > div:first-child {
     @include font($primary-grey, 36px, 500, 46px);
@@ -50,6 +56,12 @@
   }
   &:hover {
     color: $primary_orange;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .socials {
+    padding-left: $default-offset;
   }
 }
 

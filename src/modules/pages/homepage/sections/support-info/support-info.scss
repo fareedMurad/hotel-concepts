@@ -63,6 +63,11 @@
 @media screen and (max-width: 768px) {
   .support-info {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .support-info {
     padding-right: $default-offset;
   }
   .intro {

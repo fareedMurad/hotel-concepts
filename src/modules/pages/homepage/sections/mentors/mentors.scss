@@ -53,3 +53,9 @@
     padding-left: 0;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .controls {
+    margin-left: -15px;
+  }
+}

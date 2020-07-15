@@ -60,7 +60,7 @@
     padding-left: 12px;
     padding-right: 14px;
     color: $primary-orange;
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 
@@ -91,7 +91,16 @@
   .intro,.title  {
     padding-left: $default-offset;
   }
+}
+
+@media screen and (max-width: 1050px) {
+  .title  {
+    padding-left: $default-offset;
+  }
   .button {
     margin-left: $default-offset;
+  }
+  .info {
+    margin-right: $default-offset;
   }
 }
