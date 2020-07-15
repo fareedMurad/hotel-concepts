@@ -7,14 +7,15 @@
 
 .title {
   & > div:first-child {
-    @include font($primary-grey, 48px, 500, 50px);
+    @include font($primary-grey, 48px, 600, 58px);
     max-width: 600px;
     font-family: $EBGaramond;
-    letter-spacing: -0.36px;
+    letter-spacing: -1px;
   }
   & > div:nth-child(2) {
-    @include font($primary-grey, 18px, 400, 25px);
-    margin: 24px 0px;
+    @include font($primary-grey, 18px, 400, 28px);
+    margin-top: 24px;
+    margin-bottom: 40px;
     font-family: $IBMPlex;
     max-width: 440px;
   }

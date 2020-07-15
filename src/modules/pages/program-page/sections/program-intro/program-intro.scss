@@ -31,19 +31,20 @@
 
 .watch-button {
   z-index: 2;
+  margin-top: 76px;
 }
 
 .title {
   z-index: 2;
   & > div:first-child {
-    @include font($white, 60px, 500, 65px);
+    @include font($white, 60px, 500, 70px);
     max-width: 600px;
     font-family: $EBGaramond;
-    letter-spacing: -0.36px;
+    letter-spacing: -1px;
   }
   & > div:nth-child(2) {
-    @include font($white, 24px, 400, 40px);
-    margin: 35px 0px;
+    @include font($white, 24px, 400, 34px);
+    margin-top: 16px;
     font-family: $IBMPlex;
     max-width: 550px;
   }
@@ -83,7 +84,7 @@
 
 .back-button {
   position: absolute;
-  top: 70px;
+  top: 97px;
   left: $default-offset;
 }
 
@@ -91,12 +92,17 @@
   .program-intro {
     padding-left: $default-offset;
   }
+  .back-button {
+    position: absolute;
+    top: 50px;
+    left: $default-offset;
+  }
   .title {
     & > div:first-child {
-      @include font($white, 50px, 500, 40px);
+      @include font($white, 40px, 500, 50px);
     }
     & > div:nth-child(2) {
-      @include font($white, 20px, 400, 20px);
+      @include font($white, 20px, 400, 30px);
     }
   }
 }

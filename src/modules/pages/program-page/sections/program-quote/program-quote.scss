@@ -16,7 +16,7 @@
 }
 
 .text {
-  @include font($white, 36px, 400, 45px);
+  @include font($white, 36px, 400, 46px);
   max-width: 500px;
   font-family: $EBGaramond;
   text-align: center;
@@ -24,7 +24,7 @@
 
 .button {
   width: 204px;
-  margin-top: 50px;
+  margin-top: 40px;
   cursor: pointer;
   @include flex($justify: space-between, $align: center);
   background-color: $primary-orange;

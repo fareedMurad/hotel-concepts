@@ -8,7 +8,7 @@ const OverviewItem: React.FC<{ sprints: number, month: number, date: string, lan
     <section className={styles.item}>
       <div className={styles.block}>
         <div className={styles.name}>Duration</div>
-        <div className={styles.info}>{month} Month/{sprints} Sprints</div>
+        <div className={styles.info}>{month} Month / {sprints} Sprints</div>
       </div>
       <div className={styles.hr}></div>
       <div className={styles.block}>
@@ -18,7 +18,7 @@ const OverviewItem: React.FC<{ sprints: number, month: number, date: string, lan
       <div className={styles.hr}></div>
       <div className={styles.block}>
         <div className={styles.name}>Languages</div>
-        <div className={styles.info}>{languages.toString()}</div>
+        <div className={styles.info}>{languages.join(', ')}</div>
       </div>
     </section>
   );

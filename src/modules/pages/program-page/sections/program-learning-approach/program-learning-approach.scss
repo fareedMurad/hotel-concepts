@@ -5,7 +5,7 @@
 }
 
 .title {
-  @include font($primary-grey, 48px, 500, 50px);
+  @include font($primary-grey, 48px, 600, 58px);
   font-family: $EBGaramond;
   margin-bottom: 40px;
   padding-left: $left-offset;
@@ -31,12 +31,12 @@
     border-radius: 6px;
     margin: 10px;
     & > div:first-child {
-      @include font($primary-grey, 24px, 400, 28px);
+      @include font($primary-grey, 24px, 400, 34px);
       max-width: 600px;
       font-family: $IBMPlex;
     }
     & > div:nth-child(2) {
-      @include font($primary-grey, 18px, 400, 22px);
+      @include font($primary-grey, 18px, 400, 28px);
       font-family: $IBMPlex;
       margin-top: 20px;
     }

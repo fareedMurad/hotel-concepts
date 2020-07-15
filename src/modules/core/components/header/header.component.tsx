@@ -44,7 +44,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   public resize = () => {
     if (
-      window.innerWidth < 933 &&
+      window.innerWidth < 768 &&
       this.state.activeMenuType === ActiveMenuType.programs
     ) {
       this.closeMenu();

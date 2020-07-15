@@ -5,9 +5,9 @@
 }
 
 .title {
-  @include font($primary-grey, 48px, 500, 50px);
+  @include font($primary-grey, 48px, 600, 58px);
   font-family: $EBGaramond;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   padding-left: $left-offset;
 }
 
@@ -87,12 +87,12 @@
 }
 
 .name {
-  @include font($primary-orange, 18px, 500, 20px);
+  @include font($primary-orange, 18px, 500, 28px);
   font-family: $IBMPlex;
 }
 
 .description {
-  @include font($primary-grey, 18px, 400, 20px);
+  @include font($primary-grey, 18px, 400, 28px);
   font-family: $IBMPlex;
   margin-top: 16px;
 }

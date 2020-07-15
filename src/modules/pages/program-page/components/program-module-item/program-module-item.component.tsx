@@ -31,12 +31,14 @@ const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({ index, name, desc
           <div className={styles.verHr}>|</div>
           {hrhWeek} hrh/week
         </div>
-        <Button onClick={onModuleClick} theme='secondary' className={styles.button}>
-          <div>
-            Module overview
-          </div>
-          <div>&#8594;</div>
-        </Button>
+        <div className={styles.btnContainer}>
+          <Button onClick={onModuleClick} theme='secondary' className={styles.button}>
+            <div>
+              Module overview
+            </div>
+            <div>&#8594;</div>
+          </Button>
+        </div>
       </div>
       <div className={classNames(styles.description, {[styles.opened]: isOpened})}>
         {description}
