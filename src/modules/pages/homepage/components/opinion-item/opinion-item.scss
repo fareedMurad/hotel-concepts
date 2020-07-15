@@ -7,7 +7,7 @@
 
 .container {
   @include flex($align: center);
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .info {
@@ -18,22 +18,21 @@
   height: 90px;
   width: 90px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .text {
   font-family: $EBGaramond;
-  @include font($primary-gray, 28px, 200, 30px);
-
+  @include font($primary-gray, 28px, 400, 35px);
 }
 
 .name {
-  @include font($primary-gray, 20px, 500, 22px);
+  @include font($primary-gray, 20px, 600, 28px);
   font-family: $IBMPlexSans;
 
 }
 
 .from {
-  @include font($primary-gray, 16px, 200, 18px);
+  @include font($primary-gray, 16px, 400, 22px);
   font-family: $IBMPlexSans;
 }

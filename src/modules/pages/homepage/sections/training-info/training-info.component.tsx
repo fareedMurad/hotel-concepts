@@ -19,7 +19,7 @@ const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
             <div>Online Executive Training</div>
             <div>
               Cordie online courses are nothing like a typical
-              sit-back-and-listen lecture. You’ll engage in a new
+              sit-back-and-listen lecture.<br/> You’ll engage in a new
               activity every three to five minutes. Each element is
               designed to keep you interested & involved.
             </div>

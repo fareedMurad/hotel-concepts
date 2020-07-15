@@ -12,7 +12,8 @@
 }
 
 .scroll {
-  color: $white;
+  @include font($white, 16px, 500, 26px);
+  font-family: $IBMPlex;
   &:hover {
     color: rgb(235, 235, 235);
   }

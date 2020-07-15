@@ -14,10 +14,10 @@ const Socials: React.FC<SocialsProps> = ({}) => {
       <div className={styles.leftSide}></div>
       <div className={styles.rightSide}>
         <div className={styles.title}>
-          <div>Join our social media.</div>
+          <div>Join our <br/> social media.</div>
           <div/>
           <div>
-            Be the firs to read useful articles and get
+            Be the first to read useful articles and get
             information about latest promotions!
           </div>
         </div>

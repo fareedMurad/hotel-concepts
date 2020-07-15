@@ -7,13 +7,12 @@
 .container {
   @include flex($justify: center, $direction: column);
   margin-left: 15px;
-
   & > span:first-child {
-    @include font($color: $white, $size: 16px, $weight: 500);
+    @include font($white, 16px, 500, 18px);
     font-family: $IBMPlex;
   }
   & > span:nth-child(2) {
-    @include font($color: $white, $size: 16px, $weight: 400);
+    @include font($white, 12px, 500, 14px);
     opacity: .5;
     font-family: $IBMPlex;
     margin-top: 5px;
@@ -28,7 +27,9 @@
   border-radius: 50%;
   cursor: pointer;
   &-icon {
-    @include size(14px);
+    width: 10px;
+    height: 13px;
+    margin-left: 2px;
     clip-path: polygon(100% 52%, 0 0, 0 100%);
     background: $primary-orange;
   }

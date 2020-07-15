@@ -18,7 +18,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ text, className }) => {
   return (
     <div className={classNames(styles.scrollButton, className)}>
       <button onClick={scrollSection}>
-        <span className={styles.scroll}>↓ {text}</span>
+        <span className={styles.scroll}>&darr; {text}</span>
       </button>
     </div>
   );

@@ -2,28 +2,27 @@
 
 .impact {
   width: 100%;
-  padding: 100px 0;
+  padding: 120px 0;
   padding-left: $left-offset;
 }
 
 .title {
-  margin-bottom: 50px;
+  margin-bottom: 48px;
   & > div:first-child {
-    @include font($primary-orange, 18px, 600, 18px);
-    max-width: 600px;
-    letter-spacing: -0.36px;
+    @include font($primary-orange, 18px, 500, 28px);
     font-family: $IBMPlex;
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 48px, 500, 50px);
-    margin: 15px 0px;
+    @include font($primary-gray, 48px, 600, 58px);
+    margin-top: 12px;
+    letter-spacing: -1px;
     font-family: $EBGaramond;
   }
 }
 
 .slider {
   @include flex($justify: space-between, $align: center);
-  padding-bottom: 60px;
+  padding-bottom: 102px;
   overflow: hidden;
   position: relative;
 }

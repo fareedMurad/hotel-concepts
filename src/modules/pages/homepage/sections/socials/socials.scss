@@ -20,21 +20,20 @@
 
 .title {
   & > div:first-child {
-    @include font($primary-grey, 36px, 400, 40px);
+    @include font($primary-grey, 36px, 500, 46px);
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
     height: 2px;
-    margin: 25px 0;
+    margin: 15px 0;
     max-width: 450px;
     background: #cbd0d3;
   }
   & > div:nth-child(3) {
-    @include font($primary-grey, 16px, 400, 20px);
-    max-width: 450px;
+    @include font($primary-grey, 16px, 400, 22px);
+    max-width: 350px;
     font-family: $IBMPlex;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 

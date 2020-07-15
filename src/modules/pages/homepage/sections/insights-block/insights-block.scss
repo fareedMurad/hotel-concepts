@@ -9,14 +9,14 @@
 .title {
   padding-left: $left-offset;
   & > div:first-child {
-    @include font($primary-gray, 48px, 600, 56px);
+    @include font($primary-gray, 48px, 600, 58px);
     max-width: 600px;
-    letter-spacing: -0.36px;
+    letter-spacing: -1px;
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 24px, 400, 26px);
-    margin-top: 15px;
+    @include font($primary-gray, 24px, 400, 34px);
+    margin-top: 12px;
     font-family: $IBMPlex;
     margin-bottom: 40px;
   }
