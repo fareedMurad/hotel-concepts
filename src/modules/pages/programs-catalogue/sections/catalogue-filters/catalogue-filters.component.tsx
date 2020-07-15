@@ -3,6 +3,7 @@ import { CatalogueFiltersProps } from './catalogue-filters.props';
 import * as styles from './catalogue-filters.scss';
 import { useCatalogueFiltersData } from './catalogue-filters.hook';
 import { FilterCheckbox } from '@pages/programs-catalogue/components/filter-checkbox';
+import classNames from 'classnames';
 
 /**
  * Renders CatalogueFilters
@@ -28,7 +29,11 @@ const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({ currentFilters, upd
       <div className={styles.hr}></div>
       <div className={styles.filters}>
         {data.map((item, index) => (
-          <div className={styles.filterItem} key={item}>
+          <div
+            className={classNames(styles.filterItem,
+              {[styles.checked]: currentFilters.includes(index)}
+            )}
+            key={item}>
             <FilterCheckbox
               name={item}
               isChecked={currentFilters.includes(index)}

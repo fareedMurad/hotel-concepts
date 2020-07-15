@@ -14,26 +14,33 @@ const ProgramItem: React.FC<ProgramItemProps> = ({
   const handleClick = id => () => history.push(`/program/${id}`);
 
   return (
-    <div className={styles.programItem}>
-      <div className={styles.container}>
-        <img src={require(`img/insights/${img}.png`)} alt=""/>
-        <div className={styles.info}>
-          <div className={styles.type}>{type}</div>
-          <div className={styles.name}>{name}</div>
-          <div className={styles.secondaryInfo}>
-            {weeks} weeks | {sprints} sprints | {price}$
-          </div>
-          <div className={styles.description}>
-            {description}
+    <>
+      <div className={styles.programItem}>
+        <div className={styles.container}>
+          <img src={require(`img/insights/${img}.png`)} alt=""/>
+          <div className={styles.info}>
+            <div className={styles.type}>{type}</div>
+            <div className={styles.name}>{name}</div>
+            <div className={styles.secondaryInfo}>
+              {weeks} weeks
+              <span className={styles.vhr}>|</span>
+              {sprints} sprints
+              <span className={styles.vhr}>|</span>
+              {price}$
+            </div>
+            <div className={styles.description}>
+              {description}
+            </div>
           </div>
         </div>
+        <div className={styles.buttonContainer}>
+          <Button onClick={handleClick(id)} className={styles.button}>
+            <div>Find out more</div> <div> &#8594; </div>
+          </Button>
+        </div>
       </div>
-      <div className={styles.buttonContainer}>
-        <Button onClick={handleClick(id)} className={styles.button}>
-          <div>Find out more</div> <div> &#8594; </div>
-        </Button>
-      </div>
-    </div>
+      <div className={styles.hr}></div>
+    </>
   );
 };
 

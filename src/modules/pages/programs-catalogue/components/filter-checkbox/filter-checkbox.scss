@@ -25,7 +25,7 @@ label span {
 [type=checkbox]:checked + span:before {
   content: '\2714';
   position: absolute;
-  top: 2px;
+  top: -2px;
   left: 5px;
   color: $primary-orange;
 }

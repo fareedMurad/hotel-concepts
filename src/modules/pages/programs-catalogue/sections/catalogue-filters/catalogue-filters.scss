@@ -2,40 +2,44 @@
 
 .catalogue-filters {
   background-color: $background;
-  padding: 20px 0;
+  padding-top: 32px;
+  padding-bottom: 8px;
 }
 
 .title {
   padding-left: $left-offset;
   font-family: $IBMPlexSans;
-  @include font($primary-grey, 24px, 400, 65px);
+  @include font($primary-grey, 24px, 400, 34px);
 }
 
 .hr {
   height: 2px;
   background-color: $light-grey;
-  margin: 0 25px;
+  margin: 0 $default-offset;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .filters {
   display: flex;
   flex-wrap: wrap;
-  padding: $default-offset;
+  padding: 0 $default-offset;
 }
 
 .filter-item {
-  @include font($primary-grey, 18px, 400, 20px);
-  width: 20%;
+  @include font($primary-grey, 18px, 400, 28px);
+  height: 24px;
   display: flex;
-  margin: 20px;
   font-family: $IBMPlexSans;
   cursor: pointer;
+  margin-bottom: 24px;
+  margin-right: 48px;
+  &.checked {
+    font-weight: 500;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .filter-item {
-    width: 40%;
-  }
   .title {
     padding-left: $default-offset;
   }

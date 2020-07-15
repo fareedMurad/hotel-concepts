@@ -84,7 +84,9 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
           }
         </div>
         {(filteredPrograms.length >= itemsPerPage || currentPage > 1) &&
-          <Pagination currentPage={currentPage} countOfPages={pages} onChangePage={changePage} />}
+          <div className={styles.pagination}>
+            <Pagination currentPage={currentPage} countOfPages={pages} onChangePage={changePage} />
+          </div>}
         <ProgramsContactUs />
       </div>
       <Footer />

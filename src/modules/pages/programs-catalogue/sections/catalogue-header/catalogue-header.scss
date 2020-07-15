@@ -22,11 +22,12 @@
   padding-right: $default-offset;
   & > div:first-child {
     max-width: 500px;
-    @include font($white, 60px, 500, 65px);
+    @include font($white, 60px, 600, 70px);
     font-family: $EBGaramond;
+    letter-spacing: -1px;
   }
   & > div:nth-child(2) {
-    margin-top: 20px;
+    margin-top: 22px;
     max-width: 880px;
     @include font($white, 24px, 400, 34px);
     font-family: $IBMPlexSans;

@@ -9,9 +9,9 @@
 
 .container {
   display: flex;
-  height: 100%;
+  height: 221px;
   img {
-    max-width: 315px;
+    max-width: 317px;
     object-fit: cover;
     height: 100%;
     border-radius: 6px;
@@ -19,25 +19,29 @@
 }
 
 .info {
-  margin-left: 10px;
+  margin-left: 20px;
   overflow: hidden;
+  @include flex(space-around, flex-start, column);
 }
 
 .type {
-  @include font($primary-orange, 18px, 600, 26px);
+  @include font($primary-orange, 18px, 500, 28px);
 }
 
 .name {
-  @include font($primary-grey, 36px, 500, 38px);
+  @include font($primary-grey, 36px, 600, 39px);
   font-family: $EBGaramond;
+  letter-spacing: -1px;
 }
 
 .secondary-info {
+  @include font($primary-grey, 16px, 400, 22px);
+  font-family: $IBMPlex;
   margin: 10px 0;
 }
 
 .description {
-  @include font($primary-grey, 16px, 300, 22px);
+  @include font($primary-grey, 16px, 400, 22px);
   font-family: $IBMPlex;
   max-width: 400px;
   overflow: hidden;
@@ -55,19 +59,39 @@
 
 .button {
   @include flex($justify: space-between);
-  width: 230px;
+  width: 224px;
   height: 44px;
+  margin-top: 20px;
+  margin-right: 90px;
+}
+
+.vhr {
+  color: $light-grey;
+  margin: 0 26px;
+}
+
+.hr {
+  height: 2px;
+  background-color: $hr;
+  margin: 0 $default-offset;
   margin-top: 20px;
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1030px) {
   .program-item {
     flex-direction: column;
     height: 560px;
     width: 50%;
   }
+  .button {
+    margin-right: 0;
+  }
+  .hr {
+    display: none;
+  }
   .container {
     flex-direction: column;
+    height: 487px;
     img {
       max-height: 250px;
       width: 100%;
