@@ -10,17 +10,18 @@
 .left-side {
   background: url('../../../../../assets/img/learning-approach/mobile.png')
     no-repeat bottom center;
-  width: 50%;
+  width: 80%;
 }
 
 .right-side {
-  width: 50%;
+  width: 100%;
   @include flex($justify: center, $direction: column);
 }
 
 .title {
   & > div:first-child {
     @include font($primary-grey, 36px, 500, 46px);
+    letter-spacing: -1px;
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
@@ -45,7 +46,7 @@
   margin: 10px 0;
   @include flex($align: center);
   img {
-    margin-right: 10px;
+    margin-right: 19px;
   }
   &:hover {
     color: $primary_orange;

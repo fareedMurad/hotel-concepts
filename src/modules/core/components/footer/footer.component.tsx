@@ -30,7 +30,7 @@ const Navigation: React.FC<{ caption: string; navigation: any[], socials?: any[]
       {socials &&
         socials.map(item => (
           <a href={item.to} className={styles.social} key={item.id}>
-            <img src={require(`img/socials/${item.img}.png`)} alt=""/>
+            <img src={require(`img/socials/${item.img}.svg`)} alt=""/>
           </a>
       ))}
     </div>
@@ -46,10 +46,16 @@ const Footer: React.FC<FooterProps> = ({}) => {
     <div className={styles.footer} id='footer'>
       <div className={styles.content}>
         <section className={styles.subscribe}>
-          <H2>
-            Sign up <br />
-            to newsletter
-          </H2>
+          <div className={styles.title}>
+            <div>
+              Sign up <br />
+              to newsletter
+            </div>
+            <div>
+              Get fresh ideas and opinion from our <br/>
+              worldleading hospitality experts
+            </div>
+          </div>
           <Formik
             initialValues={{ email: '' }}
             onSubmit={values => {
@@ -89,8 +95,8 @@ const Footer: React.FC<FooterProps> = ({}) => {
       <footer className={styles.copyrights}>
         <div className={styles.copyrightInfo}>© 2020 Kordie. All rights reserved.</div>
         <div className={styles.copyrightsLinkContainer}>
-          <div className={styles.copyrightsLink}>Privacy Policy</div>
-          <div className={styles.copyrightsLink}>Terms and Conditions</div>
+          <div className={styles.policy}>Privacy Policy</div>
+          <div className={styles.terms}>Terms and Conditions</div>
         </div>
       </footer>
     </div>

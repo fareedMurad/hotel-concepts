@@ -24,7 +24,7 @@ const Socials: React.FC<SocialsProps> = ({}) => {
         <div className={styles.links}>
           {data.map((social, index) => (
             <a key={index} href={social.url} className={styles.link}>
-              <img src={require(`img/socials/${social.img}.png`)} alt=""/>
+              <img src={require(`img/socials/${social.img}.svg`)} alt=""/>
               <div>{social.name}</div>
             </a>
           ))}

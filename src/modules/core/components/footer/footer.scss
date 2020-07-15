@@ -8,6 +8,20 @@
   position: fixed;
   z-index: -999;
   bottom: 0;
+  padding-top: 24px;
+}
+
+.title {
+  & > div:first-child {
+    @include font($primary-gray, 36px, 600, 46px);
+    letter-spacing: -1px;
+    font-family: $EBGaramond;
+  }
+  & > div:nth-child(2) {
+    @include font($primary-gray, 16px, 400, 22px);
+    font-family: $IBMPlexSans;
+    margin-top: 24px;
+  }
 }
 
 .content {
@@ -16,7 +30,7 @@
 }
 
 .subscribe {
-  width: 90%;
+  width: 80%;
   padding-right: 30px;
 }
 
@@ -27,13 +41,16 @@
     @include font($primary-gray, 18px, 500, 28px);
     font-family: $IBMPlex;
   }
+  &-item {
+    width: 33%;
+  }
   &__links {
     @include flex($align: stretch, $direction: column);
     margin-top: 13px;
     width: 33%;
     & > a {
       @include font($primary-gray, 16px, 400, 22px);
-      width: 140px;
+      width: 180px;
       margin-bottom: 13px;
       &:hover {
         text-decoration: underline;
@@ -63,11 +80,31 @@
   }
 }
 
+.policy,
+.terms {
+  @include font($primary-gray, 12px, 600, 16px);
+  font-family: $IBMPlex;
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+    color: $primary-orange;
+  }
+}
+
+.policy {
+  width: 66%;
+}
+
+.terms {
+  width: 33%;
+}
+
 .submit-form {
   position: relative;
   width: 100%;
   margin-right: 10px;
   max-width: 450px;
+  margin-top: 12px;
 }
 
 .button-submit {
@@ -92,13 +129,15 @@
 }
 
 .copyrights-link-container {
-  @include flex($justify: space-between);
+  display: flex;
   width: 100%;
   padding-left: 10px;
 }
 
 .copyright-info {
-  width: 90%;
+  width: 80%;
+  @include font($primary-gray, 12px, 600, 16px);
+  font-family: $IBMPlex;
 }
 
 
