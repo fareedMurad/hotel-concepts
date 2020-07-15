@@ -6,9 +6,8 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { AppProps } from './app.props';
 import { State } from './store/state';
-
-import { client } from './graphql/apollo-client';
 import { ApolloProvider } from '@apollo/client';
+import { client } from './graphql/apollo-client';
 
 /**
  * App content

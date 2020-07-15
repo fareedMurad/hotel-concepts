@@ -9,11 +9,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCourses } from './store';
 import { gql, useQuery } from '@apollo/client';
 
+/**
+ * courses query
+ */
 const GET_ONLINE_COURSES = gql`
   {
     onlineCourseCollection {
       items {
+        courseType
+        slug
         name
+        description
+        price
+        duration
+        courseImage {
+          url
+        }
       }
     }
   }
@@ -22,42 +33,43 @@ const GET_ONLINE_COURSES = gql`
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
-  const { data: graphql, loading, error } = useQuery(GET_ONLINE_COURSES);
-  
-  console.log(graphql);
-
-  const { data } = useOnlineCoursesData();
-  const uniqueElements = Array.from(
-    new Set(data.map(course => course.category))
-  );
-  const [currentCategory, setCurrentCutegory] = React.useState(
-    uniqueElements[0]
-  );
-  const currentCourses = data.filter(
-    course => course.category === currentCategory
-  );
-  const dispatch = useDispatch();
-
-  const getCategories = () => {
-    return uniqueElements.map(course => ({
-      name: course,
-      count: data.filter(item => item.category === course).length
-    }));
-  };
-
+  const [currentCourseType, setCurrentCourseType] = React.useState(null);
+  const { data, loading, error } = useQuery(GET_ONLINE_COURSES);
   React.useEffect(() => {
-    dispatch(getCourses());
+    if (loading) return;
+    if (currentCourseType) return;
+    const { items } = data.onlineCourseCollection;
+    setCurrentCourseType(items[0].courseType);
   });
-
-  const categories = getCategories();
-
-  const onFilterSelect = (name: string) => {
-    setCurrentCutegory(name);
-  };
 
   const history = useHistory();
   const handleClick = () =>
     history.push(`/programs-catalogue/focused-programs`);
+
+  if (loading) return <div>Loading...</div>;
+
+  const { items: courses } = data.onlineCourseCollection;
+
+  const uniqueElements = Array.from(
+    new Set(courses.map(course => course.courseType))
+  );
+
+  const currentCourses = courses.filter(
+    course => course.courseType === currentCourseType
+  );
+
+  const getCoursesTypes = () => {
+    return uniqueElements.map((course: string) => ({
+      name: course,
+      count: courses.filter(item => item.courseType === course).length
+    }));
+  };
+
+  const coursesTypes = getCoursesTypes();
+
+  const onFilterSelect = (name: string) => {
+    setCurrentCourseType(name);
+  };
 
   return (
     <section className={styles.onlineCourses}>
@@ -70,7 +82,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
       </div>
       <div className={styles.content}>
         <div className={styles.filters}>
-          {categories.map(filter => (
+          {coursesTypes.map(filter => (
             <ButtonFilter
               key={filter.name}
               title={filter.name}
@@ -78,7 +90,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
               onClick={() => {
                 onFilterSelect(filter.name);
               }}
-              active={currentCategory == filter.name}
+              active={currentCourseType == filter.name}
               className={styles.filterButton}
             />
           ))}
@@ -93,24 +105,23 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
           <div className={styles.courses}>
             {currentCourses.map((data, index) => {
               const {
-                id,
+                slug,
                 name,
                 description,
-                weeks,
-                sprints,
-                img,
-                price
+                duration,
+                price,
+                courseImage
               } = data;
               return (
                 <CourseItem
-                  id={id}
+                  id={slug}
                   key={`${name}+${index}`}
                   name={name}
                   description={description}
-                  weeks={weeks}
-                  sprints={sprints}
-                  img={img}
+                  weeks={duration.weeks}
+                  sprints={duration.sprints}
                   price={price}
+                  img={courseImage.url}
                 />
               );
             })}

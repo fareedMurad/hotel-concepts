@@ -4,8 +4,7 @@
 type MentorModalProps = {
   photo: string;
   name: string;
-  surname: string;
-  city: string;
+  city?: string;
   profession: string;
   experience: string;
 };

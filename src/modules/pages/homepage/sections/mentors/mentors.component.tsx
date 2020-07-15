@@ -10,6 +10,7 @@ import { Modals } from '@ui/models';
 import { useDispatch } from 'react-redux';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { MentorModal } from '@pages/homepage/components/mentor-modal';
+import { gql, useQuery } from '@apollo/client';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -19,33 +20,61 @@ const responsiveBreakpoints = {
   desktop: {
     breakpoint: { max: 1290, min: 1000 },
     items: 3,
-    slidesToSlide: 1,
+    slidesToSlide: 1
   },
   tablet: {
     breakpoint: { max: 1000, min: 700 },
     items: 2,
-    slidesToSlide: 1,
+    slidesToSlide: 1
   },
   mobile: {
     breakpoint: { max: 699, min: 0 },
     items: 1,
-    slidesToSlide: 1,
-  },
+    slidesToSlide: 1
+  }
 };
+
+/**
+ * mentors query
+ */
+
+const GET_MENTORS = gql`
+  {
+    mentorCollection {
+      items {
+        name
+        position
+        slug
+        experience
+        mentorPicture {
+          url
+        }
+      }
+    }
+  }
+`;
 
 /**
  * Renders Mentors
  */
 const Mentors: React.FC<MentorsProps> = ({}) => {
+  const { data, loading, error } = useQuery(GET_MENTORS);
+  const [currentMentor, setCurrentMentor] = React.useState(null);
+  // const [mentors, setMentors] = React.useState([]);
+  React.useEffect(() => {
+    if (!loading) return;
+  }, [loading]);
   const history = useHistory();
+
+  if (loading) return <div>loading...</div>;
+
+  const { items: contributors } = data.mentorCollection;
+
   const handleClick = () => history.push(`/contributors`);
-  const { contributors } = useContributorsData();
-  const [curretnMentor, setCurrentMentor] = React.useState(null);
-  const dispatch = useDispatch();
-  const modalHandle = id => () => {
-    setCurrentMentor(contributors.filter(e => e.id == id)[0]);
-    dispatch(showModal(Modals.contributor));
-  }
+
+  const modalHandle = slug => () => {
+    setCurrentMentor(contributors.filter(e => e.slug == slug)[0]);
+  };
 
   return (
     <section className={styles.mentors}>
@@ -53,40 +82,47 @@ const Mentors: React.FC<MentorsProps> = ({}) => {
         <div>Meet mentors & Coauthors</div>
         <div />
         <div>
-          World-class faculty introduce you to the
-          very latest in hospitality business knowledge
-          and provide you with the tools and skills to overcome
-          challenges and find solutions.
+          World-class faculty introduce you to the very latest in hospitality
+          business knowledge and provide you with the tools and skills to
+          overcome challenges and find solutions.
         </div>
       </div>
       <Slider
-          containerClass={styles.slider}
-          draggable={false}
-          swipeable={false}
-          responsive={responsiveBreakpoints}
-          customButtonGroup={
-            <SliderButtons onClick={handleClick} className={styles.controls} isBordered={true} btnText="See All Contributors" />
-          }
-        >
-        {contributors.map(coauthor => (
-          <MentorItem
-            name={coauthor.name}
-            role={coauthor.profession}
-            img={coauthor.photo}
-            key={coauthor.id}
-            onClick={modalHandle(coauthor.id)}
+        containerClass={styles.slider}
+        draggable={false}
+        swipeable={false}
+        responsive={responsiveBreakpoints}
+        customButtonGroup={
+          <SliderButtons
+            onClick={handleClick}
+            className={styles.controls}
+            isBordered={true}
+            btnText='See All Contributors'
           />
-        ))}
+        }
+      >
+        {contributors.map(coauthor => {
+          const { name, position, slug, mentorPicture } = coauthor;
+          return (
+            <MentorItem
+              name={name}
+              role={position}
+              img={mentorPicture.url}
+              key={slug}
+              onClick={modalHandle(slug)}
+            />
+          );
+        })}
       </Slider>
-      {curretnMentor &&
+      {currentMentor && (
         <MentorModal
-          name={curretnMentor.name}
-          photo={curretnMentor.photo}
-          surname={curretnMentor.surname}
-          city={curretnMentor.city}
-          profession={curretnMentor.profession}
-          experience={curretnMentor.experience}
-        />}
+          name={currentMentor.name}
+          photo={currentMentor.mentorPicture}
+          city={currentMentor.city}
+          profession={currentMentor.position}
+          experience={currentMentor.experience.text}
+        />
+      )}
     </section>
   );
 };

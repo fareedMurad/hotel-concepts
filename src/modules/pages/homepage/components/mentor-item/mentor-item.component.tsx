@@ -5,11 +5,17 @@ import * as styles from './mentor-item.scss';
 /**
  * Renders MentorItem
  */
-const MentorItem: React.FC<MentorItemProps> = ({ name, role, img, path, onClick }) => {
+const MentorItem: React.FC<MentorItemProps> = ({
+  name,
+  role,
+  img,
+  path,
+  onClick
+}) => {
   return (
     <div onClick={onClick} className={styles.mentorItem}>
       <div className={styles.imgContainer}>
-        <img src={require(`img/${img}.png`)} alt={name} className={styles.img}/>
+        <img src={img} alt={name} className={styles.img} />
         <div className={styles.info}>
           <div className={styles.infoText}>
             {`Know about ${name.substr(0, name.indexOf(' '))}`}

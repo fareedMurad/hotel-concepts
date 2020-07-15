@@ -9,39 +9,40 @@ import { useDispatch } from 'react-redux';
 /**
  * Renders MentorModal
  */
-const MentorModal: React.FC<MentorModalProps> = ({ photo, name, surname, city, profession, experience }) => {
+const MentorModal: React.FC<MentorModalProps> = ({
+  photo,
+  name,
+  city,
+  profession,
+  experience
+}) => {
   const dispatch = useDispatch();
   return (
     <Modal id={Modals.contributor} className={styles.modal}>
-    <div className={styles.modalPerson}>
-      <img
-        src={`${require(`img/${photo}.png`)}`}
-        className={styles.modalPersonPhoto}
-      />
-      <div className={styles.modalPersonWrapper}>
-        <div className={styles.contributorInfo}>
+      <div className={styles.modalPerson}>
+        <img src={photo} className={styles.modalPersonPhoto} />
+        <div className={styles.modalPersonWrapper}>
           <div className={styles.contributorInfo}>
-            {name} {surname}
+            <div className={styles.contributorInfo}>{name}</div>
+            <div className={styles.contributorDetails}>
+              {city}, {profession}
+            </div>
+            <div className={styles.contributorDetails}>United Kingdom</div>
           </div>
-          <div className={styles.contributorDetails}>
-            {city}, {profession}
-          </div>
-          <div className={styles.contributorDetails}>United Kingdom</div>
+          <Icon name='linkedin' />
         </div>
-        <Icon name='linkedin' />
       </div>
-    </div>
 
-    <div className={styles.modalContent}>
-      <div className={styles.modalContentCaption}>Experience</div>
-      <div className={styles.modalContentDescription}>{experience}</div>
-    </div>
-    <Icon
-      name='close-modal'
-      className={styles.modalIcon}
-      onClick={() => dispatch(closeModal(Modals.contributor))}
-    />
-  </Modal>
+      <div className={styles.modalContent}>
+        <div className={styles.modalContentCaption}>Experience</div>
+        <div className={styles.modalContentDescription}>{experience}</div>
+      </div>
+      <Icon
+        name='close-modal'
+        className={styles.modalIcon}
+        onClick={() => dispatch(closeModal(Modals.contributor))}
+      />
+    </Modal>
   );
 };
 
