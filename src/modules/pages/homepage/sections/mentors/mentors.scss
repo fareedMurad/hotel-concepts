@@ -14,7 +14,7 @@
     &::before {
       content: url('../../../../../assets/img/text-decorator.svg');
       position: absolute;
-      top: -40px;
+      top: -56px;
     }
   }
   & > div:nth-child(2) {
@@ -34,7 +34,7 @@
 
 .slider {
   @include flex($justify: space-between, $align: center);
-  padding-bottom: 60px;
+  padding-bottom: 108px;
   overflow: hidden;
   position: relative;
   padding-left: $default-offset;

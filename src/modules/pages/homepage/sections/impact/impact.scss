@@ -22,7 +22,7 @@
 
 .slider {
   @include flex($justify: space-between, $align: center);
-  padding-bottom: 102px;
+  padding-bottom: 108px;
   overflow: hidden;
   position: relative;
 }

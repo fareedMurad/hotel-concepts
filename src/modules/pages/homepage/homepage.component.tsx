@@ -30,7 +30,10 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <TrainingInfo />
       <Impact />
       <Mentors />
-      <FaqBlock />
+      <div className={styles.faq}>
+        <div>Frequently Asked Questions</div>
+        <FaqBlock className={styles.faqBlock} />
+      </div>
       <InsightsBlock />
       <Socials />
       <Footer />

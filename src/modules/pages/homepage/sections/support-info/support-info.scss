@@ -18,7 +18,7 @@
   max-width: 600px;
   & > div:first-child {
     @include font($primary-gray, 48px, 600, 58px);
-    letter-spacing: -0.1px;
+    letter-spacing: -1px;
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {

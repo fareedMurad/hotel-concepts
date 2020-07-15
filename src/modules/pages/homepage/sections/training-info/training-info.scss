@@ -41,7 +41,8 @@
   flex-wrap: wrap;
   margin: $default-offset 0;
   @include flex($justify: center);
-  max-width: 600px;
+  max-width: 490px;
+  margin-right: $left-offset;
 }
 
 .info-item {
@@ -65,6 +66,7 @@
 
 .button {
   width: 224px;
+  height: 44px;
   margin-top: 24px;
   margin-left: $left-offset;
   @include flex($justify: space-between);
