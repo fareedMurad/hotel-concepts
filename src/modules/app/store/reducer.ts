@@ -6,6 +6,8 @@ import { ui } from '@ui';
 import { profile } from '@profile/store';
 import { jobs } from '@pages/jobs-list/store';
 import { contributors } from '@pages/contributors';
+import { onlineCourses } from '@pages/homepage/sections/online-courses';
+
 /**
  * App rd
  */
@@ -16,7 +18,8 @@ const app = combineReducers({
   profile,
   ui,
   jobs,
-  contributors
+  contributors,
+  onlineCourses
 });
 
 export { app };

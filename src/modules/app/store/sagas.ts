@@ -5,6 +5,7 @@ import { ToastSaga } from '@ui/toast';
 import { ProfileSaga } from '@profile/store';
 import { JobsSaga } from '@pages/jobs-list/store/saga';
 import { ContributorsSaga } from '@pages/contributors/store/saga';
+import { OnlineCoursesSaga } from '@pages/homepage/sections/online-courses/store/saga';
 
 /**
  * App sagas
@@ -16,7 +17,8 @@ const sagas = [
   new ToastSaga(),
   new ProfileSaga(),
   new JobsSaga(),
-  new ContributorsSaga()
+  new ContributorsSaga(),
+  new OnlineCoursesSaga()
 ];
 
 export { sagas };

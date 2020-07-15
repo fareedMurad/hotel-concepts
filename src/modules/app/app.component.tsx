@@ -6,6 +6,8 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { AppProps } from './app.props';
 import { State } from './store/state';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { client } from './graphql/apollo-client';
 
 /**
  * App content
@@ -28,13 +30,15 @@ const Content: React.FC = ({ children }) => {
  */
 const App: React.FC<AppProps> = ({ children, history, store }) => (
   <Provider store={store}>
-    <Content>
-      <Localization>
-        <Router history={history}>
-          <div>{children}</div>
-        </Router>
-      </Localization>
-    </Content>
+    <ApolloProvider client={client}>
+      <Content>
+        <Localization>
+          <Router history={history}>
+            <div>{children}</div>
+          </Router>
+        </Localization>
+      </Content>
+    </ApolloProvider>
   </Provider>
 );
 
