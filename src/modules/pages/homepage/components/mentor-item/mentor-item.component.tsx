@@ -5,7 +5,7 @@ import * as styles from './mentor-item.scss';
 /**
  * Renders MentorItem
  */
-const MentorItem: React.FC<MentorItemProps> = ({ name, role, img, path, onClick }) => {
+const MentorItem: React.FC<MentorItemProps> = ({ name, role, img, path, city, onClick }) => {
   return (
     <div onClick={onClick} className={styles.mentorItem}>
       <div className={styles.imgContainer}>
@@ -17,7 +17,7 @@ const MentorItem: React.FC<MentorItemProps> = ({ name, role, img, path, onClick 
         </div>
       </div>
       <div className={styles.name}>{name}</div>
-      <div className={styles.role}>{role}</div>
+      <div className={styles.role}>{city}, {role}</div>
     </div>
   );
 };

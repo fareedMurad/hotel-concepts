@@ -3,6 +3,7 @@
 .mentor-item {
   cursor: pointer;
   width: 316px;
+  user-select: none;
   &:hover {
     .info {
       color: #ffffff;

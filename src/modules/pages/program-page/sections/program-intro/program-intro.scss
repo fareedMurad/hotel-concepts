@@ -73,11 +73,7 @@
   margin: 0 5px;
   flex: 1;
   @include flex($justify: space-between, $align: center);
-  background-color: $primary-orange;
-  @include font($white, 16px, 500, 16px);
-  border-radius: 6px;
   height: 100%;
-  padding: 0 10px;
   position: relative;
   @include buttonHover;
 }

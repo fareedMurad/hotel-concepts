@@ -2,23 +2,23 @@ const useProgramData = () => {
   const navButtons = [
     {
       name: "About",
-      anchor: "#about"
+      anchor: "about"
     },
     {
       name: "Content",
-      anchor: "#content"
+      anchor: "content"
     },
     {
       name: "Facility",
-      anchor: "#facility"
+      anchor: "facility"
     },
     {
       name: "Results",
-      anchor: "#results"
+      anchor: "results"
     },
     {
       name: "Feedbacks",
-      anchor: "#get-involved"
+      anchor: "get-involved"
     }
   ];
 

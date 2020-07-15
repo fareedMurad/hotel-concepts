@@ -68,13 +68,14 @@ const Mentors: React.FC<MentorsProps> = ({}) => {
             <SliderButtons onClick={handleClick} className={styles.controls} isBordered={true} btnText="See All Contributors" />
           }
         >
-        {contributors.map(coauthor => (
+        {contributors.map(contributor => (
           <MentorItem
-            name={coauthor.name}
-            role={coauthor.profession}
-            img={coauthor.photo}
-            key={coauthor.id}
-            onClick={modalHandle(coauthor.id)}
+            name={contributor.name}
+            role={contributor.profession}
+            img={contributor.photo}
+            key={contributor.id}
+            city={contributor.city}
+            onClick={modalHandle(contributor.id)}
           />
         ))}
       </Slider>

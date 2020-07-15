@@ -2,11 +2,15 @@ import * as React from 'react';
 import { ProgramQuoteProps } from './program-quote.props';
 import * as styles from './program-quote.scss';
 import { Button } from '@core/components';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 
 /**
  * Renders ProgramQuote
  */
 const ProgramQuote: React.FC<ProgramQuoteProps> = ({}) => {
+  const scrollToEnroll = () => {
+    scrollTo("enroll");
+  }
   return (
     <section className={styles.programQuote}>
       <div className={styles.text}>
@@ -14,9 +18,9 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({}) => {
         own unique digital <br/>
         transformation and skills gap. "
       </div>
-      <a href="#enroll" className={styles.button}>
+      <Button onClick={scrollToEnroll} className={styles.button}>
         <div>Enroll now</div> <div>→</div>
-      </a>
+      </Button>
     </section>
   );
 };

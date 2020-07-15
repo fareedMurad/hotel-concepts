@@ -11,6 +11,7 @@
   border-radius: 6px;
   cursor: pointer;
   position: relative;
+  user-select: none;
   @include buttonHover();
   & > div:first-child {
     @include font($primary-orange, 18px, 600, 20px);

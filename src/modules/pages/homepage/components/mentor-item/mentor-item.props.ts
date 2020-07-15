@@ -6,6 +6,7 @@ type MentorItemProps = {
   role: string;
   img: string;
   path?: string;
+  city: string;
   onClick?: () => void;
 };
 

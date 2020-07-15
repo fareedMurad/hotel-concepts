@@ -8,6 +8,7 @@ import { Button } from '@core/components';
 import { useProgramData } from './progtam-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { BackButton } from '@core/components/back-button';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 
 /**
  * Renders ProgramIntro
@@ -18,6 +19,9 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const { navButtons } = useProgramData();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
+  const scrollToEnroll = () => {
+    scrollTo("enroll");
+  }
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -83,9 +87,9 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
         {navButtons.map((button, index) => (
           <ProgramNavButton anchor={button.anchor} name={button.name} index={index} key={index} />
         ))}
-        <a href="#enroll" className={styles.button}>
+        <Button onClick={scrollToEnroll} className={styles.button}>
           <div>Enroll now</div> <div>→</div>
-        </a>
+        </Button>
       </div>
 
       <video
