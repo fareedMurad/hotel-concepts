@@ -27,11 +27,18 @@
       & > a {
         margin-left: 40px;
         &:hover {
-          text-decoration: underline;
+          border-bottom: 2px solid $white;
+          padding-bottom: 4px;
+          margin-top: 6px;
         }
       }
       &.inverted {
-        @include font($primary-gray, 18px, 500);
+        @include font($primary-gray, 16px, 500);
+        & > a {
+          &:hover {
+            border-bottom: 2px solid $primary-gray;
+          }
+        }
       }
     }
   }

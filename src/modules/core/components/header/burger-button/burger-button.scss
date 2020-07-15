@@ -6,7 +6,11 @@
   user-select: none;
   color: #ffffff;
   &:hover {
-    text-decoration: underline;
+    .text {
+      border-bottom: 2px solid $white;
+      padding-bottom: 4px;
+      margin-top: 6px;
+    }
     .icon {
       background-color: #cccccc;
     }
@@ -14,11 +18,10 @@
   .text {
     @include font($white, 16px, 500);
     font-family: $IBMPlex;
-    padding-left: 10px;
     &.inverted {
       color: $primary-grey;
       &:hover {
-        text-decoration: underline;
+        border-bottom: 2px solid $primary-grey;
         .icon {
           background-color: #cccccc;
         }
@@ -26,6 +29,7 @@
     }
   }
   .icon {
+    margin-right: 10px;
     width: 24px;
     height: 24px;
     border-radius: 50%;
