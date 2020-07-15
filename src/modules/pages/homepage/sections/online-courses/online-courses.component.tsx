@@ -7,26 +7,24 @@ import { CourseItem } from '@pages/homepage/components/course-item';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourses } from './store';
-import { gql } from '@apollo/client';
-import { client } from '@app/graphql/apollo-client';
+import { gql, useQuery } from '@apollo/client';
 
+const GET_ONLINE_COURSES = gql`
+  {
+    onlineCourseCollection {
+      items {
+        name
+      }
+    }
+  }
+`;
 /**
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
-  client
-    .query({
-      query: gql`
-        {
-          onlineCourseCollection {
-            items {
-              name
-            }
-          }
-        }
-      `
-    })
-    .then(result => console.log(result));
+  const { data: graphql, loading, error } = useQuery(GET_ONLINE_COURSES);
+  
+  console.log(graphql);
 
   const { data } = useOnlineCoursesData();
   const uniqueElements = Array.from(
