@@ -1,19 +1,26 @@
 import * as React from 'react';
 import { ProgramOverviewProps } from './program-overview.props';
 import * as styles from './program-overview.scss';
+import { number } from 'yup';
 
-const OverviewItem: React.FC<{ sprints: number, month: number, date: string, languages: string[] }> =
-({ sprints, month, date, languages }) => {
+const OverviewItem: React.FC<{
+  duration: { months: string | number; sprints: string | number };
+  enrollBy: { day: string | number; month: string; year: string | number };
+  languages: string[];
+}> = ({ languages, enrollBy, duration }) => {
+  const { day, month, year } = enrollBy;
+  const {months, sprints} = duration
   return (
     <section className={styles.item}>
       <div className={styles.block}>
         <div className={styles.name}>Duration</div>
-        <div className={styles.info}>{month} Month/{sprints} Sprints</div>
+        <div className={styles.info}>{months} Month/{sprints} Sprints</div>
       </div>
       <div className={styles.hr}></div>
       <div className={styles.block}>
         <div className={styles.name}>Enroll by</div>
-        <div className={styles.info}>{date}</div>
+        <div className={styles.info}>{`
+  ${month} ${day}, ${year}`}</div>
       </div>
       <div className={styles.hr}></div>
       <div className={styles.block}>
@@ -27,11 +34,15 @@ const OverviewItem: React.FC<{ sprints: number, month: number, date: string, lan
  * Renders ProgramOverview
  */
 const ProgramOverview: React.FC<ProgramOverviewProps> = ({ overview }) => {
-  const { month, sprints, date, languages } = overview;
+  const { duration, enrollBy, languages } = overview;
   return (
     <section className={styles.programOverview}>
       <div className={styles.title}>Overview</div>
-      <OverviewItem sprints={sprints} month={month} date={date} languages={languages} />
+      <OverviewItem
+        duration={duration}
+        enrollBy={enrollBy}
+        languages={languages}
+      />
     </section>
   );
 };

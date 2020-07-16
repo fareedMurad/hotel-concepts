@@ -6,12 +6,12 @@ import * as styles from './program-about.scss';
  * Renders ProgramAbout
  */
 const ProgramAbout: React.FC<ProgramAboutProps> = ({ about }) => {
-  const { text, skills } = about;
+  const { aboutText, skills } = about;
   return (
     <section id="about" className={styles.programAbout}>
       <div className={styles.title}>
         <div>About</div>
-        <div>{text}</div>
+        <div>{aboutText}</div>
       </div>
       <div className={styles.skillsWrapper}>
         <div className={styles.skills}>

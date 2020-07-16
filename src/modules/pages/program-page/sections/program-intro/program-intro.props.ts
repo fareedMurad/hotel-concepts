@@ -5,7 +5,7 @@ type ProgramIntroProps = {
   introInfo: {
     name: string,
     description: string,
-    videoInfo: {
+    videoInfo?: {
       path: string,
       time: string
     }

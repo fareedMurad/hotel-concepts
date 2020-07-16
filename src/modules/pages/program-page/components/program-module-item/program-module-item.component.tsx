@@ -7,7 +7,8 @@ import { Button } from '@core/components';
 /**
  * Renders ProgramModuleItem
  */
-const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({ index, name, description, weeks, hrhWeek, pdf }) => {
+const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({ index, name, description, duration, pdf }) => {
+  const {weeks, houers} = duration
   const [isOpened, toggleOpen] = React.useState(false);
   const updateOpenState = () => {
     toggleOpen(!isOpened);
@@ -29,7 +30,7 @@ const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({ index, name, desc
         <div className={styles.infoBlock}>
           {weeks} weeks
           <div className={styles.verHr}>|</div>
-          {hrhWeek} hrh/week
+          {houers} hrh/week
         </div>
         <Button onClick={onModuleClick} theme='secondary' className={styles.button}>
           <div>

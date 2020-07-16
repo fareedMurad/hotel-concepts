@@ -1,9 +1,11 @@
 type ModuleItem = {
   name: string;
   description: string;
-  weeks: number;
-  hrhWeek: number;
   pdf: string;
+  duration: {
+    weeks: string | number;
+    houers: string | number;
+  }
 }
 
 /**
@@ -11,6 +13,7 @@ type ModuleItem = {
  */
 type ProgramModulesProps = {
   modules: ModuleItem[];
+  amountOfWeeklyModules: number | string
 };
 
 export { ProgramModulesProps };

@@ -51,7 +51,7 @@ const Routes: React.FC = () => {
         <Route path='/programs-catalogue/:slug' component={ProgramsCatalogue} />
         <Route path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
-        <Route path='/program/:id' component={ProgramPage} />
+        <Route path='/program/:slug' component={ProgramPage} />
         {/* JOB ROUTES */}
         <Route path='/jobs/job-details/:id' component={JobDetails} />
         <Route path='/jobs' component={JobsList} />

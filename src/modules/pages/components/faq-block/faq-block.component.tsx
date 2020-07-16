@@ -46,8 +46,6 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
     item => currentCategory === 'All' || item.category === currentCategory
   );
 
-  console.log(currentItems);
-
   const onFilterSelect = (name: string) => {
     setCurrentCutegory(name);
   };

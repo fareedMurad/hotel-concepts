@@ -8,12 +8,21 @@ import { Button } from '@core/components';
 import { useProgramData } from './progtam-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { BackButton } from '@core/components/back-button';
+import { useParams } from 'react-router';
 
 /**
  * Renders ProgramIntro
  */
+
+ /**
+  * 
+  */
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
-  const { name, description, videoInfo } = introInfo;
+  const { name, description } = introInfo;
+  const videoInfo = {
+    path: "ForCorporateClients.preview",
+    time: "0:56"
+  }
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const { navButtons } = useProgramData();

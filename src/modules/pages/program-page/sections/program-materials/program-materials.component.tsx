@@ -5,20 +5,14 @@ import * as styles from './program-materials.scss';
 /**
  * Renders ProgramMaterials
  */
-const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({}) => {
-  const data = [
-    "Marketing analysis of the market. Review of best practices",
-    "How to calculate brand equity",
-    "Market and consumer analysis. Examples",
-    "Positioning checklist",
-    "5 examples of good and bad positioning"
-  ];
+const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({additionalMaterials}) => {
+  console.log(additionalMaterials)
   return (
     <section className={styles.programMaterials}>
       <div className={styles.title}>
         Additional materials
       </div>
-      {data.map((item, index) => (
+      {additionalMaterials.map((item, index) => (
         <div className={styles.item} key={index}>{item}</div>
       ))}
     </section>

@@ -18,30 +18,80 @@ import { ProgramEnrollNow } from './sections/program-enroll-now';
 import { useParams } from 'react-router';
 import { useProgramPageData } from './program-page.hook';
 import { ProgramModules } from './sections/program-modules';
+import { gql, useQuery } from '@apollo/client';
+import { url } from 'inspector';
+
+
+
+/**
+ * query program info
+ */
+const GET_PROGRAM = (slug) => ( gql`
+{
+  onlineCourseCollection(where: {slug: "control-of-hotel-real-estate-course-12"}) {
+    items {
+      courseType
+      slug
+      name
+      description
+      price
+      duration
+      whoShouldEnroll
+      enrollBy
+      additionalMaterials
+      languages
+      about
+      results
+      whoShouldEnroll
+      modules
+      amountOfWeeklyModules
+      backgroundPicture {
+        url
+      }
+    }
+  }
+}
+
+`);
+
+
 
 /**
  * Renders ProgramPage
  */
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
+  let {slug} = useParams();
+  
   const { id } = useParams();
   const { data } = useProgramPageData();
   const pageData = data.filter(item => item.id == 1)[0];
 
+  const {data: response, loading, error} = useQuery(GET_PROGRAM(slug))
+ 
+ 
+  if(loading) return <div>loading...</div>
+
+  const {items: courseInfo} = response.onlineCourseCollection
+  const {about, whoShouldEnroll, modules, amountOfWeeklyModules, backgroundPicture, results, additionalMaterials} = courseInfo[0]
+  console.log(additionalMaterials)
+  const {url} = backgroundPicture
+   
+
   return (
     <div className={styles.programPage}>
       <Header />
-      <ProgramIntro introInfo={pageData.introInfo} />
-      <ProgramOverview overview={pageData.overview} />
+      <ProgramIntro introInfo={courseInfo[0]} />
+      <ProgramOverview overview={courseInfo[0]} />
       <div className={styles.hr}></div>
-      <ProgramAbout about={pageData.about} />
+      <ProgramAbout about={about} />
       <div className={styles.hr}></div>
-      <Enroll shouldEnroll={pageData.shouldEnroll} />
-      <ProgramModules modules={pageData.modules} />
-      <div className={styles.img}></div>
-      <ProgramResults results={pageData.results} />
+      <Enroll shouldEnroll={whoShouldEnroll} />
+      <ProgramModules modules={modules} amountOfWeeklyModules={amountOfWeeklyModules}/>
+      <div className={styles.img} style={{backgroundImage: "url(" + { url } + ")"}}></div>
+      <ProgramResults results={results} />
       <Mentors />
       <ProgramLearningApproach learningApproach={pageData.learningApproach} />
-      <ProgramMaterials />
+      <ProgramMaterials additionalMaterials={additionalMaterials}/>
       <Impact />
       <div className={styles.hr}></div>
       <ProgramEnrollNow enrollInfo={pageData.enrollInfo} />

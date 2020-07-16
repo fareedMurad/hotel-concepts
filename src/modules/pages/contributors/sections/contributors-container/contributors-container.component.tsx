@@ -6,6 +6,9 @@ import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { Modals } from '@ui/models';
 import { useDispatch } from 'react-redux';
 import { showModal, closeModal } from '@ui/modal/actions';
+import { gql } from '@apollo/client';
+
+
 
 /**
  * Renders Contributor Card

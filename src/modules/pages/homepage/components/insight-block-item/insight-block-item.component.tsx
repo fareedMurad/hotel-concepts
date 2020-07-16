@@ -6,16 +6,25 @@ import { Button } from '@core/components';
 /**
  * Renders InsightBlockItem
  */
-const InsightBlockItem: React.FC<InsightBlockItemProps> = ({ articles }) => {
-  const { img, activity, date, description } = articles;
+const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
+  title,
+  text,
+  category,
+  slug,
+  date,
+  articleImage
+}) => {
+  const { url } = articleImage;
+  const { month, year, day } = date;
+
   return (
     <div className={styles.insightBlockItem}>
       <div className={styles.imgContainer}>
-        <img src={require(`img/insights/${img}.png`)} alt="insight" className={styles.img} />
-        <div className={styles.activity}>{activity}</div>
+        <img src={url} alt='insight' className={styles.img} />
+        <div className={styles.activity}>{category}</div>
       </div>
-      <div className={styles.date}>{date}</div>
-      <div className={styles.description}>{description}</div>
+      <div className={styles.date}>{`${month} ${day}, ${year}`}</div>
+      <div className={styles.description}>{title}</div>
       <Button className={styles.button} theme='secondary'>
         <div>Read more</div> <div>&#8594;</div>
       </Button>

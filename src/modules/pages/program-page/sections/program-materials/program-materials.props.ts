@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type ProgramMaterialsProps = {};
+type ProgramMaterialsProps = {
+    additionalMaterials: string[]
+};
 
 export { ProgramMaterialsProps };

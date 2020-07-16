@@ -6,26 +6,26 @@ import { ProgramModuleItem } from '@pages/program-page/components/program-module
 /**
  * Renders ProgramModules
  */
-const ProgramModules: React.FC<ProgramModulesProps> = ({ modules }) => {
+const ProgramModules: React.FC<ProgramModulesProps> = ({ modules, amountOfWeeklyModules }) => {
+  console.log(modules[0].description)
   return (
     <section id="facility" className={styles.programModules}>
       <div className={styles.title}>
         <div>Modules</div>
         <div>
-          The program consist of 12 weekly courses. <br/>
-          Each course can be taken separately on your request.
+          {`The program consist of ${amountOfWeeklyModules} weekly courses.
+          Each course can be taken separately on your request.`}
         </div>
-        {modules.map((item, index) => (
-          <ProgramModuleItem
+        {modules.map((item, index) => {
+          return <ProgramModuleItem
             key={`${index}+${item.name}`}
             index={index}
             name={item.name}
             description={item.description}
             pdf={item.pdf}
-            weeks={item.weeks}
-            hrhWeek={item.hrhWeek}
+            duration={item.duration}
           />
-        ))}
+})}
       </div>
     </section>
   );
