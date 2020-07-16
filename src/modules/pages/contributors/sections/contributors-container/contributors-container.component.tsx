@@ -1,26 +1,25 @@
 import * as React from 'react';
 import { ContributorsContainerProps } from './contributors-container.props';
 import * as styles from './contributors-container.scss';
-import { H2, Paragraph, Modal, Icon, PreCaption } from '@core/components';
+import { H2, Paragraph, PreCaption } from '@core/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { Modals } from '@ui/models';
 import { useDispatch } from 'react-redux';
 import { showModal, closeModal } from '@ui/modal/actions';
-import { gql } from '@apollo/client';
-
-
-
+import { navigate } from '@router/store';
+import { useMediaPoints } from '@core/shared';
+import { MentorModal } from '@pages/homepage/components/mentor-modal';
 /**
  * Renders Contributor Card
  */
-const Contributor = ({ contributor, onClick, visibleModal }) => {
+// todo , take a look this Contributor and MentorItem, delete one of them and use only one
+const Contributor = ({ contributor, onClick }) => {
   const {
-    id,
     name,
     surname,
     city,
-    profession,
-    photo,
+    position,
+    mentorPicture: { url },
     experience
   } = contributor;
   const dispatch = useDispatch();
@@ -33,61 +32,27 @@ const Contributor = ({ contributor, onClick, visibleModal }) => {
             Know about {name}
           </div>
         </div>
-        <img
-          src={`${require(`img/${photo}.png`)}`}
-          className={styles.contributorPhoto}
-        />
+        <img src={url} className={styles.contributorPhoto} />
       </div>
 
       <div className={styles.contributorInfo}>
         {name} {surname}
       </div>
       <div className={styles.contributorDetails}>
-        {city}, {profession}
+        {city}, {position}
       </div>
-
-      {visibleModal && (
-        <Modal id={Modals.contributor} className={styles.modal}>
-          <div className={styles.modalPerson}>
-            <img
-              src={`${require(`img/${photo}.png`)}`}
-              className={styles.modalPersonPhoto}
-            />
-            <div className={styles.modalPersonWrapper}>
-              <div className={styles.contributorInfo}>
-                <div className={styles.contributorInfo}>
-                  {name} {surname}
-                </div>
-                <div className={styles.contributorDetails}>
-                  {city}, {profession}
-                </div>
-                <div className={styles.contributorDetails}>United Kingdom</div>
-              </div>
-              <Icon name='linkedin' />
-            </div>
-          </div>
-
-          <div className={styles.modalContent}>
-            <div className={styles.modalContentCaption}>Experience</div>
-            <div className={styles.modalContentDescription}>{experience}</div>
-          </div>
-          <Icon
-            name='close-modal'
-            className={styles.modalIcon}
-            onClick={() => dispatch(closeModal(Modals.contributor))}
-          />
-        </Modal>
-      )}
     </div>
   );
 };
+
 /**
  * Renders ContributorsContainer
  */
+// todo: add slider <- 1 2 3 4 5 -> for next contributors (check Contributors page in design)
 const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
-  const { contributors } = useContributorsData();
+  const { contributors, loading } = useContributorsData();
+  const { mobile } = useMediaPoints();
   const [openedModal, setOpenedModal] = React.useState(null);
-
   const dispatch = useDispatch();
 
   return (
@@ -112,21 +77,31 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
           </div>
         </div>
       </div>
-      <main className={styles.contributorsList}>
-        {contributors.map(contributor => (
-          <Contributor
-            contributor={contributor}
-            key={contributor.id}
-            onClick={() => {
-              setOpenedModal(contributor.id);
-              dispatch(showModal(Modals.contributor));
-            }}
-            visibleModal={openedModal === contributor.id}
-          />
-        ))}
-      </main>
+      {loading ? (
+        <div>Loading</div>
+      ) : (
+        <main className={styles.contributorsList}>
+          {contributors?.map((contributor, index) => (
+            <Contributor
+              contributor={contributor}
+              key={index}
+              onClick={() => {
+                dispatch(
+                  navigate(
+                    `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+                  )
+                );
+                !mobile &&
+                  (dispatch(showModal(Modals.contributor)),
+                  setOpenedModal(true));
+              }}
+            />
+          ))}
+        </main>
+      )}
+      {openedModal && <MentorModal />}
     </div>
   );
 };
 
-export { ContributorsContainer };
+export { ContributorsContainer, Contributor };

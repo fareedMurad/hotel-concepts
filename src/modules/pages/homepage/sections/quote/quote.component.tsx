@@ -7,6 +7,7 @@ import { gql, useQuery } from '@apollo/client';
  * get quote test
  */
 
+// todo: remove id
 const GET_QUOTE_TEXT = gql`
   {
     quoteText(id: "6Y3JuMmTALjcu8pPdKvk04") {

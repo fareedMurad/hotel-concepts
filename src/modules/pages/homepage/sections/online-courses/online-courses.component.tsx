@@ -12,6 +12,7 @@ import { gql, useQuery } from '@apollo/client';
 /**
  * courses query
  */
+// todo: rework for query only one onlineCourse, not collection, for example take a look for MentorModal(fetching only one mentor);
 const GET_ONLINE_COURSES = gql`
   {
     onlineCourseCollection {
@@ -44,15 +45,13 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
 
   const history = useHistory();
 
-    
-
   if (loading) return <div>Loading...</div>;
 
   const { items: courses } = data.onlineCourseCollection;
   const handleClick = () => {
-    const {slug} = courses
+    const { slug } = courses;
     history.push(`/programs-catalogue/${slug}`);
-  }
+  };
 
   const uniqueElements = Array.from(
     new Set(courses.map(course => course.courseType))

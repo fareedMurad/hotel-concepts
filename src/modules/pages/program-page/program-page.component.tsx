@@ -21,87 +21,94 @@ import { ProgramModules } from './sections/program-modules';
 import { gql, useQuery } from '@apollo/client';
 import { url } from 'inspector';
 
-
-
 /**
  * query program info
  */
-const GET_PROGRAM = (slug) => ( gql`
-{
-  onlineCourseCollection(where: {slug: "control-of-hotel-real-estate-course-12"}) {
-    items {
-      courseType
-      slug
-      name
-      description
-      price
-      duration
-      whoShouldEnroll
-      enrollBy
-      additionalMaterials
-      languages
-      about
-      results
-      whoShouldEnroll
-      modules
-      amountOfWeeklyModules
-      backgroundPicture {
-        url
+const GET_PROGRAM = gql`
+  query($slug: String!) {
+    onlineCourseCollection(where: { slug: $slug }) {
+      items {
+        courseType
+        slug
+        name
+        description
+        price
+        duration
+        whoShouldEnroll
+        enrollBy
+        additionalMaterials
+        languages
+        about
+        results
+        whoShouldEnroll
+        modules
+        amountOfWeeklyModules
+        backgroundPicture {
+          url
+        }
       }
     }
   }
-}
-
-`);
-
-
+`;
 
 /**
  * Renders ProgramPage
  */
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
-  let {slug} = useParams();
-  
-  const { id } = useParams();
+  const { slug } = useParams();
   const { data } = useProgramPageData();
   const pageData = data.filter(item => item.id == 1)[0];
 
-  const {data: response, loading, error} = useQuery(GET_PROGRAM(slug))
- 
- 
-  if(loading) return <div>loading...</div>
+  const { data: response, loading, error } = useQuery(GET_PROGRAM, {
+    variables: { slug: slug }
+  });
 
-  const {items: courseInfo} = response.onlineCourseCollection
-  const {about, whoShouldEnroll, modules, amountOfWeeklyModules, backgroundPicture, results, additionalMaterials} = courseInfo[0]
-  console.log(additionalMaterials)
-  const {url} = backgroundPicture
-   
+  if (loading) return <div>loading...</div>;
+
+  const { items: courseInfo } = response.onlineCourseCollection;
+  const {
+    about,
+    whoShouldEnroll,
+    modules,
+    amountOfWeeklyModules,
+    backgroundPicture,
+    results,
+    additionalMaterials
+  } = courseInfo[0];
+  
+  const { url } = backgroundPicture;
 
   return (
     <div className={styles.programPage}>
       <Header />
       <ProgramIntro introInfo={courseInfo[0]} />
       <ProgramOverview overview={courseInfo[0]} />
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       <ProgramAbout about={about} />
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       <Enroll shouldEnroll={whoShouldEnroll} />
-      <ProgramModules modules={modules} amountOfWeeklyModules={amountOfWeeklyModules}/>
-      <div className={styles.img} style={{backgroundImage: "url(" + { url } + ")"}}></div>
+      <ProgramModules
+        modules={modules}
+        amountOfWeeklyModules={amountOfWeeklyModules}
+      />
+      <div
+        className={styles.img}
+        style={{ backgroundImage: 'url(' + { url } + ')' }}
+      />
       <ProgramResults results={results} />
       <Mentors />
       <ProgramLearningApproach learningApproach={pageData.learningApproach} />
-      <ProgramMaterials additionalMaterials={additionalMaterials}/>
+      <ProgramMaterials additionalMaterials={additionalMaterials} />
       <Impact />
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       <ProgramEnrollNow enrollInfo={pageData.enrollInfo} />
       <ProgramQuote />
       <div className={styles.faqTitle}>Frequently Asked Questions</div>
       <FaqBlock />
       <PartnerApply
-        title="Got questions?"
-        subtitle="Whether you are an individual or an organisation/group, looking for a
-                  programme, get in touch and we can help find the best solution for you."
+        title='Got questions?'
+        subtitle='Whether you are an individual or an organisation/group, looking for a
+                  programme, get in touch and we can help find the best solution for you.'
       />
       <Footer />
     </div>
