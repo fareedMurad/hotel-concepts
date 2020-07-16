@@ -24,7 +24,7 @@ const useOnlineCoursesData = () => {
     },
     {
       id: 3,
-      category: "Focused programs",
+      category: "Essential Soft Skills",
       name: "Control of Hotel Real Estate Course",
       description: "Better experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
       price: 750,

@@ -11,7 +11,7 @@ const Quote: React.FC<QuoteProps> = ({}) => {
       <div className={styles.text}>
        " Experience unique and intimate
         online learning designed and led by
-        world-class mentorswho share their
+        world-class mentors who share their
         own ground-breaking practice. "
       </div>
     </section>

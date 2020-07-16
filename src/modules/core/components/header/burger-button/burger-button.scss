@@ -10,6 +10,9 @@
       border-bottom: 2px solid $white;
       padding-bottom: 4px;
       margin-top: 6px;
+      &.inverted {
+        border-bottom: 2px solid $primary-grey;
+      }
     }
     .icon {
       background-color: #cccccc;

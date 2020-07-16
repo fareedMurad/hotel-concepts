@@ -6,16 +6,15 @@
 
 .container {
   @include flex($justify: center, $direction: column);
-  margin-left: 15px;
+  margin-left: 10px;
   & > span:first-child {
     @include font($white, 16px, 500, 18px);
     font-family: $IBMPlex;
   }
   & > span:nth-child(2) {
-    @include font($white, 12px, 500, 14px);
+    @include font($white, 12px, 500, 16px);
     opacity: .5;
     font-family: $IBMPlex;
-    margin-top: 5px;
   }
 }
 

@@ -12,8 +12,12 @@
 }
 
 .scroll {
-  @include font($white, 16px, 500, 26px);
+  @include font($white, 16px, 500, 22px);
+  @include flex($align: center);
   font-family: $IBMPlex;
+  img {
+    margin-right: 9px;
+  }
   &:hover {
     color: rgb(235, 235, 235);
   }

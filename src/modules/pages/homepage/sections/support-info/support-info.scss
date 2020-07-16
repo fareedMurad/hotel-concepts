@@ -48,7 +48,7 @@
   width: 204px;
   height: 47px;
   background-color: $white;
-  border-radius: 4px;
+  border-radius: 8px;
   margin: 10px;
   @include flex($align: center);
   &:before {

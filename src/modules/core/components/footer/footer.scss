@@ -13,7 +13,7 @@
 
 .title {
   & > div:first-child {
-    @include font($primary-gray, 36px, 600, 46px);
+    @include font($primary-gray, 36px, 500, 46px);
     letter-spacing: -1px;
     font-family: $EBGaramond;
   }
@@ -69,7 +69,8 @@
 .copyrights {
   @include flex($justify: space-between);
   @include font($primary-gray, 12px, 500, 16px);
-  padding: 22px 0px;
+  padding-top: 12px;
+  padding-bottom: 15px;
   font-family: $IBMPlex;
   &--link {
     text-decoration: underline;
@@ -92,7 +93,7 @@
 }
 
 .policy {
-  width: 66%;
+  width: 67%;
 }
 
 .terms {

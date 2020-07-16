@@ -18,7 +18,10 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ text, className }) => {
   return (
     <div className={classNames(styles.scrollButton, className)}>
       <button onClick={scrollSection}>
-        <span className={styles.scroll}>&darr; {text}</span>
+        <span className={styles.scroll}>
+          <img src={require('img/arrow-dwn.svg')} alt=""/>
+          {text}
+        </span>
       </button>
     </div>
   );
