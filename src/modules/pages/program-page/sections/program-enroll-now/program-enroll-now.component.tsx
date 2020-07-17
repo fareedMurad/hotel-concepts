@@ -5,6 +5,7 @@ import { Button } from '@core/components';
 import { map } from 'puppeteer/DeviceDescriptors';
 import classNames from 'classnames';
 import { gql, useQuery } from '@apollo/client';
+import { copyFile } from 'fs';
 
 /**
  * querry payment proposals
@@ -20,6 +21,7 @@ const GET_PAYMENT_PROPOSALS = gql`
         features
         isEnrollReady
         isMostPopular
+        id
       }
     }
   }
@@ -35,19 +37,22 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = () => {
 
   const { items } = data.paymentProposalsCollection;
 
-  // const copy = items.filter(el => el);
+  const itemsCopy = [...items];
+  itemsCopy.sort((a, b) => {
+    if (a.id < b.id) {
+      return -1;
+    }
+    if (a.id > b.id) {
+      return 1;
+    }
+    return 0;
+  });
 
-  // copy.splice(1, 2);
-  // const mostPopular = items.filter(el => el.isMostPopular === true);
-
-  // copy.splice(1, 2, mostPopular);
-
-  // console.log(copy)
   return (
     <section id='enroll' className={styles.programEnrollNow}>
       <div className={styles.title}>Enroll Now</div>
       <div className={styles.container}>
-        {items.map((item, index) => (
+        {itemsCopy.map((item, index) => (
           <div
             className={classNames(styles.enrollItem, {
               [styles.popular]: item.isMostPopular
