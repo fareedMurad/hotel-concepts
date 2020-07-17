@@ -43,6 +43,7 @@ const GET_PROGRAM = gql`
         whoShouldEnroll
         modules
         amountOfWeeklyModules
+        videoVimeoUrl
         backgroundPicture {
           url
         }
@@ -75,7 +76,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
     results,
     additionalMaterials
   } = courseInfo[0];
-  
+
   const { url } = backgroundPicture;
 
   return (
