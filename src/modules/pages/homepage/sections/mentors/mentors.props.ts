@@ -1,6 +1,11 @@
+import { array } from 'yup';
+
 /**
  * Props
  */
-type MentorsProps = {};
+type MentorsProps = {
+  contributors: Array<any>;
+  loading: boolean;
+};
 
 export { MentorsProps };

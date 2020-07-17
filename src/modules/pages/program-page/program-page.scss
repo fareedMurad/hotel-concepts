@@ -1,11 +1,9 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-page {
-
 }
 
 .img {
-  background: url('../../../assets/img/program-page.png') no-repeat center center;
   height: 400px;
   position: relative;
   box-sizing: border-box;
@@ -16,7 +14,7 @@
   background-size: cover;
   min-height: 300px;
   padding: 0 $default-offset;
-	@include flex($justify: center, $align: center, $direction: column);
+  @include flex($justify: center, $align: center, $direction: column);
 }
 
 .hr {

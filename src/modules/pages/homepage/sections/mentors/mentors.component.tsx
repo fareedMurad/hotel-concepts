@@ -37,15 +37,15 @@ const responsiveBreakpoints = {
     slidesToSlide: 1
   }
 };
+
 /**
  * Renders Mentors
  */
-const Mentors: React.FC<MentorsProps> = ({}) => {
+const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
   const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
   const [openedModal, setOpenedModal] = React.useState(false);
   const dispatch = useDispatch();
-  const { contributors, loading } = useContributorsData();
 
   const handleClick = () => history.push(`/contributors`);
 

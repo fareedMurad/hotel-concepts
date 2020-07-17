@@ -15,7 +15,7 @@ import { ProgramQuote } from './sections/program-quote';
 import { ProgramLearningApproach } from './sections/program-learning-approach';
 import { FaqBlock, PartnerApply } from '..';
 import { ProgramEnrollNow } from './sections/program-enroll-now';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 import { useProgramPageData } from './program-page.hook';
 import { ProgramModules } from './sections/program-modules';
 import { gql, useQuery } from '@apollo/client';
@@ -25,28 +25,39 @@ import { url } from 'inspector';
  * query program info
  */
 const GET_PROGRAM = gql`
-  query($slug: String!) {
-    onlineCourseCollection(where: { slug: $slug }) {
-      items {
-        courseType
-        slug
-        name
-        description
-        price
-        duration
-        whoShouldEnroll
-        enrollBy
-        additionalMaterials
-        languages
-        about
-        results
-        whoShouldEnroll
-        modules
-        amountOfWeeklyModules
-        videoVimeoUrl
-        backgroundPicture {
-          url
+  query($id: String!) {
+    onlineCourse(id: $id) {
+      courseType
+      slug
+      name
+      description
+      price
+      duration
+      whoShouldEnroll
+      enrollBy
+      additionalMaterials
+      languages
+      about
+      results
+      whoShouldEnroll
+      modules
+      mentorsCollection {
+        items {
+          __typename
+          ... on Mentor {
+            surname
+            name
+            experience
+            position
+            mentorPicture {
+              url
+            }
+          }
         }
+      }
+      amountOfWeeklyModules
+      backgroundPicture {
+        url
       }
     }
   }
@@ -56,17 +67,17 @@ const GET_PROGRAM = gql`
  * Renders ProgramPage
  */
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
-  const { slug } = useParams();
+  const history = useHistory();
+  const searchParams = new URLSearchParams(history.location.search);
+  const programId = searchParams.get('programId');
   const { data } = useProgramPageData();
   const pageData = data.filter(item => item.id == 1)[0];
 
   const { data: response, loading, error } = useQuery(GET_PROGRAM, {
-    variables: { slug: slug }
+    variables: { id: programId }
   });
-
   if (loading) return <div>loading...</div>;
 
-  const { items: courseInfo } = response.onlineCourseCollection;
   const {
     about,
     whoShouldEnroll,
@@ -74,19 +85,21 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
     amountOfWeeklyModules,
     backgroundPicture,
     results,
-    additionalMaterials
-  } = courseInfo[0];
+    additionalMaterials,
+    mentorsCollection: { items: mentorsForCurrrentCourse }
+  } = response.onlineCourse;
 
+  console.log(whoShouldEnroll);
   const { url } = backgroundPicture;
 
   return (
     <div className={styles.programPage}>
       <Header />
-      <ProgramIntro introInfo={courseInfo[0]} />
-      <ProgramOverview overview={courseInfo[0]} />
-      <div className={styles.hr} />
+      <ProgramIntro introInfo={response.onlineCourse} />
+      <ProgramOverview overview={response.onlineCourse} />
+      <div className={styles.hr}></div>
       <ProgramAbout about={about} />
-      <div className={styles.hr} />
+      <div className={styles.hr}></div>
       <Enroll shouldEnroll={whoShouldEnroll} />
       <ProgramModules
         modules={modules}
@@ -94,15 +107,15 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       />
       <div
         className={styles.img}
-        style={{ backgroundImage: 'url(' + { url } + ')' }}
-      />
+        style={{ backgroundImage: `url(${url})` }}
+      ></div>
       <ProgramResults results={results} />
-      <Mentors />
+      <Mentors contributors={mentorsForCurrrentCourse} loading={loading} />
       <ProgramLearningApproach learningApproach={pageData.learningApproach} />
       <ProgramMaterials additionalMaterials={additionalMaterials} />
       <Impact />
-      <div className={styles.hr} />
-      <ProgramEnrollNow enrollInfo={pageData.enrollInfo} />
+      <div className={styles.hr}></div>
+      <ProgramEnrollNow />
       <ProgramQuote />
       <div className={styles.faqTitle}>Frequently Asked Questions</div>
       <FaqBlock />

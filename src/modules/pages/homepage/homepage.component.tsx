@@ -14,11 +14,13 @@ import { Socials } from './sections/socials';
 import { Header } from '@core/components/header';
 import { Footer } from '@core/components';
 import { FaqBlock } from '@pages/components';
+import { useContributorsData } from '@pages/contributors/contributor.hook';
 
 /**
  * Renders Homepage
  */
 const Homepage: React.FC<HomepageProps> = ({}) => {
+  const { contributors, loading } = useContributorsData();
   return (
     <div className={styles.homepage}>
       <Header />
@@ -29,7 +31,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <About />
       <TrainingInfo />
       <Impact />
-      <Mentors />
+      <Mentors contributors={contributors} loading={loading} />
       <FaqBlock />
       <InsightsBlock />
       <Socials />
