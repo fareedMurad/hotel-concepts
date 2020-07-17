@@ -10,8 +10,25 @@ import classNames from 'classnames';
  */
 const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ closeMenu, isOpened }) => {
   const { programs } = useProgramsMenuData();
+  const [isFullHide, setFullHide] = React.useState(true);
+
+  React.useEffect(() => {
+    if (isOpened) {
+      setFullHide(false);
+      return;
+    }
+    const timeout = setTimeout(() => {
+      setFullHide(true);
+    }, 250);
+    return () => {
+      clearTimeout(timeout);
+    }
+  }, [isOpened]);
   return (
-    <div className={classNames(styles.programsMenu, {[styles.opened]: isOpened})}>
+    <div className={classNames(styles.programsMenu, {
+      [styles.opened]: isOpened,
+      [styles.hidden]: isFullHide
+    })}>
       <div onClick={closeMenu} className={styles.blur}></div>
       <div className={styles.content}>
         <div className={styles.linksContainer}>

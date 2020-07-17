@@ -10,9 +10,27 @@ import { NavLink } from 'react-router-dom';
  */
 const BurgerMenu: React.FC<BurgerMenuProps> = ({ closeMenu, isOpened }) => {
   const { mainLinks, secondaryLinks } = useMenuData();
+  const [isFullHide, setFullHide] = React.useState(true);
+
+  React.useEffect(() => {
+    if (isOpened) {
+      setFullHide(false);
+      return;
+    }
+    const timeout = setTimeout(() => {
+      setFullHide(true);
+    }, 250);
+    return () => {
+      clearTimeout(timeout);
+    }
+  }, [isOpened]);
+
   return (
-    <div className={classNames(styles.burgerMenu, {[styles.opened]: isOpened})}>
-      {/* <div onClick={closeMenu} className={styles.blur}></div> */}
+    <div className={classNames(styles.burgerMenu, {
+      [styles.opened]: isOpened,
+      [styles.hidden]: isFullHide
+    })}>
+      <div onClick={closeMenu} className={styles.blur}></div>
       <div className={styles.content}>
         <div className={styles.linksContainer}>
           {mainLinks.map((link, i) => (

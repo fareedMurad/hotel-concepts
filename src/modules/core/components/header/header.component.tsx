@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HeaderProps } from './header.props';
 import * as styles from './header.scss';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { HeaderState } from './header.state';
 import { ActiveMenuType } from './active-menu.enum';
