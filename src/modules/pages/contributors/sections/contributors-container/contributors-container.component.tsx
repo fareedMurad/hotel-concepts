@@ -104,44 +104,30 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
           </div>
         </div>
       </div>
-      <Slider
-        containerClass={styles.slider}
-        draggable={false}
-        swipeable={false}
-        responsive={responsiveBreakpoints}
-        customButtonGroup={
-          <SliderButtons
-            onClick={handleClick}
-            className={styles.controls}
-            isBordered
-            btnText='See All Contributors'
-          />
-        }
-      >
-        {loading ? (
-          <div>Loading</div>
-        ) : (
-          <main className={styles.contributorsList}>
-            {contributors?.map((contributor, index) => (
-              <Contributor
-                contributor={contributor}
-                key={index}
-                onClick={() => {
-                  dispatch(
-                    navigate(
-                      `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
-                    )
-                  );
-                  !mobile &&
-                    (dispatch(showModal(Modals.contributor)),
-                    setOpenedModal(true));
-                }}
-              />
-            ))}
-          </main>
-        )}
-        {openedModal && <MentorModal />}
-      </Slider>
+
+      {loading ? (
+        <div>Loading</div>
+      ) : (
+        <section className={styles.contributorsList}>
+          {contributors?.map((contributor, index) => (
+            <Contributor
+              contributor={contributor}
+              key={index}
+              onClick={() => {
+                dispatch(
+                  navigate(
+                    `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+                  )
+                );
+                !mobile &&
+                  (dispatch(showModal(Modals.contributor)),
+                  setOpenedModal(true));
+              }}
+            />
+          ))}
+        </section>
+      )}
+      {openedModal && <MentorModal />}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MentorModalProps } from './mentor-modal.props';
 import * as styles from './mentor-modal.scss';
-import { Modal, Icon } from '@core/components';
+import { Modal, Icon, Footer } from '@core/components';
 import { Modals } from '@ui/models';
 import { closeModal } from '@ui/modal';
 import { useDispatch } from 'react-redux';
@@ -72,6 +72,7 @@ const MentorModal: React.FC<MentorModalProps> = ({}) => {
         className={styles.modalIcon}
         onClick={() => dispatch(closeModal(Modals.contributor))}
       />
+      {mobile && <Footer />}
     </Modal>
   );
 };

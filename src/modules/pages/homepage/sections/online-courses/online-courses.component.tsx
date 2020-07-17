@@ -52,8 +52,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   const { items: courses } = data.onlineCourseCollection;
 
   const handleClick = () => {
-    const { slug } = courses;
-    history.push(`/programs-catalogue/${slug}`);
+    history.push(`/programs-catalogue/${currentCourseType}`);
   };
 
   const uniqueElements = Array.from(

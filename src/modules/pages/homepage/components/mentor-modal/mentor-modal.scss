@@ -1,7 +1,6 @@
-@import "core.scss";
+@import 'core.scss';
 
 .mentor-modal {
-
 }
 .heading {
   @include container();
@@ -79,8 +78,8 @@
 
 .modal {
   position: absolute;
-  width: 95vw;
-  margin-top: 70px;
+  width: 100%;
+
   @include tablet() {
     width: 80vw;
     margin: 0;
