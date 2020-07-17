@@ -40,8 +40,8 @@
     padding-right: 20px;
   }
   @include desktop() {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    overflow: initial;
+    grid-template-columns: repeat(auto);
+    overflow: hidden;
     display: grid;
     gap: 10px;
     margin-right: 0;
@@ -159,4 +159,16 @@
       top: 0;
     }
   }
+}
+
+.slider {
+  @include flex($justify: space-between, $align: center);
+  padding-bottom: 60px;
+  overflow: hidden;
+  position: relative;
+  padding-left: $default-offset;
+}
+.controls {
+  padding-left: $left-offset;
+  margin-bottom: 50px;
 }

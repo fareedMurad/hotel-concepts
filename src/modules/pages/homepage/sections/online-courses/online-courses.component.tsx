@@ -22,6 +22,9 @@ const GET_ONLINE_COURSES = gql`
         description
         price
         duration
+        sys {
+          id
+        }
         courseImage {
           url
         }
@@ -44,15 +47,14 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
 
   const history = useHistory();
 
-    
-
   if (loading) return <div>Loading...</div>;
 
   const { items: courses } = data.onlineCourseCollection;
+
   const handleClick = () => {
-    const {slug} = courses
+    const { slug } = courses;
     history.push(`/programs-catalogue/${slug}`);
-  }
+  };
 
   const uniqueElements = Array.from(
     new Set(courses.map(course => course.courseType))
@@ -116,9 +118,13 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                 price,
                 courseImage
               } = data;
+              const {
+                sys: { id }
+              } = data;
               return (
                 <CourseItem
-                  id={slug}
+                  id={id}
+                  slug={slug}
                   key={`${name}+${index}`}
                   name={name}
                   description={description}

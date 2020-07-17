@@ -11,6 +11,10 @@ import { useDispatch } from 'react-redux';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { MentorModal } from '@pages/homepage/components/mentor-modal';
 import { gql, useQuery } from '@apollo/client';
+import { ConsoleView } from 'react-device-detect';
+import { navigate } from '@router/store';
+import { useMediaPoints } from '@core/shared';
+import { Contributor } from '@pages/contributors/sections';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -33,48 +37,19 @@ const responsiveBreakpoints = {
     slidesToSlide: 1
   }
 };
-
-/**
- * mentors query
- */
-
-const GET_MENTORS = gql`
-  {
-    mentorCollection {
-      items {
-        name
-        position
-        slug
-        experience
-        mentorPicture {
-          url
-        }
-      }
-    }
-  }
-`;
-
 /**
  * Renders Mentors
  */
 const Mentors: React.FC<MentorsProps> = ({}) => {
-  const { data, loading, error } = useQuery(GET_MENTORS);
-  const [currentMentor, setCurrentMentor] = React.useState(null);
-  // const [mentors, setMentors] = React.useState([]);
-  React.useEffect(() => {
-    if (!loading) return;
-  }, [loading]);
+  const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
-
-  if (loading) return <div>loading...</div>;
-
-  const { items: contributors } = data.mentorCollection;
+  const [openedModal, setOpenedModal] = React.useState(false);
+  const dispatch = useDispatch();
+  const { contributors, loading } = useContributorsData();
 
   const handleClick = () => history.push(`/contributors`);
 
-  const modalHandle = slug => () => {
-    setCurrentMentor(contributors.filter(e => e.slug == slug)[0]);
-  };
+  if (loading) return <div>loading...</div>;
 
   return (
     <section className={styles.mentors}>
@@ -96,33 +71,47 @@ const Mentors: React.FC<MentorsProps> = ({}) => {
           <SliderButtons
             onClick={handleClick}
             className={styles.controls}
-            isBordered={true}
+            isBordered
             btnText='See All Contributors'
           />
         }
       >
-        {contributors.map(coauthor => {
-          const { name, position, slug, mentorPicture } = coauthor;
+        {contributors.map((contributor, index) => {
           return (
-            <MentorItem
-              name={name}
-              role={position}
-              img={mentorPicture.url}
-              key={slug}
-              onClick={modalHandle(slug)}
+            // <MentorItem
+            //   name={name}
+            //   role={position}
+            //   img={mentorPicture.url}
+            //   key={slug}
+            //   onClick={() => {
+            //     dispatch(
+            //       navigate(
+            //         `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+            //       )
+            //     );
+            //     !mobile &&
+            //       (dispatch(showModal(Modals.contributor)),
+            //       setOpenedModal(true));
+            //   }}
+            // />
+            <Contributor
+              contributor={contributor}
+              key={index}
+              onClick={() => {
+                dispatch(
+                  navigate(
+                    `/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+                  )
+                );
+                !mobile &&
+                  (dispatch(showModal(Modals.contributor)),
+                  setOpenedModal(true));
+              }}
             />
           );
         })}
       </Slider>
-      {currentMentor && (
-        <MentorModal
-          name={currentMentor.name}
-          photo={currentMentor.mentorPicture}
-          city={currentMentor.city}
-          profession={currentMentor.position}
-          experience={currentMentor.experience.text}
-        />
-      )}
+      {openedModal && <MentorModal />}
     </section>
   );
 };

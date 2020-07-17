@@ -26,13 +26,15 @@ import { CoursePartnership } from '@pages/course-partnership';
 import { PrivacyPolicy } from '@pages/privacy-policy';
 import { ProgramPage } from '@pages/program-page';
 import { ProgramsCatalogue } from '@pages/programs-catalogue';
+import { MentorModal } from '@pages/homepage/components/mentor-modal';
+import { useMediaPoints } from '@core/shared';
 
 /**
  * Renders Routes
  */
 const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
-
+  const { mobile } = useMediaPoints();
   return (
     <div className={styles.routes}>
       {isToastVisible && <Toast />}
@@ -46,6 +48,12 @@ const Routes: React.FC = () => {
         <Route path='/contact-us' component={ContactsPage} />
         <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />
+        {mobile && (
+          <Route
+            path={['/contributors/mentor/:id', '/mentor/:id']}
+            component={MentorModal}
+          />
+        )}
         <Route path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
         <Route path='/programs-catalogue/:slug' component={ProgramsCatalogue} />

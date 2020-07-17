@@ -57,13 +57,8 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
 
   const { data, loading, error } = useQuery(GET_ARTICLES);
 
- 
-
-
-
   if (loading) return <div>loading...</div>;
   const { items: articles } = data.articleCollection;
-  console.log(articles)
 
   return (
     <section className={styles.insightsBlock}>

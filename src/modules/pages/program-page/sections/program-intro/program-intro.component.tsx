@@ -14,15 +14,15 @@ import { useParams } from 'react-router';
  * Renders ProgramIntro
  */
 
- /**
-  * 
-  */
+/**
+ *
+ */
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
-  const { name, description } = introInfo;
+  const { name, description, videoVimeoUrl } = introInfo;
   const videoInfo = {
-    path: "ForCorporateClients.preview",
-    time: "0:56"
-  }
+    path: 'ForCorporateClients.preview',
+    time: '0:56'
+  };
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const { navButtons } = useProgramData();
@@ -65,7 +65,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
         contentStyle={{
           border: 'none',
           background: 'transparent',
-          width: '100%',
+          width: '100%'
         }}
         trigger={
           <div className={styles.watchButton}>
@@ -73,16 +73,16 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
               onEnter={playVideo}
               onLeave={stopVideo}
               time={videoInfo.time}
-              titleText="Watch Trailer"
+              titleText='Watch Trailer'
             />
           </div>
         }
-        position="top center"
+        position='top center'
         modal={true}
         lockScroll={true}
       >
         <ReactPlayer
-          url="https://vimeo.com/376809414"
+          url={`${videoVimeoUrl}`}
           controls={true}
           style={{ margin: 'auto', maxWidth: '100%' }}
         />
@@ -90,9 +90,14 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
 
       <div className={styles.pageNavigator}>
         {navButtons.map((button, index) => (
-          <ProgramNavButton anchor={button.anchor} name={button.name} index={index} key={index} />
+          <ProgramNavButton
+            anchor={button.anchor}
+            name={button.name}
+            index={index}
+            key={index}
+          />
         ))}
-        <a href="#enroll" className={styles.button}>
+        <a href='#enroll' className={styles.button}>
           <div>Enroll now</div> <div>→</div>
         </a>
       </div>

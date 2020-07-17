@@ -9,8 +9,10 @@ import { gql, useQuery } from '@apollo/client';
 
 const GET_QUOTE_TEXT = gql`
   {
-    quoteText(id: "6Y3JuMmTALjcu8pPdKvk04") {
-      text
+    quoteTextCollection {
+      items {
+        text
+      }
     }
   }
 `;
@@ -21,8 +23,10 @@ const GET_QUOTE_TEXT = gql`
 
 const Quote: React.FC<QuoteProps> = ({}) => {
   const { data, loading, error } = useQuery(GET_QUOTE_TEXT);
+
   if (loading) return <div>loading...</div>;
-  const { text } = data.quoteText;
+  const { items } = data.quoteTextCollection;
+  const { text } = items[0];
 
   return (
     <section className={styles.quote}>

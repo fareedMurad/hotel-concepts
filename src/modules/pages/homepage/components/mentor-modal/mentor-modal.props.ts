@@ -1,12 +1,6 @@
 /**
  * Props
  */
-type MentorModalProps = {
-  photo: string;
-  name: string;
-  city?: string;
-  profession: string;
-  experience: string;
-};
+type MentorModalProps = {};
 
 export { MentorModalProps };

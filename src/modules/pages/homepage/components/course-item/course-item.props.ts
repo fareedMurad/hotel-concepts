@@ -9,6 +9,7 @@ type CourseItemProps = {
   weeks: number;
   sprints: number;
   img?: string;
+  slug: string;
 };
 
 export { CourseItemProps };

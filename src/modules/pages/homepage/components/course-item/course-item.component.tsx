@@ -8,9 +8,10 @@ import { useHistory } from 'react-router-dom';
  * Renders CourseItem
  */
 const CourseItem: React.FC<CourseItemProps> = props => {
-  const { id, name, description, weeks, sprints, img, price } = props;
+  const { id, slug, name, description, weeks, sprints, img, price } = props;
   const history = useHistory();
-  const handleClick = id => () => history.push(`/program/${id}`);
+  const handleClick = (id, slug) => () =>
+    history.push(`/program/${slug}?programId=${id}`);
   return (
     <div className={styles.courseItem}>
       <div className={styles.card}>
@@ -27,7 +28,7 @@ const CourseItem: React.FC<CourseItemProps> = props => {
                 {weeks} weeks/{sprints} sprints
               </div>
             </div>
-            <Button onClick={handleClick(id)} className={styles.button}>
+            <Button onClick={handleClick(id, slug)} className={styles.button}>
               <div>Explore Program</div> <div>&#8594;</div>
             </Button>
           </div>

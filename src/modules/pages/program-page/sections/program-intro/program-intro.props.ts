@@ -3,13 +3,10 @@
  */
 type ProgramIntroProps = {
   introInfo: {
-    name: string,
-    description: string,
-    videoInfo?: {
-      path: string,
-      time: string
-    }
-  }
+    name: string;
+    description: string;
+    videoVimeoUrl: string;
+  };
 };
 
 export { ProgramIntroProps };
