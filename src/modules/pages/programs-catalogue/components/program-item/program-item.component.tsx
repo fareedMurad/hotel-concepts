@@ -8,7 +8,15 @@ import { useHistory } from 'react-router';
  * Renders ProgramItem
  */
 const ProgramItem: React.FC<ProgramItemProps> = ({
-  name, type, category, weeks, sprints, price, img, description, id
+  name,
+  type,
+  category,
+  weeks,
+  sprints,
+  price,
+  img,
+  description,
+  id
 }) => {
   const history = useHistory();
   const handleClick = id => () => history.push(`/program/${id}`);
@@ -17,7 +25,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({
     <>
       <div className={styles.programItem}>
         <div className={styles.container}>
-          <img src={require(`img/insights/${img}.png`)} alt=""/>
+          <img src={img} alt='' />
           <div className={styles.info}>
             <div className={styles.type}>{type}</div>
             <div className={styles.name}>{name}</div>
@@ -28,9 +36,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({
               <span className={styles.vhr}>|</span>
               {price}$
             </div>
-            <div className={styles.description}>
-              {description}
-            </div>
+            <div className={styles.description}>{description}</div>
           </div>
         </div>
         <div className={styles.buttonContainer}>

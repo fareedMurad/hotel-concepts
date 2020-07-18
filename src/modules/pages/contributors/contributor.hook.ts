@@ -28,6 +28,7 @@ const useContributorsData = () => {
 
   const { data, error, loading } = useQuery(GET_MENTORS);
 
+
   return { contributors: data?.mentorCollection?.items, loading };
 };
 

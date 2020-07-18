@@ -1,96 +1,47 @@
-const useOnlineCoursesData = () => {
-  const data = [
-    {
-      id: 1,
-      category: "Focused programs",
-      name: "Control of Hotel Real Estate Course",
-      description: "Better experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
-      price: 750,
-      weeks: 4,
-      sprints: 8,
-      img: "article-1",
-      type: "Middle"
-    },
-    {
-      id: 2,
-      category: "Focused programs",
-      name: "Control of Hotel Real Estate Course",
-      description: "Better experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
-      price: 750,
-      weeks: 4,
-      sprints: 8,
-      img: "article-2",
-      type: "Middle"
-    },
-    {
-      id: 3,
-      category: "Essential Soft Skills",
-      name: "Control of Hotel Real Estate Course",
-      description: "Better experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degreeBetter experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
-      price: 750,
-      weeks: 4,
-      sprints: 8,
-      img: "article-5",
-      type: "Middle"
-    },
-    {
-      id: 4,
-      category: "Leveraging Technology",
-      name: "Control of Hotel Real Estate Course",
-      description: "Better experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
-      price: 750,
-      weeks: 4,
-      sprints: 8,
-      img: "article-4",
-      type: "Middle"
-    },
-    {
-      id: 5,
-      category: "Focused programs",
-      name: "Control of Hotel Real Estate Course",
-      description: "Better experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
-      price: 750,
-      weeks: 4,
-      sprints: 8,
-      img: "article-1",
-      type: "Middle"
-    },
-    {
-      id: 6,
-      category: "Leadership",
-      name: "Control of Hotel Real Estate Course",
-      description: "Better experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
-      price: 750,
-      weeks: 4,
-      sprints: 8,
-      img: "article-1",
-      type: "Middle"
-    },
-    {
-      id: 7,
-      category: "Focused programs",
-      name: "Control of Hotel Real Estate Course",
-      description: "Better experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
-      price: 750,
-      weeks: 4,
-      sprints: 8,
-      img: "article-1",
-      type: "Middle"
-    },
-    {
-      id: 8,
-      category: "Leadership",
-      name: "Control of Hotel Real Estate Course",
-      description: "Better experience, better results, and this program nstills a degree understanding of the field. Interactive and applied learning.",
-      price: 750,
-      weeks: 4,
-      sprints: 8,
-      img: "article-1",
-      type: "Middle"
-    }
-  ];
+import { gql } from '@apollo/client/core';
+import { useQuery, useLazyQuery } from '@apollo/client';
 
-  return { data };
+const useCoursesCategoriesData = () => {
+  const GET_COURSES_CATEGORIES = gql`
+    {
+      courseCategoryCollection {
+        total
+        items {
+          sys {
+            id
+          }
+          category
+          coursesCollection(limit: 6) {
+            total
+            items {
+              ... on OnlineCourse {
+                slug
+                name
+                description
+                duration
+                price
+                courseImage {
+                  ... on Asset {
+                    url
+                  }
+                }
+                sys {
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+  const { data, loading, error } = useQuery(GET_COURSES_CATEGORIES);
+
+  return {
+    categories: data?.courseCategoryCollection?.items,
+    loading,
+    total: data?.courseCategoryCollection?.total
+  };
 };
 
-export { useOnlineCoursesData };
+export { useCoursesCategoriesData };

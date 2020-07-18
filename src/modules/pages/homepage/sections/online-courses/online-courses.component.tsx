@@ -1,79 +1,119 @@
 import * as React from 'react';
 import { OnlineCoursesProps } from './online-courses.props';
 import * as styles from './online-courses.scss';
-import { useOnlineCoursesData } from './online-courses.hook';
+import { useCoursesCategoriesData } from './online-courses.hook';
 import { ButtonFilter, Button } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
 import { useHistory } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCourses } from './store';
-import { gql, useQuery } from '@apollo/client';
+
+import { gql, useQuery, useLazyQuery } from '@apollo/client';
+import { get } from 'object-path';
 
 /**
  * courses query
  */
 const GET_ONLINE_COURSES = gql`
-  {
-    onlineCourseCollection {
-      items {
-        courseType
-        slug
-        name
-        description
-        price
-        duration
-        sys {
-          id
-        }
-        courseImage {
-          url
+  query($id: String!) {
+    courseCategory(id: $id) {
+      category
+      coursesCollection {
+        items {
+          ... on OnlineCourse {
+            name
+          }
         }
       }
     }
   }
 `;
+
+// const GET_ONLINE_COURSES = gql`
+//   {
+//     onlineCourseCollection {
+//       items {
+//         courseType
+//         slug
+//         name
+//         description
+//         price
+//         duration
+//         sys {
+//           id
+//         }
+//         courseImage {
+//           url
+//         }
+//       }
+//     }
+//   }
+// `;
 /**
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
-  const [currentCourseType, setCurrentCourseType] = React.useState(null);
-  const { data, loading, error } = useQuery(GET_ONLINE_COURSES);
-  React.useEffect(() => {
-    if (loading) return;
-    if (currentCourseType) return;
-    const { items } = data.onlineCourseCollection;
-    setCurrentCourseType(items[0].courseType);
-  });
+  const { categories, loading, total } = useCoursesCategoriesData();
+  const [currentCourseCategorie, setCurrentCourseCategorie] = React.useState(
+    'All'
+  );
+  const [currentCategories, setCurrentCategorie] = React.useState(null);
+  const [id, setId] = React.useState(null);
+  const [courses, setCourses] = React.useState(null);
+  console.log(total);
+
+  // React.useEffect(() => {
+  //   if (categories) {
+  //     setCurrentCategorie(categories);
+  //   }
+  // });
+
+  // const { data, loading, error } = useQuery(GET_ONLINE_COURSES);
+  // React.useEffect(() => {
+  //   if (loading) return;
+  //   if (currentCourseType) return;
+  //   const { items } = data.onlineCourseCollection;
+  //   setCurrentCourseType(items[0].courseType);
+  // });
 
   const history = useHistory();
 
-  if (loading) return <div>Loading...</div>;
+  // if (loading) return <div>Loading...</div>;
 
-  const { items: courses } = data.onlineCourseCollection;
+  // const { items: courses } = data.onlineCourseCollection;
 
   const handleClick = () => {
-    history.push(`/programs-catalogue/${currentCourseType}`);
+    history.push(`/programs-catalogue/${id}`);
   };
 
-  const uniqueElements = Array.from(
-    new Set(courses.map(course => course.courseType))
-  );
+  console.log(categories);
 
-  const currentCourses = courses.filter(
-    course => course.courseType === currentCourseType
-  );
+  if (loading) return <div>loading...</div>;
 
-  const getCoursesTypes = () => {
-    return uniqueElements.map((course: string) => ({
-      name: course,
-      count: courses.filter(item => item.courseType === course).length
-    }));
+  const arrOfcourses = () => {
+    const arr = [];
+    categories.map(el => arr.push(el.coursesCollection.items));
   };
 
-  const coursesTypes = getCoursesTypes();
+  const coursesArr = arrOfcourses();
 
-  const onFilterSelect = (name: string) => {
-    setCurrentCourseType(name);
+  // const uniqueElements = Array.from(
+  //   new Set(courses.map(course => course.courseType))
+  // );
+
+  // const currentCourses = courses.filter(
+  //   course => course.courseType === currentCourseType
+  // );
+
+  // const getCoursesTypes = () => {
+  //   return uniqueElements.map((course: string) => ({
+  //     name: course,
+  //     count: courses.filter(item => item.courseType === course).length
+  //   }));
+  // };
+
+  // const coursesTypes = getCoursesTypes();
+
+  const onFilterSelect = () => {
+    setCurrentCourseCategorie(name);
   };
 
   return (
@@ -87,18 +127,32 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
       </div>
       <div className={styles.content}>
         <div className={styles.filters}>
-          {coursesTypes.map(filter => (
-            <ButtonFilter
-              key={filter.name}
-              title={filter.name}
-              count={filter.count}
-              onClick={() => {
-                onFilterSelect(filter.name);
-              }}
-              active={currentCourseType == filter.name}
-              className={styles.filterButton}
-            />
-          ))}
+          <ButtonFilter
+            count={total}
+            title='All'
+            onClick={() => {
+              setCurrentCourseCategorie('All');
+            }}
+            active
+          ></ButtonFilter>
+          {categories.map(filter => {
+            const { total } = filter.coursesCollection;
+            const { id } = filter.sys;
+            return (
+              <ButtonFilter
+                key={filter.category}
+                title={filter.category}
+                count={total}
+                onClick={() => {
+                  onFilterSelect();
+                  setCurrentCategorie(filter);
+                  setId(filter.sys.id);
+                }}
+                active={currentCourseCategorie == filter.category}
+                className={styles.filterButton}
+              />
+            );
+          })}
         </div>
         <div className={styles.info}>
           Focused programs are an opportunity for you to develop in-depth
@@ -108,7 +162,8 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
         </div>
         <div className={styles.coursesWrapper}>
           <div className={styles.courses}>
-            {currentCourses.map((data, index) => {
+            {/* {allCategories.map((category, index) => {
+                  
               const {
                 slug,
                 name,
@@ -132,7 +187,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                   img={courseImage.url}
                 />
               );
-            })}
+            })} */}
           </div>
         </div>
         <div className={styles.footer}>
