@@ -36,7 +36,7 @@ const responsiveBreakpoints = {
 };
 /**
  * Renders Contributor Card
- */
+ */ // test
 // todo , take a look this Contributor and MentorItem, delete one of them and use only one
 const Contributor = ({ contributor, onClick }) => {
   const {
