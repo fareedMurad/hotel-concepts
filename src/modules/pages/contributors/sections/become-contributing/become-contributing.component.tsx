@@ -66,7 +66,7 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                   name='email'
                   label='Contact e-mail*'
                   className={styles.formInput}
-                  placeholder='example@gmailcom'
+                  placeholder='example@gmail.com'
                 />
               </div>
 

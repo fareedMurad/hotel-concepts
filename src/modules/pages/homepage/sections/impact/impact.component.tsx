@@ -49,8 +49,8 @@ const GET_TESTEMONIALS = gql`
  * Renders Impact
  */
 const Impact: React.FC<ImpactProps> = ({}) => {
-  const { data, loading, error } = useQuery(GET_TESTEMONIALS);
-  const [testemonials, setTestemonials] = React.useState(null);
+  const { data, loading } = useQuery(GET_TESTEMONIALS);
+  const [testemonials, setTestemonials] = React.useState([]);
   React.useEffect(() => {
     if (!loading) {
       const { items } = data.testimonialsCollection;
@@ -58,8 +58,7 @@ const Impact: React.FC<ImpactProps> = ({}) => {
     }
   });
 
-  if (!testemonials) return <div>loading...</div>;
-  if (loading) return <div>loading...</div>;
+  if (loading) return <div>Loading...</div>;
 
   return (
     <section className={styles.impact}>

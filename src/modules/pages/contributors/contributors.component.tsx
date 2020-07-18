@@ -5,13 +5,11 @@ import { Header } from '@core/components/header';
 import { Button, Footer } from '@core/components';
 import { ContributorsContainer, BecomeContributing } from './sections';
 import { ScrollButton } from '@core/components/scroll-button';
-import { Mentors } from '@pages/homepage/sections/mentors';
-import { useContributorsData } from './contributor.hook';
 /**
  * Renders Contributors
  */
 const Contributors: React.FC<ContributorsProps> = ({}) => {
-  const { contributors, loading } = useContributorsData();
+
   return (
     <div className={styles.contributors}>
       <header className={styles.header}>

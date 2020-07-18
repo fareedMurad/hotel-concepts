@@ -115,11 +115,10 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                 description,
                 duration,
                 price,
-                courseImage
-              } = data;
-              const {
+                courseImage,
                 sys: { id }
               } = data;
+
               return (
                 <CourseItem
                   id={id}

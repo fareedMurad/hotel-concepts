@@ -15,11 +15,10 @@ import { ProgramQuote } from './sections/program-quote';
 import { ProgramLearningApproach } from './sections/program-learning-approach';
 import { FaqBlock, PartnerApply } from '..';
 import { ProgramEnrollNow } from './sections/program-enroll-now';
-import { useParams, useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 import { useProgramPageData } from './program-page.hook';
 import { ProgramModules } from './sections/program-modules';
 import { gql, useQuery } from '@apollo/client';
-import { url } from 'inspector';
 
 /**
  * query program info
@@ -89,7 +88,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
     mentorsCollection: { items: mentorsForCurrrentCourse }
   } = response.onlineCourse;
 
-  console.log(whoShouldEnroll);
   const { url } = backgroundPicture;
 
   return (
@@ -97,24 +95,21 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <Header />
       <ProgramIntro introInfo={response.onlineCourse} />
       <ProgramOverview overview={response.onlineCourse} />
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       <ProgramAbout about={about} />
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       <Enroll shouldEnroll={whoShouldEnroll} />
       <ProgramModules
         modules={modules}
         amountOfWeeklyModules={amountOfWeeklyModules}
       />
-      <div
-        className={styles.img}
-        style={{ backgroundImage: `url(${url})` }}
-      ></div>
+      <div className={styles.img} style={{ backgroundImage: `url(${url})` }} />
       <ProgramResults results={results} />
       <Mentors contributors={mentorsForCurrrentCourse} loading={loading} />
       <ProgramLearningApproach learningApproach={pageData.learningApproach} />
       <ProgramMaterials additionalMaterials={additionalMaterials} />
       <Impact />
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       <ProgramEnrollNow />
       <ProgramQuote />
       <div className={styles.faqTitle}>Frequently Asked Questions</div>

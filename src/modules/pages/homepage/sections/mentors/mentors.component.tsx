@@ -3,18 +3,14 @@ import { MentorsProps } from './mentors.props';
 import * as styles from './mentors.scss';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
-import { MentorItem } from '@pages/homepage/components/mentor-item';
 import { useHistory } from 'react-router';
 import { showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import { useDispatch } from 'react-redux';
-import { useContributorsData } from '@pages/contributors/contributor.hook';
-import { MentorModal } from '@pages/homepage/components/mentor-modal';
-import { gql, useQuery } from '@apollo/client';
-import { ConsoleView } from 'react-device-detect';
+import { MentorModal } from '@pages/components/mentor-modal';
 import { navigate } from '@router/store';
 import { useMediaPoints } from '@core/shared';
-import { Contributor } from '@pages/contributors/sections';
+import { ContributorCard } from '@pages/components';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -78,23 +74,7 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
       >
         {contributors.map((contributor, index) => {
           return (
-            // <MentorItem
-            //   name={name}
-            //   role={position}
-            //   img={mentorPicture.url}
-            //   key={slug}
-            //   onClick={() => {
-            //     dispatch(
-            //       navigate(
-            //         `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
-            //       )
-            //     );
-            //     !mobile &&
-            //       (dispatch(showModal(Modals.contributor)),
-            //       setOpenedModal(true));
-            //   }}
-            // />
-            <Contributor
+            <ContributorCard
               contributor={contributor}
               key={index}
               onClick={() => {

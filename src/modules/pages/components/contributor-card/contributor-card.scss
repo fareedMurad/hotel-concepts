@@ -1,6 +1,6 @@
-@import "core.scss";
+@import 'core.scss';
 
-.mentor-item {
+.contributor-card {
   cursor: pointer;
   width: 316px;
   user-select: none;
@@ -17,27 +17,27 @@
 }
 
 .img-container {
+  position: relative;
   width: 316px;
   height: 316px;
-  position: relative;
   border-radius: 8px;
 }
 
 .info {
-  display: flex;
   position: absolute;
   top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   width: inherit;
   height: inherit;
   border-radius: inherit;
-  align-items: flex-end;
-  justify-content: center;
   color: #ffffff00;
   background-color: rgba(0, 0, 0, 0);
   transition: background-color 100ms linear;
   &-text {
-    padding-bottom: 2px;
     margin-bottom: 40px;
+    padding-bottom: 2px;
   }
 }
 
@@ -45,11 +45,11 @@
   @include font($primary-gray, 24px, 400, 32px);
 }
 .role {
-  @include font($primary-gray, 16px, 400, 24px);
+  @include font($primary-gray, 16px, 400, 14px);
 }
 
 @media screen and (max-width: 350px) {
   .img {
-      max-width: 260px;
-    }
+    max-width: 260px;
+  }
 }

@@ -26,7 +26,7 @@ import { CoursePartnership } from '@pages/course-partnership';
 import { PrivacyPolicy } from '@pages/privacy-policy';
 import { ProgramPage } from '@pages/program-page';
 import { ProgramsCatalogue } from '@pages/programs-catalogue';
-import { MentorModal } from '@pages/homepage/components/mentor-modal';
+import { MentorModal } from '@pages/components/mentor-modal';
 import { useMediaPoints } from '@core/shared';
 
 /**
