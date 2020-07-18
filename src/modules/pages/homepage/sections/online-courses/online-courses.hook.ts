@@ -13,23 +13,6 @@ const useCoursesCategoriesData = () => {
           category
           coursesCollection(limit: 6) {
             total
-            items {
-              ... on OnlineCourse {
-                slug
-                name
-                description
-                duration
-                price
-                courseImage {
-                  ... on Asset {
-                    url
-                  }
-                }
-                sys {
-                  id
-                }
-              }
-            }
           }
         }
       }
@@ -44,4 +27,36 @@ const useCoursesCategoriesData = () => {
   };
 };
 
+const useCoursesData = () => {
+  const GET_COURSES_CATEGORIES = gql`
+    {
+      onlineCourseCollection(limit: 6) {
+        items {
+          name
+          duration
+          description
+          price
+          slug
+          sys {
+            id
+          }
+          courseImage {
+            ... on Asset {
+              url
+            }
+          }
+        }
+      }
+    }
+  `;
+  const { data, loading, error } = useQuery(GET_COURSES_CATEGORIES);
+
+  return {
+    allCourses: data?.onlineCourseCollection?.items,
+    loading,
+    total: data?.onlineCourseCollection?.total
+  };
+};
+
 export { useCoursesCategoriesData };
+export { useCoursesData };

@@ -27,7 +27,7 @@ const OverviewItem: React.FC<{
       <div className={styles.hr}></div>
       <div className={styles.block}>
         <div className={styles.name}>Languages</div>
-        <div className={styles.info}>{languages.join(', ')}</div>
+        <div className={styles.info}>{languages}</div>
       </div>
     </section>
   );

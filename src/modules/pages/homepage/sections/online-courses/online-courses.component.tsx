@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { OnlineCoursesProps } from './online-courses.props';
 import * as styles from './online-courses.scss';
-import { useCoursesCategoriesData } from './online-courses.hook';
+import {
+  useCoursesCategoriesData,
+  useCoursesData
+} from './online-courses.hook';
 import { ButtonFilter, Button } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
 import { useHistory } from 'react-router';
@@ -10,55 +13,23 @@ import { gql, useQuery, useLazyQuery } from '@apollo/client';
 import { get } from 'object-path';
 
 /**
- * courses query
- */
-const GET_ONLINE_COURSES = gql`
-  query($id: String!) {
-    courseCategory(id: $id) {
-      category
-      coursesCollection {
-        items {
-          ... on OnlineCourse {
-            name
-          }
-        }
-      }
-    }
-  }
-`;
-
-// const GET_ONLINE_COURSES = gql`
-//   {
-//     onlineCourseCollection {
-//       items {
-//         courseType
-//         slug
-//         name
-//         description
-//         price
-//         duration
-//         sys {
-//           id
-//         }
-//         courseImage {
-//           url
-//         }
-//       }
-//     }
-//   }
-// `;
-/**
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   const { categories, loading, total } = useCoursesCategoriesData();
+  const { allCourses } = useCoursesData();
   const [currentCourseCategorie, setCurrentCourseCategorie] = React.useState(
-    'All'
+    null
   );
-  const [currentCategories, setCurrentCategorie] = React.useState(null);
+  const [courses, setCourses] = React.useState([]);
+  React.useEffect(() => {
+    if (allCourses) {
+      setCourses(allCourses);
+    }
+  });
+
+  const [currentCategories, setCurrentCategory] = React.useState(null);
   const [id, setId] = React.useState(null);
-  const [courses, setCourses] = React.useState(null);
-  console.log(total);
 
   // React.useEffect(() => {
   //   if (categories) {
@@ -84,16 +55,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
     history.push(`/programs-catalogue/${id}`);
   };
 
-  console.log(categories);
-
   if (loading) return <div>loading...</div>;
-
-  const arrOfcourses = () => {
-    const arr = [];
-    categories.map(el => arr.push(el.coursesCollection.items));
-  };
-
-  const coursesArr = arrOfcourses();
 
   // const uniqueElements = Array.from(
   //   new Set(courses.map(course => course.courseType))
@@ -145,7 +107,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                 count={total}
                 onClick={() => {
                   onFilterSelect();
-                  setCurrentCategorie(filter);
+                  setCurrentCategory(filter);
                   setId(filter.sys.id);
                 }}
                 active={currentCourseCategorie == filter.category}
@@ -162,32 +124,29 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
         </div>
         <div className={styles.coursesWrapper}>
           <div className={styles.courses}>
-            {/* {allCategories.map((category, index) => {
-                  
+            {courses.map((course, index) => {
               const {
                 slug,
                 name,
                 description,
-                duration,
+                duration: { months, sprints },
+                courseImage: { url },
                 price,
-                courseImage,
                 sys: { id }
-              } = data;
-
+              } = course;
               return (
                 <CourseItem
                   id={id}
                   slug={slug}
-                  key={`${name}+${index}`}
                   name={name}
                   description={description}
-                  weeks={duration.weeks}
-                  sprints={duration.sprints}
+                  weeks={months}
+                  sprints={sprints}
                   price={price}
-                  img={courseImage.url}
+                  img={url}
                 />
               );
-            })} */}
+            })}
           </div>
         </div>
         <div className={styles.footer}>
