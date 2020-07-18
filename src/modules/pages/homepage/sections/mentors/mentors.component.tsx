@@ -10,6 +10,11 @@ import { Modals } from '@ui/models';
 import { useDispatch } from 'react-redux';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { MentorModal } from '@pages/homepage/components/mentor-modal';
+import { gql, useQuery } from '@apollo/client';
+import { ConsoleView } from 'react-device-detect';
+import { navigate } from '@router/store';
+import { useMediaPoints } from '@core/shared';
+import { Contributor } from '@pages/contributors/sections';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -19,33 +24,32 @@ const responsiveBreakpoints = {
   desktop: {
     breakpoint: { max: 1290, min: 1000 },
     items: 3,
-    slidesToSlide: 1,
+    slidesToSlide: 1
   },
   tablet: {
     breakpoint: { max: 1000, min: 700 },
     items: 2,
-    slidesToSlide: 1,
+    slidesToSlide: 1
   },
   mobile: {
     breakpoint: { max: 699, min: 0 },
     items: 1,
-    slidesToSlide: 1,
-  },
+    slidesToSlide: 1
+  }
 };
 
 /**
  * Renders Mentors
  */
-const Mentors: React.FC<MentorsProps> = ({}) => {
+const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
+  const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
-  const handleClick = () => history.push(`/contributors`);
-  const { contributors } = useContributorsData();
-  const [curretnMentor, setCurrentMentor] = React.useState(null);
+  const [openedModal, setOpenedModal] = React.useState(false);
   const dispatch = useDispatch();
-  const modalHandle = id => () => {
-    setCurrentMentor(contributors.filter(e => e.id == id)[0]);
-    dispatch(showModal(Modals.contributor));
-  }
+
+  const handleClick = () => history.push(`/contributors`);
+
+  if (loading) return <div>loading...</div>;
 
   return (
     <section className={styles.mentors}>
@@ -53,13 +57,13 @@ const Mentors: React.FC<MentorsProps> = ({}) => {
         <div>Meet mentors & Coauthors</div>
         <div />
         <div>
-          World-class faculty introduce you to the
-          very latest in hospitality business knowledge
-          and provide you with the tools and skills to overcome
-          challenges and find solutions.
+          World-class faculty introduce you to the very latest in hospitality
+          business knowledge and provide you with the tools and skills to
+          overcome challenges and find solutions.
         </div>
       </div>
       <Slider
+<<<<<<< HEAD
           containerClass={styles.slider}
           draggable={false}
           swipeable={false}
@@ -76,18 +80,57 @@ const Mentors: React.FC<MentorsProps> = ({}) => {
             key={contributor.id}
             city={contributor.city}
             onClick={modalHandle(contributor.id)}
+=======
+        containerClass={styles.slider}
+        draggable={false}
+        swipeable={false}
+        responsive={responsiveBreakpoints}
+        customButtonGroup={
+          <SliderButtons
+            onClick={handleClick}
+            className={styles.controls}
+            isBordered
+            btnText='See All Contributors'
+>>>>>>> COR-20
           />
-        ))}
+        }
+      >
+        {contributors.map((contributor, index) => {
+          return (
+            // <MentorItem
+            //   name={name}
+            //   role={position}
+            //   img={mentorPicture.url}
+            //   key={slug}
+            //   onClick={() => {
+            //     dispatch(
+            //       navigate(
+            //         `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+            //       )
+            //     );
+            //     !mobile &&
+            //       (dispatch(showModal(Modals.contributor)),
+            //       setOpenedModal(true));
+            //   }}
+            // />
+            <Contributor
+              contributor={contributor}
+              key={index}
+              onClick={() => {
+                dispatch(
+                  navigate(
+                    `/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+                  )
+                );
+                !mobile &&
+                  (dispatch(showModal(Modals.contributor)),
+                  setOpenedModal(true));
+              }}
+            />
+          );
+        })}
       </Slider>
-      {curretnMentor &&
-        <MentorModal
-          name={curretnMentor.name}
-          photo={curretnMentor.photo}
-          surname={curretnMentor.surname}
-          city={curretnMentor.city}
-          profession={curretnMentor.profession}
-          experience={curretnMentor.experience}
-        />}
+      {openedModal && <MentorModal />}
     </section>
   );
 };

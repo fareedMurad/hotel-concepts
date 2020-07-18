@@ -4,18 +4,59 @@ import * as styles from './program-enroll-now.scss';
 import { Button } from '@core/components';
 import { map } from 'puppeteer/DeviceDescriptors';
 import classNames from 'classnames';
+import { gql, useQuery } from '@apollo/client';
+import { copyFile } from 'fs';
 
+/**
+ * querry payment proposals
+ */
+
+const GET_PAYMENT_PROPOSALS = gql`
+  {
+    paymentProposalsCollection {
+      items {
+        name
+        descripion
+        price
+        features
+        isEnrollReady
+        isMostPopular
+        id
+      }
+    }
+  }
+`;
 /**
  * Renders ProgramEnrollNow
  */
-const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ enrollInfo }) => {
+
+const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = () => {
+  const { data, loading, error } = useQuery(GET_PAYMENT_PROPOSALS);
+
+  if (loading) return <div>loading...</div>;
+
+  const { items } = data.paymentProposalsCollection;
+
+  const itemsCopy = [...items];
+  itemsCopy.sort((a, b) => {
+    if (a.id < b.id) {
+      return -1;
+    }
+    if (a.id > b.id) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
-    <section id="enroll" className={styles.programEnrollNow}>
+    <section id='enroll' className={styles.programEnrollNow}>
       <div className={styles.title}>Enroll Now</div>
       <div className={styles.container}>
-        {enrollInfo.map((item, index) => (
+        {itemsCopy.map((item, index) => (
           <div
-            className={classNames(styles.enrollItem, {[styles.popular]: item.isMostPopular})}
+            className={classNames(styles.enrollItem, {
+              [styles.popular]: item.isMostPopular
+            })}
             key={index}
           >
             <div className={styles.topSide}>
@@ -24,20 +65,21 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ enrollInfo }) => {
                 <div className={styles.description}>{item.description}</div>
               </div>
               <div className={styles.priceBlock}>
-                {item.price &&
+                {item.price && (
                   <div className={styles.price}>
                     <div className={styles.dollar}>$</div>
                     {item.price}
                   </div>
-                }
+                )}
                 <Button className={styles.button}>
-                  <div>Enroll Now</div><div>&#8594;</div>
+                  <div>Enroll Now</div>
+                  <div>&#8594;</div>
                 </Button>
               </div>
             </div>
             <div className={styles.hr}></div>
             <div className={styles.features}>
-            <div className={styles.featureTitle}>Features</div>
+              <div className={styles.featureTitle}>Features</div>
               {item.features.map((item, index) => (
                 <div className={styles.featureItem} key={index}>
                   <div>+</div>

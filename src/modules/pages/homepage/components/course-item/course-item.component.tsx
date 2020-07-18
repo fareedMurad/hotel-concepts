@@ -7,27 +7,28 @@ import { useHistory } from 'react-router-dom';
 /**
  * Renders CourseItem
  */
-const CourseItem: React.FC<CourseItemProps> = (props) => {
-  const { id, name, description, weeks, sprints, img, price } = props;
+const CourseItem: React.FC<CourseItemProps> = props => {
+  const { id, slug, name, description, weeks, sprints, img, price } = props;
   const history = useHistory();
-  const handleClick = id => () => history.push(`/program/${id}`);
+  const handleClick = (id, slug) => () =>
+    history.push(`/program/${slug}?programId=${id}`);
   return (
     <div className={styles.courseItem}>
       <div className={styles.card}>
         <div className={styles.header}>
-          <img src={require(`img/insights/${img}.png`)} alt=""/>
+          <img src={img} alt='' />
           <div className={styles.name}>{name}</div>
         </div>
         <div className={styles.descriptionBlock}>
-          <div className={styles.description}>
-            {description}
-          </div>
+          <div className={styles.description}>{description}</div>
           <div className={styles.bottom}>
             <div className={styles.info}>
               <div>{price}$</div>
-              <div>{weeks} weeks/{sprints} sprints</div>
+              <div>
+                {weeks} weeks/{sprints} sprints
+              </div>
             </div>
-            <Button onClick={handleClick(id)} className={styles.button}>
+            <Button onClick={handleClick(id, slug)} className={styles.button}>
               <div>Explore Program</div> <div>&#8594;</div>
             </Button>
           </div>

@@ -5,30 +5,61 @@ import { useImpactData } from './impact.hook';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { OpinionItem } from '@pages/homepage/components/opinion-item';
+import { gql, useQuery } from '@apollo/client';
 
 const responsiveBreakpoints = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 2,
-    slidesToSlide: 1,
+    slidesToSlide: 1
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 1,
-    slidesToSlide: 1,
+    slidesToSlide: 1
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    slidesToSlide: 1,
-  },
+    slidesToSlide: 1
+  }
 };
+
+/**
+ * testimonials query
+ */
+
+const GET_TESTEMONIALS = gql`
+  {
+    testimonialsCollection {
+      items {
+        name
+        text
+        position
+        slug
+        photo {
+          url
+        }
+      }
+    }
+  }
+`;
 
 /**
  * Renders Impact
  */
 const Impact: React.FC<ImpactProps> = ({}) => {
-  const { data } = useImpactData();
+  const { data, loading, error } = useQuery(GET_TESTEMONIALS);
+  const [testemonials, setTestemonials] = React.useState(null);
+  React.useEffect(() => {
+    if (!loading) {
+      const { items } = data.testimonialsCollection;
+      setTestemonials(items);
+    }
+  });
+
+  if (!testemonials) return <div>loading...</div>;
+  if (loading) return <div>loading...</div>;
 
   return (
     <section className={styles.impact}>
@@ -41,19 +72,20 @@ const Impact: React.FC<ImpactProps> = ({}) => {
         draggable={false}
         swipeable={false}
         responsive={responsiveBreakpoints}
-        customButtonGroup={
-          <SliderButtons className={styles.controls} />
-        }
+        customButtonGroup={<SliderButtons className={styles.controls} />}
       >
-        {data.map((item, index) => (
-          <OpinionItem
-            name={item.name}
-            text={item.text}
-            img={item.img}
-            from={item.from}
-            key={`${item.name}+${index}`}
-          />
-        ))}
+        {testemonials.map((item, index) => {
+          const { name, text, position, photo } = item;
+          return (
+            <OpinionItem
+              name={name}
+              text={text}
+              img={photo.url}
+              from={position}
+              key={`${item.name}+${index}`}
+            />
+          );
+        })}
       </Slider>
     </section>
   );

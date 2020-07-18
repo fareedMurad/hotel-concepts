@@ -5,8 +5,10 @@ type ProgramModuleItemProps = {
   index: number;
   name: string;
   description: string;
-  weeks: number;
-  hrhWeek: number;
+ duration: {
+   houers: string | number
+   weeks: string | number
+ }
   pdf: string;
 };
 

@@ -35,8 +35,7 @@ const Modal: React.FC<ModalProps> = ({ id, className, children, ...props }) => {
     );
   }
 
-  // return mobile ? <Content /> : null;
-  return null;
+  return mobile ? <Content /> : null;
 };
 
 export { Modal };

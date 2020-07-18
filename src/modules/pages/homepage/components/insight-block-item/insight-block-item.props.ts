@@ -2,11 +2,17 @@
  * Props
  */
 type InsightBlockItemProps = {
-  articles: {
-    img: string;
-    activity: string;
-    date: string;
-    description: string;
+  title: string;
+  category: string;
+  slug: string;
+  text: string;
+  articleImage: {
+    url: string;
+  };
+  date: {
+    day: string | number;
+    month: string;
+    year: string | number;
   };
 };
 

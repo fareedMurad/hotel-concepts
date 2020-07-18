@@ -5,6 +5,7 @@
   background-color: #f5f1f0;
   padding-left: $left-offset;
   padding-right: $default-offset;
+  left: 0;
   position: fixed;
   z-index: -1;
   bottom: 0;
@@ -140,7 +141,6 @@
   @include font($primary-gray, 12px, 600, 16px);
   font-family: $IBMPlex;
 }
-
 
 .social {
   margin-right: 10px;

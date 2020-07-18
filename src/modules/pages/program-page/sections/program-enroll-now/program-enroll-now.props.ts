@@ -10,8 +10,6 @@ type EnrollItem = {
 /**
  * Props
  */
-type ProgramEnrollNowProps = {
-  enrollInfo: EnrollItem[];
-};
+type ProgramEnrollNowProps = {};
 
 export { ProgramEnrollNowProps };

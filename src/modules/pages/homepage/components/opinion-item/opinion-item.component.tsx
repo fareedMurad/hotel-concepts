@@ -11,10 +11,10 @@ const OpinionItem: React.FC<OpinionItemProps> = ({ name, text, from, img }) => {
       <div className={styles.text}>
         {`"${text}"`}
         <div className={styles.container}>
-          <img src={require(`img/${img}.png`)} alt="Author" className={styles.img} />
+          <img src={img} alt='Author' className={styles.img} />
           <div className={styles.info}>
             <div className={styles.name}>{name}</div>
-            <div  className={styles.from}>{"from " + `"${from}"`}</div>
+            <div className={styles.from}>{'from ' + `"${from}"`}</div>
           </div>
         </div>
       </div>

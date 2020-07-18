@@ -1,8 +1,8 @@
-@import "core.scss";
+@import 'core.scss';
 
 .mentors {
   background-color: $background;
-  padding: 60px 0;
+  padding: 60px 30px;
 }
 
 .title {
@@ -37,7 +37,7 @@
   padding-bottom: 108px;
   overflow: hidden;
   position: relative;
-  padding-left: $default-offset;
+  padding-left: 49px;
 }
 
 .controls {

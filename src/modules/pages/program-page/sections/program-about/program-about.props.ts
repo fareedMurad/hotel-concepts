@@ -3,7 +3,7 @@
  */
 type ProgramAboutProps = {
   about: {
-    text: string;
+    aboutText: string;
     skills: string[];
   }
 };

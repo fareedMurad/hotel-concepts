@@ -1,7 +1,7 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-quote {
-  background: url('../../../../../assets/img/program-quote.png') no-repeat center center;
+  background-position: center;
   height: 100vh;
   position: relative;
   box-sizing: border-box;
@@ -12,7 +12,7 @@
   background-size: cover;
   min-height: 500px;
   padding: 0 $default-offset;
-	@include flex($justify: center, $align: center, $direction: column);
+  @include flex($justify: center, $align: center, $direction: column);
 }
 
 .text {

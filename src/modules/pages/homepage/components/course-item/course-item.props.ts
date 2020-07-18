@@ -8,7 +8,8 @@ type CourseItemProps = {
   price: number;
   weeks: number;
   sprints: number;
-  img: string;
+  img?: string;
+  slug: string;
 };
 
 export { CourseItemProps };

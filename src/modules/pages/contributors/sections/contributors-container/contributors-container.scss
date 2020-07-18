@@ -27,7 +27,7 @@
   }
 }
 
-.contributorsList {
+.contributors-list {
   width: 100%;
   @include flex($align: center);
   overflow-x: scroll;
@@ -39,9 +39,13 @@
   & > div:last-child {
     padding-right: 20px;
   }
+  @include tablet() {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
   @include desktop() {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    overflow: initial;
+    overflow: hidden;
     display: grid;
     gap: 10px;
     margin-right: 0;
@@ -53,7 +57,7 @@
   }
 }
 .contributor {
-  // width: 316px;
+  width: 316px;
   &__photo {
     display: block;
     width: 316px;
