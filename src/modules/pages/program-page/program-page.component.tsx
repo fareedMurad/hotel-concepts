@@ -4,7 +4,7 @@ import * as styles from './program-page.scss';
 import { Header } from '@core/components/header';
 import { Mentors } from '@pages/homepage/sections/mentors';
 import { Impact } from '@pages/homepage/sections/impact';
-import { Footer } from '@core/components';
+import { Footer, Spinner } from '@core/components';
 import { ProgramIntro } from './sections/program-intro';
 import { ProgramOverview } from './sections/program-overview';
 import { ProgramAbout } from './sections/program-about';
@@ -75,7 +75,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const { data: response, loading, error } = useQuery(GET_PROGRAM, {
     variables: { id: programId }
   });
-  if (loading) return <div>loading...</div>;
+  if (loading) return <Spinner />;
 
   const {
     about,

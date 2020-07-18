@@ -8,7 +8,19 @@ import { AppProps } from './app.props';
 import { State } from './store/state';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './graphql/apollo-client';
+import { useLocation } from 'react-router-dom';
+/**
+ * Scroll to top
+ */
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 /**
  * App content
  */
@@ -18,6 +30,7 @@ const Content: React.FC = ({ children }) => {
 
   useEffect(() => {
     dispatch(startup());
+    window.scrollTo(0, 0);
   }, []);
 
   if (!isReady) return null;
@@ -42,4 +55,4 @@ const App: React.FC<AppProps> = ({ children, history, store }) => (
   </Provider>
 );
 
-export { App };
+export { App, ScrollToTop };

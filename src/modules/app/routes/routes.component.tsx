@@ -4,7 +4,7 @@ import { Uikit } from '@uikit';
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import * as styles from './routes.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { State } from '@app/store/state';
 import { Toast } from '@core/components';
 import {
@@ -28,6 +28,7 @@ import { ProgramPage } from '@pages/program-page';
 import { ProgramsCatalogue } from '@pages/programs-catalogue';
 import { MentorModal } from '@pages/components/mentor-modal';
 import { useMediaPoints } from '@core/shared';
+import { toogleContributorModal } from '@ui/modal';
 
 /**
  * Renders Routes
@@ -35,6 +36,8 @@ import { useMediaPoints } from '@core/shared';
 const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
   const { mobile } = useMediaPoints();
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.routes}>
       {isToastVisible && <Toast />}
@@ -51,7 +54,11 @@ const Routes: React.FC = () => {
         {mobile && (
           <Route
             path={['/contributors/mentor/:id', '/mentor/:id']}
-            component={MentorModal}
+            render={() => (
+              <MentorModal
+                hideComponent={() => dispatch(toogleContributorModal(false))}
+              />
+            )}
           />
         )}
         <Route path='/contributors' component={Contributors} />

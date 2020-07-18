@@ -8,6 +8,7 @@ import { useFeaturedArticlesData } from '@pages/insights/sections/featured-artic
 import { useHistory } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
 import { clearConfigCache } from 'prettier';
+import { Spinner } from '@core/components/spinner';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -57,7 +58,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
 
   const { data, loading, error } = useQuery(GET_ARTICLES);
 
-  if (loading) return <div>loading...</div>;
+  if (loading) return <Spinner />;
   const { items: articles } = data.articleCollection;
 
   return (
@@ -75,7 +76,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
           <SliderButtons
             onClick={handleClick}
             className={styles.controls}
-            isBordered={true}
+            isBordered
             btnText='Read All Insights'
           />
         }

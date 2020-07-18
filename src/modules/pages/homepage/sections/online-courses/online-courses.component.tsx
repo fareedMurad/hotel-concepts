@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourses } from './store';
 import { gql, useQuery } from '@apollo/client';
+import { Spinner } from '@core/components/spinner';
 
 /**
  * courses query
@@ -47,7 +48,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
 
   const history = useHistory();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner />;
 
   const { items: courses } = data.onlineCourseCollection;
 

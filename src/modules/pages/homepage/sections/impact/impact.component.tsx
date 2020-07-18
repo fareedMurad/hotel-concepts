@@ -6,6 +6,7 @@ import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { OpinionItem } from '@pages/homepage/components/opinion-item';
 import { gql, useQuery } from '@apollo/client';
+import { Spinner } from '@core/components/spinner';
 
 const responsiveBreakpoints = {
   desktop: {
@@ -58,7 +59,7 @@ const Impact: React.FC<ImpactProps> = ({}) => {
     }
   });
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner />;
 
   return (
     <section className={styles.impact}>

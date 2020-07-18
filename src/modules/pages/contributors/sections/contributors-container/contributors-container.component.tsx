@@ -4,13 +4,14 @@ import * as styles from './contributors-container.scss';
 import { H2, Paragraph, PreCaption } from '@core/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { Modals } from '@ui/models';
-import { useDispatch } from 'react-redux';
-import { showModal } from '@ui/modal/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { showModal, toogleContributorModal } from '@ui/modal/actions';
 import { navigate } from '@router/store';
 import { useMediaPoints } from '@core/shared';
 import { MentorModal } from '@pages/components/mentor-modal';
 import { ContributorCard } from '@pages/components/contributor-card';
 import { Spinner } from '@core/components/spinner';
+import { State } from '@app/store/state';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -39,7 +40,7 @@ const responsiveBreakpoints = {
 const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   const { contributors, loading } = useContributorsData();
   const { mobile } = useMediaPoints();
-  const [openedModal, setOpenedModal] = React.useState(null);
+  const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
 
   return (
@@ -81,13 +82,17 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
                 );
                 !mobile &&
                   (dispatch(showModal(Modals.contributor)),
-                  setOpenedModal(true));
+                  dispatch(toogleContributorModal(true)));
               }}
             />
           ))}
         </section>
       )}
-      {openedModal && <MentorModal />}
+      {contributorModal && (
+        <MentorModal
+          hideComponent={() => dispatch(toogleContributorModal(false))}
+        />
+      )}
     </div>
   );
 };

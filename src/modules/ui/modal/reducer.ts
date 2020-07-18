@@ -1,6 +1,6 @@
 import { ModalState } from './state';
 import { reducer } from 'redux-chill';
-import { showModal, closeModal } from './actions';
+import { showModal, closeModal, toogleContributorModal } from './actions';
 
 /**
  * modal state
@@ -15,6 +15,10 @@ const modal = reducer(new ModalState())
   })
   .on(closeModal, (state, { id }) => {
     state.active = state.active.filter(item => id.every(one => one != item));
-  });
+  })
+  .on(
+    toogleContributorModal,
+    (state, payload) => (state.contributorModal = payload)
+  );
 
 export { modal };

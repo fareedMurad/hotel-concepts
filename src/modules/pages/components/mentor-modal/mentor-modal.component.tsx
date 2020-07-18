@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
 import { useMediaPoints } from '@core/shared';
+import { Spinner } from '@core/components/spinner';
 
 const GET_MENTOR = gql`
   query($id: String!) {
@@ -26,7 +27,7 @@ const GET_MENTOR = gql`
 /**
  * Renders MentorModal
  */
-const MentorModal: React.FC<MentorModalProps> = ({}) => {
+const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
   const { mobile } = useMediaPoints();
 
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const MentorModal: React.FC<MentorModalProps> = ({}) => {
     variables: { id: mentorId }
   });
 
-  if (loading) return <div>{mobile && <div>Spinner</div>}</div>;
+  if (loading) return <div>{mobile && <Spinner />}</div>;
 
   const mentor = data?.mentor;
   const { name, surname, position, mentorPicture, city, experience } = mentor;
@@ -72,7 +73,9 @@ const MentorModal: React.FC<MentorModalProps> = ({}) => {
           className={styles.modalIcon}
           onClick={() => {
             dispatch(closeModal(Modals.contributor));
+            hideComponent();
             history.goBack();
+            console.log('im called');
           }}
         />
       </Modal>

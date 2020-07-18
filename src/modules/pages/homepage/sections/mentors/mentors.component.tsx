@@ -3,14 +3,16 @@ import { MentorsProps } from './mentors.props';
 import * as styles from './mentors.scss';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
-import { useHistory } from 'react-router';
-import { showModal } from '@ui/modal';
+import { useHistory, Route } from 'react-router';
+import { showModal, toogleContributorModal } from '@ui/modal';
 import { Modals } from '@ui/models';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MentorModal } from '@pages/components/mentor-modal';
 import { navigate } from '@router/store';
 import { useMediaPoints } from '@core/shared';
 import { ContributorCard } from '@pages/components';
+import { Spinner } from '@core/components/spinner';
+import { State } from '@app/store/state';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -40,12 +42,12 @@ const responsiveBreakpoints = {
 const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
   const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
-  const [openedModal, setOpenedModal] = React.useState(false);
+  const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
 
   const handleClick = () => history.push(`/contributors`);
 
-  if (loading) return <div>loading...</div>;
+  if (loading) return <Spinner />;
 
   return (
     <section className={styles.mentors}>
@@ -72,26 +74,28 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
           />
         }
       >
-        {contributors.map((contributor, index) => {
-          return (
-            <ContributorCard
-              contributor={contributor}
-              key={index}
-              onClick={() => {
-                dispatch(
-                  navigate(
-                    `/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
-                  )
-                );
-                !mobile &&
-                  (dispatch(showModal(Modals.contributor)),
-                  setOpenedModal(true));
-              }}
-            />
-          );
-        })}
+        {contributors.map((contributor, index) => (
+          <ContributorCard
+            contributor={contributor}
+            key={index}
+            onClick={() => {
+              dispatch(
+                navigate(
+                  `/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+                )
+              );
+              !mobile &&
+                (dispatch(showModal(Modals.contributor)),
+                dispatch(toogleContributorModal(true)));
+            }}
+          />
+        ))}
       </Slider>
-      {openedModal && <MentorModal />}
+      {contributorModal && (
+        <MentorModal
+          hideComponent={() => dispatch(toogleContributorModal(false))}
+        />
+      )}
     </section>
   );
 };

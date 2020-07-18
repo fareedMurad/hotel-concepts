@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ProgramEnrollNowProps } from './program-enroll-now.props';
 import * as styles from './program-enroll-now.scss';
-import { Button } from '@core/components';
+import { Button, Spinner } from '@core/components';
 import { map } from 'puppeteer/DeviceDescriptors';
 import classNames from 'classnames';
 import { gql, useQuery } from '@apollo/client';
@@ -33,7 +33,7 @@ const GET_PAYMENT_PROPOSALS = gql`
 const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = () => {
   const { data, loading, error } = useQuery(GET_PAYMENT_PROPOSALS);
 
-  if (loading) return <div>loading...</div>;
+  if (loading) return <Spinner />;
 
   const { items } = data.paymentProposalsCollection;
 
@@ -77,7 +77,7 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = () => {
                 </Button>
               </div>
             </div>
-            <div className={styles.hr}></div>
+            <div className={styles.hr} />
             <div className={styles.features}>
               <div className={styles.featureTitle}>Features</div>
               {item.features.map((item, index) => (
