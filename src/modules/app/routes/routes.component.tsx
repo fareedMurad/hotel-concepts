@@ -2,7 +2,7 @@ import { Auth } from '@auth';
 import { Profile } from '@profile';
 import { Uikit } from '@uikit';
 import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import * as styles from './routes.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from '@app/store/state';
@@ -29,6 +29,7 @@ import { ProgramsCatalogue } from '@pages/programs-catalogue';
 import { MentorModal } from '@pages/components/mentor-modal';
 import { useMediaPoints } from '@core/shared';
 import { toogleContributorModal } from '@ui/modal';
+import { NotFound } from '@app/components';
 
 /**
  * Renders Routes
@@ -61,7 +62,7 @@ const Routes: React.FC = () => {
             )}
           />
         )}
-        <Route path='/contributors' component={Contributors} />
+        <Route exact={mobile} path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
         <Route path='/programs-catalogue/:slug' component={ProgramsCatalogue} />
         <Route path='/learning-approach' component={LearningApproach} />
@@ -78,7 +79,10 @@ const Routes: React.FC = () => {
         <Route path='/product/:id' component={Product} />
         {/* COURSE-PARTNERSHIP ROUTE */}
         <Route path='/course-partnership' component={CoursePartnership} />
-        <Route path='/' component={Homepage} />
+        <Route exact path='/' component={Homepage} />
+        <Route path='*'>
+          <NotFound />
+        </Route>
       </Switch>
     </div>
   );

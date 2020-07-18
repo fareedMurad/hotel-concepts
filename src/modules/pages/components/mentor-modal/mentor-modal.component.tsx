@@ -9,6 +9,7 @@ import { useHistory } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
 import { useMediaPoints } from '@core/shared';
 import { Spinner } from '@core/components/spinner';
+import { ScrollToTop } from '@app';
 
 const GET_MENTOR = gql`
   query($id: String!) {
@@ -45,6 +46,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
   const { name, surname, position, mentorPicture, city, experience } = mentor;
   return (
     <React.Fragment>
+      {mobile && <ScrollToTop />}
       <Modal id={Modals.contributor} className={styles.modal}>
         <div className={styles.modalPerson}>
           <img src={mentorPicture?.url} className={styles.modalPersonPhoto} />
