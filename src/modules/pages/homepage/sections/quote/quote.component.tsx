@@ -30,16 +30,7 @@ const Quote: React.FC<QuoteProps> = ({}) => {
 
   return (
     <section className={styles.quote}>
-<<<<<<< HEAD
-      <div className={styles.text}>
-       " Experience unique and intimate
-        online learning designed and led by
-        world-class mentors who share their
-        own ground-breaking practice. "
-      </div>
-=======
       <div className={styles.text}>{`"${text}"`}</div>
->>>>>>> COR-20
     </section>
   );
 };

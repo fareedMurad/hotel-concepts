@@ -8,11 +8,7 @@ import { Button } from '@core/components';
 import { useProgramData } from './progtam-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { BackButton } from '@core/components/back-button';
-<<<<<<< HEAD
 import { scrollTo } from '@core/helpers/scroll-to.helper';
-=======
-import { useParams } from 'react-router';
->>>>>>> COR-20
 
 /**
  * Renders ProgramIntro
@@ -32,8 +28,8 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
   const { navButtons } = useProgramData();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
   const scrollToEnroll = () => {
-    scrollTo("enroll");
-  }
+    scrollTo('enroll');
+  };
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -104,11 +100,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
             key={index}
           />
         ))}
-<<<<<<< HEAD
         <Button onClick={scrollToEnroll} className={styles.button}>
-=======
-        <a href='#enroll' className={styles.button}>
->>>>>>> COR-20
           <div>Enroll now</div> <div>→</div>
         </Button>
       </div>

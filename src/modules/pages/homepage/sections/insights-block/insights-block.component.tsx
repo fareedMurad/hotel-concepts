@@ -67,19 +67,6 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
         <div>Make the most of your learning experience</div>
       </div>
       <Slider
-<<<<<<< HEAD
-          containerClass={styles.slider}
-          draggable={false}
-          swipeable={false}
-          responsive={responsiveBreakpoints}
-          customButtonGroup={
-            <SliderButtons onClick={handleClick} className={styles.controls} btnText="Read All Insights" />
-          }
-        >
-        {data.map(article => (
-          <InsightBlockItem articles={article} key={article.id} />
-        ))}
-=======
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
@@ -107,7 +94,6 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
             />
           );
         })}
->>>>>>> COR-20
       </Slider>
     </section>
   );

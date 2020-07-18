@@ -31,16 +31,8 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <About />
       <TrainingInfo />
       <Impact />
-<<<<<<< HEAD
-      <Mentors />
-      <div className={styles.faq}>
-        <div>Frequently Asked Questions</div>
-        <FaqBlock className={styles.faqBlock} />
-      </div>
-=======
       <Mentors contributors={contributors} loading={loading} />
       <FaqBlock />
->>>>>>> COR-20
       <InsightsBlock />
       <Socials />
       <Footer />

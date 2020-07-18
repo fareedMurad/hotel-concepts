@@ -9,16 +9,14 @@ const OverviewItem: React.FC<{
   languages: string[];
 }> = ({ languages, enrollBy, duration }) => {
   const { day, month, year } = enrollBy;
-  const {months, sprints} = duration
+  const { months, sprints } = duration;
   return (
     <section className={styles.item}>
       <div className={styles.block}>
         <div className={styles.name}>Duration</div>
-<<<<<<< HEAD
-        <div className={styles.info}>{month} Month / {sprints} Sprints</div>
-=======
-        <div className={styles.info}>{months} Month/{sprints} Sprints</div>
->>>>>>> COR-20
+        <div className={styles.info}>
+          {months} Month/{sprints} Sprints
+        </div>
       </div>
       <div className={styles.hr}></div>
       <div className={styles.block}>

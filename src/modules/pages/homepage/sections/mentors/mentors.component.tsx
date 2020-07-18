@@ -63,24 +63,6 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
         </div>
       </div>
       <Slider
-<<<<<<< HEAD
-          containerClass={styles.slider}
-          draggable={false}
-          swipeable={false}
-          responsive={responsiveBreakpoints}
-          customButtonGroup={
-            <SliderButtons onClick={handleClick} className={styles.controls} isBordered={true} btnText="See All Contributors" />
-          }
-        >
-        {contributors.map(contributor => (
-          <MentorItem
-            name={contributor.name}
-            role={contributor.profession}
-            img={contributor.photo}
-            key={contributor.id}
-            city={contributor.city}
-            onClick={modalHandle(contributor.id)}
-=======
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
@@ -91,7 +73,6 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
             className={styles.controls}
             isBordered
             btnText='See All Contributors'
->>>>>>> COR-20
           />
         }
       >
