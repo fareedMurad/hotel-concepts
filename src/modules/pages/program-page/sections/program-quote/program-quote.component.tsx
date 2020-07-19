@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ProgramQuoteProps } from './program-quote.props';
 import * as styles from './program-quote.scss';
-import { Button } from '@core/components';
+import { Button, Spinner } from '@core/components';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
 
@@ -27,9 +27,10 @@ const Data = gql`
 
 const ProgramQuote: React.FC<ProgramQuoteProps> = ({}) => {
   const { data, loading, error } = useQuery(Data);
-  if (loading) return <div>loading...</div>;
+  if (loading) return <Spinner />;
+  
   const quote = data.programPageBgAndQuoteTextCollection.items[0];
-  console.log(quote);
+
   const scrollToEnroll = () => {
     scrollTo('enroll');
   };

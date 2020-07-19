@@ -23,7 +23,7 @@ const Card = ({ card }) => {
  */
 const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
   const { data } = useWhatWeTeachData();
-
+    
   return (
     <div className={styles.whatWeTeach}>
       <H2 className={styles.caption}>What do we teach</H2>

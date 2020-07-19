@@ -22,7 +22,7 @@ import { ScrollToTop } from '@app';
  */
 const Homepage: React.FC<HomepageProps> = ({}) => {
   const { contributors, loading } = useContributorsData();
-  
+
   return (
     <div className={styles.homepage}>
       <Header />
@@ -33,7 +33,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <About />
       <TrainingInfo />
       <Impact />
-      <Mentors contributors={contributors} loading={loading} />
+      <Mentors contributors={contributors} loading={loading} url='mentor' />
       <FaqBlock />
       <InsightsBlock />
       <Socials />

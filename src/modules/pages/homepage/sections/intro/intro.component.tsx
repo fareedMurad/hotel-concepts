@@ -7,6 +7,7 @@ import { WatchButton } from '@core/components/watch-button';
 import { ScrollButton } from '@core/components/scroll-button';
 import { Button } from '@core/components';
 import { useHistory } from 'react-router';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 
 /**
  * Renders Intro
@@ -16,9 +17,6 @@ const Intro: React.FC<IntroProps> = ({}) => {
 
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
-  const history = useHistory();
-  const handleClick = () =>
-    history.push(`/programs-catalogue/focused-programs`);
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -46,13 +44,17 @@ const Intro: React.FC<IntroProps> = ({}) => {
     }
   };
 
+  const scrollToEnroll = () => {
+    scrollTo('online-courses');
+  };
+
   return (
     <section className={styles.intro}>
       <div className={styles.title}>
         <div>Cutting edge online education for hospitality</div>
         <div>Bridging the skills gap for hotel managers</div>
       </div>
-      <Button onClick={handleClick} className={styles.findButton}>
+      <Button className={styles.findButton} onClick={scrollToEnroll}>
         <div>Find the program</div> <div>→</div>
       </Button>
       <Popup

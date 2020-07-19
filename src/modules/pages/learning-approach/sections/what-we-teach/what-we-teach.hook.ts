@@ -36,7 +36,7 @@ const useWhatWeTeachData = () => {
         'Gain the skills and confidence to succeed in the world of hospitality supported by a mentor. Start  today and be fully equipped for the challenges of tomorrow.'
     }
   ];
-
+  
   return { data };
 };
 

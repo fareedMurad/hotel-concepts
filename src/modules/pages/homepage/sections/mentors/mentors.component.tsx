@@ -39,7 +39,7 @@ const responsiveBreakpoints = {
 /**
  * Renders Mentors
  */
-const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
+const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
   const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
@@ -81,7 +81,7 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading }) => {
             onClick={() => {
               dispatch(
                 navigate(
-                  `/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+                  `${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`
                 )
               );
               !mobile &&

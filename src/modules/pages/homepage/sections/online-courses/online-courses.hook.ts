@@ -5,7 +5,7 @@ const useOnlineCoursesData = () => {
   // get all filterss
   const GET_FILTERS_CATEGORIES = gql`
     {
-      courseCategoryCollection {
+      courseCategoryCollection(order: sys_publishedAt_DESC) {
         total
         items {
           sys {

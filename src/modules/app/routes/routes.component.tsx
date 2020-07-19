@@ -2,7 +2,13 @@ import { Auth } from '@auth';
 import { Profile } from '@profile';
 import { Uikit } from '@uikit';
 import * as React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  Redirect,
+  useRouteMatch,
+  useHistory
+} from 'react-router-dom';
 import * as styles from './routes.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from '@app/store/state';
@@ -38,6 +44,7 @@ const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <div className={styles.routes}>
@@ -52,9 +59,11 @@ const Routes: React.FC = () => {
         <Route path='/contact-us' component={ContactsPage} />
         <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />
+
         {mobile && (
+          //localhost:8289/program/financial-analysis-of-hotel-investments-course?programId=41UkbhJQC6KvxmJulXmKf3&/mentor/monica?&mentorId=0WJXIZoiz9R61ZwbJhVa3
           <Route
-            path={['/contributors/mentor/:id', '/mentor/:id']}
+            path={['/contributors/mentor', '/mentor', `/program/:slug?/mentor`]}
             render={() => (
               <MentorModal
                 hideComponent={() => dispatch(toogleContributorModal(false))}
@@ -62,11 +71,11 @@ const Routes: React.FC = () => {
             )}
           />
         )}
+        <Route exact={mobile} path='/program/:slug' component={ProgramPage} />
         <Route exact={mobile} path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
 
         <Route path='/programs-catalogue/:id' component={ProgramsCatalogue} />
-        <Route path='/program/:slug' component={ProgramPage} />
         <Route path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
 

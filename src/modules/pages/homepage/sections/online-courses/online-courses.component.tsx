@@ -56,7 +56,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   if (loadingFilters) return <Spinner />;
 
   return (
-    <section className={styles.onlineCourses}>
+    <section className={styles.onlineCourses} id='online-courses'>
       <div className={styles.title}>
         <div>Online courses for you</div>
         <div>

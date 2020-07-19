@@ -1,11 +1,13 @@
 @import 'core.scss';
 
 .filter {
-  @include font($primary-gray, 16px, 300, 28px);
-  @include flex(flex-start, center, row);
-  width: fit-content;
+  @include font($primary-gray, 14px, 300, 28px);
+  @include desktop() {
+    @include font($primary-gray, 16px, 300, 28px);
+  }
+  @include flex($align: center);
+  width: auto;
   height: 47px;
-  margin-right: 12px;
   padding: 12px;
   border: 1px solid $hr;
   border-radius: 3px;
@@ -16,6 +18,7 @@
     border: 1px solid $primary-orange;
   }
   &__title {
+    width: 100%;
     margin-right: 11px;
   }
   &__count {

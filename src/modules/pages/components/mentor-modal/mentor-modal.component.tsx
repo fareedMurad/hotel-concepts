@@ -35,7 +35,6 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
   const history = useHistory();
   const searchParams = new URLSearchParams(history.location.search);
   const mentorId = searchParams.get('mentorId');
-
   const { data, loading, error } = useQuery(GET_MENTOR, {
     variables: { id: mentorId }
   });
@@ -88,7 +87,6 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
             dispatch(closeModal(Modals.contributor));
             hideComponent();
             history.goBack();
-            console.log('im called');
           }}
         />
       </Modal>

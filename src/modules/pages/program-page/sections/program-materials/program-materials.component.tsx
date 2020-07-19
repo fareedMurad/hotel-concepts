@@ -5,15 +5,16 @@ import * as styles from './program-materials.scss';
 /**
  * Renders ProgramMaterials
  */
-const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({additionalMaterials}) => {
-  console.log(additionalMaterials)
+const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({
+  additionalMaterials
+}) => {
   return (
     <section className={styles.programMaterials}>
-      <div className={styles.title}>
-        Additional materials
-      </div>
+      <div className={styles.title}>Additional materials</div>
       {additionalMaterials.map((item, index) => (
-        <div className={styles.item} key={index}>{item}</div>
+        <div className={styles.item} key={index}>
+          {item}
+        </div>
       ))}
     </section>
   );

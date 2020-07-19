@@ -6,6 +6,7 @@ import { array } from 'yup';
 type MentorsProps = {
   contributors: Array<any>;
   loading: boolean;
+  url?: string;
 };
 
 export { MentorsProps };

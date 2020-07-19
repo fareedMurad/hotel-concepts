@@ -49,8 +49,13 @@ const GET_PROGRAM = gql`
             name
             experience
             position
+            city
+            slug
             mentorPicture {
               url
+            }
+            sys {
+              id
             }
           }
         }
@@ -70,9 +75,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const history = useHistory();
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
-  const { data } = useProgramPageData();
-  const pageData = data.filter(item => item.id == 1)[0];
-
+  const { learningApproach } = useProgramPageData();
   const { data: response, loading, error } = useQuery(GET_PROGRAM, {
     variables: { id: programId }
   });
@@ -107,8 +110,12 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       />
       <div className={styles.img} style={{ backgroundImage: `url(${url})` }} />
       <ProgramResults results={results} />
-      <Mentors contributors={mentorsForCurrrentCourse} loading={loading} />
-      <ProgramLearningApproach learningApproach={pageData.learningApproach} />
+      <Mentors
+        contributors={mentorsForCurrrentCourse}
+        loading={loading}
+        url={`${history.location.pathname}?programId=${programId}&/mentor`}
+      />
+      <ProgramLearningApproach learningApproach={learningApproach} />
       <ProgramMaterials additionalMaterials={additionalMaterials} />
       <Impact />
       <div className={styles.hr} />
