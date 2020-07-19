@@ -41,7 +41,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
         <div
           className={styles.heroMainPic}
           style={{
-            backgroundImage: `url(${require(`img/insights/insights-1.png`)})`
+            backgroundImage: `url("img/insights/insights-1.png")`
           }}
         >
           <div className={styles.heroMainContent}>

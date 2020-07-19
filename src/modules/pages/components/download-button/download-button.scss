@@ -1,11 +1,13 @@
 @import 'core.scss';
 
 .download-button {
+  display: block;
   @include flex($align: center, $justify: space-between);
   padding: 16px;
   background: #f5f1f0;
   border-radius: 8px;
   min-width: 336px;
+  cursor: pointer;
 }
 
 .description {
