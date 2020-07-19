@@ -18,9 +18,7 @@ import { get } from 'object-path';
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   const { categories, loading, total } = useCoursesCategoriesData();
   const { allCourses } = useCoursesData();
-  const [currentCourseCategorie, setCurrentCourseCategorie] = React.useState(
-    null
-  );
+
   const [courses, setCourses] = React.useState([]);
   React.useEffect(() => {
     if (allCourses) {
@@ -28,54 +26,21 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
     }
   });
 
-  const [currentCategories, setCurrentCategory] = React.useState(null);
+  const [currentCategory, setCurrentCategory] = React.useState('All');
   const [id, setId] = React.useState(null);
 
-  // React.useEffect(() => {
-  //   if (categories) {
-  //     setCurrentCategorie(categories);
-  //   }
-  // });
-
-  // const { data, loading, error } = useQuery(GET_ONLINE_COURSES);
-  // React.useEffect(() => {
-  //   if (loading) return;
-  //   if (currentCourseType) return;
-  //   const { items } = data.onlineCourseCollection;
-  //   setCurrentCourseType(items[0].courseType);
-  // });
-
   const history = useHistory();
-
-  // if (loading) return <div>Loading...</div>;
-
-  // const { items: courses } = data.onlineCourseCollection;
 
   const handleClick = () => {
     history.push(`/programs-catalogue/${id}`);
   };
 
   if (loading) return <div>loading...</div>;
+  console.log(allCourses);
 
-  // const uniqueElements = Array.from(
-  //   new Set(courses.map(course => course.courseType))
-  // );
-
-  // const currentCourses = courses.filter(
-  //   course => course.courseType === currentCourseType
-  // );
-
-  // const getCoursesTypes = () => {
-  //   return uniqueElements.map((course: string) => ({
-  //     name: course,
-  //     count: courses.filter(item => item.courseType === course).length
-  //   }));
-  // };
-
-  // const coursesTypes = getCoursesTypes();
-
-  const onFilterSelect = () => {
-    setCurrentCourseCategorie(name);
+  const onFilterSelect = (name: string, id: string) => {
+    setCurrentCategory(name);
+    setId(id);
   };
 
   return (
@@ -93,9 +58,9 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
             count={total}
             title='All'
             onClick={() => {
-              setCurrentCourseCategorie('All');
+              setCurrentCategory('All');
             }}
-            active
+            active={currentCategory == 'All'}
           ></ButtonFilter>
           {categories.map(filter => {
             const { total } = filter.coursesCollection;
@@ -106,11 +71,9 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                 title={filter.category}
                 count={total}
                 onClick={() => {
-                  onFilterSelect();
-                  setCurrentCategory(filter);
-                  setId(filter.sys.id);
+                  onFilterSelect(filter.category, filter.sys.id);
                 }}
-                active={currentCourseCategorie == filter.category}
+                active={currentCategory == filter.category}
                 className={styles.filterButton}
               />
             );
@@ -136,6 +99,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
               } = course;
               return (
                 <CourseItem
+                  key={id}
                   id={id}
                   slug={slug}
                   name={name}
