@@ -30,13 +30,10 @@ const GET_READING_MATERIALS = gql`
  * Renders ReadingMaterials
  */
 const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({}) => {
-  const { data } = useReadingMaterialsData();
   const { data: datar, loading, error } = useQuery(GET_READING_MATERIALS);
 
   const readingData =
     datar?.readingMaterialsForLearningAproachCollection?.items;
-
-  console.log(readingData);
 
   function fileSize(bytes, dp = 1) {
     const thresh = 1000;
