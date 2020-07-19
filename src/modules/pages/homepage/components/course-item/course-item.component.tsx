@@ -8,10 +8,21 @@ import { useHistory } from 'react-router-dom';
  * Renders CourseItem
  */
 const CourseItem: React.FC<CourseItemProps> = props => {
-  const { id, slug, name, description, weeks, sprints, img, price } = props;
+  const {
+    id,
+    slug,
+    name,
+    description,
+    weeks,
+    sprints,
+    img,
+    price,
+    catalogueId
+  } = props;
   const history = useHistory();
   const handleClick = (id, slug) => () =>
     history.push(`/program/${slug}?programId=${id}`);
+
   return (
     <div className={styles.courseItem}>
       <div className={styles.card}>

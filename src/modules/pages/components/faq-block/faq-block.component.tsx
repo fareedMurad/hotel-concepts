@@ -6,6 +6,7 @@ import { ButtonFilter } from '@core/components';
 import { FaqItem } from '@pages/homepage/components/faq-item';
 import classNames from 'classnames';
 import { gql, useQuery } from '@apollo/client';
+import { Spinner } from '@core/components/spinner';
 
 /**
  * faq query
@@ -28,7 +29,7 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
   const [currentCategory, setCurrentCutegory] = React.useState('All');
   const { data, loading, error } = useQuery(GET_FAQ);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner />;
   const { items } = data.faqCollection;
 
   const uniqueElements = Array.from(new Set(items.map(item => item.category)));

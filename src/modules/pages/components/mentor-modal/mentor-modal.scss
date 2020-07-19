@@ -129,8 +129,8 @@
     top: 15px;
     right: 15px;
     @include tablet() {
-      right: -40px;
       top: 0;
+      right: -40px;
     }
   }
 }

@@ -1,47 +1,59 @@
 import * as React from 'react';
 import { OnlineCoursesProps } from './online-courses.props';
 import * as styles from './online-courses.scss';
-import {
-  useCoursesCategoriesData,
-  useCoursesData
-} from './online-courses.hook';
 import { ButtonFilter, Button } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
 import { useHistory } from 'react-router';
-
-import { gql, useQuery, useLazyQuery } from '@apollo/client';
-import { get } from 'object-path';
+import { Spinner } from '@core/components/spinner';
+import { useQuery } from '@apollo/client';
+import { useOnlineCoursesData } from './online-courses.hook';
+import { navigate } from '@router/store';
+import { useDispatch } from 'react-redux';
 
 /**
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
-  const { categories, loading, total } = useCoursesCategoriesData();
-  const { allCourses } = useCoursesData();
+  const {
+    categories,
+    loadingFilters,
+    total,
+    GET_COURSES_BY_FILTER
+  } = useOnlineCoursesData();
 
-  const [courses, setCourses] = React.useState([]);
-  React.useEffect(() => {
-    if (allCourses) {
-      setCourses(allCourses);
+  const dispatch = useDispatch();
+
+  // we need init values to prevent errors
+  const [currentCategory, setCurrentCategory] = React.useState({
+    category: '',
+    description: '',
+    sys: {
+      id: null
+    },
+    coursesCollection: {
+      total: null
     }
   });
 
-  const [currentCategory, setCurrentCategory] = React.useState('All');
-  const [id, setId] = React.useState(null);
+  const [coursesByFilter, setCoursesByFilter] = React.useState([]);
+  // on first load we set default filter as first in array
+  React.useEffect(() => {
+    if (categories) {
+      setCurrentCategory(categories[0]);
+    }
+  }, [categories]);
 
-  const history = useHistory();
+  const { data, loading, error } = useQuery(GET_COURSES_BY_FILTER, {
+    variables: { courseType: currentCategory.category.toLowerCase() }
+  });
+  // we setting courses filtered by category
+  React.useEffect(() => {
+    if (!loading) {
+      setCoursesByFilter(data.onlineCourseCollection.items);
+    }
+  }, [data]);
 
-  const handleClick = () => {
-    history.push(`/programs-catalogue/${id}`);
-  };
-
-  if (loading) return <div>loading...</div>;
-  console.log(allCourses);
-
-  const onFilterSelect = (name: string, id: string) => {
-    setCurrentCategory(name);
-    setId(id);
-  };
+  if (loadingFilters) return <Spinner />;
 
   return (
     <section className={styles.onlineCourses}>
@@ -54,73 +66,74 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
       </div>
       <div className={styles.content}>
         <div className={styles.filters}>
-          <ButtonFilter
-            count={total}
-            title='All'
-            onClick={() => {
-              setCurrentCategory('All');
-            }}
-            active={currentCategory == 'All'}
-          ></ButtonFilter>
-          {categories.map(filter => {
-            const { total } = filter.coursesCollection;
-            const { id } = filter.sys;
+          {categories.map(category => {
+            const { total } = category.coursesCollection;
+            const { id } = category.sys;
             return (
               <ButtonFilter
-                key={filter.category}
-                title={filter.category}
+                key={category.category}
+                title={category.category}
                 count={total}
                 onClick={() => {
-                  onFilterSelect(filter.category, filter.sys.id);
+                  setCurrentCategory(category);
                 }}
-                active={currentCategory == filter.category}
+                active={currentCategory.category == category.category}
                 className={styles.filterButton}
               />
             );
           })}
         </div>
-        <div className={styles.info}>
-          Focused programs are an opportunity for you to develop in-depth
-          expertise in areas that are critical for you. Choose from many topics
-          including hospitality digital marketing, revenue management, human
-          resources and others.
-        </div>
-        <div className={styles.coursesWrapper}>
-          <div className={styles.courses}>
-            {courses.map((course, index) => {
-              const {
-                slug,
-                name,
-                description,
-                duration: { months, sprints },
-                courseImage: { url },
-                price,
-                sys: { id }
-              } = course;
-              return (
-                <CourseItem
-                  key={id}
-                  id={id}
-                  slug={slug}
-                  name={name}
-                  description={description}
-                  weeks={months}
-                  sprints={sprints}
-                  price={price}
-                  img={url}
-                />
-              );
-            })}
-          </div>
-        </div>
-        <div className={styles.footer}>
-          <div className={styles.footerTitle}>
-            Can’t you find course for you in this category?
-          </div>
-          <Button onClick={handleClick} className={styles.button}>
-            <div>See more courses</div> <div>&#8594;</div>
-          </Button>
-        </div>
+        {currentCategory.coursesCollection.total === 0 ? (
+          <div>No courses yet</div>
+        ) : (
+          <React.Fragment>
+            <div className={styles.info}>{currentCategory.description}</div>
+            <div className={styles.coursesWrapper}>
+              <div className={styles.courses}>
+                {coursesByFilter.map((course, index) => {
+                  const {
+                    slug,
+                    name,
+                    description,
+                    duration: { months, sprints },
+                    courseImage: { url },
+                    price,
+                    sys: { id }
+                  } = course;
+                  return (
+                    <CourseItem
+                      key={id}
+                      id={id}
+                      slug={slug}
+                      name={name}
+                      description={description}
+                      weeks={months}
+                      sprints={sprints}
+                      price={price}
+                      img={url}
+                      catalogueId={currentCategory.sys.id}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+            <div className={styles.footer}>
+              <div className={styles.footerTitle}>
+                Can’t you find course for you in this category?
+              </div>
+              <Button
+                onClick={() =>
+                  dispatch(
+                    navigate(`/programs-catalogue/${currentCategory.sys.id}`)
+                  )
+                }
+                className={styles.button}
+              >
+                <div>See more courses</div> <div>&#8594;</div>
+              </Button>
+            </div>
+          </React.Fragment>
+        )}
       </div>
     </section>
   );

@@ -1,48 +1,47 @@
 const useMenuData = () => {
-
   const mainLinks = [
     {
-      name: "Home",
-      path: "/"
+      name: 'Home',
+      path: '/'
     },
     {
-      name: "Online Programs",
-      path: "/"
+      name: 'Online Programs',
+      path: '/'
     },
     {
-      name: "Insights",
-      path: "/insights"
+      name: 'Insights',
+      path: '/insights'
     }
   ];
 
   const secondaryLinks = [
     {
-      name: "For Corporate Clients",
-      path: "/"
+      name: 'For Corporate Clients',
+      path: '/'
     },
     {
-      name: "Program-Partnership",
-      path: "/"
+      name: 'Program-Partnership',
+      path: '/'
     },
     {
-      name: "Contributors",
-      path: "/"
+      name: 'Contributors',
+      path: '/contributors'
     },
     {
-      name: "Education Process",
-      path: "/"
+      name: 'Education Process',
+      path: '/'
     },
     {
-      name: "Our Story",
-      path: "/"
+      name: 'Our Story',
+      path: '/'
     },
     {
-      name: "Jobs",
-      path: "/"
+      name: 'Jobs',
+      path: '/jobs'
     },
     {
-      name: "Contacts",
-      path: "/"
+      name: 'Contacts',
+      path: '/'
     }
   ];
   return { mainLinks, secondaryLinks };

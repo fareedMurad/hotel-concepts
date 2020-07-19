@@ -11,6 +11,7 @@ type ProgramItemProps = {
   weeks: number;
   sprints: number;
   img: string;
+  slug: string;
 };
 
 export { ProgramItemProps };

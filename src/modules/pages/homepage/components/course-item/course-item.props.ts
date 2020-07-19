@@ -10,6 +10,7 @@ type CourseItemProps = {
   sprints: number;
   img?: string;
   slug: string;
+  catalogueId: string;
 };
 
 export { CourseItemProps };

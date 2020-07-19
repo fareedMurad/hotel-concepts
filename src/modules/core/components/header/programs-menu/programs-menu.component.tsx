@@ -22,25 +22,28 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ closeMenu, isOpened }) => {
     }, 250);
     return () => {
       clearTimeout(timeout);
-    }
+    };
   }, [isOpened]);
   return (
-    <div className={classNames(styles.programsMenu, {
-      [styles.opened]: isOpened,
-      [styles.hidden]: isFullHide
-    })}>
-      <div onClick={closeMenu} className={styles.blur}></div>
+    <div
+      className={classNames(styles.programsMenu, {
+        [styles.opened]: isOpened,
+        [styles.hidden]: isFullHide
+      })}
+    >
+      <div onClick={closeMenu} className={styles.blur} />
       <div className={styles.content}>
         <div className={styles.linksContainer}>
           {programs.map((program, i) => (
-            <NavLink to={program.path} key={i} className={styles.link} onClick={closeMenu}>
-              <div className={styles.linkName}>
-                {program.name}
-              </div>
-              <div className={styles.description}>
-                {program.description}
-              </div>
-              <div className={styles.separator}></div>
+            <NavLink
+              to={program.path}
+              key={i}
+              className={styles.link}
+              onClick={closeMenu}
+            >
+              <div className={styles.linkName}>{program.name}</div>
+              <div className={styles.description}>{program.description}</div>
+              <div className={styles.separator} />
             </NavLink>
           ))}
         </div>

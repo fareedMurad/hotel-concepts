@@ -12,6 +12,7 @@ import {
 import { HeroBottom } from './sections/hero-bottom';
 import { Hero } from './sections/hero';
 import { MeetKordie } from './sections/meet-kordie';
+import { ScrollToTop } from '@app';
 
 const Hr = () => <div className={styles.hr} />;
 /**
@@ -19,6 +20,7 @@ const Hr = () => <div className={styles.hr} />;
  */
 const LearningApproach: React.FC = ({}) => (
   <div className={styles.main}>
+    <ScrollToTop />
     <Header />
     <Hero />
     <MeetKordie />

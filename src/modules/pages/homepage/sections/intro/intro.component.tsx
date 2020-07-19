@@ -17,7 +17,8 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
   const history = useHistory();
-  const handleClick = () => history.push(`/programs-catalogue/focused-programs`);
+  const handleClick = () =>
+    history.push(`/programs-catalogue/focused-programs`);
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -46,10 +47,10 @@ const Intro: React.FC<IntroProps> = ({}) => {
   };
 
   return (
-    <section className={styles.intro} >
+    <section className={styles.intro}>
       <div className={styles.title}>
         <div>Cutting edge online education for hospitality</div>
-        <div>Bridging the skills  gap for hotel managers</div>
+        <div>Bridging the skills gap for hotel managers</div>
       </div>
       <Button onClick={handleClick} className={styles.findButton}>
         <div>Find the program</div> <div>→</div>
@@ -58,25 +59,25 @@ const Intro: React.FC<IntroProps> = ({}) => {
         contentStyle={{
           border: 'none',
           background: 'transparent',
-          width: '100%',
+          width: '100%'
         }}
         trigger={
           <div className={styles.watchButton}>
             <WatchButton
               onEnter={playVideo}
               onLeave={stopVideo}
-              time="0:56"
-              titleText="Watch Trailer"
+              time='0:56'
+              titleText='Watch Trailer'
             />
           </div>
         }
-        position="top center"
-        modal={true}
-        lockScroll={true}
+        position='top center'
+        modal
+        lockScroll
       >
         <ReactPlayer
-          url="https://vimeo.com/376809414"
-          controls={true}
+          url='https://vimeo.com/376809414'
+          controls
           style={{ margin: 'auto', maxWidth: '100%' }}
         />
       </Popup>
@@ -85,11 +86,10 @@ const Intro: React.FC<IntroProps> = ({}) => {
         ref={videoRef}
         className={styles.video}
         src={require('assets/videos/HomePage.preview.mov')}
-        muted={true}
+        muted
       />
 
-      <ScrollButton text="Scroll" className={styles.scrollButton} />
-
+      <ScrollButton text='Scroll' className={styles.scrollButton} />
     </section>
   );
 };

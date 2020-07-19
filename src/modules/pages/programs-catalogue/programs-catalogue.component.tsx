@@ -6,12 +6,13 @@ import { CatalogueFilters } from './sections/catalogue-filters';
 import { ProgramsContactUs } from './sections/programs-contact-us';
 import { Header } from '@core/components/header';
 import { ProgramItem } from './components/program-item';
-import { Footer } from '@core/components';
+import { Footer, Spinner } from '@core/components';
 import { useParams } from 'react-router';
 import { Pagination } from '@core/components/pagination';
 import { useProgramsCatalogueData } from './programs-catalogue.hook';
 import { useCatalogueFiltersData } from './sections/catalogue-filters/catalogue-filters.hook';
 import { gql, useQuery } from '@apollo/client';
+import { ScrollToTop } from '@app';
 /**
  * get programs
  */
@@ -32,6 +33,7 @@ const GET_PROGRAMS = gql`
             description
             price
             duration
+            slug
             sys {
               id
             }
@@ -46,7 +48,6 @@ const GET_PROGRAMS = gql`
     }
   }
 `;
-
 /**
  * Renders ProgramsCatalogue
  */
@@ -55,12 +56,12 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { data, loading, error } = useQuery(GET_PROGRAMS, {
     variables: { id: id }
   });
+  if (loading) return <Spinner />;
 
-  if (loading) return <div> loadig ...</div>;
   console.log(data);
   const { items: programs } = data.courseCategory.coursesCollection;
   const { courseCategory: category } = data;
-  console.log(programs);
+
   // const { data } = useProgramsCatalogueData();
   // const { slug } = useParams();
   // const filterTypes = useCatalogueFiltersData();
@@ -104,7 +105,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   // }, [ currentPage]);
 
   return (
-    <>
+    <React.Fragment>
+      <ScrollToTop />
       <Header />
       <div className={styles.programsCatalogue}>
         <CatalogueHeader
@@ -118,23 +120,19 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             professional goals.
           </div>
         </div>
-        {/* <CatalogueFilters
-          currentFilters=''
-          updateFilters={updateFilters}
-        /> */}
+        {/* <CatalogueFilters currentFilters='' updateFilters={updateFilters} /> */}
         <div className={styles.content}>
           {programs.length > 0 ? (
             programs.map(item => {
               const {
-                duration: { months, sprints }
-              } = item;
-              const {
+                slug,
+                duration: { months, sprints },
                 courseImage: { url }
               } = item;
               return (
                 <ProgramItem
                   key={item.sys.id}
-                  id={item.id}
+                  id={item.sys.id}
                   name={item.name}
                   description={item.description}
                   type={item.type}
@@ -143,6 +141,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
                   sprints={sprints}
                   price={item.price}
                   category={item.courseType}
+                  slug={item.slug}
                 />
               );
             })
@@ -164,7 +163,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
         <ProgramsContactUs />
       </div>
       <Footer />
-    </>
+    </React.Fragment>
   );
 };
 

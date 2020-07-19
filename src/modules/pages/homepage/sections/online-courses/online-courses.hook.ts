@@ -1,8 +1,9 @@
 import { gql } from '@apollo/client/core';
-import { useQuery, useLazyQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
-const useCoursesCategoriesData = () => {
-  const GET_COURSES_CATEGORIES = gql`
+const useOnlineCoursesData = () => {
+  // get all filterss
+  const GET_FILTERS_CATEGORIES = gql`
     {
       courseCategoryCollection {
         total
@@ -10,7 +11,9 @@ const useCoursesCategoriesData = () => {
           sys {
             id
           }
+          slug
           category
+          description
           coursesCollection(limit: 6) {
             total
           }
@@ -18,19 +21,12 @@ const useCoursesCategoriesData = () => {
       }
     }
   `;
-  const { data, loading, error } = useQuery(GET_COURSES_CATEGORIES);
+  const { data, loading, error } = useQuery(GET_FILTERS_CATEGORIES);
 
-  return {
-    categories: data?.courseCategoryCollection?.items,
-    loading,
-    total: data?.courseCategoryCollection?.total
-  };
-};
-
-const useCoursesData = () => {
-  const GET_COURSES_CATEGORIES = gql`
-    {
-      onlineCourseCollection(limit: 6) {
+  // get courses sorted by filters
+  const GET_COURSES_BY_FILTER = gql`
+    query($courseType: String!) {
+      onlineCourseCollection(limit: 6, where: { courseType: $courseType }) {
         items {
           name
           duration
@@ -49,14 +45,13 @@ const useCoursesData = () => {
       }
     }
   `;
-  const { data, loading, error } = useQuery(GET_COURSES_CATEGORIES);
 
   return {
-    allCourses: data?.onlineCourseCollection?.items,
-    loading,
-    total: data?.onlineCourseCollection?.total
+    categories: data?.courseCategoryCollection?.items,
+    loadingFilters: loading,
+    total: data?.courseCategoryCollection?.total,
+    GET_COURSES_BY_FILTER
   };
 };
 
-export { useCoursesCategoriesData };
-export { useCoursesData };
+export { useOnlineCoursesData };

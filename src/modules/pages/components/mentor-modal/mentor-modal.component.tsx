@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
 import { useMediaPoints } from '@core/shared';
+import { Spinner } from '@core/components/spinner';
+import { ScrollToTop } from '@app';
 
 const GET_MENTOR = gql`
   query($id: String!) {
@@ -26,7 +28,7 @@ const GET_MENTOR = gql`
 /**
  * Renders MentorModal
  */
-const MentorModal: React.FC<MentorModalProps> = ({}) => {
+const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
   const { mobile } = useMediaPoints();
 
   const dispatch = useDispatch();
@@ -38,12 +40,22 @@ const MentorModal: React.FC<MentorModalProps> = ({}) => {
     variables: { id: mentorId }
   });
 
-  if (loading) return <div>{mobile && <div>Spinner</div>}</div>;
+  if (loading) return <div>{mobile && <Spinner />}</div>;
 
   const mentor = data?.mentor;
-  const { name, surname, position, mentorPicture, city, experience } = mentor;
+  const {
+    name,
+    surname,
+    position,
+    mentorPicture,
+    city,
+    experience,
+    linkedIn
+  } = mentor;
+
   return (
     <React.Fragment>
+      {mobile && <ScrollToTop />}
       <Modal id={Modals.contributor} className={styles.modal}>
         <div className={styles.modalPerson}>
           <img src={mentorPicture?.url} className={styles.modalPersonPhoto} />
@@ -57,7 +69,9 @@ const MentorModal: React.FC<MentorModalProps> = ({}) => {
               </div>
               <div className={styles.contributorDetails}>United Kingdom</div>
             </div>
-            <Icon name='linkedin' />
+            <a href={linkedIn}>
+              <Icon name='linkedin' />
+            </a>
           </div>
         </div>
 
@@ -72,7 +86,9 @@ const MentorModal: React.FC<MentorModalProps> = ({}) => {
           className={styles.modalIcon}
           onClick={() => {
             dispatch(closeModal(Modals.contributor));
+            hideComponent();
             history.goBack();
+            console.log('im called');
           }}
         />
       </Modal>

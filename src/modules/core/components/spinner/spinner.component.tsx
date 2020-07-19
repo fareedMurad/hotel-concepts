@@ -5,12 +5,10 @@ import classNames from 'classnames';
 /**
  * Renders Spinner
  */
-const Spinner: React.FC<{ className?: string }> = ({ className }) => {
-  return (
-    <div className={classNames(styles.spinner, className)}>
-      <div className={styles.spinnerContainer} />
-    </div>
-  );
-};
+const Spinner: React.FC<{ className?: string }> = ({ className }) => (
+  <div className={classNames(styles.spinner, className)}>
+    <div className={styles.spinnerContainer} />
+  </div>
+);
 
 export { Spinner };

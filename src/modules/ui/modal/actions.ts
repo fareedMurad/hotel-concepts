@@ -14,5 +14,11 @@ const showModal = make('[ui] show modal').stage((id: any | any[]) => ({
 const closeModal = make('[ui] close modal').stage((id: any | any[]) => ({
   id: ensureIsList(id)
 }));
+/**
+ * Contributor modal
+ */
+const toogleContributorModal = make('[ui] open contributor').stage(
+  (payload: boolean) => payload
+);
 
-export { showModal, closeModal };
+export { showModal, closeModal, toogleContributorModal };

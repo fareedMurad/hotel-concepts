@@ -16,13 +16,15 @@ const ProgramItem: React.FC<ProgramItemProps> = ({
   price,
   img,
   description,
-  id
+  id,
+  slug
 }) => {
   const history = useHistory();
-  const handleClick = id => () => history.push(`/program/${id}`);
+  const handleClick = id => () =>
+    history.push(`/program/${slug}?programId=${id}`);
 
   return (
-    <>
+    <React.Fragment>
       <div className={styles.programItem}>
         <div className={styles.container}>
           <img src={img} alt='' />
@@ -45,8 +47,8 @@ const ProgramItem: React.FC<ProgramItemProps> = ({
           </Button>
         </div>
       </div>
-      <div className={styles.hr}></div>
-    </>
+      <div className={styles.hr} />
+    </React.Fragment>
   );
 };
 

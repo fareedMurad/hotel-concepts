@@ -2,11 +2,14 @@ import * as React from 'react';
 import { ProgramLearningApproachProps } from './program-learning-approach.props';
 import * as styles from './program-learning-approach.scss';
 import { Button } from '@core/components';
+import { Link } from 'react-router-dom';
 
 /**
  * Renders ProgramLearningApproach
  */
-const ProgramLearningApproach: React.FC<ProgramLearningApproachProps> = ({ learningApproach }) => {
+const ProgramLearningApproach: React.FC<ProgramLearningApproachProps> = ({
+  learningApproach
+}) => {
   return (
     <section className={styles.programLearningApproach}>
       <div className={styles.title}>Learning approach</div>
@@ -18,9 +21,11 @@ const ProgramLearningApproach: React.FC<ProgramLearningApproachProps> = ({ learn
           </div>
         ))}
       </div>
-      <Button className={styles.button}>
-        <div>Learn more</div> <div>→</div>
-      </Button>
+      <Link to='/learning-approach'>
+        <Button className={styles.button}>
+          Learn more<div>→</div>
+        </Button>
+      </Link>
     </section>
   );
 };

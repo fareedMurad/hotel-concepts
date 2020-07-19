@@ -2,9 +2,9 @@ import { Auth } from '@auth';
 import { Profile } from '@profile';
 import { Uikit } from '@uikit';
 import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import * as styles from './routes.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { State } from '@app/store/state';
 import { Toast } from '@core/components';
 import {
@@ -28,6 +28,8 @@ import { ProgramPage } from '@pages/program-page';
 import { ProgramsCatalogue } from '@pages/programs-catalogue';
 import { MentorModal } from '@pages/components/mentor-modal';
 import { useMediaPoints } from '@core/shared';
+import { toogleContributorModal } from '@ui/modal';
+import { NotFound } from '@app/components';
 
 /**
  * Renders Routes
@@ -35,6 +37,8 @@ import { useMediaPoints } from '@core/shared';
 const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
   const { mobile } = useMediaPoints();
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.routes}>
       {isToastVisible && <Toast />}
@@ -51,15 +55,21 @@ const Routes: React.FC = () => {
         {mobile && (
           <Route
             path={['/contributors/mentor/:id', '/mentor/:id']}
-            component={MentorModal}
+            render={() => (
+              <MentorModal
+                hideComponent={() => dispatch(toogleContributorModal(false))}
+              />
+            )}
           />
         )}
-        <Route path='/contributors' component={Contributors} />
+        <Route exact={mobile} path='/contributors' component={Contributors} />
         <Route path='/faq' component={Faq} />
+
         <Route path='/programs-catalogue/:id' component={ProgramsCatalogue} />
+        <Route path='/program/:slug' component={ProgramPage} />
         <Route path='/learning-approach' component={LearningApproach} />
         <Route path='/insights' component={Insights} />
-        <Route path='/program/:slug' component={ProgramPage} />
+
         {/* JOB ROUTES */}
         <Route path='/jobs/job-details/:id' component={JobDetails} />
         <Route path='/jobs' component={JobsList} />
@@ -71,7 +81,10 @@ const Routes: React.FC = () => {
         <Route path='/product/:id' component={Product} />
         {/* COURSE-PARTNERSHIP ROUTE */}
         <Route path='/course-partnership' component={CoursePartnership} />
-        <Route path='/' component={Homepage} />
+        <Route exact={mobile} path='/' component={Homepage} />
+        <Route path='*'>
+          <NotFound />
+        </Route>
       </Switch>
     </div>
   );

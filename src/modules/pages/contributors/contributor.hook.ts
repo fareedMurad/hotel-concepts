@@ -4,7 +4,6 @@ const useContributorsData = () => {
   /**
    * Get contributors
    */
-
   const GET_MENTORS = gql`
     {
       mentorCollection {

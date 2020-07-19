@@ -15,12 +15,14 @@ import { Header } from '@core/components/header';
 import { Footer } from '@core/components';
 import { FaqBlock } from '@pages/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
+import { ScrollToTop } from '@app';
 
 /**
  * Renders Homepage
  */
 const Homepage: React.FC<HomepageProps> = ({}) => {
   const { contributors, loading } = useContributorsData();
+  
   return (
     <div className={styles.homepage}>
       <Header />

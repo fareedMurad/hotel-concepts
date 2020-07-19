@@ -5,7 +5,6 @@ import { combineReducers } from 'redux';
 import { ui } from '@ui';
 import { profile } from '@profile/store';
 import { jobs } from '@pages/jobs-list/store';
-import { contributors } from '@pages/contributors';
 import { onlineCourses } from '@pages/homepage/sections/online-courses';
 
 /**
@@ -18,7 +17,6 @@ const app = combineReducers({
   profile,
   ui,
   jobs,
-  contributors,
   onlineCourses
 });
 

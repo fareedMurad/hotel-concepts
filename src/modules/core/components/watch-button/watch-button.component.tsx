@@ -6,13 +6,16 @@ import classNames from 'classnames';
 /**
  * Renders WatchButton
  */
-const WatchButton: React.FC<WatchButtonProps> = ({ time, titleText, className, onEnter, onLeave }) => {
+const WatchButton: React.FC<WatchButtonProps> = ({
+  time,
+  titleText,
+  className,
+  onEnter,
+  onLeave
+}) => {
   return (
     <div className={classNames(styles.watchButton, className)}>
-      <div
-        onMouseEnter={onEnter}
-        onMouseLeave={onLeave}
-      >
+      <div onMouseEnter={onEnter} onMouseLeave={onLeave}>
         <div className={styles.buttonPlay}>
           <div className={styles.buttonPlayIcon} />
         </div>
