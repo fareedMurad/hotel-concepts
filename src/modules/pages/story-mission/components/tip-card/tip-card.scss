@@ -11,12 +11,18 @@
 }
 
 .card {
+  height: 285px;
   &--title {
     font-family: $EBGaramond;
     font-weight: 400;
   }
   &--subtitle {
+    font-weight: 300;
     margin: 0;
+  }
+  &--description {
+    font-size: 16pt;
+    line-height: 22pt;
   }
 }
 

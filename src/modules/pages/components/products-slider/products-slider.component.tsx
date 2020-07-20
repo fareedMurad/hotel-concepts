@@ -11,7 +11,7 @@ import classNames from 'classnames';
 const responsiveBreakpoints = {
   largeDesktop: {
     breakpoint: { max: 3000, min: 1290 },
-    items: 4
+    items: 3
   },
   desktop: {
     breakpoint: { max: 1290, min: 1000 },

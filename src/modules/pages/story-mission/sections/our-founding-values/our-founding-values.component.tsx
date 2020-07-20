@@ -8,13 +8,17 @@ import { FoundingValuesCard } from '@pages/story-mission/components/founding-val
 /**
  * Renders OurFoundingValues
  */
-const OurFoundingValues: React.FC<OurFoundingValuesProps> = ({}) => {
+const OurFoundingValues: React.FC<OurFoundingValuesProps> = ({ }) => {
   const { data } = useOurFoundingValuesData();
+
+  const title = () => {
+    return <div></div>
+  }
 
   return (
     <div className={styles.ourFoundingValues} id='values'>
       <div className={styles.wrapper}>
-        <HeroCaption title='Our Founding Values' className={styles.caption} />
+        <HeroCaption title={`Our Founding Values`} className={styles.caption} />
       </div>
       <div className={styles.cardList}>
         {data.map(item => (

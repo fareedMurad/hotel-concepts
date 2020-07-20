@@ -4,6 +4,9 @@
   margin: 60px 0px;
 }
 
+.wrapper {
+  width: 40%;
+}
 .caption {
   padding: 22px;
   @include desktop() {

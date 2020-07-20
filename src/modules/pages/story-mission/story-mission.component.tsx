@@ -30,7 +30,7 @@ const Anchor: React.FC<{ anchor: string; rate: string; caption: string }> = ({
 /**
  * Renders StoryMission
  */
-const StoryMission: React.FC<StoryMissionProps> = ({}) => {
+const StoryMission: React.FC<StoryMissionProps> = ({ }) => {
   const { anchors } = useStoryMissionData();
 
   return (
@@ -77,7 +77,7 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
       <Hr />
       <ManagingHospitality />
       <Hr />
-      <section>
+      <section className={styles.whyKordieSection}>
         <H2 className={styles.whyKordieTitle}>Why 'Kordie' ?</H2>
         <main className={styles.whyKordieContainer}>
           <H2 className={styles.animation}>Animation here</H2>

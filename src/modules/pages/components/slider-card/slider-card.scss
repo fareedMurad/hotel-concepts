@@ -35,6 +35,10 @@
   margin-bottom: 16px;
 }
 
+.name {
+  @include font($primary-grey, 36px, 500, 46px)
+}
+
 .price {
   width: fit-content;
   border-radius: 5px;

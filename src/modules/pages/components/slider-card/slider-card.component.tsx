@@ -32,7 +32,7 @@ const SliderCard: React.FC<SliderCardProps> = ({
             {author && <div className={styles.author}>{author}</div>}
           </div>
 
-          <H3>{name}</H3>
+          <H3 className={styles.name}>{name}</H3>
         </div>
       </NavLink>
     </div>

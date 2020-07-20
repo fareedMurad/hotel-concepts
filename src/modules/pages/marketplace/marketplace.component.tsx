@@ -10,7 +10,7 @@ import { Intro } from './intro';
 /**
  * Renders Marketplace
  */
-const Marketplace: React.FC<MarketplaceProps> = ({}) => {
+const Marketplace: React.FC<MarketplaceProps> = ({ }) => {
   const { goodsData, books } = useMarketplaceData();
 
   return (
@@ -24,33 +24,33 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
         style={{ marginTop: 40 }}
       >
         <PreCaption>Popular items in</PreCaption>
-        <H2>Web templates</H2>
+        <H2 className={styles.title}>Web templates</H2>
       </div>
       <ProductsSlider data={goodsData} />
 
       <div className={styles.itemsContainer} id='books'>
         <PreCaption>Popular items in</PreCaption>
-        <H2>Books</H2>
+        <H2 className={styles.title}>Books</H2>
       </div>
       <ProductsSlider data={books} />
       <div className={styles.itemsContainer} id='collections'>
         <PreCaption>Popular items in</PreCaption>
-        <H2>Collections</H2>
+        <H2 className={styles.title}>Collections</H2>
       </div>
       <ProductsSlider data={goodsData} />
       <div className={styles.itemsContainer} id='case-study'>
         <PreCaption>Popular items in</PreCaption>
-        <H2>Case study</H2>
+        <H2 className={styles.title}>Case study</H2>
       </div>
       <ProductsSlider data={goodsData} />
       <div className={styles.itemsContainer} id='researches'>
         <PreCaption>Popular items in</PreCaption>
-        <H2>Researches</H2>
+        <H2 className={styles.title}>Researches</H2>
       </div>
       <ProductsSlider data={goodsData} />
       <div className={styles.itemsContainer} id='tools'>
         <PreCaption>Popular items in</PreCaption>
-        <H2>Tools</H2>
+        <H2 className={styles.title}>Tools</H2>
       </div>
       <ProductsSlider data={goodsData} />
       <Footer />
