@@ -8,6 +8,7 @@
     width: 100%;
     font-family: $EBGaramond;
     color: $white;
+    font-size: 60px;
     @include desktop() {
       width: 50%;
     }
@@ -17,18 +18,15 @@
     width: 100%;
     margin-top: 25px;
     font-family: $IBMPlex;
-    @include desktop() {
-      width: 65%;
-    }
   }
 }
 
 .image {
-  @include flex($align: center, $justify: center);
+  @include flex($align: stretch, $justify: center, $direction: column);
+  @include heroImage();
   width: 100%;
   height: 100vh;
   background: $hr;
-  @include heroImage();
 }
 
 .arrow {
@@ -37,7 +35,7 @@
   left: 22px;
   color: $white;
   @include desktop() {
-    left: 128px;
+    left: 134px;
   }
   @include ipad-p() {
     bottom: 42px;

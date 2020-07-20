@@ -29,7 +29,7 @@ const GET_READING_MATERIALS = gql`
 /**
  * Renders ReadingMaterials
  */
-const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({}) => {
+const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({ }) => {
   const { data: datar, loading, error } = useQuery(GET_READING_MATERIALS);
 
   const readingData =

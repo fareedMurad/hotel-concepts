@@ -42,7 +42,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
         </section>
         <section className={styles.sectionB}>
           <H3 className={styles.titleOrange}>Apply for this job</H3>
-          <Paragraph>
+          <Paragraph className={styles.description}>
             If you would like to take this module <br /> separately from a
             program, please contact us
           </Paragraph>

@@ -16,7 +16,7 @@
     @include container();
     font-family: $EBGaramond;
     & > div:nth-child(2) {
-      @include font($white, 24px, 400, 34px);
+      @include font($white, 24px, 400, 34px); // bug
       width: 100%;
       margin: 24px 0px;
       @include desktop() {

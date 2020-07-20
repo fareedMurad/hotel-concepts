@@ -17,12 +17,13 @@
 
 .flag {
   @include flex(center, center);
-  @include size(16px);
-  @include min-size(16px);
-  border: 1px solid #969ba3;
+  @include size(20px);
+  @include min-size(20px);
+  // border: 1px solid #969ba3;
   background-color: $white;
   border-radius: 4px;
   transition: $transition;
+  border: none;
   &--checked {
     border-color: $primary-orange;
     background: $primary-orange;
@@ -36,7 +37,7 @@
 }
 
 .label {
-  @include font($primary-gray, 16px, 400, 22px);
+  @include font($primary-gray, 16px, 300, 22px);
   margin-bottom: 0;
   margin-left: 10px;
   cursor: pointer;

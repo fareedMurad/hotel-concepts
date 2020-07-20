@@ -11,14 +11,14 @@
   @include buttonHover;
 
   &--primary {
-    @include font($white, 16px, 500, 22px);
+    @include font($white, 16px, 400, 22px);
     font-family: $IBMPlex;
     background: $primary-orange;
     border: 1px solid $primary-orange;
   }
 
   &--secondary {
-    @include font($primary-gray, 16px, 500, 22px);
+    @include font($primary-gray, 16px, 400, 22px);
     background: transparent;
     border: 1px solid $primary-orange;
     transition: $transition;
