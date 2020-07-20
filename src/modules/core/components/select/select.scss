@@ -142,7 +142,7 @@
     }
   }
   .label {
-    @include font($primary-gray, 14px, 500);
+    @include font($primary-gray, 16px, 400);
   }
 }
 

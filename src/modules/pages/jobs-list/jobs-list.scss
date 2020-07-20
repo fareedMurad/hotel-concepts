@@ -24,6 +24,9 @@
   @include desktop() {
     overflow: initial;
   }
+  & > div {
+    margin-right: 8px;
+  }
 }
 
 .vacancies {

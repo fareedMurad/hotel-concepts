@@ -24,6 +24,8 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
 
   React.useEffect(() => {
     dispatch(getVacancies());
+    setIsActive(1);
+    setJobName('All');
   }, []);
 
   return (
