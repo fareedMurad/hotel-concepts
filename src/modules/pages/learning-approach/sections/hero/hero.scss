@@ -8,6 +8,7 @@
     width: 100%;
     font-family: $EBGaramond;
     color: $white;
+    font-size: 60px;
     @include desktop() {
       width: 50%;
     }

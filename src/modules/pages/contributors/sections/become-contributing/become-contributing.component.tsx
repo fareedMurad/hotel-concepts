@@ -72,7 +72,7 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                 />
               </div>
 
-              <div>Comment</div>
+              <div>Message</div>
               <textarea className={styles.textArea} />
               <Button
                 onClick={() => handleSubmit()}

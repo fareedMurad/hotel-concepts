@@ -28,6 +28,7 @@
   background-color: #f5f1f0;
   padding: 32px 16px;
   border-radius: 4px;
+  min-height: 440px;
   &-rate {
     @include font($primary-orange, 36px, 600, 48px);
     font-family: $EBGaramond;
@@ -39,14 +40,14 @@
     font-family: $IBMPlex;
   }
   &-description {
-    @include font($primary-gray, 18px, 400, 28px);
+    @include font($primary-gray, 18px, 300, 28px);
     margin-bottom: 70px;
     font-family: $IBMPlex;
   }
   &-button {
     @include flex($justify: space-between);
     position: absolute;
-    bottom: 16px;
+    bottom: 36px;
     width: 60%;
   }
 }

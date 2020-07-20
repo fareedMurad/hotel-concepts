@@ -42,12 +42,12 @@
 }
 
 .name {
-  margin-top: 12px;
   @include font($primary-gray, 24px, 400, 32px);
+  margin-top: 13px;
 }
 
 .role {
-  @include font($primary-gray, 16px, 300, 14px);
+  @include font($primary-gray, 16px, 400, 14px);
   margin-top: 4px;
 }
 
