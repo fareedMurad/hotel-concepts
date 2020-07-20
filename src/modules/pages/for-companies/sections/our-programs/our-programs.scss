@@ -2,11 +2,11 @@
 
 .our-programs {
   background-color: #f5f1f0;
+  padding-bottom: 30px;
 }
 
 .container {
-  @include container($top: 60px);
-
+  padding: 60px 0px 35px 134px;
   & > p {
     font-size: 24px;
   }

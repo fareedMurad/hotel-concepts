@@ -26,13 +26,13 @@ const ArticleSecondSection: React.FC<ArticleSecondSectionProps> = ({}) => {
       {desktop && (
         <aside className={styles.aside}>
           <div>
-            Fresh insight in your box
+            <div>Fresh insight in your box</div>
             <Formik
               initialValues={{ email: '' }}
               onSubmit={email => console.log(email)}
             >
               {({ handleSubmit }) => (
-                <Form handleSubmit={handleSubmit}>
+                <Form handleSubmit={handleSubmit} className={styles.form}>
                   <Field.Text type='email' label='Email' name='email' />
                   <Button
                     className={styles.button}

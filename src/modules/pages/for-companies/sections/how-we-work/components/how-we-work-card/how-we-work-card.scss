@@ -12,8 +12,9 @@
 }
 
 .orange {
-  @include font($primary-orange, 28px, 400, 35px);
+  @include font($primary-orange, 28px, 300, 35px);
   position: relative;
+  padding-top: 26px;
   padding-bottom: 14px;
   &:before {
     content: '';

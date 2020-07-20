@@ -4,25 +4,27 @@
   position: relative;
   padding: 0 22px;
   @include desktop() {
-    padding: 0px 350px 0px 120px;
+    padding: 0px 350px 0px 134px;
   }
 }
 
 .aside {
+  @include font($primary-gray, 18px, 300, 28px);
   position: absolute;
   top: 0;
   right: 22px;
-  min-width: 400px;
-  min-height: 213px;
-  height: max-content;
-  padding: 24px 12px;
+  width: 316px;
+  height: 222px;
+  padding: 24px 16px;
   background: $background;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .button {
   @include flex($align: center, $justify: space-between);
-  width: 100%;
+  width: 284px;
+  height: 44px;
+  margin-top: 15px;
 }
 
 .title {
@@ -40,6 +42,16 @@
 .content {
   width: 100%;
   @include desktop() {
-    width: 90%;
+    width: 95%;
+  }
+}
+
+.form {
+  margin-top: 0;
+  & > div {
+    margin-top: 16px;
+    label {
+      font-weight: 300;
+    }
   }
 }

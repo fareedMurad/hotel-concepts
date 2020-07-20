@@ -11,7 +11,9 @@ const PartneringForSuccess: React.FC<PartneringForSuccessProps> = ({ }) => {
     <div className={styles.partneringForSuccess}>
       <div className={styles.partnering}>
         <Icon name='abstract-1' />
-        <H2>Partnering for <br /> Success</H2>
+        <H2>
+          Partnering for <br /> Success
+        </H2>
         <Paragraph>
           Kordie is proud to partner with a select number of <br />{' '}
           organisations, partnerships which allow us to provide <br /> access to

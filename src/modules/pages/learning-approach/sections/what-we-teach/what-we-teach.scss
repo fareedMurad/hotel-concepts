@@ -27,7 +27,7 @@
   position: relative;
   background-color: #f5f1f0;
   padding: 32px 16px;
-  border-radius: 4px;
+  border-radius: 6px;
   min-height: 440px;
   &-rate {
     @include font($primary-orange, 36px, 600, 48px);
@@ -35,7 +35,7 @@
     letter-spacing: -0.36px;
   }
   &-caption {
-    @include font($primary-gray, 24px, 400, 34px);
+    @include font($primary-gray, 24px, 380, 34px);
     margin: 20px 0px;
     font-family: $IBMPlex;
   }

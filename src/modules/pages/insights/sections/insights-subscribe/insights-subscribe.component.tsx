@@ -26,7 +26,7 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
           // validationSchema={} add later
         >
           {({ handleSubmit }) => (
-            <Form handleSubmit={handleSubmit}>
+            <Form handleSubmit={handleSubmit} className={styles.form}>
               <Field.Tabs
                 name='subscribeType'
                 data={[

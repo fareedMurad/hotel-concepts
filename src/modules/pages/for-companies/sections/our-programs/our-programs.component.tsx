@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { OurProgramsProps } from './our-programs.props';
 import * as styles from './our-programs.scss';
-import { H1, Paragraph } from '@core/components/typography';
+import { H2, Paragraph } from '@core/components/typography';
 import { OurProgramsCard } from './our-programs-card';
 import { useOurPrograms } from './our-programs.hook';
 
@@ -14,7 +14,7 @@ const OurPrograms: React.FC<OurProgramsProps> = ({}) => {
   return (
     <div className={styles.ourPrograms}>
       <div className={styles.container}>
-        <H1>Our programs</H1>
+        <H2>Our programs</H2>
         <Paragraph>
           Our programs are organised into <br /> subject-specific departments,
           such as:
