@@ -28,7 +28,7 @@ const ArticleLastSection: React.FC<ArticleLastSectionProps> = ({}) => {
       </section>
       <section>
         <H2>{bodyTitle[1]}</H2>
-        <Paragraph>{bodyContent[4]}</Paragraph>
+        <Paragraph className={styles.paragraph}>{bodyContent[4]}</Paragraph>
         <Paragraph>{bodyContent[5]}</Paragraph>
       </section>
     </div>

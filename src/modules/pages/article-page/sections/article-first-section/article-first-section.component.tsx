@@ -35,7 +35,7 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
             <div>Reading time:</div> <div>{readingTime}</div>
           </div>
           <div className={styles.share}>
-            <div>Share</div> <Icon name='share' />
+            <div>Share</div> <Icon name='share' className={styles.shareIcon}/>
           </div>
         </div>
         <Paragraph className={styles.heroDescription}>

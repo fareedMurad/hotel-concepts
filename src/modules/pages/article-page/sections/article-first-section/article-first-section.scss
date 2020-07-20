@@ -1,10 +1,13 @@
 @import 'core.scss';
 
 .article-first-section {
-  @include flex($align: center);
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 40% 60%;
+  min-height: calc(100vh - 60px);
   padding: 22px 0px 0px 22px;
   @include desktop() {
-    padding-left: 134px;
+    padding: 0px 0px 0px 134px;
   }
 }
 
@@ -17,6 +20,7 @@
     margin-bottom: 4px;
     margin-right: 12px;
     padding: 6px 24px;
+    font-weight: 300;
     text-align: center;
     background: $background;
     border-radius: 4px;
@@ -27,11 +31,11 @@
   width: 100%;
   padding-right: 22px;
   @include desktop() {
-    padding-right: 42px;
+    padding-right: 60px;
   }
   &__options {
     @include flex($align: center);
-    @include font($primary-gray, 16px, 400);
+    @include font($primary-gray, 16px, 300);
     & > div {
       @include flex($align: center);
     }
@@ -40,8 +44,12 @@
 
 .share {
   margin-left: 16px;
-  & > div:last-child {
+  &--icon {
+    @include size(34px);
+    @include flex($align: center, $justify: center);
     margin-left: 16px;
+    background: $background;
+    border-radius: 50%;
   }
 }
 
@@ -53,11 +61,10 @@
 
 .hero-description {
   @include font($primary-gray, 24px, 300, 34px);
-  font-family: $IBMPlex;
+  margin-top: 44px;
 }
 
 .image {
   width: 100%;
-  height: 100%;
-  padding-right: 22px;
+  height: 95%;
 }
