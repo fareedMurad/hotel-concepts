@@ -2,8 +2,8 @@
  * Props
  */
 type CatalogueFiltersProps = {
-  currentFilters: number[];
-  updateFilters: (type: number[]) => void;
+  currentFilters: string[];
+  updateFilters: (type: string[]) => void;
 };
 
 export { CatalogueFiltersProps };
