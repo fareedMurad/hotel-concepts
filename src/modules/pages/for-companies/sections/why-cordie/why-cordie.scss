@@ -2,7 +2,7 @@
 
 .why-cordie {
   @include container();
-  margin-bottom: 65px;
+  margin-bottom: 120px;
 }
 
 .wrapper {
@@ -13,12 +13,25 @@
   @include desktop() {
     @include flex(space-between);
   }
-  margin-top: 60px;
+  margin-top: 57px;
 }
 
 .block {
   width: 100%;
   @include tablet() {
     width: 40%;
+  }
+}
+
+.caption {
+  font-size: 36px;
+}
+
+.paragraph {
+  width: 100%;
+  margin-top: 22px;
+  margin-bottom: 0;
+  @include desktop() {
+    width: 90%;
   }
 }

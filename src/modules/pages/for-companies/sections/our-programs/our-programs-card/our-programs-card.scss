@@ -2,10 +2,8 @@
 
 .our-programs-card {
   background-color: $white;
-  // width: 29vw;
+  height: 340px;
   margin-bottom: 2%;
-  // margin-right: 2%;
-
   padding: 18px 16px;
   border-radius: 5px;
   &:nth-child(2n + 3) {
@@ -18,5 +16,5 @@
 }
 
 .subtitle {
-  font-size: 28px;
+  font-size: 24px;
 }

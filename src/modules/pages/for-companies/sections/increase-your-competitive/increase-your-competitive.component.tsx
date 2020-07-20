@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IncreaseYourCompetitiveProps } from './increase-your-competitive.props';
 import * as styles from './increase-your-competitive.scss';
-import { Icon, H3, Paragraph } from '@core/components';
+import { Icon, H2, Paragraph } from '@core/components';
 
 /**
  * Renders IncreaseYourCompetitive
@@ -10,9 +10,9 @@ const IncreaseYourCompetitive: React.FC<IncreaseYourCompetitiveProps> = ({}) => 
   return (
     <div className={styles.increaseYourCompetitive}>
       <Icon name='abstract-1' />
-      <H3>
+      <H2>
         Increase your competitive <br /> advantage with new <br /> knowledge.{' '}
-      </H3>
+      </H2>
       <Paragraph className={styles.increaseYourCompetitiveText}>
         Kordie innovates the way hospitality professionals learn and travel
         organisations <br /> develop talent. Powerful knowledge is brought
