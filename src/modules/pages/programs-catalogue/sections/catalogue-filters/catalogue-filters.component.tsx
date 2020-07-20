@@ -8,8 +8,12 @@ import classNames from 'classnames';
 /**
  * Renders CatalogueFilters
  */
-const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({ currentFilters, updateFilters }) => {
+const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({
+  currentFilters,
+  updateFilters
+}) => {
   const { data } = useCatalogueFiltersData();
+  
   const onCheck = index => ({ target: { checked } }) => {
     let data = [...currentFilters];
     if (checked) {
@@ -19,21 +23,20 @@ const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({ currentFilters, upd
       data = currentFilters.filter(item => item != index);
       updateFilters(data);
     }
-  }
+  };
 
   return (
     <section className={styles.catalogueFilters}>
-      <div className={styles.title}>
-        Filter
-      </div>
-      <div className={styles.hr}></div>
+      <div className={styles.title}>Filter</div>
+      <div className={styles.hr} />
       <div className={styles.filters}>
         {data.map((item, index) => (
           <div
-            className={classNames(styles.filterItem,
-              {[styles.checked]: currentFilters.includes(index)}
-            )}
-            key={item}>
+            className={classNames(styles.filterItem, {
+              [styles.checked]: currentFilters.includes(index)
+            })}
+            key={item}
+          >
             <FilterCheckbox
               name={item}
               isChecked={currentFilters.includes(index)}

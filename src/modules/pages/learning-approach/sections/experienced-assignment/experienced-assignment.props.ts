@@ -1,9 +1,6 @@
 /**
  * Props
  */
-type ExperiencedAssignmentProps = {
-  title?: string;
-  description?: string;
-};
+type ExperiencedAssignmentProps = {};
 
 export { ExperiencedAssignmentProps };

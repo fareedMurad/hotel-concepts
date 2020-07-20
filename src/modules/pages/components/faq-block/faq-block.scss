@@ -3,7 +3,7 @@
 .faq-block {
   padding: 50px $default-offset;
   padding-bottom: 100px;
-  @include flex($direction: column)
+  @include flex($direction: column);
 }
 
 .filters {
@@ -14,8 +14,8 @@
     flex-wrap: wrap;
   }
   & > div {
-    margin-right: 12px;
     margin-bottom: 4px;
+    margin-right: 12px;
   }
 }
 

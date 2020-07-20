@@ -46,6 +46,8 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = () => {
     return 0;
   });
 
+  console.log(data)
+
   return (
     <section id='enroll' className={styles.programEnrollNow}>
       <div className={styles.title}>Enroll Now</div>

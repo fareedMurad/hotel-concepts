@@ -7,31 +7,48 @@ import { Icon } from '@core/components';
 /**
  * Renders ExperiencedAssignment
  */
-const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({
-  title,
-  description
-}) => {
+const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
   const { data } = useExperiencesAssignmentData();
+  const [currentSection, setCurrentSection] = React.useState(0);
+  const [section, setSection] = React.useState({
+    title: '',
+    list: []
+  });
+
+  React.useEffect(() => {
+    if (data) {
+      setSection(data[currentSection]);
+    }
+  }, [currentSection]);
 
   return (
     <div className={styles.experiencedAssignment}>
       <main className={styles.container}>
         <div className={styles.slider}>
-          <div className={styles.sliderTitle}>{data.title}</div>
+          <div className={styles.sliderTitle}>{section.title}</div>
           <div className={styles.sliderList}>
-            {data.list.map(data => {
+            {section.list.map((data, index) => {
               const { id, caption } = data;
               return (
-                <div key={id} className={styles.sliderListItem}>
+                <div key={index} className={styles.sliderListItem}>
                   {caption}
                 </div>
               );
             })}
           </div>
           <div className={styles.sliderButtons}>
-            <Icon name='ellipse-active' />
-            <Icon name='ellipse-default' />
-            <Icon name='ellipse-default' />
+            <Icon
+              name={currentSection === 0 ? 'ellipse-active' : 'ellipse-default'}
+              onClick={() => setCurrentSection(0)}
+            />
+            <Icon
+              name={currentSection === 1 ? 'ellipse-active' : 'ellipse-default'}
+              onClick={() => setCurrentSection(1)}
+            />
+            <Icon
+              name={currentSection === 2 ? 'ellipse-active' : 'ellipse-default'}
+              onClick={() => setCurrentSection(2)}
+            />
           </div>
         </div>
         <div

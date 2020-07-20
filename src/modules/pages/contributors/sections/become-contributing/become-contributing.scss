@@ -24,6 +24,8 @@
 .text-area {
   width: 100%;
   min-height: 97px;
+  margin-top: 10px;
+  padding: 12px;
   @include desktop() {
     width: 653px;
     height: 97px;
@@ -32,8 +34,6 @@
   outline: none;
   resize: none;
   border-radius: 4px;
-  margin-top: 10px;
-  padding: 12px;
 }
 
 .form-group {

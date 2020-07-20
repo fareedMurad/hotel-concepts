@@ -58,7 +58,6 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   });
   if (loading) return <Spinner />;
 
-  console.log(data);
   const { items: programs } = data.courseCategory.coursesCollection;
   const { courseCategory: category } = data;
 
@@ -120,7 +119,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             professional goals.
           </div>
         </div>
-        {/* <CatalogueFilters currentFilters='' updateFilters={updateFilters} /> */}
+        <CatalogueFilters currentFilters={[0]} updateFilters={() => [0, 2]} />
         <div className={styles.content}>
           {programs.length > 0 ? (
             programs.map(item => {

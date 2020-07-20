@@ -2,19 +2,27 @@ import * as React from 'react';
 import { WhatWeTeachProps } from './what-we-teach.props';
 import * as styles from './what-we-teach.scss';
 import { useWhatWeTeachData } from './what-we-teach.hook';
-import { Button, H2 } from '@core/components';
+import { Button, H2, Spinner } from '@core/components';
+import { Link } from 'react-router-dom';
 
-const Card = ({ card }) => {
-  const { id, rate, caption, description } = card;
+const Card = ({ card, rate }) => {
+  const {
+    sys: { id },
+    category,
+    description
+  } = card;
+
   return (
     <div className={styles.card}>
-      <div className={styles.cardRate}>{rate}</div>
-      <div className={styles.cardCaption}>{caption}</div>
+      <div className={styles.cardRate}>{rate + 1}.0</div>
+      <div className={styles.cardCaption}>{category}</div>
       <div className={styles.cardDescription}>{description}</div>
-      <Button className={styles.cardButton}>
-        <div>Explore programs</div>
-        <div>&rarr;</div>
-      </Button>
+      <Link to={`/programs-catalogue/${id}`}>
+        <Button className={styles.cardButton}>
+          <div>Explore programs</div>
+          <div>&rarr;</div>
+        </Button>
+      </Link>
     </div>
   );
 };
@@ -22,14 +30,16 @@ const Card = ({ card }) => {
  * Renders WhatWeTeach
  */
 const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
-  const { data } = useWhatWeTeachData();
-    
+  const { data, loading } = useWhatWeTeachData();
+
+  if (loading) return <Spinner />;
+
   return (
     <div className={styles.whatWeTeach}>
       <H2 className={styles.caption}>What do we teach</H2>
       <main className={styles.cardContainer}>
-        {data.map(card => (
-          <Card card={card} key={card.id} />
+        {data.map((card, index) => (
+          <Card card={card} key={index} rate={index} />
         ))}
       </main>
     </div>

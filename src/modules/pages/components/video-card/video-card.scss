@@ -32,6 +32,7 @@
   background-size: cover;
   background-position: center;
   border-radius: 8px;
+  @include imageOverlay();
 }
 .controls {
   position: absolute;
