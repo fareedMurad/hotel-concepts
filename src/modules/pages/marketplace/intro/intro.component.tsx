@@ -4,6 +4,7 @@ import * as styles from './intro.scss';
 import { H1, ButtonFilter } from '@core/components';
 import { useMarketplaceData } from '../marketplace.hook';
 import classNames from 'classnames';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 
 /**
  * Renders Intro
@@ -11,6 +12,9 @@ import classNames from 'classnames';
 const Intro: React.FC<IntroProps> = ({}) => {
   const [isActive, setIsActive] = React.useState(null);
   const { maketplaceFiltersData } = useMarketplaceData();
+  const ScrollToEnroll = to => {
+    scrollTo(to);
+  };
   return (
     <div className={styles.intro}>
       <div
@@ -34,19 +38,21 @@ const Intro: React.FC<IntroProps> = ({}) => {
             const { title, id, count, anchor } = el;
 
             return (
-              <a
+              <div
                 key={id}
-                href={`#${anchor}`}
                 className={classNames(styles.marketplaceFilter, {
                   [styles.active]: isActive === id
                 })}
-                onClick={() => setIsActive(id)}
+                onClick={() => {
+                  ScrollToEnroll(anchor);
+                  setIsActive(id);
+                }}
               >
                 <div className={styles.marketplaceFilterTitle}>{title}</div>
                 <div
                   className={styles.marketplaceFilterQuantity}
                 >{`(${count})`}</div>{' '}
-              </a>
+              </div>
             );
           })}
         </div>

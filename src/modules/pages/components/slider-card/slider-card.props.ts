@@ -8,6 +8,7 @@ type SliderCardProps = {
   author?: string;
   id: string | number;
   onClick: () => void;
+  className?: string;
 };
 
 export { SliderCardProps };

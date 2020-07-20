@@ -19,7 +19,7 @@ const productCardData = {
   category: 'Economics',
   language: 'English',
   publishDate: 'Oct. 2014',
-  details: 'Best selling book like Nudge,Predictably Irrational and Thinking',
+  details: 'Best selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and Thinking',
   price: '$26.99'
 };
 

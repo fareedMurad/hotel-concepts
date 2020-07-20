@@ -27,8 +27,6 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
           );
         })}
       </div>
-
-     
     </div>
   );
 };

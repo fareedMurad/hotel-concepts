@@ -25,7 +25,11 @@
   }
   &-title {
     @include font($primary-gray, 24px, 400, 34px);
+    padding-top: 15px;
     font-family: $IBMPlex;
+    @include tablet() {
+      padding-top: 0;
+    }
   }
   &__list {
     margin-top: 30px;

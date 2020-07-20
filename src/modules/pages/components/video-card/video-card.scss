@@ -25,6 +25,7 @@
   }
 }
 .video-card {
+  @include flex($align: flex-end);
   position: relative;
   width: 100%;
   min-height: 279px;
@@ -45,6 +46,7 @@
   @include size(40px);
   @include flex($align: center, $justify: center);
   z-index: 999;
+
   background: $white;
   border-radius: 50%;
   &-icon {
@@ -52,4 +54,9 @@
     clip-path: polygon(100% 52%, 0 0, 0 100%);
     background: $primary-orange;
   }
+}
+
+.watch-button {
+  margin-bottom: 16px;
+  margin-left: 10px;
 }
