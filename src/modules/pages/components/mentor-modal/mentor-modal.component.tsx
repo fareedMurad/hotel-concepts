@@ -63,7 +63,10 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
               <div className={styles.contributorInfo}>
                 {name} {surname}
               </div>
-              <div className={styles.contributorDetails}>
+              <div
+                className={styles.contributorDetails}
+                style={{ fontWeight: 400 }}
+              >
                 {city}, {position}
               </div>
               <div className={styles.contributorDetails}>United Kingdom</div>
