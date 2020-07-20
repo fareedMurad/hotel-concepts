@@ -35,12 +35,17 @@
 }
 
 .filters-field {
+  overflow: initial;
+  position: absolute;
+  bottom: 56px;
+  left: 20px;
+  right: 20px;
   display: grid;
-  width: 100%;
+  width: auto;
   padding: 12px;
   min-height: 70px;
   grid-template-columns: repeat(6, max-content);
-  gap: 8px;
+  gap: 17px;
   border-radius: 5px;
   background-color: $white;
   overflow-x: auto;

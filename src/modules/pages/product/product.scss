@@ -7,7 +7,7 @@
   @include font($primary-grey, 15px, 500, 20px);
   @include flex(space-between);
   width: 92px;
-  margin-top: 60px;
+  margin-top: 75px;
   margin-left: 22px;
   padding: 8px 13px;
   background-color: #f5f1f0;
@@ -17,15 +17,15 @@
 }
 
 .product-review {
-  @include container();
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
+  // @include container();
+  display: grid;
   margin-top: 30px;
+  min-height: calc(100vh - 125px);
   @include desktop() {
-    flex-direction: row;
     margin-top: 15px;
+    padding-right: 0;
+    flex-direction: row;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -39,22 +39,30 @@
 
 .slider {
   width: 100%;
+  @include flex($align: center, $justify: center, $direction: column);
   @include desktop() {
-    width: 50%;
+    margin-top: 0;
+    // width: 50%;
   }
 }
 
 .links {
-  @include flex($align: center, $justify: space-between);
+  @include flex($align: center, $justify: flex-end);
+  position: relative;
   width: 100%;
   margin: 22px 0px;
   padding-left: 22px;
   @include desktop() {
-    margin-top: 94px;
+    margin-top: 54px;
     padding-left: 134px;
   }
   a {
     margin-right: 10px;
+  }
+  &__share {
+    position: absolute;
+    bottom: 30px;
+    left: 120px;
   }
 }
 

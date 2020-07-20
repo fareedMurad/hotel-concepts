@@ -1,25 +1,33 @@
 @import 'core.scss';
 
 .product-card {
+  position: relative;
   width: 100%;
   padding: 30px 20px;
   background-color: $background;
-  border-radius: 8px;
-  @include desktop() {
-    width: 50%;
-  }
+  border-radius: 12px;
   @include tablet() {
     width: auto;
-    margin: 20px;
+    margin-right: 0;
+  }
+  @include desktop() {
+    // width: 50%;
+    margin-right: 0;
   }
 }
 
 .product-card {
   &__title {
     width: 100%;
+    font-weight: 500;
     @include tablet() {
       width: 50%;
     }
+  }
+  &__author {
+    @include font($primary-gray, 24px, 300, 34px);
+    margin-top: 8px;
+    margin-bottom: 22px;
   }
 }
 
@@ -27,6 +35,7 @@
   @include flex($direction: column, $align: stretch);
   flex-wrap: wrap;
   margin-top: 16px;
+  // width: 80%;
   @include desktop() {
     @include flex($justify: space-between);
   }
@@ -43,19 +52,19 @@
     }
   }
   &--title {
-    @include font($primary-orange, 18px, 600, 28px);
+    @include font($primary-orange, 18px, 500, 28px);
     color: $primary-orange;
   }
 }
 
 .hr {
-  width: 100%;
+  width: 80%;
   height: 2px;
   background-color: $light-grey;
 }
 
 .details {
-  width: 50%;
+  // width: 50%;
   margin-top: 11px;
   &--title {
     @include font($primary-orange, 18px, 600, 28px);
@@ -67,8 +76,9 @@
 
 .price {
   margin-top: 40px;
+  font-size: 36px;
   @include desktop() {
-    margin-top: 100px;
+    margin-top: 20px;
   }
 }
 
@@ -76,4 +86,12 @@
   justify-content: space-between;
   width: 224px;
   margin-top: 15px;
+}
+
+.wrapper {
+  // bottom: 36px;
+  // left: 20px;
+  @include flex($justify: space-between, $direction: column);
+  height: calc(100% - 195px);
+  max-width: 80%;
 }

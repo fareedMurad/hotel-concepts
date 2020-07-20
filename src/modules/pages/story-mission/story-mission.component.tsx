@@ -8,6 +8,7 @@ import { HeroCaption } from './components';
 import { ManagingHospitality, OurMissionVision } from './sections';
 import { OurFoundingValues } from './sections/our-founding-values';
 import { PartnerApply } from '@pages/components';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 
 const Hr = () => {
   return <div className={styles.hr} />;
@@ -20,11 +21,14 @@ const Anchor: React.FC<{ anchor: string; rate: string; caption: string }> = ({
   rate,
   caption
 }) => {
+  const ScrollToEnroll = to => {
+    scrollTo(to);
+  };
   return (
-    <a href={anchor} className={styles.anchor}>
+    <div onClick={() => ScrollToEnroll(anchor)} className={styles.anchor}>
       <div className={styles.anchorRate}>{rate}</div>
       <div className={styles.anchorCaption}>{caption}</div>
-    </a>
+    </div>
   );
 };
 /**
@@ -45,7 +49,10 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
         >
           <div className={styles.headerContent}>
             <div>About Kordie</div>
-            <div>New Knowledge for the New Hospitality Economy</div>
+            <div className={styles.headerContentDescription}>
+              New Knowledge for the New <br />
+              Hospitality Economy
+            </div>
             <div className={styles.headerBar}>
               {anchors.map(item => {
                 const { anchor, rate, caption } = item;
@@ -77,7 +84,7 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
       <Hr />
       <ManagingHospitality />
       <Hr />
-      <section>
+      <section className={styles.whyKordieSection}>
         <H2 className={styles.whyKordieTitle}>Why 'Kordie' ?</H2>
         <main className={styles.whyKordieContainer}>
           <H2 className={styles.animation}>Animation here</H2>
@@ -98,8 +105,8 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
       <OurMissionVision />
       <OurFoundingValues />
       <PartnerApply
-        title="Want to get involved?"
-        subtitle="We’re always happy to talk if you are interested in becoming a Partner"
+        title='Want to get involved?'
+        subtitle='We’re always happy to talk if you are interested in becoming a Partner'
       />
       <Footer />
     </div>

@@ -6,7 +6,7 @@ import { Icon, H2, Paragraph } from '@core/components';
 /**
  * Renders PartneringForSuccess
  */
-const PartneringForSuccess: React.FC<PartneringForSuccessProps> = ({}) => {
+const PartneringForSuccess: React.FC<PartneringForSuccessProps> = ({ }) => {
   return (
     <div className={styles.partneringForSuccess}>
       <div className={styles.partnering}>

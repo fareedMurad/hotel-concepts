@@ -6,7 +6,7 @@ import { H2, Icon, Paragraph } from '@core/components';
 /**
  * Renders Criteria
  */
-const Criteria: React.FC<CriteriaProps> = ({}) => {
+const Criteria: React.FC<CriteriaProps> = ({ }) => {
   return (
     <div
       className={styles.criteria}
@@ -15,7 +15,7 @@ const Criteria: React.FC<CriteriaProps> = ({}) => {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         width: '100%',
-        backgroundPosition: 'center'
+        backgroundPosition: 'center top'
       }}
     >
       <div className={styles.container}>

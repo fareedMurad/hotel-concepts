@@ -2,7 +2,9 @@ import * as React from 'react';
 import { ReadingMaterialsProps } from './reading-materials.props';
 import * as styles from './reading-materials.scss';
 import { Caption, DownloadButton } from '@pages/components';
+
 import { gql, useQuery } from '@apollo/client';
+import { Spinner } from '@core/components';
 
 /**
  * query files
@@ -28,7 +30,7 @@ const GET_READING_MATERIALS = gql`
 /**
  * Renders ReadingMaterials
  */
-const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({}) => {
+const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({ }) => {
   const { data: datar, loading, error } = useQuery(GET_READING_MATERIALS);
 
   const readingData =
@@ -70,7 +72,7 @@ const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({}) => {
               size,
               url
             } = el.file;
-            if (loading) return <div>Loading...</div>;
+            if (loading) return <Spinner />;
             return (
               <DownloadButton
                 key={idx}

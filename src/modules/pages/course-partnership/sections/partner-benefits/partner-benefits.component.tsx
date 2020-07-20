@@ -7,7 +7,7 @@ import { useMediaPoints } from '@core/shared';
 /**
  * Renders PartnerBenefits
  */
-const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
+const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({ }) => {
   const { desktop } = useMediaPoints();
 
   return (
@@ -21,15 +21,15 @@ const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
         <div className={styles.contentList}>
           <div className={styles.contentListItem}>
             <Icon className={styles.listIcon} name='list-dot' />
-            <H4>Build brand visibility</H4>
+            <H4 className={styles.listTitle}>Build brand visibility</H4>
           </div>
           <div className={styles.contentListItem}>
             <Icon className={styles.listIcon} name='list-dot' />
-            <H4>Showcase subject matter expertise</H4>
+            <H4 className={styles.listTitle}>Showcase subject matter expertise</H4>
           </div>
           <div className={styles.contentListItem}>
             <Icon className={styles.listIcon} name='list-dot' />
-            <H4>Enhance thought leadership</H4>
+            <H4 className={styles.listTitle}>Enhance thought leadership</H4>
           </div>
         </div>
         <div className={styles.hr} />
