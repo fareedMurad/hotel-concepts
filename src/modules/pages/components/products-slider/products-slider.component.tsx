@@ -4,6 +4,7 @@ import * as styles from './products-slider.scss';
 import { SliderCard } from '../slider-card';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { Slider } from '@core/components/slider';
+import classNames from 'classnames';
 /**
  * responsive breakpoints
  */
@@ -32,14 +33,16 @@ const responsiveBreakpoints = {
 /**
  * Renders Slider
  */
-const ProductsSlider: React.FC<SliderProps> = ({ subtitle, title, data }) => {
+const ProductsSlider: React.FC<SliderProps> = ({ subtitle, title, data, notOrangeButtons }) => {
   return (
     <div className={styles.slider}>
       <Slider
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
-        customButtonGroup={<SliderButtons className={styles.controls} />}
+        customButtonGroup={<SliderButtons className={classNames(styles.controls, {
+          [styles.controlsNotOrange]: notOrangeButtons
+        })} />}
         responsive={responsiveBreakpoints}
       >
         {data.map(el => {
@@ -51,7 +54,7 @@ const ProductsSlider: React.FC<SliderProps> = ({ subtitle, title, data }) => {
               name={name}
               price={price}
               id={id}
-              onClick={() => {}}
+              onClick={() => { }}
             />
           );
         })}

@@ -2,16 +2,19 @@
 
 .product-card {
   width: 100%;
+  margin: 20px;
   padding: 30px 20px;
   background-color: $background;
   border-radius: 8px;
-  @include desktop() {
-    width: 50%;
-  }
   @include tablet() {
     width: auto;
-    margin: 20px;
+    margin-right: 0;
   }
+  @include desktop() {
+    width: 50%;
+    margin-right: 0;
+  }
+ 
 }
 
 .product-card {
@@ -43,7 +46,7 @@
     }
   }
   &--title {
-    @include font($primary-orange, 18px, 600, 28px);
+    @include font($primary-orange, 18px, 500, 28px);
     color: $primary-orange;
   }
 }

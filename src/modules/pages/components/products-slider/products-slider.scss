@@ -8,16 +8,24 @@
   overflow: hidden;
   padding-left: 12px;
   @include tablet() {
-    padding-left: 20px;
+    margin-top: 24px;
+    padding-left: 15px;
   }
 }
 
 .controls {
   @include tablet() {
-    margin-left: 150px;
+    margin-left: 97px;
   }
   button {
     background-color: $primary-orange;
     color: $white;
   }
+  &--not-orange {
+    button {
+      background-color: $background;
+      color: $black
+    }
+  }
 }
+

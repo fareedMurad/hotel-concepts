@@ -24,6 +24,7 @@
   flex-direction: column;
   margin-top: 30px;
   @include desktop() {
+    padding-right: 0;
     flex-direction: row;
     margin-top: 15px;
   }
@@ -40,8 +41,10 @@
 .slider {
   width: 100%;
   @include desktop() {
+    margin-top: 0;
     width: 50%;
   }
+ 
 }
 
 .links {
