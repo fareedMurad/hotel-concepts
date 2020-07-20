@@ -6,7 +6,7 @@
 
 .cards-container {
   display: grid;
-  gap: 10px;
+  gap: 19px;
   margin: 48px 22px 0px 22px;
   @include desktop() {
     grid-template-columns: 1fr 1fr 1fr;

@@ -45,7 +45,7 @@ const StoryMission: React.FC<StoryMissionProps> = ({ }) => {
         >
           <div className={styles.headerContent}>
             <div>About Kordie</div>
-            <div>New Knowledge for the New Hospitality Economy</div>
+            <div className={styles.headerContentDescription}>New Knowledge for the New Hospitality Economy</div>
             <div className={styles.headerBar}>
               {anchors.map(item => {
                 const { anchor, rate, caption } = item;
