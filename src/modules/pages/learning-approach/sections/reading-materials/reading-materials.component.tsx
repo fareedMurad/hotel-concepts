@@ -2,7 +2,6 @@ import * as React from 'react';
 import { ReadingMaterialsProps } from './reading-materials.props';
 import * as styles from './reading-materials.scss';
 import { Caption, DownloadButton } from '@pages/components';
-import { useReadingMaterialsData } from './reading-materials.hook';
 import { gql, useQuery } from '@apollo/client';
 
 /**
