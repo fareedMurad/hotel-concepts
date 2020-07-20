@@ -8,8 +8,9 @@
   margin: 0 auto;
 }
 .cards-container {
-  @include flex($align: center);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
   width: 100%;
   & > div {
     margin-bottom: 20px;
