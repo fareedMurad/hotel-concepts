@@ -4,26 +4,28 @@
   @include container();
   margin: 50px auto;
   &-rate {
-    @include font($primary-orange, 36px, 600, 48px);
-    font-family: 'EB Garamond', serif;
+    @include font($primary-orange, 36px, 500, 48px);
+    font-family: $EBGaramond;
     letter-spacing: -0.36px;
   }
   &-title {
-    @include font($primary-gray, 36px, 600, 46px);
+    @include font($primary-gray, 36px, 500, 46px);
+    margin-top: 10px;
     letter-spacing: -0.36px;
+    font-family: $EBGaramond;
   }
   &-hr {
     width: 3%;
-    height: 1px;
-    background: $primary-gray;
-    opacity: 0.5;
+    height: 2px;
+    margin-top: 10px;
+    background: $hr;
   }
   &--content {
-    @include font($primary-gray, 18px, 400, 28px);
+    @include font($primary-gray, 18px, 300, 28px);
     width: 100%;
     margin-top: 24px;
     font-family: $IBMPlex;
-    @include desktop(){
+    @include desktop() {
       width: 50%;
     }
   }

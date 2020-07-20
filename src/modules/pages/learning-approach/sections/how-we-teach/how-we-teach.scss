@@ -1,8 +1,9 @@
 @import 'core.scss';
 
 .how-we-teach {
-  margin-top: 10px;
+  margin-top: 30px;
 }
+
 .title {
   @include container();
   font-family: $EBGaramond;
@@ -10,8 +11,9 @@
 }
 
 .wrapper {
-  margin: 0px 22px;
+  margin: -10px 22px 0px 22px;
 }
+
 .wcc-cards {
   @include flex($justify: stretch, $direction: column);
   width: 100%;
@@ -71,11 +73,11 @@
   border: 1px solid #cbd0d3;
   border-radius: 8px;
   &--title {
-    @include font($primary-gray, 24px, 400, 34px);
+    @include font($primary-gray, 24px, 300, 34px);
     font-family: $IBMPlex;
   }
   &--description {
-    @include font($primary-gray, 18px, 400, 28px);
+    @include font($primary-gray, 18px, 300, 28px);
     margin-top: 22px;
     font-family: $IBMPlex;
   }

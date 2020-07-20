@@ -20,7 +20,8 @@ const Hero: React.FC<HeroProps> = ({}) => {
           <H1 className={styles.heroCaption}>Our Learning Approach</H1>
           <div className={styles.heroDescription}>
             Experience transformational hospitality e-learning bringing together
-            the best in industry and academia, dedicated mentorship, new
+            <br />
+            the best in industry and academia, dedicated mentorship, new <br />
             technologies and intensive support
           </div>
         </main>

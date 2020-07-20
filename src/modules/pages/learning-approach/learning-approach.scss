@@ -4,25 +4,9 @@
   width: 100%;
 }
 
-.meet-kordie {
-  @include container();
-  margin-top: 60px;
-  &--title {
-    letter-spacing: -0.48px;
-  }
-  &--description {
-    width: 100%;
-    margin-top: 14px;
-    font-family: $IBMPlex;
-    @include desktop() {
-      width: 50%;
-    }
-  }
-}
 
 .hr {
   height: 1px;
   margin: 50px 22px;
-  opacity: 0.5;
-  background: $primary-gray;
+  background: $hr;
 }
