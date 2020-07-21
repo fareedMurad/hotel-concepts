@@ -6,11 +6,12 @@ import { Button, Footer } from '@core/components';
 import { ContributorsContainer, BecomeContributing } from './sections';
 import { ScrollButton } from '@core/components/scroll-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+
 /**
  * Renders Contributors
  */
 
-const Contributors: React.FC<ContributorsProps> = ({}) => {
+const Contributors: React.FC<ContributorsProps> = ({ }) => {
   const ScrollToEnroll = () => scrollTo('become-contributor');
 
   return (

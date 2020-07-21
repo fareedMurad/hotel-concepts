@@ -8,21 +8,42 @@ import { useFooterData } from './footer.hook';
 import { Formik } from 'formik';
 import { Form } from '../form';
 import { Field } from '../field';
+import { gql, useQuery } from '@apollo/client';
+import { ScrollToTop } from '@app';
 
+
+/**
+ * query categories of programs
+ */
+
+const CATEGORIES = gql`
+ {
+  courseCategoryCollection{
+    items {
+      category
+      sys{
+        id
+      }
+    }
+  }
+}
+ `
 const Navigation: React.FC<{ caption: string; navigation: any[], socials?: any[] }> = ({
   caption,
   navigation,
-  socials
+  socials,
+
 }) => {
   return (
     <div className={styles.navigationItem}>
       <div className={styles.navigationCaption}>{caption}</div>
       <div className={styles.navigationLinks}>
-        {navigation.map(link => {
-          const { id, caption, to } = link;
+        {navigation.map((link, idx) => {
+          const { caption, to, ...rest } = link;
+
           return (
-            <NavLink key={id} to={to}>
-              {caption}
+            <NavLink key={idx} to={rest.sys ? `/programs-catalogue/${rest.sys.id}` : to}>
+              {rest.category ? rest.category : caption}
             </NavLink>
           );
         })}
@@ -30,17 +51,24 @@ const Navigation: React.FC<{ caption: string; navigation: any[], socials?: any[]
       {socials &&
         socials.map(item => (
           <a href={item.to} className={styles.social} key={item.id}>
-            <img src={require(`img/socials/${item.img}.svg`)} alt=""/>
+            <img src={require(`img/socials/${item.img}.svg`)} alt="" />
           </a>
-      ))}
+        ))}
     </div>
   );
 };
 /**
  * Renders Footer
  */
-const Footer: React.FC<FooterProps> = ({}) => {
-  const { companyLinks, weprovideLinks, moreLinks, socials } = useFooterData();
+const Footer: React.FC<FooterProps> = ({ }) => {
+  const [categories, setCategories] = React.useState([])
+  const { weprovideLinks, moreLinks, socials } = useFooterData();
+  const { data, loading, error } = useQuery(CATEGORIES)
+  React.useEffect(() => {
+    if (!loading) {
+      setCategories(data.courseCategoryCollection.items)
+    }
+  })
 
   return (
     <div className={styles.footer} id='footer'>
@@ -52,7 +80,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
               to newsletter
             </div>
             <div>
-              Get fresh ideas and opinion from our <br/>
+              Get fresh ideas and opinion from our <br />
               worldleading hospitality experts
             </div>
           </div>
@@ -62,7 +90,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
               // dispatch(action(values));
               console.log(values);
             }}
-            // validationSchema={} add later
+          // validationSchema={} add later
           >
             {({ handleSubmit }) => (
               <Form handleSubmit={handleSubmit}>
@@ -86,7 +114,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           </Formik>
         </section>
         <section className={styles.navigation}>
-          <Navigation caption='Explore Programs' navigation={companyLinks} />
+          <Navigation caption='Explore Programs' navigation={categories} />
           <Navigation caption='About' navigation={weprovideLinks} />
           <Navigation caption='Support' navigation={moreLinks} socials={socials} />
         </section>

@@ -9,11 +9,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getVacancies } from './store';
 import { Header } from '@core/components/header';
 import { State } from '@app/store/state';
+import { ScrollToTop } from '@app';
 
 /**
  * Renders JobsList
  */
-const JobsList: React.FC<JobsListProps> = ({}) => {
+const JobsList: React.FC<JobsListProps> = ({ }) => {
+
   const { filters } = useJobsListData();
   const dispatch = useDispatch();
   const [isActive, setIsActive] = React.useState(null);
@@ -30,6 +32,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
 
   return (
     <React.Fragment>
+      <ScrollToTop />
       <div className={styles.header}>
         <Header whiteBackground />
       </div>

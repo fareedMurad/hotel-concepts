@@ -71,7 +71,7 @@ const GET_PROGRAM = gql`
 /**
  * Renders ProgramPage
  */
-const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
+const ProgramPage: React.FC<ProgramPageProps> = ({ }) => {
   const history = useHistory();
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
@@ -93,6 +93,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   } = response.onlineCourse;
 
   const { url } = backgroundPicture;
+  console.log(history)
 
   return (
     <div className={styles.programPage}>
@@ -110,11 +111,12 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       />
       <div className={styles.img} style={{ backgroundImage: `url(${url})` }} />
       <ProgramResults results={results} />
-      <Mentors
-        contributors={mentorsForCurrrentCourse}
-        loading={loading}
-        url={`${history.location.pathname}?programId=${programId}&/mentor`}
-      />
+      {mentorsForCurrrentCourse &&
+        <Mentors
+          contributors={mentorsForCurrrentCourse}
+          loading={loading}
+          url={`${history.location.pathname}?programId=${programId}&/mentor`}
+        />}
       <ProgramLearningApproach learningApproach={learningApproach} />
       <ProgramMaterials additionalMaterials={additionalMaterials} />
       <Impact />
