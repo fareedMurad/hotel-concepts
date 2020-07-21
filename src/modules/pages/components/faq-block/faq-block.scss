@@ -1,14 +1,14 @@
 @import 'core.scss';
 
 .faq-block {
+  @include flex($direction: column);
   padding: 120px $default-offset;
   padding-bottom: 100px;
-  @include flex($direction: column);
 }
 
 .title {
-  @include container();
-  @include font($color: $primary-grey, $size: 36px, $weight: 400, $height: 46px);
+  @include font($primary-gray, 36px, 400, 46px);
+  padding-left: 112px;
 }
 
 .filters {
