@@ -17,6 +17,7 @@ const GET_MENTOR = gql`
       name
       surname
       position
+      linkedIn
       mentorPicture {
         url
       }
@@ -51,7 +52,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     experience,
     linkedIn
   } = mentor;
-  console.log(experience)
+  console.log(mentor  )
 
   return (
     <React.Fragment>
