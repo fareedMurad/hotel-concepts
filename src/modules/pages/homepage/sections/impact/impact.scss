@@ -15,7 +15,7 @@
   & > div:nth-child(2) {
     @include font($primary-gray, 48px, 600, 58px);
     margin-top: 12px;
-    letter-spacing: -1px;
+    letter-spacing: -0.48px;
     font-family: $EBGaramond;
   }
 }

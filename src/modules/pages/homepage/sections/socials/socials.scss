@@ -8,7 +8,7 @@
 }
 
 .left-side {
-  background: url('../../../../../assets/img/learning-approach/mobile.png')
+  background: url('../../../../../assets/img/learning-approach/mobile.svg')
     no-repeat bottom center;
   width: 80%;
 }
@@ -22,7 +22,7 @@
 .title {
   & > div:first-child {
     @include font($primary-grey, 36px, 500, 46px);
-    letter-spacing: -1px;
+    letter-spacing: -0.48px;
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {

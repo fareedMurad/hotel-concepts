@@ -3,6 +3,7 @@
 .program-modules {
   padding: 60px $left-offset;
   background-color: $background;
+  padding-bottom: 27px;
 }
 
 .title {
@@ -10,7 +11,7 @@
     @include font($primary-grey, 48px, 600, 58px);
     max-width: 600px;
     font-family: $EBGaramond;
-    letter-spacing: -1px;
+    letter-spacing: -0.48px;
   }
   & > div:nth-child(2) {
     @include font($primary-grey, 18px, 400, 28px);

@@ -2,7 +2,7 @@
 
 .quote {
   background: url('../../../../../assets/img/learning-approach/quote-background.png') no-repeat center center;
-  height: 100vh;
+  height: 657px;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
@@ -19,6 +19,6 @@
   @include font($white, 36px, 400, 46px);
   max-width: 500px;
   font-family: $EBGaramond;
-  letter-spacing: -1px;
+  letter-spacing: -0.48px;
   text-align: center;
 }

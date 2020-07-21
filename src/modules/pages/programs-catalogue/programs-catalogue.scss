@@ -11,7 +11,7 @@
     max-width: 360px;
     @include font($primary-grey, 48px, 600, 58px);
     font-family: $EBGaramond;
-    letter-spacing: -1px;
+    letter-spacing: -0.48px;
   }
   & > div:nth-child(2) {
     margin-top: 12px;

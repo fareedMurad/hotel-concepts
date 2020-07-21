@@ -1,14 +1,10 @@
 import * as React from 'react';
-import { PartnerApplyProps } from './partner-apply.props';
-import * as styles from './partner-apply.scss';
+import { ProgramQuestionsFormProps } from './program-questions-form.props';
+import * as styles from './program-questions-form.scss';
 import {
-  H2,
-  Paragraph,
   Form,
   Button,
-  Field,
-  Icon,
-  Select
+  Field
 } from '@core/components';
 import { Formik } from 'formik';
 import classNames from 'classnames';
@@ -23,26 +19,26 @@ const defaultValues = {
   comment: ''
 };
 /**
- * Renders PartnerApply
+ * Renders ProgramQuestionsForm
  */
-
-const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
+const ProgramQuestionsForm: React.FC<ProgramQuestionsFormProps> = ({}) => {
   const [focused, setFocused] = React.useState(false);
   return (
-    <div className={styles.partnerApply} id='get-involved'>
-      <div className={styles.container}>
-        <div className={styles.formWrapper}>
-          <H2>{title}</H2>
-          <Paragraph>
-            {subtitle}{' '}
-          </Paragraph>
-          <Formik
-            initialValues={defaultValues}
-            onSubmit={values => {
-              console.log(values);
-            }}
-            // validationSchema={jobDetailsValidationSchema}
-          >
+    <div className={styles.programQuestionsForm}>
+       <div className={styles.container}>
+         <div className={styles.formWrapper}>
+            <div className={styles.title}>Got questions?</div>
+            <div className={styles.subtitle}>
+              Whether you are an individual or an organisation/group, looking for a
+              programme, get in touch and we can help find the best solution for you.
+            </div>
+            <Formik
+              initialValues={defaultValues}
+              onSubmit={values => {
+                console.log(values);
+              }}
+              // validationSchema={jobDetailsValidationSchema}
+            >
             {({ handleSubmit, validateForm }) => (
               <Form handleSubmit={handleSubmit}>
                 <div className={styles.formSection}>
@@ -51,13 +47,13 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                       name='name'
                       className={styles.name}
                       label='Name'
-                      placeholder='John'
+                      placeholder=''
                     />
                     <Field.Text
                       name='phone'
                       className={styles.email}
                       label='E-mail'
-                      placeholder='example@gmail.com'
+                      placeholder=''
                     />
                   </div>
                   <div
@@ -100,10 +96,9 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
             )}
           </Formik>
         </div>
-        {/* <div className={styles.hr} /> */}
       </div>
     </div>
   );
 };
 
-export { PartnerApply };
+export { ProgramQuestionsForm };

@@ -31,7 +31,7 @@
 .name {
   @include font($primary-grey, 36px, 600, 39px);
   font-family: $EBGaramond;
-  letter-spacing: -1px;
+  letter-spacing: -0.48px;
 }
 
 .secondary-info {
@@ -43,7 +43,7 @@
 .description {
   @include font($primary-grey, 16px, 400, 22px);
   font-family: $IBMPlex;
-  max-width: 400px;
+  max-width: 316px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

@@ -2,7 +2,7 @@
 
 .program-quote {
   background-position: center;
-  height: 100vh;
+  // height: 100vh;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
@@ -12,7 +12,8 @@
   background-size: cover;
   min-height: 500px;
   padding: 0 $default-offset;
-  @include flex($justify: center, $align: center, $direction: column);
+  height: 657px;
+	@include flex($justify: center, $align: center, $direction: column);
 }
 
 .text {

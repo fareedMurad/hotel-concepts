@@ -15,7 +15,7 @@
 .title {
   & > div:first-child {
     @include font($primary-gray, 36px, 500, 46px);
-    letter-spacing: -1px;
+    letter-spacing: -0.48px;
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
@@ -84,7 +84,7 @@
 
 .policy,
 .terms {
-  @include font($primary-gray, 12px, 600, 16px);
+  @include font($primary-gray, 12px, 500, 16px);
   font-family: $IBMPlex;
   text-decoration: underline;
   cursor: pointer;
@@ -138,7 +138,7 @@
 
 .copyright-info {
   width: 80%;
-  @include font($primary-gray, 12px, 600, 16px);
+  @include font($primary-gray, 12px, 500, 16px);
   font-family: $IBMPlex;
 }
 

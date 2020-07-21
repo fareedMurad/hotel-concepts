@@ -67,6 +67,7 @@ const GET_PROGRAM = gql`
     }
   }
 `;
+import { ProgramQuestionsForm } from './sections/program-questions-form';
 
 /**
  * Renders ProgramPage
@@ -128,6 +129,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
         subtitle='Whether you are an individual or an organisation/group, looking for a
                   programme, get in touch and we can help find the best solution for you.'
       />
+      <ProgramQuestionsForm />
       <Footer />
     </div>
   );

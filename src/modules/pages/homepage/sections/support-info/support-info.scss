@@ -8,7 +8,7 @@
 }
 
 .title-wrapper {
-  flex: 1;
+  margin-right: 228px;
 }
 
 .title {
@@ -18,7 +18,7 @@
   max-width: 600px;
   & > div:first-child {
     @include font($primary-gray, 48px, 600, 58px);
-    letter-spacing: -1px;
+    letter-spacing: -0.48px;
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
@@ -75,5 +75,8 @@
   }
   .title {
     padding-left: $default-offset;
+  }
+  .title-wrapper {
+    margin-right: 0;
   }
 }

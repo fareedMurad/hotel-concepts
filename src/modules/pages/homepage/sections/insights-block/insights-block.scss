@@ -11,7 +11,7 @@
   & > div:first-child {
     @include font($primary-gray, 48px, 600, 58px);
     max-width: 600px;
-    letter-spacing: -1px;
+    letter-spacing: -0.48px;
     font-family: $EBGaramond;
     &::before {
       content: url('../../../../../assets/img/text-decorator.svg');
