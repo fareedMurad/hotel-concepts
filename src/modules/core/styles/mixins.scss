@@ -74,6 +74,8 @@
   }
 
   &:hover {
+    border: none;
+    outline: none;
     &::before {
       top: unset;
       bottom: 0;

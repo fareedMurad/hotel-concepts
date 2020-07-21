@@ -14,7 +14,7 @@
     @include font($white, 16px, 400, 22px);
     font-family: $IBMPlex;
     background: $primary-orange;
-    border: 1px solid $primary-orange;
+    // border: 1px solid $primary-orange;
   }
 
   &--secondary {
