@@ -10,13 +10,15 @@ import { PartnerApply } from '@pages/components';
 import { ScrollButton } from '@core/components/scroll-button';
 import { Hero } from './sections/hero';
 import { PartneringForSuccess } from './sections/partnering-for-success';
+import { ScrollToTop } from '@app';
 
 /**
  * Renders Course
  */
-const CoursePartnership: React.FC<CoursePartnershipProps> = ({}) => {
+const CoursePartnership: React.FC<CoursePartnershipProps> = ({ }) => {
   return (
     <div className={styles.course}>
+      <ScrollToTop />
       <Header />
       <Hero />
       <PartneringForSuccess />

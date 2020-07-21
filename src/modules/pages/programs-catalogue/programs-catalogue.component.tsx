@@ -9,11 +9,8 @@ import { ProgramItem } from './components/program-item';
 import { Footer, Spinner } from '@core/components';
 import { useParams } from 'react-router';
 import { Pagination } from '@core/components/pagination';
-import { useProgramsCatalogueData } from './programs-catalogue.hook';
-import { useCatalogueFiltersData } from './sections/catalogue-filters/catalogue-filters.hook';
 import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
-import { useState } from 'react';
 /**
  * get programs
  */
@@ -61,13 +58,12 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const [currentFilters, setCurrentFilters] = React.useState(['All']);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(5);
-  // const [filteredPrograms, setFilteredPrograms] = React.useState([]);
-
   if (loading) return <Spinner />;
 
   const { items: programs } = data?.courseCategory?.coursesCollection;
   const { courseCategory: category } = data;
-
+  const lastItemIndex = currentPage * itemsPerPage;
+  const firstItemIndex = lastItemIndex - itemsPerPage;
   const pages = Math.ceil(programs.length / itemsPerPage);
 
   const changePage = page => () => {
@@ -82,7 +78,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
     return program.filters.some(item => currentFilters.includes(item));
   });
 
-  console.log(filteredPrograms);
+  const currentPrograms = filteredPrograms.slice(firstItemIndex, lastItemIndex);
 
   return (
     <React.Fragment>
@@ -105,8 +101,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
           updateFilters={updateFilters}
         />
         <div className={styles.content}>
-          {filteredPrograms.length > 0 ? (
-            filteredPrograms.map((program, index) => {
+          {currentPrograms.length > 0 ? (
+            currentPrograms.map((program, index) => {
               return <ProgramItem program={program} key={index} />;
             })
           ) : (

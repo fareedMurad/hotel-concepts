@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FaqBlockProps } from './faq-block.props';
 import * as styles from './faq-block.scss';
 import { useFaqData } from './faq.hook';
-import { ButtonFilter } from '@core/components';
+import { ButtonFilter, H2 } from '@core/components';
 import { FaqItem } from '@pages/homepage/components/faq-item';
 import classNames from 'classnames';
 import { gql, useQuery } from '@apollo/client';
@@ -53,6 +53,7 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
 
   return (
     <section className={classNames(styles.faqBlock, className)}>
+      <H2 className={styles.title}>Freaquently Asked Questions</H2>
       <div className={styles.filters}>
         {categories.map(filter => {
           const { name, count } = filter;
@@ -60,7 +61,7 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
             <ButtonFilter
               key={`${name}`}
               title={`${name}`}
-              count={filter.count}
+              count={count}
               onClick={() => {
                 onFilterSelect(`${name}`);
               }}
@@ -70,7 +71,7 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
           );
         })}
       </div>
-      {currentItems.map((item, index) => (
+      {currentItems.filter((el, idx) => idx < 6).map((item, index) => (
         <FaqItem
           name={item.question}
           description={item.answear}

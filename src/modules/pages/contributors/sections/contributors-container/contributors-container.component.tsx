@@ -12,6 +12,7 @@ import { MentorModal } from '@pages/components/mentor-modal';
 import { ContributorCard } from '@pages/components/contributor-card';
 import { Spinner } from '@core/components/spinner';
 import { State } from '@app/store/state';
+import { Pagination } from '@core/components/pagination';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -37,63 +38,95 @@ const responsiveBreakpoints = {
 /**
  * Renders ContributorsContainer
  */
-const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
-  const { contributors, loading } = useContributorsData();
+const ContributorsContainer: React.FC<ContributorsContainerProps> = ({ }) => {
+  const { contributors: data, loading } = useContributorsData();
+  const [contributors, setContributors] = React.useState([])
   const { mobile } = useMediaPoints();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
 
+  React.useEffect(() => {
+    if (!loading) {
+      setContributors(data)
+    }
+  })
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(12);
+
+  const lastItemIndex = currentPage * itemsPerPage;
+  const firstItemIndex = lastItemIndex - itemsPerPage;
+  const currentContributors = contributors.slice(firstItemIndex, lastItemIndex)
+  const [filteredContributors, setFilteredContributors] = React.useState([...currentContributors])
+  const pages = Math.ceil(contributors.length / itemsPerPage)
+
+  const changePage = page => () => {
+    setCurrentPage(page);
+  };
+
+
+  console.log(currentContributors)
+
+
   return (
-    <div className={styles.contributorsContainer}>
-      <div className={styles.heading}>
-        <PreCaption>Contributors</PreCaption>
-        <H2 className={styles.headingTitle}>Meet the experts</H2>
-        <Paragraph className={styles.headingParagraph}>
-          Cordie participants can benefit from a wide spectrum of experts with
+    <React.Fragment >
+      <div className={styles.contributorsContainer}>
+        <div className={styles.heading}>
+          <PreCaption>Contributors</PreCaption>
+          <H2 className={styles.headingTitle}>Meet the experts</H2>
+          <Paragraph className={styles.headingParagraph}>
+            Cordie participants can benefit from a wide spectrum of experts with
           diverse backgrounds. <br /> Our expert team are knowledge creators and
           industry leaders at the cutting edge of their fields.
         </Paragraph>
-        <div className={styles.headingHr} />
-        <div className={styles.headingStatistic}>
-          <div>
-            <H2>75+</H2>
-            <div className={styles.headingCaption}>Teaching Experts</div>
-          </div>
-          <div>
-            <H2>25+</H2>
-            <div className={styles.headingCaption}>Nationalities</div>
+          <div className={styles.headingHr} />
+          <div className={styles.headingStatistic}>
+            <div>
+              <H2>75+</H2>
+              <div className={styles.headingCaption}>Teaching Experts</div>
+            </div>
+            <div>
+              <H2>25+</H2>
+              <div className={styles.headingCaption}>Nationalities</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {loading ? (
-        <Spinner />
-      ) : (
-        <section className={styles.contributorsList}>
-          {contributors?.map((contributor, index) => (
-            <ContributorCard
-              contributor={contributor}
-              key={index}
-              onClick={() => {
-                dispatch(
-                  navigate(
-                    `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
-                  )
-                );
-                !mobile &&
-                  (dispatch(showModal(Modals.contributor)),
-                  dispatch(toogleContributorModal(true)));
-              }}
-            />
-          ))}
-        </section>
-      )}
-      {contributorModal && (
-        <MentorModal
-          hideComponent={() => dispatch(toogleContributorModal(false))}
+        {loading ? (
+          <Spinner />
+        ) : (
+            <section className={styles.contributorsList}>
+              {currentContributors.map((contributor, index) => (
+                <ContributorCard
+                  contributor={contributor}
+                  key={index}
+                  onClick={() => {
+                    dispatch(
+                      navigate(
+                        `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+                      )
+                    );
+                    !mobile &&
+                      (dispatch(showModal(Modals.contributor)),
+                        dispatch(toogleContributorModal(true)));
+                  }}
+                />
+              ))}
+            </section>
+          )}
+        {contributorModal && (
+          <MentorModal
+            hideComponent={() => dispatch(toogleContributorModal(false))}
+          />
+        )}
+      </div>
+      <div className={styles.pagination}>
+        <Pagination
+          currentPage={currentPage}
+          onChangePage={changePage}
+          countOfPages={pages}
         />
-      )}
-    </div>
+      </div>
+    </React.Fragment>
   );
 };
 
