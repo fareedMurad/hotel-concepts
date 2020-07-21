@@ -2,9 +2,8 @@
  * Props
  */
 type VideoCardProps = {
-  title: string;
-  duration: string;
-  preview: string;
+  pictureUrl?: string
+  videoId: string | number;
 };
 
 export { VideoCardProps };
