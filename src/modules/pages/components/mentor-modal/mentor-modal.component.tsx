@@ -51,6 +51,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     experience,
     linkedIn
   } = mentor;
+  console.log(experience)
 
   return (
     <React.Fragment>
@@ -77,7 +78,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
         <div className={styles.modalContent}>
           <div className={styles.modalContentCaption}>Experience</div>
           <div className={styles.modalContentDescription}>
-            {experience.text}
+            {experience ? experience.text : 'No experience yet'}
           </div>
         </div>
         <Icon
