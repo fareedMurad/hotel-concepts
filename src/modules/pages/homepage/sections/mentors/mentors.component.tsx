@@ -14,7 +14,6 @@ import { ContributorCard } from '@pages/components';
 import { Spinner } from '@core/components/spinner';
 import { State } from '@app/store/state';
 
-
 const responsiveBreakpoints = {
   largeDesktop: {
     breakpoint: { max: 3000, min: 1290 },
@@ -87,7 +86,7 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
               );
               !mobile &&
                 (dispatch(showModal(Modals.contributor)),
-                  dispatch(toogleContributorModal(true)));
+                dispatch(toogleContributorModal(true)));
             }}
           />
         ))}
@@ -97,7 +96,6 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
           hideComponent={() => dispatch(toogleContributorModal(false))}
         />
       )}
-
     </section>
   );
 };

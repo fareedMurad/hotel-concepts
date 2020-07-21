@@ -53,6 +53,10 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
     { label: 'Male', value: '1' },
     { label: 'Female', value: '2' }
   ];
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className={styles.contactsPage}>
       <Header whiteBackground />

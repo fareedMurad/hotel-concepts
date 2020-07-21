@@ -21,7 +21,7 @@ const useMenuData = () => {
     },
     {
       name: 'Program-Partnership',
-      path: '/'
+      path: '/course-partnership'
     },
     {
       name: 'Contributors',
@@ -33,7 +33,7 @@ const useMenuData = () => {
     },
     {
       name: 'Our Story',
-      path: '/'
+      path: '/about-us'
     },
     {
       name: 'Jobs',
@@ -41,7 +41,7 @@ const useMenuData = () => {
     },
     {
       name: 'Contacts',
-      path: '/'
+      path: '/contact-us'
     }
   ];
   return { mainLinks, secondaryLinks };

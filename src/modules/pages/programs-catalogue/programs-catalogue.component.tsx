@@ -11,6 +11,7 @@ import { useParams } from 'react-router';
 import { Pagination } from '@core/components/pagination';
 import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 /**
  * get programs
  */
@@ -68,6 +69,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
 
   const changePage = page => () => {
     setCurrentPage(page);
+    scrollTo('programs');
   };
 
   const updateFilters = filters => {
@@ -100,7 +102,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
           currentFilters={currentFilters}
           updateFilters={updateFilters}
         />
-        <div className={styles.content}>
+        <div className={styles.content} id='programs'>
           {currentPrograms.length > 0 ? (
             currentPrograms.map((program, index) => {
               return <ProgramItem program={program} key={index} />;

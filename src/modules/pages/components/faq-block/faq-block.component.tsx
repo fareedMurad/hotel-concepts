@@ -28,7 +28,9 @@ const GET_FAQ = gql`
 const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
   const [currentCategory, setCurrentCutegory] = React.useState('All');
   const { data, loading, error } = useQuery(GET_FAQ);
-
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   if (loading) return <Spinner />;
   const { items } = data.faqCollection;
 
@@ -71,13 +73,15 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
           );
         })}
       </div>
-      {currentItems.filter((el, idx) => idx < 6).map((item, index) => (
-        <FaqItem
-          name={item.question}
-          description={item.answear}
-          key={item.question + index}
-        />
-      ))}
+      {currentItems
+        .filter((el, idx) => idx < 6)
+        .map((item, index) => (
+          <FaqItem
+            name={item.question}
+            description={item.answear}
+            key={item.question + index}
+          />
+        ))}
     </section>
   );
 };

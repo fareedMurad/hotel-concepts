@@ -3,37 +3,33 @@ import { FooterProps } from './footer.props';
 import * as styles from './footer.scss';
 import { H2 } from '../typography';
 import { Button } from '../button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useFooterData } from './footer.hook';
 import { Formik } from 'formik';
 import { Form } from '../form';
 import { Field } from '../field';
 import { gql, useQuery } from '@apollo/client';
-import { ScrollToTop } from '@app';
-
-
 /**
  * query categories of programs
  */
-
 const CATEGORIES = gql`
- {
-  courseCategoryCollection{
-    items {
-      category
-      sys{
-        id
+  {
+    courseCategoryCollection {
+      items {
+        category
+        sys {
+          id
+        }
       }
     }
   }
-}
- `
-const Navigation: React.FC<{ caption: string; navigation: any[], socials?: any[] }> = ({
-  caption,
-  navigation,
-  socials,
+`;
 
-}) => {
+const Navigation: React.FC<{
+  caption: string;
+  navigation: any[];
+  socials?: any[];
+}> = ({ caption, navigation, socials }) => {
   return (
     <div className={styles.navigationItem}>
       <div className={styles.navigationCaption}>{caption}</div>
@@ -42,7 +38,10 @@ const Navigation: React.FC<{ caption: string; navigation: any[], socials?: any[]
           const { caption, to, ...rest } = link;
 
           return (
-            <NavLink key={idx} to={rest.sys ? `/programs-catalogue/${rest.sys.id}` : to}>
+            <NavLink
+              key={idx}
+              to={rest.sys ? `/programs-catalogue/${rest.sys.id}` : to}
+            >
               {rest.category ? rest.category : caption}
             </NavLink>
           );
@@ -51,7 +50,7 @@ const Navigation: React.FC<{ caption: string; navigation: any[], socials?: any[]
       {socials &&
         socials.map(item => (
           <a href={item.to} className={styles.social} key={item.id}>
-            <img src={require(`img/socials/${item.img}.svg`)} alt="" />
+            <img src={require(`img/socials/${item.img}.svg`)} alt='' />
           </a>
         ))}
     </div>
@@ -60,15 +59,15 @@ const Navigation: React.FC<{ caption: string; navigation: any[], socials?: any[]
 /**
  * Renders Footer
  */
-const Footer: React.FC<FooterProps> = ({ }) => {
-  const [categories, setCategories] = React.useState([])
+const Footer: React.FC<FooterProps> = ({}) => {
+  const [categories, setCategories] = React.useState([]);
   const { weprovideLinks, moreLinks, socials } = useFooterData();
-  const { data, loading, error } = useQuery(CATEGORIES)
+  const { data, loading, error } = useQuery(CATEGORIES);
   React.useEffect(() => {
     if (!loading) {
-      setCategories(data.courseCategoryCollection.items)
+      setCategories(data.courseCategoryCollection.items);
     }
-  })
+  });
 
   return (
     <div className={styles.footer} id='footer'>
@@ -90,7 +89,7 @@ const Footer: React.FC<FooterProps> = ({ }) => {
               // dispatch(action(values));
               console.log(values);
             }}
-          // validationSchema={} add later
+            // validationSchema={} add later
           >
             {({ handleSubmit }) => (
               <Form handleSubmit={handleSubmit}>
@@ -116,15 +115,25 @@ const Footer: React.FC<FooterProps> = ({ }) => {
         <section className={styles.navigation}>
           <Navigation caption='Explore Programs' navigation={categories} />
           <Navigation caption='About' navigation={weprovideLinks} />
-          <Navigation caption='Support' navigation={moreLinks} socials={socials} />
+          <Navigation
+            caption='Support'
+            navigation={moreLinks}
+            socials={socials}
+          />
         </section>
       </div>
       <div className={styles.hr} />
       <footer className={styles.copyrights}>
-        <div className={styles.copyrightInfo}>© 2020 Kordie. All rights reserved.</div>
+        <div className={styles.copyrightInfo}>
+          © 2020 Kordie. All rights reserved.
+        </div>
         <div className={styles.copyrightsLinkContainer}>
-          <div className={styles.policy}>Privacy Policy</div>
-          <div className={styles.terms}>Terms and Conditions</div>
+          <Link to='/privacy-policy' className={styles.policy}>
+            Privacy Policy
+          </Link>
+          <Link to='/' className={styles.terms}>
+            Terms and Conditions
+          </Link>
         </div>
       </footer>
     </div>

@@ -12,6 +12,7 @@ const Block: React.FC<{
   title: string;
   description?: string;
 }> = ({ id, title, description }) => {
+  
   return (
     <div className={styles.block}>
       <div className={styles.blockId}>{id}</div>
@@ -27,6 +28,9 @@ const Block: React.FC<{
  */
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
   const { list } = usePrivacyPolicyData();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div className={styles.privacyPolicy}>
