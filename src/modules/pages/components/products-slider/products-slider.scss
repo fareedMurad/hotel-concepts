@@ -24,8 +24,13 @@
   &--not-orange {
     button {
       background-color: $background;
-      color: $black
+      color: $black;
     }
   }
 }
 
+.slider-card {
+  img {
+    border: unset;
+  }
+}

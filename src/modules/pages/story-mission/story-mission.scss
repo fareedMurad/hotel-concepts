@@ -24,14 +24,14 @@
       margin: 0;
     }
     @include tablet() {
-      margin-top: calc(100vh - 570px);
-      width: 49%;
+      // margin-top: calc(100vh - 570px);
+      // width: 49%;
     }
     font-family: $EBGaramond;
     & > div:nth-child(2) {
       @include font($white, 24px, 400, 34px);
       font-weight: 300;
-      width: 50%;
+      // width: 50%;
       margin: 24px 0px;
     }
   }
@@ -59,14 +59,14 @@
     }
     @include desktop() {
       overflow-x: initial;
-      grid-template-columns: repeat(5, auto);
+      grid-template-columns: repeat(6, 1fr);
     }
     @include ipad-p() {
-      & > a {
+      & > div {
         padding: 0px 6px;
       }
     }
-    & > a:last-child {
+    & > div:last-child {
       padding-right: 20px;
     }
     // &::after {
@@ -94,6 +94,7 @@
   background-color: #f5f1f0;
   border-radius: 4px;
   padding: 0px 8px;
+  cursor: pointer;
   @include desktop() {
     padding: 0px 20px;
   }

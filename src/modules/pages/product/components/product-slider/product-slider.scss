@@ -7,6 +7,7 @@
 }
 .productSlider {
   width: 100%;
+  padding-top: 55px;
 }
 .container {
   position: relative;
@@ -27,7 +28,6 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   will-change: transform, transition;
- 
 }
 
 
@@ -48,14 +48,14 @@
   }
 }
 .arrow-right {
-  top: calc(50% - 60px);
-  right: 0;
+  top: calc(50% - 30px);
+  right: 55px;
   transform: rotate(180deg);
 }
 
 .arrow-left {
-  top: calc(50% - 60px);
-  left: 0;
+  top: calc(50% - 30px);
+  left: 55px;
 }
 
 .inactive-dot {

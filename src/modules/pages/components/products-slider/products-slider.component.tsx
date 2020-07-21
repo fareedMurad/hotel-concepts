@@ -33,16 +33,25 @@ const responsiveBreakpoints = {
 /**
  * Renders Slider
  */
-const ProductsSlider: React.FC<SliderProps> = ({ subtitle, title, data, notOrangeButtons }) => {
+const ProductsSlider: React.FC<SliderProps> = ({
+  subtitle,
+  title,
+  data,
+  notOrangeButtons
+}) => {
   return (
     <div className={styles.slider}>
       <Slider
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
-        customButtonGroup={<SliderButtons className={classNames(styles.controls, {
-          [styles.controlsNotOrange]: notOrangeButtons
-        })} />}
+        customButtonGroup={
+          <SliderButtons
+            className={classNames(styles.controls, {
+              [styles.controlsNotOrange]: notOrangeButtons
+            })}
+          />
+        }
         responsive={responsiveBreakpoints}
       >
         {data.map(el => {
@@ -54,7 +63,8 @@ const ProductsSlider: React.FC<SliderProps> = ({ subtitle, title, data, notOrang
               name={name}
               price={price}
               id={id}
-              onClick={() => { }}
+              onClick={() => {}}
+              className={styles.sliderCard}
             />
           );
         })}

@@ -4,6 +4,7 @@ import * as styles from './reading-materials.scss';
 import { Caption, DownloadButton } from '@pages/components';
 
 import { gql, useQuery } from '@apollo/client';
+import { Spinner } from '@core/components';
 
 /**
  * query files
@@ -71,7 +72,7 @@ const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({ }) => {
               size,
               url
             } = el.file;
-            if (loading) return <div>Loading...</div>;
+            if (loading) return <Spinner />;
             return (
               <DownloadButton
                 key={idx}

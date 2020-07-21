@@ -12,7 +12,7 @@ import { Intro } from './intro';
  */
 const Marketplace: React.FC<MarketplaceProps> = ({ }) => {
   const { goodsData, books } = useMarketplaceData();
-
+  
   return (
     <div className={styles.marketplace}>
       <Header />

@@ -56,7 +56,7 @@ const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
         </Paragraph>
       </section>
       <section className={styles.kordie}>
-        <div className={styles.kordieWrapper}>
+        <div className={styles.kordieWrapper} id="our-work">
           <H2>The Kordie Impact</H2>
           <Paragraph className={styles.kordieParagraph}>
             Kordie provides world-class online education for hospitality that is

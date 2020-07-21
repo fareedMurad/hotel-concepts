@@ -18,7 +18,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({
       <div className={styles.description}>
         <Icon name='download' />
         <div className={styles.descriptionDetails}>
-          <div>{caption}</div>
+          <div className={styles.fileCaption}>{caption}</div>
           <div>{description}</div>
         </div>
       </div>

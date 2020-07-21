@@ -4,20 +4,19 @@ import * as styles from './video-card.scss';
 import { WatchButton } from '@core/components/watch-button';
 import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
-import Player from '@vimeo/player/src/player.js'
+// import Player from '@vimeo/player/src/player.js';
 
 /**
  * Renders VideoCard
  */
 const VideoCard: React.FC<VideoCardProps> = ({ title, preview }) => {
-  const [duration, setDuration] = React.useState()
-  const videoPlayer = React.useRef<ReactPlayer>(null)
-  React.useEffect(() => {
-    console.log(videoPlayer.current)
-
-  }, [])
-  var player = new Player(videoPlayer)
-  console.log(player)
+  // const [duration, setDuration] = React.useState();
+  // const videoPlayer = React.useRef<ReactPlayer>(null);
+  // React.useEffect(() => {
+  //   console.log(videoPlayer.current);
+  // }, []);
+  // var player = new Player(videoPlayer);
+  // console.log(player);
   return (
     <div
       className={styles.videoCard}
@@ -25,7 +24,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ title, preview }) => {
         backgroundImage: `url(${require(`img/${preview}.png`)})`
       }}
     >
-      <ReactPlayer
+      {/* <ReactPlayer
 
         ref={videoPlayer}
         light
@@ -33,7 +32,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ title, preview }) => {
         url='https://vimeo.com/376809414'
         controls
         style={{ margin: 'auto', maxWidth: '100%' }}
-      />
+      /> */}
       {/* <iframe ref={videoPlayer} src="https://player.vimeo.com/video/376809414" width="300px" height="300px" allowFullScreen></iframe>
       <div className={styles.controls}> */}
       <Popup
@@ -54,19 +53,14 @@ const VideoCard: React.FC<VideoCardProps> = ({ title, preview }) => {
         modal
         lockScroll
       >
-
         <ReactPlayer
-
-
           light
-
           url='https://vimeo.com/376809414'
           controls
           style={{ margin: 'auto', maxWidth: '100%' }}
         />
       </Popup>
-    </div >
-
+    </div>
   );
 };
 

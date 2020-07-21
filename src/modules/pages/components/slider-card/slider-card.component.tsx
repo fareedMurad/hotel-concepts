@@ -3,6 +3,7 @@ import { SliderCardProps } from './slider-card.props';
 import * as styles from './slider-card.scss';
 import { H3, H4 } from '@core/components';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 /**
  * Renders SliderCard
@@ -13,10 +14,11 @@ const SliderCard: React.FC<SliderCardProps> = ({
   author,
   price,
   id,
-  onClick
+  onClick,
+  className
 }) => {
   return (
-    <div className={styles.sliderCard}>
+    <div className={classNames(styles.sliderCard, className)}>
       <NavLink to={`/product/${id}`}>
         <div className={styles.imgWrap}>
           <img

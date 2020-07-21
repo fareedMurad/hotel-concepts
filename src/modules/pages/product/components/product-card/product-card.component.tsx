@@ -18,30 +18,36 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className={styles.productCard}>
       <H2 className={styles.productCardTitle}>{title}</H2>
-      <Paragraph>{author}</Paragraph>
+      <Paragraph className={styles.productCardAuthor}>{author}</Paragraph>
       <div className={styles.hr} />
-      <div className={styles.desription}>
-        <div className={styles.descriptionBlock}>
-          <H4 className={styles.descriptionTitle}>Category</H4>
-          <Paragraph>{category}</Paragraph>
+      <div className={styles.wrapper}>
+        <div>
+          <div className={styles.desription}>
+            <div className={styles.descriptionBlock}>
+              <H4 className={styles.descriptionTitle}>Category</H4>
+              <Paragraph>{category}</Paragraph>
+            </div>
+            <div className={styles.descriptionBlock}>
+              <H4 className={styles.descriptionTitle}>Languege</H4>
+              <Paragraph>{languege}</Paragraph>
+            </div>
+            <div className={styles.descriptionBlock}>
+              <H4 className={styles.descriptionTitle}>Publish Date</H4>
+              <Paragraph>{publishDate}</Paragraph>
+            </div>
+          </div>
+          <div className={styles.details}>
+            <H4 className={styles.detailsTitle}>Details</H4>
+            <Paragraph>{details}</Paragraph>
+          </div>
         </div>
-        <div className={styles.descriptionBlock}>
-          <H4 className={styles.descriptionTitle}>Languege</H4>
-          <Paragraph>{languege}</Paragraph>
-        </div>
-        <div className={styles.descriptionBlock}>
-          <H4 className={styles.descriptionTitle}>Publish Date</H4>
-          <Paragraph>{publishDate}</Paragraph>
+        <div>
+          <H3 className={styles.price}>{price}</H3>
+          <Button className={styles.confirmButton}>
+            <div>Go to Checkout</div> <div>&rarr;</div>
+          </Button>
         </div>
       </div>
-      <div className={styles.details}>
-        <H4 className={styles.detailsTitle}>Details</H4>
-        <Paragraph>{details}</Paragraph>
-      </div>
-      <H3 className={styles.price}>{price}</H3>
-      <Button className={styles.confirmButton}>
-        <div>Go to Checkout</div> <div>&rarr;</div>
-      </Button>
     </div>
   );
 };
