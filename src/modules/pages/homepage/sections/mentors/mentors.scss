@@ -19,25 +19,25 @@
   }
   & > div:nth-child(2) {
     height: 2px;
+    max-width: 450px;
     margin-top: 16px;
     margin-bottom: 14px;
-    max-width: 450px;
     background: #cbd0d3;
   }
   & > div:nth-child(3) {
     @include font($primary-grey, 18px, 400, 26px);
     max-width: 450px;
-    font-family: $IBMPlex;
     margin-top: 15px;
     margin-bottom: 48px;
+    font-family: $IBMPlex;
   }
 }
 
 .slider {
   @include flex($justify: space-between, $align: center);
+  position: relative;
   padding-bottom: 108px;
   overflow: hidden;
-  position: relative;
   padding-left: 49px;
 }
 
