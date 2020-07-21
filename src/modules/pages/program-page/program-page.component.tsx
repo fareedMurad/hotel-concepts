@@ -79,7 +79,8 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ }) => {
   const { data: response, loading, error } = useQuery(GET_PROGRAM, {
     variables: { id: programId }
   });
-  if (loading) return <Spinner />;
+
+  if (loading) return (<Spinner />);
 
   const {
     about,
