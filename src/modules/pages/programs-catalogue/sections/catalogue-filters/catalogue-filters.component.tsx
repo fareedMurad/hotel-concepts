@@ -13,7 +13,7 @@ const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({
   updateFilters
 }) => {
   const { data } = useCatalogueFiltersData();
-  
+
   const onCheck = index => ({ target: { checked } }) => {
     let data = [...currentFilters];
     if (checked) {
@@ -30,17 +30,17 @@ const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({
       <div className={styles.title}>Filter</div>
       <div className={styles.hr} />
       <div className={styles.filters}>
-        {data.map((item, index) => (
+        {data.map(item => (
           <div
             className={classNames(styles.filterItem, {
-              [styles.checked]: currentFilters.includes(index)
+              [styles.checked]: currentFilters.includes(item)
             })}
             key={item}
           >
             <FilterCheckbox
               name={item}
-              isChecked={currentFilters.includes(index)}
-              onCheck={onCheck(index)}
+              isChecked={currentFilters.includes(item)}
+              onCheck={onCheck(item)}
             />
           </div>
         ))}

@@ -13,6 +13,7 @@ import { useProgramsCatalogueData } from './programs-catalogue.hook';
 import { useCatalogueFiltersData } from './sections/catalogue-filters/catalogue-filters.hook';
 import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
+import { useState } from 'react';
 /**
  * get programs
  */
@@ -34,6 +35,7 @@ const GET_PROGRAMS = gql`
             price
             duration
             slug
+            filters
             sys {
               id
             }
@@ -56,52 +58,31 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { data, loading, error } = useQuery(GET_PROGRAMS, {
     variables: { id: id }
   });
+  const [currentFilters, setCurrentFilters] = React.useState(['All']);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(5);
+  // const [filteredPrograms, setFilteredPrograms] = React.useState([]);
+
   if (loading) return <Spinner />;
 
-  const { items: programs } = data.courseCategory.coursesCollection;
+  const { items: programs } = data?.courseCategory?.coursesCollection;
   const { courseCategory: category } = data;
 
-  // const { data } = useProgramsCatalogueData();
-  // const { slug } = useParams();
-  // const filterTypes = useCatalogueFiltersData();
-  // const [currentFilters, setCurrentFilters] = React.useState([0]);
-  // const { programs, title, description } = data.filter(
-  //   item => item.slug == slug
-  // )[0];
-  // const [currentPage, setCurrentPage] = React.useState(1);
-  // const [itemsPerPage, setItemsPerPage] = React.useState(5);
-  // const lastItemIndex = currentPage * itemsPerPage;
-  // const firstItemIndex = lastItemIndex - itemsPerPage;
-  // const currentPrograms = programs.slice(firstItemIndex, lastItemIndex);
-  // const [filteredPrograms, setFilteredPrograms] = React.useState([
-  //   ...currentPrograms
-  // ]);
-  // const pages = Math.ceil(programs.length / itemsPerPage);
+  const pages = Math.ceil(programs.length / itemsPerPage);
 
-  // const changePage = page => () => {
-  //   setCurrentPage(page);
-  // };
+  const changePage = page => () => {
+    setCurrentPage(page);
+  };
 
-  // const updateFilters = filters => {
-  //   setCurrentFilters(filters);
-  // };
+  const updateFilters = filters => {
+    setCurrentFilters(filters);
+  };
 
-  // React.useEffect(() => {
-  //   setFilteredPrograms([...currentPrograms]);
-  //   setCurrentPage(1);
-  //   setCurrentFilters([0]);
-  // }, [slug]);
+  const filteredPrograms = programs.filter(program => {
+    return program.filters.some(item => currentFilters.includes(item));
+  });
 
-  // React.useEffect(() => {
-  //   const filters = currentFilters.map(index => filterTypes.data[index]);
-  //   const result = programs.filter(item => {
-  //     if (item) {
-  //       return item.filters.some(filter => filters.includes(filter));
-  //     }
-  //     return false;
-  //   });
-  //   setFilteredPrograms(result.slice(firstItemIndex, lastItemIndex));
-  // }, [ currentPage]);
+  console.log(filteredPrograms);
 
   return (
     <React.Fragment>
@@ -119,30 +100,14 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             professional goals.
           </div>
         </div>
-        <CatalogueFilters currentFilters={[0]} updateFilters={() => [0, 2]} />
+        <CatalogueFilters
+          currentFilters={currentFilters}
+          updateFilters={updateFilters}
+        />
         <div className={styles.content}>
-          {programs.length > 0 ? (
-            programs.map(item => {
-              const {
-                slug,
-                duration: { months, sprints },
-                courseImage: { url }
-              } = item;
-              return (
-                <ProgramItem
-                  key={item.sys.id}
-                  id={item.sys.id}
-                  name={item.name}
-                  description={item.description}
-                  type={item.type}
-                  img={url}
-                  weeks={months}
-                  sprints={sprints}
-                  price={item.price}
-                  category={item.courseType}
-                  slug={item.slug}
-                />
-              );
+          {filteredPrograms.length > 0 ? (
+            filteredPrograms.map((program, index) => {
+              return <ProgramItem program={program} key={index} />;
             })
           ) : (
             <div className={styles.emptyInfo}>
@@ -150,7 +115,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             </div>
           )}
         </div>
-        {/* {(filteredPrograms.length >= itemsPerPage || currentPage > 1) && (
+        {(filteredPrograms.length >= itemsPerPage || currentPage > 1) && (
           <div className={styles.pagination}>
             <Pagination
               currentPage={currentPage}
@@ -158,7 +123,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
               onChangePage={changePage}
             />
           </div>
-        )} */}
+        )}
         <ProgramsContactUs />
       </div>
       <Footer />
