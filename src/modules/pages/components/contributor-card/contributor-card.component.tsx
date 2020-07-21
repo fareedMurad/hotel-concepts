@@ -16,7 +16,7 @@ const ContributorCard: React.FC<ContributorCardProps> = ({
     position,
     mentorPicture: { url }
   } = contributor;
-  
+
   return (
     <div onClick={onClick} className={styles.contributorCard}>
       <div className={styles.imgContainer}>
