@@ -33,7 +33,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <TrainingInfo />
       <Impact />
       <Mentors contributors={contributors} loading={loading} url='mentor' />
-      <FaqBlock />
+      <FaqBlock showTitle />
       <InsightsBlock />
       <Socials />
       <Footer />

@@ -24,7 +24,7 @@ const Faq: React.FC<FaqProps> = ({}) => (
         Relax because we always <br /> be here for you.
       </H2>
     </div>
-    <FaqBlock className={styles.faqWrapper} />
+    <FaqBlock className={styles.faqWrapper} showTitle={false} />
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div>

@@ -25,7 +25,7 @@ const GET_FAQ = gql`
 /**
  * Renders FaqBlock
  */
-const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
+const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle }) => {
   const [currentCategory, setCurrentCutegory] = React.useState('All');
   const { data, loading, error } = useQuery(GET_FAQ);
   React.useEffect(() => {
@@ -55,7 +55,9 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className }) => {
 
   return (
     <section className={classNames(styles.faqBlock, className)}>
-      <H2 className={styles.title}>Freaquently Asked Questions</H2>
+      {showTitle && (
+        <H2 className={styles.title}>Freaquently Asked Questions</H2>
+      )}
       <div className={styles.filters}>
         {categories.map(filter => {
           const { name, count } = filter;
