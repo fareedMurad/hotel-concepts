@@ -27,7 +27,7 @@ const useContributorsData = () => {
 
   const { data, error, loading } = useQuery(GET_MENTORS);
 
-
+  //init
   return { contributors: data?.mentorCollection?.items, loading };
 };
 
