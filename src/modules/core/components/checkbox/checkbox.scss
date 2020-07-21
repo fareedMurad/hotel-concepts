@@ -19,7 +19,6 @@
   @include flex(center, center);
   @include size(20px);
   @include min-size(20px);
-  // border: 1px solid #969ba3;
   background-color: $white;
   border-radius: 4px;
   transition: $transition;
