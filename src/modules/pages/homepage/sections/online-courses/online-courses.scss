@@ -82,7 +82,8 @@
   // flex-flow: row wrap;
   // justify-content: flex-start;
   display: grid;
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 43px;
   grid-template-columns: 1fr;
   @include tablet() {
     grid-template-columns: 1fr 1fr;
