@@ -73,7 +73,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
               </div>
               <div className={styles.contributorDetails}>United Kingdom</div>
             </div>
-            <a href={linkedIn}>
+            <a href={linkedIn ? linkedIn : null}>
               <Icon name='linkedin' />
             </a>
           </div>

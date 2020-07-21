@@ -5,7 +5,7 @@ type ProgramOverviewProps = {
   overview: {
     month: number;
     sprints: number;
-    duration: { months: string | number; sprints: string | number };
+    duration: { weeks: string | number; sprints: string | number };
     enrollBy: {
       day: string | number;
       year: string | number;

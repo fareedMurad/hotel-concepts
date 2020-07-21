@@ -8,21 +8,47 @@ import { ScrollButton } from '@core/components/scroll-button';
 import { Button } from '@core/components';
 import { useHistory } from 'react-router';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { gql, useQuery } from '@apollo/client';
+
+
+/**
+ *  preview video query
+*/
+const GET_PREVIEW_VIDEO = gql`
+{
+  homePagePreviewVideoCollection{
+    items{
+      video{
+        url
+      }
+    }
+  }
+}
+`
 
 /**
  * Renders Intro
  */
-const Intro: React.FC<IntroProps> = ({}) => {
+const Intro: React.FC<IntroProps> = ({ }) => {
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
-
+  const [previewVideo, setPreviewVideo] = React.useState('')
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
+  const { data, loading, error } = useQuery(GET_PREVIEW_VIDEO)
+
+
 
   React.useEffect(() => {
     if (videoRef.current) {
       setVideo(videoRef.current);
     }
-  }, [videoRef]);
+    if (!loading) {
+      const previewVideoUrl = data.homePagePreviewVideoCollection.items[0].video.url
+      setPreviewVideo(previewVideoUrl)
+    }
+  }, [videoRef, data]);
+
+  console.log(previewVideo)
 
   const playVideo = () => {
     if (video) {
@@ -87,7 +113,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
       <video
         ref={videoRef}
         className={styles.video}
-        src={require('assets/videos/HomePage.preview.mov')}
+        src={previewVideo}
         muted
       />
 

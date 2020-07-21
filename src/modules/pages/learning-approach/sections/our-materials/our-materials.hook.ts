@@ -1,43 +1,28 @@
-const useOurMaterialsData = () => {
-  const data = [
-    {
-      id: 1,
-      title: 'Wedding Content Marketing Ideas',
-      duration: '0:42',
-      preview: 'learning-approach/vid-1'
-    },
-    {
-      id: 2,
-      title: 'Wedding Content Marketing Ideas',
-      duration: '0:42',
-      preview: 'learning-approach/vid-2'
-    },
-    {
-      id: 3,
-      title: 'Wedding Content Marketing Ideas',
-      duration: '0:42',
-      preview: 'learning-approach/vid-3'
-    },
-    {
-      id: 4,
-      title: 'Wedding Content Marketing Ideas',
-      duration: '0:42',
-      preview: 'learning-approach/vid-4'
-    },
-    {
-      id: 5,
-      title: 'Wedding Content Marketing Ideas',
-      duration: '0:42',
-      preview: 'learning-approach/vid-3'
-    },
-    {
-      id: 6,
-      title: 'Wedding Content Marketing Ideas',
-      duration: '0:42',
-      preview: 'learning-approach/vid-2'
+import { useQuery, gql } from "@apollo/client";
+
+const useVideoLecturesData = () => {
+  const GET_VIDO_LECTURES = gql`
+  {
+    videoLecturesCollection{
+      items{
+        sys {
+          id
+        }
+        vimeoUrl
+        ... on VideoLectures{
+           previewPicture{
+            url
+          }
+        }
+      }
     }
-  ];
-  return { data };
+  }
+  `
+
+  const { data, loading, error } = useQuery(GET_VIDO_LECTURES)
+
+  return { videoLectures: data?.videoLecturesCollection?.items, loading };
+
 };
 
-export { useOurMaterialsData };
+export { useVideoLecturesData };

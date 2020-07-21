@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 /**
  * Renders OnlineCourses
  */
-const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
+const OnlineCourses: React.FC<OnlineCoursesProps> = ({ }) => {
   const {
     categories,
     loadingFilters,
@@ -87,54 +87,54 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
         {currentCategory.coursesCollection.total === 0 ? (
           <div>No courses yet</div>
         ) : (
-          <React.Fragment>
-            <div className={styles.info}>{currentCategory.description}</div>
-            <div className={styles.coursesWrapper}>
-              <div className={styles.courses}>
-                {coursesByFilter.map((course, index) => {
-                  const {
-                    slug,
-                    name,
-                    description,
-                    duration: { months, sprints },
-                    courseImage: { url },
-                    price,
-                    sys: { id }
-                  } = course;
-                  return (
-                    <CourseItem
-                      key={id}
-                      id={id}
-                      slug={slug}
-                      name={name}
-                      description={description}
-                      weeks={months}
-                      sprints={sprints}
-                      price={price}
-                      img={url}
-                      catalogueId={currentCategory.sys.id}
-                    />
-                  );
-                })}
+            <React.Fragment>
+              <div className={styles.info}>{currentCategory.description}</div>
+              <div className={styles.coursesWrapper}>
+                <div className={styles.courses}>
+                  {coursesByFilter.map((course, index) => {
+                    const {
+                      slug,
+                      name,
+                      description,
+                      duration: { weeks, sprints },
+                      courseImage: { url },
+                      price,
+                      sys: { id }
+                    } = course;
+                    return (
+                      <CourseItem
+                        key={id}
+                        id={id}
+                        slug={slug}
+                        name={name}
+                        description={description}
+                        weeks={weeks}
+                        sprints={sprints}
+                        price={price}
+                        img={url}
+                        catalogueId={currentCategory.sys.id}
+                      />
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-            <div className={styles.footer}>
-              <div className={styles.footerTitle}>
-                Can’t you find course for you in this category?
+              <div className={styles.footer}>
+                <div className={styles.footerTitle}>
+                  Can’t you find course for you in this category?
               </div>
-              <Button
-                onClick={() =>
-                  dispatch(
-                    navigate(`/programs-catalogue/${currentCategory.sys.id}`)
-                  )
-                }
-                className={styles.button}
-              >
-                <div>See more courses</div> <div>&#8594;</div>
-              </Button>
-            </div>
-          </React.Fragment>
-        )}
+                <Button
+                  onClick={() =>
+                    dispatch(
+                      navigate(`/programs-catalogue/${currentCategory.sys.id}`)
+                    )
+                  }
+                  className={styles.button}
+                >
+                  <div>See more courses</div> <div>&#8594;</div>
+                </Button>
+              </div>
+            </React.Fragment>
+          )}
       </div>
     </section>
   );
