@@ -4,18 +4,18 @@ import * as styles from './program-overview.scss';
 import { number } from 'yup';
 
 const OverviewItem: React.FC<{
-  duration: { months: string | number; sprints: string | number };
+  duration: { weeks: string | number; sprints: string | number };
   enrollBy: { day: string | number; month: string; year: string | number };
   languages: string[];
 }> = ({ languages, enrollBy, duration }) => {
   const { day, month, year } = enrollBy;
-  const { months, sprints } = duration;
+  const { weeks, sprints } = duration;
   return (
     <section className={styles.item}>
       <div className={styles.block}>
         <div className={styles.name}>Duration</div>
         <div className={styles.info}>
-          {months} Month/{sprints} Sprints
+          {weeks} Weeks / {sprints} Sprints
         </div>
       </div>
       <div className={styles.hr}></div>

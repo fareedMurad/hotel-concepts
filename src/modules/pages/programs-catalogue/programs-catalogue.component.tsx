@@ -51,7 +51,7 @@ const GET_PROGRAMS = gql`
 /**
  * Renders ProgramsCatalogue
  */
-const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
+const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({ }) => {
   const { id } = useParams();
   const { data, loading, error } = useQuery(GET_PROGRAMS, {
     variables: { id: id }
@@ -125,7 +125,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             programs.map(item => {
               const {
                 slug,
-                duration: { months, sprints },
+                duration: { weeks, sprints },
                 courseImage: { url }
               } = item;
               return (
@@ -136,7 +136,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
                   description={item.description}
                   type={item.type}
                   img={url}
-                  weeks={months}
+                  weeks={weeks}
                   sprints={sprints}
                   price={item.price}
                   category={item.courseType}
@@ -145,10 +145,10 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
               );
             })
           ) : (
-            <div className={styles.emptyInfo}>
-              There are no programs with these filters
-            </div>
-          )}
+              <div className={styles.emptyInfo}>
+                There are no programs with these filters
+              </div>
+            )}
         </div>
         {/* {(filteredPrograms.length >= itemsPerPage || currentPage > 1) && (
           <div className={styles.pagination}>
