@@ -29,7 +29,6 @@ const GET_JOB = gql`
  */
 
 const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
-  const { vacancies } = useJobsListData();
   const history = useHistory();
   const { id: jobId } = useParams();
   const { data, loading, error } = useQuery(GET_JOB, {
@@ -40,7 +39,6 @@ const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
   const { jobs: job } = data
   console.log(data)
 
-  // const vacancy = vacancies.filter(el => el.id === Number(id));
   return (
     <React.Fragment>
       <ScrollToTop />
