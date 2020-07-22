@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { JobsListProps } from './jobs-list.props';
 import * as styles from './jobs-list.scss';
-import { ButtonFilter, Preloader, Footer } from '@core/components';
+import { ButtonFilter, Preloader, Footer, Spinner } from '@core/components';
 import { useJobsListData } from './jobs-list.hook';
 import { Vacancy } from './components';
 import { Preloaders } from '@ui/models';
@@ -10,25 +10,67 @@ import { getVacancies } from './store';
 import { Header } from '@core/components/header';
 import { State } from '@app/store/state';
 import { ScrollToTop } from '@app';
+import { gql, useLazyQuery, useQuery } from '@apollo/client';
+
+
+const GET_JOBS_BY_CATEGORY_ID = gql`
+query($id: String!){
+  jobCategories(id: $id) {
+    jobsCollection {
+      items{
+        sys{
+          id
+        }
+        name
+        jobTime
+      }
+    }
+  }
+}
+`;
+
+const GET_ALL_JOBS = gql`
+{
+  jobsCollection{
+    total
+    items{
+      sys{
+        id
+      }
+      name
+      jobTime
+    }
+  }
+}
+`
+
 
 /**
  * Renders JobsList
  */
 const JobsList: React.FC<JobsListProps> = ({ }) => {
-
-  const { filters } = useJobsListData();
-  const dispatch = useDispatch();
   const [isActive, setIsActive] = React.useState(null);
   const [jobName, setJobName] = React.useState('');
-  const { vacancies } = useSelector((state: State) => state.jobs);
-
-  // const [specialization, setSpecialization] = React.useState('All');
+  const [categoryId, setCategoryId] = React.useState('')
+  const [getJobs, { data, loading: jobsLoading }] = useLazyQuery(GET_JOBS_BY_CATEGORY_ID);
+  const { data: allJobs, loading: loadingAllJobs, error } = useQuery(GET_ALL_JOBS)
 
   React.useEffect(() => {
-    dispatch(getVacancies());
-    setIsActive(1);
-    setJobName('All');
+    setIsActive('All');
+
+
   }, []);
+
+  const { categories, loading } = useJobsListData();
+
+
+  if (loading) return <Spinner />
+
+  const filteredJobs = data?.jobCategories?.jobsCollection?.items
+  const All = allJobs?.jobsCollection?.items
+
+
+
 
   return (
     <React.Fragment>
@@ -46,55 +88,67 @@ const JobsList: React.FC<JobsListProps> = ({ }) => {
           <br /> world.
         </p>
         <div className={styles.filters}>
-          {filters.map(filter => {
-            const { id, title, count } = filter;
-            const activeFilter = isActive === filter.id;
+          {
+            <ButtonFilter
+              id='All'
+              title='All'
+              count={allJobs.jobsCollection.total}
+              active={isActive == 'All'}
+              onClick={() => {
+                setIsActive('All')
+              }}
+
+            />}
+
+          {categories.map(item => {
+            const { category, sys: { id }, jobsCollection: { total }, } = item;
+            const activeFilter = isActive === id;
 
             return (
               <ButtonFilter
                 key={id}
-                title={title}
-                count={count}
+                title={category}
+                count={total}
                 onClick={() => {
                   setIsActive(id);
-                  setJobName(title);
+                  setJobName(category);
+                  setCategoryId(id)
+                  getJobs({ variables: { id: id } })
                 }}
                 active={activeFilter}
               />
             );
           })}
         </div>
-        <Preloader id={Preloaders.getVacancies}>
-          <div className={styles.vacancies}>
-            {jobName &&
-              vacancies
-                .filter(el => el.specialization === jobName)
-                .map(vacancy => {
-                  const { id, title, description } = vacancy;
-                  return (
-                    <Vacancy
-                      key={id}
-                      title={title}
-                      description={description}
-                      id={id}
-                    />
-                  );
-                })}
-            {(vacancies && !jobName) ||
-              (jobName === 'All' &&
-                vacancies.map(vacancy => {
-                  const { id, title, description } = vacancy;
-                  return (
-                    <Vacancy
-                      key={id}
-                      title={title}
-                      description={description}
-                      id={id}
-                    />
-                  );
-                }))}
-          </div>
-        </Preloader>
+
+        <div className={styles.vacancies}>
+          {jobsLoading && <Spinner />}
+          {filteredJobs &&
+            filteredJobs.map(vacancy => {
+              const { name, jobTime, sys: { id } } = vacancy;
+              return (
+                <Vacancy
+                  key={id}
+                  title={jobTime}
+                  description={name}
+                  id={id}
+                />
+              );
+            })}
+          {All && isActive == 'All' &&
+            All.map(vacancy => {
+              const { name, jobTime, sys: { id } } = vacancy;
+              return (
+                <Vacancy
+                  key={id}
+                  title={jobTime}
+                  description={name}
+                  id={id}
+                />
+              );
+            })}
+        </div>
+
       </div>
       <Footer />
     </React.Fragment>
