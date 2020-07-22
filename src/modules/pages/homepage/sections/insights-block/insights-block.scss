@@ -31,11 +31,12 @@
   position: relative;
   padding-bottom: 108px;
   overflow: hidden;
+  padding-left: $default-offset;
   ul {
     margin-bottom: 8px;
     li {
       @include desktop() {
-        width: 478px !important;
+        // width: 478px !important;
       }
     }
   }
