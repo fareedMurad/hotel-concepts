@@ -4,10 +4,8 @@ import * as styles from './insights-block.scss';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { InsightBlockItem } from '@pages/homepage/components/insight-block-item';
-import { useFeaturedArticlesData } from '@pages/insights/sections/featured-articles/featured-articles.hook';
 import { useHistory } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
-import { clearConfigCache } from 'prettier';
 import { Spinner } from '@core/components/spinner';
 
 const responsiveBreakpoints = {

@@ -1,8 +1,8 @@
 const useFooterData = () => {
   const weprovideLinks = [
-    { id: 1, caption: 'Company', to: '/' },
-    { id: 2, caption: 'Education System', to: '/' },
-    { id: 3, caption: 'For Corporate Clients', to: '/' },
+    { id: 1, caption: 'Company', to: '/about-us' },
+    { id: 2, caption: 'Education System', to: '/learning-approach' },
+    { id: 3, caption: 'For Corporate Clients', to: '/for-companies' },
     { id: 4, caption: 'Programs Partnership', to: '/course-partnership' },
     { id: 5, caption: 'Jobs', to: '/jobs' }
   ];

@@ -10,45 +10,43 @@ import { useHistory } from 'react-router';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
 
-
 /**
  *  preview video query
-*/
+ */
 const GET_PREVIEW_VIDEO = gql`
-{
-  homePagePreviewVideoCollection{
-    items{
-      video{
-        url
+  {
+    homePagePreviewVideoCollection {
+      items {
+        video {
+          url
+        }
       }
     }
   }
-}
-`
+`;
 
 /**
  * Renders Intro
  */
-const Intro: React.FC<IntroProps> = ({ }) => {
+const Intro: React.FC<IntroProps> = ({}) => {
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
-  const [previewVideo, setPreviewVideo] = React.useState('')
+  const [previewVideo, setPreviewVideo] = React.useState('');
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
-  const { data, loading, error } = useQuery(GET_PREVIEW_VIDEO)
-
-
+  const { data, loading, error } = useQuery(GET_PREVIEW_VIDEO);
 
   React.useEffect(() => {
     if (videoRef.current) {
       setVideo(videoRef.current);
     }
     if (!loading) {
-      const previewVideoUrl = data.homePagePreviewVideoCollection.items[0].video.url
-      setPreviewVideo(previewVideoUrl)
+      const previewVideoUrl =
+        data.homePagePreviewVideoCollection.items[0].video.url;
+      setPreviewVideo(previewVideoUrl);
     }
   }, [videoRef, data]);
 
-  console.log(previewVideo)
+  console.log(previewVideo);
 
   const playVideo = () => {
     if (video) {
@@ -110,12 +108,7 @@ const Intro: React.FC<IntroProps> = ({ }) => {
         />
       </Popup>
 
-      <video
-        ref={videoRef}
-        className={styles.video}
-        src={previewVideo}
-        muted
-      />
+      <video ref={videoRef} className={styles.video} src={previewVideo} muted />
 
       <ScrollButton text='Scroll' className={styles.scrollButton} />
     </section>

@@ -2,14 +2,14 @@
 
 .header {
   @include flex($align: center);
-  padding-left: $left-offset;
-  height: $header-height;
   position: fixed;
-  transition: background-color 200ms linear;
   z-index: 9999;
-  width: 100%;
   top: 0;
   left: 0px;
+  width: 100%;
+  height: $header-height;
+  padding-left: $left-offset;
+  transition: background-color 200ms linear;
   &.inverted {
     background-color: #ffffff;
     transition: background-color 200ms linear;
@@ -24,12 +24,13 @@
     &-links {
       @include font($white, 16px, 500);
       font-family: $IBMPlex;
+      user-select: none;
       & > a {
         margin-left: 40px;
         &:hover {
           border-bottom: 2px solid $white;
-          padding-bottom: 4px;
           margin-top: 6px;
+          padding-bottom: 4px;
         }
       }
       &.inverted {

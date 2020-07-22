@@ -11,6 +11,10 @@ import { InsightsSubscribe } from './sections';
  * Renders Insights
  */
 const Insights: React.FC<InsightsProps> = ({}) => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={styles.insights}>
       <Header whiteBackground />

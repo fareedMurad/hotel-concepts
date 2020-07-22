@@ -11,8 +11,12 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
  * Renders Contributors
  */
 
-const Contributors: React.FC<ContributorsProps> = ({ }) => {
+const Contributors: React.FC<ContributorsProps> = ({}) => {
   const ScrollToEnroll = () => scrollTo('become-contributor');
+  
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className={styles.contributors}>

@@ -80,6 +80,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         <BurgerMenu
           isOpened={this.state.activeMenuType === ActiveMenuType.menu}
           closeMenu={() => this.closeMenu()}
+          onClick={() => this.toggleOpenMenu(ActiveMenuType.programs)}
         />
         <ProgramsMenu
           isOpened={this.state.activeMenuType === ActiveMenuType.programs}

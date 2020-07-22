@@ -17,7 +17,7 @@ const useMenuData = () => {
   const secondaryLinks = [
     {
       name: 'For Corporate Clients',
-      path: '/'
+      path: '/for-companies'
     },
     {
       name: 'Program-Partnership',
@@ -28,8 +28,8 @@ const useMenuData = () => {
       path: '/contributors'
     },
     {
-      name: 'Education Process',
-      path: '/'
+      name: 'Learning Approach',
+      path: '/learning-approach'
     },
     {
       name: 'Our Story',

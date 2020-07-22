@@ -8,33 +8,36 @@ import { useSocialsData } from './socials.hook';
  */
 const Socials: React.FC<SocialsProps> = ({}) => {
   const { data } = useSocialsData();
+
   return (
-    <>
-    <section className={styles.socials}>
-      <div className={styles.leftSide}></div>
-      <div className={styles.rightSide}>
-        <div className={styles.title}>
-          <div>Join our <br/> social media.</div>
-          <div/>
-          <div>
-            Be the first to read useful articles and get
-            information about latest promotions!
+    <React.Fragment>
+      <section className={styles.socials}>
+        <div className={styles.leftSide} />
+        <div className={styles.rightSide}>
+          <div className={styles.title}>
+            <div>
+              Join our <br /> social media.
+            </div>
+            <div />
+            <div>
+              Be the first to read useful articles and get information about
+              latest promotions!
+            </div>
+          </div>
+          <div className={styles.links}>
+            {data.map((social, index) => (
+              <a key={index} href={social.url} className={styles.link}>
+                <img src={require(`img/socials/${social.img}.svg`)} alt='' />
+                <div>{social.name}</div>
+              </a>
+            ))}
           </div>
         </div>
-        <div className={styles.links}>
-          {data.map((social, index) => (
-            <a key={index} href={social.url} className={styles.link}>
-              <img src={require(`img/socials/${social.img}.svg`)} alt=""/>
-              <div>{social.name}</div>
-            </a>
-          ))}
-        </div>
+      </section>
+      <div className={styles.hrWrapper}>
+        <div className={styles.hr} />
       </div>
-    </section>
-    <div className={styles.hrWrapper}>
-      <div className={styles.hr}></div>
-    </div>
-    </>
+    </React.Fragment>
   );
 };
 

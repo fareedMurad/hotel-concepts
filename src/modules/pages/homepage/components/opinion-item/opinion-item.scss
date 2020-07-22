@@ -1,13 +1,15 @@
-@import "core.scss";
+@import 'core.scss';
 
 .opinion-item {
+  @include flex($direction: column, $justify: space-between);
+  height: 100%;
   max-width: 420px;
   padding-right: $default-offset;
 }
 
 .container {
   @include flex($align: center);
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .info {
@@ -15,24 +17,20 @@
 }
 
 .img {
-  height: 90px;
-  width: 90px;
+  @include size(90px);
   border-radius: 50%;
   margin-right: 20px;
 }
 
 .text {
+  @include font($primary-gray, 28px, 300, 35px);
   font-family: $EBGaramond;
-  @include font($primary-gray, 28px, 400, 35px);
 }
 
 .name {
-  @include font($primary-gray, 20px, 600, 28px);
-  font-family: $IBMPlexSans;
-
+  @include font($primary-gray, 20px, 500, 28px);
 }
 
 .from {
-  @include font($primary-gray, 16px, 400, 22px);
-  font-family: $IBMPlexSans;
+  @include font($primary-gray, 16px, 300, 22px);
 }
