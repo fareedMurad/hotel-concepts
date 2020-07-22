@@ -7,6 +7,7 @@ import { Header } from '@core/components/header';
 import { useHistory, useParams } from 'react-router';
 import { useJobsListData } from '@pages/jobs-list/jobs-list.hook';
 import { gql, useQuery } from '@apollo/client';
+import { ScrollToTop } from '@app';
 
 
 /**
@@ -42,6 +43,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
   // const vacancy = vacancies.filter(el => el.id === Number(id));
   return (
     <React.Fragment>
+      <ScrollToTop />
       <div onClick={() => history.goBack()} className={styles.back}>
         <div>&#8592;</div>
         <div>Back</div>
