@@ -1,5 +1,30 @@
+import { gql, useQuery } from "@apollo/client";
+
 const useJobsListData = () => {
   // add useeffect, fetch vacancies set them to store, and return from redux array
+
+  const GET_JOBS_CATEGORIES = gql`
+ {
+  jobCategoriesCollection {
+    items {
+      category
+      sys {
+        id
+      }
+      jobsCollection {
+        total
+      }
+    }
+  }
+}
+
+ `;
+
+  const { data, loading, error } = useQuery(GET_JOBS_CATEGORIES);
+
+
+
+
   const filters = [
     { id: 1, title: 'All', count: 5 },
     { id: 2, title: 'Marketing', count: 2 },
@@ -44,7 +69,7 @@ const useJobsListData = () => {
       location: 'Moscow, Russia'
     }
   ];
-  return { filters, vacancies };
+  return { filters, vacancies, categories: data?.jobCategoriesCollection?.items, loading };
 };
 
 export { useJobsListData };
