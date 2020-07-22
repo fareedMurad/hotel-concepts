@@ -2,20 +2,44 @@ import * as React from 'react';
 import { JobDetailsProps } from './job-details.props';
 import * as styles from './job-details.scss';
 import { JobApply } from './components/job-apply';
-import { H2, Paragraph, H5, H3, Footer } from '@core/components';
+import { H2, Paragraph, H5, H3, Footer, Spinner } from '@core/components';
 import { Header } from '@core/components/header';
 import { useHistory, useParams } from 'react-router';
 import { useJobsListData } from '@pages/jobs-list/jobs-list.hook';
+import { gql, useQuery } from '@apollo/client';
 
+
+/**
+ * query job
+ */
+
+const GET_JOB = gql`
+ query($id: String!){
+    jobs(id: $id) {
+      name
+      jobTime
+      location
+      description
+    }
+}
+ `
 /**
  * Renders JobPage
  */
-const JobDetails: React.FC<JobDetailsProps> = ({}) => {
+
+const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
   const { vacancies } = useJobsListData();
   const history = useHistory();
-  let { id } = useParams();
-  const vacancy = vacancies.filter(el => el.id === Number(id));
+  const { id: jobId } = useParams();
+  const { data, loading, error } = useQuery(GET_JOB, {
+    variables: { id: jobId }
+  })
 
+  if (loading) return <Spinner />
+  const { jobs: job } = data
+  console.log(data)
+
+  // const vacancy = vacancies.filter(el => el.id === Number(id));
   return (
     <React.Fragment>
       <div onClick={() => history.goBack()} className={styles.back}>
@@ -25,19 +49,10 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
       <Header whiteBackground />
       <div className={styles.jobPage}>
         <section className={styles.sectionA}>
-          <H2 className={styles.title}>{vacancy[0].description}</H2>
-          <H5 className={styles.titleOrange}>{vacancy[0].location}</H5>
-          <Paragraph>
-            We are looking for a passionate and seasoned Project Manager that{' '}
-            <br />
-            will contribute in the creation of innovative Spotify experiences
-            via
-            <br />
-            connected hardware. You will manage the overall program <br />{' '}
-            execution for internet-connected cars and work with suppliers to{' '}
-            <br /> deliver the optimal Spotify experience to millions of users.
-            Above <br /> all, your work will impact the way the world
-            experiences music.
+          <H2 className={styles.title}>{job.name}</H2>
+          <H5 className={styles.titleOrange}>{job.location}</H5>
+          <Paragraph className={styles.sectionADescription}>
+            {job.description}
           </Paragraph>
         </section>
         <section className={styles.sectionB}>
@@ -55,3 +70,4 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
 };
 
 export { JobDetails };
+
