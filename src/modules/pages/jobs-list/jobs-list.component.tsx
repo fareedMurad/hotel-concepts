@@ -88,7 +88,7 @@ const JobsList: React.FC<JobsListProps> = ({ }) => {
           <br /> world.
         </p>
         <div className={styles.filters}>
-          {
+          {allJobs &&
             <ButtonFilter
               id='All'
               title='All'
