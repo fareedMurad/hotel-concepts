@@ -31,7 +31,7 @@ query($id: String!){
 
 const GET_ALL_JOBS = gql`
 {
-  jobsCollection(limit:5) {
+  jobsCollection{
     total
     items{
       sys{
@@ -49,7 +49,6 @@ const GET_ALL_JOBS = gql`
  * Renders JobsList
  */
 const JobsList: React.FC<JobsListProps> = ({ }) => {
-  const dispatch = useDispatch();
   const [isActive, setIsActive] = React.useState(null);
   const [jobName, setJobName] = React.useState('');
   const [categoryId, setCategoryId] = React.useState('')
@@ -57,11 +56,11 @@ const JobsList: React.FC<JobsListProps> = ({ }) => {
   const { data: allJobs, loading: loadingAllJobs, error } = useQuery(GET_ALL_JOBS)
 
   React.useEffect(() => {
-    setIsActive('all');
+    setIsActive('All');
+
 
   }, []);
 
-  const [category, setCategory] = React.useState('All');
   const { categories, loading } = useJobsListData();
 
 
@@ -69,7 +68,6 @@ const JobsList: React.FC<JobsListProps> = ({ }) => {
 
   const filteredJobs = data?.jobCategories?.jobsCollection?.items
   const All = allJobs?.jobsCollection?.items
-  console.log(All)
 
 
 
@@ -90,16 +88,18 @@ const JobsList: React.FC<JobsListProps> = ({ }) => {
           <br /> world.
         </p>
         <div className={styles.filters}>
-          <ButtonFilter
-            id='all'
-            title='all'
-            count={22}
-            active={isActive == 'all'}
-            onClick={() => {
-              setIsActive('all')
-            }}
+          {
+            <ButtonFilter
+              id='All'
+              title='All'
+              count={allJobs.jobsCollection.total}
+              active={isActive == 'All'}
+              onClick={() => {
+                setIsActive('All')
+              }}
 
-          />
+            />}
+
           {categories.map(item => {
             const { category, sys: { id }, jobsCollection: { total }, } = item;
             const activeFilter = isActive === id;
@@ -135,7 +135,7 @@ const JobsList: React.FC<JobsListProps> = ({ }) => {
                 />
               );
             })}
-          {All && isActive == 'all' &&
+          {All && isActive == 'All' &&
             All.map(vacancy => {
               const { name, jobTime, sys: { id } } = vacancy;
               return (
