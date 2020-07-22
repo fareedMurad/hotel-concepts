@@ -60,7 +60,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(5);
   if (loading) return <Spinner />;
-
+  console.log(data)
   const { items: programs } = data?.courseCategory?.coursesCollection;
   const { courseCategory: category } = data;
   const lastItemIndex = currentPage * itemsPerPage;

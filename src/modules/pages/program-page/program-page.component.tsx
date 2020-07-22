@@ -72,7 +72,7 @@ import { ProgramQuestionsForm } from './sections/program-questions-form';
 /**
  * Renders ProgramPage
  */
-const ProgramPage: React.FC<ProgramPageProps> = ({ }) => {
+const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const history = useHistory();
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
@@ -81,7 +81,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ }) => {
     variables: { id: programId }
   });
 
-  if (loading) return (<Spinner />);
+  if (loading) return <Spinner />;
 
   const {
     about,
@@ -95,7 +95,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ }) => {
   } = response.onlineCourse;
 
   const { url } = backgroundPicture;
-  console.log(history)
 
   return (
     <div className={styles.programPage}>
@@ -113,26 +112,27 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ }) => {
       />
       <div className={styles.img} style={{ backgroundImage: `url(${url})` }} />
       <ProgramResults results={results} />
-      {mentorsForCurrrentCourse &&
+      {mentorsForCurrrentCourse && (
         <Mentors
           contributors={mentorsForCurrrentCourse}
           loading={loading}
           url={`${history.location.pathname}?programId=${programId}&/mentor`}
-        />}
+        />
+      )}
       <ProgramLearningApproach learningApproach={learningApproach} />
       <ProgramMaterials additionalMaterials={additionalMaterials} />
       <Impact />
       <div className={styles.hr} />
       <ProgramEnrollNow />
       <ProgramQuote />
-      <div className={styles.faqTitle}>Frequently Asked Questions</div>
-      <FaqBlock />
+      {/* <div className={styles.faqTitle}>Frequently Asked Questions</div> */}
+      <FaqBlock showTitle />
       <PartnerApply
         title='Got questions?'
         subtitle='Whether you are an individual or an organisation/group, looking for a
                   programme, get in touch and we can help find the best solution for you.'
       />
-      <ProgramQuestionsForm />
+      {/* <ProgramQuestionsForm /> */}
       <Footer />
     </div>
   );

@@ -69,7 +69,7 @@
     font-family: $IBMPlex;
   }
   &--details {
-    @include font($primary-gray, 16px, 400, 22px);
+    @include font($primary-gray, 16px, 300, 22px);
     font-family: $IBMPlex;
   }
 }

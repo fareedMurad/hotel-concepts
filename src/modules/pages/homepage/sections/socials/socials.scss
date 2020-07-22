@@ -32,7 +32,7 @@
     background: #cbd0d3;
   }
   & > div:nth-child(3) {
-    @include font($primary-grey, 16px, 400, 22px);
+    @include font($primary-grey, 16px, 300, 22px);
     max-width: 350px;
     font-family: $IBMPlex;
     margin-bottom: 30px;

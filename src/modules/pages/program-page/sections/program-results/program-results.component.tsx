@@ -7,16 +7,16 @@ import * as styles from './program-results.scss';
  */
 const ProgramResults: React.FC<ProgramResultsProps> = ({ results }) => {
   return (
-    <section id="results" className={styles.programResults}>
+    <section id='results' className={styles.programResults}>
       <div className={styles.title}>Results</div>
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       {results.map(item => (
         <div key={item}>
           <div className={styles.container}>
-            <div className={styles.icon}></div>
+            <div className={styles.icon} />
             <div className={styles.result}>{item}</div>
           </div>
-          <div className={styles.hr}></div>
+          <div className={styles.hr} />
         </div>
       ))}
     </section>

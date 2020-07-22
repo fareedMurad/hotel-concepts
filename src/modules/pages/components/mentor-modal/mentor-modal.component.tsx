@@ -52,7 +52,6 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     experience,
     linkedIn
   } = mentor;
-  console.log(mentor  )
 
   return (
     <React.Fragment>

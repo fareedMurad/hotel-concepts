@@ -12,7 +12,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
     name,
     type,
     category,
-    duration: { months, sprints },
+    duration: { weeks, sprints },
     price,
     courseImage: { url },
     description,
@@ -22,7 +22,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
   const history = useHistory();
   const handleClick = id => () =>
     history.push(`/program/${slug}?programId=${id}`);
-    
+
   return (
     <React.Fragment>
       <div className={styles.programItem}>
@@ -32,7 +32,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
             <div className={styles.type}>{type}</div>
             <div className={styles.name}>{name}</div>
             <div className={styles.secondaryInfo}>
-              {months} weeks
+              {weeks} weeks
               <span className={styles.vhr}>|</span>
               {sprints} sprints
               <span className={styles.vhr}>|</span>

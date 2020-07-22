@@ -27,64 +27,92 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
   const submitHandler = (event: any) => {
     event.preventDefault();
     console.log(formValues);
-  }
+  };
 
   return (
-    <>
+    <React.Fragment>
       <div className={styles.programsContactUs}>
         <div className={styles.title}>
           <div>Contact Us</div>
           <div>
-            Whether you are an individual or an organisation/group, looking for a
-            program, get in touch and we can help find the best solution for you.
+            Whether you are an individual or an organisation/group, looking for
+            a program, get in touch and we can help find the best solution for
+            you.
           </div>
         </div>
         <form className={styles.contactForm} onSubmit={submitHandler}>
           <div className={styles.inputGroup}>
             <div className={styles.inputTitle}>Name</div>
-            <input name="name" onChange={changeTextValue} type="text" className={styles.inputField} />
+            <input
+              name='name'
+              onChange={changeTextValue}
+              type='text'
+              className={styles.inputField}
+            />
           </div>
 
           <div className={styles.inputGroup}>
             <div className={styles.inputTitle}>E-mail</div>
-            <input name="email" onChange={changeTextValue} type="text" className={styles.inputField} />
+            <input
+              name='email'
+              onChange={changeTextValue}
+              type='text'
+              className={styles.inputField}
+            />
           </div>
 
           <div className={styles.inputGroup}>
             <div className={styles.inputTitle}>Website</div>
-            <input name="website" onChange={changeTextValue} type="text" className={styles.inputField} />
+            <input
+              name='website'
+              onChange={changeTextValue}
+              type='text'
+              className={styles.inputField}
+            />
           </div>
 
-          <div className={classNames(styles.inputSelectContainer, styles.inputGroup)}>
-            <select name="employees"
+          <div
+            className={classNames(
+              styles.inputSelectContainer,
+              styles.inputGroup
+            )}
+          >
+            <select
+              name='employees'
               onChange={changeTextValue}
               className={classNames(styles.inputField, styles.inputSelect)}
             >
-              <option value="">How many employees need training?</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+              <option value=''>How many employees need training?</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
             </select>
           </div>
 
-          <div className={classNames(styles.inputSelectContainer, styles.inputGroup)}>
-            <select name="interest"
+          <div
+            className={classNames(
+              styles.inputSelectContainer,
+              styles.inputGroup
+            )}
+          >
+            <select
+              name='interest'
               onChange={changeTextValue}
               className={classNames(styles.inputField, styles.inputSelect)}
             >
-              <option value="">What paths are you interested in?</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+              <option value=''>What paths are you interested in?</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
             </select>
           </div>
-          <Button type="submit" className={styles.button}>
+          <Button type='submit' className={styles.button}>
             <div>Contact me</div> <div> &#8594; </div>
           </Button>
         </form>
       </div>
-      <div className={styles.footer}></div>
-    </>
+      <div className={styles.footer}/>
+    </React.Fragment>
   );
 };
 

@@ -81,12 +81,12 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
           </div>
         }
         position='top center'
-        modal={true}
-        lockScroll={true}
+        modal
+        lockScroll
       >
         <ReactPlayer
           url={`${videoVimeoUrl}`}
-          controls={true}
+          controls
           style={{ margin: 'auto', maxWidth: '100%' }}
         />
       </Popup>
@@ -109,7 +109,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
         ref={videoRef}
         className={styles.video}
         src={require(`assets/videos/${videoInfo.path}.mov`)}
-        muted={true}
+        muted
       />
     </section>
   );
