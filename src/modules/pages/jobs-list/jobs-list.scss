@@ -3,6 +3,7 @@
 .jobs-list {
   @include container();
   margin-top: 100px;
+  padding: 0px 122px 0px 134px;
 }
 
 .title {
@@ -30,7 +31,8 @@
 }
 
 .vacancies {
-  height: 100vh;
+  max-height: 100vh;
   overflow: scroll;
   margin-top: 70px;
+  padding-right: 12px;
 }

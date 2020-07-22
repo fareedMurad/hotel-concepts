@@ -12,9 +12,7 @@ const defaultValues = {
   phone: '',
   email: '',
   location: '',
-  resume: '',
-  linkedIn: '',
-  coverLetter: ''
+  linkedIn: ''
 };
 
 /**

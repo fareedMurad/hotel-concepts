@@ -33,9 +33,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
       <div className={styles.container}>
         <div className={styles.formWrapper}>
           <H2>{title}</H2>
-          <Paragraph>
-            {subtitle}{' '}
-          </Paragraph>
+          <Paragraph>{subtitle} </Paragraph>
           <Formik
             initialValues={defaultValues}
             onSubmit={values => {

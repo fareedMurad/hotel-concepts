@@ -25,37 +25,39 @@ const withTranslation = (source: { [x: string]: string | Function }) => {
  */
 yup.setLocale({
   mixed: withTranslation({
-    required: 'yup.mixed.required',
-    default: 'yup.mixed.default',
-    oneOf: 'yup.mixed.oneOf',
-    notOneOf: 'yup.mixed.notOneOf'
+    default: '${path} is invalid',
+    required: '${path} is a required field',
+    oneOf: '${path} must be one of the following values: ${values}',
+    notOneOf: '${path} must not be one of the following values: ${values}'
   }),
   string: withTranslation({
-    length: 'yup.string.length',
-    min: 'yup.string.min',
-    max: 'yup.string.max',
-    matches: 'yup.string.matches',
-    email: 'yup.string.email',
-    url: 'yup.string.url',
-    trim: 'yup.string.trim',
-    lowercase: 'yup.string.lowercase',
-    uppercase: 'yup.string.uppercase'
+    length: '${path} must be exactly ${length} characters',
+    min: '${path} must be at least ${min} characters',
+    max: '${path} must be at most ${max} characters',
+    matches: '${path} must match the following: "${regex}"',
+    email: '${path} must be a valid email',
+    url: '${path} must be a valid URL',
+    uuid: '${path} must be a valid UUID',
+    trim: '${path} must be a trimmed string',
+    lowercase: '${path} must be a lowercase string',
+    uppercase: '${path} must be a upper case string'
   }),
   number: withTranslation({
-    min: 'yup.number.min',
-    max: 'yup.number.max',
-    lessThan: 'yup.number.lessThan',
-    moreThan: 'yup.number.moreThan',
-    positive: 'yup.number.positive',
-    negative: 'yup.number.negative',
-    integer: 'yup.number.integer'
+    min: '${path} must be greater than or equal to ${min}',
+    max: '${path} must be less than or equal to ${max}',
+    lessThan: '${path} must be less than ${less}',
+    moreThan: '${path} must be greater than ${more}',
+    notEqual: '${path} must be not equal to ${notEqual}',
+    positive: '${path} must be a positive number',
+    negative: '${path} must be a negative number',
+    integer: '${path} must be an integer'
   }),
   date: withTranslation({
-    min: 'yup.date.min',
-    max: 'yup.date.max'
+    min: '${path} field must be later than ${min}',
+    max: '${path} field must be at earlier than ${max}'
   }),
   array: withTranslation({
-    min: 'yup.array.min',
-    max: 'yup.array.max'
+    min: '${path} field must have at least ${min} items',
+    max: '${path} field must have less than or equal to ${max} items'
   })
 });

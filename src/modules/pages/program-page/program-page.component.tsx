@@ -20,7 +20,7 @@ import { useProgramPageData } from './program-page.hook';
 import { ProgramModules } from './sections/program-modules';
 import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
-
+import { ProgramQuestionsForm } from './sections/program-questions-form';
 /**
  * query program info
  */
@@ -67,7 +67,6 @@ const GET_PROGRAM = gql`
     }
   }
 `;
-import { ProgramQuestionsForm } from './sections/program-questions-form';
 
 /**
  * Renders ProgramPage

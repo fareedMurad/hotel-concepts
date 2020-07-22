@@ -5,8 +5,11 @@ import * as yup from 'yup';
  */
 type jobDetailsValues = {
   email: string;
-  password: string;
-  accept: boolean;
+  // accept: boolean;
+  name: string;
+  phone: string;
+  location: string;
+  linkedIn: string;
 };
 
 /**
@@ -16,21 +19,25 @@ const jobDetailsValidationSchema = yup.object<jobDetailsValues>().shape({
   name: yup
     .string()
     .label('Full Name*')
-    .required('field required'),
+    .required(),
+  linkedIn: yup
+    .string()
+    .label('LinkedIn')
+    .required(),
   phone: yup
     .string()
     .label('Phone*')
     .min(6)
-    .required('field required'),
+    .required(),
   email: yup
     .string()
     .label('Email*')
-    .email('Invalid email')
-    .required('field required'),
+    .email()
+    .required(),
   location: yup
     .string()
-    .label('loacation*')
-    .required('field required')
+    .label('Location*')
+    .required()
 });
 
 export { jobDetailsValues, jobDetailsValidationSchema };

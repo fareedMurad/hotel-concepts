@@ -1,0 +1,23 @@
+{
+    "errors": {
+        "mixed": {
+          "required": "${path} is required"
+        },
+        "string": {
+          "length": "${path} must contain ${length} charachters",
+          "min": "${path} should contain minimum ${min} characters",
+          "max": "${path} should contain maximum ${max} characters",
+          "matches": "${path} must match the following: ${regex}",
+          "required": "${path} is required"
+        },
+        "number": {
+          "min": "${path} must be greater than ${min}",
+          "max": "${path} must be at most ${max}",
+          "lessThan": "${path} must be less than ${less}",
+          "moreThan": "${path} must be greater than ${more}"
+        },
+        "array": {
+          "required": "${path} is required"
+        }
+      }
+}
