@@ -18,13 +18,12 @@
 }
 
 .activity {
-  position: absolute;
-  bottom: 15px;
-  left: 10px;
   background-color: $background;
   padding: 4px 20px;
   border-radius: 5px;
   font-family: $IBMPlex;
+  text-align: center;
+  max-width: fit-content;
   @include font($primary-grey, 16px, 300, 22px);
 }
 
@@ -47,4 +46,14 @@
   margin-top: 20px;
   height: 44px;
   color: $primary-grey;
+}
+
+.tags {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  right: 10px;
+  width: auto;
 }

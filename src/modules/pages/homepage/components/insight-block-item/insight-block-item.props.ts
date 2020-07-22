@@ -3,7 +3,7 @@
  */
 type InsightBlockItemProps = {
   title: string;
-  category: string;
+  categories: string[];
   slug: string;
   text: string;
   articleImage: {
@@ -14,6 +14,7 @@ type InsightBlockItemProps = {
     month: string;
     year: string | number;
   };
+  id: string
 };
 
 export { InsightBlockItemProps };

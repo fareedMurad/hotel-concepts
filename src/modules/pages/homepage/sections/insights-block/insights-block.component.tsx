@@ -34,6 +34,9 @@ const GET_ARTICLES = gql`
   {
     articleCollection {
       items {
+        sys {
+          id
+        }
         title
         preText
         category
@@ -80,16 +83,17 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({ }) => {
         }
       >
         {articles.map(article => {
-          const { title, preText, category, slug, date, articleImage } = article;
+          const { title, preText, category, slug, date, articleImage, sys: { id } } = article;
           return (
             <InsightBlockItem
               title={title}
               text={preText}
-              category={category}
+              categories={category}
               slug={slug}
               date={date}
               articleImage={articleImage}
               key={slug}
+              id={id}
             />
           );
         })}

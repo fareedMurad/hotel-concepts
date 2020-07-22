@@ -54,7 +54,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({ }) => {
   }, [data]);
 
   if (loadingFilters) return <Spinner />;
-  console.log(categories);
+
 
   return (
     <section className={styles.onlineCourses} >

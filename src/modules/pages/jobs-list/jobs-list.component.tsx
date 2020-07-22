@@ -49,17 +49,17 @@ const GET_ALL_JOBS = gql`
  * Renders JobsList
  */
 const JobsList: React.FC<JobsListProps> = ({ }) => {
-  const [isActive, setIsActive] = React.useState(null);
+  const [isActive, setIsActive] = React.useState('All');
   const [jobName, setJobName] = React.useState('');
   const [categoryId, setCategoryId] = React.useState('')
   const [getJobs, { data, loading: jobsLoading }] = useLazyQuery(GET_JOBS_BY_CATEGORY_ID);
   const { data: allJobs, loading: loadingAllJobs, error } = useQuery(GET_ALL_JOBS)
 
-  React.useEffect(() => {
-    setIsActive('All');
+  // React.useEffect(() => {
 
 
-  }, []);
+
+  // }, []);
 
   const { categories, loading } = useJobsListData();
 
@@ -71,7 +71,7 @@ const JobsList: React.FC<JobsListProps> = ({ }) => {
 
 
 
-
+  console.log(All)
   return (
     <React.Fragment>
       <ScrollToTop />
@@ -123,7 +123,7 @@ const JobsList: React.FC<JobsListProps> = ({ }) => {
 
         <div className={styles.vacancies}>
           {jobsLoading && <Spinner />}
-          {filteredJobs &&
+          {filteredJobs && isActive !== 'All' &&
             filteredJobs.map(vacancy => {
               const { name, jobTime, sys: { id } } = vacancy;
               return (

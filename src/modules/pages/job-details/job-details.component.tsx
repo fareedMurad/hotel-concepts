@@ -37,7 +37,6 @@ const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
 
   if (loading) return <Spinner />
   const { jobs: job } = data
-  console.log(data)
 
   return (
     <React.Fragment>

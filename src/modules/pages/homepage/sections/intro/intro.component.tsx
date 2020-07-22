@@ -28,7 +28,7 @@ const GET_PREVIEW_VIDEO = gql`
 /**
  * Renders Intro
  */
-const Intro: React.FC<IntroProps> = ({}) => {
+const Intro: React.FC<IntroProps> = ({ }) => {
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [previewVideo, setPreviewVideo] = React.useState('');
   const [video, setVideo] = React.useState<HTMLVideoElement>();
@@ -46,7 +46,6 @@ const Intro: React.FC<IntroProps> = ({}) => {
     }
   }, [videoRef, data]);
 
-  console.log(previewVideo);
 
   const playVideo = () => {
     if (video) {

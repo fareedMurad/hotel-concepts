@@ -1,4 +1,6 @@
 const useFeaturedArticlesData = () => {
+
+
   const data = [
     {
       id: 1,

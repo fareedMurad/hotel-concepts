@@ -7,7 +7,7 @@ import classNames from 'classnames';
 /**
  * Renders ProgramsContactUs
  */
-const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
+const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({ }) => {
   const formInitValue = {
     name: '',
     email: '',
@@ -26,7 +26,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
 
   const submitHandler = (event: any) => {
     event.preventDefault();
-    console.log(formValues);
+
   };
 
   return (
@@ -111,7 +111,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
           </Button>
         </form>
       </div>
-      <div className={styles.footer}/>
+      <div className={styles.footer} />
     </React.Fragment>
   );
 };
