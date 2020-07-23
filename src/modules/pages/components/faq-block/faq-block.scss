@@ -19,7 +19,7 @@
 .filters {
   @include flex($align: stretch, $direction: column);
   margin: 30px 0px;
-  margin-top: 48px;
+  margin-top: 40px;
   @include tablet() {
     flex-direction: row;
     flex-wrap: wrap;

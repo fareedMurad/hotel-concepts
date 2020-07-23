@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { BecomeContributingProps } from './become-contributing.props';
 import * as styles from './become-contributing.scss';
-import { Paragraph, H2, Form, Field, Button } from '@core/components';
+import { Paragraph, Form, Field, Button, SectionTitle } from '@core/components';
 import { Formik } from 'formik';
-import classNames from 'classnames';
 
 /**
  * default values
@@ -23,7 +22,7 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
     <div className={styles.becomeContributing}>
       <div className={styles.wrapper}>
         <div id='become-contributor' />
-        <H2>Become a contributing expert</H2>
+        <SectionTitle>Become a contributing expert</SectionTitle>
         <Paragraph>
           Interested in contributing to providing top class <br /> hospitality
           online education?
@@ -78,9 +77,10 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                 onClick={() => handleSubmit()}
                 className={styles.buttonSubmit}
                 type='submit'
-              >
-                <div>Send Request</div> <div>&#8594;</div>
-              </Button>
+                children='Send Request'
+                arrow='&#8594;'
+                width={230}
+              />
             </Form>
           )}
         </Formik>
