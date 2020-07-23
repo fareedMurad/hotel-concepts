@@ -39,7 +39,7 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
         {({ handleSubmit, validateForm }) => (
           <Form handleSubmit={handleSubmit}>
             <div className={styles.formSection}>
-              <div>
+              <div className={styles.marginTop}>
                 <Field.Text
                   name='name'
                   placeholder='John'
@@ -52,7 +52,7 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                   className={styles.input}
                   label='Phone*'
                 />
-                <label htmlFor='upload-cv' className={styles.labelUpload}>
+                <label htmlFor='upload-cv' className={styles.labelUploadResume}>
                   Resume/CV*
                 </label>
                 <div
@@ -142,10 +142,9 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
               }}
               className={styles.buttonSubmit}
               type='submit'
-            >
-              <div>Send</div>
-              <div>&#8594;</div>
-            </Button>
+              children='Send'
+              arrow='&#8594;'
+            />
           </Form>
         )}
       </Formik>

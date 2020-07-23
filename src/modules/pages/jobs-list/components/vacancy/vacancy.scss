@@ -7,20 +7,19 @@
   @include flex(space-between, center);
   &__title {
     font-family: $EBGaramond;
-    @include font($primary-orange, 18px, 500);
+    @include font($primary-orange, 18px, 600);
   }
   &__description {
-    padding: 18px 0;
-    font-family: $IBMPlexSans;
-    @include font($primary-grey, 24px, 400, 34px);
+    @include font($primary-gray, 24px, 400, 34px);
+    padding: 12px 0px 18px 0px;
   }
 }
 
 .details {
+  @include flex(space-between);
   width: 204px;
   height: 44px;
   padding: 14px 10px;
   border: 1px solid $primary-orange;
   border-radius: 3px;
-  @include flex(space-between);
 }
