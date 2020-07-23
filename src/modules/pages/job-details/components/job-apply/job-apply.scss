@@ -12,7 +12,7 @@
 .title {
   margin: 22px 0 20px 0;
   font-family: $IBMPlexSans;
-  @include font($primary-grey, 16px, 350, 22px);
+  @include font($primary-grey, 16px, 400, 22px);
 }
 
 .form-section {

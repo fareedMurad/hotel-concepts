@@ -16,7 +16,7 @@
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 16px, 300, 22px);
+    @include font($primary-gray, 16px, 400, 22px);
     max-width: 520px;
     margin-bottom: 24px;
   }
@@ -51,7 +51,7 @@
 }
 
 .input-title {
-  @include font($primary-gray, 16px, 300, 18px);
+  @include font($primary-gray, 16px, 400, 18px);
   padding-bottom: 2px;
   padding-left: 5px;
 }
@@ -74,7 +74,7 @@
 .input-select-container,
 .input-select {
   width: 100%;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .input-select {

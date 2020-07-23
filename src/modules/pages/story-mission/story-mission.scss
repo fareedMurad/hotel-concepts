@@ -18,7 +18,7 @@
     margin-top: 300px;
     &-description {
       font-family: $IBMPlex;
-      font-weight: 300;
+      font-weight: 400;
     }
     @include iphone7() {
       margin: 0;
@@ -30,9 +30,9 @@
     font-family: $EBGaramond;
     & > div:nth-child(2) {
       @include font($white, 24px, 400, 34px);
-      font-weight: 300;
-      // width: 50%;
       margin: 24px 0px;
+      font-weight: 400;
+      // width: 50%;
     }
   }
   &--bar {

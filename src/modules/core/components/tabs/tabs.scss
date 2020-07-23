@@ -31,7 +31,7 @@
   }
 }
 .caption {
-  @include font($primary-gray, 16px, 300);
+  @include font($primary-gray, 16px, 400);
   font-family: $IBMPlex;
   &--selected {
     @include font($primary-gray, 16px, 400);
@@ -39,7 +39,7 @@
 }
 
 .description {
-  @include font($primary-gray, 16px, 300, 22px);
+  @include font($primary-gray, 16px, 400, 22px);
   margin-top: 10px;
   font-family: $IBMPlex;
 }

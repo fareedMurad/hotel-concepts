@@ -23,7 +23,7 @@
 }
 
 .text {
-  @include font($primary-gray, 28px, 300, 35px);
+  @include font($primary-gray, 28px, 400, 35px);
   font-family: $EBGaramond;
 }
 
@@ -32,5 +32,5 @@
 }
 
 .from {
-  @include font($primary-gray, 16px, 300, 22px);
+  @include font($primary-gray, 16px, 400, 22px);
 }

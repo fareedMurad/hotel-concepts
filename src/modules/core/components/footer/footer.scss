@@ -14,7 +14,7 @@
 
 .title {
   & > div:first-child {
-    @include font($primary-gray, 36px, 500, 46px);
+    @include font($primary-gray, 36px, 600, 46px);
     letter-spacing: -0.48px;
     font-family: $EBGaramond;
   }
@@ -104,9 +104,9 @@
 .submit-form {
   position: relative;
   width: 100%;
-  margin-right: 10px;
   max-width: 420px;
   margin-top: 12px;
+  margin-right: 10px;
 }
 
 .button-submit {
@@ -115,18 +115,18 @@
   bottom: 0;
   right: 0;
   width: 38%;
+  margin-left: 10px;
   padding: 11px 16px;
   border-radius: 4px;
-  margin-left: 10px;
 }
 .form-input {
   input {
+    width: 60%;
     padding: 13px 16px;
     background: $white;
     border-radius: 4px;
     outline: none;
     border: none;
-    width: 60%;
   }
 }
 
@@ -137,8 +137,8 @@
 }
 
 .copyright-info {
-  width: 80%;
   @include font($primary-gray, 12px, 500, 16px);
+  width: 80%;
   font-family: $IBMPlex;
 }
 
@@ -157,8 +157,8 @@
     @include flex($direction: column);
   }
   .subscribe {
-    margin-bottom: 20px;
     width: 100%;
+    margin-bottom: 20px;
     padding-right: 30px;
   }
   .navigation {

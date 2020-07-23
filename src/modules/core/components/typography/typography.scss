@@ -38,7 +38,7 @@
 
 .p {
   margin: 22px 0;
-  @include font($primary-grey, 18px, 300, 28px);
+  @include font($primary-grey, 18px, 400, 28px);
   font-family: $IBMPlex;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .pre-caption {
-  @include font($primary-orange, 18px, 400, 28px);
+  @include font($primary-orange, 18px, 500, 28px);
   margin: 7px 0px;
   font-family: $IBMPlex;
 }

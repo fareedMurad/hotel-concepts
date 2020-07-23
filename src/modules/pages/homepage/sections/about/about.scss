@@ -8,7 +8,7 @@
   padding-left: $left-offset;
   padding-right: $default-offset;
   & > div:first-child {
-    @include font($primary-orange, 18px, 400, 28px);
+    @include font($primary-orange, 18px, 500, 28px);
     max-width: 600px;
     font-family: $IBMPlex;
   }
@@ -20,7 +20,7 @@
     font-family: $EBGaramond;
   }
   & > div:nth-child(3) {
-    @include font($primary-gray, 24px, 300, 34px);
+    @include font($primary-gray, 24px, 400, 34px);
     margin-bottom: 38px;
     font-family: $IBMPlex;
   }
@@ -48,11 +48,11 @@
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 24px, 300, 34px);
+    @include font($primary-gray, 24px, 400, 34px);
     margin-bottom: 24px;
   }
   & > div:nth-child(3) {
-    @include font($primary-gray, 18px, 300, 28px);
+    @include font($primary-gray, 18px, 400, 28px);
   }
 }
 

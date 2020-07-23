@@ -24,7 +24,7 @@
   font-family: $IBMPlex;
   text-align: center;
   max-width: fit-content;
-  @include font($primary-grey, 16px, 300, 22px);
+  @include font($primary-grey, 16px, 400, 22px);
 }
 
 .date {
@@ -36,7 +36,7 @@
 
 .description {
   max-width: 300px;
-  @include font($primary-grey, 18px, 300, 28px);
+  @include font($primary-grey, 18px, 400, 28px);
   font-family: $IBMPlex;
 }
 

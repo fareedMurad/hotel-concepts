@@ -69,7 +69,7 @@
     font-family: $IBMPlex;
   }
   &--details {
-    @include font($primary-gray, 16px, 300, 22px);
+    @include font($primary-gray, 16px, 400, 22px);
     font-family: $IBMPlex;
   }
 }
@@ -116,11 +116,11 @@
       margin-left: 20px;
     }
     &--caption {
-      @include font($primary-gray, 24px, 300, 34px);
+      @include font($primary-gray, 24px, 400, 34px);
       font-family: $IBMPlex;
     }
     &--description {
-      @include font($primary-gray, 16px, 300, 22px);
+      @include font($primary-gray, 16px, 400, 22px);
       margin-top: 8px;
       font-family: $IBMPlex;
     }

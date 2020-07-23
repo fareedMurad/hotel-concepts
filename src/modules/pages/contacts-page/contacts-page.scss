@@ -68,8 +68,8 @@
   &__form {
     margin-right: 0;
     &--paragraph {
-      font-weight: 300;
       width: 100%;
+      font-weight: 400;
       @include desktop() {
         width: 75%;
       }
@@ -77,7 +77,7 @@
     &--caption {
       @include font($primary-gray, 24px, 400, 34px);
       margin-top: 41px;
-      font-weight: 300;
+      font-weight: 400;
     }
     @include desktop() {
       margin-right: 100px;

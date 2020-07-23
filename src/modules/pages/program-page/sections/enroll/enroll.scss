@@ -33,7 +33,7 @@
     margin-right: 21px;
     margin-bottom: 24px;
     @include flex($align: center);
-    @include font($primary-grey, 28px, 300, 35px);
+    @include font($primary-grey, 28px, 400, 35px);
     letter-spacing: -0.48px;
     font-family: $EBGaramond;
     border-radius: 4px;
@@ -55,7 +55,7 @@
     .role {
       width: 100%;
       margin-right: 0;
-      @include font($primary-grey, 24px, 300, 26px);
+      @include font($primary-grey, 24px, 400, 26px);
     }
   }
 }

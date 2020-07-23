@@ -46,7 +46,7 @@
     letter-spacing: -0.48px;
   }
   & > div:nth-child(2) {
-    @include font($white, 24px, 300, 34px);
+    @include font($white, 24px, 400, 34px);
     margin-top: 16px;
     margin-bottom: 24px;
     font-family: $IBMPlex;
