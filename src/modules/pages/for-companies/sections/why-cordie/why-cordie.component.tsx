@@ -2,11 +2,6 @@ import * as React from 'react';
 import { WhyCordieProps } from './why-cordie.props';
 import * as styles from './why-cordie.scss';
 import { Icon, H2, H3, Paragraph } from '@core/components';
-
-/**
- * Renders WhyCordie
- */
-
 /**
  * Renders WhyCordie
  */

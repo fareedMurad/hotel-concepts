@@ -23,7 +23,6 @@ const Benefits: React.FC<BenefitsProps> = ({}) => {
           ))}
         </div>
         <div className={styles.benefitsEmployees}>
-          {' '}
           <H3 className={styles.benefitsTitle}>
             Benefits for <br /> employees
           </H3>
