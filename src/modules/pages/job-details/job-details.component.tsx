@@ -5,38 +5,36 @@ import { JobApply } from './components/job-apply';
 import { H2, Paragraph, H5, H3, Footer, Spinner } from '@core/components';
 import { Header } from '@core/components/header';
 import { useHistory, useParams } from 'react-router';
-import { useJobsListData } from '@pages/jobs-list/jobs-list.hook';
 import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
-
 
 /**
  * query job
  */
 
 const GET_JOB = gql`
- query($id: String!){
+  query($id: String!) {
     jobs(id: $id) {
       name
       jobTime
       location
       description
     }
-}
- `
+  }
+`;
 /**
  * Renders JobPage
  */
 
-const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
+const JobDetails: React.FC<JobDetailsProps> = ({}) => {
   const history = useHistory();
   const { id: jobId } = useParams();
   const { data, loading, error } = useQuery(GET_JOB, {
     variables: { id: jobId }
-  })
+  });
 
-  if (loading) return <Spinner />
-  const { jobs: job } = data
+  if (loading) return <Spinner />;
+  const { jobs: job } = data;
 
   return (
     <React.Fragment>
@@ -69,4 +67,3 @@ const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
 };
 
 export { JobDetails };
-

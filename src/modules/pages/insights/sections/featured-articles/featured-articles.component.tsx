@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FeaturedArticlesProps } from './featured-articles.props';
 import * as styles from './featured-articles.scss';
 import { H2, ButtonFilter, Button, PreCaption } from '@core/components';
-import { useJobsListData } from '@pages/jobs-list/jobs-list.hook';
+import { useJobsFilterCategories } from '@pages/jobs-list/hooks/jobs-filter-categories.hook';
 import { useFeaturedArticlesData } from './featured-articles.hook';
 import { ArticleCard } from '@pages/insights/components';
 
@@ -10,7 +10,7 @@ import { ArticleCard } from '@pages/insights/components';
  * Renders FeaturedArticles
  */
 const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
-  const { filters } = useJobsListData();
+  // const { filters } = useJobsListData();
   const { data } = useFeaturedArticlesData();
   const [isActive, setIsActive] = React.useState(null);
 
@@ -27,7 +27,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
           onClick={() => {}}
           active={false}
         />
-        {filters.map(filter => {
+        {/* {filters.map(filter => {
           const { id, title, count } = filter;
           const activeFilter = isActive === filter.id;
 
@@ -42,7 +42,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
               active={activeFilter}
             />
           );
-        })}
+        })} */}
       </div>
       <div className={styles.articles}>
         {data.map(article => (
