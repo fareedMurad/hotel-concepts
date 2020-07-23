@@ -3,7 +3,7 @@ import { MentorsProps } from './mentors.props';
 import * as styles from './mentors.scss';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
-import { useHistory, Route } from 'react-router';
+import { useHistory } from 'react-router';
 import { showModal, toogleContributorModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ import { useMediaPoints } from '@core/shared';
 import { ContributorCard } from '@pages/components';
 import { Spinner } from '@core/components/spinner';
 import { State } from '@app/store/state';
+import { SectionTitle, Hr } from '@core/components';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -52,8 +53,8 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
   return (
     <section className={styles.mentors}>
       <div className={styles.title}>
-        <div>Meet mentors & Coauthors</div>
-        <div />
+        <SectionTitle>Meet mentors & Coauthors</SectionTitle>
+        <Hr className={styles.hr} />
         <div>
           World-class faculty introduce you to the very latest in hospitality
           business knowledge and provide you with the tools and skills to

@@ -86,10 +86,8 @@ const Footer: React.FC<FooterProps> = ({}) => {
           <Formik
             initialValues={{ email: '' }}
             onSubmit={values => {
-              // dispatch(action(values));
               console.log(values);
             }}
-            // validationSchema={} add later
           >
             {({ handleSubmit }) => (
               <Form handleSubmit={handleSubmit}>
@@ -104,9 +102,10 @@ const Footer: React.FC<FooterProps> = ({}) => {
                     onClick={() => handleSubmit()}
                     className={styles.buttonSubmit}
                     type='submit'
-                  >
-                    <div>Subscribe</div> <div>&#8594;</div>
-                  </Button>
+                    children='Subscribe'
+                    arrow='&#8594;'
+                    width={176}
+                  />
                 </div>
               </Form>
             )}

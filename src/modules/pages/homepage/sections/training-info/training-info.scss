@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .training-info {
   min-height: 455px;
@@ -14,33 +14,36 @@
 }
 
 .title {
-  padding-right: $default-offset;
-  padding-left: $left-offset;
   max-width: 700px;
-  & > div:first-child {
-    @include font($primary-orange, 18px, 500, 28px);
+  padding-left: 22px;
+  padding-right: $default-offset;
+  @include desktop() {
+    padding-left: $left-offset;
+    padding-right: $default-offset;
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 48px, 500, 58px);
-    font-family: $EBGaramond;
-    margin-top: 12px;
     max-width: 700px;
+    margin-top: 12px;
     letter-spacing: -0.48px;
   }
   & > div:nth-child(3) {
     @include font($primary-gray, 18px, 400, 28px);
-    margin-top: 24px;
     max-width: 400px;
+    margin-top: 24px;
   }
 }
 
 .info {
+  @include flex($justify: flex-end);
   flex: 1;
   flex-wrap: wrap;
-  margin: $default-offset 0;
-  @include flex($justify: center);
   max-width: 490px;
-  margin-right: $left-offset;
+  margin-right: 22px;
+  @include desktop() {
+    @include flex($justify: center);
+    margin: $default-offset 0;
+    margin-right: $left-offset;
+  }
 }
 
 .info-item {
@@ -56,28 +59,31 @@
     content: '■';
     padding-left: 12px;
     padding-right: 14px;
-    color: $primary-orange;
     font-size: 15px;
+    color: $primary-orange;
   }
 }
 
 .button {
+  @include flex($justify: space-between);
   width: 224px;
   height: 44px;
   margin-top: 24px;
-  margin-left: $left-offset;
-  @include flex($justify: space-between);
+  // margin-left: $left-offset;
+  margin-left: 22px;
+  @include desktop() {
+    margin-left: 134px;
+  }
 }
 
 .img {
-  background: url('../../../../../assets/img/learning-approach/training-footer.png') no-repeat center center;
   height: 356px;
+  padding-left: $left-offset;
+  padding-right: $default-offset;
+  background: url('../../../../../assets/img/learning-approach/training-footer.png');
   box-sizing: border-box;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-right: $default-offset;
-  padding-left: $left-offset;
+  @include heroImage();
   @include flex($justify: center, $direction: column);
 }
 
@@ -85,21 +91,13 @@
   .container {
     flex-direction: column;
   }
-  .intro,.title  {
+  .intro,
+  .title {
     padding-left: $default-offset;
   }
 }
 
 @media screen and (max-width: 1050px) {
-  .title  {
-    padding-left: $default-offset;
-  }
-  .button {
-    margin-left: $default-offset;
-  }
-  .info {
-    margin-right: $default-offset;
-  }
   .title-wrapper {
     margin-right: 0;
   }

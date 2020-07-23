@@ -18,8 +18,7 @@
 }
 
 .indicator {
-  width: 34px;
-  height: 34px;
+  @include size(34px);
   background-color: $background;
   border-radius: 50%;
   margin-right: 16px;

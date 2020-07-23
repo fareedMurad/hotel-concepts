@@ -5,7 +5,11 @@
 }
 
 .title {
-  padding-left: $left-offset;
+  // padding-left: $left-offset;
+  padding-left: 22px;
+  @include desktop() {
+    padding-left: 134px;
+  }
   & > div:first-child {
     @include font($primary-gray, 48px, 500, 58px);
     position: relative;
@@ -18,7 +22,7 @@
     }
   }
   & > div:nth-child(2) {
-    @include font($primary-grey, 24px, 400, 34px);
+    @include font($primary-gray, 24px, 400, 34px);
     max-width: 500px;
     margin-top: 12px;
     font-family: $IBMPlex;
@@ -51,7 +55,7 @@
 }
 
 .info {
-  @include font($primary-grey, 18px, 400, 28px);
+  @include font($primary-gray, 18px, 400, 28px);
   max-width: 660px;
   margin-bottom: 30px;
   font-family: $IBMPlex;
@@ -77,10 +81,6 @@
 }
 
 .courses {
-  // @include flex($justify: 'between');
-  // display: flex;
-  // flex-flow: row wrap;
-  // justify-content: flex-start;
   display: grid;
   column-gap: 20px;
   row-gap: 43px;
@@ -97,10 +97,6 @@
 }
 
 @media screen and (max-width: 728px) {
-  .title {
-    padding-left: $default-offset;
-  }
-
   .filter-button {
     width: 100%;
     @include tablet() {

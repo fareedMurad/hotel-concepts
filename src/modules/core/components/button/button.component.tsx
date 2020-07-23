@@ -13,6 +13,8 @@ const Button: React.FC<ButtonProps> = ({
   children,
   theme,
   size,
+  arrow,
+  width,
   ...props
 }) => (
   <button
@@ -27,8 +29,10 @@ const Button: React.FC<ButtonProps> = ({
     )}
     disabled={disabled}
     {...props}
+    style={{ width: width }}
   >
-    {children}
+    <div>{children}</div> {arrow && <div>{arrow}</div>}
+    {/* → */}
   </button>
 );
 
@@ -40,7 +44,8 @@ Button.defaultProps = {
   theme: 'primary',
   size: 'md',
   className: '',
-  disabled: false
+  disabled: false,
+  width: 200
 };
 
 export { Button };

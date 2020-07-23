@@ -2,6 +2,7 @@ import * as React from 'react';
 import { SupportInfoProps } from './support-info.props';
 import * as styles from './support-info.scss';
 import { useSupportInfoData } from './support-info.hook';
+import { SectionTitle, Hr } from '@core/components';
 
 /**
  * Renders SupportInfo
@@ -13,11 +14,12 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
     <section className={styles.supportInfo}>
       <div className={styles.titleWrapper}>
         <div className={styles.title}>
-          <div>
-            We support <br /> the future generation of hospitality industry
-          </div>
-          <div />
-          <div>
+          <SectionTitle>
+            We support <br /> the future generation <br /> of hospitality
+            industry
+          </SectionTitle>
+          <Hr className={styles.hr} />
+          <div className={styles.subtitle}>
             While there is much talk of machines replacing people in the
             workplace, at Cordie we believe that the centrality of technology
             makes human development all the more crucial.

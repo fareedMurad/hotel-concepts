@@ -24,11 +24,11 @@
   &__count {
     @include font($hr, 16px, 400, 22px);
     &__active {
-      @include font($primary-gray, 16px, 400, 22px);
+      @include font($primary-gray, 16px, 500, 22px);
     }
   }
   &__active {
-    @include font($primary-gray, 18px, 400, 28px);
+    @include font($primary-gray, 18px, 500, 28px);
     border: 1px solid $primary-orange;
   }
 }

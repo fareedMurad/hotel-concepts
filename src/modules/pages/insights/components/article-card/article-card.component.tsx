@@ -22,10 +22,12 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
         <div className={styles.contentDate}>{date}</div>
         <div className={styles.contentDescription}>{description}</div>
       </div>
-      <Button theme='secondary' className={styles.readMore}>
-        <div>Read more</div> <div>&#8594;</div>
-      </Button>
-      {/* <div className={styles.hr} /> */}
+      <Button
+        theme='secondary'
+        className={styles.readMore}
+        children='Read more'
+        arrow='&#8594;'
+      />
     </div>
   );
 };

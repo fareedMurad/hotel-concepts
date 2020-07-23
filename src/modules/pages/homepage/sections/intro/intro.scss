@@ -1,20 +1,17 @@
 @import 'core.scss';
 
 .intro {
-  @include flex($justify: center, $direction: column);
-  position: relative;
   height: 100vh;
+  background: url('../../../../../assets/img/learning-approach/home.png');
+  @include flex($justify: center, $direction: column);
+  @include imageOverlay();
+  @include container();
+  @include heroImage();
   min-height: 500px;
-  padding-left: $left-offset;
-  padding-right: $default-offset;
-  background: url('../../../../../assets/img/learning-approach/home.png')
-    no-repeat center center;
+  // padding-left: $left-offset;
+  // padding-right: $default-offset;
   box-sizing: border-box;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.4);
-  background-size: cover;
 }
 
 .video {
@@ -37,20 +34,9 @@
   z-index: 2;
 }
 
-.title {
-  z-index: 2;
-  & > div:first-child {
-    @include font($white, 60px, 600, 70px);
-    max-width: 600px;
-    font-family: $EBGaramond;
-    letter-spacing: -0.48px;
-  }
-  & > div:nth-child(2) {
-    @include font($white, 24px, 400, 34px);
-    margin-top: 16px;
-    margin-bottom: 24px;
-    font-family: $IBMPlex;
-  }
+.subtitle {
+  margin-top: 16px;
+  margin-bottom: 24px;
 }
 
 .scroll-button {
@@ -60,16 +46,11 @@
 }
 
 .find-button {
-  @include flex($justify: space-between);
   z-index: 2;
-  width: 230px;
   margin-bottom: 48px;
 }
 
 @media screen and (max-width: 768px) {
-  .intro {
-    padding-left: $default-offset;
-  }
   .title {
     & > div:first-child {
       @include font($white, 50px, 500, 52px);

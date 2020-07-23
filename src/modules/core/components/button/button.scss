@@ -1,24 +1,24 @@
 @import 'core.scss';
 
 .button {
-  @include flex(center, center);
+  @include flex($align: center, $justify: space-between);
+  position: relative;
   width: fit-content;
   border: 0;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
-  position: relative;
   @include buttonHover;
 
   &--primary {
-    @include font($white, 16px, 400, 22px);
+    @include font($white, 16px, 500, 22px);
     font-family: $IBMPlex;
     background: $primary-orange;
     // border: 1px solid $primary-orange;
   }
 
   &--secondary {
-    @include font($primary-gray, 16px, 400, 22px);
+    @include font($primary-gray, 16px, 500, 22px);
     background: transparent;
     border: 1px solid $primary-orange;
     transition: $transition;

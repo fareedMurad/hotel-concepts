@@ -8,7 +8,12 @@
 
 .title {
   @include font($primary-gray, 36px, 500, 46px);
-  padding-left: 112px;
+  width: 100%;
+  text-align: center;
+  @include tablet() {
+    padding-left: 112px;
+    text-align: initial;
+  }
 }
 
 .filters {
