@@ -18,52 +18,46 @@ import { ProgramEnrollNow } from './sections/program-enroll-now';
 import { useHistory } from 'react-router';
 import { useProgramPageData } from './program-page.hook';
 import { ProgramModules } from './sections/program-modules';
-import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
 import { ProgramQuestionsForm } from './sections/program-questions-form';
+import { gql } from '@apollo/client';
 /**
  * query program info
  */
 const GET_PROGRAM = gql`
   query($id: String!) {
     onlineCourse(id: $id) {
-      courseType
-      slug
+      sys {
+        id
+      }
       name
       description
-      price
-      duration
-      whoShouldEnroll
-      enrollBy
-      additionalMaterials
-      languages
-      about
-      results
-      whoShouldEnroll
-      modules
-      mentorsCollection {
-        items {
-          __typename
-          ... on Mentor {
-            surname
-            name
-            experience
-            position
-            city
-            slug
-            mentorPicture {
-              url
-            }
-            sys {
-              id
-            }
-          }
-        }
+      category {
+        name
       }
-      amountOfWeeklyModules
-      backgroundPicture {
+      videoVimeoUrl
+      languages
+      complexityLevel
+      enroll {
+        day
+        year
+        months
+      }
+      about {
+        aboutText
+        skills
+      }
+      price
+      sprints
+      weeks
+      courseImage {
         url
       }
+      whoShouldEnrol {
+        description
+        positions
+      }
+      price
     }
   }
 `;
@@ -76,36 +70,18 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
   const { learningApproach } = useProgramPageData();
-  const { data: response, loading, error } = useQuery(GET_PROGRAM, {
-    variables: { id: programId }
-  });
-
-  if (loading) return <Spinner />;
-
-  const {
-    about,
-    whoShouldEnroll,
-    modules,
-    amountOfWeeklyModules,
-    backgroundPicture,
-    results,
-    additionalMaterials,
-    mentorsCollection: { items: mentorsForCurrrentCourse }
-  } = response.onlineCourse;
-
-  const { url } = backgroundPicture;
 
   return (
     <div className={styles.programPage}>
       <ScrollToTop />
       <Header />
-      <ProgramIntro introInfo={response.onlineCourse} />
-      <ProgramOverview overview={response.onlineCourse} />
+      <ProgramIntro programId={programId} />
+      <ProgramOverview programId={programId} />
       <div className={styles.hr} />
-      <ProgramAbout about={about} />
+      <ProgramAbout programId={programId} />
       <div className={styles.hr} />
-      <Enroll shouldEnroll={whoShouldEnroll} />
-      <ProgramModules
+      <Enroll programId={programId} />
+      {/* <ProgramModules
         modules={modules}
         amountOfWeeklyModules={amountOfWeeklyModules}
       />
@@ -124,13 +100,13 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <div className={styles.hr} />
       <ProgramEnrollNow />
       <ProgramQuote />
-      {/* <div className={styles.faqTitle}>Frequently Asked Questions</div> */}
+     
       <FaqBlock showTitle />
       <PartnerApply
         title='Got questions?'
         subtitle='Whether you are an individual or an organisation/group, looking for a
                   programme, get in touch and we can help find the best solution for you.'
-      />
+      /> */}
       {/* <ProgramQuestionsForm /> */}
       <Footer />
     </div>

@@ -4,8 +4,8 @@ import * as styles from './program-intro.scss';
 import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
-import { Button } from '@core/components';
-import { useProgramData } from './progtam-intro.hook';
+import { Button, Spinner } from '@core/components';
+import { useProgramIntroData } from './progtam-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { BackButton } from '@core/components/back-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
@@ -14,18 +14,15 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
  * Renders ProgramIntro
  */
 
-/**
- *
- */
-const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
-  const { name, description, videoVimeoUrl } = introInfo;
+const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
+  const { data, loading, navButtons } = useProgramIntroData(programId);
+
   const videoInfo = {
     path: 'ForCorporateClients.preview',
     time: '0:56'
   };
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [video, setVideo] = React.useState<HTMLVideoElement>();
-  const { navButtons } = useProgramData();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
   const scrollToEnroll = () => {
     scrollTo('enroll');
@@ -56,6 +53,13 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
       setVideoPromise(null);
     }
   };
+
+  if (loading) return <Spinner />;
+  /**
+   * destucturing data after loaded
+   */
+
+  const { name, description, videoVimeoUrl } = data.onlineCourse;
 
   return (
     <section className={styles.programIntro}>

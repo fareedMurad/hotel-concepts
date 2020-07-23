@@ -49,7 +49,7 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ closeMenu, isOpened }) => {
 
   React.useEffect(() => {
     if (!loading) {
-      setCategories(data.courseCategoryCollection.items);
+      // setCategories(data.courseCategoryCollection.items);
     }
   });
 

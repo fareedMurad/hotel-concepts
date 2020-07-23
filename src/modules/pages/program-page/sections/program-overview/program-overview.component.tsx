@@ -2,14 +2,16 @@ import * as React from 'react';
 import { ProgramOverviewProps } from './program-overview.props';
 import * as styles from './program-overview.scss';
 import { number } from 'yup';
+import { useProgramOverviewData } from './program-overview.hook';
+import { Spinner } from '@core/components';
 
 const OverviewItem: React.FC<{
-  duration: { weeks: string | number; sprints: string | number };
-  enrollBy: { day: string | number; month: string; year: string | number };
+  weeks: number;
+  sprints: number;
+  enrollBy: { day: string | number; months: string; year: string | number };
   languages: string[];
-}> = ({ languages, enrollBy, duration }) => {
-  const { day, month, year } = enrollBy;
-  const { weeks, sprints } = duration;
+}> = ({ languages, enrollBy, weeks, sprints }) => {
+  const { day, months, year } = enrollBy;
   return (
     <section className={styles.item}>
       <div className={styles.block}>
@@ -22,7 +24,7 @@ const OverviewItem: React.FC<{
       <div className={styles.block}>
         <div className={styles.name}>Enroll by</div>
         <div className={styles.info}>{`
-  ${month} ${day}, ${year}`}</div>
+  ${months} ${day}, ${year}`}</div>
       </div>
       <div className={styles.hr}></div>
       <div className={styles.block}>
@@ -35,14 +37,20 @@ const OverviewItem: React.FC<{
 /**
  * Renders ProgramOverview
  */
-const ProgramOverview: React.FC<ProgramOverviewProps> = ({ overview }) => {
-  const { duration, enrollBy, languages } = overview;
+const ProgramOverview: React.FC<ProgramOverviewProps> = ({ programId }) => {
+  const { data, loading } = useProgramOverviewData(programId);
+
+  if (loading) return <Spinner />;
+  console.log(data);
+  const { weeks, sprints, enroll, languages } = data.onlineCourse;
+
   return (
     <section className={styles.programOverview}>
       <div className={styles.title}>Overview</div>
       <OverviewItem
-        duration={duration}
-        enrollBy={enrollBy}
+        weeks={weeks}
+        sprints={sprints}
+        enrollBy={enroll}
         languages={languages}
       />
     </section>

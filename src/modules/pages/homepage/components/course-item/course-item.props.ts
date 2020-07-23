@@ -6,8 +6,8 @@ type CourseItemProps = {
   name: string;
   description: string;
   price: number;
-  weeks: number;
-  sprints: number;
+  weeks?: number;
+  sprints?: number;
   img?: string;
   slug: string;
   catalogueId: string;

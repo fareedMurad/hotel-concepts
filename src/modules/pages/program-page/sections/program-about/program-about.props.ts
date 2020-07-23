@@ -2,10 +2,7 @@
  * Props
  */
 type ProgramAboutProps = {
-  about: {
-    aboutText: string;
-    skills: string[];
-  }
+  programId: string;
 };
 
 export { ProgramAboutProps };

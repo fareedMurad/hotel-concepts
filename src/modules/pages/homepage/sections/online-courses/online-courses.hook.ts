@@ -29,7 +29,8 @@ const useOnlineCoursesData = () => {
       onlineCourseCollection(limit: 6, where: { courseType: $courseType }) {
         items {
           name
-          duration
+          weeks
+          sprints
           description
           price
           slug
