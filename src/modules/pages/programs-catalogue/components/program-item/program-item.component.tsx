@@ -42,9 +42,12 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
           </div>
         </div>
         <div className={styles.buttonContainer}>
-          <Button onClick={handleClick(id)} className={styles.button}>
-            <div>Find out more</div> <div> &#8594; </div>
-          </Button>
+          <Button
+            onClick={handleClick(id)}
+            className={styles.button}
+            children='Find out more'
+            arrow='&#8594;'
+          />
         </div>
       </div>
       <div className={styles.hr} />

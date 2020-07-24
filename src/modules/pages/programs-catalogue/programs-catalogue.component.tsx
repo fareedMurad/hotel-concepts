@@ -6,7 +6,7 @@ import { CatalogueFilters } from './sections/catalogue-filters';
 import { ProgramsContactUs } from './sections/programs-contact-us';
 import { Header } from '@core/components/header';
 import { ProgramItem } from './components/program-item';
-import { Footer, Spinner } from '@core/components';
+import { Footer, Spinner, SectionTitle } from '@core/components';
 import { useParams } from 'react-router';
 import { Pagination } from '@core/components/pagination';
 import { gql, useQuery } from '@apollo/client';
@@ -92,7 +92,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({ }) => {
           description={category.description}
         />
         <div className={styles.title}>
-          <div>Find the right course for you</div>
+          <SectionTitle>Find the right course for you</SectionTitle>
           <div>
             Choose from our growing range of online courses to meet your
             professional goals.

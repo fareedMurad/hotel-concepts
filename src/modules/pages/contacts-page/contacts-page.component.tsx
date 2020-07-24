@@ -10,7 +10,8 @@ import {
   Select,
   Button,
   PreCaption,
-  Footer
+  Footer,
+  SectionTitle
 } from '@core/components';
 import { useContactsPageData } from './contacts-page.hook';
 import { Formik } from 'formik';
@@ -56,13 +57,13 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div className={styles.contactsPage}>
       <Header whiteBackground />
       <div className={styles.container}>
         <PreCaption>We're here to help!</PreCaption>
-        <H2>Contact Us</H2>
+        <SectionTitle>Contact Us</SectionTitle>
       </div>
       <section className={styles.cardsList}>
         {data.map(({ id, title, description, href, link }) => (
@@ -78,7 +79,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
       <footer className={styles.footer}>
         <div className={styles.footerForm}>
           <PreCaption>Still seeking your answer?</PreCaption>
-          <H2>Let us help you directly</H2>
+          <SectionTitle>Let us help you directly</SectionTitle>
           <Paragraph className={styles.footerFormParagraph}>
             Please complete the form below with details of your request. We’ll
             get back to you by email, so make sure you include the right email
@@ -135,10 +136,12 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                     <div>Comment</div>
                     <textarea name='comment' className={styles.textArea} />
                   </div>
-                  <Button className={styles.buttonSend}>
-                    <div>Send</div>
-                    <div>&#8594;</div>
-                  </Button>
+                  <Button
+                    className={styles.buttonSend}
+                    children='Send'
+                    arrow='&#8594;'
+                    width={204}
+                  />
                 </Form>
               )}
             </Formik>
@@ -150,7 +153,11 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
               customers. View our{' '}
               <Link
                 to='/privacy-policy'
-                style={{ color: '#ff6634', textDecoration: 'underline' }}
+                style={{
+                  color: '#ff6634',
+                  textDecoration: 'underline',
+                  fontWeight: 500
+                }}
               >
                 Privacy Policy
               </Link>{' '}

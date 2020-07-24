@@ -43,9 +43,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </div>
         <div>
           <H3 className={styles.price}>{price}</H3>
-          <Button className={styles.confirmButton}>
-            <div>Go to Checkout</div> <div>&rarr;</div>
-          </Button>
+          <Button
+            className={styles.confirmButton}
+            children='Go to Checkout'
+            arrow='&rarr;'
+          />
         </div>
       </div>
     </div>

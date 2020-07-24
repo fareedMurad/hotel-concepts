@@ -5,27 +5,25 @@
     @include imageOverlay();
     @include flex($align: stretch, $direction: column, $justify: center);
     @include container();
+    @include heroImage();
     position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
     width: 100%;
     height: 561px;
-    background-position: center;
   }
   &__caption {
-    padding-bottom: 40px;
     z-index: 333;
     width: fit-content;
+    padding-bottom: 40px;
     border-bottom: 2px solid #c2c2c262;
     & > * {
       color: white;
     }
   }
   &__description {
-    margin: 0;
-    margin-top: 40px;
     z-index: 333;
     width: 100%;
+    margin: 0;
+    margin-top: 40px;
     color: white;
     @include desktop() {
       width: 30vw;
@@ -50,7 +48,6 @@
   }
 }
 .programs-list {
- 
   @include container();
   & > div:first-child {
     border-top: 2px solid $hr;
@@ -58,41 +55,47 @@
   & > div {
     border-bottom: 2px solid $hr;
     padding-top: 31px;
-  padding-bottom: 40px;
+    padding-bottom: 40px;
   }
 }
 .program {
-  display: grid;
-  
+  & > * {
+    margin-bottom: 8px;
+  }
   @include desktop() {
+    display: grid;
     grid-template-columns: 204px 2fr 1fr;
-    grid-template-rows: 1fr;
+    & > * {
+      margin-bottom: 0;
+    }
   }
   &__block {
-    // width: 15vw;
     &--rate {
-      @include font($primary-orange, 18px, 500);
+      @include font($primary-orange, 18px, 600);
       margin-bottom: 8px;
       font-family: $EBGaramond;
     }
     &--caption {
       @include font($primary-gray, 24px, 400, 37px);
-      font-family: $IBMPlex;
     }
     &--description {
       @include font($primary-gray, 18px, 400, 28px);
-      width: 45%;
+      width: 60%;
       margin: 0;
-      @include desktop() {
-        justify-self: center;
+      justify-self: center;
+      align-self: center;
+      @include desktop-lg() {
+        width: 80%;
       }
     }
     &--btn {
       justify-self: end;
       align-self: center;
-      & > button {
-        @include flex($justify: space-between);
-        width: 224px;
+      button {
+        margin-top: 20px;
+        @include desktop() {
+          margin-top: 0;
+        }
       }
     }
   }
