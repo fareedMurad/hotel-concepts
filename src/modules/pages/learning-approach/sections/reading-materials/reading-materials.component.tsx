@@ -2,62 +2,14 @@ import * as React from 'react';
 import { ReadingMaterialsProps } from './reading-materials.props';
 import * as styles from './reading-materials.scss';
 import { Caption, DownloadButton } from '@pages/components';
-
-import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components';
-
-/**
- * query files
- */
-const GET_READING_MATERIALS = gql`
-  {
-    readingMaterialsForLearningAproachCollection {
-      items {
-        ... on ReadingMaterialsForLearningAproach {
-          file {
-            fileName
-            size
-            url
-            description
-            contentType
-          }
-        }
-      }
-    }
-  }
-`;
-
+import { useReadingMaterialsData } from './reading-materials.hook';
+import { fileSize } from '@core/shared/formaters';
 /**
  * Renders ReadingMaterials
  */
-const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({ }) => {
-  const { data: datar, loading, error } = useQuery(GET_READING_MATERIALS);
-
-  const readingData =
-    datar?.readingMaterialsForLearningAproachCollection?.items;
-
-  function fileSize(bytes, dp = 1) {
-    const thresh = 1000;
-
-    if (Math.abs(bytes) < thresh) {
-      return bytes + ' B';
-    }
-
-    const units = ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-
-    let u = -1;
-    const r = 10 ** dp;
-
-    do {
-      bytes /= thresh;
-      ++u;
-    } while (
-      Math.round(Math.abs(bytes) * r) / r >= thresh &&
-      u < units.length - 1
-    );
-
-    return bytes.toFixed(dp) + ' ' + units[u];
-  }
+const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({}) => {
+  const { readingData, readingDataLoading } = useReadingMaterialsData();
 
   return (
     <div className={styles.readingMaterials}>
@@ -70,9 +22,10 @@ const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({ }) => {
               description,
               filetype,
               size,
-              url
+              url,
+              contentType
             } = el.file;
-            if (loading) return <Spinner />;
+            if (readingDataLoading) return <Spinner />;
             return (
               <DownloadButton
                 key={idx}
@@ -81,6 +34,7 @@ const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({ }) => {
                 filetype={filetype}
                 size={fileSize(size)}
                 url={url}
+                contentType={contentType}
               />
             );
           })}

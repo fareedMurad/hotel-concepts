@@ -3,8 +3,7 @@
 .hero-bottom {
   width: 100%;
   height: 505px;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include heroImage();
   margin-top: 120px;
 }
 
@@ -28,25 +27,12 @@
   height: 100%;
   margin: 0 auto;
   text-align: center;
-  @include tablet() {
-    width: 50%;
-  }
-  @include desktop() {
-    width: 30%;
-  }
   &--title {
     @include font($white, 36px, 400, 46px);
+    font-family: $EBGaramond;
   }
   &--description {
     @include font($white, 24px, 400, 34px);
-    width: inherit;
     margin: 30px 0px;
-    @include desktop() {
-      width: 70%;
-    }
-  }
-  &--button {
-    @include flex($justify: space-between);
-    min-width: 204px;
   }
 }

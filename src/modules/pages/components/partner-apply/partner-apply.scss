@@ -49,9 +49,6 @@
   }
 }
 
-.button-submit {
-}
-
 .send {
   @include flex($justify: space-between, $align: center);
   margin-top: 12px;
@@ -65,14 +62,12 @@
     }
     .label {
       color: $primary-orange;
-      
     }
   }
 }
-.label{
+.label {
   font-weight: 400;
 }
-
 
 .input {
   width: 100%;

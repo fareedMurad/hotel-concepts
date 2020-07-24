@@ -20,7 +20,6 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
       setSection(data[currentSection]);
     }
   }, [currentSection]);
-
   return (
     <div className={styles.experiencedAssignment}>
       <main className={styles.container}>
@@ -37,18 +36,16 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
             })}
           </div>
           <div className={styles.sliderButtons}>
-            <Icon
-              name={currentSection === 0 ? 'ellipse-active' : 'ellipse-default'}
-              onClick={() => setCurrentSection(0)}
-            />
-            <Icon
-              name={currentSection === 1 ? 'ellipse-active' : 'ellipse-default'}
-              onClick={() => setCurrentSection(1)}
-            />
-            <Icon
-              name={currentSection === 2 ? 'ellipse-active' : 'ellipse-default'}
-              onClick={() => setCurrentSection(2)}
-            />
+            {data.map((item, index) => {
+              const activeSlider = index === currentSection;
+              return (
+                <Icon
+                  name={activeSlider ? 'ellipse-active' : 'ellipse-default'}
+                  onClick={() => setCurrentSection(index)}
+                  key={item.id}
+                />
+              );
+            })}
           </div>
         </div>
         <div

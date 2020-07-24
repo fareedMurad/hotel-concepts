@@ -3,7 +3,7 @@
 .download-button {
   display: block;
   @include flex($align: center, $justify: space-between);
-  padding: 16px;
+  padding: 15px;
   background: #f5f1f0;
   border-radius: 8px;
   min-width: 336px;
@@ -34,7 +34,7 @@
 }
 
 .file-caption {
-  width: 170px;
+  width: 150px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

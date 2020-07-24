@@ -3,7 +3,7 @@ import { HowWeTeachProps } from './how-we-teach.props';
 import * as styles from './how-we-teach.scss';
 import { useHowWeTeachData } from './how-we-teach.hook';
 import { Caption } from '@pages/components';
-import { H1 } from '@core/components';
+import { H1, SectionTitle } from '@core/components';
 
 /**
  * Instrument and Tools Card
@@ -34,7 +34,7 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
 
   return (
     <div className={styles.howWeTeach}>
-      <H1 className={styles.title}>How we teach</H1>
+      <SectionTitle className={styles.title}>How we teach</SectionTitle>
       <Caption rate='1.0' title='World class content' />
       <section className={styles.wrapper}>
         <div className={styles.wccCards}>
