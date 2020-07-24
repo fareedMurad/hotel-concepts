@@ -3,10 +3,11 @@ import { OnlineCoursesProps } from './online-courses.props';
 import * as styles from './online-courses.scss';
 import { ButtonFilter, Button } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
-import { useHistory } from 'react-router';
 import { Spinner } from '@core/components/spinner';
-import { useQuery } from '@apollo/client';
-import { useOnlineCoursesData } from './online-courses.hook';
+import {
+  useOnlineCoursesData,
+  useFilteredCourses
+} from './online-courses.hook';
 import { navigate } from '@router/store';
 import { useDispatch } from 'react-redux';
 
@@ -14,46 +15,34 @@ import { useDispatch } from 'react-redux';
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
-  const {
-    categories,
-    loadingFilters,
-    total,
-    GET_COURSES_BY_FILTER
-  } = useOnlineCoursesData();
+  const { categories, loadingFilters } = useOnlineCoursesData();
 
   const dispatch = useDispatch();
-
-  // we need init values to prevent errors
   const [currentCategory, setCurrentCategory] = React.useState({
-    category: '',
+    name: '',
     description: '',
     sys: {
-      id: null
+      id: ''
     },
-    coursesCollection: {
-      total: null
+    linkedFrom: {
+      onlineCourseCollection: []
     }
   });
+  const [coursesByFilter, setCoursesByFilter] = React.useState(null);
+  const { courses, coursesLoading } = useFilteredCourses(currentCategory.name);
 
-  const [coursesByFilter, setCoursesByFilter] = React.useState([]);
-  // on first load we set default filter as first in array
   React.useEffect(() => {
-    if (categories) {
+    if (!loadingFilters) {
       setCurrentCategory(categories[0]);
     }
-  }, [categories]);
-
-  const { data, loading, error } = useQuery(GET_COURSES_BY_FILTER, {
-    variables: { courseType: currentCategory.category.toLowerCase() }
-  });
-  // we setting courses filtered by category
-  React.useEffect(() => {
-    if (!loading) {
-      setCoursesByFilter(data.onlineCourseCollection.items);
-    }
-  }, [data]);
+  }, [categories, loadingFilters]);
 
   if (loadingFilters) return <Spinner />;
+
+  const findDesription = category => {
+    const searchedCategory = categories.filter(el => el.name !== category);
+    return searchedCategory[0].description;
+  };
 
   return (
     <section className={styles.onlineCourses}>
@@ -67,74 +56,79 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
       <div className={styles.content}>
         <div className={styles.filters}>
           {categories.map(category => {
-            const { total } = category.coursesCollection;
-            const { id } = category.sys;
+            const {
+              name,
+              linkedFrom: {
+                onlineCourseCollection: { total }
+              }
+            } = category;
+
             return (
               <ButtonFilter
-                key={category.category}
-                title={category.category}
+                key={name}
+                title={name}
                 count={total}
                 onClick={() => {
                   setCurrentCategory(category);
                 }}
-                active={currentCategory.category == category.category}
+                active={currentCategory == category}
                 className={styles.filterButton}
               />
             );
           })}
         </div>
-        {currentCategory.coursesCollection.total === 0 ? (
-          <div>No courses yet</div>
+
+        <div className={styles.info}>{currentCategory.description}</div>
+        {coursesLoading ? (
+          <Spinner />
         ) : (
-          <React.Fragment>
-            <div className={styles.info}>{currentCategory.description}</div>
-            <div className={styles.coursesWrapper}>
-              <div className={styles.courses}>
-                {coursesByFilter.map((course, index) => {
-                  const {
-                    slug,
-                    name,
-                    description,
-                    weeks,
-                    sprints,
-                    courseImage: { url },
-                    price,
-                    sys: { id }
-                  } = course;
-                  return (
-                    <CourseItem
-                      key={id}
-                      id={id}
-                      slug={slug}
-                      name={name}
-                      description={description}
-                      weeks={weeks}
-                      sprints={sprints}
-                      price={price}
-                      img={url}
-                      catalogueId={currentCategory.sys.id}
-                    />
-                  );
-                })}
-              </div>
+          <div className={styles.coursesWrapper}>
+            <div className={styles.courses}>
+              {courses.map(course => {
+                const {
+                  name,
+                  price,
+                  weeks,
+                  sprints,
+                  slug,
+                  description,
+                  courseImage: { url },
+                  sys: { id }
+                } = course;
+                return (
+                  <CourseItem
+                    key={id}
+                    id={id}
+                    slug={slug}
+                    name={name}
+                    description={description}
+                    weeks={weeks}
+                    sprints={sprints}
+                    price={price}
+                    img={url}
+                    catalogueId={course.category.sys.id}
+                  />
+                );
+              })}
             </div>
-            <div className={styles.footer}>
-              <div className={styles.footerTitle}>
-                Can’t you find course for you in this category?
-              </div>
-              <Button
-                onClick={() =>
-                  dispatch(
-                    navigate(`/programs-catalogue/${currentCategory.sys.id}`)
-                  )
-                }
-                className={styles.button}
-              >
-                <div>See more courses</div> <div>&#8594;</div>
-              </Button>
-            </div>
-          </React.Fragment>
+          </div>
         )}
+
+        <div className={styles.footer}>
+          <div className={styles.footerTitle}>
+            Can’t you find course for you in this category?
+          </div>
+          <Button
+            onClick={() =>
+              dispatch(
+                navigate(`/programs-catalogue/${currentCategory.sys.id}`)
+              )
+            }
+            className={styles.button}
+          >
+            <div>See more courses</div> <div>&#8594;</div>
+          </Button>
+        </div>
       </div>
     </section>
   );

@@ -3,56 +3,67 @@ import { useQuery } from '@apollo/client';
 
 const useOnlineCoursesData = () => {
   // get all filterss
-  const GET_FILTERS_CATEGORIES = gql`
+  const GET_CATEGORIES = gql`
     {
-      courseCategoryCollection(order: sys_publishedAt_DESC) {
-        total
+      courseCategoryCollection {
         items {
           sys {
             id
           }
-          slug
-          category
-          description
-          coursesCollection(limit: 6) {
-            total
-          }
-        }
-      }
-    }
-  `;
-  const { data, loading, error } = useQuery(GET_FILTERS_CATEGORIES);
-
-  // get courses sorted by filters
-  const GET_COURSES_BY_FILTER = gql`
-    query($courseType: String!) {
-      onlineCourseCollection(limit: 6, where: { courseType: $courseType }) {
-        items {
           name
-          weeks
-          sprints
           description
-          price
-          slug
-          sys {
-            id
-          }
-          courseImage {
-            ... on Asset {
-              url
+          linkedFrom {
+            onlineCourseCollection {
+              total
             }
           }
         }
       }
     }
   `;
+  const { data, loading, error } = useQuery(GET_CATEGORIES);
 
   return {
     categories: data?.courseCategoryCollection?.items,
-    loadingFilters: loading,
-    total: data?.courseCategoryCollection?.total,
-    GET_COURSES_BY_FILTER
+    loadingFilters: loading
   };
 };
 
-export { useOnlineCoursesData };
+const useFilteredCourses = (category: string) => {
+  const GET_CATEGORIES = gql`
+    query($category: String!) {
+      onlineCourseCollection(where: { category: { name: $category } }) {
+        total
+        items {
+          name
+          price
+          weeks
+          sprints
+          slug
+          description
+          category {
+            sys {
+              id
+            }
+          }
+          courseImage {
+            url
+          }
+          sys {
+            id
+          }
+        }
+      }
+    }
+  `;
+
+  const { data, loading } = useQuery(GET_CATEGORIES, {
+    variables: { category: category }
+  });
+  return {
+    courses: data?.onlineCourseCollection?.items,
+    coursesLoading: loading
+  };
+};
+
+export { useOnlineCoursesData, useFilteredCourses };

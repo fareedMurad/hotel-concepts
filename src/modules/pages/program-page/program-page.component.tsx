@@ -20,7 +20,7 @@ import { useProgramPageData } from './program-page.hook';
 import { ProgramModules } from './sections/program-modules';
 import { ScrollToTop } from '@app';
 import { ProgramQuestionsForm } from './sections/program-questions-form';
-import { gql } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
 /**
  * query program info
  */
@@ -62,6 +62,25 @@ const GET_PROGRAM = gql`
   }
 `;
 
+const GET_MENTORS = gql`
+  query($id: String!) {
+    onlineCourse(id: $id) {
+      additionalMaterials
+      mentorsCollection {
+        items {
+          name
+          surname
+          city
+          position
+          mentorPicture {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+
 /**
  * Renders ProgramPage
  */
@@ -70,6 +89,16 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
   const { learningApproach } = useProgramPageData();
+
+  /**
+   * Getting mentors
+   */
+  const { data, loading, error } = useQuery(GET_MENTORS, {
+    variables: { id: programId }
+  });
+
+  const mentorsForCurrrentCourse = data?.onlineCourse?.mentorsCollection?.items;
+  const additionalMaterials = data?.onlineCourse?.additionalMaterials;
 
   return (
     <div className={styles.programPage}>
@@ -81,32 +110,30 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />
       <Enroll programId={programId} />
-      {/* <ProgramModules
-        modules={modules}
-        amountOfWeeklyModules={amountOfWeeklyModules}
+      <ProgramModules programId={programId} />
+      {/* <div className={styles.img} style={{ backgroundImage: `url(${url})` }} /> */}
+      <ProgramResults programId={programId} />
+      <Mentors
+        contributors={mentorsForCurrrentCourse}
+        loading={loading}
+        url={`${history.location.pathname}?programId=${programId}&/mentor`}
       />
-      <div className={styles.img} style={{ backgroundImage: `url(${url})` }} />
-      <ProgramResults results={results} />
-      {mentorsForCurrrentCourse && (
-        <Mentors
-          contributors={mentorsForCurrrentCourse}
-          loading={loading}
-          url={`${history.location.pathname}?programId=${programId}&/mentor`}
-        />
-      )}
       <ProgramLearningApproach learningApproach={learningApproach} />
-      <ProgramMaterials additionalMaterials={additionalMaterials} />
+      <ProgramMaterials
+        additionalMaterials={additionalMaterials}
+        loading={loading}
+      />
       <Impact />
       <div className={styles.hr} />
       <ProgramEnrollNow />
       <ProgramQuote />
-     
+
       <FaqBlock showTitle />
       <PartnerApply
         title='Got questions?'
         subtitle='Whether you are an individual or an organisation/group, looking for a
                   programme, get in touch and we can help find the best solution for you.'
-      /> */}
+      />
       {/* <ProgramQuestionsForm /> */}
       <Footer />
     </div>

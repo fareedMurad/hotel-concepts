@@ -5,15 +5,14 @@ type ModuleItem = {
   duration: {
     weeks: string | number;
     houers: string | number;
-  }
-}
+  };
+};
 
 /**
  * Props
  */
 type ProgramModulesProps = {
-  modules: ModuleItem[];
-  amountOfWeeklyModules: number | string
+  programId: string;
 };
 
 export { ProgramModulesProps };

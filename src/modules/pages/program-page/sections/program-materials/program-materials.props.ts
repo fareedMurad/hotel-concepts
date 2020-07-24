@@ -2,7 +2,8 @@
  * Props
  */
 type ProgramMaterialsProps = {
-    additionalMaterials: string[]
+  additionalMaterials: string[];
+  loading: boolean;
 };
 
 export { ProgramMaterialsProps };

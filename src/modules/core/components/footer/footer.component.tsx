@@ -14,9 +14,9 @@ import { gql, useQuery } from '@apollo/client';
  */
 const CATEGORIES = gql`
   {
-    courseCategoryCollection {
+    courseCategoryCollection(limit: 5) {
       items {
-        category
+        name
         sys {
           id
         }
@@ -42,7 +42,7 @@ const Navigation: React.FC<{
               key={idx}
               to={rest.sys ? `/programs-catalogue/${rest.sys.id}` : to}
             >
-              {rest.category ? rest.category : caption}
+              {rest.name ? rest.name : caption}
             </NavLink>
           );
         })}
@@ -60,18 +60,18 @@ const Navigation: React.FC<{
  * Renders Footer
  */
 const Footer: React.FC<FooterProps> = ({}) => {
-  // const [categories, setCategories] = React.useState([]);
-  // const { weprovideLinks, moreLinks, socials } = useFooterData();
-  // const { data, loading, error } = useQuery(CATEGORIES);
-  // React.useEffect(() => {
-  //   if (!loading) {
-  //     setCategories(data.courseCategoryCollection.items);
-  //   }
-  // });
+  const [categories, setCategories] = React.useState([]);
+  const { weprovideLinks, moreLinks, socials } = useFooterData();
+  const { data, loading, error } = useQuery(CATEGORIES);
+  React.useEffect(() => {
+    if (!loading) {
+      setCategories(data.courseCategoryCollection.items);
+    }
+  });
 
   return (
     <div className={styles.footer} id='footer'>
-      {/* <div className={styles.content}>
+      <div className={styles.content}>
         <section className={styles.subscribe}>
           <div className={styles.title}>
             <div>
@@ -135,7 +135,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             Terms and Conditions
           </Link>
         </div>
-      </footer> */}
+      </footer>
     </div>
   );
 };

@@ -12,75 +12,43 @@ import { Pagination } from '@core/components/pagination';
 import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
-/**
- * get programs
- */
+import { useProgramsCatalogueData } from './programs-catalogue.hook';
 
-const GET_PROGRAMS = gql`
-  query($id: String!) {
-    courseCategory(id: $id) {
-      ... on CourseCategory {
-        category
-        description
-      }
-      coursesCollection {
-        items {
-          ... on OnlineCourse {
-            name
-            courseType
-            type
-            description
-            price
-            duration
-            slug
-            filters
-            sys {
-              id
-            }
-            courseImage {
-              ... on Asset {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 /**
  * Renders ProgramsCatalogue
  */
-const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({ }) => {
+
+const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { id } = useParams();
-  const { data, loading, error } = useQuery(GET_PROGRAMS, {
-    variables: { id: id }
-  });
+  const { courseCategory, loading } = useProgramsCatalogueData(id);
   const [currentFilters, setCurrentFilters] = React.useState(['All']);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(5);
   if (loading) return <Spinner />;
 
-  const { items: programs } = data?.courseCategory?.coursesCollection;
-  const { courseCategory: category } = data;
-  const lastItemIndex = currentPage * itemsPerPage;
-  const firstItemIndex = lastItemIndex - itemsPerPage;
-  const pages = Math.ceil(programs.length / itemsPerPage);
+  console.log(courseCategory);
 
-  const changePage = page => () => {
-    setCurrentPage(page);
-    scrollTo('programs');
-  };
+  // const { items: programs } = data?.courseCategory?.coursesCollection;
+  // const { courseCategory: category } = data;
+  // const lastItemIndex = currentPage * itemsPerPage;
+  // const firstItemIndex = lastItemIndex - itemsPerPage;
+  // const pages = Math.ceil(programs.length / itemsPerPage);
+
+  // const changePage = page => () => {
+  //   setCurrentPage(page);
+  //   scrollTo('programs');
+  // };
 
   const updateFilters = filters => {
     setCurrentFilters(filters);
   };
 
-  const filteredPrograms = programs.filter(program => {
-    return program.filters.some(item => currentFilters.includes(item));
-  });
+  // const filteredPrograms = programs.filter(program => {
+  //   return program.filters.some(item => currentFilters.includes(item));
+  // });
 
-  const currentPrograms = filteredPrograms.slice(firstItemIndex, lastItemIndex);
+  // const currentPrograms = filteredPrograms.slice(firstItemIndex, lastItemIndex);
+  if (loading) return <Spinner />;
 
   return (
     <React.Fragment>
@@ -88,8 +56,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({ }) => {
       <Header />
       <div className={styles.programsCatalogue}>
         <CatalogueHeader
-          title={category.category}
-          description={category.description}
+          title={courseCategory.name}
+          description={courseCategory.description}
         />
         <div className={styles.title}>
           <div>Find the right course for you</div>
@@ -102,7 +70,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({ }) => {
           currentFilters={currentFilters}
           updateFilters={updateFilters}
         />
-        <div className={styles.content} id='programs'>
+        {/* <div className={styles.content} id='programs'>
           {currentPrograms.length > 0 ? (
             currentPrograms.map((program, index) => {
               return <ProgramItem program={program} key={index} />;
@@ -122,7 +90,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({ }) => {
             />
           </div>
         )}
-        <ProgramsContactUs />
+        <ProgramsContactUs /> */}
       </div>
       <Footer />
     </React.Fragment>
