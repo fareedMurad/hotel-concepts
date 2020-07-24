@@ -1,7 +1,13 @@
 import * as React from 'react';
 import { JobsListProps } from './jobs-list.props';
 import * as styles from './jobs-list.scss';
-import { ButtonFilter, Footer, Spinner } from '@core/components';
+import {
+  ButtonFilter,
+  Footer,
+  Spinner,
+  SectionTitle,
+  Paragraph
+} from '@core/components';
 import { Vacancy } from './components';
 import { Header } from '@core/components/header';
 import { ScrollToTop } from '@app';
@@ -40,14 +46,14 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
         <Header whiteBackground />
       </div>
       <div className={styles.jobsList}>
-        <h1 className={styles.title}>
+        <SectionTitle className={styles.title}>
           Want to create <br /> better hospitality impact?
-        </h1>
-        <p className={styles.description}>
+        </SectionTitle>
+        <Paragraph className={styles.description}>
           We are a fast-growing, London-based company that builds <br />{' '}
           hospitality online courses taught by the greatest masters in the{' '}
           <br /> world.
-        </p>
+        </Paragraph>
         <div className={styles.filters}>
           <ButtonFilter
             id='All'

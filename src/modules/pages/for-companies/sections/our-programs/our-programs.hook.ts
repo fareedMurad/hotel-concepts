@@ -1,4 +1,4 @@
-const useOurPrograms = () => {
+const useOurProgramsData = () => {
   const cardsData = [
     {
       id: 1,
@@ -39,4 +39,4 @@ const useOurPrograms = () => {
   return cardsData;
 };
 
-export { useOurPrograms };
+export { useOurProgramsData };

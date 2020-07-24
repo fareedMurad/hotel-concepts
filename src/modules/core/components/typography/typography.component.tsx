@@ -65,5 +65,57 @@ const PreCaption: React.FC<{ children: any; className?: string }> = ({
 }) => (
   <div className={classNames(styles.preCaption, className)}>{children}</div>
 );
+/**
+ * Hero Title
+ */
+const HeroTitle: React.FC<{ children: any; className?: string }> = ({
+  children,
+  className
+}) => {
+  return (
+    <div className={classNames(styles.heroTitle, className)}>{children}</div>
+  );
+};
+/**
+ * Hero Title
+ */
+const HeroSubtitle: React.FC<{ children: any; className?: string }> = ({
+  children,
+  className
+}) => {
+  return (
+    <div className={classNames(styles.heroSubtitle, className)}>{children}</div>
+  );
+};
+/**
+ * Section title
+ */
+const SectionTitle: React.FC<{ children: any; className?: string }> = ({
+  children,
+  className
+}) => {
+  return (
+    <div className={classNames(styles.sectionTitle, className)}>{children}</div>
+  );
+};
+/**
+ * Hr
+ */
+const Hr: React.FC<{ className?: string }> = ({ className }) => {
+  return <div className={classNames(styles.hr, className)} />;
+};
 
-export { H1, H2, H3, H4, H5, H6, Paragraph, PreCaption };
+export {
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Paragraph,
+  PreCaption,
+  HeroTitle,
+  SectionTitle,
+  HeroSubtitle,
+  Hr
+};

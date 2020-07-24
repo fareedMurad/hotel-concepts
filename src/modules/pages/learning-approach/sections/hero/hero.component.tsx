@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HeroProps } from './hero.props';
 import * as styles from './hero.scss';
-import { H1, Icon, H2, Paragraph } from '@core/components';
+import { HeroTitle, HeroSubtitle } from '@core/components';
 import { ScrollButton } from '@core/components/scroll-button';
 
 /**
@@ -17,13 +17,15 @@ const Hero: React.FC<HeroProps> = ({}) => {
         className={styles.image}
       >
         <main className={styles.heroContent}>
-          <H1 className={styles.heroCaption}>Our Learning Approach</H1>
-          <div className={styles.heroDescription}>
+          <HeroTitle className={styles.heroCaption}>
+            Our Learning <br /> Approach
+          </HeroTitle>
+          <HeroSubtitle className={styles.heroDescription}>
             Experience transformational hospitality e-learning bringing together
             <br />
             the best in industry and academia, dedicated mentorship, new <br />
             technologies and intensive support
-          </div>
+          </HeroSubtitle>
         </main>
         <ScrollButton text='Scroll' className={styles.arrow} />
       </div>

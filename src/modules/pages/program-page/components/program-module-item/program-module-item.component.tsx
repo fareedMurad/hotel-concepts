@@ -33,7 +33,7 @@ const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({
             className={classNames(styles.indicator, {
               [styles.opened]: isOpened
             })}
-          ></div>
+          />
           <div className={styles.nameBlock}>
             <div>{index + 1}.0</div>
             <div>{name}</div>
@@ -62,7 +62,7 @@ const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({
       >
         {description}
       </div>
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
     </div>
   );
 };

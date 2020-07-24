@@ -21,10 +21,9 @@
   background-color: $background;
   padding: 4px 20px;
   border-radius: 5px;
-  font-family: $IBMPlex;
   text-align: center;
   max-width: fit-content;
-  @include font($primary-grey, 16px, 400, 22px);
+  @include font($primary-gray, 16px, 400, 22px);
 }
 
 .date {
@@ -36,16 +35,14 @@
 
 .description {
   max-width: 300px;
-  @include font($primary-grey, 18px, 400, 28px);
+  @include font($primary-gray, 18px, 400, 28px);
   font-family: $IBMPlex;
 }
 
 .button {
-  @include flex($justify: space-between);
-  width: 100%;
   margin-top: 20px;
   height: 44px;
-  color: $primary-grey;
+  color: $primary-gray;
 }
 
 .tags {

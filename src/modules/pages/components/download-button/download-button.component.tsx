@@ -11,7 +11,8 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({
   description,
   filetype,
   size,
-  url
+  url,
+  contentType
 }) => {
   return (
     <a className={styles.downloadButton} download href={url}>
@@ -25,7 +26,8 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({
       <div className={styles.download}>
         <div className={styles.downloadText}>Download</div>
         <div className={styles.downloadDetails}>
-          {filetype} ({size})
+          {filetype} {contentType && contentType.substring(12).toUpperCase()}(
+          {size})
         </div>
       </div>
     </a>

@@ -7,6 +7,7 @@ import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { OpinionItem } from '@pages/homepage/components/opinion-item';
 import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components/spinner';
+import { PreCaption, SectionTitle } from '@core/components';
 
 const responsiveBreakpoints = {
   desktop: {
@@ -64,8 +65,8 @@ const Impact: React.FC<ImpactProps> = ({}) => {
   return (
     <section className={styles.impact}>
       <div className={styles.title}>
-        <div>Opinions</div>
-        <div>Cordie Impact</div>
+        <PreCaption>Opinions</PreCaption>
+        <SectionTitle>Cordie Impact</SectionTitle>
       </div>
       <Slider
         containerClass={styles.slider}
@@ -76,6 +77,7 @@ const Impact: React.FC<ImpactProps> = ({}) => {
       >
         {testemonials.map((item, index) => {
           const { name, text, position, photo } = item;
+
           return (
             <OpinionItem
               name={name}

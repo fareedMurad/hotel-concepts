@@ -1,9 +1,9 @@
-@import "core.scss";
+@import 'core.scss';
 
 .support-info {
+  @include flex($align: center);
   min-height: 454px;
   background-color: $background;
-  @include flex($align: center);
   padding-right: 124px;
 }
 
@@ -12,39 +12,32 @@
 }
 
 .title {
-  padding: $default-offset 0;
-  padding-right: $default-offset;
-  padding-left: $left-offset;
   max-width: 600px;
-  & > div:first-child {
-    @include font($primary-gray, 48px, 600, 58px);
-    letter-spacing: -0.48px;
-    font-family: $EBGaramond;
+  padding: 22px;
+  @include desktop() {
+    padding: 22px 22px 22px 134px;
   }
-  & > div:nth-child(2) {
-    height: 2px;
-    margin-top: 24px;
-    margin-bottom: 16px;
-    width: 100%;
-    background: #cbd0d3;
-  }
-  & > div:nth-child(3) {
-    @include font($primary-gray, 18px, 400, 28px);
-    font-family: $IBMPlexSans;
-  }
+}
+
+.subtitle {
+  @include font($primary-gray, 18px, 400, 28px);
+}
+.hr {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 16px;
 }
 
 .info {
+  @include flex($justify: center);
   flex: 1;
+  max-width: 450px;
   flex-wrap: wrap;
   margin: $default-offset 0;
-  @include flex($justify: center);
-  max-width: 450px;
 }
 
 .info-item {
-  @include font($primary-gray, 18px , 400, 28px);
-  font-family: $IBMPlexSans;
+  @include font($primary-gray, 18px, 400, 28px);
   width: 204px;
   height: 47px;
   background-color: $white;
@@ -55,8 +48,8 @@
     content: '■';
     padding-left: 12px;
     padding-right: 14px;
-    color: $primary-orange;
     font-size: 15px;
+    color: $primary-orange;
   }
 }
 
@@ -71,9 +64,6 @@
     padding-right: $default-offset;
   }
   .intro {
-    padding-left: $default-offset;
-  }
-  .title {
     padding-left: $default-offset;
   }
   .title-wrapper {

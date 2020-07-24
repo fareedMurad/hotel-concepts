@@ -20,7 +20,10 @@ const useWhatWeTeachData = () => {
     }
   `;
   const { data, error, loading } = useQuery(GET_FILTERS_CATEGORIES);
-  return { data: data?.courseCategoryCollection?.items, loading };
+  return {
+    filtersCategoriesData: data?.courseCategoryCollection?.items,
+    filtersCategoriesLoading: loading
+  };
 };
 
 export { useWhatWeTeachData };

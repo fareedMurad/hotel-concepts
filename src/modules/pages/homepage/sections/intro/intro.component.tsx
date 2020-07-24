@@ -5,7 +5,7 @@ import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { ScrollButton } from '@core/components/scroll-button';
-import { Button } from '@core/components';
+import { Button, HeroTitle, HeroSubtitle } from '@core/components';
 import { useHistory } from 'react-router';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
@@ -28,7 +28,7 @@ const GET_PREVIEW_VIDEO = gql`
 /**
  * Renders Intro
  */
-const Intro: React.FC<IntroProps> = ({ }) => {
+const Intro: React.FC<IntroProps> = ({}) => {
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [previewVideo, setPreviewVideo] = React.useState('');
   const [video, setVideo] = React.useState<HTMLVideoElement>();
@@ -45,7 +45,6 @@ const Intro: React.FC<IntroProps> = ({ }) => {
       setPreviewVideo(previewVideoUrl);
     }
   }, [videoRef, data]);
-
 
   const playVideo = () => {
     if (video) {
@@ -73,13 +72,20 @@ const Intro: React.FC<IntroProps> = ({ }) => {
 
   return (
     <section className={styles.intro}>
-      <div className={styles.title}>
-        <div>Cutting edge online education for hospitality</div>
-        <div>Bridging the skills gap for hotel managers</div>
-      </div>
-      <Button className={styles.findButton} onClick={scrollToEnroll}>
-        <div>Find the program</div> <div>→</div>
-      </Button>
+      <HeroTitle>
+        Cutting edge online
+        <br /> education for hospitality
+      </HeroTitle>
+      <HeroSubtitle className={styles.subtitle}>
+        Bridging the skills gap for hotel managers
+      </HeroSubtitle>
+      <Button
+        className={styles.findButton}
+        onClick={scrollToEnroll}
+        children='Find the program'
+        arrow='→'
+        width={230}
+      />
       <Popup
         contentStyle={{
           border: 'none',

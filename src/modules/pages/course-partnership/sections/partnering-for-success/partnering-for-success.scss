@@ -1,38 +1,29 @@
 @import 'core.scss';
 
 .partnering {
+  @include container($top: 60px);
   box-sizing: border-box;
-  @include container();
-  margin-top: 65px;
-  margin-bottom: 60px;
-  padding: 0 30px;
-  padding-bottom: 60px;
 }
 
 .how-program {
-  @include container($top: 30px);
-  padding-top: 60px;
-  padding-bottom: 0;
-  @include tablet() {
-    padding-top: 60px;
-    padding-bottom: 0;
-  }
+  @include container($top: 60px);
+  padding-bottom: 10px;
   &__description {
     display: grid;
     width: 100%;
-    margin-top: 35px;
+    margin-top: 22px;
     column-gap: 20px;
     @include tablet() {
       grid-template-columns: repeat(2, 1fr);
       padding: 0;
     }
     &__block {
+      @include font($primary-gray, 24px, 400, 34px);
       width: 100%;
       margin-bottom: 20px;
       padding: 55px 20px;
       border-radius: 8px;
       border: 1px solid $light-grey;
-      @include font($primary-gray, 24px, 400, 34px);
       @include tablet() {
         margin-bottom: 0;
       }
@@ -41,8 +32,7 @@
 }
 
 .hr {
-  width: 90%;
   height: 2px;
-  margin: 0 auto;
+  margin: 0 22px;
   background-color: $light-grey;
 }

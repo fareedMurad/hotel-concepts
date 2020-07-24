@@ -7,7 +7,7 @@ import classNames from 'classnames';
 /**
  * Renders ProgramsContactUs
  */
-const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({ }) => {
+const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
   const formInitValue = {
     name: '',
     email: '',
@@ -26,7 +26,6 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({ }) => {
 
   const submitHandler = (event: any) => {
     event.preventDefault();
-
   };
 
   return (
@@ -106,9 +105,12 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({ }) => {
               <option value='3'>3</option>
             </select>
           </div>
-          <Button type='submit' className={styles.button}>
-            <div>Contact me</div> <div> &#8594; </div>
-          </Button>
+          <Button
+            type='submit'
+            className={styles.button}
+            children='Contact me'
+            arrow='&#8594;'
+          />
         </form>
       </div>
       <div className={styles.footer} />

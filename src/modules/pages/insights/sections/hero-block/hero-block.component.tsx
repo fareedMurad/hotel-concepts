@@ -3,6 +3,7 @@ import { HeroBlockProps } from './hero-block.props';
 import * as styles from './hero-block.scss';
 import { NavLink } from 'react-router-dom';
 import { ScrollButton } from '@core/components/scroll-button';
+import { HeroTitle, HeroSubtitle } from '@core/components';
 
 const HeroCard = ({ img, activity, captions }) => {
   return (
@@ -46,8 +47,10 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
         >
           <div className={styles.heroMainContent}>
             <div>New</div>
-            <div>Cordie Insights</div>
-            <div>Talks recommended just for you, delivered to your inbox.</div>
+            <HeroTitle>Cordie Insights</HeroTitle>
+            <HeroSubtitle>
+              Talks recommended just for you, delivered to your inbox.
+            </HeroSubtitle>
           </div>
         </div>
         <ScrollButton text='Scroll' className={styles.arrow} />

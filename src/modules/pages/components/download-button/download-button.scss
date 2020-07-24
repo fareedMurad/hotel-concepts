@@ -3,7 +3,7 @@
 .download-button {
   display: block;
   @include flex($align: center, $justify: space-between);
-  padding: 16px;
+  padding: 15px;
   background: #f5f1f0;
   border-radius: 8px;
   min-width: 336px;
@@ -15,18 +15,15 @@
   &--details {
     @include font($primary-gray, 16px, 400, 22px);
     margin-left: 16px;
-    font-family: $IBMPlex;
   }
 }
 
 .download {
   &--text {
     @include font($primary-gray, 18px, 500, 28px);
-    font-family: $IBMPlex;
   }
   &--details {
     @include font(#cbd0d3, 16px, 500, 22px);
-    font-family: $IBMPlex;
     &--file {
       width: 250px;
       white-space: nowrap;
@@ -37,8 +34,9 @@
 }
 
 .file-caption {
-  width: 170px;
+  width: 150px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
 }

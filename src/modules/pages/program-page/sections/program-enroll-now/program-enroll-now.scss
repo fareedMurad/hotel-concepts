@@ -75,11 +75,6 @@
   width: 100%;
 }
 
-.button {
-  @include flex($justify: space-between);
-  width: 100%;
-}
-
 .hr {
   height: 2px;
   background-color: $hr;

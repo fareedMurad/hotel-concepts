@@ -10,7 +10,7 @@
   @include flex(space-between);
   width: 92px;
   margin-top: 60px;
-  margin-left: 10px;
+  margin-left: 22px;
   padding: 8px 13px;
   background-color: #f5f1f0;
   border-radius: 3px;
@@ -19,32 +19,35 @@
 }
 
 .section-a {
-  margin-bottom: 32px;
+  margin-bottom: 44px;
 
   &__subtitle {
     font-family: $EBGaramond;
     @include font($primary-orange, 18px, 600, 58px);
   }
   &__description {
-    @include font($primary-grey, 18px, 400, 28px);
+    @include font($primary-gray, 18px, 400, 28px);
     width: 40%;
-    font-family: $IBMPlexSans;
+    margin-top: 12px;
   }
 }
 
 .section-b {
   &__description {
-    font-family: $IBMPlexSans;
     @include font($primary-grey, 16px, 40, 28px);
   }
 }
 
 .title-orange {
-  font-weight: 600;
-  line-height: 32px;
-  color: $primary-orange;
+  @include font($primary-orange, 38px, 600, 32px);
 }
 
 .description {
   font-size: 16px;
+}
+
+.pre-caption {
+  margin: 0;
+  font-family: $EBGaramond;
+  font-weight: 600;
 }

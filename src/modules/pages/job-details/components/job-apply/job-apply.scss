@@ -11,8 +11,7 @@
 
 .title {
   margin: 22px 0 20px 0;
-  font-family: $IBMPlexSans;
-  @include font($primary-grey, 16px, 400, 22px);
+  @include font($primary-gray, 16px, 400, 22px);
 }
 
 .form-section {
@@ -32,13 +31,16 @@
     @include tablet() {
       margin-bottom: 0;
     }
+    & > div:first-child {
+      margin-bottom: 27px;
+    }
   }
 }
 
 .input {
   margin-bottom: 25px;
   label {
-    @include font($primary-grey, 16px, 400, 14px);
+    @include font($primary-gray, 16px, 400, 14px);
   }
   input {
     // width: 360px;
@@ -73,14 +75,19 @@
 }
 
 .label-upload {
-  @include font($primary-grey, 16px, 400, 14px);
+  @include font($primary-gray, 16px, 400, 14px);
   display: block;
   margin-bottom: 8px;
+  &__resume {
+    @include font($primary-gray, 16px, 400, 14px);
+    display: block;
+    margin-bottom: 8px;
+  }
 }
 
 .input-bottom {
   label {
-    @include font($primary-grey, 16px, 400, 14px);
+    @include font($primary-gray, 16px, 400, 14px);
   }
 
   input {
@@ -92,7 +99,7 @@
 }
 
 .button-submit {
-  @include font(#ffffff, 16px, 400, 22px);
+  @include font(#ffffff, 16px, 500, 22px);
   @include flex(space-between);
   background-color: $primary-orange;
   border-radius: 4px;

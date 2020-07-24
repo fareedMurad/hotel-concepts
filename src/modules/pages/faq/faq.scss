@@ -8,7 +8,7 @@
 
 .container {
   @include container();
-  margin-top: 92px;
+  margin-top: 82px;
 }
 
 .footer {
@@ -73,8 +73,7 @@
     }
   }
   &__button {
-    @include flex($align: center, $justify: space-between);
-    width: 40%;
+    width: 204px;
     margin-top: 8px;
     @include desktop() {
       margin-top: 0;

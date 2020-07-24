@@ -18,10 +18,12 @@ const Card = ({ card, rate }) => {
       <div className={styles.cardCaption}>{category}</div>
       <div className={styles.cardDescription}>{description}</div>
       <Link to={`/programs-catalogue/${id}`}>
-        <Button className={styles.cardButton}>
-          <div>Explore programs</div>
-          <div>&rarr;</div>
-        </Button>
+        <Button
+          className={styles.cardButton}
+          children='Explore programs'
+          arrow='&rarr;'
+          width={301}
+        />
       </Link>
     </div>
   );
@@ -30,15 +32,18 @@ const Card = ({ card, rate }) => {
  * Renders WhatWeTeach
  */
 const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
-  const { data, loading } = useWhatWeTeachData();
+  const {
+    filtersCategoriesData,
+    filtersCategoriesLoading
+  } = useWhatWeTeachData();
 
-  if (loading) return <Spinner />;
+  if (filtersCategoriesLoading) return <Spinner />;
 
   return (
     <div className={styles.whatWeTeach}>
       <H2 className={styles.caption}>What do we teach</H2>
       <main className={styles.cardContainer}>
-        {data.map((card, index) => (
+        {filtersCategoriesData.map((card, index) => (
           <Card card={card} key={index} rate={index} />
         ))}
       </main>

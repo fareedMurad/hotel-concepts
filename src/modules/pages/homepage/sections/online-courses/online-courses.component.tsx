@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { OnlineCoursesProps } from './online-courses.props';
 import * as styles from './online-courses.scss';
-import { ButtonFilter, Button } from '@core/components';
+import { ButtonFilter, Button, SectionTitle } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
 import { Spinner } from '@core/components/spinner';
 import {
@@ -28,7 +28,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
       onlineCourseCollection: []
     }
   });
-  const [coursesByFilter, setCoursesByFilter] = React.useState(null);
+
   const { courses, coursesLoading } = useFilteredCourses(currentCategory.name);
 
   React.useEffect(() => {
@@ -39,15 +39,10 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
 
   if (loadingFilters) return <Spinner />;
 
-  const findDesription = category => {
-    const searchedCategory = categories.filter(el => el.name !== category);
-    return searchedCategory[0].description;
-  };
-
   return (
     <section className={styles.onlineCourses}>
       <div className={styles.title} id='online-courses'>
-        <div>Online courses for you</div>
+        <SectionTitle>Online courses for you</SectionTitle>
         <div>
           Contextualised and personalised hospitality learning at your
           fingertips.

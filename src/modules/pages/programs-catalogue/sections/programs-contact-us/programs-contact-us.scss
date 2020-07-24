@@ -27,14 +27,11 @@
   position: relative;
   z-index: 1;
   height: 350px;
-  background: url('../../../../../assets/img/catalogue-footer.png') no-repeat
-    center center;
+  background: url('../../../../../assets/img/catalogue-footer.png');
+  @include heroImage();
+  @include imageOverlay();
   box-sizing: border-box;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.4);
-  background-size: cover;
 }
 
 .button {

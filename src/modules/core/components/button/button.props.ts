@@ -21,6 +21,14 @@ type ButtonProps = React.DetailedHTMLProps<
    * Button sizes
    */
   size?: 'lg' | 'md' | 'sm';
+  /**
+   * Arrow
+   */
+  arrow?: any;
+  /**
+   * Button width
+   */
+  width?: any;
 };
 
 export { ButtonProps };

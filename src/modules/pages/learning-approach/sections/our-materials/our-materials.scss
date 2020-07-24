@@ -16,7 +16,6 @@
   }
   @include desktop() {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(2, 1fr);
   }
   @include desktop-lg() {
     grid-template-columns: 1fr 1fr 1fr;

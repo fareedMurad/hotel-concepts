@@ -36,12 +36,16 @@ const CourseItem: React.FC<CourseItemProps> = props => {
             <div className={styles.info}>
               <div>{price}$</div>
               <div>
-                {weeks} weeks/{sprints} sprints
+                {weeks} weeks / {sprints} sprints
               </div>
             </div>
-            <Button onClick={handleClick(id, slug)} className={styles.button}>
-              <div>Explore Program</div> <div>&#8594;</div>
-            </Button>
+            <Button
+              onClick={handleClick(id, slug)}
+              className={styles.button}
+              children='Explore Program'
+              width='100%'
+              arrow='→'
+            />
           </div>
         </div>
       </div>
