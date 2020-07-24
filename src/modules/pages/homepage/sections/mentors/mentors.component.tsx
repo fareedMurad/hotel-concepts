@@ -49,7 +49,7 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
   const handleClick = () => history.push(`/contributors`);
 
   if (loading) return <Spinner />;
-
+  if (!contributors) return <div>No mentors yet</div>;
   return (
     <section className={styles.mentors}>
       <div className={styles.title}>

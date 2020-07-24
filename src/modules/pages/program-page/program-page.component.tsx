@@ -99,7 +99,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
 
   const mentorsForCurrrentCourse = data?.onlineCourse?.mentorsCollection?.items;
   const additionalMaterials = data?.onlineCourse?.additionalMaterials;
-
+  console.log(data);
   return (
     <div className={styles.programPage}>
       <ScrollToTop />
@@ -127,10 +127,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <div className={styles.hr} />
       <ProgramEnrollNow />
       <ProgramQuote />
-<<<<<<< HEAD
-
-=======
->>>>>>> 170a1722df583c566f491492df49673eece419e6
       <FaqBlock showTitle />
       <PartnerApply
         title='Got questions?'
