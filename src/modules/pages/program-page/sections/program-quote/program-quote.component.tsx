@@ -28,7 +28,7 @@ const Data = gql`
 const ProgramQuote: React.FC<ProgramQuoteProps> = ({}) => {
   const { data, loading, error } = useQuery(Data);
   if (loading) return <Spinner />;
-  
+
   const quote = data.programPageBgAndQuoteTextCollection.items[0];
 
   const scrollToEnroll = () => {
@@ -40,9 +40,12 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({}) => {
       style={{ backgroundImage: `url("${quote.backgroundImg.url}")` }}
     >
       <div className={styles.text}>{`"${quote.quoteText}"`}</div>
-      <Button onClick={scrollToEnroll} className={styles.button}>
-        <div>Enroll now</div> <div>→</div>
-      </Button>
+      <Button
+        onClick={scrollToEnroll}
+        className={styles.button}
+        children='Enroll now'
+        arrow='→'
+      />
     </section>
   );
 };

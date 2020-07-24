@@ -46,7 +46,6 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = () => {
     return 0;
   });
 
-
   return (
     <section id='enroll' className={styles.programEnrollNow}>
       <div className={styles.title}>Enroll Now</div>
@@ -70,10 +69,12 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = () => {
                     {item.price}
                   </div>
                 )}
-                <Button className={styles.button}>
-                  <div>Enroll Now</div>
-                  <div>&#8594;</div>
-                </Button>
+                <Button
+                  className={styles.button}
+                  children='Enroll now'
+                  arrow='&#8594;'
+                  width='100%'
+                />
               </div>
             </div>
             <div className={styles.hr} />

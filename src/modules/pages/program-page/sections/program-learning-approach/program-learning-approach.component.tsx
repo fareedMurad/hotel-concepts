@@ -22,9 +22,7 @@ const ProgramLearningApproach: React.FC<ProgramLearningApproachProps> = ({
         ))}
       </div>
       <Link to='/learning-approach'>
-        <Button className={styles.button}>
-          Learn more<div>→</div>
-        </Button>
+        <Button className={styles.button} children='Learn more' arrow='→' />
       </Link>
     </section>
   );

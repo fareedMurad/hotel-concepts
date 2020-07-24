@@ -100,9 +100,13 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
             key={index}
           />
         ))}
-        <Button onClick={scrollToEnroll} className={styles.button}>
-          <div>Enroll now</div> <div>→</div>
-        </Button>
+        <Button
+          onClick={scrollToEnroll}
+          className={styles.button}
+          children='Enroll now'
+          arrow='→'
+          width='inherit'
+        />
       </div>
 
       <video

@@ -124,7 +124,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <div className={styles.hr} />
       <ProgramEnrollNow />
       <ProgramQuote />
-      {/* <div className={styles.faqTitle}>Frequently Asked Questions</div> */}
       <FaqBlock showTitle />
       <PartnerApply
         title='Got questions?'
