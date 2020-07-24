@@ -50,15 +50,11 @@
 }
 
 .button-submit {
-  justify-content: space-between;
-  width: 200px;
 }
 
 .send {
+  @include flex($justify: space-between, $align: center);
   margin-top: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .comment {

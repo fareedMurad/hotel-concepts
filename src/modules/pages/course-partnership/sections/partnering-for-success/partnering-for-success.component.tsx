@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { PartneringForSuccessProps } from './partnering-for-success.props';
 import * as styles from './partnering-for-success.scss';
-import { Icon, H2, Paragraph } from '@core/components';
+import { Icon, H2, Paragraph, SectionTitle } from '@core/components';
 
 /**
  * Renders PartneringForSuccess
  */
-const PartneringForSuccess: React.FC<PartneringForSuccessProps> = ({ }) => {
+const PartneringForSuccess: React.FC<PartneringForSuccessProps> = ({}) => {
   return (
     <div className={styles.partneringForSuccess}>
       <div className={styles.partnering}>
         <Icon name='abstract-1' />
-        <H2>
+        <SectionTitle>
           Partnering for <br /> Success
-        </H2>
+        </SectionTitle>
         <Paragraph>
           Kordie is proud to partner with a select number of <br />{' '}
           organisations, partnerships which allow us to provide <br /> access to

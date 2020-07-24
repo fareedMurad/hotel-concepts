@@ -3,14 +3,13 @@
 .criteria {
   @include container();
   @include flex($align: center, $justify: center);
+  @include heroImage();
   width: 100%;
   min-height: 100vh;
   padding: 12px;
   @include tablet() {
-    @include container();
-    padding: 0;
+    @include container($top: 80px);
     min-height: 656px;
-
   }
   &__description {
     width: 100%;
@@ -37,8 +36,8 @@
 }
 
 .orange {
+  font-size: 36px;
   color: $primary-orange;
- font-size: 36px;
 }
 
 .white {

@@ -8,7 +8,8 @@ import {
   Button,
   Field,
   Icon,
-  Select
+  Select,
+  SectionTitle
 } from '@core/components';
 import { Formik } from 'formik';
 import classNames from 'classnames';
@@ -32,7 +33,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
     <div className={styles.partnerApply} id='get-involved'>
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <H2>{title}</H2>
+          <SectionTitle>{title}</SectionTitle>
           <Paragraph>{subtitle} </Paragraph>
           <Formik
             initialValues={defaultValues}
@@ -89,10 +90,10 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                     //
                     className={styles.buttonSubmit}
                     type='submit'
-                  >
-                    <div>Send</div>
-                    <div>&#8594;</div>
-                  </Button>
+                    children='Send'
+                    arrow='&#8594;'
+                    width={204}
+                  />
                 </div>
               </Form>
             )}

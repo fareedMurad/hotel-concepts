@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { OnlineCoursesProps } from './online-courses.props';
 import * as styles from './online-courses.scss';
-import { ButtonFilter, Button } from '@core/components';
+import { ButtonFilter, Button, SectionTitle } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
-import { useHistory } from 'react-router';
 import { Spinner } from '@core/components/spinner';
 import { useQuery } from '@apollo/client';
 import { useOnlineCoursesData } from './online-courses.hook';
@@ -58,7 +57,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   return (
     <section className={styles.onlineCourses}>
       <div className={styles.title} id='online-courses'>
-        <div>Online courses for you</div>
+        <SectionTitle>Online courses for you</SectionTitle>
         <div>
           Contextualised and personalised hospitality learning at your
           fingertips.
@@ -128,9 +127,9 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                   )
                 }
                 className={styles.button}
-              >
-                <div>See more courses</div> <div>&#8594;</div>
-              </Button>
+                children='See more courses'
+                arrow='&#8594;'
+              />
             </div>
           </React.Fragment>
         )}
