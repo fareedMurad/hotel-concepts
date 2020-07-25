@@ -24,43 +24,6 @@ import { gql, useQuery } from '@apollo/client';
 /**
  * query program info
  */
-const GET_PROGRAM = gql`
-  query($id: String!) {
-    onlineCourse(id: $id) {
-      sys {
-        id
-      }
-      name
-      description
-      category {
-        name
-      }
-      videoVimeoUrl
-      languages
-      complexityLevel
-      enroll {
-        day
-        year
-        months
-      }
-      about {
-        aboutText
-        skills
-      }
-      price
-      sprints
-      weeks
-      courseImage {
-        url
-      }
-      whoShouldEnrol {
-        description
-        positions
-      }
-      price
-    }
-  }
-`;
 
 const GET_MENTORS = gql`
   query($id: String!) {

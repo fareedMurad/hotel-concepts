@@ -34,7 +34,6 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
   const { data, loading, error } = useQuery(GET_PREVIEW_VIDEO);
-
   React.useEffect(() => {
     if (videoRef.current) {
       setVideo(videoRef.current);
@@ -44,7 +43,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         data.homePagePreviewVideoCollection.items[0].video.url;
       setPreviewVideo(previewVideoUrl);
     }
-  }, [videoRef, data]);
+  }, [videoRef, data, loading]);
 
   const playVideo = () => {
     if (video) {
