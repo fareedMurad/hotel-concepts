@@ -9,43 +9,32 @@ import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components/spinner';
 
 /**
- * faq query
- */
-const GET_FAQ = gql`
-  {
-    faqCollection {
-      items {
-        question
-        answer
-        category
-      }
-    }
-  }
-`;
-/**
  * Renders FaqBlock
  */
 const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle }) => {
   const [currentCategory, setCurrentCutegory] = React.useState('All');
-  const { data, loading, error } = useQuery(GET_FAQ);
+
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  if (loading) return <Spinner />;
-  const { items } = data.faqCollection;
+  const { faqData, faqDataLoading } = useFaqData();
 
-  const uniqueElements = Array.from(new Set(items.map(item => item.category)));
+  if (faqDataLoading) return <Spinner />;
+
+  const uniqueElements = Array.from(
+    new Set(faqData.map(item => item.category))
+  );
 
   const getCategories = () => {
     return uniqueElements.map(name => ({
       name: name,
-      count: items.filter(item => item.category === name).length
+      count: faqData.filter(item => item.category === name).length
     }));
   };
   const categories = getCategories();
-  categories.unshift({ name: 'All', count: items.length });
+  categories.unshift({ name: 'All', count: faqData.length });
 
-  const currentItems = items.filter(
+  const currentItems = faqData.filter(
     item => currentCategory === 'All' || item.category === currentCategory
   );
 
