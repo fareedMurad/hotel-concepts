@@ -12,6 +12,7 @@ const OverviewItem: React.FC<{
   languages: string[];
 }> = ({ languages, enrollBy, weeks, sprints }) => {
   const { day, months, year } = enrollBy;
+
   return (
     <section className={styles.item}>
       <div className={styles.block}>
@@ -20,13 +21,13 @@ const OverviewItem: React.FC<{
           {weeks} Weeks / {sprints} Sprints
         </div>
       </div>
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       <div className={styles.block}>
         <div className={styles.name}>Enroll by</div>
         <div className={styles.info}>{`
   ${months} ${day}, ${year}`}</div>
       </div>
-      <div className={styles.hr}></div>
+      <div className={styles.hr} />
       <div className={styles.block}>
         <div className={styles.name}>Languages</div>
         <div className={styles.info}>{languages}</div>
@@ -41,7 +42,7 @@ const ProgramOverview: React.FC<ProgramOverviewProps> = ({ programId }) => {
   const { data, loading } = useProgramOverviewData(programId);
 
   if (loading) return <Spinner />;
-  console.log(data);
+
   const { weeks, sprints, enroll, languages } = data.onlineCourse;
 
   return (

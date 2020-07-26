@@ -37,7 +37,12 @@ const useProgramIntroData = (programId: string) => {
       anchor: 'get-involved'
     }
   ];
-  return { navButtons, data, loading };
+
+  return {
+    navButtons,
+    programData: data?.onlineCourse,
+    programDataLoading: loading
+  };
 };
 
 export { useProgramIntroData };

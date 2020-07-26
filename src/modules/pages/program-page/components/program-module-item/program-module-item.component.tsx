@@ -23,7 +23,7 @@ const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({
     window.open(pdf);
     return true;
   };
-  console.log(pdf);
+
   return (
     <div className={styles.programModuleItem}>
       <div className={styles.content}>
@@ -49,10 +49,9 @@ const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({
             onClick={onModuleClick}
             theme='secondary'
             className={styles.button}
-          >
-            <div>Module overview</div>
-            <div>&#8594;</div>
-          </Button>
+            children='Module overview'
+            arrow='&#8594;'
+          />
         </div>
       </div>
       <div

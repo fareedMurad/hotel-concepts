@@ -35,7 +35,7 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
           [styles.filterCountActive]: active
         })}
       >
-        {count === 0 ? `(0)` : `(${count})`}
+        {count && `(${count})`}
         {icon && <Icon name={icon} className={styles.icon} />}{' '}
       </div>
     </div>

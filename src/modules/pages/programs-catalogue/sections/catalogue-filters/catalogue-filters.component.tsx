@@ -2,7 +2,7 @@ import * as React from 'react';
 import { CatalogueFiltersProps } from './catalogue-filters.props';
 import * as styles from './catalogue-filters.scss';
 import { useCatalogueFiltersData } from './catalogue-filters.hook';
-import { FilterCheckbox } from '@pages/programs-catalogue/components/filter-checkbox';
+import { FilterCheckbox } from '@pages/programs-catalogue/components';
 import classNames from 'classnames';
 
 /**

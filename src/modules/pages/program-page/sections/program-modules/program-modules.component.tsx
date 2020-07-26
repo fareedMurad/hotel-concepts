@@ -9,14 +9,15 @@ import { Spinner } from '@core/components';
  * Renders ProgramModules
  */
 const ProgramModules: React.FC<ProgramModulesProps> = ({ programId }) => {
-  console.log(programId);
-  const { modulesCollection, loading } = useProgramModulesData(programId);
+  const { modulesData, modulesLoading } = useProgramModulesData(programId);
 
-  if (loading) return <Spinner />;
+  if (modulesLoading) return <Spinner />;
+  
   const {
     items,
     total: { countOfModules }
-  } = modulesCollection;
+  } = modulesData;
+
   return (
     <section id='facility' className={styles.programModules}>
       <div className={styles.title}>

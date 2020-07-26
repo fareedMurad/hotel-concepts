@@ -5,11 +5,13 @@ type EnrollItem = {
   features: string[];
   isEnrollReady: boolean;
   isMostPopular: boolean;
-}
+};
 
 /**
  * Props
  */
-type ProgramEnrollNowProps = {};
+type ProgramEnrollNowProps = {
+  programId: string;
+};
 
 export { ProgramEnrollNowProps };

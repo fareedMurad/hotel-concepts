@@ -15,7 +15,9 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
  */
 
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
-  const { data, loading, navButtons } = useProgramIntroData(programId);
+  const { programData, programDataLoading, navButtons } = useProgramIntroData(
+    programId
+  );
 
   // const videoInfo = {
   //   path: 'ForCorporateClients.preview',
@@ -54,12 +56,11 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
     }
   };
 
-  if (loading) return <Spinner />;
+  if (programDataLoading) return <Spinner />;
   /**
    * destucturing data after loaded
    */
-
-  const { name, description, videoVimeoUrl } = data.onlineCourse;
+  const { name, description, videoVimeoUrl } = programData;
 
   return (
     <section className={styles.programIntro}>

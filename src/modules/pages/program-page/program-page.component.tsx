@@ -2,66 +2,35 @@ import * as React from 'react';
 import { ProgramPageProps } from './program-page.props';
 import * as styles from './program-page.scss';
 import { Header } from '@core/components/header';
-import { Mentors } from '@pages/homepage/sections/mentors';
-import { Impact } from '@pages/homepage/sections/impact';
-import { Footer, Spinner } from '@core/components';
-import { ProgramIntro } from './sections/program-intro';
-import { ProgramOverview } from './sections/program-overview';
-import { ProgramAbout } from './sections/program-about';
-import { Enroll } from './sections/enroll';
-import { ProgramResults } from './sections/program-results';
-import { ProgramMaterials } from './sections/program-materials';
-import { ProgramQuote } from './sections/program-quote';
-import { ProgramLearningApproach } from './sections/program-learning-approach';
-import { FaqBlock, PartnerApply } from '..';
-import { ProgramEnrollNow } from './sections/program-enroll-now';
-import { useHistory } from 'react-router';
-import { useProgramPageData } from './program-page.hook';
-import { ProgramModules } from './sections/program-modules';
+import { Footer } from '@core/components';
 import { ScrollToTop } from '@app';
-import { gql, useQuery } from '@apollo/client';
-/**
- * query program info
- */
-
-const GET_MENTORS = gql`
-  query($id: String!) {
-    onlineCourse(id: $id) {
-      additionalMaterials
-      mentorsCollection {
-        items {
-          name
-          surname
-          city
-          position
-          mentorPicture {
-            url
-          }
-        }
-      }
-    }
-  }
-`;
+import { useProgramPageData } from './program-page.hook';
+import {
+  ProgramIntro,
+  ProgramOverview,
+  ProgramAbout,
+  Enroll,
+  ProgramModules,
+  ProgramResults,
+  ProgramLearningApproach,
+  ProgramMaterials,
+  ProgramEnrollNow,
+  ProgramQuote
+} from './sections';
+import { Mentors, Impact } from '@pages/homepage/sections';
+import { FaqBlock, PartnerApply } from '@pages/components';
 
 /**
  * Renders ProgramPage
  */
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
-  const history = useHistory();
-  const searchParams = new URLSearchParams(history.location.search);
-  const programId = searchParams.get('programId');
-  const { learningApproach } = useProgramPageData();
+  const {
+    mentorsForCurrentCourse,
+    mentorsForCurrentCourseLoading,
+    programId,
+    history
+  } = useProgramPageData();
 
-  /**
-   * Getting mentors
-   */
-  const { data, loading, error } = useQuery(GET_MENTORS, {
-    variables: { id: programId }
-  });
-
-  const mentorsForCurrrentCourse = data?.onlineCourse?.mentorsCollection?.items;
-  const additionalMaterials = data?.onlineCourse?.additionalMaterials;
-  console.log(data);
   return (
     <div className={styles.programPage}>
       <ScrollToTop />
@@ -76,18 +45,16 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       {/* <div className={styles.img} style={{ backgroundImage: `url(${url})` }} /> */}
       <ProgramResults programId={programId} />
       <Mentors
-        contributors={mentorsForCurrrentCourse}
-        loading={loading}
+        modifiedCaption
+        contributors={mentorsForCurrentCourse}
+        loading={mentorsForCurrentCourseLoading}
         url={`${history.location.pathname}?programId=${programId}&/mentor`}
       />
-      <ProgramLearningApproach learningApproach={learningApproach} />
-      <ProgramMaterials
-        additionalMaterials={additionalMaterials}
-        loading={loading}
-      />
+      <ProgramLearningApproach />
+      <ProgramMaterials programId={programId} />
       <Impact />
       <div className={styles.hr} />
-      <ProgramEnrollNow />
+      <ProgramEnrollNow programId={programId} />
       <ProgramQuote />
       <FaqBlock showTitle />
       <PartnerApply

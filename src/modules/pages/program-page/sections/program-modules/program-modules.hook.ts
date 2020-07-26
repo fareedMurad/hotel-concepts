@@ -24,7 +24,10 @@ const useProgramModulesData = (programId: string) => {
     variables: { id: programId }
   });
 
-  return { modulesCollection: data?.onlineCourse?.modulesCollection, loading };
+  return {
+    modulesData: data?.onlineCourse?.modulesCollection,
+    modulesLoading: loading
+  };
 };
 
 export { useProgramModulesData };

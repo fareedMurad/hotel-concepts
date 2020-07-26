@@ -11,6 +11,7 @@ import { useBenefitsCards } from './benefits.hook';
 
 const Benefits: React.FC<BenefitsProps> = ({}) => {
   const cards = useBenefitsCards();
+
   return (
     <div className={styles.benefits}>
       <div className={styles.benefitsContainer}>

@@ -3,7 +3,6 @@ import { FaqProps } from './faq.props';
 import * as styles from './faq.scss';
 import { Header } from '@core/components/header';
 import {
-  H2,
   Footer,
   H3,
   Field,
@@ -41,7 +40,6 @@ const Faq: React.FC<FaqProps> = ({}) => (
           <Formik
             initialValues={{ name: '', email: '', comment: '' }}
             onSubmit={values => console.log(values)}
-            // validationSchema={} add later
           >
             {({ handleSubmit }) => (
               <Form>

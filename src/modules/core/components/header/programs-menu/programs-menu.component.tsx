@@ -26,8 +26,6 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ closeMenu, isOpened }) => {
     };
   }, [isOpened]);
 
-  if (programsLoading) return <Spinner />;
-
   return (
     <div
       className={classNames(styles.programsMenu, {
@@ -38,18 +36,24 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ closeMenu, isOpened }) => {
       <div onClick={closeMenu} className={styles.blur} />
       <div className={styles.content}>
         <div className={styles.linksContainer}>
-          {programsData.map((category, i) => (
-            <NavLink
-              to={category.sys ? `/programs-catalogue/${category.sys.id}` : '/'}
-              key={i}
-              className={styles.link}
-              onClick={closeMenu}
-            >
-              <div className={styles.linkName}>{category.name}</div>
-              <div className={styles.description}>{category.subtitle}</div>
-              <div className={styles.separator} />
-            </NavLink>
-          ))}
+          {programsLoading ? (
+            <Spinner />
+          ) : (
+            programsData.map((category, i) => (
+              <NavLink
+                to={
+                  category.sys ? `/programs-catalogue/${category.sys.id}` : '/'
+                }
+                key={i}
+                className={styles.link}
+                onClick={closeMenu}
+              >
+                <div className={styles.linkName}>{category.name}</div>
+                <div className={styles.description}>{category.subtitle}</div>
+                <div className={styles.separator} />
+              </NavLink>
+            ))
+          )}
         </div>
       </div>
     </div>

@@ -3,16 +3,22 @@
 .mentors {
   background-color: $background;
   padding: 60px 22px;
+  &__modified {
+    padding: 35px 22px 60px 22px;
+  }
 }
 
 .title {
   padding-left: 112px;
-  & > div:first-child {
-    position: relative;
-    &::before {
-      content: url('../../../../../assets/img/text-decorator.svg');
-      position: absolute;
-      top: -56px;
+
+  &--modified {
+    & > div:first-child {
+      position: relative;
+      &::before {
+        content: url('../../../../../assets/img/text-decorator.svg');
+        position: absolute;
+        top: -56px;
+      }
     }
   }
   & > div:nth-child(2) {
@@ -56,4 +62,9 @@
   .controls {
     margin-left: -15px;
   }
+}
+
+.pre-caption {
+  @include font($primary-orange, 18px, 500);
+  font-family: $IBMPlex;
 }

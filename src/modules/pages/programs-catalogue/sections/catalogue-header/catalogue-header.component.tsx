@@ -6,14 +6,17 @@ import { ScrollButton } from '@core/components/scroll-button';
 /**
  * Renders CatalogueHeader
  */
-const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({ title, description }) => {
+const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
+  title,
+  description
+}) => {
   return (
     <section className={styles.catalogueHeader}>
       <div className={styles.title}>
         <div>{title}</div>
         <div>{description}</div>
       </div>
-      <ScrollButton text="Scroll" className={styles.scrollButton} />
+      <ScrollButton text='Scroll' className={styles.scrollButton} />
     </section>
   );
 };

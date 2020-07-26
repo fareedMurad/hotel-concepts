@@ -13,7 +13,8 @@ import { useMediaPoints } from '@core/shared';
 import { ContributorCard } from '@pages/components';
 import { Spinner } from '@core/components/spinner';
 import { State } from '@app/store/state';
-import { SectionTitle, Hr } from '@core/components';
+import { SectionTitle, Hr, PreCaption } from '@core/components';
+import classNames from 'classnames';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -40,20 +41,41 @@ const responsiveBreakpoints = {
 /**
  * Renders Mentors
  */
-const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
+const Mentors: React.FC<MentorsProps> = ({
+  contributors,
+  loading,
+  url,
+  modifiedCaption
+}) => {
   const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
 
   const handleClick = () => history.push(`/contributors`);
-
+  
   if (loading) return <Spinner />;
   if (!contributors) return <div>No mentors yet</div>;
+
   return (
-    <section className={styles.mentors}>
-      <div className={styles.title}>
-        <SectionTitle>Meet mentors & Coauthors</SectionTitle>
+    <section
+      className={classNames(styles.mentors, {
+        [styles.mentorsModified]: modifiedCaption
+      })}
+    >
+      <div
+        className={classNames(styles.title, {
+          [styles.titleModified]: !modifiedCaption
+        })}
+      >
+        <SectionTitle>
+          {modifiedCaption && (
+            <PreCaption className={styles.preCaption}>
+              Meet the faculty
+            </PreCaption>
+          )}
+          Meet mentors & Coauthors
+        </SectionTitle>
         <Hr className={styles.hr} />
         <div>
           World-class faculty introduce you to the very latest in hospitality
@@ -88,7 +110,7 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
               !mobile &&
                 (dispatch(showModal(Modals.contributor)),
                 dispatch(toogleContributorModal(true)));
-            }}
+          }}
           />
         ))}
       </Slider>

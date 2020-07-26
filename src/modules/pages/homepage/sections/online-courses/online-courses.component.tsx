@@ -89,32 +89,9 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
             ) : (
               <div className={styles.coursesWrapper}>
                 <div className={styles.courses}>
-                  {programsData.map(course => {
-                    const {
-                      name,
-                      price,
-                      weeks,
-                      sprints,
-                      slug,
-                      description,
-                      courseImage: { url },
-                      sys: { id }
-                    } = course;
-                    return (
-                      <CourseItem
-                        key={id}
-                        id={id}
-                        slug={slug}
-                        name={name}
-                        description={description}
-                        weeks={weeks}
-                        sprints={sprints}
-                        price={price}
-                        img={url}
-                        catalogueId={course.category.sys.id}
-                      />
-                    );
-                  })}
+                  {programsData.map((course, index) => (
+                    <CourseItem key={index} course={course} />
+                  ))}
                 </div>
               </div>
             )}

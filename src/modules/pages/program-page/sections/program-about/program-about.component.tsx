@@ -8,11 +8,13 @@ import { Spinner } from '@core/components';
  * Renders ProgramAbout
  */
 const ProgramAbout: React.FC<ProgramAboutProps> = ({ programId }) => {
-  const { about, loading } = useProgramAboutData(programId);
+  const { programAboutData, programAboutLoading } = useProgramAboutData(
+    programId
+  );
 
-  if (loading) return <Spinner />;
+  if (programAboutLoading) return <Spinner />;
+  const { aboutText, skills } = programAboutData;
 
-  const { aboutText, skills } = about;
   return (
     <section id='about' className={styles.programAbout}>
       <div className={styles.title}>

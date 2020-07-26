@@ -1,8 +1,6 @@
 /**
  * Props
  */
-type ProgramLearningApproachProps = {
-  learningApproach: any[];
-};
+type ProgramLearningApproachProps = {};
 
 export { ProgramLearningApproachProps };

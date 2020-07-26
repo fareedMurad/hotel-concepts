@@ -1,4 +1,3 @@
-import { onlineCourses } from '@pages/homepage/sections/online-courses';
 import { gql, useQuery } from '@apollo/client';
 
 const useProgramAboutData = programId => {
@@ -17,7 +16,10 @@ const useProgramAboutData = programId => {
     variables: { id: programId }
   });
 
-  return { about: data?.onlineCourse?.about, loading };
+  return {
+    programAboutData: data?.onlineCourse?.about,
+    programAboutLoading: loading
+  };
 };
 
 export { useProgramAboutData };

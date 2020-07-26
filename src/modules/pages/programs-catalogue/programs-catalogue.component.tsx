@@ -5,14 +5,13 @@ import { CatalogueHeader } from './sections/catalogue-header';
 import { CatalogueFilters } from './sections/catalogue-filters';
 import { ProgramsContactUs } from './sections/programs-contact-us';
 import { Header } from '@core/components/header';
-import { ProgramItem } from './components/program-item';
+import { ProgramItem } from './components';
 import { Footer, Spinner, SectionTitle } from '@core/components';
 import { useParams } from 'react-router';
 import { Pagination } from '@core/components/pagination';
-import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
-import { useProgramsCatalogueData } from './programs-catalogue.hook';
+import { useCatalogueInfoData, useCatalogueProgramsData } from './hooks';
 
 /**
  * Renders ProgramsCatalogue
@@ -20,20 +19,22 @@ import { useProgramsCatalogueData } from './programs-catalogue.hook';
 
 const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { id } = useParams();
+  const { catalogueInfoData, catalogueInfoLoading } = useCatalogueInfoData(id);
   const {
-    categoryCoursesData,
-    categoryCoursesLoading
-  } = useProgramsCatalogueData(id);
+    catalogueProgramsData,
+    catalogueProgramsLoading
+  } = useCatalogueProgramsData(id);
+
   const [currentFilters, setCurrentFilters] = React.useState(['All']);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(5);
-  if (categoryCoursesLoading) return <Spinner />;
 
-  // const { items: programs } = data?.courseCategory?.coursesCollection;
-  // const { courseCategory: category } = data;
+  if (catalogueInfoLoading) return <Spinner />;
+  if (catalogueProgramsLoading) return <Spinner />;
+
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
-  // const pages = Math.ceil(programs.length / itemsPerPage);
+  const pages = Math.ceil(catalogueProgramsData.length / itemsPerPage);
 
   const changePage = page => () => {
     setCurrentPage(page);
@@ -43,14 +44,12 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const updateFilters = filters => {
     setCurrentFilters(filters);
   };
-  console.log(categoryCoursesData)
 
-  // const filteredPrograms = programs.filter(program => {
-  //   return program.filters.some(item => currentFilters.includes(item));
-  // });
+  const filteredPrograms = catalogueProgramsData.filter(program => {
+    return program.subfilters?.some(item => currentFilters.includes(item));
+  });
 
-  // const currentPrograms = filteredPrograms.slice(firstItemIndex, lastItemIndex);
-  if (categoryCoursesLoading) return <Spinner />;
+  const currentPrograms = filteredPrograms.slice(firstItemIndex, lastItemIndex);
 
   return (
     <React.Fragment>
@@ -58,8 +57,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
       <Header />
       <div className={styles.programsCatalogue}>
         <CatalogueHeader
-          title={categoryCoursesData.name}
-          description={categoryCoursesData.description}
+          title={catalogueInfoData.name}
+          description={catalogueInfoData.description}
         />
         <div className={styles.title}>
           <SectionTitle>Find the right course for you</SectionTitle>
@@ -72,16 +71,16 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
           currentFilters={currentFilters}
           updateFilters={updateFilters}
         />
-        {/* <div className={styles.content} id='programs'>
+        <div className={styles.content} id='programs'>
           {currentPrograms.length > 0 ? (
             currentPrograms.map((program, index) => {
               return <ProgramItem program={program} key={index} />;
             })
           ) : (
-              <div className={styles.emptyInfo}>
-                There are no programs with these filters
-              </div>
-            )}
+            <div className={styles.emptyInfo}>
+              There are no programs with these filters
+            </div>
+          )}
         </div>
         {(filteredPrograms.length >= itemsPerPage || currentPage > 1) && (
           <div className={styles.pagination}>
@@ -92,7 +91,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             />
           </div>
         )}
-        <ProgramsContactUs /> */}
+        <ProgramsContactUs />
       </div>
       <Footer />
     </React.Fragment>
