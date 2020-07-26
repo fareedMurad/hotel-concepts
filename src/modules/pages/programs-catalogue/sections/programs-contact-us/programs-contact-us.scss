@@ -96,10 +96,10 @@
   .title {
     padding-left: 0;
     & > div:first-child {
-      @include font($primary-grey, 44px, 400, 46px);
+      @include font($primary-gray, 44px, 400, 46px);
     }
     & > div:nth-child(2) {
-      @include font($primary-grey, 18px, 300, 22px);
+      @include font($primary-gray, 18px, 300, 22px);
     }
   }
   .contact-form {

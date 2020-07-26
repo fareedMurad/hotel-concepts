@@ -5,7 +5,7 @@
 }
 
 .title {
-  @include font($primary-grey, 48px, 500, 58px);
+  @include font($primary-gray, 48px, 500, 58px);
   font-family: $EBGaramond;
   margin-bottom: 10px;
   padding-left: $left-offset;
@@ -54,7 +54,7 @@
 }
 
 .feature-title {
-  @include font($primary-grey, 24px, 400, 26px);
+  @include font($primary-gray, 24px, 400, 26px);
   font-family: $IBMPlex;
 }
 
@@ -65,7 +65,7 @@
     @include font($light-grey, 22px, 400, 22px);
   }
   & > div:nth-child(2) {
-    @include font($primary-grey, 18px, 400, 20px);
+    @include font($primary-gray, 18px, 400, 20px);
     font-family: $IBMPlex;
     margin-left: 12px;
   }
@@ -87,7 +87,7 @@
 }
 
 .description {
-  @include font($primary-grey, 18px, 400, 28px);
+  @include font($primary-gray, 18px, 400, 28px);
   font-family: $IBMPlex;
   margin-top: 16px;
 }
@@ -99,10 +99,10 @@
 .price {
   @include flex($justify: start);
   .dollar {
-    @include font($primary-grey, 36px, 600, 38px);
+    @include font($primary-gray, 36px, 600, 38px);
     font-family: $EBGaramond;
   }
-  @include font($primary-grey, 48px, 600, 50px);
+  @include font($primary-gray, 48px, 600, 50px);
   font-family: $EBGaramond;
 }
 

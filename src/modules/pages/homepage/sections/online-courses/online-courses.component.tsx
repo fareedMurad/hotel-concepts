@@ -25,6 +25,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
       }
     }
   });
+
   const {
     programsFiltersData,
     programsFiltersLoading

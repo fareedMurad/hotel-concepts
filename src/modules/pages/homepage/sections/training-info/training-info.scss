@@ -65,11 +65,8 @@
 }
 
 .button {
-  @include flex($justify: space-between);
-  width: 224px;
   height: 44px;
   margin-top: 24px;
-  // margin-left: $left-offset;
   margin-left: 22px;
   @include desktop() {
     margin-left: 134px;

@@ -1,5 +1,12 @@
 const useSupportInfoData = () => {
-  const data = ['Informed analysis', 'Foresight', 'Management', 'Skills', 'Experience', 'Perspective'];
+  const data = [
+    'Informed analysis',
+    'Foresight',
+    'Management',
+    'Skills',
+    'Experience',
+    'Perspective'
+  ];
 
   return { data };
 };

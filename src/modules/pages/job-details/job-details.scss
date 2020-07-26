@@ -6,7 +6,7 @@
 }
 
 .back {
-  @include font($primary-grey, 15px, 500, 20px);
+  @include font($primary-gray, 15px, 500, 20px);
   @include flex(space-between);
   width: 92px;
   margin-top: 60px;
@@ -34,7 +34,7 @@
 
 .section-b {
   &__description {
-    @include font($primary-grey, 16px, 40, 28px);
+    @include font($primary-gray, 16px, 40, 28px);
   }
 }
 

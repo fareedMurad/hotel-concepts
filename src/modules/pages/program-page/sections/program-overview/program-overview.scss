@@ -9,13 +9,12 @@
 
 .title {
   width: 70%;
-  @include font($primary-grey, 48px, 500, 50px);
+  @include font($primary-gray, 48px, 500, 50px);
   font-family: $EBGaramond;
 }
 
 .name {
   @include font($primary-orange, 18px, 500, 20px);
-  font-family: $IBMPlexSans;
 }
 
 .item {
@@ -25,8 +24,7 @@
 
 .info {
   margin-top: 10px;
-  @include font($primary-grey, 18px, 400, 20px);
-  font-family: $IBMPlexSans;
+  @include font($primary-gray, 18px, 400, 20px);
 }
 
 .hr {

@@ -1,18 +1,17 @@
-@import "core.scss";
+@import 'core.scss';
 
 .quote {
-  background: url('../../../../../assets/img/learning-approach/quote-background.png') no-repeat center center;
-  height: 657px;
   position: relative;
+  height: 657px;
+  padding: 0 $default-offset;
+  background: url('../../../../../assets/img/learning-approach/quote-background.png')
+    no-repeat center center;
+  @include heroImage();
+  @include imageOverlay();
+  @include flex($justify: center, $align: center);
   box-sizing: border-box;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.4);
-  background-size: cover;
   min-height: 500px;
-  padding: 0 $default-offset;
-	@include flex($justify: center, $align: center);
 }
 
 .text {

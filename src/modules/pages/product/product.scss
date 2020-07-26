@@ -1,7 +1,7 @@
 @import 'core.scss';
 
 .back {
-  @include font($primary-grey, 15px, 500, 20px);
+  @include font($primary-gray, 15px, 500, 20px);
   @include flex(space-between);
   width: 92px;
   margin: 75px 0px 0px 22px;

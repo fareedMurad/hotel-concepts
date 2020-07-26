@@ -44,7 +44,7 @@
 }
 
 .description {
-  @include font($primary-grey, 16px, 400, 22px);
+  @include font($primary-gray, 16px, 400, 22px);
   margin-top: 17px;
   font-family: $IBMPlex;
   overflow: hidden;
