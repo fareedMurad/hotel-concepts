@@ -22,6 +22,9 @@ const GET_PREVIEW_VIDEO = gql`
         }
       }
     }
+    asset(id: "17ZH29S9Eo67M4Q4exNUwF") {
+      url
+    }
   }
 `;
 
@@ -34,6 +37,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
   const { data, loading, error } = useQuery(GET_PREVIEW_VIDEO);
+
   React.useEffect(() => {
     if (videoRef.current) {
       setVideo(videoRef.current);
@@ -70,7 +74,10 @@ const Intro: React.FC<IntroProps> = ({}) => {
   };
 
   return (
-    <section className={styles.intro}>
+    <section
+      className={styles.intro}
+      style={{ backgroundImage: `url(${data?.asset?.url})` }}
+    >
       <HeroTitle>
         Cutting edge online
         <br /> education for hospitality

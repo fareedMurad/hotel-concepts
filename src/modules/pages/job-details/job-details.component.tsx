@@ -25,7 +25,7 @@ const GET_JOB = gql`
   query($id: String!) {
     jobs(id: $id) {
       name
-      jobTime
+      employeeType
       location
       description
     }

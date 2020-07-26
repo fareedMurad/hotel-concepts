@@ -12,13 +12,17 @@ const useQuoteData = () => {
           text
         }
       }
+      asset(id: "6zdfD0o3y4CMyeGFPO4UsW") {
+        url
+      }
     }
   `;
   const { data, loading, error } = useQuery(GET_QUOTE_TEXT);
 
   return {
     quoteData: data?.quoteTextCollection?.items[0],
-    quoteLoading: loading
+    quoteLoading: loading,
+    quoteImage: data?.asset?.url
   };
 };
 

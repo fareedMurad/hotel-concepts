@@ -5,18 +5,18 @@ import { Header } from '@core/components/header';
 import { H1, ButtonFilter, Footer, H2, PreCaption } from '@core/components';
 import { useMarketplaceData } from './marketplace.hook';
 import { ProductsSlider } from '@pages/components/products-slider';
-import { Intro } from './intro';
+import { MarketplaceHero } from './marketplace-hero';
 
 /**
  * Renders Marketplace
  */
-const Marketplace: React.FC<MarketplaceProps> = ({ }) => {
+const Marketplace: React.FC<MarketplaceProps> = ({}) => {
   const { goodsData, books } = useMarketplaceData();
-  
+
   return (
     <div className={styles.marketplace}>
       <Header />
-      <Intro />
+      <MarketplaceHero />
 
       <div
         className={styles.itemsContainer}

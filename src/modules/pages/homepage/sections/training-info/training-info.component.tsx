@@ -8,7 +8,7 @@ import { Button, PreCaption, SectionTitle } from '@core/components';
  * Renders TrainingInfo
  */
 const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
-  const { data } = useTrainingInfoData();
+  const { trainingData, trainingInfoImage } = useTrainingInfoData();
 
   return (
     <section className={styles.trainingInfo}>
@@ -33,14 +33,17 @@ const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
           />
         </div>
         <div className={styles.info}>
-          {data.map((info, index) => (
+          {trainingData.map((info, index) => (
             <div className={styles.infoItem} key={index}>
               {info}
             </div>
           ))}
         </div>
       </div>
-      <div className={styles.img} />
+      <div
+        className={styles.img}
+        style={{ backgroundImage: `url(${trainingInfoImage})` }}
+      />
     </section>
   );
 };

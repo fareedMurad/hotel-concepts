@@ -1,3 +1,5 @@
+import { gql, useQuery } from '@apollo/client';
+
 const useBenefitsCards = () => {
   const cardsText = [
     {
@@ -15,7 +17,16 @@ const useBenefitsCards = () => {
         'Increase your competitive advantage with new knowledge and practices.'
     }
   ];
-  return cardsText;
+  const GET_HERO_IMAGE = gql`
+    {
+      asset(id: "40XS345qKFZ39LULGh1Qoi") {
+        url
+      }
+    }
+  `;
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+
+  return { cardsText, benefitsImage: data?.asset?.url };
 };
 
 export { useBenefitsCards };

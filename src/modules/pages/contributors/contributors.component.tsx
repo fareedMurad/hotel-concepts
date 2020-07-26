@@ -6,6 +6,7 @@ import { Button, Footer, HeroTitle, HeroSubtitle } from '@core/components';
 import { ContributorsContainer, BecomeContributing } from './sections';
 import { ScrollButton } from '@core/components/scroll-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { useContributorsData } from './contributor.hook';
 
 /**
  * Renders Contributors
@@ -17,6 +18,8 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  const { contributorsHeroImage } = useContributorsData();
 
   return (
     <div className={styles.contributors}>
@@ -24,7 +27,7 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
         <Header />
         <div
           style={{
-            backgroundImage: `url(${require('img/contributors/contributors-1.png')})`
+            backgroundImage: `url(${contributorsHeroImage})`
           }}
           className={styles.headerImg}
         >

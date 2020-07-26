@@ -4,8 +4,6 @@
   position: relative;
   height: 657px;
   padding: 0 $default-offset;
-  background: url('../../../../../assets/img/learning-approach/quote-background.png')
-    no-repeat center center;
   @include heroImage();
   @include imageOverlay();
   @include flex($justify: center, $align: center);

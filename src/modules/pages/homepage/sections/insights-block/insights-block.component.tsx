@@ -49,7 +49,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
         <SectionTitle>Cordie Insights</SectionTitle>
         <div>Make the most of your learning experience</div>
       </div>
-      <Slider
+      {/* <Slider
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
@@ -86,7 +86,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
             />
           );
         })}
-      </Slider>
+      </Slider> */}
     </section>
   );
 };

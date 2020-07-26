@@ -9,8 +9,8 @@ import {
   OurMaterials,
   ReadingMaterials
 } from './sections';
-import { HeroBottom } from './sections/hero-bottom';
-import { Hero } from './sections/hero';
+import { FooterHeroLearningApproach } from './sections/footer-hero-learning-approach';
+import { HeroLearningApproach } from './sections/hero-learning-approach';
 import { MeetKordie } from './sections/meet-kordie';
 import { ScrollToTop } from '@app';
 
@@ -22,7 +22,7 @@ const LearningApproach: React.FC = ({}) => (
   <div className={styles.main}>
     <ScrollToTop />
     <Header />
-    <Hero />
+    <HeroLearningApproach />
     <MeetKordie />
     <Hr />
     <WhatWeTeach />
@@ -32,7 +32,7 @@ const LearningApproach: React.FC = ({}) => (
     <Hr />
     <OurMaterials />
     <ReadingMaterials />
-    <HeroBottom />
+    <FooterHeroLearningApproach />
     <Footer />
   </div>
 );

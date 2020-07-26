@@ -44,7 +44,7 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
       </div>
       {desktop && (
         <img
-          src={require('img/article-page/article-page-1.png')}
+          // src={require('img/article-page/article-page-1.png')}
           className={styles.image}
         />
       )}

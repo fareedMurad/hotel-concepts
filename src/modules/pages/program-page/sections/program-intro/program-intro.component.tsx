@@ -9,16 +9,24 @@ import { useProgramIntroData } from './progtam-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { BackButton } from '@core/components/back-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { gql, useQuery } from '@apollo/client';
 
 /**
  * Renders ProgramIntro
  */
+const GET_HERO_IMAGE = gql`
+  {
+    asset(id: "1AUGqfy1dtHdslM33eRnXo") {
+      url
+    }
+  }
+`;
 
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   const { programData, programDataLoading, navButtons } = useProgramIntroData(
     programId
   );
-
+  const { data, error, loading } = useQuery(GET_HERO_IMAGE);
   // const videoInfo = {
   //   path: 'ForCorporateClients.preview',
   //   time: '0:56'
@@ -63,7 +71,10 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   const { name, description, videoVimeoUrl } = programData;
 
   return (
-    <section className={styles.programIntro}>
+    <section
+      className={styles.programIntro}
+      style={{ backgroundImage: `url(${data?.asset?.url})` }}
+    >
       <BackButton className={styles.backButton} />
       <div className={styles.title}>
         <div>{name}</div>

@@ -15,9 +15,11 @@ const ArticleLastSection: React.FC<ArticleLastSectionProps> = ({}) => {
       <div className={styles.hr} />
       <section className={styles.postImage}>
         <div
-          style={{
-            backgroundImage: `url(${require(`img/article-page/${bodyPostImage.image}.png`)})`
-          }}
+          style={
+            {
+              // backgroundImage: `url(${require(`img/article-page/${bodyPostImage.image}.png`)})`
+            }
+          }
           className={styles.image}
         >
           <div className={styles.postImageText}>{bodyPostImage.text}</div>

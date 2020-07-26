@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useCatalogueInfoData = (categoryId: string) => {
+const useCatalogueInfoData = (categoryId?: string) => {
   const GET_CATEGORY_INFO = gql`
     query($id: String!) {
       courseCategory(id: $id) {

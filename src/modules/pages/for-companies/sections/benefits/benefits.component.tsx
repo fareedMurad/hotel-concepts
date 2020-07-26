@@ -4,13 +4,11 @@ import * as styles from './benefits.scss';
 import { H3 } from '@core/components';
 import { BenefitsCard } from './benefits-card';
 import { useBenefitsCards } from './benefits.hook';
-
 /**
  * Renders Benefits
  */
-
 const Benefits: React.FC<BenefitsProps> = ({}) => {
-  const cards = useBenefitsCards();
+  const { cardsText, benefitsImage } = useBenefitsCards();
 
   return (
     <div className={styles.benefits}>
@@ -19,7 +17,7 @@ const Benefits: React.FC<BenefitsProps> = ({}) => {
           <H3 className={styles.benefitsTitle}>
             Benefits for <br /> organisation
           </H3>
-          {cards.map(card => (
+          {cardsText.map(card => (
             <BenefitsCard key={card.id} text={card.text} />
           ))}
         </div>
@@ -27,14 +25,14 @@ const Benefits: React.FC<BenefitsProps> = ({}) => {
           <H3 className={styles.benefitsTitle}>
             Benefits for <br /> employees
           </H3>
-          {cards.map(card => (
+          {cardsText.map(card => (
             <BenefitsCard key={card.id} text={card.text} />
           ))}
         </div>
       </div>
       <div
         style={{
-          backgroundImage: `url(${require('img/benefits-img.png')})`
+          backgroundImage: `url(${benefitsImage})`
         }}
         className={styles.image}
       />

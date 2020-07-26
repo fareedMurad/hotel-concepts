@@ -43,7 +43,7 @@ const Anchor: React.FC<{ anchor: string; rate: string; caption: string }> = ({
  * Renders StoryMission
  */
 const StoryMission: React.FC<StoryMissionProps> = ({}) => {
-  const { anchors } = useStoryMissionData();
+  const { anchors, storyMissionHeroImage } = useStoryMissionData();
 
   return (
     <div className={styles.storyMission}>
@@ -51,7 +51,7 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
         <Header />
         <div
           style={{
-            backgroundImage: `url(${require('img/story-mission/story-mission-1.png')})`
+            backgroundImage: `url(${storyMissionHeroImage})`
           }}
           className={styles.headerImg}
         >

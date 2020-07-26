@@ -3,16 +3,27 @@ import { BrochureProps } from './brochure.props';
 import * as styles from './brochure.scss';
 import { H2, Paragraph } from '@core/components';
 import { DownloadButton } from '@pages/components';
+import { gql, useQuery } from '@apollo/client';
+
+const GET_HERO_IMAGE = gql`
+  {
+    asset(id: "1Rq6n6OzEFygJJvxtiqapH") {
+      url
+    }
+  }
+`;
 
 /**
  * Renders Brochure
  */
 const Brochure: React.FC<BrochureProps> = ({}) => {
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+
   return (
     <div className={styles.brochure}>
       <div
         style={{
-          backgroundImage: `url(${require('img/brochure-img.png')})`
+          backgroundImage: `url(${data?.asset?.url})`
         }}
         className={styles.image}
       >

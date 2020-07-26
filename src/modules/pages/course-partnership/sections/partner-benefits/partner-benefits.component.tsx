@@ -3,12 +3,22 @@ import { PartnerBenefitsProps } from './partner-benefits.props';
 import * as styles from './partner-benefits.scss';
 import { Paragraph, Icon, H4, SectionTitle } from '@core/components';
 import { useMediaPoints } from '@core/shared';
+import { gql, useQuery } from '@apollo/client';
+
+const GET_HERO_IMAGE = gql`
+  {
+    asset(id: "4VQYvPFaUzF0IlADKqNW6E") {
+      url
+    }
+  }
+`;
 
 /**
  * Renders PartnerBenefits
  */
 const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
   const { desktop } = useMediaPoints();
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
 
   return (
     <div className={styles.partnerBenefits}>
@@ -46,14 +56,9 @@ const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
         <div className={styles.contentImg}>
           {desktop && (
             <div
+              className={styles.image}
               style={{
-                backgroundImage: `url(${require('img/course/partner.png')})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                width: '120%',
-                backgroundPosition: 'center',
-                height: '420px',
-                borderRadius: '5px'
+                backgroundImage: `url(${data?.asset?.url})`
               }}
             />
           )}

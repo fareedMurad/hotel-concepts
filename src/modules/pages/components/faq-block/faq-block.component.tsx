@@ -5,7 +5,6 @@ import { useFaqData } from './faq.hook';
 import { ButtonFilter, H2 } from '@core/components';
 import { FaqItem } from '@pages/homepage/components/faq-item';
 import classNames from 'classnames';
-import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components/spinner';
 
 /**

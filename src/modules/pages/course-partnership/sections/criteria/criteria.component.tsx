@@ -2,16 +2,27 @@ import * as React from 'react';
 import { CriteriaProps } from './criteria.props';
 import * as styles from './criteria.scss';
 import { H2, Icon, Paragraph, SectionTitle, Hr } from '@core/components';
+import { gql, useQuery } from '@apollo/client';
+
+const GET_HERO_IMAGE = gql`
+  {
+    asset(id: "7pCESbECH6qeh9RXgpf8aA") {
+      url
+    }
+  }
+`;
 
 /**
  * Renders Criteria
  */
 const Criteria: React.FC<CriteriaProps> = ({}) => {
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+
   return (
     <div
       className={styles.criteria}
       style={{
-        backgroundImage: `url(${require('img/course/criteria.png')})`
+        backgroundImage: `url(${data?.asset?.url})`
       }}
     >
       <div className={styles.container}>

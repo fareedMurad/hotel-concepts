@@ -2,16 +2,27 @@ import * as React from 'react';
 import { OurApproachProps } from './our-approach.props';
 import * as styles from './our-approach.scss';
 import { H2, Paragraph } from '@core/components';
+import { gql, useQuery } from '@apollo/client';
+
+const GET_HERO_IMAGE = gql`
+  {
+    asset(id: "6pTdyeTOG6LSBECHix8TyT") {
+      url
+    }
+  }
+`;
 
 /**
  * Renders OurApproach
  */
 const OurApproach: React.FC<OurApproachProps> = ({}) => {
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+
   return (
     <div className={styles.ourApproach}>
       <div
         style={{
-          backgroundImage: `url(${require('img/our-approach-img.png')})`
+          backgroundImage: `url(${data?.asset?.url})`
         }}
         className={styles.image}
       >

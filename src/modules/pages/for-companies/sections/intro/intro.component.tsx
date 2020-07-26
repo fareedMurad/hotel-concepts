@@ -4,6 +4,7 @@ import * as styles from './intro.scss';
 import { Button, HeroTitle, HeroSubtitle } from '@core/components';
 import { ScrollButton } from '@core/components/scroll-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { useIntroData } from './intro.hook';
 
 /**
  * Renders Intro
@@ -12,9 +13,13 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const ScrollToEnroll = () => {
     scrollTo('consult-request');
   };
-
+  const { introData } = useIntroData();
+  
   return (
-    <div className={styles.intro}>
+    <div
+      className={styles.intro}
+      style={{ backgroundImage: `url(${introData})` }}
+    >
       <main className={styles.introContent}>
         <HeroTitle className={styles.introCaption}>
           Hospitality education <br /> designed for impact

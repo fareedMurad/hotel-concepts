@@ -10,7 +10,7 @@ const useAllJobsData = () => {
             id
           }
           name
-          jobTime
+          employeeType
         }
       }
     }
@@ -18,7 +18,7 @@ const useAllJobsData = () => {
   const { data, loading, error } = useQuery(GET_ALL_JOBS);
 
   return {
-    allJobs: data?.jobsCollection?.items,
+    allJobs: data?.jobsCollection,
     allJobsLoader: loading
   };
 };

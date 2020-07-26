@@ -74,13 +74,13 @@
 }
 
 .img {
-  height: 356px;
+  height: 375px;
   padding-left: $left-offset;
   padding-right: $default-offset;
-  background: url('../../../../../assets/img/learning-approach/training-footer.png');
   box-sizing: border-box;
   overflow: hidden;
   @include heroImage();
+  background-position: top;
   @include flex($justify: center, $direction: column);
 }
 

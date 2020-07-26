@@ -44,7 +44,7 @@ const defaultValues = {
  * Renders ContactsPage
  */
 const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
-  const { data } = useContactsPageData();
+  const { cardsData, contactsFooterImage } = useContactsPageData();
   const types = [
     { label: '1', value: '1' },
     { label: '2', value: '2' },
@@ -66,7 +66,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
         <SectionTitle>Contact Us</SectionTitle>
       </div>
       <section className={styles.cardsList}>
-        {data.map(({ id, title, description, href, link }) => (
+        {cardsData.map(({ id, title, description, href, link }) => (
           <Card
             title={title}
             description={description}
@@ -166,7 +166,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
             </Paragraph>
           </main>
         </div>
-        <img src={require('img/about-us-1.png')} className={styles.footerImg} />
+        <img src={contactsFooterImage} className={styles.footerImg} />
       </footer>
       <Footer />
     </div>
