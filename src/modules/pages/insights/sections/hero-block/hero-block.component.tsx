@@ -3,28 +3,34 @@ import { HeroBlockProps } from './hero-block.props';
 import * as styles from './hero-block.scss';
 import { NavLink } from 'react-router-dom';
 import { ScrollButton } from '@core/components/scroll-button';
-import { HeroTitle, HeroSubtitle } from '@core/components';
+import { HeroTitle, HeroSubtitle, Spinner } from '@core/components';
+import { useMostPopularArticles } from './hero-block.hook';
+import { string } from 'yup';
 
-const HeroCard = ({ img, activity, captions }) => {
+const HeroCard = ({ popularArticles, popularArticlesLoading }) => {
+  const {
+    title,
+    categoriesCollection: { items: categories },
+    sys: { id },
+    articleImage: { url }
+  } = popularArticles;
   return (
     <div className={styles.card}>
       <div
         className={styles.cardImage}
         style={{
-          backgroundImage: `url(${require(`img/insights/insights-${img}.png`)})`
+          backgroundImage: `url(${url})`
         }}
       >
-        <div className={styles.cardActivity}>{activity}</div>
-        <div className={styles.cardCaptions}>
-          {captions[1]}
-          <br />
-          {captions[2]}
-          <br />
-          {captions[3]}
-          <br />
-        </div>
+        {categories.map(el => (
+          <div key={el.category} className={styles.cardActivity}>
+            {el.category}
+          </div>
+        ))}
 
-        <NavLink to={`/to/${captions[0]}`} className={styles.cardLink}>
+        <div className={styles.cardCaptions}>{title}</div>
+
+        <NavLink to={`insights/article/${id}`} className={styles.cardLink}>
           Read more
         </NavLink>
       </div>
@@ -36,6 +42,8 @@ const HeroCard = ({ img, activity, captions }) => {
  * Renders HeroBlock
  */
 const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
+  const { popularArticles, popularArticlesLoading } = useMostPopularArticles();
+  if (popularArticlesLoading) return <Spinner />;
   return (
     <div className={styles.heroBlock}>
       <div className={styles.heroMain}>
@@ -57,25 +65,16 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
       </div>
       <div className={styles.heroSubmain}>
         <HeroCard
-          img='2'
-          activity='Marketing'
-          captions={[
-            '/remarkable-truth?',
-            'The Remarkable',
-            'Truth About',
-            'Hospitality & World Peace'
-          ]}
+          popularArticles={popularArticles[0]}
+          popularArticlesLoading={popularArticlesLoading}
         />
-        <HeroCard
-          img='3'
-          activity='Marketing'
-          captions={[
-            '/hotel-?',
-            'Hotel Concierge Life:',
-            'Hospitality at the Four',
-            'Seasons.'
-          ]}
-        />
+
+        {popularArticles.length > 0 && (
+          <HeroCard
+            popularArticles={popularArticles[1]}
+            popularArticlesLoading={popularArticlesLoading}
+          />
+        )}
       </div>
     </div>
   );

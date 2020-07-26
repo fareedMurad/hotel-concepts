@@ -7,6 +7,9 @@ type ArticleCardProps = {
     activity: string;
     date: string;
     description: string;
+    articleImage: {
+      url: string;
+    };
   };
 };
 

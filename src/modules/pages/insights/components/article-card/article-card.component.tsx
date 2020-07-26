@@ -7,14 +7,20 @@ import { Button } from '@core/components';
  * Renders ArticleCard
  */
 const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
-  const { img, activity, date, description } = articles;
+  console.log(articles);
+  const {
+    articleImage: { url },
+    activity,
+    date,
+    description
+  } = articles;
   return (
     <div className={styles.articleCard}>
-      <div className={styles.imageWrapper}>
-        <img
-          className={styles.image}
-          src={require(`img/insights/${img}.png`)}
-        />
+      <div
+        className={styles.imageWrapper}
+        style={{ backgroundImage: `url(${url})` }}
+      >
+        {/* <img className={styles.image} src={url} /> */}
         <div className={styles.activity}>{activity}</div>
       </div>
 
