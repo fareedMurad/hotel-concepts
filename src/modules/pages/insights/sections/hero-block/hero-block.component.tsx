@@ -11,7 +11,7 @@ const HeroCard = ({ img, activity, captions }) => {
       <div
         className={styles.cardImage}
         style={{
-          backgroundImage: `url(${require(`img/insights/insights-${img}.png`)})`
+          // backgroundImage: `url(${require(`img/insights/insights-${img}.png`)})`
         }}
       >
         <div className={styles.cardActivity}>{activity}</div>
@@ -42,7 +42,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
         <div
           className={styles.heroMainPic}
           style={{
-            backgroundImage: `url(${require('img/insights/insights-1.png')}`
+            // backgroundImage: `url(${require('img/insights/insights-1.png')}`
           }}
         >
           <div className={styles.heroMainContent}>

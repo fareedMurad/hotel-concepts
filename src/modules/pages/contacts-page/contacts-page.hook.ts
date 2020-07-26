@@ -1,5 +1,7 @@
+import { gql, useQuery } from '@apollo/client';
+
 const useContactsPageData = () => {
-  const data = [
+  const cardsData = [
     {
       id: 1,
       title: 'FAQ',
@@ -10,7 +12,8 @@ const useContactsPageData = () => {
     {
       id: 2,
       title: 'Feedback',
-      description: 'If you need help using Kordie just press the “support” button at the bottom right of every course page. ',
+      description:
+        'If you need help using Kordie just press the “support” button at the bottom right of every course page. ',
       href: 'mailto:support@cordie.co',
       link: 'support@cordie.co'
     },
@@ -29,8 +32,19 @@ const useContactsPageData = () => {
       link: 'support@cordie.co'
     }
   ];
+  const GET_HERO_IMAGE = gql`
+    {
+      asset(id: "4PeOoO6jJEQmcZxv4WSUqq") {
+        url
+      }
+    }
+  `;
 
-  return { data };
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+  return {
+    contactsFooterImage: data?.asset?.url,
+    cardsData
+  };
 };
 
 export { useContactsPageData };

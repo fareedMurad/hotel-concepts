@@ -1,22 +1,22 @@
 import * as React from 'react';
-import { HeroBottomProps } from './hero-bottom.props';
-import * as styles from './hero-bottom.scss';
+import { HeroBottomProps } from './footer-hero-learning-approach.props';
+import * as styles from './footer-hero-learning-approach.scss';
 import { H4, H3, Button } from '@core/components';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
+import { useFooterHeroLearningApproachData } from './footer-hero-learning-approach.hook';
 
 /**
  * Renders HeroBottom
  */
-const HeroBottom: React.FC<HeroBottomProps> = ({}) => {
+const FooterHeroLearningApproach: React.FC<HeroBottomProps> = ({}) => {
   const dispatch = useDispatch();
+  const { footerHeroImage } = useFooterHeroLearningApproachData();
 
   return (
     <div
       className={styles.heroBottom}
-      style={{
-        backgroundImage: `url(${require(`img/learning-approach/home-footer-1.png`)})`
-      }}
+      style={{ backgroundImage: `url(${footerHeroImage})` }}
     >
       <div className={styles.overlay}>
         <div className={styles.heroContent}>
@@ -40,4 +40,4 @@ const HeroBottom: React.FC<HeroBottomProps> = ({}) => {
   );
 };
 
-export { HeroBottom };
+export { FooterHeroLearningApproach };

@@ -13,7 +13,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
       <div className={styles.imageWrapper}>
         <img
           className={styles.image}
-          src={require(`img/insights/${img}.png`)}
+          // src={require(`img/insights/${img}.png`)}
         />
         <div className={styles.activity}>{activity}</div>
       </div>

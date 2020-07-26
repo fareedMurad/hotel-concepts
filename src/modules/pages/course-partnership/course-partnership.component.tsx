@@ -10,7 +10,7 @@ import {
   HowBecomePartner,
   PartnerBenefits,
   Criteria,
-  Hero
+  CoursePartnershipHero
 } from './sections';
 
 /**
@@ -21,7 +21,7 @@ const CoursePartnership: React.FC<CoursePartnershipProps> = ({}) => {
     <React.Fragment>
       <ScrollToTop />
       <Header />
-      <Hero />
+      <CoursePartnershipHero />
       <PartneringForSuccess />
       <HowBecomePartner />
       <PartnerBenefits />

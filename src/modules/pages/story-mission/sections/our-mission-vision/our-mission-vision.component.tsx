@@ -37,14 +37,14 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
  * Renders OurMissionVision
  */
 const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
-  const { programs } = useOurMissionVisionData();
+  const { programs, ourMissionImage } = useOurMissionVisionData();
 
   return (
     <div className={styles.ourMissionVision} id='mission'>
       <section
         className={styles.heroBlock}
         style={{
-          backgroundImage: `url(${require('img/story-mission/story-mission-2.png')})`
+          backgroundImage: `url(${ourMissionImage})`
         }}
       >
         <HeroCaption

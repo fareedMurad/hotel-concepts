@@ -9,12 +9,15 @@ import { useQuoteData } from './quote.hook';
  */
 
 const Quote: React.FC<QuoteProps> = ({}) => {
-  const { quoteData, quoteLoading } = useQuoteData();
+  const { quoteData, quoteLoading, quoteImage } = useQuoteData();
 
   if (quoteLoading) return <Spinner />;
 
   return (
-    <section className={styles.quote}>
+    <section
+      className={styles.quote}
+      style={{ backgroundImage: `url(${quoteImage})` }}
+    >
       <div className={styles.text}>{`"${quoteData.text}"`}</div>
     </section>
   );

@@ -1,19 +1,14 @@
-@import "core.scss";
+@import 'core.scss';
 
 .catalogue-header {
-  background: url('../../../../../assets/img/programs-catalogue-header.png') no-repeat center center;
-  height: 100vh;
+  @include heroImage();
+  @include imageOverlay();
+  @include flex($align: stretch, $direction: column, $justify: center);
   position: relative;
+  z-index: 1;
+  height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.4);
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 1;
   min-height: 500px;
 }
 
@@ -27,15 +22,15 @@
     letter-spacing: -0.48px;
   }
   & > div:nth-child(2) {
-    margin-top: 22px;
     max-width: 880px;
+    margin-top: 22px;
     @include font($white, 24px, 400, 34px);
   }
 }
 
 .scroll-button {
-  bottom: 24px;
   position: absolute;
+  bottom: 24px;
   left: $left-offset;
 }
 

@@ -1,15 +1,21 @@
 import * as React from 'react';
-import { HeroProps } from './hero.props';
-import * as styles from './hero.scss';
+import { HeroProps } from './course-partnership-hero.props';
+import * as styles from './course-partnership-hero.scss';
 import { Button, HeroTitle, HeroSubtitle } from '@core/components';
 import { ScrollButton } from '@core/components/scroll-button';
+import { useCoursePartnershipHeroData } from './course-partnership-hero.hook';
 
 /**
  * Renders Hero
  */
-const Hero: React.FC<HeroProps> = ({}) => {
+const CoursePartnershipHero: React.FC<HeroProps> = ({}) => {
+  const { coursePartnershipHeroData } = useCoursePartnershipHeroData();
+
   return (
-    <div className={styles.hero}>
+    <div
+      className={styles.hero}
+      style={{ backgroundImage: `url(${coursePartnershipHeroData})` }}
+    >
       <main className={styles.heroContent}>
         <HeroTitle className={styles.heroCaption}>
           Program Partnership <br /> with Kordie
@@ -31,4 +37,4 @@ const Hero: React.FC<HeroProps> = ({}) => {
   );
 };
 
-export { Hero };
+export { CoursePartnershipHero };

@@ -2,7 +2,6 @@
 
 .intro {
   height: 100vh;
-  background: url('../../../../../assets/img/learning-approach/home.png');
   @include flex($justify: center, $direction: column);
   @include imageOverlay();
   @include container();

@@ -1,19 +1,20 @@
 import * as React from 'react';
-import { HeroProps } from './hero.props';
-import * as styles from './hero.scss';
+import { HeroProps } from './hero-learning-approach.props';
+import * as styles from './hero-learning-approach.scss';
 import { HeroTitle, HeroSubtitle } from '@core/components';
 import { ScrollButton } from '@core/components/scroll-button';
+import { useHeroLearningApproachData } from './hero-learning-approach.hook';
 
 /**
  * Renders Hero
  */
-const Hero: React.FC<HeroProps> = ({}) => {
+const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
+  const { heroLearningApproachData } = useHeroLearningApproachData();
+
   return (
     <div className={styles.hero}>
       <div
-        style={{
-          backgroundImage: `url(${require('img/learning-approach/home.png')})`
-        }}
+        style={{ backgroundImage: `url(${heroLearningApproachData})` }}
         className={styles.image}
       >
         <main className={styles.heroContent}>
@@ -33,4 +34,4 @@ const Hero: React.FC<HeroProps> = ({}) => {
   );
 };
 
-export { Hero };
+export { HeroLearningApproach };

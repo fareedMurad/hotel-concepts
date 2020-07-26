@@ -1,35 +1,32 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-intro {
-  background: url('../../../../../assets/img/program-intro.png') no-repeat center center;
-  height: 100vh;
+  @include heroImage();
+  @include imageOverlay();
+  @include flex($justify: center, $direction: column);
   position: relative;
+  height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.164);
-  background-size: cover;
   min-height: 500px;
-  padding-right: $default-offset;
   padding-left: $left-offset;
-	@include flex($justify: center, $direction: column);
+  padding-right: $default-offset;
 }
 
 .video {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   min-height: 735px;
   height: 100vh;
-  position: absolute;
   object-fit: cover;
-  z-index: 1;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .watch-button {
@@ -47,37 +44,36 @@
   }
   & > div:nth-child(2) {
     @include font($white, 24px, 400, 34px);
-    margin-top: 16px;
-    font-family: $IBMPlex;
     max-width: 550px;
+    margin-top: 16px;
   }
 }
 
 .scroll-button {
-  bottom: 15px;
   position: absolute;
+  bottom: 15px;
 }
 
 .page-navigator {
   @include flex($justify: space-between);
-  z-index: 2;
-  background-color: $white;
-  height: 84px;
   position: absolute;
+  z-index: 2;
+  bottom: 36px;
   left: $default-offset;
   right: $default-offset;
-  bottom: 36px;
+  background-color: $white;
+  height: 84px;
   border-radius: 6px;
   padding: 20px 10px;
 }
 
 .button {
   cursor: pointer;
-  margin: 0 5px;
-  flex: 1;
   @include flex($justify: space-between, $align: center);
-  height: 100%;
   position: relative;
+  flex: 1;
+  height: 100%;
+  margin: 0 5px;
   @include buttonHover;
 }
 
@@ -111,4 +107,3 @@
     display: none;
   }
 }
-

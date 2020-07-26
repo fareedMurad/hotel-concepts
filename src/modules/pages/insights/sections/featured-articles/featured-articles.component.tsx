@@ -50,7 +50,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         ))}
         <div
           style={{
-            backgroundImage: `url(${require('img/insights/article-main.png')})`
+            // backgroundImage: `url(${require('img/insights/article-main.png')})`
           }}
           className={styles.articleImg}
         >
