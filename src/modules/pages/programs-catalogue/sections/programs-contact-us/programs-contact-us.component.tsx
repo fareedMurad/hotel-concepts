@@ -3,7 +3,17 @@ import { ProgramsContactUsProps } from './programs-contact-us.props';
 import * as styles from './programs-contact-us.scss';
 import { Button } from '@core/components';
 import classNames from 'classnames';
-
+import { gql, useQuery } from '@apollo/client';
+/**
+ * Get hero image
+ */
+const GET_HERO_IMAGE = gql`
+  {
+    asset(id: "172ajOUFQrMpose4jteiQF") {
+      url
+    }
+  }
+`;
 /**
  * Renders ProgramsContactUs
  */
@@ -15,6 +25,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
     employees: '',
     interest: ''
   };
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
 
   const [formValues, setFormValue] = React.useState(formInitValue || {});
 
@@ -113,7 +124,10 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
           />
         </form>
       </div>
-      <div className={styles.footer} />
+      <div
+        className={styles.footer}
+        style={{ backgroundImage: `url(${data?.asset?.url})` }}
+      />
     </React.Fragment>
   );
 };

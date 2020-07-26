@@ -7,8 +7,7 @@
 .image {
   @include flex(center, center);
   height: 581px;
-  background-size: cover;
-  background-position: center;
+  @include heroImage();
 }
 
 .content {
