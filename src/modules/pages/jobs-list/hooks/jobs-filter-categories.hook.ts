@@ -9,8 +9,10 @@ const useJobsFilterCategories = () => {
           sys {
             id
           }
-          jobsCollection {
-            total
+          linkedFrom {
+            jobsCollection {
+              total
+            }
           }
         }
       }
@@ -23,7 +25,7 @@ const useJobsFilterCategories = () => {
 
   return {
     filterCategories: filterCategories?.jobCategoriesCollection?.items,
-    filterCategoriesLoader: loading
+    filterCategoriesLoading: loading
   };
 };
 

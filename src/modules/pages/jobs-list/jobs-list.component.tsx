@@ -25,7 +25,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
 
   const {
     filterCategories,
-    filterCategoriesLoader
+    filterCategoriesLoading
   } = useJobsFilterCategories();
   const { allJobs, allJobsLoader } = useAllJobsData();
   const {
@@ -34,10 +34,12 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
     getFilteredJobs
   } = useFilteredJobsData();
 
-  if (filterCategoriesLoader) return <Spinner />;
+  if (filterCategoriesLoading) return <Spinner />;
   if (allJobsLoader) return <Spinner />;
 
-  const selectedCollection = currentFilter === 'All' ? allJobs : filteredJobs;
+  const selectedCollection =
+    currentFilter === 'All' ? allJobs?.items : filteredJobs;
+  console.log(filteredJobs);
 
   return (
     <React.Fragment>
@@ -69,10 +71,12 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
             const {
               category,
               sys: { id },
-              jobsCollection: { total }
+              linkedFrom: {
+                jobsCollection: { total }
+              }
             } = item;
             const activeFilter = currentFilter === id;
-
+            console.log(id)
             return (
               <ButtonFilter
                 key={id}
@@ -93,11 +97,16 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
           {selectedCollection?.map((vacancy, index) => {
             const {
               name,
-              jobTime,
+              employeeType,
               sys: { id }
             } = vacancy;
             return (
-              <Vacancy key={index} title={jobTime} description={name} id={id} />
+              <Vacancy
+                key={index}
+                title={employeeType}
+                description={name}
+                id={id}
+              />
             );
           })}
         </div>

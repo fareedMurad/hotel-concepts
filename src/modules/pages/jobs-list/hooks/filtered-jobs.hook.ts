@@ -4,13 +4,15 @@ const useFilteredJobsData = () => {
   const GET_JOBS_BY_CATEGORY_ID = gql`
     query($id: String!) {
       jobCategories(id: $id) {
-        jobsCollection {
-          items {
-            sys {
-              id
+        linkedFrom {
+          jobsCollection {
+            items {
+              sys {
+                id
+              }
+              name
+              employeeType
             }
-            name
-            jobTime
           }
         }
       }
@@ -19,7 +21,7 @@ const useFilteredJobsData = () => {
   const [getData, { data, loading }] = useLazyQuery(GET_JOBS_BY_CATEGORY_ID);
 
   return {
-    filteredJobs: data?.jobCategories?.jobsCollection?.items,
+    filteredJobs: data?.jobCategories?.linkedFrom?.jobsCollection?.items,
     getFilteredJobs: getData,
     filteredJobsLoader: loading
   };
