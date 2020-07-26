@@ -17,10 +17,10 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   const { data, loading, navButtons } = useProgramIntroData(programId);
 
-  const videoInfo = {
-    path: 'ForCorporateClients.preview',
-    time: '0:56'
-  };
+  // const videoInfo = {
+  //   path: 'ForCorporateClients.preview',
+  //   time: '0:56'
+  // };
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
@@ -79,7 +79,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
             <WatchButton
               onEnter={playVideo}
               onLeave={stopVideo}
-              time={videoInfo.time}
+              time='0:54'
               titleText='Watch Trailer'
             />
           </div>
@@ -116,7 +116,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
       <video
         ref={videoRef}
         className={styles.video}
-        src={require(`assets/videos/${videoInfo.path}.mov`)}
+        // src={require(`assets/videos/${videoInfo.path}.mov`)}
         muted
       />
     </section>

@@ -13,6 +13,7 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
 
   if (videoLecturesLoading) return <Spinner />;
   const getVideoId = url => url.split('/').pop();
+
   return (
     <div className={styles.ourMaterials}>
       <SectionTitle className={styles.title}>Our materials</SectionTitle>
@@ -21,6 +22,7 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
         {videoLecturessData.map((video, index) => {
           const {
             vimeoUrl,
+            customTitle,
             previewPicture: { url: pictureUrl },
             sys: { id }
           } = video;
@@ -29,6 +31,7 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
               pictureUrl={pictureUrl}
               videoId={getVideoId(vimeoUrl)}
               key={index}
+              customTitle={customTitle}
             />
           );
         })}

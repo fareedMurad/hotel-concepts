@@ -16,7 +16,7 @@ const GET_FAQ = gql`
     faqCollection {
       items {
         question
-        answear
+        answer
         category
       }
     }
@@ -80,7 +80,7 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle }) => {
         .map((item, index) => (
           <FaqItem
             name={item.question}
-            description={item.answear}
+            description={item.answer}
             key={item.question + index}
           />
         ))}

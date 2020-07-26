@@ -9,6 +9,7 @@ const useVideoLecturesData = () => {
             id
           }
           vimeoUrl
+          customTitle
           ... on VideoLectures {
             previewPicture {
               url

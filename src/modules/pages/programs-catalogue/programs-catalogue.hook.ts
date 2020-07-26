@@ -7,14 +7,6 @@ const useProgramsCatalogueData = (categoryId: string) => {
         name
         description
         subtitle
-        filters
-        linkedFrom {
-          onlineCourseCollection {
-            items {
-              name
-            }
-          }
-        }
       }
     }
   `;
@@ -22,7 +14,28 @@ const useProgramsCatalogueData = (categoryId: string) => {
   const { data, loading, error } = useQuery(GET_PROGRAMS_BY_CATEGORY, {
     variables: { id: categoryId }
   });
-  return { courseCategory: data?.courseCategory, loading };
+  return {
+    categoryCoursesData: data?.courseCategory,
+    categoryCoursesLoading: loading
+  };
 };
 
 export { useProgramsCatalogueData };
+
+// const GET_PROGRAMS_BY_CATEGORY = gql`
+// // query($id: String!) {
+// //   onlineCourseCollection(where: { category: { sys: { id: $id } } }) {
+// //     items {
+// //       name
+// //       slug
+// //       videoVimeoUrl
+// //       description
+// //       languages
+// //       complexityLevel
+// //       price
+// //       weeks
+// //       sprints
+// //     }
+// //   }
+// // }
+// // `;

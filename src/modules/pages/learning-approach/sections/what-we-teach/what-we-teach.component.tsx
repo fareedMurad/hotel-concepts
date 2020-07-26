@@ -8,14 +8,14 @@ import { Link } from 'react-router-dom';
 const Card = ({ card, rate }) => {
   const {
     sys: { id },
-    category,
+    name,
     description
   } = card;
 
   return (
     <div className={styles.card}>
       <div className={styles.cardRate}>{rate + 1}.0</div>
-      <div className={styles.cardCaption}>{category}</div>
+      <div className={styles.cardCaption}>{name}</div>
       <div className={styles.cardDescription}>{description}</div>
       <Link to={`/programs-catalogue/${id}`}>
         <Button

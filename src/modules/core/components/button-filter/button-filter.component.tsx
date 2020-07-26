@@ -16,7 +16,7 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
   className
 }) => {
   const buttonEl = React.useRef();
-  
+
   return (
     <div
       className={classNames(
@@ -35,7 +35,7 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
           [styles.filterCountActive]: active
         })}
       >
-        {count && `(${count})`}
+        {count === 0 ? `(0)` : `(${count})`}
         {icon && <Icon name={icon} className={styles.icon} />}{' '}
       </div>
     </div>

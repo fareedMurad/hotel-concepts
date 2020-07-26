@@ -34,19 +34,18 @@
 
 .filters {
   display: grid;
+  width: min-content;
   margin-top: 49px;
   margin-bottom: 32px;
   overflow-x: auto;
   overflow-y: hidden;
   gap: 10px;
-  grid-auto-flow: row;
   padding-bottom: 10px;
   @include tablet() {
     grid-auto-flow: column;
-    width: 70%;
   }
   & > div {
-    min-width: max-content;
+    width: fit-content;
   }
 }
 
@@ -64,7 +63,7 @@
 }
 
 .footer-title {
-  @include font($primary-grey, 36px, 500, 46px);
+  @include font($primary-gray, 36px, 500, 46px);
   font-family: $EBGaramond;
 }
 

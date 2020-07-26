@@ -20,35 +20,37 @@ import { useProgramsCatalogueData } from './programs-catalogue.hook';
 
 const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { id } = useParams();
-  const { courseCategory, loading } = useProgramsCatalogueData(id);
+  const {
+    categoryCoursesData,
+    categoryCoursesLoading
+  } = useProgramsCatalogueData(id);
   const [currentFilters, setCurrentFilters] = React.useState(['All']);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(5);
-  if (loading) return <Spinner />;
-
-  console.log(courseCategory);
+  if (categoryCoursesLoading) return <Spinner />;
 
   // const { items: programs } = data?.courseCategory?.coursesCollection;
   // const { courseCategory: category } = data;
-  // const lastItemIndex = currentPage * itemsPerPage;
-  // const firstItemIndex = lastItemIndex - itemsPerPage;
+  const lastItemIndex = currentPage * itemsPerPage;
+  const firstItemIndex = lastItemIndex - itemsPerPage;
   // const pages = Math.ceil(programs.length / itemsPerPage);
 
-  // const changePage = page => () => {
-  //   setCurrentPage(page);
-  //   scrollTo('programs');
-  // };
+  const changePage = page => () => {
+    setCurrentPage(page);
+    scrollTo('programs');
+  };
 
   const updateFilters = filters => {
     setCurrentFilters(filters);
   };
+  console.log(categoryCoursesData)
 
   // const filteredPrograms = programs.filter(program => {
   //   return program.filters.some(item => currentFilters.includes(item));
   // });
 
   // const currentPrograms = filteredPrograms.slice(firstItemIndex, lastItemIndex);
-  if (loading) return <Spinner />;
+  if (categoryCoursesLoading) return <Spinner />;
 
   return (
     <React.Fragment>
@@ -56,8 +58,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
       <Header />
       <div className={styles.programsCatalogue}>
         <CatalogueHeader
-          title={courseCategory.name}
-          description={courseCategory.description}
+          title={categoryCoursesData.name}
+          description={categoryCoursesData.description}
         />
         <div className={styles.title}>
           <SectionTitle>Find the right course for you</SectionTitle>

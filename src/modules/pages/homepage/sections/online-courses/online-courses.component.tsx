@@ -4,40 +4,42 @@ import * as styles from './online-courses.scss';
 import { ButtonFilter, Button, SectionTitle } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
 import { Spinner } from '@core/components/spinner';
-import {
-  useOnlineCoursesData,
-  useFilteredCourses
-} from './online-courses.hook';
 import { navigate } from '@router/store';
 import { useDispatch } from 'react-redux';
+import { useProgramsFiltersData, useProgramsData } from './hooks';
 
 /**
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
-  const { categories, loadingFilters } = useOnlineCoursesData();
-
   const dispatch = useDispatch();
-  const [currentCategory, setCurrentCategory] = React.useState({
+  const [selectedCategory, setSelectedCategory] = React.useState({
     name: '',
     description: '',
     sys: {
       id: ''
     },
     linkedFrom: {
-      onlineCourseCollection: []
+      onlineCourseCollection: {
+        total: null
+      }
     }
   });
-
-  const { courses, coursesLoading } = useFilteredCourses(currentCategory.name);
+  const {
+    programsFiltersData,
+    programsFiltersLoading
+  } = useProgramsFiltersData();
+  const { programsData, programsLoading } = useProgramsData(
+    selectedCategory.name
+  );
 
   React.useEffect(() => {
-    if (!loadingFilters) {
-      setCurrentCategory(categories[0]);
+    if (!programsFiltersLoading) {
+      setSelectedCategory(programsFiltersData[0]);
     }
-  }, [categories, loadingFilters]);
+  }, [programsFiltersData, programsFiltersLoading]);
 
-  if (loadingFilters) return <Spinner />;
+  if (programsFiltersLoading) return <Spinner />;
 
   return (
     <section className={styles.onlineCourses}>
@@ -50,7 +52,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
       </div>
       <div className={styles.content}>
         <div className={styles.filters}>
-          {categories.map(category => {
+          {programsFiltersData.map(category => {
             const {
               name,
               linkedFrom: {
@@ -64,66 +66,75 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                 title={name}
                 count={total}
                 onClick={() => {
-                  setCurrentCategory(category);
+                  setSelectedCategory(category);
                 }}
-                active={currentCategory == category}
+                active={selectedCategory == category}
                 className={styles.filterButton}
               />
             );
           })}
         </div>
 
-        <div className={styles.info}>{currentCategory.description}</div>
-        {coursesLoading ? (
-          <Spinner />
-        ) : (
-          <div className={styles.coursesWrapper}>
-            <div className={styles.courses}>
-              {courses.map(course => {
-                const {
-                  name,
-                  price,
-                  weeks,
-                  sprints,
-                  slug,
-                  description,
-                  courseImage: { url },
-                  sys: { id }
-                } = course;
-                return (
-                  <CourseItem
-                    key={id}
-                    id={id}
-                    slug={slug}
-                    name={name}
-                    description={description}
-                    weeks={weeks}
-                    sprints={sprints}
-                    price={price}
-                    img={url}
-                    catalogueId={course.category.sys.id}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        )}
+        <div className={styles.info}>{selectedCategory.description}</div>
 
-        <div className={styles.footer}>
-          <div className={styles.footerTitle}>
-            Can’t you find course for you in this category?
+        {selectedCategory.linkedFrom.onlineCourseCollection.total === 0 ? (
+          <div>
+            We haven't added courses to this category yet. Please come back
+            later!
           </div>
-          <Button
-            onClick={() =>
-              dispatch(
-                navigate(`/programs-catalogue/${currentCategory.sys.id}`)
-              )
-            }
-            className={styles.button}
-          >
-            <div>See more courses</div> <div>&#8594;</div>
-          </Button>
-        </div>
+        ) : (
+          <React.Fragment>
+            {programsLoading ? (
+              <Spinner />
+            ) : (
+              <div className={styles.coursesWrapper}>
+                <div className={styles.courses}>
+                  {programsData.map(course => {
+                    const {
+                      name,
+                      price,
+                      weeks,
+                      sprints,
+                      slug,
+                      description,
+                      courseImage: { url },
+                      sys: { id }
+                    } = course;
+                    return (
+                      <CourseItem
+                        key={id}
+                        id={id}
+                        slug={slug}
+                        name={name}
+                        description={description}
+                        weeks={weeks}
+                        sprints={sprints}
+                        price={price}
+                        img={url}
+                        catalogueId={course.category.sys.id}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+            <div className={styles.footer}>
+              <div className={styles.footerTitle}>
+                Can’t you find course for you in this category?
+              </div>
+              <Button
+                onClick={() =>
+                  dispatch(
+                    navigate(`/programs-catalogue/${selectedCategory.sys.id}`)
+                  )
+                }
+                className={styles.button}
+                children='See more courses'
+                arrow='&#8594;'
+              />
+            </div>
+          </React.Fragment>
+        )}
       </div>
     </section>
   );

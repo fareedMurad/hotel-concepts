@@ -19,7 +19,6 @@ import { useHistory } from 'react-router';
 import { useProgramPageData } from './program-page.hook';
 import { ProgramModules } from './sections/program-modules';
 import { ScrollToTop } from '@app';
-import { ProgramQuestionsForm } from './sections/program-questions-form';
 import { gql, useQuery } from '@apollo/client';
 /**
  * query program info
@@ -96,7 +95,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
         subtitle='Whether you are an individual or an organisation/group, looking for a
                   programme, get in touch and we can help find the best solution for you.'
       />
-      {/* <ProgramQuestionsForm /> */}
       <Footer />
     </div>
   );

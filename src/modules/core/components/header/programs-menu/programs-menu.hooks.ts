@@ -1,34 +1,28 @@
+import { gql, useQuery } from '@apollo/client';
+
 const useProgramsMenuData = () => {
-  const programs = [
+  /**
+   * query categoriess of programs
+   */
+  const GET_CATEGORIES = gql`
     {
-      name: 'Focused Programs',
-      description:
-        'develop in-depth expertise in areas that are critical for you',
-      path: '/programs-catalogue/focused-programs'
-    },
-    {
-      name: 'Digital Transformation',
-      description:
-        'use exponentially improving technologies to transform your hospitality business',
-      path: '/programs-catalogue/digital-transformation'
-    },
-    {
-      name: 'Essential Skills Programs ',
-      description: 'gain the skills and confidence to succeed',
-      path: '/programs-catalogue/essential-skills'
-    },
-    {
-      name: 'Leadership Programs',
-      description: 'enable the full potential in others and in yourself',
-      path: '/programs-catalogue/leadership'
-    },
-    {
-      name: 'Post-Covid',
-      description: 'manage the crisis efficiently',
-      path: '/programs-catalogue/post-covid'
+      courseCategoryCollection(limit: 6) {
+        items {
+          sys {
+            id
+          }
+          name
+          subtitle
+        }
+      }
     }
-  ];
-  return { programs };
+  `;
+  const { data, loading, error } = useQuery(GET_CATEGORIES);
+
+  return {
+    programsData: data?.courseCategoryCollection?.items,
+    programsLoading: loading
+  };
 };
 
 export { useProgramsMenuData };

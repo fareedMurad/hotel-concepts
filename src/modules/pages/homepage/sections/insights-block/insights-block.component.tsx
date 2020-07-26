@@ -40,7 +40,7 @@ const GET_ARTICLES = gql`
         }
         title
         preText
-        category
+        # categories
         slug
         date
         articleImage {
@@ -62,7 +62,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
 
   if (loading) return <Spinner />;
   const { items: articles } = data.articleCollection;
-
+  console.log(articles);
   return (
     <section className={styles.insightsBlock}>
       <div className={styles.title}>
