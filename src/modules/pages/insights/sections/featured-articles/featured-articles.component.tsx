@@ -30,8 +30,12 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
     articlesToSkip
   );
 
-  console.log(articles);
-
+  React.useEffect(() => {
+    if (!articlesLoading) {
+      setArticlesToDisplay([...articlesToDisplay, ...articles]);
+    }
+  }, [articles, articlesLoading]);
+  console.log(articlesToDisplay);
   return (
     <div className={styles.featuredArticles}>
       <div className={styles.caption}>
@@ -84,7 +88,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         {articlesLoading ? (
           <Spinner />
         ) : (
-          articles.map((article, idx) => (
+          articlesToDisplay.map((article, idx) => (
             <ArticleCard articles={article} key={idx} />
           ))
         )}
@@ -110,7 +114,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         className={styles.showMore}
         children='Show more'
         arrow='&#8595;'
-        onClick={() => setArticlesToSkip(articlesToSkip + 8)}
+        onClick={() => setArticlesToSkip(articlesToSkip + 9)}
       />
     </div>
   );
