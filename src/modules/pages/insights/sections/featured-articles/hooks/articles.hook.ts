@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useArticlesData = categoryId => {
+const useArticlesData = (categoryId, articlesToSkip) => {
   if (categoryId != 'All') {
     const GET_FILTERED_ARTICLES = gql`
       query($id: String!) {
@@ -39,8 +39,12 @@ const useArticlesData = categoryId => {
     };
   } else {
     const GET_ALL_ARTICLES = gql`
-      {
-        articleCollection(where: { popular_not: true }) {
+      query($articlesToSkip: Int) {
+        articleCollection(
+          where: { popular_not: true }
+          limit: 7
+          skip: $articlesToSkip
+        ) {
           total
           items {
             sys {
@@ -61,7 +65,9 @@ const useArticlesData = categoryId => {
       }
     `;
 
-    const { data, loading } = useQuery(GET_ALL_ARTICLES);
+    const { data, loading } = useQuery(GET_ALL_ARTICLES, {
+      variables: { articlesToSkip: articlesToSkip }
+    });
     return {
       articles: data?.articleCollection?.items,
       articlesLoading: loading

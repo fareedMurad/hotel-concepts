@@ -4,7 +4,9 @@
   margin-top: 20px;
   margin-bottom: 24px;
   @include container();
-  
+  & > div:first-child {
+    margin-top: 60px;
+  }
 }
 .title {
   font-weight: 500;

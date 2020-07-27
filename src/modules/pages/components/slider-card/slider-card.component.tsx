@@ -26,7 +26,8 @@ const SliderCard: React.FC<SliderCardProps> = ({
 
         <div className={styles.description}>
           <div className={styles.wrap}>
-            <H4 className={styles.price}>{price}</H4>
+            <H4 className={styles.price}>{`
+            $${price}`}</H4>
             {author && <div className={styles.author}>{author}</div>}
           </div>
 

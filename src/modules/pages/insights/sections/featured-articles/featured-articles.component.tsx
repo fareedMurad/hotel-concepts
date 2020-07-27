@@ -26,13 +26,17 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
   const [visibleArticles, setVisibleArticles] = React.useState(7);
+  const [articlesToSkip, setArticlesToSkip] = React.useState(0);
 
-  const { articlesLoading, articles } = useArticlesData(categoryId);
+  const { articlesLoading, articles } = useArticlesData(
+    categoryId,
+    articlesToSkip
+  );
   const { popularArticle, popularArticleLoading } = usePopularArticlesData();
 
   React.useEffect(() => {
     if (!articlesLoading) {
-      setArticlesToDisplay(articles);
+      setArticlesToDisplay([...articlesToDisplay, ...articles]);
     }
   }, [articles, articlesLoading]);
 
@@ -94,7 +98,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
           <Spinner />
         ) : (
           articlesToDisplay
-            .slice(0, visibleArticles)
+            // .slice(0, visibleArticles)
             .map((article, idx) => <ArticleCard articles={article} key={idx} />)
         )}
         {popularArticleLoading ? (
@@ -127,7 +131,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         className={styles.showMore}
         children='Show more'
         arrow='&#8595;'
-        onClick={() => setVisibleArticles(visibleArticles + 9)}
+        onClick={() => setArticlesToSkip(articlesToSkip + 7)}
       />
     </div>
   );
