@@ -23,8 +23,12 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
 
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
+  const [articlesToSkip, setArticlesToSkip] = React.useState(0);
 
-  const { articlesLoading, articles } = useArticlesData(categoryId);
+  const { articlesLoading, articles } = useArticlesData(
+    categoryId,
+    articlesToSkip
+  );
 
   console.log(articles);
 
@@ -106,6 +110,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         className={styles.showMore}
         children='Show more'
         arrow='&#8595;'
+        onClick={() => setArticlesToSkip(articlesToSkip + 8)}
       />
     </div>
   );

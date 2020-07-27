@@ -4,9 +4,10 @@
 type ArticleCardProps = {
   articles: {
     img: string;
-    activity: string;
+    categoriesCollection: any;
     date: string;
     description: string;
+    title: string;
     articleImage: {
       url: string;
     };
