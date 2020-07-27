@@ -8,7 +8,6 @@ import Moment from 'react-moment';
  * Renders ArticleCard
  */
 const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
-  console.log(articles);
   const {
     articleImage: { url },
     categoriesCollection: { items: categories },
