@@ -68,3 +68,8 @@
   @include font($primary-orange, 18px, 500);
   font-family: $IBMPlex;
 }
+
+.no-mentors {
+  width: 100%;
+  text-align: center;
+}

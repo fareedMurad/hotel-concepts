@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type ProgramQuoteProps = {};
+type ProgramQuoteProps = {
+    programId: string;
+};
 
 export { ProgramQuoteProps };

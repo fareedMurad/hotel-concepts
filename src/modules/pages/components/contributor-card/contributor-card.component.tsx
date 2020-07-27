@@ -12,8 +12,9 @@ const ContributorCard: React.FC<ContributorCardProps> = ({
   const {
     name,
     surname,
-    city,
+    from,
     position,
+    workAt,
     mentorPicture: { url }
   } = contributor;
 
@@ -29,7 +30,7 @@ const ContributorCard: React.FC<ContributorCardProps> = ({
         {name} {surname}
       </div>
       <div className={styles.role}>
-        {city}, {position}
+        {workAt}, {position}
       </div>
     </div>
   );

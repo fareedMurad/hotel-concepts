@@ -15,9 +15,10 @@ const useProgramPageData = () => {
           items {
             name
             surname
-            city
+            from
             position
             slug
+            workAt
             sys {
               id
             }

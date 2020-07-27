@@ -12,7 +12,8 @@ const useContributorsData = () => {
           surname
           slug
           position
-          city
+          workAt
+          from
           experience
           mentorPicture {
             url
