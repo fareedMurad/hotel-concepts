@@ -33,8 +33,8 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
     <div className={styles.partnerApply} id='get-involved'>
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          <SectionTitle>{title}</SectionTitle>
-          <Paragraph>{subtitle} </Paragraph>
+          <SectionTitle className={styles.formTitle}>{title}</SectionTitle>
+          <Paragraph className={styles.paragraph}>{subtitle} </Paragraph>
           <Formik
             initialValues={defaultValues}
             onSubmit={values => {
@@ -43,7 +43,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
             // validationSchema={jobDetailsValidationSchema}
           >
             {({ handleSubmit, validateForm }) => (
-              <Form handleSubmit={handleSubmit}>
+              <Form handleSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formSection}>
                   <div className={styles.formSectionMainInfo}>
                     <Field.Text

@@ -50,6 +50,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   });
 
   const currentPrograms = filteredPrograms.slice(firstItemIndex, lastItemIndex);
+  const reduceMargin =
+    filteredPrograms.length >= itemsPerPage || currentPage > 1;
 
   return (
     <React.Fragment>
@@ -91,7 +93,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             />
           </div>
         )}
-        <ProgramsContactUs />
+        <ProgramsContactUs reduceMargin={reduceMargin} />
       </div>
       <Footer />
     </React.Fragment>

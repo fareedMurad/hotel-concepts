@@ -10,7 +10,7 @@ const HowWeWorkCard: React.FC<HowWeWorkCardProps> = ({ title, text }) => {
   return (
     <div className={styles.howWeWorkCard}>
       <H4 className={styles.orange}>{title}</H4>
-      <Paragraph>{text}</Paragraph>
+      <Paragraph className={styles.paragraph}>{text}</Paragraph>
     </div>
   );
 };

@@ -2,7 +2,7 @@
 
 .meet-kordie {
   @include container();
-  margin: 68px 0px 78px 0px;
+  margin: 62px 0px 55px 0px;
   &--title {
     letter-spacing: -0.48px;
   }
@@ -12,5 +12,6 @@
     @include desktop() {
       width: 50%;
     }
+    margin-bottom: 0;
   }
 }

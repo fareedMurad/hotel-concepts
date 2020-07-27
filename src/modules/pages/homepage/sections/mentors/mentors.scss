@@ -37,7 +37,7 @@
 .slider {
   @include flex($justify: space-between, $align: center);
   position: relative;
-  padding-bottom: 108px;
+  padding-bottom: 80px;
   overflow: hidden;
   ul {
     margin-bottom: 8px;

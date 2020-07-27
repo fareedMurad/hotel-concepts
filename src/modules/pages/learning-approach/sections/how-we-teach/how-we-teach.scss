@@ -1,7 +1,7 @@
 @import 'core.scss';
 
 .how-we-teach {
-  margin-top: 30px;
+  margin-top: 85px;
 }
 
 .title {
@@ -25,9 +25,9 @@
 
 .wcc {
   &__image {
-    background: $hr;
     width: 100%;
     height: auto;
+    background: $hr;
     border-radius: 8px;
     min-height: 188px;
     @include tablet() {
@@ -80,5 +80,17 @@
     @include font($primary-gray, 18px, 400, 28px);
     margin-top: 22px;
     font-family: $IBMPlex;
+  }
+}
+
+.caption-wrapper {
+  margin-top: 53px;
+}
+
+.caption-personal-approach {
+  margin-top: 30px;
+  margin-bottom: 45px;
+  & > div:last-child {
+    margin-top: 15px;
   }
 }
