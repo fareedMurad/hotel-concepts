@@ -7,13 +7,14 @@ import { HeroTitle, HeroSubtitle, Spinner } from '@core/components';
 import { useMostPopularArticles } from './hero-block.hook';
 import { string } from 'yup';
 
-const HeroCard = ({ popularArticles, popularArticlesLoading }) => {
+const HeroCard = ({ firstScreenArticle }) => {
+  if (!firstScreenArticle) return <Spinner />;
   const {
     title,
     categoriesCollection: { items: categories },
     sys: { id },
     articleImage: { url }
-  } = popularArticles;
+  } = firstScreenArticle;
   return (
     <div className={styles.card}>
       <div
@@ -42,8 +43,11 @@ const HeroCard = ({ popularArticles, popularArticlesLoading }) => {
  * Renders HeroBlock
  */
 const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
-  const { popularArticles, popularArticlesLoading } = useMostPopularArticles();
-  if (popularArticlesLoading) return <Spinner />;
+  const {
+    firstScreenArticles,
+    firstScreenArticlesLoading
+  } = useMostPopularArticles();
+  if (firstScreenArticlesLoading) return <Spinner />;
   return (
     <div className={styles.heroBlock}>
       <div className={styles.heroMain}>
@@ -66,16 +70,10 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
         <ScrollButton text='Scroll' className={styles.arrow} />
       </div>
       <div className={styles.heroSubmain}>
-        <HeroCard
-          popularArticles={popularArticles[0]}
-          popularArticlesLoading={popularArticlesLoading}
-        />
+        <HeroCard firstScreenArticle={firstScreenArticles[0]} />
 
-        {popularArticles.length > 0 && (
-          <HeroCard
-            popularArticles={popularArticles[1]}
-            popularArticlesLoading={popularArticlesLoading}
-          />
+        {firstScreenArticles.length > 0 && (
+          <HeroCard firstScreenArticle={firstScreenArticles[1]} />
         )}
       </div>
     </div>

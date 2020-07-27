@@ -19,7 +19,11 @@ import {
 } from './sections';
 import { Mentors, Impact } from '@pages/homepage/sections';
 import { FaqBlock, PartnerApply } from '@pages/components';
+<<<<<<< HEAD
 import { gql, useQuery } from '@apollo/client';
+=======
+import { useParams, useHistory } from 'react-router';
+>>>>>>> 06947252cfbcb113cff6b2b63387331e2e4c5e27
 
 const GET_IMAGE = gql`
   {
@@ -32,12 +36,14 @@ const GET_IMAGE = gql`
  * Renders ProgramPage
  */
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
+  const history = useHistory();
+  const searchParams = new URLSearchParams(history.location.search);
+  const programId = searchParams.get('programId');
+
   const {
     mentorsForCurrentCourse,
-    mentorsForCurrentCourseLoading,
-    programId,
-    history
-  } = useProgramPageData();
+    mentorsForCurrentCourseLoading
+  } = useProgramPageData(programId);
 
   const { data, loading, error } = useQuery(GET_IMAGE);
 
@@ -46,7 +52,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ScrollToTop />
       <Header />
       <ProgramIntro programId={programId} />
-      <ProgramOverview programId={programId} />
+      {/* <ProgramOverview programId={programId} /> */}
       <div className={styles.hr} />
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />
