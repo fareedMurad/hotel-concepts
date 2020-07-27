@@ -3,10 +3,10 @@ import { gql, useQuery } from '@apollo/client';
 const useArticlesData = (categoryId, articlesToSkip) => {
   if (categoryId != 'All') {
     const GET_FILTERED_ARTICLES = gql`
-      query($id: String!) {
+      query($id: String!, $articlesToSkip: Int) {
         articleCategories(id: $id) {
           linkedFrom {
-            articleCollection {
+            articleCollection(limit: 9, skip: $articlesToSkip) {
               items {
                 title
                 date
@@ -30,7 +30,7 @@ const useArticlesData = (categoryId, articlesToSkip) => {
       }
     `;
     const { data, loading, error } = useQuery(GET_FILTERED_ARTICLES, {
-      variables: { id: categoryId }
+      variables: { id: categoryId, articlesToSkip: articlesToSkip }
     });
 
     return {

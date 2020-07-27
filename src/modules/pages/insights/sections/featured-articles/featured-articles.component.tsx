@@ -25,7 +25,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
 
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
-  const [visibleArticles, setVisibleArticles] = React.useState(7);
+  // const [visibleArticles, setVisibleArticles] = React.useState(7);
   const [articlesToSkip, setArticlesToSkip] = React.useState(0);
 
   const { articlesLoading, articles } = useArticlesData(
@@ -40,9 +40,15 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
     }
   }, [articles, articlesLoading]);
 
-  React.useEffect(() => {
-    setVisibleArticles(categoryId === 'All' ? 7 : 9);
-  }, [categoryId]);
+  const handleClick = categoryId => {
+    setCategoryId(categoryId);
+    setArticlesToSkip(0);
+    setArticlesToDisplay([]);
+  };
+
+  // React.useEffect(() => {
+  //   setVisibleArticles(categoryId === 'All' ? 7 : 9);
+  // }, [categoryId]);
 
   console.log(articlesToDisplay);
   return (
@@ -61,9 +67,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         <ButtonFilter
           title='All'
           count={allArticlesAmount}
-          onClick={() => {
-            setCategoryId('All');
-          }}
+          onClick={() => handleClick('All')}
           active={categoryId === 'All'}
         />
         {loadingArticlesCategories ? (
@@ -84,9 +88,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
                 key={category}
                 title={category}
                 count={count}
-                onClick={() => {
-                  setCategoryId(id);
-                }}
+                onClick={() => handleClick(id)}
                 active={activeFilter}
               />
             );
@@ -131,7 +133,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         className={styles.showMore}
         children='Show more'
         arrow='&#8595;'
-        onClick={() => setArticlesToSkip(articlesToSkip + 7)}
+        onClick={() => setArticlesToSkip(categoryId === 'All' ? 7 : 9)}
       />
     </div>
   );
