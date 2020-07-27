@@ -44,7 +44,7 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
   const seconds = readingTime - minutes * 60;
 
   const str_pad_left = (string, pad, length) =>
-    new Array(length + 1).join(pad) + string.slice(-length);
+    (new Array(length + 1).join(pad) + string).slice(-length);
 
   const finalTime =
     str_pad_left(minutes, '', 2) + ':' + str_pad_left(seconds, '0', 2);

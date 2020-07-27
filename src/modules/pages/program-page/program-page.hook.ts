@@ -2,9 +2,6 @@ import { gql, useQuery } from '@apollo/client';
 import { useHistory } from 'react-router';
 
 const useProgramPageData = programId => {
-  // const history = useHistory();
-  // const searchParams = new URLSearchParams(history.location.search);
-  // const programId = searchParams.get('programId');
   /**
    * query mentors for current program
    */
