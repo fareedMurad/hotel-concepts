@@ -25,7 +25,6 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
 
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
-  // const [visibleArticles, setVisibleArticles] = React.useState(7);
   const [articlesToSkip, setArticlesToSkip] = React.useState(0);
 
   const { articlesLoading, articles } = useArticlesData(
@@ -45,10 +44,6 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
     setArticlesToSkip(0);
     setArticlesToDisplay([]);
   };
-
-  // React.useEffect(() => {
-  //   setVisibleArticles(categoryId === 'All' ? 7 : 9);
-  // }, [categoryId]);
 
   console.log(articlesToDisplay);
   return (
@@ -99,9 +94,9 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         {articlesLoading ? (
           <Spinner />
         ) : (
-          articlesToDisplay
-            // .slice(0, visibleArticles)
-            .map((article, idx) => <ArticleCard articles={article} key={idx} />)
+          articlesToDisplay.map((article, idx) => (
+            <ArticleCard articles={article} key={idx} />
+          ))
         )}
         {popularArticleLoading ? (
           <Spinner />
