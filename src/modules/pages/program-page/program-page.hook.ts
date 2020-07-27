@@ -17,6 +17,7 @@ const useProgramPageData = () => {
             surname
             city
             position
+            slug
             sys {
               id
             }
