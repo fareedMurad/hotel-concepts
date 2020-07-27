@@ -2,25 +2,26 @@ import * as React from 'react';
 import { CoursePartnershipProps } from './course-partnership.props';
 import * as styles from './course-partnership.scss';
 import { Header } from '@core/components/header';
-import { H1, Button, Icon, H2, Paragraph, Footer } from '@core/components';
-import { HowBecomePartner } from './sections';
-import { PartnerBenefits } from './sections/partner-benefits';
-import { Criteria } from './sections/criteria';
+import { Footer } from '@core/components';
 import { PartnerApply } from '@pages/components';
-import { ScrollButton } from '@core/components/scroll-button';
-import { Hero } from './sections/hero';
-import { PartneringForSuccess } from './sections/partnering-for-success';
 import { ScrollToTop } from '@app';
+import {
+  PartneringForSuccess,
+  HowBecomePartner,
+  PartnerBenefits,
+  Criteria,
+  CoursePartnershipHero
+} from './sections';
 
 /**
  * Renders Course
  */
-const CoursePartnership: React.FC<CoursePartnershipProps> = ({ }) => {
+const CoursePartnership: React.FC<CoursePartnershipProps> = ({}) => {
   return (
-    <div className={styles.course}>
+    <React.Fragment>
       <ScrollToTop />
       <Header />
-      <Hero />
+      <CoursePartnershipHero />
       <PartneringForSuccess />
       <HowBecomePartner />
       <PartnerBenefits />
@@ -30,7 +31,7 @@ const CoursePartnership: React.FC<CoursePartnershipProps> = ({ }) => {
         subtitle='We’re always happy to talk if you are interested in becoming a Partner'
       />
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 

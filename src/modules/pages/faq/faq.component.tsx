@@ -3,13 +3,13 @@ import { FaqProps } from './faq.props';
 import * as styles from './faq.scss';
 import { Header } from '@core/components/header';
 import {
-  H2,
   Footer,
   H3,
   Field,
   Form,
   Button,
-  PreCaption
+  PreCaption,
+  SectionTitle
 } from '@core/components';
 import { Formik } from 'formik';
 import { FaqBlock } from '@pages/components';
@@ -20,9 +20,9 @@ const Faq: React.FC<FaqProps> = ({}) => (
   <div className={styles.faq}>
     <Header whiteBackground />
     <div className={styles.container}>
-      <H2>
+      <SectionTitle>
         Relax because we always <br /> be here for you.
-      </H2>
+      </SectionTitle>
     </div>
     <FaqBlock className={styles.faqWrapper} showTitle={false} />
     <footer className={styles.footer}>
@@ -40,7 +40,6 @@ const Faq: React.FC<FaqProps> = ({}) => (
           <Formik
             initialValues={{ name: '', email: '', comment: '' }}
             onSubmit={values => console.log(values)}
-            // validationSchema={} add later
           >
             {({ handleSubmit }) => (
               <Form>
@@ -61,9 +60,9 @@ const Faq: React.FC<FaqProps> = ({}) => (
                   <Button
                     onClick={() => handleSubmit()}
                     className={styles.submitButton}
-                  >
-                    <div>Send</div> <div>&#8594;</div>
-                  </Button>
+                    children='Send'
+                    arrow='&#8594;'
+                  />
                 </div>
               </Form>
             )}

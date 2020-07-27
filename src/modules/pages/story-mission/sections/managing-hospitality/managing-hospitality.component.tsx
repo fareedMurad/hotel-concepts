@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ManagingHospitalityProps } from './managing-hospitality.props';
 import * as styles from './managing-hospitality.scss';
-import { H2 } from '@core/components';
+import { SectionTitle } from '@core/components';
 import { useManagingHospitalityData } from './managing-hospitality.hook';
 import { TipCard } from '@pages/story-mission/components';
 
@@ -13,9 +13,9 @@ const ManagingHospitality: React.FC<ManagingHospitalityProps> = ({}) => {
 
   return (
     <div className={styles.managingHospitality}>
-      <H2 className={styles.title}>
+      <SectionTitle className={styles.title}>
         Managing hospitality <br /> in extraordinary times
-      </H2>
+      </SectionTitle>
       <div className={styles.cardsContainer}>
         {data.map(item => (
           <TipCard item={item} key={item.id} />

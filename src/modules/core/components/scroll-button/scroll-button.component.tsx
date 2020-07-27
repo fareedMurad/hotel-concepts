@@ -7,19 +7,18 @@ import classNames from 'classnames';
  * Renders ScrollButton
  */
 const ScrollButton: React.FC<ScrollButtonProps> = ({ text, className }) => {
-
   const scrollSection = () => {
     window.scrollBy({
       top: window.innerHeight - window.pageYOffset - 60,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
-  }
+  };
 
   return (
     <div className={classNames(styles.scrollButton, className)}>
       <button onClick={scrollSection}>
         <span className={styles.scroll}>
-          <img src={require('img/arrow-dwn.svg')} alt=""/>
+          <img src={require('img/arrow-dwn.svg')} alt='' />
           {text}
         </span>
       </button>

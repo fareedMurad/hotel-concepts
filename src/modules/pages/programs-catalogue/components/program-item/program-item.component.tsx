@@ -10,26 +10,27 @@ import { useHistory } from 'react-router';
 const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
   const {
     name,
-    type,
+    complexityLevel,
     category,
-    duration: { weeks, sprints },
     price,
     courseImage: { url },
     description,
     sys: { id },
-    slug
+    slug,
+    weeks,
+    sprints
   } = program;
   const history = useHistory();
   const handleClick = id => () =>
     history.push(`/program/${slug}?programId=${id}`);
-
+    
   return (
     <React.Fragment>
       <div className={styles.programItem}>
         <div className={styles.container}>
           <img src={url} alt='' />
           <div className={styles.info}>
-            <div className={styles.type}>{type}</div>
+            <div className={styles.type}>{complexityLevel}</div>
             <div className={styles.name}>{name}</div>
             <div className={styles.secondaryInfo}>
               {weeks} weeks
@@ -42,9 +43,12 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
           </div>
         </div>
         <div className={styles.buttonContainer}>
-          <Button onClick={handleClick(id)} className={styles.button}>
-            <div>Find out more</div> <div> &#8594; </div>
-          </Button>
+          <Button
+            onClick={handleClick(id)}
+            className={styles.button}
+            children='Find out more'
+            arrow='&#8594;'
+          />
         </div>
       </div>
       <div className={styles.hr} />

@@ -6,26 +6,13 @@
   height: 100vh;
   padding-left: 22px;
   padding-right: 22px;
-  background: url(/img/for-companies-intro.png) no-repeat center center;
-  background-blend-mode: darken;
+  @include heroImage();
+  @include imageOverlay();
   box-sizing: border-box;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0.2);
-  background-size: cover;
   min-height: 500px;
   @include container();
-  &-caption {
-    @include font($white, 60px, 600, 70px);
-    width: 100%;
-    font-family: $EBGaramond;
-    @include desktop() {
-      width: 70%;
-    }
-  }
   &-description {
-    @include font($white, 24px, 300, 34px);
-    width: 67%;
     margin-top: 25px;
     font-family: $IBMPlex;
   }

@@ -8,13 +8,18 @@
 
 .title {
   @include font($primary-gray, 36px, 500, 46px);
-  padding-left: 112px;
+  width: 100%;
+  text-align: center;
+  @include tablet() {
+    padding-left: 112px;
+    text-align: initial;
+  }
 }
 
 .filters {
   @include flex($align: stretch, $direction: column);
   margin: 30px 0px;
-  margin-top: 48px;
+  margin-top: 40px;
   @include tablet() {
     flex-direction: row;
     flex-wrap: wrap;

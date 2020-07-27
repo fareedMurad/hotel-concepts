@@ -7,6 +7,7 @@ type DownloadButtonProps = {
   filetype: string;
   size: string;
   url?: string;
+  contentType?: string;
 };
 
 export { DownloadButtonProps };

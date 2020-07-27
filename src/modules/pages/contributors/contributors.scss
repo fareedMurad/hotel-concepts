@@ -3,30 +3,20 @@
 .header {
   height: 100vh;
   &-img {
-    @include imageOverlay();
-    background: $hr;
-    @include heroImage();
     @include flex($align: stretch, $justify: center, $direction: column);
+    @include imageOverlay();
     width: 100%;
     height: 100vh;
+    @include heroImage();
     min-height: 500px;
   }
   &-content {
-    @include font($white, 60px, 600, 70px);
     @include container();
-    font-family: $EBGaramond;
     & > div:nth-child(2) {
-      @include font($white, 24px, 400, 34px); // bug
-      width: 100%;
       margin: 24px 0px;
-      @include desktop() {
-        width: 45%;
-      }
     }
   }
   &-btn {
-    @include flex($justify: space-between);
-    width: 230px;
     margin-top: 24px;
   }
   &--scroll {

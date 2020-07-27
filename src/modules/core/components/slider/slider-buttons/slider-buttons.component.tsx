@@ -8,17 +8,37 @@ import { Button } from '@core/components/button';
  * Renders SliderButtons
  */
 const SliderButtons: React.FC<SliderButtonsProps> = ({
-  next, previous, className, isBordered, path, btnText, onClick
+  next,
+  previous,
+  className,
+  isBordered,
+  path,
+  btnText,
+  onClick
 }) => {
   return (
     <div className={classNames(styles.sliderButtons, className)}>
-      {btnText && <Button onClick={onClick} className={styles.button} >
-        <div>{btnText}</div> <div>&#8594;</div>
-      </Button>}
-      <button onClick={previous} className={classNames(styles.previous, { [styles.bordered]: isBordered })}>
+      {btnText && (
+        <Button
+          onClick={onClick}
+          className={styles.button}
+          children={btnText}
+          arrow='&#8594;'
+          width={204}
+        />
+      )}
+      <button
+        onClick={previous}
+        className={classNames(styles.previous, {
+          [styles.bordered]: isBordered
+        })}
+      >
         <div>&#8592;</div>
       </button>
-      <button onClick={next} className={classNames(styles.next, { [styles.bordered]: isBordered })}>
+      <button
+        onClick={next}
+        className={classNames(styles.next, { [styles.bordered]: isBordered })}
+      >
         <div>&#8594;</div>
       </button>
     </div>

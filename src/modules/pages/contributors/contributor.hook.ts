@@ -6,7 +6,7 @@ const useContributorsData = () => {
    */
   const GET_MENTORS = gql`
     {
-      mentorCollection {
+      mentorCollection(limit: 10) {
         items {
           name
           surname
@@ -22,13 +22,20 @@ const useContributorsData = () => {
           }
         }
       }
+      asset(id: "1jbOWs6i1nmxoA6u5Vcebf") {
+        url
+      }
     }
   `;
 
   const { data, error, loading } = useQuery(GET_MENTORS);
 
   //init
-  return { contributors: data?.mentorCollection?.items, loading };
+  return {
+    contributors: data?.mentorCollection?.items,
+    loading,
+    contributorsHeroImage: data?.asset?.url
+  };
 };
 
 export { useContributorsData };

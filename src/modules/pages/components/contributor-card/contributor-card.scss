@@ -29,13 +29,10 @@
 }
 
 .info {
+  @include flex($align: flex-end, $justify: center);
+  @include size(inherit);
   position: absolute;
   top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  width: inherit;
-  height: inherit;
   border-radius: inherit;
   color: #ffffff00;
   background-color: rgba(0, 0, 0, 0);
@@ -43,6 +40,7 @@
   &-text {
     margin-bottom: 40px;
     padding-bottom: 2px;
+    font-weight: 500;
   }
 }
 
@@ -52,7 +50,7 @@
 }
 
 .role {
-  @include font($primary-gray, 16px, 300, 14px);
+  @include font($primary-gray, 16px, 400, 14px);
   margin-top: 4px;
 }
 

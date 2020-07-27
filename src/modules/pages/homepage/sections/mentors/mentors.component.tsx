@@ -3,7 +3,7 @@ import { MentorsProps } from './mentors.props';
 import * as styles from './mentors.scss';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
-import { useHistory, Route } from 'react-router';
+import { useHistory } from 'react-router';
 import { showModal, toogleContributorModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,8 @@ import { useMediaPoints } from '@core/shared';
 import { ContributorCard } from '@pages/components';
 import { Spinner } from '@core/components/spinner';
 import { State } from '@app/store/state';
+import { SectionTitle, Hr, PreCaption } from '@core/components';
+import classNames from 'classnames';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -39,21 +41,42 @@ const responsiveBreakpoints = {
 /**
  * Renders Mentors
  */
-const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
+const Mentors: React.FC<MentorsProps> = ({
+  contributors,
+  loading,
+  url,
+  modifiedCaption
+}) => {
   const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
 
   const handleClick = () => history.push(`/contributors`);
-
+  
   if (loading) return <Spinner />;
+  if (!contributors) return <div>No mentors yet</div>;
 
   return (
-    <section className={styles.mentors}>
-      <div className={styles.title}>
-        <div>Meet mentors & Coauthors</div>
-        <div />
+    <section
+      className={classNames(styles.mentors, {
+        [styles.mentorsModified]: modifiedCaption
+      })}
+    >
+      <div
+        className={classNames(styles.title, {
+          [styles.titleModified]: !modifiedCaption
+        })}
+      >
+        <SectionTitle>
+          {modifiedCaption && (
+            <PreCaption className={styles.preCaption}>
+              Meet the faculty
+            </PreCaption>
+          )}
+          Meet mentors & Coauthors
+        </SectionTitle>
+        <Hr className={styles.hr} />
         <div>
           World-class faculty introduce you to the very latest in hospitality
           business knowledge and provide you with the tools and skills to
@@ -87,7 +110,7 @@ const Mentors: React.FC<MentorsProps> = ({ contributors, loading, url }) => {
               !mobile &&
                 (dispatch(showModal(Modals.contributor)),
                 dispatch(toogleContributorModal(true)));
-            }}
+          }}
           />
         ))}
       </Slider>

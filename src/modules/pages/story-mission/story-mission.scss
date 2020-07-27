@@ -4,22 +4,16 @@
   position: relative;
   height: 100vh;
   &-img {
+    @include heroImage();
+    @include flex($align: center);
     position: relative;
     width: 100%;
     height: 100%;
-    background: $hr;
-    @include heroImage();
-    @include flex($align: center);
   }
   &-content {
-    @include font($white, 60px, 600, 70px);
     @include container();
     width: 100%;
     margin-top: 300px;
-    &-description {
-      font-family: $IBMPlex;
-      font-weight: 300;
-    }
     @include iphone7() {
       margin: 0;
     }
@@ -27,23 +21,20 @@
       // margin-top: calc(100vh - 570px);
       // width: 49%;
     }
-    font-family: $EBGaramond;
     & > div:nth-child(2) {
-      @include font($white, 24px, 400, 34px);
-      font-weight: 300;
-      // width: 50%;
       margin: 24px 0px;
+      // width: 50%;
     }
   }
   &--bar {
     position: absolute;
-    width: auto;
+    bottom: 56px;
     left: 20px;
     right: 20px;
-    bottom: 56px;
+    display: grid;
+    width: auto;
     overflow-x: auto;
     overflow-y: hidden;
-    display: grid;
     grid-template-columns: repeat(5, max-content);
     grid-template-rows: 1fr;
     gap: 20px;
@@ -69,17 +60,6 @@
     & > div:last-child {
       padding-right: 20px;
     }
-    // &::after {
-    //   @include tablet() {
-    //     display: none;
-    //   }
-    //   content: '\2192';
-    //   position: absolute;
-    //   bottom: -24px;
-    //   left: 2px;
-    //   font-size: 14px;
-    //   color: black;
-    // }
   }
   &__btn {
     @include flex($align: center, $justify: space-between);
@@ -148,6 +128,7 @@
     }
     & > div:last-child {
       justify-self: start;
+      align-self: center;
     }
   }
   &__paragraph {

@@ -4,29 +4,30 @@ import * as styles from './video-card.scss';
 import { WatchButton } from '@core/components/watch-button';
 import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
-import Player from "@vimeo/player";
-
+import Player from '@vimeo/player';
 
 /**
  * Renders VideoCard
  */
-const VideoCard: React.FC<VideoCardProps> = ({ pictureUrl, videoId }) => {
+const VideoCard: React.FC<VideoCardProps> = ({
+  pictureUrl,
+  videoId,
+  customTitle
+}) => {
   const [duration, setDuration] = React.useState(0);
-  const [videoTitle, setVideoTitle] = React.useState('')
+  const [videoTitle, setVideoTitle] = React.useState('');
   const videoPlayer = React.useRef<HTMLIFrameElement>(null);
   React.useEffect(() => {
-
     var player = new Player(videoPlayer.current);
     player.getDuration().then(el => setDuration(el));
-    player.getVideoTitle().then(el => setVideoTitle(el))
+    player.getVideoTitle().then(el => setVideoTitle(el));
   }, []);
-
 
   /**
    * convert duration
    */
 
-  const minutes = Math.floor(duration / 60)
+  const minutes = Math.floor(duration / 60);
   const seconds = duration - minutes * 60;
 
   return (
@@ -36,7 +37,12 @@ const VideoCard: React.FC<VideoCardProps> = ({ pictureUrl, videoId }) => {
         backgroundImage: `url(${pictureUrl})`
       }}
     >
-      <iframe ref={videoPlayer} src={`https://player.vimeo.com/video/${videoId}`} allowFullScreen hidden ></iframe>
+      <iframe
+        ref={videoPlayer}
+        src={`https://player.vimeo.com/video/${videoId}`}
+        allowFullScreen
+        hidden
+      />
       <div className={styles.controls}>
         <Popup
           contentStyle={{
@@ -48,7 +54,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ pictureUrl, videoId }) => {
             <div className={styles.watchButton}>
               <WatchButton
                 time={`${minutes}: ${seconds}`}
-                titleText={videoTitle}
+                titleText={!customTitle ? videoTitle : customTitle}
               />
             </div>
           }

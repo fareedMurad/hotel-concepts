@@ -1,37 +1,46 @@
+import { gql, useQuery } from '@apollo/client';
+import { useHistory } from 'react-router';
+
 const useProgramPageData = () => {
-  const learningApproach = [
-    {
-      name: 'Sprints',
-      description:
-        'Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem.'
-    },
-    {
-      name: 'Tests & Quizzes',
-      description:
-        'Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem.'
-    },
-    {
-      name: 'Videos',
-      description:
-        'Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem.'
-    },
-    {
-      name: 'Case Studies',
-      description:
-        'Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem.'
-    },
-    {
-      name: 'Practical Assignments',
-      description:
-        'Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem.'
-    },
-    {
-      name: 'Q&A sessions',
-      description:
-        'Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem.'
+  const history = useHistory();
+  const searchParams = new URLSearchParams(history.location.search);
+  const programId = searchParams.get('programId');
+  /**
+   * query mentors for current program
+   */
+  const GET_MENTORS = gql`
+    query($id: String!) {
+      onlineCourse(id: $id) {
+        mentorsCollection {
+          items {
+            name
+            surname
+            city
+            position
+            slug
+            sys {
+              id
+            }
+            mentorPicture {
+              url
+            }
+          }
+        }
+      }
     }
-  ];
-  return { learningApproach };
+  `;
+  const { data, loading, error } = useQuery(GET_MENTORS, {
+    variables: { id: programId }
+  });
+
+  const mentorsForCurrentCourse = data?.onlineCourse?.mentorsCollection?.items;
+
+  return {
+    mentorsForCurrentCourse,
+    mentorsForCurrentCourseLoading: loading,
+    programId,
+    history
+  };
 };
 
 export { useProgramPageData };

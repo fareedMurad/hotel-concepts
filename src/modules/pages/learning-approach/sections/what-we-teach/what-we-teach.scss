@@ -11,11 +11,10 @@
 .card-container {
   display: grid;
   @include container-sm();
-  row-gap: 40px;
+  row-gap: 10px;
   @include desktop() {
-    grid-template-columns: 459px 459px 459px;
-    grid-template-rows: repeat(2, 1fr);
-    column-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
   }
   @include desktop-lg() {
     grid-template-columns: 1fr 1fr 1fr;
@@ -35,19 +34,15 @@
     letter-spacing: -0.36px;
   }
   &-caption {
-    @include font($primary-gray, 24px, 380, 34px);
-    margin: 20px 0px;
-    font-family: $IBMPlex;
+    @include font($primary-gray, 24px, 400, 34px);
+    margin: 18px 0px;
   }
   &-description {
-    @include font($primary-gray, 18px, 300, 28px);
+    @include font($primary-gray, 18px, 400, 28px);
     margin-bottom: 70px;
-    font-family: $IBMPlex;
   }
   &-button {
-    @include flex($justify: space-between);
     position: absolute;
     bottom: 36px;
-    width: 60%;
   }
 }

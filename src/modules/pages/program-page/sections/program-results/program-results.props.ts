@@ -2,7 +2,7 @@
  * Props
  */
 type ProgramResultsProps = {
-  results: string[];
+  programId: string;
 };
 
 export { ProgramResultsProps };

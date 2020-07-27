@@ -1,37 +1,24 @@
 import * as React from 'react';
 import { QuoteProps } from './quote.props';
 import * as styles from './quote.scss';
-import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components/spinner';
-
-/**
- * get quote test
- */
-
-const GET_QUOTE_TEXT = gql`
-  {
-    quoteTextCollection {
-      items {
-        text
-      }
-    }
-  }
-`;
+import { useQuoteData } from './quote.hook';
 
 /**
  * Renders Quote
  */
 
 const Quote: React.FC<QuoteProps> = ({}) => {
-  const { data, loading, error } = useQuery(GET_QUOTE_TEXT);
+  const { quoteData, quoteLoading, quoteImage } = useQuoteData();
 
-  if (loading) return <Spinner />;
-  const { items } = data.quoteTextCollection;
-  const { text } = items[0];
+  if (quoteLoading) return <Spinner />;
 
   return (
-    <section className={styles.quote}>
-      <div className={styles.text}>{`"${text}"`}</div>
+    <section
+      className={styles.quote}
+      style={{ backgroundImage: `url(${quoteImage})` }}
+    >
+      <div className={styles.text}>{`"${quoteData.text}"`}</div>
     </section>
   );
 };

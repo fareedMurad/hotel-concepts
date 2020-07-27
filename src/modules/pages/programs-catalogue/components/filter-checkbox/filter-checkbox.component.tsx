@@ -5,17 +5,21 @@ import * as styles from './filter-checkbox.scss';
 /**
  * Renders FilterCheckbox
  */
-const FilterCheckbox: React.FC<FilterCheckboxProps> = ({ name, isChecked, onCheck }) => {
+const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
+  name,
+  isChecked,
+  onCheck
+}) => {
   return (
     <label className={styles.filterCheckbox}>
       <input
         className={styles.checkbox}
-        name="isGoing"
-        type="checkbox"
+        name='isGoing'
+        type='checkbox'
         checked={isChecked}
         onChange={onCheck}
       />
-      <span></span>
+      <span />
       {name}
     </label>
   );

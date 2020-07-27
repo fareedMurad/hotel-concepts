@@ -2,16 +2,13 @@
 
 .meet-kordie {
   @include container();
-  margin-top: 68px;
-  margin-bottom: 78px;
+  margin: 68px 0px 78px 0px;
   &--title {
     letter-spacing: -0.48px;
   }
   &--description {
     width: 100%;
     margin-top: 14px;
-    font-family: $IBMPlex;
-    font-weight: 300;
     @include desktop() {
       width: 50%;
     }

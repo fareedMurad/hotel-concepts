@@ -16,7 +16,7 @@ const ButtonFilter: React.FC<ButtonFilterProps> = ({
   className
 }) => {
   const buttonEl = React.useRef();
-  
+
   return (
     <div
       className={classNames(

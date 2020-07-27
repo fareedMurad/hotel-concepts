@@ -10,8 +10,10 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialised;
 }
 
 body {
   font-family: $IBMPlex;
+  -webkit-font-smoothing: antialiased; 
 }

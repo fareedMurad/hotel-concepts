@@ -5,7 +5,7 @@ import {
 } from './our-mission-vision.props';
 import * as styles from './our-mission-vision.scss';
 import { HeroCaption } from '@pages/story-mission/components';
-import { Paragraph, H2, Button } from '@core/components';
+import { Paragraph, H2, Button, SectionTitle } from '@core/components';
 import { Link } from 'react-router-dom';
 import { useOurMissionVisionData } from './our-mission-vision.hook';
 
@@ -23,10 +23,12 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
         {description}
       </Paragraph>
       <Link to={`/in-progress/${id}`} className={styles.programBlockBtn}>
-        <Button theme='secondary'>
-          <div>Explore programs</div>
-          <div>&#8594;</div>
-        </Button>
+        <Button
+          theme='secondary'
+          width={224}
+          children='Explore programs'
+          arrow='&#8594;'
+        />
       </Link>
     </div>
   );
@@ -35,14 +37,14 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
  * Renders OurMissionVision
  */
 const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
-  const { programs } = useOurMissionVisionData();
+  const { programs, ourMissionImage } = useOurMissionVisionData();
 
   return (
-    <div className={styles.ourMissionVision} id="mission">
+    <div className={styles.ourMissionVision} id='mission'>
       <section
         className={styles.heroBlock}
         style={{
-          backgroundImage: `url(${require('img/story-mission/story-mission-2.png')})`
+          backgroundImage: `url(${ourMissionImage})`
         }}
       >
         <HeroCaption
@@ -56,8 +58,8 @@ const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
         </Paragraph>
       </section>
       <section className={styles.kordie}>
-        <div className={styles.kordieWrapper} id="our-work">
-          <H2>The Kordie Impact</H2>
+        <div className={styles.kordieWrapper} id='our-work'>
+          <SectionTitle>The Kordie Impact</SectionTitle>
           <Paragraph className={styles.kordieParagraph}>
             Kordie provides world-class online education for hospitality that is
             innovative, practical, and results-focused to prepare individuals

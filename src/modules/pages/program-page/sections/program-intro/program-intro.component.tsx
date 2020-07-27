@@ -4,28 +4,35 @@ import * as styles from './program-intro.scss';
 import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
-import { Button } from '@core/components';
-import { useProgramData } from './progtam-intro.hook';
+import { Button, Spinner } from '@core/components';
+import { useProgramIntroData } from './progtam-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { BackButton } from '@core/components/back-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { gql, useQuery } from '@apollo/client';
 
 /**
  * Renders ProgramIntro
  */
+const GET_HERO_IMAGE = gql`
+  {
+    asset(id: "1AUGqfy1dtHdslM33eRnXo") {
+      url
+    }
+  }
+`;
 
-/**
- *
- */
-const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
-  const { name, description, videoVimeoUrl } = introInfo;
-  const videoInfo = {
-    path: 'ForCorporateClients.preview',
-    time: '0:56'
-  };
+const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
+  const { programData, programDataLoading, navButtons } = useProgramIntroData(
+    programId
+  );
+  const { data, error, loading } = useQuery(GET_HERO_IMAGE);
+  // const videoInfo = {
+  //   path: 'ForCorporateClients.preview',
+  //   time: '0:56'
+  // };
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [video, setVideo] = React.useState<HTMLVideoElement>();
-  const { navButtons } = useProgramData();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
   const scrollToEnroll = () => {
     scrollTo('enroll');
@@ -57,8 +64,17 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
     }
   };
 
+  if (programDataLoading) return <Spinner />;
+  /**
+   * destucturing data after loaded
+   */
+  const { name, description, videoVimeoUrl } = programData;
+
   return (
-    <section className={styles.programIntro}>
+    <section
+      className={styles.programIntro}
+      style={{ backgroundImage: `url(${data?.asset?.url})` }}
+    >
       <BackButton className={styles.backButton} />
       <div className={styles.title}>
         <div>{name}</div>
@@ -75,7 +91,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
             <WatchButton
               onEnter={playVideo}
               onLeave={stopVideo}
-              time={videoInfo.time}
+              time='0:54'
               titleText='Watch Trailer'
             />
           </div>
@@ -100,15 +116,19 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ introInfo }) => {
             key={index}
           />
         ))}
-        <Button onClick={scrollToEnroll} className={styles.button}>
-          <div>Enroll now</div> <div>→</div>
-        </Button>
+        <Button
+          onClick={scrollToEnroll}
+          className={styles.button}
+          children='Enroll now'
+          arrow='→'
+          width='inherit'
+        />
       </div>
 
       <video
         ref={videoRef}
         className={styles.video}
-        src={require(`assets/videos/${videoInfo.path}.mov`)}
+        // src={require(`assets/videos/${videoInfo.path}.mov`)}
         muted
       />
     </section>

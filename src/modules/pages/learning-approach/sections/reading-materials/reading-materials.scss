@@ -4,9 +4,9 @@
   margin-top: 80px;
 }
 .wrapper {
-  width: 95%;
-  margin: 0 auto;
+  margin: 0 22px;
 }
+
 .cards-container {
   display: grid;
   gap: 20px;
@@ -14,7 +14,7 @@
   & > div {
     margin-bottom: 20px;
     margin-right: 2.7%;
-    font-weight: 300;
+    font-weight: 400;
   }
   @include tablet() {
     grid-template-columns: repeat(2, 336px);

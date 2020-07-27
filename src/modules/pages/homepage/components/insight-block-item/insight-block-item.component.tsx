@@ -14,29 +14,39 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
   slug,
   date,
   articleImage,
-  id,
+  id
 }) => {
   const { url } = articleImage;
   const { month, year, day } = date;
-  const history = useHistory()
+  const history = useHistory();
 
-  console.log(categories)
+  console.log(categories);
   return (
     <div className={styles.insightBlockItem}>
       <div className={styles.imgContainer}>
         <img src={url} alt='insight' className={styles.img} />
         <div className={styles.tags}>
-          {categories.map((category => {
-            return <div className={styles.activity}>{category}</div>
-          }))}
+          {categories.map((category, index) => {
+            return (
+              <div key={index} className={styles.activity}>
+                {category}
+              </div>
+            );
+          })}
         </div>
-
       </div>
       <div className={styles.date}>{`${month} ${day}, ${year}`}</div>
       <div className={styles.description}>{title}</div>
-      <Button className={styles.button} theme='secondary' onClick={() => { history.push(`/insights/article/${id}`) }}>
-        <div>Read more</div> <div>&#8594;</div>
-      </Button>
+      <Button
+        className={styles.button}
+        theme='secondary'
+        onClick={() => {
+          history.push(`/insights/article/${id}`);
+        }}
+        children='Read more'
+        arrow='&#8594;'
+        width='100%'
+      />
     </div>
   );
 };

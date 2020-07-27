@@ -24,7 +24,7 @@
 }
 
 .faq-title {
-  @include font($primary-grey, 48px, 600, 58px);
+  @include font($primary-gray, 48px, 600, 58px);
   font-family: $EBGaramond;
   margin-top: 120px;
   padding-left: $left-offset;

@@ -2,7 +2,15 @@ import * as React from 'react';
 import { StoryMissionProps } from './story-mission.props';
 import * as styles from './story-mission.scss';
 import { Header } from '@core/components/header';
-import { Button, H2, Paragraph, Footer } from '@core/components';
+import {
+  Button,
+  H2,
+  Paragraph,
+  Footer,
+  HeroTitle,
+  HeroSubtitle,
+  SectionTitle
+} from '@core/components';
 import { useStoryMissionData } from './story-mission.hook';
 import { HeroCaption } from './components';
 import { ManagingHospitality, OurMissionVision } from './sections';
@@ -35,7 +43,7 @@ const Anchor: React.FC<{ anchor: string; rate: string; caption: string }> = ({
  * Renders StoryMission
  */
 const StoryMission: React.FC<StoryMissionProps> = ({}) => {
-  const { anchors } = useStoryMissionData();
+  const { anchors, storyMissionHeroImage } = useStoryMissionData();
 
   return (
     <div className={styles.storyMission}>
@@ -43,16 +51,16 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
         <Header />
         <div
           style={{
-            backgroundImage: `url(${require('img/story-mission/story-mission-1.png')})`
+            backgroundImage: `url(${storyMissionHeroImage})`
           }}
           className={styles.headerImg}
         >
           <div className={styles.headerContent}>
-            <div>About Kordie</div>
-            <div className={styles.headerContentDescription}>
+            <HeroTitle>About Kordie</HeroTitle>
+            <HeroSubtitle className={styles.headerContentDescription}>
               New Knowledge for the New <br />
               Hospitality Economy
-            </div>
+            </HeroSubtitle>
             <div className={styles.headerBar}>
               {anchors.map(item => {
                 const { anchor, rate, caption } = item;
@@ -66,11 +74,13 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
                 );
               })}
 
-              <a style={{ height: '100%' }} href='#get-involved'>
-                <Button className={styles.headerBtn}>
-                  <div>Contact us</div> <div>&#8594;</div>
-                </Button>
-              </a>
+              <Button
+                className={styles.headerBtn}
+                onClick={() => scrollTo('get-involved')}
+                children='Contact us'
+                arrow='&#8594;'
+                width='inherit'
+              />
             </div>
           </div>
         </div>
@@ -85,9 +95,13 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
       <ManagingHospitality />
       <Hr />
       <section className={styles.whyKordieSection}>
-        <H2 className={styles.whyKordieTitle}>Why 'Kordie' ?</H2>
+        <SectionTitle className={styles.whyKordieTitle}>
+          Why 'Kordie' ?
+        </SectionTitle>
         <main className={styles.whyKordieContainer}>
-          <H2 className={styles.animation}>Animation here</H2>
+          <SectionTitle className={styles.animation}>
+            Animation here
+          </SectionTitle>
           <div className={styles.whyKordieParagraph}>
             <Paragraph>
               Hospitality and Cordiality are inseparable. Principle of

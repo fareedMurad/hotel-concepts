@@ -32,13 +32,13 @@
   }
 }
 .title {
-  @include font($primary-grey, 36px, 600, 46px);
+  @include font($primary-gray, 36px, 600, 46px);
   font-family: $EBGaramond;
   letter-spacing: -0.48px;
   margin-bottom: 24px;
 }
 .subtitle {
-  @include font($primary-grey, 16px, 400, 22px);
+  @include font($primary-gray, 16px, 400, 22px);
   font-family: $IBMPlex;
   margin-bottom: 32px;
   max-width: 520px;
@@ -101,7 +101,7 @@
 .name,
 .email,
 .comment {
-  @include font($primary-grey, 16px, 400, 22px);
+  @include font($primary-gray, 16px, 400, 22px);
   font-family: $IBMPlex;
   label {
     margin-left: 4px;

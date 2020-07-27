@@ -3,11 +3,21 @@ import { ProgramsContactUsProps } from './programs-contact-us.props';
 import * as styles from './programs-contact-us.scss';
 import { Button } from '@core/components';
 import classNames from 'classnames';
-
+import { gql, useQuery } from '@apollo/client';
+/**
+ * Get hero image
+ */
+const GET_HERO_IMAGE = gql`
+  {
+    asset(id: "172ajOUFQrMpose4jteiQF") {
+      url
+    }
+  }
+`;
 /**
  * Renders ProgramsContactUs
  */
-const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({ }) => {
+const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
   const formInitValue = {
     name: '',
     email: '',
@@ -15,6 +25,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({ }) => {
     employees: '',
     interest: ''
   };
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
 
   const [formValues, setFormValue] = React.useState(formInitValue || {});
 
@@ -26,7 +37,6 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({ }) => {
 
   const submitHandler = (event: any) => {
     event.preventDefault();
-
   };
 
   return (
@@ -106,12 +116,18 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({ }) => {
               <option value='3'>3</option>
             </select>
           </div>
-          <Button type='submit' className={styles.button}>
-            <div>Contact me</div> <div> &#8594; </div>
-          </Button>
+          <Button
+            type='submit'
+            className={styles.button}
+            children='Contact me'
+            arrow='&#8594;'
+          />
         </form>
       </div>
-      <div className={styles.footer} />
+      <div
+        className={styles.footer}
+        style={{ backgroundImage: `url(${data?.asset?.url})` }}
+      />
     </React.Fragment>
   );
 };

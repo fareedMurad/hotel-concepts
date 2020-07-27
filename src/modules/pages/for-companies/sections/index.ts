@@ -5,3 +5,6 @@ export * from './how-we-work';
 export * from './our-approach';
 export * from './our-programs';
 export * from './why-cordie';
+export * from './increase-your-competitive';
+export * from './intro';
+export * from './talent-matters';

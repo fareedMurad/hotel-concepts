@@ -16,7 +16,6 @@
   &__hr {
     width: 38%;
     height: 1px;
-    background: #cbd0d3;
   }
   &__statistic {
     @include flex($align: stretch);

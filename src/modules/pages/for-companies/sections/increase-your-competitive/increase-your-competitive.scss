@@ -3,6 +3,6 @@
 .increase-your-competitive {
   @include container($top: 120px);
   &--text {
-    @include font($primary-grey, 24px, 300, 34px);
+    @include font($primary-gray, 24px, 400, 34px);
   }
 }

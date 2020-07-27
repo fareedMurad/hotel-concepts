@@ -1,3 +1,5 @@
+import { useQuery, gql } from '@apollo/client';
+
 const useMarketplaceData = () => {
   const maketplaceFiltersData = [
     { id: 1, title: 'Web templates', count: 256, anchor: 'web-templates' },
@@ -91,7 +93,22 @@ const useMarketplaceData = () => {
     }
   ];
 
-  return { goodsData, maketplaceFiltersData, books };
+  const GET_HERO_IMAGE = gql`
+    {
+      asset(id: "1Oe9SWii4bl6dU4aiQbWRD") {
+        url
+      }
+    }
+  `;
+
+  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+
+  return {
+    goodsData,
+    maketplaceFiltersData,
+    books,
+    marketPlaceHeroImage: data?.asset?.url
+  };
 };
 
 export { useMarketplaceData };

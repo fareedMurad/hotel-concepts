@@ -46,7 +46,7 @@
     @include flex($justify: space-evenly, $direction: column);
     height: 100%;
     padding: 20px;
- 
+
     @include tablet() {
       padding: 80px 110px;
     }
@@ -63,13 +63,6 @@
       @include tablet() {
         @include font($white, 48px, 500, 58px);
       }
-    }
-  }
-  &-button {
-    @include flex($justify: space-between);
-    width: 204px;
-    button {
-      width: 100%;
     }
   }
 }

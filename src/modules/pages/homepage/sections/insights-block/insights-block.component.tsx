@@ -7,6 +7,7 @@ import { InsightBlockItem } from '@pages/homepage/components/insight-block-item'
 import { useHistory } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components/spinner';
+import { SectionTitle } from '@core/components';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -39,7 +40,7 @@ const GET_ARTICLES = gql`
         }
         title
         preText
-        category
+        # categories
         slug
         date
         articleImage {
@@ -53,7 +54,7 @@ const GET_ARTICLES = gql`
 /**
  * Renders InsightsBlock
  */
-const InsightsBlock: React.FC<InsightsBlockProps> = ({ }) => {
+const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
   const history = useHistory();
   const handleClick = () => history.push(`/insights`);
 
@@ -61,14 +62,14 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({ }) => {
 
   if (loading) return <Spinner />;
   const { items: articles } = data.articleCollection;
-
+  console.log(articles);
   return (
     <section className={styles.insightsBlock}>
       <div className={styles.title}>
-        <div>Cordie Insights</div>
+        <SectionTitle>Cordie Insights</SectionTitle>
         <div>Make the most of your learning experience</div>
       </div>
-      <Slider
+      {/* <Slider
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
@@ -83,7 +84,15 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({ }) => {
         }
       >
         {articles.map(article => {
-          const { title, preText, category, slug, date, articleImage, sys: { id } } = article;
+          const {
+            title,
+            preText,
+            category,
+            slug,
+            date,
+            articleImage,
+            sys: { id }
+          } = article;
           return (
             <InsightBlockItem
               title={title}
@@ -97,7 +106,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({ }) => {
             />
           );
         })}
-      </Slider>
+      </Slider> */}
     </section>
   );
 };

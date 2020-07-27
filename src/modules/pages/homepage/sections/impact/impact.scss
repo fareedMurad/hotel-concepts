@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .impact {
   width: 100%;
@@ -8,29 +8,21 @@
 
 .title {
   margin-bottom: 48px;
-  & > div:first-child {
-    @include font($primary-orange, 18px, 400, 28px);
-    font-family: $IBMPlex;
-  }
   & > div:nth-child(2) {
-    @include font($primary-gray, 48px, 500, 58px);
     margin-top: 12px;
-    letter-spacing: -0.48px;
-    font-family: $EBGaramond;
   }
 }
 
 .slider {
   @include flex($justify: space-between, $align: center);
-  padding-bottom: 72px;
-  // padding-bottom: 108px;
-  overflow: hidden;
   position: relative;
+  padding-bottom: 72px;
+  overflow: hidden;
 }
 
 .controls {
-  bottom: 0;
   position: absolute;
+  bottom: 0;
 }
 
 @media screen and (max-width: 768px) {

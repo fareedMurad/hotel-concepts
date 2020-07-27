@@ -2,41 +2,48 @@ import * as React from 'react';
 import { JobDetailsProps } from './job-details.props';
 import * as styles from './job-details.scss';
 import { JobApply } from './components/job-apply';
-import { H2, Paragraph, H5, H3, Footer, Spinner } from '@core/components';
+import {
+  H2,
+  Paragraph,
+  H5,
+  H3,
+  Footer,
+  Spinner,
+  SectionTitle,
+  PreCaption
+} from '@core/components';
 import { Header } from '@core/components/header';
 import { useHistory, useParams } from 'react-router';
-import { useJobsListData } from '@pages/jobs-list/jobs-list.hook';
 import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
-
 
 /**
  * query job
  */
 
 const GET_JOB = gql`
- query($id: String!){
+  query($id: String!) {
     jobs(id: $id) {
       name
-      jobTime
+      employeeType
       location
       description
     }
-}
- `
+  }
+`;
 /**
  * Renders JobPage
  */
 
-const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
+const JobDetails: React.FC<JobDetailsProps> = ({}) => {
   const history = useHistory();
   const { id: jobId } = useParams();
   const { data, loading, error } = useQuery(GET_JOB, {
     variables: { id: jobId }
-  })
+  });
 
-  if (loading) return <Spinner />
-  const { jobs: job } = data
+  if (loading) return <Spinner />;
+  const { jobs: job } = data;
 
   return (
     <React.Fragment>
@@ -48,8 +55,8 @@ const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
       <Header whiteBackground />
       <div className={styles.jobPage}>
         <section className={styles.sectionA}>
-          <H2 className={styles.title}>{job.name}</H2>
-          <H5 className={styles.titleOrange}>{job.location}</H5>
+          <SectionTitle className={styles.title}>{job.name}</SectionTitle>
+          <PreCaption className={styles.preCaption}>{job.location}</PreCaption>
           <Paragraph className={styles.sectionADescription}>
             {job.description}
           </Paragraph>
@@ -69,4 +76,3 @@ const JobDetails: React.FC<JobDetailsProps> = ({ }) => {
 };
 
 export { JobDetails };
-

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HowBecomePartnerProps } from './how-become-partner.props';
 import * as styles from './how-become-partner.scss';
-import { H2, Icon } from '@core/components';
+import { H2, Icon, SectionTitle } from '@core/components';
 import { Card } from './card';
 import { useCoursePartnershipHook } from '@pages/course-partnership/course-partnership.hook';
 
@@ -14,9 +14,9 @@ const HowBecomePartner: React.FC<HowBecomePartnerProps> = ({}) => {
     <div className={styles.howBecomePartner}>
       <div className={styles.howBecomePartnerTitle}>
         <Icon name='abstract-1' />
-        <H2>
+        <SectionTitle>
           Who can become a <br /> Partner?
-        </H2>
+        </SectionTitle>
       </div>
       <div className={styles.cardsRow}>
         {cardsData.map(card => {

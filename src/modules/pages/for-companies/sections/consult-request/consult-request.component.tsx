@@ -81,16 +81,12 @@ const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => {
                     whiteBackground
                   />
                 </div>
-                <Button className={styles.contactMeButton}>
-                  <div>Contact Me</div>
-                  <div>&rarr;</div>
-                </Button>
+                <Button children='Contact me' arrow='&rarr;' />
               </div>
             </Form>
           )}
         </Formik>
       </div>
-      <div className={styles.hr} />
     </div>
   );
 };

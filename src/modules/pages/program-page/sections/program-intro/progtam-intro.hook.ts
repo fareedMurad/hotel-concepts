@@ -1,28 +1,48 @@
-const useProgramData = () => {
+import { gql, useQuery } from '@apollo/client';
+
+const useProgramIntroData = (programId: string) => {
+  const GET_PROGRAM_DATA = gql`
+    query($id: String!) {
+      onlineCourse(id: $id) {
+        name
+        description
+        videoVimeoUrl
+      }
+    }
+  `;
+
+  const { data, loading, error } = useQuery(GET_PROGRAM_DATA, {
+    variables: { id: programId }
+  });
+
   const navButtons = [
     {
-      name: "About",
-      anchor: "about"
+      name: 'About',
+      anchor: 'about'
     },
     {
-      name: "Content",
-      anchor: "content"
+      name: 'Content',
+      anchor: 'content'
     },
     {
-      name: "Facility",
-      anchor: "facility"
+      name: 'Facility',
+      anchor: 'facility'
     },
     {
-      name: "Results",
-      anchor: "results"
+      name: 'Results',
+      anchor: 'results'
     },
     {
-      name: "Feedbacks",
-      anchor: "get-involved"
+      name: 'Feedbacks',
+      anchor: 'get-involved'
     }
   ];
 
-  return { navButtons };
+  return {
+    navButtons,
+    programData: data?.onlineCourse,
+    programDataLoading: loading
+  };
 };
 
-export { useProgramData };
+export { useProgramIntroData };

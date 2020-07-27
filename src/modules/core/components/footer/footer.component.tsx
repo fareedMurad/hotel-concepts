@@ -14,9 +14,9 @@ import { gql, useQuery } from '@apollo/client';
  */
 const CATEGORIES = gql`
   {
-    courseCategoryCollection {
+    courseCategoryCollection(limit: 5) {
       items {
-        category
+        name
         sys {
           id
         }
@@ -42,7 +42,7 @@ const Navigation: React.FC<{
               key={idx}
               to={rest.sys ? `/programs-catalogue/${rest.sys.id}` : to}
             >
-              {rest.category ? rest.category : caption}
+              {rest.name ? rest.name : caption}
             </NavLink>
           );
         })}
@@ -86,10 +86,8 @@ const Footer: React.FC<FooterProps> = ({}) => {
           <Formik
             initialValues={{ email: '' }}
             onSubmit={values => {
-              // dispatch(action(values));
               console.log(values);
             }}
-            // validationSchema={} add later
           >
             {({ handleSubmit }) => (
               <Form handleSubmit={handleSubmit}>
@@ -104,9 +102,10 @@ const Footer: React.FC<FooterProps> = ({}) => {
                     onClick={() => handleSubmit()}
                     className={styles.buttonSubmit}
                     type='submit'
-                  >
-                    <div>Subscribe</div> <div>&#8594;</div>
-                  </Button>
+                    children='Subscribe'
+                    arrow='&#8594;'
+                    width={176}
+                  />
                 </div>
               </Form>
             )}

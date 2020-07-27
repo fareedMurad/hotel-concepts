@@ -2,10 +2,7 @@
  * Props
  */
 type EnrollProps = {
-  shouldEnroll: {
-    text: string;
-    roles: string[];
-  }
+  programId: string;
 };
 
 export { EnrollProps };

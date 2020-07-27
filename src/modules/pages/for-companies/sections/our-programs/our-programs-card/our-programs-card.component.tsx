@@ -10,14 +10,12 @@ const OurProgramsCard: React.FC<OurProgramsCardProps> = ({
   count,
   title,
   text
-}) => {
-  return (
-    <div className={styles.ourProgramsCard}>
-      <H3 className={styles.orange}>{count}</H3>
-      <Paragraph className={styles.subtitle}>{title}</Paragraph>
-      <Paragraph>{text}</Paragraph>
-    </div>
-  );
-};
+}) => (
+  <div className={styles.ourProgramsCard}>
+    <H3 className={styles.orange}>{count}</H3>
+    <Paragraph className={styles.subtitle}>{title}</Paragraph>
+    <Paragraph>{text}</Paragraph>
+  </div>
+);
 
 export { OurProgramsCard };

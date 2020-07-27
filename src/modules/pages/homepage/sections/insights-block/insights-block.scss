@@ -7,12 +7,12 @@
 }
 
 .title {
-  padding-left: 112px;
+  // padding-left: 22px;
+  @include tablet() {
+    padding-left: 112px;
+  }
   & > div:first-child {
-    @include font($primary-gray, 48px, 500, 58px);
     max-width: 600px;
-    letter-spacing: -0.48px;
-    font-family: $EBGaramond;
     &::before {
       content: url('../../../../../assets/img/text-decorator.svg');
       position: absolute;
@@ -20,7 +20,7 @@
     }
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 24px, 300, 34px);
+    @include font($primary-gray, 24px, 400, 34px);
     margin-top: 12px;
     margin-bottom: 40px;
   }
@@ -29,16 +29,11 @@
 .slider {
   @include flex($justify: space-between, $align: center);
   position: relative;
+  margin-right: 1px;
   padding-bottom: 108px;
   overflow: hidden;
-  padding-left: $default-offset;
   ul {
     margin-bottom: 8px;
-    li {
-      @include desktop() {
-        // width: 478px !important;
-      }
-    }
   }
 }
 
@@ -47,9 +42,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .title {
-    padding-left: $default-offset;
-  }
   .controls,
   .slider {
     padding-left: 0;

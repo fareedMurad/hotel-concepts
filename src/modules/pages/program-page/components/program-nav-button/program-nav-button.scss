@@ -20,7 +20,7 @@
   }
   & > div:nth-child(2) {
     margin-left: 10px;
-    @include font($primary-grey, 16px, 400, 18px);
+    @include font($primary-gray, 16px, 400, 18px);
     font-family: $IBMPlex;
   }
 }
