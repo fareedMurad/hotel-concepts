@@ -65,11 +65,13 @@
     }
   }
   &--info {
-    @include font($primary-gray, 24px, 400, 34px);
+    @include font($primary-gray, 24px, 500, 34px);
+    margin-top: 9px;
     font-family: $IBMPlex;
   }
   &--details {
     @include font($primary-gray, 16px, 400, 22px);
+    margin-top: 4px;
     font-family: $IBMPlex;
   }
 }

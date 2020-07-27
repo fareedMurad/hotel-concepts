@@ -68,7 +68,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
               </div>
               <div
                 className={styles.contributorDetails}
-                style={{ fontWeight: 400 }}
+                style={{ fontWeight: 500 }}
               >
                 {workAt}, {position}
               </div>
