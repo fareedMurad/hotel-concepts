@@ -31,6 +31,7 @@ import {
 import { useMediaPoints } from '@core/shared';
 import { toogleContributorModal } from '@ui/modal';
 import { NotFound } from '@app/components';
+import { TestPage } from 'src/modules/test-page';
 
 /**
  * Renders Routes
@@ -48,6 +49,7 @@ const Routes: React.FC = () => {
         <Route path='/profile' component={Profile} />
         <Route path='/auth' component={Auth} />
         <Route path='/uikit' component={Uikit} />
+        <Route path='/testing' component={TestPage} />
 
         <Route path='/insights/article/:id' component={ArticlePage} />
         <Route path='/contact-us' component={ContactsPage} />
