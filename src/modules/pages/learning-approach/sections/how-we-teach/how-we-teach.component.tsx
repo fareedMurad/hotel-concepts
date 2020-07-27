@@ -35,7 +35,11 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
   return (
     <div className={styles.howWeTeach}>
       <SectionTitle className={styles.title}>How we teach</SectionTitle>
-      <Caption rate='1.0' title='World class content' />
+      <Caption
+        className={styles.captionWrapper}
+        rate='1.0'
+        title='World class content'
+      />
       <section className={styles.wrapper}>
         <div className={styles.wccCards}>
           <WorldClassCard
@@ -66,7 +70,11 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
           <ToolsCard key={id} title={title} description={description} />
         ))}
       </div>
-      <Caption rate='4.0' title='Personal approach'>
+      <Caption
+        rate='4.0'
+        title='Personal approach'
+        className={styles.captionPersonalApproach}
+      >
         Personalised coaching at each step, live open sessions with your mentors
         and frequent interaction ensures an immersive and interactive learning
         experience.

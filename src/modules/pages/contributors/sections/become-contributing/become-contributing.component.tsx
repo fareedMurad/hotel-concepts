@@ -23,7 +23,7 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
       <div className={styles.wrapper}>
         <div id='become-contributor' />
         <SectionTitle>Become a contributing expert</SectionTitle>
-        <Paragraph>
+        <Paragraph className={styles.paragraph}>
           Interested in contributing to providing top class <br /> hospitality
           online education?
         </Paragraph>
@@ -71,7 +71,7 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                 />
               </div>
 
-              <div>Message</div>
+              <div style={{ marginTop: 14 }}>Message</div>
               <textarea className={styles.textArea} />
               <Button
                 onClick={() => handleSubmit()}

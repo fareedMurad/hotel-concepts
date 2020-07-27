@@ -78,7 +78,9 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
       </section>
       <footer className={styles.footer}>
         <div className={styles.footerForm}>
-          <PreCaption>Still seeking your answer?</PreCaption>
+          <PreCaption className={styles.preCaption}>
+            Still seeking your answer?
+          </PreCaption>
           <SectionTitle>Let us help you directly</SectionTitle>
           <Paragraph className={styles.footerFormParagraph}>
             Please complete the form below with details of your request. We’ll
@@ -94,7 +96,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
               onSubmit={values => console.log(values)}
             >
               {({ handleSubmit }) => (
-                <Form>
+                <Form handleSubmit={handleSubmit} className={styles.form}>
                   <div className={styles.inputGroupA}>
                     <Select
                       value=''
