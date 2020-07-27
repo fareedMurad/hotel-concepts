@@ -25,7 +25,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
 
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
-  const [visibleArticles, setVisibleArticles] = React.useState(9);
+  const [visibleArticles, setVisibleArticles] = React.useState(7);
 
   const { articlesLoading, articles } = useArticlesData(categoryId);
   const { popularArticle, popularArticleLoading } = usePopularArticlesData();
@@ -37,7 +37,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
   }, [articles, articlesLoading]);
 
   React.useEffect(() => {
-    setVisibleArticles(9);
+    setVisibleArticles(categoryId === 'All' ? 7 : 9);
   }, [categoryId]);
 
   console.log(articlesToDisplay);

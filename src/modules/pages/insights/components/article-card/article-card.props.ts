@@ -11,6 +11,9 @@ type ArticleCardProps = {
     articleImage: {
       url: string;
     };
+    sys: {
+      id: string;
+    };
   };
 };
 

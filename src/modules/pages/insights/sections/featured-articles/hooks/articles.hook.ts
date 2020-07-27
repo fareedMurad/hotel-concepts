@@ -12,6 +12,9 @@ const useArticlesData = categoryId => {
                 date
                 slug
                 popular
+                sys {
+                  id
+                }
                 articleImage {
                   url
                 }

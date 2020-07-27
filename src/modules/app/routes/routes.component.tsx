@@ -55,7 +55,7 @@ const Routes: React.FC = () => {
         <Route path='/uikit' component={Uikit} />
 
         {/* ROUTES */}
-        <Route path='/insights/article/:id' component={ArticlePage} />
+        <Route path='/insights/article/:articleId' component={ArticlePage} />
         <Route path='/contact-us' component={ContactsPage} />
         <Route path='/privacy-policy' component={PrivacyPolicy} />
         <Route path='/about-us' component={StoryMission} />
@@ -63,8 +63,11 @@ const Routes: React.FC = () => {
         {mobile && (
           //localhost:8289/program/financial-analysis-of-hotel-investments-course?programId=41UkbhJQC6KvxmJulXmKf3&/mentor/monica?&mentorId=0WJXIZoiz9R61ZwbJhVa3
           <Route
-            path={['/contributors/mentor', '/mentor/:url?/:slug?/:mentorId', `/program/:slug?/mentor`]}
-
+            path={[
+              '/contributors/mentor',
+              '/mentor/:url?/:slug?/:mentorId',
+              `/program/:slug?/mentor`
+            ]}
             render={() => (
               <MentorModal
                 hideComponent={() => dispatch(toogleContributorModal(false))}

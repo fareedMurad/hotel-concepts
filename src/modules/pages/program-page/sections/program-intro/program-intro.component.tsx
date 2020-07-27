@@ -65,10 +65,6 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   };
 
   if (programDataLoading) return <Spinner />;
-  /**
-   * destucturing data after loaded
-   */
-  const { name, description, videoVimeoUrl } = programData;
 
   return (
     <section
@@ -77,8 +73,8 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
     >
       <BackButton className={styles.backButton} />
       <div className={styles.title}>
-        <div>{name}</div>
-        <div>{description}</div>
+        <div>{programData?.name}</div>
+        <div>{programData?.description}</div>
       </div>
       <Popup
         contentStyle={{
@@ -101,7 +97,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
         lockScroll
       >
         <ReactPlayer
-          url={`${videoVimeoUrl}`}
+          url={`${programData?.videoVimeoUrl}`}
           controls
           style={{ margin: 'auto', maxWidth: '100%' }}
         />

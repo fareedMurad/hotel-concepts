@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { ArticleFirstSectionProps } from './article-first-section.props';
 import * as styles from './article-first-section.scss';
-import { H1, Icon, Paragraph } from '@core/components';
+import { H1, Icon, Paragraph, Spinner } from '@core/components';
 import { useArticlePageData } from '@pages/article-page/article-page.hook';
 import { useMediaPoints } from '@core/shared';
+import { useArticleFirstScreenData } from './hooks/article-first-screen.hook';
+import { useParams } from 'react-router';
+import Moment from 'react-moment';
 
 /**
  * Renders Tags
@@ -13,41 +16,59 @@ const Tag = ({ caption }) => <div className={styles.tagsItem}>{caption}</div>;
  * Renders ArticleFirstSection
  */
 const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
-  const {
-    tags,
-    readingTime,
-    heroTitle,
-    heroDescription
-  } = useArticlePageData();
+  const { articleId } = useParams();
   const { desktop } = useMediaPoints();
+
+  const { tags, heroTitle, heroDescription } = useArticlePageData();
+
+  const {
+    articleFirstScreen,
+    articleFirstScreenLoading
+  } = useArticleFirstScreenData(articleId);
+
+  if (articleFirstScreenLoading) return <Spinner />;
+
+  const {
+    title,
+    preText,
+    readingTime,
+    articleImage: { url },
+    categoriesCollection: { items: categories }
+  } = articleFirstScreen.article;
+  console.log(title);
+
+  /**
+   * format number to minutes
+   */
+  const minutes = Math.floor(readingTime / 60);
+  const seconds = readingTime - minutes * 60;
+
+  const str_pad_left = (string, pad, length) =>
+    new Array(length + 1).join(pad) + string.slice(-length);
+
+  const finalTime =
+    str_pad_left(minutes, '', 2) + ':' + str_pad_left(seconds, '0', 2);
 
   return (
     <div className={styles.articleFirstSection}>
       <div className={styles.heading}>
-        <H1>{heroTitle}</H1>
+        <H1>{title}</H1>
         <div className={styles.tags}>
-          {tags.map(({ caption, id }) => (
-            <Tag caption={caption} key={id} />
+          {categories.map(el => (
+            <Tag caption={el.category} key={el.sys.id} />
           ))}
         </div>
         <div className={styles.headingOptions}>
           <div className={styles.readingTime}>
-            <div>Reading time:</div> <div>{readingTime}</div>
+            <div>Reading time:</div> <div>{finalTime}</div>
           </div>
           <div className={styles.share}>
-            <div>Share</div> <Icon name='share' className={styles.shareIcon}/>
+            <div>Share</div> <Icon name='share' className={styles.shareIcon} />
           </div>
         </div>
-        <Paragraph className={styles.heroDescription}>
-          {heroDescription}
-        </Paragraph>
+        <Paragraph className={styles.heroDescription}>{preText}</Paragraph>
       </div>
-      {desktop && (
-        <img
-          // src={require('img/article-page/article-page-1.png')}
-          className={styles.image}
-        />
-      )}
+      {desktop && <img src={url} className={styles.image} />}
     </div>
   );
 };

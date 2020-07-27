@@ -19,17 +19,20 @@ import {
 } from './sections';
 import { Mentors, Impact } from '@pages/homepage/sections';
 import { FaqBlock, PartnerApply } from '@pages/components';
+import { useParams, useHistory } from 'react-router';
 
 /**
  * Renders ProgramPage
  */
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
+  const history = useHistory();
+  const searchParams = new URLSearchParams(history.location.search);
+  const programId = searchParams.get('programId');
+
   const {
     mentorsForCurrentCourse,
-    mentorsForCurrentCourseLoading,
-    programId,
-    history
-  } = useProgramPageData();
+    mentorsForCurrentCourseLoading
+  } = useProgramPageData(programId);
 
   return (
     <div className={styles.programPage}>
@@ -37,6 +40,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <Header />
       <ProgramIntro programId={programId} />
       <ProgramOverview programId={programId} />
+      debugger;
       <div className={styles.hr} />
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />
