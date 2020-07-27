@@ -16,11 +16,9 @@ const useProgramOverviewData = (programId: string) => {
     }
   `;
 
-  const { data, loading, error } = useQuery(GET_PROGRAM_OVERVIEW_DATA, {
-    variables: { id: programId }
-  });
-
-  return { data, loading };
+  return {
+    GET_PROGRAM_OVERVIEW_DATA
+  };
 };
 
 export { useProgramOverviewData };

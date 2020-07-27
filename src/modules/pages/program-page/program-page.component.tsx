@@ -36,7 +36,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const history = useHistory();
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
-
   const {
     mentorsForCurrentCourse,
     mentorsForCurrentCourseLoading
@@ -49,7 +48,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ScrollToTop />
       <Header />
       <ProgramIntro programId={programId} />
-      {/* <ProgramOverview programId={programId} /> */}
+      <ProgramOverview programId={programId} />
       <div className={styles.hr} />
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />

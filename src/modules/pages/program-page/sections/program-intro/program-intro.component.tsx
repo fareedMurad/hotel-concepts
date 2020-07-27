@@ -27,7 +27,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
     programId
   );
 
-  const { data, error, loading } = useQuery(GET_HERO_IMAGE);
+  const { data, error } = useQuery(GET_HERO_IMAGE);
 
   // const videoInfo = {
   //   path: 'ForCorporateClients.preview',
@@ -67,7 +67,6 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   };
 
   if (programDataLoading) return <Spinner />;
-  console.log(programData);
 
   return (
     <section

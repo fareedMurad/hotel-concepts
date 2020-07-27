@@ -15,7 +15,7 @@ const useProgramAboutData = programId => {
   const { data, loading, error } = useQuery(GET_PROGRAM_ABOUT_DATA, {
     variables: { id: programId }
   });
-
+  
   return {
     programAboutData: data?.onlineCourse?.about,
     programAboutLoading: loading
