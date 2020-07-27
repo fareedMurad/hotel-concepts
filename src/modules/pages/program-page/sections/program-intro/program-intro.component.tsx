@@ -26,7 +26,9 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   const { programData, programDataLoading, navButtons } = useProgramIntroData(
     programId
   );
+
   const { data, error, loading } = useQuery(GET_HERO_IMAGE);
+
   // const videoInfo = {
   //   path: 'ForCorporateClients.preview',
   //   time: '0:56'
@@ -65,6 +67,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   };
 
   if (programDataLoading) return <Spinner />;
+  console.log(programData);
 
   return (
     <section

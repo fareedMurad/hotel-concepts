@@ -39,8 +39,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ScrollToTop />
       <Header />
       <ProgramIntro programId={programId} />
-      <ProgramOverview programId={programId} />
-      debugger;
+      {/* <ProgramOverview programId={programId} /> */}
       <div className={styles.hr} />
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />
