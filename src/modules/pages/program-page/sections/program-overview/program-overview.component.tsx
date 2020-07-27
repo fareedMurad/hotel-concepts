@@ -5,14 +5,8 @@ import { number } from 'yup';
 import { useProgramOverviewData } from './program-overview.hook';
 import { Spinner } from '@core/components';
 
-const OverviewItem: React.FC<{
-  weeks: number;
-  sprints: number;
-  enrollBy: { day: string | number; months: string; year: string | number };
-  languages: string[];
-}> = ({ languages, enrollBy, weeks, sprints }) => {
-  const { day, months, year } = enrollBy;
-
+const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
+  const { months, day, year } = enrollBy;
   return (
     <section className={styles.item}>
       <div className={styles.block}>
@@ -43,16 +37,16 @@ const ProgramOverview: React.FC<ProgramOverviewProps> = ({ programId }) => {
 
   if (loading) return <Spinner />;
 
-  const { weeks, sprints, enroll, languages } = data.onlineCourse;
+  const { onlineCourse } = data;
 
   return (
     <section className={styles.programOverview}>
       <div className={styles.title}>Overview</div>
       <OverviewItem
-        weeks={weeks}
-        sprints={sprints}
-        enrollBy={enroll}
-        languages={languages}
+        weeks={onlineCourse?.weeks}
+        sprints={onlineCourse?.sprints}
+        enrollBy={onlineCourse?.enroll}
+        languages={onlineCourse?.languages}
       />
     </section>
   );

@@ -26,7 +26,9 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   const { programData, programDataLoading, navButtons } = useProgramIntroData(
     programId
   );
+
   const { data, error, loading } = useQuery(GET_HERO_IMAGE);
+
   // const videoInfo = {
   //   path: 'ForCorporateClients.preview',
   //   time: '0:56'
@@ -65,10 +67,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   };
 
   if (programDataLoading) return <Spinner />;
-  /**
-   * destucturing data after loaded
-   */
-  const { name, description, videoVimeoUrl } = programData;
+  console.log(programData);
 
   return (
     <section
@@ -77,8 +76,8 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
     >
       <BackButton className={styles.backButton} />
       <div className={styles.title}>
-        <div>{name}</div>
-        <div>{description}</div>
+        <div>{programData?.name}</div>
+        <div>{programData?.description}</div>
       </div>
       <Popup
         contentStyle={{
@@ -101,7 +100,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
         lockScroll
       >
         <ReactPlayer
-          url={`${videoVimeoUrl}`}
+          url={`${programData?.videoVimeoUrl}`}
           controls
           style={{ margin: 'auto', maxWidth: '100%' }}
         />

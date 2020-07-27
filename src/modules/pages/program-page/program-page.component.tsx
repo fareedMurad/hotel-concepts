@@ -19,30 +19,49 @@ import {
 } from './sections';
 import { Mentors, Impact } from '@pages/homepage/sections';
 import { FaqBlock, PartnerApply } from '@pages/components';
+<<<<<<< HEAD
+import { gql, useQuery } from '@apollo/client';
+=======
+import { useParams, useHistory } from 'react-router';
+>>>>>>> 06947252cfbcb113cff6b2b63387331e2e4c5e27
 
+const GET_IMAGE = gql`
+  {
+    asset(id: "56UkNYNoRKWxDofAakl8gx") {
+      url
+    }
+  }
+`;
 /**
  * Renders ProgramPage
  */
 const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
+  const history = useHistory();
+  const searchParams = new URLSearchParams(history.location.search);
+  const programId = searchParams.get('programId');
+
   const {
     mentorsForCurrentCourse,
-    mentorsForCurrentCourseLoading,
-    programId,
-    history
-  } = useProgramPageData();
+    mentorsForCurrentCourseLoading
+  } = useProgramPageData(programId);
+
+  const { data, loading, error } = useQuery(GET_IMAGE);
 
   return (
     <div className={styles.programPage}>
       <ScrollToTop />
       <Header />
       <ProgramIntro programId={programId} />
-      <ProgramOverview programId={programId} />
+      {/* <ProgramOverview programId={programId} /> */}
       <div className={styles.hr} />
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />
       <Enroll programId={programId} />
       <ProgramModules programId={programId} />
-      {/* <div className={styles.img} style={{ backgroundImage: `url(${url})` }} /> */}
+      <div
+        className={styles.img}
+        style={{ backgroundImage: `url(${data?.asset?.url})` }}
+      />
       <ProgramResults programId={programId} />
       <Mentors
         modifiedCaption
@@ -55,7 +74,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <Impact />
       <div className={styles.hr} />
       <ProgramEnrollNow programId={programId} />
-      <ProgramQuote />
+      <ProgramQuote programId={programId} />
       <FaqBlock showTitle />
       <PartnerApply
         title='Got questions?'
