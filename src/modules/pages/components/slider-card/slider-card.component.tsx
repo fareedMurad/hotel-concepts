@@ -21,11 +21,7 @@ const SliderCard: React.FC<SliderCardProps> = ({
     <div className={classNames(styles.sliderCard, className)}>
       <NavLink to={`/product/${id}`}>
         <div className={styles.imgWrap}>
-          <img
-            className={styles.cardGoodsPic}
-            src={`${require(`img/marketplace/marketplace-${img}.png`)}`}
-            alt='goods'
-          />
+          <img className={styles.cardGoodsPic} src={img} alt='goods' />
         </div>
 
         <div className={styles.description}>

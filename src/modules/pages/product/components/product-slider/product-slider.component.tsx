@@ -4,7 +4,7 @@ import * as styles from './product-slider.scss';
 import Carousel from 'react-multi-carousel';
 import { ButtonGroupProps, DotProps } from 'react-multi-carousel/lib/types';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
-import { useMarketplaceData } from '@pages/marketplace/marketplace.hook';
+import { useMarketplaceData } from '@pages/marketplace/hooks/marketplace.hook';
 import { Icon } from '@core/components';
 import classNames from 'classnames';
 

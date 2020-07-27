@@ -40,7 +40,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <Header />
       <ProgramIntro programId={programId} />
       <ProgramOverview programId={programId} />
-      debugger;
       <div className={styles.hr} />
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />
