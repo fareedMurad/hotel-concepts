@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components/spinner';
 import { SectionTitle } from '@core/components';
+import { useInsightsData } from './insights-block.hook';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -31,26 +32,6 @@ const responsiveBreakpoints = {
   }
 };
 
-const GET_ARTICLES = gql`
-  {
-    articleCollection {
-      items {
-        sys {
-          id
-        }
-        title
-        preText
-        # categories
-        slug
-        date
-        articleImage {
-          url
-        }
-      }
-    }
-  }
-`;
-
 /**
  * Renders InsightsBlock
  */
@@ -58,18 +39,17 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
   const history = useHistory();
   const handleClick = () => history.push(`/insights`);
 
-  const { data, loading, error } = useQuery(GET_ARTICLES);
+  const { articles, insightsDataLoading } = useInsightsData();
 
-  if (loading) return <Spinner />;
-  const { items: articles } = data.articleCollection;
-  console.log(articles);
+  if (insightsDataLoading) return <Spinner />;
+
   return (
     <section className={styles.insightsBlock}>
       <div className={styles.title}>
         <SectionTitle>Cordie Insights</SectionTitle>
         <div>Make the most of your learning experience</div>
       </div>
-      {/* <Slider
+      <Slider
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
@@ -87,7 +67,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
           const {
             title,
             preText,
-            category,
+            categoriesCollection: { items: categories },
             slug,
             date,
             articleImage,
@@ -97,7 +77,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
             <InsightBlockItem
               title={title}
               text={preText}
-              categories={category}
+              categories={categories}
               slug={slug}
               date={date}
               articleImage={articleImage}
@@ -106,7 +86,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
             />
           );
         })}
-      </Slider> */}
+      </Slider>
     </section>
   );
 };

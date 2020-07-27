@@ -20,16 +20,15 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
   const { month, year, day } = date;
   const history = useHistory();
 
-  console.log(categories);
   return (
     <div className={styles.insightBlockItem}>
       <div className={styles.imgContainer}>
         <img src={url} alt='insight' className={styles.img} />
         <div className={styles.tags}>
-          {categories.map((category, index) => {
+          {categories.map((el, index) => {
             return (
               <div key={index} className={styles.activity}>
-                {category}
+                {el.category}
               </div>
             );
           })}
