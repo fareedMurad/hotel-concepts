@@ -19,11 +19,8 @@ import {
 } from './sections';
 import { Mentors, Impact } from '@pages/homepage/sections';
 import { FaqBlock, PartnerApply } from '@pages/components';
-<<<<<<< HEAD
 import { gql, useQuery } from '@apollo/client';
-=======
 import { useParams, useHistory } from 'react-router';
->>>>>>> 06947252cfbcb113cff6b2b63387331e2e4c5e27
 
 const GET_IMAGE = gql`
   {
