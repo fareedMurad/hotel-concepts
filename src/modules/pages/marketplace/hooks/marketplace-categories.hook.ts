@@ -10,7 +10,7 @@ const useProductsCategoriesData = () => {
             id
           }
           linkedFrom {
-            entryCollection {
+            productCollection {
               total
             }
           }

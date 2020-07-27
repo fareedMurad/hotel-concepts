@@ -25,12 +25,6 @@ const MarketplaceHero: React.FC<IntroProps> = ({}) => {
 
   if (productCategoriesLoading) return <Spinner />;
 
-  // const {
-  //   linkedFrom: {
-  //     entryCollection: { total: amountOfProducts }
-  //   }
-  // } = productCategories;
-
   return (
     <div className={styles.intro}>
       <div
@@ -50,7 +44,10 @@ const MarketplaceHero: React.FC<IntroProps> = ({}) => {
           {productCategories.map(el => {
             const {
               category,
-              sys: { id }
+              sys: { id },
+              linkedFrom: {
+                productCollection: { total: amountOfProducts }
+              }
             } = el;
 
             return (
@@ -67,7 +64,7 @@ const MarketplaceHero: React.FC<IntroProps> = ({}) => {
                 <div className={styles.marketplaceFilterTitle}>{category}</div>
                 <div
                   className={styles.marketplaceFilterQuantity}
-                >{`(${2})`}</div>{' '}
+                >{`(${amountOfProducts})`}</div>{' '}
               </div>
             );
           })}
