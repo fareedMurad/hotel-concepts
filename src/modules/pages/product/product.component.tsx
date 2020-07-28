@@ -48,8 +48,14 @@ const Product: React.FC<ProductProps> = ({}) => {
 
   const {
     productImagesCollection: { items: images },
-    previewPages: { url }
+    previewPagesCollection: { items: previewPages }
   } = product;
+
+  const convertToFileType = file =>
+    file
+      .split('/')
+      .pop()
+      .toUpperCase();
 
   return (
     <div className={styles.product}>
@@ -72,9 +78,16 @@ const Product: React.FC<ProductProps> = ({}) => {
               </button>
             </div>
             <div className={styles.linksDownload}>
-              <button className={styles.downloadBtn}>PDF</button>
-              <button className={styles.downloadBtn}>EPUB</button>
-              <button className={styles.downloadBtn}>FB2</button>
+              {previewPages &&
+                previewPages.map(el => (
+                  <button
+                    key={el.sys.id}
+                    className={styles.downloadBtn}
+                    onClick={() => window.open(el.url, '_blank')}
+                  >
+                    {convertToFileType(el.contentType)}
+                  </button>
+                ))}
             </div>
           </div>
         </div>

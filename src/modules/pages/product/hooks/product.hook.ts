@@ -16,8 +16,14 @@ const useProductData = productId => {
         price
         author
         publishDate
-        previewPages {
-          url
+        previewPagesCollection {
+          items {
+            sys {
+              id
+            }
+            url
+            contentType
+          }
         }
       }
     }
