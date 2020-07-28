@@ -5,7 +5,7 @@ import { Header } from '@core/components/header';
 import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
 
-import { useMarketplaceData } from '@pages/marketplace/marketplace.hook';
+import { useMarketplaceData } from '@pages/marketplace/hooks/marketplace.hook';
 import { Footer, H2, Icon } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
 import { useHistory } from 'react-router';
@@ -19,14 +19,15 @@ const productCardData = {
   category: 'Economics',
   language: 'English',
   publishDate: 'Oct. 2014',
-  details: 'Best selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and Thinking',
+  details:
+    'Best selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and Thinking',
   price: '$26.99'
 };
 
 /**
  * Renders Product
  */
-const Product: React.FC<ProductProps> = ({ }) => {
+const Product: React.FC<ProductProps> = ({}) => {
   const { books } = useMarketplaceData();
   const history = useHistory();
   const {

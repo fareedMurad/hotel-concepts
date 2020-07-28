@@ -55,11 +55,16 @@ const ProductsSlider: React.FC<SliderProps> = ({
         responsive={responsiveBreakpoints}
       >
         {data.map(el => {
-          const { img, name, price, id } = el;
+          const {
+            productImage: { url },
+            name,
+            price,
+            sys: { id }
+          } = el;
           return (
             <SliderCard
               key={id}
-              img={img}
+              img={url}
               name={name}
               price={price}
               id={id}

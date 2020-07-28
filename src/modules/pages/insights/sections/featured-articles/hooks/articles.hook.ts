@@ -1,12 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useArticlesData = categoryId => {
+const useArticlesData = (categoryId, articlesToSkip) => {
   if (categoryId != 'All') {
     const GET_FILTERED_ARTICLES = gql`
-      query($id: String!) {
+      query($id: String!, $articlesToSkip: Int) {
         articleCategories(id: $id) {
           linkedFrom {
-            articleCollection {
+            articleCollection(limit: 9, skip: $articlesToSkip) {
               items {
                 title
                 date
@@ -30,7 +30,7 @@ const useArticlesData = categoryId => {
       }
     `;
     const { data, loading, error } = useQuery(GET_FILTERED_ARTICLES, {
-      variables: { id: categoryId }
+      variables: { id: categoryId, articlesToSkip: articlesToSkip }
     });
 
     return {
@@ -39,8 +39,12 @@ const useArticlesData = categoryId => {
     };
   } else {
     const GET_ALL_ARTICLES = gql`
-      {
-        articleCollection(where: { popular_not: true }) {
+      query($articlesToSkip: Int) {
+        articleCollection(
+          where: { popular_not: true }
+          limit: 7
+          skip: $articlesToSkip
+        ) {
           total
           items {
             sys {
@@ -61,7 +65,9 @@ const useArticlesData = categoryId => {
       }
     `;
 
-    const { data, loading } = useQuery(GET_ALL_ARTICLES);
+    const { data, loading } = useQuery(GET_ALL_ARTICLES, {
+      variables: { articlesToSkip: articlesToSkip }
+    });
     return {
       articles: data?.articleCollection?.items,
       articlesLoading: loading
