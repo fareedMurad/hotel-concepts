@@ -45,7 +45,6 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
     setArticlesToDisplay([]);
   };
 
-  console.log(articlesToDisplay);
   return (
     <div className={styles.featuredArticles}>
       <div className={styles.caption}>
@@ -127,6 +126,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         children='Show more'
         arrow='&#8595;'
         onClick={() => setArticlesToSkip(categoryId === 'All' ? 7 : 9)}
+        width={204}
       />
     </div>
   );
