@@ -78,7 +78,7 @@ const Routes: React.FC = () => {
         <Route path='/jobs' component={JobsList} />
         <Route path='/for-companies' component={ForCompanies} />
         <Route path='/marketplace' component={Marketplace} />
-        <Route path='/product/:id' component={Product} />
+        <Route path='/category/:categorySlug/product/:id' component={Product} />
         <Route path='/course-partnership' component={CoursePartnership} />
         <Route exact={mobile} path='/' component={Homepage} />
         <Route path='*'>

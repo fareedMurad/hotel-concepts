@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type ProductSliderProps = {};
+type ProductSliderProps = {
+  images: any;
+};
 
 export { ProductSliderProps };

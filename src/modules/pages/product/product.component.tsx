@@ -6,9 +6,14 @@ import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
 
 import { useMarketplaceData } from '@pages/marketplace/hooks/marketplace.hook';
-import { Footer, H2, Icon } from '@core/components';
+import { Footer, H2, Icon, Spinner } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import { useProductData } from './hooks/product.hook';
+import { useRecomendedProductsData } from './hooks/recomended-products.hook';
+import { ScrollToTop } from '@app';
+import { useDispatch } from 'react-redux';
+import { navigate } from '@router/store';
 
 /**
  * Product-card Data
@@ -28,20 +33,27 @@ const productCardData = {
  * Renders Product
  */
 const Product: React.FC<ProductProps> = ({}) => {
-  const { books } = useMarketplaceData();
   const history = useHistory();
+  const { id: productId, categorySlug } = useParams();
+
+  const { product, productLoading } = useProductData(productId);
+
   const {
-    title,
-    author,
-    category,
-    language,
-    publishDate,
-    details,
-    price
-  } = productCardData;
+    recomendedProducts,
+    redomendedProductsLoading
+  } = useRecomendedProductsData(categorySlug, productId);
+
+  if (productLoading) return <Spinner />;
+  if (redomendedProductsLoading) return <Spinner />;
+
+  const {
+    productImagesCollection: { items: images },
+    previewPages: { url }
+  } = product;
 
   return (
     <div className={styles.product}>
+      <ScrollToTop />
       <div className={styles.header}>
         <Header whiteBackground />
       </div>
@@ -51,7 +63,7 @@ const Product: React.FC<ProductProps> = ({}) => {
       </div>
       <div className={styles.productReview}>
         <div className={styles.slider}>
-          <ProductSlider />
+          <ProductSlider images={images} />
           <div className={styles.links}>
             <div className={styles.linksShare}>
               <a href='#'>Share</a>
@@ -66,20 +78,12 @@ const Product: React.FC<ProductProps> = ({}) => {
             </div>
           </div>
         </div>
-        <ProductCard
-          title={title}
-          author={author}
-          category={category}
-          languege={language}
-          publishDate={publishDate}
-          details={details}
-          price={price}
-        />
+        <ProductCard product={product} />
       </div>
 
       <H2 className={styles.recomendedBooks}>Recommended books</H2>
 
-      <ProductsSlider data={books} notOrangeButtons />
+      <ProductsSlider data={recomendedProducts} notOrangeButtons />
       <div className={styles.footer}>
         <Footer />
       </div>
