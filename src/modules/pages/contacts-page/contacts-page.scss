@@ -69,6 +69,7 @@
     margin-right: 0;
     &--paragraph {
       width: 100%;
+      margin-top: 16px;
       font-weight: 400;
       @include desktop() {
         width: 75%;
@@ -95,6 +96,7 @@
     // text-align: justify;
     @include font($primary-gray, 16px, 400, 22px);
     width: 100%;
+    margin-top: 28px;
     @include desktop() {
       width: 89;
     }
@@ -125,14 +127,23 @@
   &--name {
     width: 40%;
     margin: 0px 20px;
+    label {
+      margin-bottom: 4px;
+    }
   }
 
   &--surname {
     width: 40%;
+    label {
+      margin-bottom: 4px;
+    }
   }
   &--email {
     width: 65%;
     margin-left: 20px;
+    label {
+      margin-bottom: 4px;
+    }
   }
 }
 
@@ -147,7 +158,7 @@
     margin-top: 14px;
     & > div:first-child {
       @include font($primary-gray, 16px, 400, 22px);
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
   }
 }
@@ -155,4 +166,15 @@
 .button-send {
   @include flex($justify: space-between);
   width: 204px;
+}
+
+.pre-caption {
+  margin-bottom: 24px;
+  line-height: 0;
+}
+
+.form {
+  & > * {
+    margin-top: 18px;
+  }
 }

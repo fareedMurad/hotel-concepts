@@ -17,6 +17,7 @@ import { ManagingHospitality, OurMissionVision } from './sections';
 import { OurFoundingValues } from './sections/our-founding-values';
 import { PartnerApply } from '@pages/components';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { ScrollToTop } from '@app';
 
 const Hr = () => {
   return <div className={styles.hr} />;
@@ -47,6 +48,7 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
 
   return (
     <div className={styles.storyMission}>
+      <ScrollToTop />
       <header className={styles.header}>
         <Header />
         <div

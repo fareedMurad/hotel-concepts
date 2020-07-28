@@ -5,7 +5,19 @@ const client = new ApolloClient({
   headers: {
     authorization: `Bearer swkDaTwEiPt4P55HNC08DuKCEcSKKWDQcNy-xzMvs-I`
   },
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          onlineCourse: {
+            merge(existing = [], incoming: any) {
+              return { ...existing, ...incoming };
+            }
+          }
+        }
+      }
+    }
+  })
 });
 
 export { client };

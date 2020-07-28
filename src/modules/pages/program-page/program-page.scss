@@ -4,8 +4,8 @@
 }
 
 .img {
-  height: 400px;
   position: relative;
+  height: 400px;
   box-sizing: border-box;
   overflow: hidden;
   background-repeat: no-repeat;
@@ -25,14 +25,14 @@
 
 .faq-title {
   @include font($primary-gray, 48px, 600, 58px);
-  font-family: $EBGaramond;
   margin-top: 120px;
   padding-left: $left-offset;
+  font-family: $EBGaramond;
 }
 
 @media screen and (max-width: 768px) {
   .faq-title {
-    padding: 0 $default-offset;
     margin-top: 60px;
+    padding: 0 $default-offset;
   }
 }

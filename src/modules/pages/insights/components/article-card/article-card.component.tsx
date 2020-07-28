@@ -3,17 +3,19 @@ import { ArticleCardProps } from './article-card.props';
 import * as styles from './article-card.scss';
 import { Button } from '@core/components';
 import Moment from 'react-moment';
+import { useHistory } from 'react-router';
 
 /**
  * Renders ArticleCard
  */
 const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
-  console.log(articles);
+  const history = useHistory();
   const {
     articleImage: { url },
     categoriesCollection: { items: categories },
     date,
-    title
+    title,
+    sys: { id }
   } = articles;
   return (
     <div className={styles.articleCard}>
@@ -21,13 +23,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
         className={styles.imageWrapper}
         style={{ backgroundImage: `url(${url})` }}
       >
-        {categories.map((el, idx) => {
-          return (
-            <div key={idx} className={styles.activity}>
-              {el.category}
-            </div>
-          );
-        })}
+        {categories.map((el, idx) => (
+          <div key={idx} className={styles.activity}>
+            {el.category}
+          </div>
+        ))}
       </div>
 
       <div className={styles.content}>
@@ -41,6 +41,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
         className={styles.readMore}
         children='Read more'
         arrow='&#8594;'
+        onClick={() => history.push(`/insights/article/${id}`)}
       />
     </div>
   );

@@ -61,9 +61,10 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
                   onClick={() => handleSubmit()}
                   className={styles.buttonSubmit}
                   type='submit'
-                >
-                  <div>Subscribe</div> <div>&#8594;</div>
-                </Button>
+                  children='Subscribe'
+                  arrow='&#8594;'
+                  width='35%'
+                />
               </div>
             </Form>
           )}

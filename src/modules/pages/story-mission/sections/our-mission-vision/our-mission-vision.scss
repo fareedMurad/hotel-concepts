@@ -37,7 +37,7 @@
   &__wrapper {
     padding: 24px 22px;
     @include desktop() {
-      padding: 58px 134px;
+      padding: 58px 134px 22px 134px;
     }
   }
   &__paragraph {

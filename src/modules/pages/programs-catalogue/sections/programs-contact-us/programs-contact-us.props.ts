@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type ProgramsContactUsProps = {};
+type ProgramsContactUsProps = {
+  reduceMargin?: boolean;
+};
 
 export { ProgramsContactUsProps };

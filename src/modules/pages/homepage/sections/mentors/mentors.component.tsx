@@ -53,9 +53,10 @@ const Mentors: React.FC<MentorsProps> = ({
   const dispatch = useDispatch();
 
   const handleClick = () => history.push(`/contributors`);
-  
+
   if (loading) return <Spinner />;
-  if (!contributors) return <div>No mentors yet</div>;
+  if (!contributors)
+    return <div className={styles.noMentors}>No mentors yet</div>;
 
   return (
     <section
@@ -110,7 +111,7 @@ const Mentors: React.FC<MentorsProps> = ({
               !mobile &&
                 (dispatch(showModal(Modals.contributor)),
                 dispatch(toogleContributorModal(true)));
-          }}
+            }}
           />
         ))}
       </Slider>

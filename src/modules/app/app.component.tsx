@@ -27,10 +27,9 @@ const ScrollToTop = () => {
 const Content: React.FC = ({ children }) => {
   const dispatch = useDispatch();
   const { isReady } = useSelector((state: State) => state.general);
-
   useEffect(() => {
     dispatch(startup());
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, []);
 
   if (!isReady) return null;
