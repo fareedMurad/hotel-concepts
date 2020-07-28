@@ -71,7 +71,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
         loading={mentorsForCurrentCourseLoading}
         url={`${history.location.pathname}?programId=${programId}&/mentor`}
       />
-      <ProgramLearningApproach />
+      <ProgramLearningApproach programId={programId} />
       <ProgramMaterials programId={programId} />
       <Impact />
       <div className={styles.hr} />
