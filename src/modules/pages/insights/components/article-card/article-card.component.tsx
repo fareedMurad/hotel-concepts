@@ -23,11 +23,13 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
         className={styles.imageWrapper}
         style={{ backgroundImage: `url(${url})` }}
       >
-        {categories.map((el, idx) => (
-          <div key={idx} className={styles.activity}>
-            {el.category}
-          </div>
-        ))}
+        <div className={styles.tags}>
+          {categories.map((el, idx) => (
+            <div key={idx} className={styles.activity}>
+              {el.category}
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className={styles.content}>

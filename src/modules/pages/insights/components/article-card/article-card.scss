@@ -33,11 +33,18 @@
   }
 }
 
-.activity {
-  @include font($primary-gray, 16px, 400, 22px);
+.tags {
   position: absolute;
   bottom: 16px;
   left: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+}
+
+.activity {
+  @include font($primary-gray, 16px, 400, 22px);
+  width: fit-content;
   border-radius: 4px;
   background-color: #f5f1f0;
   padding: 6px 24px;
