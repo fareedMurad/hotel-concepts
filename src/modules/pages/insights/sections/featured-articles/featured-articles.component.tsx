@@ -90,14 +90,12 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
           })
         )}
       </div>
+      {articlesLoading && <Spinner />}
       <div className={styles.articles}>
-        {articlesLoading ? (
-          <Spinner />
-        ) : (
-          articlesToDisplay.map((article, idx) => (
-            <ArticleCard articles={article} key={idx} />
-          ))
-        )}
+        {articlesToDisplay.map((article, idx) => (
+          <ArticleCard articles={article} key={idx} />
+        ))}
+
         {popularArticleLoading ? (
           <Spinner />
         ) : (
