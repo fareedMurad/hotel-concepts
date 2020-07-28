@@ -21,8 +21,6 @@
 }
 
 .button {
-  @include flex($align: center, $justify: space-between);
-  width: 284px;
   height: 44px;
   margin-top: 15px;
 }

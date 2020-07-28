@@ -2,6 +2,7 @@
 
 .insights-block {
   position: relative;
+  margin-top: 17px;
   padding: 0 22px;
   padding-bottom: 120px;
 }
@@ -13,11 +14,11 @@
   }
   & > div:first-child {
     max-width: 600px;
-    &::before {
-      content: url('../../../../../assets/img/text-decorator.svg');
-      position: absolute;
-      top: -46px;
-    }
+    // &::before {
+    //   content: url('../../../../../assets/img/text-decorator.svg');
+    //   position: absolute;
+    //   top: -46px;
+    // }
   }
   & > div:nth-child(2) {
     @include font($primary-gray, 24px, 400, 34px);
@@ -30,7 +31,7 @@
   @include flex($justify: space-between, $align: center);
   position: relative;
   margin-right: 1px;
-  padding-bottom: 108px;
+  padding-bottom: 100px;
   overflow: hidden;
   ul {
     margin-bottom: 8px;

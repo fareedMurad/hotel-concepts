@@ -65,7 +65,7 @@ const Impact: React.FC<ImpactProps> = ({}) => {
   return (
     <section className={styles.impact}>
       <div className={styles.title}>
-        <PreCaption>Opinions</PreCaption>
+        <PreCaption className={styles.preCaption}>Opinions</PreCaption>
         <SectionTitle>Cordie Impact</SectionTitle>
       </div>
       <Slider

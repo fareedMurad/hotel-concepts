@@ -37,10 +37,10 @@ const ArticleSecondSection: React.FC<ArticleSecondSectionProps> = ({}) => {
                   <Button
                     className={styles.button}
                     onClick={() => handleSubmit()}
-                  >
-                    <div>Subscribe</div>
-                    <div>&#8594;</div>
-                  </Button>
+                    children='Subscribe'
+                    arrow='&#8594;'
+                    width={284}
+                  />
                 </Form>
               )}
             </Formik>

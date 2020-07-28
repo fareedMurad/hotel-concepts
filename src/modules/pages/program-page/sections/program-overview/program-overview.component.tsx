@@ -4,6 +4,7 @@ import * as styles from './program-overview.scss';
 import { number } from 'yup';
 import { useProgramOverviewData } from './program-overview.hook';
 import { Spinner } from '@core/components';
+import { useQuery, gql } from '@apollo/client';
 
 const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
   const { months, day, year } = enrollBy;
@@ -32,21 +33,38 @@ const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
 /**
  * Renders ProgramOverview
  */
+const GET_PROGRAM_OVERVIEW_DATA = gql`
+  query($id: String!) {
+    onlineCourse(id: $id) {
+      weeks
+      sprints
+      enroll {
+        day
+        year
+        months
+      }
+      languages
+    }
+  }
+`;
+
 const ProgramOverview: React.FC<ProgramOverviewProps> = ({ programId }) => {
-  const { data, loading } = useProgramOverviewData(programId);
+  // const { GET_PROGRAM_OVERVIEW_DATA } = useProgramOverviewData(programId);
+  const { data, loading, error } = useQuery(GET_PROGRAM_OVERVIEW_DATA, {
+    variables: { id: programId }
+  });
 
   if (loading) return <Spinner />;
-
-  const { onlineCourse } = data;
+  const { weeks, sprints, enroll, languages } = data?.onlineCourse;
 
   return (
     <section className={styles.programOverview}>
       <div className={styles.title}>Overview</div>
       <OverviewItem
-        weeks={onlineCourse?.weeks}
-        sprints={onlineCourse?.sprints}
-        enrollBy={onlineCourse?.enroll}
-        languages={onlineCourse?.languages}
+        weeks={weeks}
+        sprints={sprints}
+        enrollBy={enroll}
+        languages={languages}
       />
     </section>
   );

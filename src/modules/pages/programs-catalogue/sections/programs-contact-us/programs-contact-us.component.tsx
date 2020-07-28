@@ -17,7 +17,9 @@ const GET_HERO_IMAGE = gql`
 /**
  * Renders ProgramsContactUs
  */
-const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
+const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
+  reduceMargin
+}) => {
   const formInitValue = {
     name: '',
     email: '',
@@ -41,7 +43,11 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({}) => {
 
   return (
     <React.Fragment>
-      <div className={styles.programsContactUs}>
+      <div
+        className={classNames(styles.programsContactUs, {
+          [styles.programsContactUsReduceMg]: reduceMargin
+        })}
+      >
         <div className={styles.title}>
           <div>Contact Us</div>
           <div>

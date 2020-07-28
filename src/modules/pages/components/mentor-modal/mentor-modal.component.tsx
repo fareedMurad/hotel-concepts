@@ -16,12 +16,13 @@ const GET_MENTOR = gql`
     mentor(id: $id) {
       name
       surname
+      workAt
       position
       linkedIn
       mentorPicture {
         url
       }
-      city
+      from
       experience
     }
   }
@@ -48,9 +49,10 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     surname,
     position,
     mentorPicture,
-    city,
+    from,
     experience,
-    linkedIn
+    linkedIn,
+    workAt
   } = mentor;
 
   return (
@@ -66,11 +68,11 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
               </div>
               <div
                 className={styles.contributorDetails}
-                style={{ fontWeight: 400 }}
+                style={{ fontWeight: 500 }}
               >
-                {city}, {position}
+                {workAt}, {position}
               </div>
-              <div className={styles.contributorDetails}>United Kingdom</div>
+              <div className={styles.contributorDetails}>{from}</div>
             </div>
             <a href={linkedIn ? linkedIn : null}>
               <Icon name='linkedin' />

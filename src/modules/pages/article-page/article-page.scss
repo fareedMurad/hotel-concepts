@@ -30,8 +30,3 @@
     }
   }
 }
-
-.button {
-  @include flex($justify: space-between);
-  width: 204px;
-}

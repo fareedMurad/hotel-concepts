@@ -35,10 +35,13 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
           <Paragraph className={styles.footerContentCaption}>
             Financial Analysis of Hotel Investments course.
           </Paragraph>
-          <Button theme='secondary' className={styles.button}>
-            <div>Read</div>
-            <div>&#8594;</div>
-          </Button>
+          <Button
+            theme='secondary'
+            className={styles.button}
+            children='Read'
+            arrow='&#8594;'
+            width={204}
+          />
         </div>
       </footer>
       <Footer />
