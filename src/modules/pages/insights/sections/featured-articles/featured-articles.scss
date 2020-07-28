@@ -25,7 +25,7 @@
   }
   @include desktop() {
     overflow: initial;
-    margin: 35px 0px 40px 22px;
+    margin: 35px 0px 35px 22px;
   }
   & > div {
     margin-right: 8px;
@@ -43,7 +43,7 @@
     grid-column: 2 / 2 span;
   }
   &-content {
-    @include flex($justify: space-evenly, $direction: column);
+    @include flex($justify: center, $direction: column, $align: stretch);
     height: 100%;
     padding: 20px;
 
@@ -57,13 +57,16 @@
       @include font(#cbd0d3, 28px, 400, 35px);
       font-family: $EBGaramond;
     }
-    & > div:nth-child(2) {
+    &__title {
       @include font($white, 34px, 500, 58px);
       font-family: $EBGaramond;
       @include tablet() {
         @include font($white, 48px, 500, 58px);
       }
     }
+  }
+  &__button {
+    margin-top: 16px;
   }
 }
 

@@ -15,6 +15,7 @@ import { useArticlesCategoriesData } from './hooks/articles-categories.hook';
 import { useArticlesAmount } from './hooks/articles-amount.hook';
 import { usePopularArticlesData } from './hooks/popular.articles.hook';
 import Moment from 'react-moment';
+import { useHistory } from 'react-router';
 
 /**
  * Renders FeaturedArticles
@@ -22,7 +23,7 @@ import Moment from 'react-moment';
 const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
   const { categories, loadingArticlesCategories } = useArticlesCategoriesData();
   const { amountLoading, allArticlesAmount } = useArticlesAmount();
-
+  const history = useHistory();
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
   const [articlesToSkip, setArticlesToSkip] = React.useState(0);
@@ -108,13 +109,18 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
               <div className={styles.articleContent}>
                 <div>
                   <Moment format='MMMM, DD YYYY'>{popularArticle.date}</Moment>
+                  <div className={styles.articleContentTitle}>
+                    {popularArticle.title}
+                  </div>
                 </div>
-                <div>{popularArticle.title}</div>
                 <Button
                   className={styles.articleButton}
                   children='Read article'
                   arrow='&#8594;'
                   width={204}
+                  onClick={() =>
+                    history.push(`/insights/article/${popularArticle.sys.id}`)
+                  }
                 />
               </div>
             </div>

@@ -37,9 +37,10 @@
   position: absolute;
   bottom: 16px;
   left: 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 10px;
+  @include flex($align: center);
+  & > div {
+    margin-right: 8px;
+  }
 }
 
 .activity {
