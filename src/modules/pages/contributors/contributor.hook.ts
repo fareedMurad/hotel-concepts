@@ -30,7 +30,7 @@ const useContributorsData = () => {
   `;
 
   const { data, error, loading } = useQuery(GET_MENTORS);
-    console.log(data)
+  console.log(data);
   //init
   return {
     contributors: data?.mentorCollection?.items,
