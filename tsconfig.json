@@ -35,7 +35,9 @@
       "@home": ["./src/modules/home/index"],
       "@home/*": ["./src/modules/home/*"],
       "@pages/*": ["./src/modules/pages/*"],
-      "@pages": ["./src/modules/pages/index"]
+      "@pages": ["./src/modules/pages/index"],
+      "@test-page": ["./src/modules/test-page/index"],
+      "@test-page/*": ["./src/modules/test-page/*"]
     }
   },
   "include": ["./src/**/*"],
