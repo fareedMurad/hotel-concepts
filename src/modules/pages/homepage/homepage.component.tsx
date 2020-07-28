@@ -34,7 +34,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <About />
       <TrainingInfo />
       <Impact />
-      <Mentors contributors={contributors} loading={loading} url='mentor' />
+      {/* <Mentors contributors={contributors} loading={loading} url='mentor' /> */}
       <FaqBlock showTitle />
       <InsightsBlock />
       <Socials />
