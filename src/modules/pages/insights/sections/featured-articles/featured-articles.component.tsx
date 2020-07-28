@@ -25,20 +25,25 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
 
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
-  const [visibleArticles, setVisibleArticles] = React.useState(7);
+  const [articlesToSkip, setArticlesToSkip] = React.useState(0);
 
-  const { articlesLoading, articles } = useArticlesData(categoryId);
+  const { articlesLoading, articles } = useArticlesData(
+    categoryId,
+    articlesToSkip
+  );
   const { popularArticle, popularArticleLoading } = usePopularArticlesData();
 
   React.useEffect(() => {
     if (!articlesLoading) {
-      setArticlesToDisplay(articles);
+      setArticlesToDisplay([...articlesToDisplay, ...articles]);
     }
   }, [articles, articlesLoading]);
 
-  React.useEffect(() => {
-    setVisibleArticles(categoryId === 'All' ? 7 : 9);
-  }, [categoryId]);
+  const handleClick = categoryId => {
+    setCategoryId(categoryId);
+    setArticlesToSkip(0);
+    setArticlesToDisplay([]);
+  };
 
   console.log(articlesToDisplay);
   return (
@@ -57,9 +62,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         <ButtonFilter
           title='All'
           count={allArticlesAmount}
-          onClick={() => {
-            setCategoryId('All');
-          }}
+          onClick={() => handleClick('All')}
           active={categoryId === 'All'}
         />
         {loadingArticlesCategories ? (
@@ -80,23 +83,19 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
                 key={category}
                 title={category}
                 count={count}
-                onClick={() => {
-                  setCategoryId(id);
-                }}
+                onClick={() => handleClick(id)}
                 active={activeFilter}
               />
             );
           })
         )}
       </div>
+      {articlesLoading && <Spinner />}
       <div className={styles.articles}>
-        {articlesLoading ? (
-          <Spinner />
-        ) : (
-          articlesToDisplay
-            .slice(0, visibleArticles)
-            .map((article, idx) => <ArticleCard articles={article} key={idx} />)
-        )}
+        {articlesToDisplay.map((article, idx) => (
+          <ArticleCard articles={article} key={idx} />
+        ))}
+
         {popularArticleLoading ? (
           <Spinner />
         ) : (
@@ -127,7 +126,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
         className={styles.showMore}
         children='Show more'
         arrow='&#8595;'
-        onClick={() => setVisibleArticles(visibleArticles + 9)}
+        onClick={() => setArticlesToSkip(categoryId === 'All' ? 7 : 9)}
       />
     </div>
   );

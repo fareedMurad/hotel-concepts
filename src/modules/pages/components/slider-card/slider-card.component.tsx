@@ -21,16 +21,13 @@ const SliderCard: React.FC<SliderCardProps> = ({
     <div className={classNames(styles.sliderCard, className)}>
       <NavLink to={`/product/${id}`}>
         <div className={styles.imgWrap}>
-          <img
-            className={styles.cardGoodsPic}
-            src={`${require(`img/marketplace/marketplace-${img}.png`)}`}
-            alt='goods'
-          />
+          <img className={styles.cardGoodsPic} src={img} alt='goods' />
         </div>
 
         <div className={styles.description}>
           <div className={styles.wrap}>
-            <H4 className={styles.price}>{price}</H4>
+            <H4 className={styles.price}>{`
+            $${price}`}</H4>
             {author && <div className={styles.author}>{author}</div>}
           </div>
 

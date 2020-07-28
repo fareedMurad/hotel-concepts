@@ -35,7 +35,6 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
     articleImage: { url },
     categoriesCollection: { items: categories }
   } = articleFirstScreen.article;
-  console.log(title);
 
   /**
    * format number to minutes

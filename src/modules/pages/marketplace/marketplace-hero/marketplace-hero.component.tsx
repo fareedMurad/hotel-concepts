@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { IntroProps } from './marketplace-hero.props';
 import * as styles from './marketplace-hero.scss';
-import { H1 } from '@core/components';
-import { useMarketplaceData } from '../marketplace.hook';
+import { H1, Spinner } from '@core/components';
+import { useMarketplaceData } from '../hooks/marketplace.hook';
 import classNames from 'classnames';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { useProductsCategoriesData } from '../hooks/marketplace-categories.hook';
+
+// todo fix counter!!
 
 /**
  * Renders Intro
@@ -12,9 +15,15 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
 const MarketplaceHero: React.FC<IntroProps> = ({}) => {
   const [isActive, setIsActive] = React.useState(null);
   const { maketplaceFiltersData, marketPlaceHeroImage } = useMarketplaceData();
+  const {
+    productCategories,
+    productCategoriesLoading
+  } = useProductsCategoriesData();
   const ScrollToEnroll = to => {
     scrollTo(to);
   };
+
+  if (productCategoriesLoading) return <Spinner />;
 
   return (
     <div className={styles.intro}>
@@ -32,8 +41,14 @@ const MarketplaceHero: React.FC<IntroProps> = ({}) => {
           </div>
         </main>
         <div className={styles.filtersField}>
-          {maketplaceFiltersData.map(el => {
-            const { title, id, count, anchor } = el;
+          {productCategories.map(el => {
+            const {
+              category,
+              sys: { id },
+              linkedFrom: {
+                productCollection: { total: amountOfProducts }
+              }
+            } = el;
 
             return (
               <div
@@ -42,14 +57,14 @@ const MarketplaceHero: React.FC<IntroProps> = ({}) => {
                   [styles.active]: isActive === id
                 })}
                 onClick={() => {
-                  ScrollToEnroll(anchor);
+                  ScrollToEnroll(category);
                   setIsActive(id);
                 }}
               >
-                <div className={styles.marketplaceFilterTitle}>{title}</div>
+                <div className={styles.marketplaceFilterTitle}>{category}</div>
                 <div
                   className={styles.marketplaceFilterQuantity}
-                >{`(${count})`}</div>{' '}
+                >{`(${amountOfProducts})`}</div>{' '}
               </div>
             );
           })}
