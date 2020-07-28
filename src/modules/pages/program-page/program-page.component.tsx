@@ -22,13 +22,6 @@ import { FaqBlock, PartnerApply } from '@pages/components';
 import { gql, useQuery } from '@apollo/client';
 import { useParams, useHistory } from 'react-router';
 
-const GET_IMAGE = gql`
-  {
-    asset(id: "3dqRY4agrhNw5QckOpScmI") {
-      url
-    }
-  }
-`;
 /**
  * Renders ProgramPage
  */
@@ -41,7 +34,18 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
     mentorsForCurrentCourseLoading
   } = useProgramPageData(programId);
 
-  const { data, loading, error } = useQuery(GET_IMAGE);
+  const GET_DIVIDER_IMAGE = gql`
+    query($id: String!) {
+      onlineCourse(id: $id) {
+        imageDivider {
+          url
+        }
+      }
+    }
+  `;
+  const { data, loading, error } = useQuery(GET_DIVIDER_IMAGE, {
+    variables: { id: programId }
+  });
 
   return (
     <div className={styles.programPage}>
@@ -56,7 +60,9 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ProgramModules programId={programId} />
       <div
         className={styles.img}
-        style={{ backgroundImage: `url(${data?.asset?.url})` }}
+        style={{
+          backgroundImage: `url(${data?.onlineCourse?.imageDivider?.url})`
+        }}
       />
       <ProgramResults programId={programId} />
       <Mentors

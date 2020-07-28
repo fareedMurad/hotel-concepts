@@ -6,17 +6,20 @@ const useProgramEnrollData = (programId: string) => {
    */
   const GET_PAYMENT_PROPOSALS = gql`
     query($id: String!) {
-      onlineCourse(id: $id) {
-        paymentProposalCollection {
-          items {
-            name
-            description
-            price
-            features
-            isEnrollReady
-            isMostPopular
-          }
+      paymentProposalsCollection {
+        items {
+          name
+          description
+          price
+          features
+          isEnrollReady
+          isMostPopular
         }
+      }
+      onlineCourse(id: $id) {
+        paymentPriceEnterprise
+        paymentPriceFlexibleEducation
+        paymentPriceSelfEducation
       }
     }
   `;
@@ -24,9 +27,8 @@ const useProgramEnrollData = (programId: string) => {
   const { data, loading, error } = useQuery(GET_PAYMENT_PROPOSALS, {
     variables: { id: programId }
   });
-
   return {
-    programEnrollData: data?.onlineCourse?.paymentProposalCollection?.items,
+    programEnrollData: data,
     programEnrollLoading: loading
   };
 };

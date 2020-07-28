@@ -8,10 +8,8 @@
   height: 400px;
   box-sizing: border-box;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.4);
-  background-size: cover;
+  @include heroImage();
+  @include imageOverlay();
   min-height: 300px;
   padding: 0 $default-offset;
   @include flex($justify: center, $align: center, $direction: column);

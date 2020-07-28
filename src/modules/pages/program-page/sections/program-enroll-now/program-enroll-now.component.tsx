@@ -4,6 +4,7 @@ import * as styles from './program-enroll-now.scss';
 import { Button, Spinner } from '@core/components';
 import classNames from 'classnames';
 import { useProgramEnrollData } from './program-enroll.hook';
+import { Intro } from '@pages/for-companies/sections';
 
 /**
  * Renders ProgramEnrollNow
@@ -17,7 +18,7 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
   if (programEnrollLoading) return <Spinner />;
 
   // put popular in the middle of array;
-  const copy = [...programEnrollData];
+  const copy = [...programEnrollData?.paymentProposalsCollection.items];
   for (const [index, object] of copy.entries()) {
     if (object.isMostPopular) {
       [copy[index], copy[1]] = [copy[1], copy[index]];
@@ -25,6 +26,8 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
     }
   }
 
+  const prices = Object.values(programEnrollData.onlineCourse).filter(Number);
+  
   return (
     <section id='enroll' className={styles.programEnrollNow}>
       <div className={styles.title}>Enroll Now</div>
@@ -42,12 +45,12 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
                 <div className={styles.description}>{item.description}</div>
               </div>
               <div className={styles.priceBlock}>
-                {item.price && (
-                  <div className={styles.price}>
-                    <div className={styles.dollar}>$</div>
-                    {item.price}
-                  </div>
-                )}
+                {/* {item.price && ( */}
+                <div className={styles.price}>
+                  <div className={styles.dollar}>$</div>
+                  {prices[index]}
+                </div>
+                {/* )} */}
                 <Button
                   className={styles.button}
                   children='Enroll now'
