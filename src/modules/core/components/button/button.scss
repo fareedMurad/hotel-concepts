@@ -20,13 +20,14 @@
   &--secondary {
     @include font($primary-gray, 16px, 500, 22px);
     background: transparent;
-    border: 1px solid $primary-orange;
     transition: $transition;
+    border: 1px solid $primary-orange;
 
     &:hover {
       color: $white;
       background: $primary-orange;
       border-color: $primary-orange;
+      border: 1px solid $primary-orange;
     }
   }
 

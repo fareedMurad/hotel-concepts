@@ -9,11 +9,7 @@ type InsightBlockItemProps = {
   articleImage: {
     url: string;
   };
-  date: {
-    day: string | number;
-    month: string;
-    year: string | number;
-  };
+  date: string;
   id: string;
 };
 

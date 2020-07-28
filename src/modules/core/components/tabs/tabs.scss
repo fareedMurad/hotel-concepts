@@ -27,14 +27,14 @@
   width: 100%;
   margin-left: 10px;
   @include desktop() {
-    width: 30%;
+    width: 19.4vw;
   }
 }
 .caption {
   @include font($primary-gray, 16px, 400);
   font-family: $IBMPlex;
   &--selected {
-    @include font($primary-gray, 16px, 400);
+    @include font($primary-gray, 16px, 500);
   }
 }
 
