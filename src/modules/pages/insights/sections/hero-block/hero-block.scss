@@ -21,7 +21,7 @@
   &__main {
     @include size(100%);
     background-color: dimgrey;
-    border-radius: 8px;
+    border-radius: 6px;
     position: relative;
     &--pic {
       @include heroImage();
@@ -85,9 +85,11 @@
 }
 
 .tags {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 10px;
+  @include flex($align: center);
+  align-self: flex-start;
+  & > div {
+    margin-right: 8px;
+  }
 }
 
 .card {
@@ -96,16 +98,18 @@
   min-height: 270px;
 
   &--image {
-    @include flex($align: stretch, $justify: space-evenly, $direction: column);
+    // @include flex($align: stretch, $justify: space-between, $direction: column);
+    display: grid;
     @include size(100%);
     @include heroImage();
     border-radius: 8px;
+    padding: 20px;
   }
 
   &__captions {
     @include font($white, 24px, 600, 46px);
+    align-self: flex-end;
     z-index: 99;
-    margin-left: 20px;
     font-family: $EBGaramond;
     @include tablet() {
       @include font($white, 36px, 600, 46px);
@@ -115,7 +119,6 @@
     @include font($primary-gray, 14px, 400, 22px);
     z-index: 99;
     width: fit-content;
-    margin-left: 20px;
     padding: 6px 24px;
     background-color: #f5f1f0;
     border-radius: 4px;
@@ -128,16 +131,16 @@
 .card-link {
   @include font($white, 16px, 500, 22px);
   z-index: 99;
-  margin-left: 20px;
   text-decoration: underline;
+  align-self: flex-end;
 }
 
 .arrow {
   position: absolute;
   bottom: 22px;
-  left: 42px;
+  left: 22px;
   color: $white;
   @include desktop() {
-    left: 134px;
+    left: 108px;
   }
 }

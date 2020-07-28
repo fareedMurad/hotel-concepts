@@ -11,26 +11,26 @@
 }
 
 .img {
+  width: 100%;
   object-fit: cover;
   height: 270px;
-  width: 100%;
   border-radius: 8px;
 }
 
 .activity {
+  @include font($primary-gray, 16px, 400, 22px);
+  width: fit-content;
   background-color: $background;
   padding: 4px 20px;
   border-radius: 5px;
   text-align: center;
-  width: fit-content;
-  @include font($primary-gray, 16px, 400, 22px);
 }
 
 .date {
   @include font($light-grey, 16px, 500, 22px);
+  padding-top: 24px;
+  padding-bottom: 8px;
   font-family: $IBMPlex;
-  padding-top: 10px;
-  padding-bottom: 5px;
 }
 
 .description {
@@ -40,18 +40,18 @@
 }
 
 .button {
-  margin-top: 20px;
   height: 44px;
+  margin-top: 14px;
   color: $primary-gray;
 }
 
 .tags {
   position: absolute;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 10px;
-  bottom: 15px;
-  left: 10px;
-  right: 15px;
+  bottom: 16px;
+  left: 16px;
+  @include flex($align: center);
+  & > div {
+    margin-right: 8px;
+  }
   width: auto;
 }

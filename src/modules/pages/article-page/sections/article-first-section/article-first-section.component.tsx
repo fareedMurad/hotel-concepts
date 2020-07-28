@@ -67,7 +67,11 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
         </div>
         <Paragraph className={styles.heroDescription}>{preText}</Paragraph>
       </div>
-      {desktop && <img src={url} className={styles.image} />}
+      {desktop && (
+        <div className={styles.imageWrapper}>
+          <img src={url} className={styles.image} />
+        </div>
+      )}
     </div>
   );
 };

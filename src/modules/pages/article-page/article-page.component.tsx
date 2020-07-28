@@ -9,6 +9,7 @@ import {
   ArticleSecondSection
 } from './sections';
 import { H2, Paragraph, Button, Footer } from '@core/components';
+import { ScrollToTop } from '@app';
 
 /**
  * Renders ArticlePage
@@ -18,6 +19,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
 
   return (
     <div className={styles.articlePage}>
+      <ScrollToTop />
       <Header whiteBackground />
       <main className={styles.content}>
         <div onClick={() => history.goBack()} className={styles.back}>
