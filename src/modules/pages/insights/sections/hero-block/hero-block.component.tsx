@@ -23,11 +23,13 @@ const HeroCard = ({ firstScreenArticle }) => {
           backgroundImage: `url(${url})`
         }}
       >
-        {categories.map(el => (
-          <div key={el.category} className={styles.cardActivity}>
-            {el.category}
-          </div>
-        ))}
+        <div className={styles.tags}>
+          {categories.map(el => (
+            <div key={el.category} className={styles.cardActivity}>
+              {el.category}
+            </div>
+          ))}
+        </div>
 
         <div className={styles.cardCaptions}>{title}</div>
 

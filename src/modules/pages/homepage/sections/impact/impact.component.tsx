@@ -37,7 +37,7 @@ const GET_TESTEMONIALS = gql`
       items {
         name
         text
-        position
+        companyName
         slug
         photo {
           url
@@ -76,14 +76,14 @@ const Impact: React.FC<ImpactProps> = ({}) => {
         customButtonGroup={<SliderButtons className={styles.controls} />}
       >
         {testemonials.map((item, index) => {
-          const { name, text, position, photo } = item;
+          const { name, text, companyName, photo } = item;
 
           return (
             <OpinionItem
               name={name}
               text={text}
               img={photo.url}
-              from={position}
+              from={companyName}
               key={`${item.name}+${index}`}
             />
           );

@@ -24,7 +24,7 @@ import { useParams, useHistory } from 'react-router';
 
 const GET_IMAGE = gql`
   {
-    asset(id: "56UkNYNoRKWxDofAakl8gx") {
+    asset(id: "3dqRY4agrhNw5QckOpScmI") {
       url
     }
   }
