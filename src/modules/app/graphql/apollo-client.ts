@@ -11,7 +11,6 @@ const client = new ApolloClient({
         fields: {
           onlineCourse: {
             merge(existing = [], incoming: any) {
-              debugger;
               return { ...existing, ...incoming };
             }
           }

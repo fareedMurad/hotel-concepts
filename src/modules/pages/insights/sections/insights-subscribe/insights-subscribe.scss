@@ -22,11 +22,9 @@
 }
 
 .button-submit {
-  @include flex($justify: space-between);
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 35%;
   padding: 11px 16px;
   border-radius: 4px;
 }
