@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { ScrollButton } from '@core/components/scroll-button';
 import { HeroTitle, HeroSubtitle, Spinner } from '@core/components';
 import { useMostPopularArticles } from './hero-block.hook';
-import { string } from 'yup';
 
 const HeroCard = ({ firstScreenArticle }) => {
   if (!firstScreenArticle) return <Spinner />;
@@ -49,7 +48,9 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
     firstScreenArticles,
     firstScreenArticlesLoading
   } = useMostPopularArticles();
+
   if (firstScreenArticlesLoading) return <Spinner />;
+  
   return (
     <div className={styles.heroBlock}>
       <div className={styles.heroMain}>

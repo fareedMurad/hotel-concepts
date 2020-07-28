@@ -3,6 +3,7 @@ import { InsightBlockItemProps } from './insight-block-item.props';
 import * as styles from './insight-block-item.scss';
 import { Button } from '@core/components';
 import { useHistory } from 'react-router';
+import Moment from 'react-moment';
 
 /**
  * Renders InsightBlockItem
@@ -17,7 +18,6 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
   id
 }) => {
   const { url } = articleImage;
-  const { month, year, day } = date;
   const history = useHistory();
 
   return (
@@ -34,7 +34,11 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
           })}
         </div>
       </div>
-      <div className={styles.date}>{`${month} ${day}, ${year}`}</div>
+      <div className={styles.date}>
+        <Moment format='MMM DD, YYYY' className={styles.date}>
+          {date}
+        </Moment>
+      </div>
       <div className={styles.description}>{title}</div>
       <Button
         className={styles.button}

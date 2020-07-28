@@ -29,6 +29,7 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
             <Form handleSubmit={handleSubmit} className={styles.form}>
               <Field.Tabs
                 name='subscribeType'
+                className={styles.tabs}
                 data={[
                   {
                     id: '0',

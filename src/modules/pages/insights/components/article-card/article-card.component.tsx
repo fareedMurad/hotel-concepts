@@ -17,6 +17,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
     title,
     sys: { id }
   } = articles;
+
   return (
     <div className={styles.articleCard}>
       <div
@@ -34,7 +35,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
 
       <div className={styles.content}>
         <div className={styles.contentDate}>
-          <Moment format='MMM, DD YYYY'>{date}</Moment>
+          <Moment format='MMM DD, YYYY'>{date}</Moment>
         </div>
         <div className={styles.contentDescription}>{title}</div>
       </div>
@@ -44,6 +45,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
         children='Read more'
         arrow='&#8594;'
         onClick={() => history.push(`/insights/article/${id}`)}
+        width='100%'
       />
     </div>
   );
