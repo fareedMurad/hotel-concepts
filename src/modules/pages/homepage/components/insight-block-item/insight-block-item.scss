@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .insight-block-item {
   max-width: 430px;
@@ -22,7 +22,7 @@
   padding: 4px 20px;
   border-radius: 5px;
   text-align: center;
-  max-width: fit-content;
+  width: fit-content;
   @include font($primary-gray, 16px, 400, 22px);
 }
 
@@ -46,11 +46,12 @@
 }
 
 .tags {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
   bottom: 15px;
   left: 10px;
-  right: 10px;
+  right: 15px;
   width: auto;
 }
