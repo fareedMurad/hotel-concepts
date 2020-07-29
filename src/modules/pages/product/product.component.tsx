@@ -6,12 +6,13 @@ import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
 import { Footer, H2, Icon, Spinner } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
-import { useHistory, useParams } from 'react-router';
+import { useHistory, useParams, useLocation } from 'react-router';
 import { useProductData } from './hooks/product.hook';
 import { useRecomendedProductsData } from './hooks/recomended-products.hook';
 import { ScrollToTop } from '@app';
 import { Trail } from 'react-spring/renderprops';
 import { useClickOutside } from '@core/shared';
+import { SEO } from '@core/components/seo/seo.component';
 
 /**
  * Product-card Data
@@ -38,6 +39,7 @@ const Product: React.FC<ProductProps> = ({}) => {
   const socialsRef = React.useRef();
   useClickOutside(socialsRef, () => setShowSocial(false));
   const { product, productLoading } = useProductData(productId);
+  const { pathname } = useLocation();
 
   const {
     recomendedProducts,
@@ -49,7 +51,8 @@ const Product: React.FC<ProductProps> = ({}) => {
 
   const {
     productImagesCollection: { items: images },
-    previewPagesCollection: { items: previewPages }
+    previewPagesCollection: { items: previewPages },
+    name
   } = product;
 
   const convertToFileType = file =>
@@ -64,6 +67,12 @@ const Product: React.FC<ProductProps> = ({}) => {
   return (
     <div className={styles.product}>
       <ScrollToTop />
+      <SEO
+        title={name}
+        thumbnail={images[0].url}
+        url={`localhost:8289${pathname}`}
+      ></SEO>
+
       <div className={styles.header}>
         <Header whiteBackground />
       </div>

@@ -40,8 +40,7 @@
 }
 
 .links {
-  @include flex($align: center, $justify: flex-end);
-  position: relative;
+  @include flex($align: center, $justify: space-between);
   width: 100%;
   margin: 22px 0px;
   padding-left: 22px;
@@ -52,9 +51,7 @@
 
   &__share {
     @include flex($justify: center, $align: center);
-    position: absolute;
-    bottom: 30px;
-    left: 120px;
+    position: relative;
     width: fit-content;
     border: unset;
     cursor: pointer;
@@ -71,6 +68,9 @@
 
 .shareButtonItems {
   list-style: none;
+  position: absolute;
+  top: -64px;
+  left: 100px;
   & > li {
     @include flex($justify: center, $align: center);
     width: 45px;
