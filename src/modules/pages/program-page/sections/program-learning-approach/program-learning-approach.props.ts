@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type ProgramLearningApproachProps = {};
+type ProgramLearningApproachProps = {
+  programId: string;
+};
 
 export { ProgramLearningApproachProps };
