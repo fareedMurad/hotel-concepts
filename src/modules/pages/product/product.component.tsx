@@ -13,6 +13,7 @@ import { ScrollToTop } from '@app';
 import { Trail } from 'react-spring/renderprops';
 import { useClickOutside } from '@core/shared';
 import { SEO } from '@core/components/seo/seo.component';
+import { Share } from '@core/components/share';
 
 /**
  * Product-card Data
@@ -33,11 +34,9 @@ const productCardData = {
  */
 const Product: React.FC<ProductProps> = ({}) => {
   const history = useHistory();
-  const [showSocial, setShowSocial] = React.useState(false);
+
   const { id: productId, categorySlug } = useParams();
-  const social = ['facebook-small', 'twitter', 'instagram-small'];
-  const socialsRef = React.useRef();
-  useClickOutside(socialsRef, () => setShowSocial(false));
+
   const { product, productLoading } = useProductData(productId);
   const { pathname } = useLocation();
 
@@ -84,32 +83,7 @@ const Product: React.FC<ProductProps> = ({}) => {
         <div className={styles.slider}>
           <ProductSlider images={images} />
           <div className={styles.links}>
-            <div
-              ref={socialsRef}
-              className={styles.linksShare}
-              onClick={() => {
-                setShowSocial(!showSocial);
-              }}
-            >
-              <span>Share</span>
-              <a className={styles.shareButton}>
-                <Icon name='share' />
-              </a>
-
-              <ul className={styles.shareButtonItems}>
-                <Trail
-                  items={social}
-                  keys={item => item}
-                  to={{ opacity: showSocial && '1.0' }}
-                >
-                  {social => props => (
-                    <li style={props}>
-                      <Icon name={social} />
-                    </li>
-                  )}
-                </Trail>
-              </ul>
-            </div>
+            <Share />
             <div className={styles.linksDownload}>
               {previewPages &&
                 previewPages.map(el => (

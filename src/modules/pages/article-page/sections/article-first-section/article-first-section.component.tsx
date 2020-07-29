@@ -7,6 +7,7 @@ import { useMediaPoints } from '@core/shared';
 import { useArticleFirstScreenData } from '../../hooks/article-first-screen.hook';
 import { useParams } from 'react-router';
 import Moment from 'react-moment';
+import { Share } from '@core/components/share';
 
 /**
  * Renders Tags
@@ -54,7 +55,7 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
             <div>Reading time:</div> <div>{finalTime}</div>
           </div>
           <div className={styles.share}>
-            <div>Share</div> <Icon name='share' className={styles.shareIcon} />
+            <Share />
           </div>
         </div>
         <Paragraph className={styles.heroDescription}>{preText}</Paragraph>
