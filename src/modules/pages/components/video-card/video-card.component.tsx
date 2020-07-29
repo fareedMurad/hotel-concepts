@@ -18,7 +18,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const [videoTitle, setVideoTitle] = React.useState('');
   const videoPlayer = React.useRef<HTMLIFrameElement>(null);
   React.useEffect(() => {
-    var player = new Player(videoPlayer.current);
+    const player = new Player(videoPlayer.current);
     player.getDuration().then(el => setDuration(el));
     player.getVideoTitle().then(el => setVideoTitle(el));
   }, []);

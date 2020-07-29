@@ -14,7 +14,6 @@ const useProgramIntroData = (programId: string) => {
   const { data, loading, error } = useQuery(GET_PROGRAM_DATA, {
     variables: { id: programId }
   });
-
   const navButtons = [
     {
       name: 'About',

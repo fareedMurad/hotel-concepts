@@ -92,4 +92,7 @@
   @include flex($justify: space-between, $direction: column);
   height: calc(100% - 195px);
   max-width: 80%;
+  & > div {
+    width: 100%;
+  }
 }

@@ -10,6 +10,7 @@ import { ProgramNavButton } from '@pages/program-page/components/program-nav-but
 import { BackButton } from '@core/components/back-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
+import Player from '@vimeo/player';
 
 /**
  * Renders ProgramIntro
@@ -33,12 +34,23 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   //   path: 'ForCorporateClients.preview',
   //   time: '0:56'
   // };
-  const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
+  const videoPlayer = React.useRef<HTMLIFrameElement>(null);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
+  const [duration, setDuration] = React.useState(0);
+  const [videoTitle, setVideoTitle] = React.useState('');
   const scrollToEnroll = () => {
     scrollTo('enroll');
   };
+
+  React.useEffect(() => {
+    if (!programDataLoading) {
+      const player = new Player(videoPlayer.current);
+      player.getDuration().then(el => setDuration(el));
+      player.getVideoTitle().then(el => setVideoTitle(el));
+    }
+  }, [programDataLoading]);
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -66,7 +78,19 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
     }
   };
 
+  const getVideoId = url => url.split('/').pop();
+  /**
+   * convert duration
+   */
+
+  const minutes = Math.floor(duration / 60);
+  const seconds = duration - minutes * 60;
+
   if (programDataLoading) return <Spinner />;
+
+  const { videoVimeoUrl } = programData;
+
+  console.log(getVideoId(videoVimeoUrl));
 
   return (
     <section
@@ -78,6 +102,12 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
         <div>{programData?.name}</div>
         <div>{programData?.description}</div>
       </div>
+      <iframe
+        ref={videoPlayer}
+        src={`https://player.vimeo.com/video/${getVideoId(videoVimeoUrl)}`}
+        allowFullScreen
+        hidden
+      />
       <Popup
         contentStyle={{
           border: 'none',
@@ -89,7 +119,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
             <WatchButton
               onEnter={playVideo}
               onLeave={stopVideo}
-              time='0:54'
+              time={`${minutes}: ${seconds}`}
               titleText='Watch Trailer'
             />
           </div>
@@ -126,7 +156,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
       <video
         ref={videoRef}
         className={styles.video}
-        // src={require(`assets/videos/${videoInfo.path}.mov`)}
+        src={`https://player.vimeo.com/video/${getVideoId(videoVimeoUrl)}`}
         muted
       />
     </section>
