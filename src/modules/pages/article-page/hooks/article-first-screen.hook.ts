@@ -19,6 +19,13 @@ const useArticleFirstScreenData = articleId => {
             }
           }
         }
+        readNext {
+          title
+          date
+          sys {
+            id
+          }
+        }
       }
     }
   `;
@@ -27,7 +34,7 @@ const useArticleFirstScreenData = articleId => {
     variables: { id: articleId }
   });
 
-  return { articleFirstScreen: data, articleFirstScreenLoading: loading };
+  return { articleData: data, articleLoading: loading };
 };
 
 export { useArticleFirstScreenData };

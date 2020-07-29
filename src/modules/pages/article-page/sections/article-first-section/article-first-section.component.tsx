@@ -4,7 +4,7 @@ import * as styles from './article-first-section.scss';
 import { H1, Icon, Paragraph, Spinner } from '@core/components';
 import { useArticlePageData } from '@pages/article-page/article-page.hook';
 import { useMediaPoints } from '@core/shared';
-import { useArticleFirstScreenData } from './hooks/article-first-screen.hook';
+import { useArticleFirstScreenData } from '../../hooks/article-first-screen.hook';
 import { useParams } from 'react-router';
 import Moment from 'react-moment';
 
@@ -15,18 +15,10 @@ const Tag = ({ caption }) => <div className={styles.tagsItem}>{caption}</div>;
 /**
  * Renders ArticleFirstSection
  */
-const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
-  const { articleId } = useParams();
+const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
+  articleData
+}) => {
   const { desktop } = useMediaPoints();
-
-  const { tags, heroTitle, heroDescription } = useArticlePageData();
-
-  const {
-    articleFirstScreen,
-    articleFirstScreenLoading
-  } = useArticleFirstScreenData(articleId);
-
-  if (articleFirstScreenLoading) return <Spinner />;
 
   const {
     title,
@@ -34,7 +26,7 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({}) => {
     readingTime,
     articleImage: { url },
     categoriesCollection: { items: categories }
-  } = articleFirstScreen.article;
+  } = articleData.article;
 
   /**
    * format number to minutes
