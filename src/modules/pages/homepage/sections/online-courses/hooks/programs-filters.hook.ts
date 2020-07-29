@@ -4,7 +4,7 @@ const useProgramsFiltersData = () => {
   // get all filters
   const GET_PROGRAMS_FILTERS = gql`
     {
-      courseCategoryCollection {
+      courseCategoryCollection(order: sys_firstPublishedAt_DESC) {
         items {
           sys {
             id
