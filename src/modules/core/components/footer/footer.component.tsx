@@ -14,7 +14,7 @@ import { gql, useQuery } from '@apollo/client';
  */
 const CATEGORIES = gql`
   {
-    courseCategoryCollection(limit: 5) {
+    courseCategoryCollection(limit: 5, order: sys_firstPublishedAt_DESC) {
       items {
         name
         sys {
