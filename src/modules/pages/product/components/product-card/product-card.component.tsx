@@ -2,22 +2,24 @@ import * as React from 'react';
 import { ProductCardProps } from './product-card.props';
 import * as styles from './product-card.scss';
 import { Paragraph, H2, H4, H3, Button } from '@core/components';
+import Moment from 'react-moment';
 
 /**
  * Renders ProductCard
  */
-const ProductCard: React.FC<ProductCardProps> = ({
-  title,
-  author,
-  category,
-  languege,
-  publishDate,
-  details,
-  price
-}) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const {
+    author,
+    name,
+    price,
+    publishDate,
+    bookCategory,
+    languages,
+    details
+  } = product;
   return (
     <div className={styles.productCard}>
-      <H2 className={styles.productCardTitle}>{title}</H2>
+      <H2 className={styles.productCardTitle}>{name}</H2>
       <Paragraph className={styles.productCardAuthor}>{author}</Paragraph>
       <div className={styles.hr} />
       <div className={styles.wrapper}>
@@ -25,15 +27,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <div className={styles.desription}>
             <div className={styles.descriptionBlock}>
               <H4 className={styles.descriptionTitle}>Category</H4>
-              <Paragraph>{category}</Paragraph>
+              <Paragraph>{bookCategory}</Paragraph>
             </div>
             <div className={styles.descriptionBlock}>
               <H4 className={styles.descriptionTitle}>Languege</H4>
-              <Paragraph>{languege}</Paragraph>
+              <Paragraph>{languages}</Paragraph>
             </div>
             <div className={styles.descriptionBlock}>
               <H4 className={styles.descriptionTitle}>Publish Date</H4>
-              <Paragraph>{publishDate}</Paragraph>
+              <Paragraph>
+                <Moment format={'MMM DD, YYYY'}>{publishDate}</Moment>
+              </Paragraph>
             </div>
           </div>
           <div className={styles.details}>
@@ -42,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </div>
         <div>
-          <H3 className={styles.price}>{price}</H3>
+          <H3 className={styles.price}>{`$${price}`}</H3>
           <Button
             className={styles.confirmButton}
             children='Go to Checkout'

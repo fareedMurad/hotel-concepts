@@ -30,13 +30,6 @@
   will-change: transform, transition;
 }
 
-
-.block {
-  display: inline-block;
-  display: flex;
-  justify-content: center;
-}
-
 .arrow {
   position: absolute;
   width: 30px;
@@ -73,9 +66,23 @@
   height: 8px;
   margin-right: 8px;
 }
+
+.block {
+  display: flex;
+  justify-content: center;
+}
+.image {
+  object-fit: cover;
+  box-shadow: 5px 5px 10px rgba(62, 62, 62, 0.2);
+  border-radius: 5px;
+}
+
 .dots {
+  @include flex($justify: center);
   position: absolute;
   bottom: 0;
-  left: calc(50% - 40px);
-  display: flex;
+  width: 100%;
+  & > div:last-child {
+    margin-right: 0;
+  }
 }

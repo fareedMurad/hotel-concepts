@@ -56,18 +56,20 @@ const ProductsSlider: React.FC<SliderProps> = ({
       >
         {data.map(el => {
           const {
-            productImage: { url },
+            productImagesCollection: { items: images },
             name,
             price,
-            sys: { id }
+            sys: { id },
+            productCategory: { slug }
           } = el;
           return (
             <SliderCard
               key={id}
-              img={url}
+              img={images}
               name={name}
               price={price}
               id={id}
+              categorySlug={slug}
               onClick={() => {}}
               className={styles.sliderCard}
             />

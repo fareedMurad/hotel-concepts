@@ -6,9 +6,14 @@ import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
 
 import { useMarketplaceData } from '@pages/marketplace/hooks/marketplace.hook';
-import { Footer, H2, Icon } from '@core/components';
+import { Footer, H2, Icon, Spinner } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import { useProductData } from './hooks/product.hook';
+import { useRecomendedProductsData } from './hooks/recomended-products.hook';
+import { ScrollToTop } from '@app';
+import { useDispatch } from 'react-redux';
+import { navigate } from '@router/store';
 
 /**
  * Product-card Data
@@ -28,20 +33,37 @@ const productCardData = {
  * Renders Product
  */
 const Product: React.FC<ProductProps> = ({}) => {
-  const { books } = useMarketplaceData();
   const history = useHistory();
+  console.log(history);
+  const { id: productId, categorySlug } = useParams();
+
+  const { product, productLoading } = useProductData(productId);
+
   const {
-    title,
-    author,
-    category,
-    language,
-    publishDate,
-    details,
-    price
-  } = productCardData;
+    recomendedProducts,
+    redomendedProductsLoading
+  } = useRecomendedProductsData(categorySlug, productId);
+
+  if (productLoading) return <Spinner />;
+  if (redomendedProductsLoading) return <Spinner />;
+
+  const {
+    productImagesCollection: { items: images },
+    previewPagesCollection: { items: previewPages }
+  } = product;
+
+  const convertToFileType = file =>
+    file
+      .split('/')
+      .pop()
+      .toUpperCase();
+
+  const link =
+    'https://www.facebook.com/sharer/sharer.php?app_id=978057235952932&sdk=joey&u=https://chillyfacts.com/create-facebook-share-button-for-website-webpages/&display=popup&ref=plugin&src=share_button';
 
   return (
     <div className={styles.product}>
+      <ScrollToTop />
       <div className={styles.header}>
         <Header whiteBackground />
       </div>
@@ -51,35 +73,38 @@ const Product: React.FC<ProductProps> = ({}) => {
       </div>
       <div className={styles.productReview}>
         <div className={styles.slider}>
-          <ProductSlider />
+          <ProductSlider images={images} />
           <div className={styles.links}>
             <div className={styles.linksShare}>
-              <a href='#'>Share</a>
-              <button className={styles.shareButton}>
+              <a
+                href={link}
+                onClick={() =>
+                  window.open(link, 'Facebook', 'width=640,height=580')
+                }
+              >
                 <Icon name='share' />
-              </button>
+              </a>
             </div>
             <div className={styles.linksDownload}>
-              <button className={styles.downloadBtn}>PDF</button>
-              <button className={styles.downloadBtn}>EPUB</button>
-              <button className={styles.downloadBtn}>FB2</button>
+              {previewPages &&
+                previewPages.map(el => (
+                  <button
+                    key={el.sys.id}
+                    className={styles.downloadBtn}
+                    onClick={() => window.open(el.url, '_blank')}
+                  >
+                    {convertToFileType(el.contentType)}
+                  </button>
+                ))}
             </div>
           </div>
         </div>
-        <ProductCard
-          title={title}
-          author={author}
-          category={category}
-          languege={language}
-          publishDate={publishDate}
-          details={details}
-          price={price}
-        />
+        <ProductCard product={product} />
       </div>
 
       <H2 className={styles.recomendedBooks}>Recommended books</H2>
 
-      <ProductsSlider data={books} notOrangeButtons />
+      <ProductsSlider data={recomendedProducts} notOrangeButtons />
       <div className={styles.footer}>
         <Footer />
       </div>

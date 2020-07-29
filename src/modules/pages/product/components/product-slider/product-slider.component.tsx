@@ -7,6 +7,9 @@ import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { useMarketplaceData } from '@pages/marketplace/hooks/marketplace.hook';
 import { Icon } from '@core/components';
 import classNames from 'classnames';
+import { useProductsData } from '@pages/marketplace/hooks/marketplace-products.hook';
+import { useParams } from 'react-router';
+import { useProductData } from '@pages/product/hooks/product.hook';
 
 interface CarouselButtonGroupProps extends ButtonGroupProps {
   className?: string;
@@ -39,14 +42,14 @@ const responsive = {
  */
 
 const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
-  const { books } = useMarketplaceData();
   const {
     onMove,
     index,
     active,
-    carouselState: { currentSlide, deviceType }
+    carouselState: { currentSlide, deviceType },
+    images
   } = rest;
-  const carouselItems = books.map(el => {
+  const carouselItems = images.map(el => {
     return <div />;
   });
   // onMove means if dragging or swiping in progress.
@@ -95,9 +98,7 @@ const CustomRightArrow: React.FC<any> = ({ onClick, ...rest }) => {
   );
 };
 
-const ProductSlider: React.FC<ProductSliderProps> = ({}) => {
-  const { books } = useMarketplaceData();
-
+const ProductSlider: React.FC<ProductSliderProps> = ({ images }) => {
   return (
     <div className={styles.productSlider}>
       <div className={styles.productSliderWrap}>
@@ -113,17 +114,17 @@ const ProductSlider: React.FC<ProductSliderProps> = ({}) => {
           customRightArrow={<CustomRightArrow />}
           customLeftArrow={<CustomLefttArrow />}
           showDots
-          customDot={<CustomDot />}
+          customDot={<CustomDot images={images} />}
           dotListClass={styles.dots}
         >
-          {books.map(book => {
-            const { img, id, name } = book;
+          {images.map(book => {
+            const { url } = book;
 
             return (
-              <div key={id + name} className={styles.block}>
+              <div key={url} className={styles.block}>
                 <img
                   className={styles.image}
-                  src={require(`img/marketplace/marketplace-${img}.png`)}
+                  src={url}
                   alt=''
                   width='244px'
                   height='375px'

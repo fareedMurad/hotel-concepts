@@ -14,7 +14,7 @@ import { useProductsCategoriesData } from '../hooks/marketplace-categories.hook'
  */
 const MarketplaceHero: React.FC<IntroProps> = ({}) => {
   const [isActive, setIsActive] = React.useState(null);
-  const { maketplaceFiltersData, marketPlaceHeroImage } = useMarketplaceData();
+  const { marketPlaceHeroImage } = useMarketplaceData();
   const {
     productCategories,
     productCategoriesLoading

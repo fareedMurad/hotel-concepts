@@ -1,9 +1,11 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProductsData = category => {
+const useRecomendedProductsData = (slug, productId) => {
   const GET_PRODUCTS_DATA = gql`
-    query($category: String!) {
-      productCollection(where: { productCategory: { category: $category } }) {
+    query($slug: String!, $productId: String!) {
+      productCollection(
+        where: { productCategory: { slug: $slug }, sys: { id_not: $productId } }
+      ) {
         items {
           name
           productImagesCollection {
@@ -24,9 +26,12 @@ const useProductsData = category => {
   `;
 
   const { data, loading, error } = useQuery(GET_PRODUCTS_DATA, {
-    variables: { category: category }
+    variables: { slug: slug, productId: productId }
   });
-  return { products: data?.productCollection?.items, productsLoading: loading };
+  return {
+    recomendedProducts: data?.productCollection?.items,
+    redomendedProductsLoading: loading
+  };
 };
 
-export { useProductsData };
+export { useRecomendedProductsData };
