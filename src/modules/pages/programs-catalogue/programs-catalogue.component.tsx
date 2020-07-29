@@ -34,7 +34,6 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
 
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
-  const pages = Math.ceil(catalogueProgramsData.length / itemsPerPage);
 
   const changePage = page => () => {
     setCurrentPage(page);
@@ -49,9 +48,16 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
     return program.subfilters?.some(item => currentFilters.includes(item));
   });
 
-  const currentPrograms = filteredPrograms.slice(firstItemIndex, lastItemIndex);
-  const reduceMargin =
-    filteredPrograms.length >= itemsPerPage || currentPage > 1;
+  // since only Focused programs have subfilters.
+  const isFilterable = catalogueInfoData.isSubfiltersAllowed
+    ? filteredPrograms
+    : catalogueProgramsData;
+
+  const pages = Math.ceil(isFilterable.length / itemsPerPage);
+  const currentPrograms = isFilterable.slice(firstItemIndex, lastItemIndex);
+
+  // when no pagination we reduce margin top;
+  const reduceMargin = isFilterable.length >= itemsPerPage || currentPage > 1;
 
   return (
     <React.Fragment>
@@ -69,10 +75,12 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             professional goals.
           </div>
         </div>
-        <CatalogueFilters
-          currentFilters={currentFilters}
-          updateFilters={updateFilters}
-        />
+        {catalogueInfoData.isSubfiltersAllowed && (
+          <CatalogueFilters
+            currentFilters={currentFilters}
+            updateFilters={updateFilters}
+          />
+        )}
         <div className={styles.content} id='programs'>
           {currentPrograms.length > 0 ? (
             currentPrograms.map((program, index) => {

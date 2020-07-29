@@ -7,6 +7,7 @@ const useCatalogueInfoData = (categoryId?: string) => {
         name
         description
         subtitle
+        isSubfiltersAllowed
       }
     }
   `;
