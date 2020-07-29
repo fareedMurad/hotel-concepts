@@ -7,6 +7,11 @@ const useProgramIntroData = (programId: string) => {
         name
         description
         videoVimeoUrl
+        previewVideo {
+          video {
+            url
+          }
+        }
       }
     }
   `;

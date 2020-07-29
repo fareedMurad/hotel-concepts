@@ -30,33 +30,26 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
 
   const { data, error } = useQuery(GET_HERO_IMAGE);
 
-  // const videoInfo = {
-  //   path: 'ForCorporateClients.preview',
-  //   time: '0:56'
-  // };
-  const videoPlayer = React.useRef<HTMLIFrameElement>(null);
-  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
+  const [previewVideo, setPreviewVideo] = React.useState('');
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
+  const videoPlayer = React.useRef<HTMLIFrameElement>(null);
   const [duration, setDuration] = React.useState(0);
-  const [videoTitle, setVideoTitle] = React.useState('');
   const scrollToEnroll = () => {
     scrollTo('enroll');
   };
 
   React.useEffect(() => {
-    if (!programDataLoading) {
-      const player = new Player(videoPlayer.current);
-      player.getDuration().then(el => setDuration(el));
-      player.getVideoTitle().then(el => setVideoTitle(el));
-    }
-  }, [programDataLoading]);
-
-  React.useEffect(() => {
     if (videoRef.current) {
       setVideo(videoRef.current);
     }
-  }, [videoRef]);
+    if (!programDataLoading) {
+      const player = new Player(videoPlayer.current);
+      player.getDuration().then(el => setDuration(el));
+      setPreviewVideo(previewUrl);
+    }
+  }, [programDataLoading, videoRef, programData]);
 
   const playVideo = () => {
     if (video) {
@@ -88,7 +81,12 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
 
   if (programDataLoading) return <Spinner />;
 
-  const { videoVimeoUrl } = programData;
+  const {
+    videoVimeoUrl,
+    previewVideo: {
+      video: { url: previewUrl }
+    }
+  } = programData;
 
   console.log(getVideoId(videoVimeoUrl));
 
@@ -153,12 +151,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
         />
       </div>
 
-      <video
-        ref={videoRef}
-        className={styles.video}
-        src={`https://player.vimeo.com/video/${getVideoId(videoVimeoUrl)}`}
-        muted
-      />
+      <video ref={videoRef} className={styles.video} src={previewVideo} muted />
     </section>
   );
 };
