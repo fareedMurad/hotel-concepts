@@ -3,7 +3,10 @@ import { gql, useQuery } from '@apollo/client';
 const useProgramsData = (category: string) => {
   const GET_CATEGORIES = gql`
     query($category: String!) {
-      onlineCourseCollection(where: { category: { name: $category } }) {
+      onlineCourseCollection(
+        where: { category: { name: $category } }
+        locale: "en-US"
+      ) {
         total
         items {
           name

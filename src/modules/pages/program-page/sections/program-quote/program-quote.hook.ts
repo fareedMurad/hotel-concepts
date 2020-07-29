@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useProgramQuoteData = (programId: string) => {
   const GET_QUOTE_IMAGE = gql`
     query($id: String!) {
-      onlineCourse(id: $id) {
+      onlineCourse(id: $id, locale: "en-US") {
         imageQuote {
           quoteText
           backgroundImg {

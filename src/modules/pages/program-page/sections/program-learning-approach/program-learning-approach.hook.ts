@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useProgramLearningApproachData = (programId: string) => {
   const GET_LEARNING_APPROACH_DATA = gql`
     query($id: String!) {
-      onlineCourse(id: $id) {
+      onlineCourse(id: $id, locale: "en-US") {
         learningApproachCollection {
           items {
             title

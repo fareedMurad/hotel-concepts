@@ -4,16 +4,14 @@ import * as styles from './product.scss';
 import { Header } from '@core/components/header';
 import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
-
-import { useMarketplaceData } from '@pages/marketplace/hooks/marketplace.hook';
 import { Footer, H2, Icon, Spinner } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
 import { useHistory, useParams } from 'react-router';
 import { useProductData } from './hooks/product.hook';
 import { useRecomendedProductsData } from './hooks/recomended-products.hook';
 import { ScrollToTop } from '@app';
-import { useDispatch } from 'react-redux';
-import { navigate } from '@router/store';
+import { Trail } from 'react-spring/renderprops';
+import { useClickOutside } from '@core/shared';
 
 /**
  * Product-card Data
@@ -34,9 +32,11 @@ const productCardData = {
  */
 const Product: React.FC<ProductProps> = ({}) => {
   const history = useHistory();
-  console.log(history);
+  const [showSocial, setShowSocial] = React.useState(false);
   const { id: productId, categorySlug } = useParams();
-
+  const social = ['facebook-small', 'twitter', 'instagram-small'];
+  const socialsRef = React.useRef();
+  useClickOutside(socialsRef, () => setShowSocial(false));
   const { product, productLoading } = useProductData(productId);
 
   const {
@@ -75,15 +75,31 @@ const Product: React.FC<ProductProps> = ({}) => {
         <div className={styles.slider}>
           <ProductSlider images={images} />
           <div className={styles.links}>
-            <div className={styles.linksShare}>
-              <a
-                href={link}
-                onClick={() =>
-                  window.open(link, 'Facebook', 'width=640,height=580')
-                }
-              >
+            <div
+              ref={socialsRef}
+              className={styles.linksShare}
+              onClick={() => {
+                setShowSocial(!showSocial);
+              }}
+            >
+              <span>Share</span>
+              <a className={styles.shareButton}>
                 <Icon name='share' />
               </a>
+
+              <ul className={styles.shareButtonItems}>
+                <Trail
+                  items={social}
+                  keys={item => item}
+                  to={{ opacity: showSocial && '1.0' }}
+                >
+                  {social => props => (
+                    <li style={props}>
+                      <Icon name={social} />
+                    </li>
+                  )}
+                </Trail>
+              </ul>
             </div>
             <div className={styles.linksDownload}>
               {previewPages &&

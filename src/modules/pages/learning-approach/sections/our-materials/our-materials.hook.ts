@@ -3,7 +3,7 @@ import { useQuery, gql } from '@apollo/client';
 const useVideoLecturesData = () => {
   const GET_VIDO_LECTURES = gql`
     {
-      videoLecturesCollection {
+      videoLecturesCollection(locale: "en-US") {
         items {
           sys {
             id

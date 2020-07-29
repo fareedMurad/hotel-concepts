@@ -3,7 +3,7 @@ import { useQuery, gql } from '@apollo/client';
 const useAllJobsData = () => {
   const GET_ALL_JOBS = gql`
     {
-      jobsCollection {
+      jobsCollection(locale: "en-US") {
         total
         items {
           sys {

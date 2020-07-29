@@ -6,7 +6,7 @@ const useFaqData = () => {
    */
   const GET_FAQ = gql`
     {
-      faqCollection {
+      faqCollection(locale: "en-US") {
         items {
           question
           answer

@@ -10,7 +10,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
  */
 const GET_RICH_TEXT = gql`
   {
-    testRichText(id: "4L09BPBmfp4lZUwWQh6HIs") {
+    testRichText(id: "4L09BPBmfp4lZUwWQh6HIs", locale: "en-US") {
       richtext {
         json
       }

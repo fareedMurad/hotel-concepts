@@ -7,7 +7,7 @@ const useQuoteData = () => {
 
   const GET_QUOTE_TEXT = gql`
     {
-      quoteTextCollection {
+      quoteTextCollection(locale: "en-US") {
         items {
           text
         }
