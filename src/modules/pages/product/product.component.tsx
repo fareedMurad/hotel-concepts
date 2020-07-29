@@ -34,6 +34,7 @@ const productCardData = {
  */
 const Product: React.FC<ProductProps> = ({}) => {
   const history = useHistory();
+  console.log(history);
   const { id: productId, categorySlug } = useParams();
 
   const { product, productLoading } = useProductData(productId);
@@ -57,6 +58,9 @@ const Product: React.FC<ProductProps> = ({}) => {
       .pop()
       .toUpperCase();
 
+  const link =
+    'https://www.facebook.com/sharer/sharer.php?app_id=978057235952932&sdk=joey&u=https://chillyfacts.com/create-facebook-share-button-for-website-webpages/&display=popup&ref=plugin&src=share_button';
+
   return (
     <div className={styles.product}>
       <ScrollToTop />
@@ -72,10 +76,14 @@ const Product: React.FC<ProductProps> = ({}) => {
           <ProductSlider images={images} />
           <div className={styles.links}>
             <div className={styles.linksShare}>
-              <a href='#'>Share</a>
-              <button className={styles.shareButton}>
+              <a
+                href={link}
+                onClick={() =>
+                  window.open(link, 'Facebook', 'width=640,height=580')
+                }
+              >
                 <Icon name='share' />
-              </button>
+              </a>
             </div>
             <div className={styles.linksDownload}>
               {previewPages &&
