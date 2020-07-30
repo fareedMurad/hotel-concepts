@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useInsightsData = () => {
   const GET_ARTICLES = gql`
     {
-      articleCollection {
+      articleCollection(locale: "en-US") {
         items {
           sys {
             id

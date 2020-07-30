@@ -6,7 +6,7 @@ const useProgramEnrollData = (programId: string) => {
    */
   const GET_PAYMENT_PROPOSALS = gql`
     query($id: String!) {
-      paymentProposalsCollection {
+      paymentProposalsCollection(locale: "en-US") {
         items {
           name
           description

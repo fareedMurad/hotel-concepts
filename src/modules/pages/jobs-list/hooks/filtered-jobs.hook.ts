@@ -3,7 +3,7 @@ import { gql, useLazyQuery } from '@apollo/client';
 const useFilteredJobsData = () => {
   const GET_JOBS_BY_CATEGORY_ID = gql`
     query($id: String!) {
-      jobCategories(id: $id) {
+      jobCategories(id: $id, locale: "en-US") {
         linkedFrom {
           jobsCollection {
             items {

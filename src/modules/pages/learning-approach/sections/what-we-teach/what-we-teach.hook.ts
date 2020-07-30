@@ -3,7 +3,7 @@ import { useQuery, gql } from '@apollo/client';
 const useWhatWeTeachData = () => {
   const GET_FILTERS_CATEGORIES = gql`
     {
-      courseCategoryCollection(limit: 6) {
+      courseCategoryCollection(limit: 6, locale: "en-US") {
         items {
           sys {
             id

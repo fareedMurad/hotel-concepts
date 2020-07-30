@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useJobsFilterCategories = () => {
   const GET_JOBS_CATEGORIES = gql`
     {
-      jobCategoriesCollection {
+      jobCategoriesCollection(locale: "en-US") {
         items {
           category
           sys {

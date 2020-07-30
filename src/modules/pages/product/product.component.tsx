@@ -4,16 +4,16 @@ import * as styles from './product.scss';
 import { Header } from '@core/components/header';
 import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
-
-import { useMarketplaceData } from '@pages/marketplace/hooks/marketplace.hook';
 import { Footer, H2, Icon, Spinner } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
-import { useHistory, useParams } from 'react-router';
+import { useHistory, useParams, useLocation } from 'react-router';
 import { useProductData } from './hooks/product.hook';
 import { useRecomendedProductsData } from './hooks/recomended-products.hook';
 import { ScrollToTop } from '@app';
-import { useDispatch } from 'react-redux';
-import { navigate } from '@router/store';
+import { Trail } from 'react-spring/renderprops';
+import { useClickOutside } from '@core/shared';
+import { SEO } from '@core/components/seo/seo.component';
+import { Share } from '@core/components/share';
 
 /**
  * Product-card Data
@@ -34,10 +34,11 @@ const productCardData = {
  */
 const Product: React.FC<ProductProps> = ({}) => {
   const history = useHistory();
-  console.log(history);
+
   const { id: productId, categorySlug } = useParams();
 
   const { product, productLoading } = useProductData(productId);
+  const { pathname } = useLocation();
 
   const {
     recomendedProducts,
@@ -49,7 +50,8 @@ const Product: React.FC<ProductProps> = ({}) => {
 
   const {
     productImagesCollection: { items: images },
-    previewPagesCollection: { items: previewPages }
+    previewPagesCollection: { items: previewPages },
+    name
   } = product;
 
   const convertToFileType = file =>
@@ -58,12 +60,18 @@ const Product: React.FC<ProductProps> = ({}) => {
       .pop()
       .toUpperCase();
 
-  const link =
-    'https://www.facebook.com/sharer/sharer.php?app_id=978057235952932&sdk=joey&u=https://chillyfacts.com/create-facebook-share-button-for-website-webpages/&display=popup&ref=plugin&src=share_button';
+  // const link =
+  //   'https://www.facebook.com/sharer/sharer.php?app_id=978057235952932&sdk=joey&u=https://chillyfacts.com/create-facebook-share-button-for-website-webpages/&display=popup&ref=plugin&src=share_button';
 
   return (
     <div className={styles.product}>
       <ScrollToTop />
+      <SEO
+        title={name}
+        thumbnail={images[0].url}
+        url={`localhost:8289${pathname}`}
+      ></SEO>
+
       <div className={styles.header}>
         <Header whiteBackground />
       </div>
@@ -75,16 +83,7 @@ const Product: React.FC<ProductProps> = ({}) => {
         <div className={styles.slider}>
           <ProductSlider images={images} />
           <div className={styles.links}>
-            <div className={styles.linksShare}>
-              <a
-                href={link}
-                onClick={() =>
-                  window.open(link, 'Facebook', 'width=640,height=580')
-                }
-              >
-                <Icon name='share' />
-              </a>
-            </div>
+            <Share />
             <div className={styles.linksDownload}>
               {previewPages &&
                 previewPages.map(el => (

@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useProductData = productId => {
   const GET_PRODUCT_DATA = gql`
     query($id: String!) {
-      product(id: $id) {
+      product(id: $id, locale: "en-US") {
         name
         details
         bookCategory

@@ -29,7 +29,11 @@ const validationSchema = yup.object<{ email: string }>().shape({
  */
 const CATEGORIES = gql`
   {
-    courseCategoryCollection(limit: 5, order: sys_firstPublishedAt_DESC) {
+    courseCategoryCollection(
+      limit: 5
+      order: sys_firstPublishedAt_DESC
+      locale: "en-US"
+    ) {
       items {
         name
         sys {

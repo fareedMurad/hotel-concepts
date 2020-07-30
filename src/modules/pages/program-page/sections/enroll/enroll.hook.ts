@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useEnrollData = (programId: string) => {
   const GET_ENROLL_DATA = gql`
     query($id: String!) {
-      onlineCourse(id: $id) {
+      onlineCourse(id: $id, locale: "en-US") {
         whoShouldEnrol {
           description
           positions

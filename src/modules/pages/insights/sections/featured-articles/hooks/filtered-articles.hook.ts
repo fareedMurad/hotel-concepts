@@ -4,7 +4,7 @@ const useFilteredArticles = categoryId => {
   if (!categoryId) return null;
   const GET_FILTERED_ARTICLES = gql`
     query($id: String!) {
-      articleCategories(id: $id) {
+      articleCategories(id: $id, locale: "en-US") {
         linkedFrom {
           articleCollection {
             items {

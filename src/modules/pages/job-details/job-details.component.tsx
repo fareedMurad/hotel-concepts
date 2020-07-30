@@ -23,7 +23,7 @@ import { ScrollToTop } from '@app';
 
 const GET_JOB = gql`
   query($id: String!) {
-    jobs(id: $id) {
+    jobs(id: $id, locale: "en-US") {
       name
       employeeType
       location

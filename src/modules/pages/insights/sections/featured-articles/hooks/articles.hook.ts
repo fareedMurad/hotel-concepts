@@ -4,7 +4,7 @@ const useArticlesData = (categoryId, articlesToSkip) => {
   if (categoryId != 'All') {
     const GET_FILTERED_ARTICLES = gql`
       query($id: String!, $articlesToSkip: Int) {
-        articleCategories(id: $id) {
+        articleCategories(id: $id, locale: "en-US") {
           linkedFrom {
             articleCollection(limit: 9, skip: $articlesToSkip) {
               items {
@@ -44,6 +44,7 @@ const useArticlesData = (categoryId, articlesToSkip) => {
           where: { popular_not: true }
           limit: 7
           skip: $articlesToSkip
+          locale: "en-US"
         ) {
           total
           items {

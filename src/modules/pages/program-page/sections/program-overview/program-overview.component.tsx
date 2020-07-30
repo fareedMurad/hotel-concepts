@@ -35,7 +35,7 @@ const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
  */
 const GET_PROGRAM_OVERVIEW_DATA = gql`
   query($id: String!) {
-    onlineCourse(id: $id) {
+    onlineCourse(id: $id, locale: "en-US") {
       weeks
       sprints
       enroll {

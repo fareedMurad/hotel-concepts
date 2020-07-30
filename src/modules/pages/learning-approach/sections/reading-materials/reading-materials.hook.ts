@@ -6,7 +6,7 @@ const useReadingMaterialsData = () => {
    */
   const GET_READING_MATERIALS = gql`
     {
-      readingMaterialsForLearningAproachCollection {
+      readingMaterialsForLearningAproachCollection(locale: "en-US") {
         items {
           ... on ReadingMaterialsForLearningAproach {
             file {

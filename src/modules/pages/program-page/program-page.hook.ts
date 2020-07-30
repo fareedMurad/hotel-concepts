@@ -7,7 +7,7 @@ const useProgramPageData = programId => {
    */
   const GET_MENTORS = gql`
     query($id: String!) {
-      onlineCourse(id: $id) {
+      onlineCourse(id: $id, locale: "en-US") {
         mentorsCollection {
           items {
             name

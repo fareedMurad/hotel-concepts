@@ -1,21 +1,36 @@
 import * as React from 'react';
 import { ArticlePageProps } from './article-page.props';
 import * as styles from './article-page.scss';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { Header } from '@core/components/header';
 import {
   ArticleFirstSection,
   ArticleLastSection,
   ArticleSecondSection
 } from './sections';
-import { H2, Paragraph, Button, Footer } from '@core/components';
+import { H2, Paragraph, Button, Footer, Spinner } from '@core/components';
 import { ScrollToTop } from '@app';
+import { useArticleFirstScreenData } from './hooks/article-first-screen.hook';
+import Moment from 'react-moment';
 
 /**
  * Renders ArticlePage
  */
 const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
   const history = useHistory();
+  const { articleId } = useParams();
+
+  const { articleData, articleLoading } = useArticleFirstScreenData(articleId);
+
+  if (articleLoading) return <Spinner />;
+
+  const {
+    readNext: {
+      title: readNextTitle,
+      date: readNextDate,
+      sys: { id }
+    }
+  } = articleData?.article;
 
   return (
     <div className={styles.articlePage}>
@@ -26,16 +41,18 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
           <div>&#8592;</div>
           <div>Back</div>
         </div>
-        <ArticleFirstSection />
+        <ArticleFirstSection articleData={articleData} />
         <ArticleSecondSection />
         <ArticleLastSection />
       </main>
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <H2>Read Next</H2>
-          <div className={styles.footerContentDate}>Jan 11, 2019</div>
+          <div className={styles.footerContentDate}>
+            <Moment format='MMM DD, YYYY'>{readNextDate}</Moment>
+          </div>
           <Paragraph className={styles.footerContentCaption}>
-            Financial Analysis of Hotel Investments course.
+            {readNextTitle}
           </Paragraph>
           <Button
             theme='secondary'
@@ -43,6 +60,9 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
             children='Read'
             arrow='&#8594;'
             width={204}
+            onClick={() => {
+              history.push(`/insights/article/${id}`);
+            }}
           />
         </div>
       </footer>

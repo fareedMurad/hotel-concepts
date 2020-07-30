@@ -40,8 +40,7 @@
 }
 
 .links {
-  @include flex($align: center, $justify: flex-end);
-  position: relative;
+  @include flex($align: center, $justify: space-between);
   width: 100%;
   margin: 22px 0px;
   padding-left: 22px;
@@ -49,22 +48,6 @@
     margin-top: 54px;
     padding-left: 134px;
   }
-  a {
-    margin-right: 10px;
-  }
-  &__share {
-    position: absolute;
-    bottom: 30px;
-    left: 120px;
-  }
-}
-
-.share-button {
-  width: 35px;
-  height: 35px;
-  background-color: $background;
-  border: unset;
-  border-radius: 50%;
 }
 
 .download-btn {

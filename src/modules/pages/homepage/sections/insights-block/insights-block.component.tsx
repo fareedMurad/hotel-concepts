@@ -5,7 +5,6 @@ import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { InsightBlockItem } from '@pages/homepage/components/insight-block-item';
 import { useHistory } from 'react-router';
-import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components/spinner';
 import { SectionTitle } from '@core/components';
 import { useInsightsData } from './insights-block.hook';
