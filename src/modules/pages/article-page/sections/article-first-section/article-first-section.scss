@@ -1,12 +1,15 @@
 @import 'core.scss';
 
 .article-first-section {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: 40% 60%;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 94px);
   padding: 22px 0px 0px 22px;
+  @include tablet() {
+    padding: 22px 0px 0px 22px;
+  }
   @include desktop() {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 40% 60%;
     padding: 0px 0px 0px 134px;
   }
 }

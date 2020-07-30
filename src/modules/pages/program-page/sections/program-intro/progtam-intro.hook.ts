@@ -3,10 +3,15 @@ import { gql, useQuery } from '@apollo/client';
 const useProgramIntroData = (programId: string) => {
   const GET_PROGRAM_DATA = gql`
     query($id: String!) {
-      onlineCourse(id: $id) {
+      onlineCourse(id: $id, locale: "en-US") {
         name
         description
         videoVimeoUrl
+        previewVideo {
+          video {
+            url
+          }
+        }
       }
     }
   `;

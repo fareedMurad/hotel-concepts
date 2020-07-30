@@ -13,7 +13,7 @@ import { ScrollToTop } from '@app';
 
 const GET_MENTOR = gql`
   query($id: String!) {
-    mentor(id: $id) {
+    mentor(id: $id, locale: "en-US") {
       name
       surname
       workAt

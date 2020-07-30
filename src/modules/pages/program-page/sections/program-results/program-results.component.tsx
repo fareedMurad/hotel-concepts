@@ -6,7 +6,7 @@ import { Spinner } from '@core/components';
 
 const GET_RESULTS = gql`
   query($id: String!) {
-    onlineCourse(id: $id) {
+    onlineCourse(id: $id, locale: "en-US") {
       results
     }
   }

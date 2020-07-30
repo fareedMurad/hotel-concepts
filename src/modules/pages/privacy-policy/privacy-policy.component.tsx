@@ -2,7 +2,7 @@ import * as React from 'react';
 import { PrivacyPolicyProps } from './privacy-policy.props';
 import * as styles from './privacy-policy.scss';
 import { Header } from '@core/components/header';
-import { H2, Paragraph } from '@core/components';
+import { H2, Paragraph, Footer } from '@core/components';
 import { usePrivacyPolicyData } from './privacy-policy.hook';
 /**
  * Renders Block
@@ -12,7 +12,6 @@ const Block: React.FC<{
   title: string;
   description?: string;
 }> = ({ id, title, description }) => {
-  
   return (
     <div className={styles.block}>
       <div className={styles.blockId}>{id}</div>
@@ -284,6 +283,7 @@ Victoria, BC, V8W 1K8, Canada.'
           />
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

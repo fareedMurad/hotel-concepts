@@ -5,6 +5,7 @@ const useRecomendedProductsData = (slug, productId) => {
     query($slug: String!, $productId: String!) {
       productCollection(
         where: { productCategory: { slug: $slug }, sys: { id_not: $productId } }
+        locale: "en-US"
       ) {
         items {
           name

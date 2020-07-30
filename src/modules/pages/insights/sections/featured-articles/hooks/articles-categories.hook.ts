@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useArticlesCategoriesData = () => {
   const GET_ARTICLES_CATEGORIES = gql`
     {
-      articleCategoriesCollection {
+      articleCategoriesCollection(locale: "en-US") {
         items {
           linkedFrom {
             entryCollection {

@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useProductsCategoriesData = () => {
   const GET_PRODUCTS_CATEGORIES = gql`
     {
-      productsCategoriesCollection {
+      productsCategoriesCollection(locale: "en-US") {
         items {
           category
           sys {

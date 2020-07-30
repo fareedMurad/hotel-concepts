@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useProgramMaterialsData = (programId: string) => {
   const GET_MENTORS = gql`
     query($id: String!) {
-      onlineCourse(id: $id) {
+      onlineCourse(id: $id, locale: "en-US") {
         additionalMaterials {
           materialsCollection {
             items {

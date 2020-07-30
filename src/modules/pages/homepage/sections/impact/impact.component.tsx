@@ -33,7 +33,7 @@ const responsiveBreakpoints = {
 
 const GET_TESTEMONIALS = gql`
   {
-    testimonialsCollection {
+    testimonialsCollection(locale: "en-US") {
       items {
         name
         text

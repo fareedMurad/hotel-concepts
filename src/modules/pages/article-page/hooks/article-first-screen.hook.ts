@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 const useArticleFirstScreenData = articleId => {
   const GET_ARTICLE_FIRST_SCREEN_DATA = gql`
     query($id: String!) {
-      article(id: $id) {
+      article(id: $id, locale: "en-US") {
         title
         preText
         readingTime
@@ -19,6 +19,13 @@ const useArticleFirstScreenData = articleId => {
             }
           }
         }
+        readNext {
+          title
+          date
+          sys {
+            id
+          }
+        }
       }
     }
   `;
@@ -27,7 +34,7 @@ const useArticleFirstScreenData = articleId => {
     variables: { id: articleId }
   });
 
-  return { articleFirstScreen: data, articleFirstScreenLoading: loading };
+  return { articleData: data, articleLoading: loading };
 };
 
 export { useArticleFirstScreenData };

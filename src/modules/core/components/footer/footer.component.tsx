@@ -9,12 +9,31 @@ import { Formik } from 'formik';
 import { Form } from '../form';
 import { Field } from '../field';
 import { gql, useQuery } from '@apollo/client';
+import axios from 'axios';
+
+import * as yup from 'yup';
+
+/**
+ * validation schema
+ */
+
+const validationSchema = yup.object<{ email: string }>().shape({
+  email: yup
+    .string()
+    .email()
+    .label('E-mail')
+    .required()
+});
 /**
  * query categories of programs
  */
 const CATEGORIES = gql`
   {
-    courseCategoryCollection(limit: 5, order: sys_firstPublishedAt_DESC) {
+    courseCategoryCollection(
+      limit: 5
+      order: sys_firstPublishedAt_DESC
+      locale: "en-US"
+    ) {
       items {
         name
         sys {
@@ -63,12 +82,31 @@ const Footer: React.FC<FooterProps> = ({}) => {
   const [categories, setCategories] = React.useState([]);
   const { weprovideLinks, moreLinks, socials } = useFooterData();
   const { data, loading, error } = useQuery(CATEGORIES);
+
   React.useEffect(() => {
     if (!loading) {
       setCategories(data.courseCategoryCollection.items);
     }
   });
 
+  const response = axios
+    .post('https://us17.api.mailchimp.com/3.0/lists/6584bef461/members', {
+      headers: {
+        athorization: 'Basic b39036c919aa93c2607bff916ca0b1e1-us17',
+        'content-type': 'application/json'
+      },
+      data: JSON.stringify({
+        email_address: 'somedude@gmail.com',
+        status: 'subscribed'
+      }),
+      auth: {
+        user: 'taras.pavliv@zade.agency',
+        pass: '$4zEUCrf2utSnt!'
+      }
+    })
+
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   return (
     <div className={styles.footer} id='footer'>
       <div className={styles.content}>
@@ -88,6 +126,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             onSubmit={values => {
               console.log(values);
             }}
+            validationSchema={validationSchema}
           >
             {({ handleSubmit }) => (
               <Form handleSubmit={handleSubmit}>

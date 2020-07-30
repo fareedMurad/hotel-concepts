@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const usePopularArticlesData = () => {
   const GET_POPULAR_ARTICLE = gql`
     {
-      articleCollection(where: { popular: true }) {
+      articleCollection(where: { popular: true }, locale: "en-US") {
         total
         items {
           sys {

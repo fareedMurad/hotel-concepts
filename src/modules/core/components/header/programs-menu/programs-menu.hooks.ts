@@ -6,7 +6,11 @@ const useProgramsMenuData = () => {
    */
   const GET_CATEGORIES = gql`
     {
-      courseCategoryCollection(limit: 6, order: sys_firstPublishedAt_DESC) {
+      courseCategoryCollection(
+        limit: 6
+        order: sys_firstPublishedAt_DESC
+        locale: "en-US"
+      ) {
         items {
           sys {
             id

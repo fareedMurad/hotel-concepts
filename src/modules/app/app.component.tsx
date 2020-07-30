@@ -9,6 +9,7 @@ import { State } from './store/state';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './graphql/apollo-client';
 import { useLocation } from 'react-router-dom';
+
 /**
  * Scroll to top
  */
