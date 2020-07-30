@@ -12,6 +12,7 @@ import { gql, useQuery } from '@apollo/client';
 import axios from 'axios';
 
 import * as yup from 'yup';
+import { config } from 'process';
 
 /**
  * validation schema
@@ -93,11 +94,6 @@ const Footer: React.FC<FooterProps> = ({}) => {
     await axios
       .post('https://us17.api.mailchimp.com/3.0/lists/6584bef461/members', {
         headers: {
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods':
-            'GET, POST, PATCH, DELETE, PUT, OPTIONS',
-          'Access-Control-Allow-Credentials': 'true',
           'content-type': 'application/json',
           Origin: 'https://dev.d3fbrpbky13ysk.amplifyapp.com',
           Authorization: 'Bearer b39036c919aa93c2607bff916ca0b1e1-us17'
