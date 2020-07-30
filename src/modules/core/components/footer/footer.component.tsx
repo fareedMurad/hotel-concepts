@@ -89,14 +89,12 @@ const Footer: React.FC<FooterProps> = ({}) => {
     }
   });
 
-  const api = new ApiBuilder();
-
   const subscribe = async email => {
-    api.post(
-      '/https://us17.api.mailchimp.com/3.0/lists/6584bef461/members',
-      async () => {
-        await axios
-          .post('https://us17.api.mailchimp.com/3.0/lists/6584bef461/members', {
+    async () => {
+      await axios
+        .post(
+          'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/',
+          {
             headers: {
               'content-type': 'application/json',
               Authorization: 'Bearer b39036c919aa93c2607bff916ca0b1e1-us17'
@@ -105,11 +103,11 @@ const Footer: React.FC<FooterProps> = ({}) => {
               email_address: email,
               status: 'subscribed'
             })
-          })
-          .then(res => console.log(res.data))
-          .catch(err => console.log(err));
-      }
-    );
+          }
+        )
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err));
+    };
   };
 
   return (
