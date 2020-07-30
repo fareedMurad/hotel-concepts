@@ -4,7 +4,6 @@ import * as styles from './program-page.scss';
 import { Header } from '@core/components/header';
 import { Footer } from '@core/components';
 import { ScrollToTop } from '@app';
-import { useProgramPageData } from './program-page.hook';
 import {
   ProgramIntro,
   ProgramOverview,
@@ -19,8 +18,12 @@ import {
 } from './sections';
 import { Mentors, Impact } from '@pages/homepage/sections';
 import { FaqBlock, PartnerApply } from '@pages/components';
-import { gql, useQuery } from '@apollo/client';
-import { useParams, useHistory } from 'react-router';
+import { useHistory } from 'react-router';
+import {
+  useProgramPageDataMentors,
+  useProgramPageDataDivider,
+  useProgramPageDataTestimonials
+} from './hooks';
 
 /**
  * Renders ProgramPage
@@ -32,20 +35,13 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const {
     mentorsForCurrentCourse,
     mentorsForCurrentCourseLoading
-  } = useProgramPageData(programId);
+  } = useProgramPageDataMentors(programId);
 
-  const GET_DIVIDER_IMAGE = gql`
-    query($id: String!) {
-      onlineCourse(id: $id) {
-        imageDivider {
-          url
-        }
-      }
-    }
-  `;
-  const { data, loading, error } = useQuery(GET_DIVIDER_IMAGE, {
-    variables: { id: programId }
-  });
+  const { programPageDividerImage } = useProgramPageDataDivider(programId);
+  const {
+    programPageTestimonials,
+    programPageTestimonialsLoading
+  } = useProgramPageDataTestimonials(programId);
 
   return (
     <div className={styles.programPage}>
@@ -61,7 +57,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <div
         className={styles.img}
         style={{
-          backgroundImage: `url(${data?.onlineCourse?.imageDivider?.url})`
+          backgroundImage: `url(${programPageDividerImage})`
         }}
       />
       <ProgramResults programId={programId} />
@@ -73,7 +69,10 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       />
       <ProgramLearningApproach programId={programId} />
       <ProgramMaterials programId={programId} />
-      <Impact />
+      <Impact
+        testimonials={programPageTestimonials}
+        loading={programPageTestimonialsLoading}
+      />
       <div className={styles.hr} />
       <ProgramEnrollNow programId={programId} />
       <ProgramQuote programId={programId} />

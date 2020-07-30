@@ -31,34 +31,19 @@ const responsiveBreakpoints = {
  * testimonials query
  */
 
-const GET_TESTEMONIALS = gql`
-  {
-    testimonialsCollection(locale: "en-US") {
-      items {
-        name
-        text
-        companyName
-        slug
-        photo {
-          url
-        }
-      }
-    }
-  }
-`;
-
 /**
  * Renders Impact
  */
-const Impact: React.FC<ImpactProps> = ({}) => {
-  const { data, loading } = useQuery(GET_TESTEMONIALS);
-  const [testemonials, setTestemonials] = React.useState([]);
-  React.useEffect(() => {
-    if (!loading) {
-      const { items } = data.testimonialsCollection;
-      setTestemonials(items);
-    }
-  });
+const Impact: React.FC<ImpactProps> = ({ testimonials, loading }) => {
+  // const { data, loading } = useQuery(GET_TESTEMONIALS);
+  // const [testemonials, setTestemonials] = React.useState([]);
+
+  // React.useEffect(() => {
+  //   if (!loading) {
+  //     const { items } = data.testimonialsCollection;
+  //     setTestemonials(items);
+  //   }
+  // });
 
   if (loading) return <Spinner />;
 
@@ -75,7 +60,7 @@ const Impact: React.FC<ImpactProps> = ({}) => {
         responsive={responsiveBreakpoints}
         customButtonGroup={<SliderButtons className={styles.controls} />}
       >
-        {testemonials.map((item, index) => {
+        {testimonials.map((item, index) => {
           const { name, text, companyName, photo } = item;
 
           return (

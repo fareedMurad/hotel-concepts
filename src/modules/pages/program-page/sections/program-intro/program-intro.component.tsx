@@ -5,30 +5,19 @@ import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { Button, Spinner } from '@core/components';
-import { useProgramIntroData } from './progtam-intro.hook';
+import { useProgramIntroData } from './program-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { BackButton } from '@core/components/back-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
-import { gql, useQuery } from '@apollo/client';
 import Player from '@vimeo/player';
 
 /**
  * Renders ProgramIntro
  */
-const GET_HERO_IMAGE = gql`
-  {
-    asset(id: "1AUGqfy1dtHdslM33eRnXo") {
-      url
-    }
-  }
-`;
-
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   const { programData, programDataLoading, navButtons } = useProgramIntroData(
     programId
   );
-
-  const { data, error } = useQuery(GET_HERO_IMAGE);
 
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [previewVideo, setPreviewVideo] = React.useState('');
@@ -39,7 +28,6 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   const scrollToEnroll = () => {
     scrollTo('enroll');
   };
-
   React.useEffect(() => {
     if (videoRef.current) {
       setVideo(videoRef.current);
@@ -83,12 +71,12 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
 
   const { videoVimeoUrl } = programData;
 
-  const previewUrl = programData.previewVideo?.video?.url?.previewUrl;
+  const previewUrl = programData.previewVideo?.video?.url;
 
   return (
     <section
       className={styles.programIntro}
-      style={{ backgroundImage: `url(${data?.asset?.url})` }}
+      style={{ backgroundImage: `url(${programData?.heroImage?.url})` }}
     >
       <BackButton className={styles.backButton} />
       <div className={styles.title}>
@@ -146,14 +134,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
         />
       </div>
 
-      {previewVideo != null && (
-        <video
-          ref={videoRef}
-          className={styles.video}
-          src={previewVideo}
-          muted
-        />
-      )}
+      <video ref={videoRef} className={styles.video} src={previewUrl} muted />
     </section>
   );
 };

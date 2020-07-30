@@ -1,6 +1,9 @@
 /**
  * Props
  */
-type ImpactProps = {};
+type ImpactProps = {
+  testimonials: any;
+  loading: boolean;
+};
 
 export { ImpactProps };
