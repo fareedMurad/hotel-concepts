@@ -92,11 +92,10 @@ const Footer: React.FC<FooterProps> = ({}) => {
   const subscribe = async email => {
     axios
       .post(
-        'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/',
+        'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest',
         {
           headers: {
-            'content-type': 'application/json',
-            Authorization: 'Bearer b39036c919aa93c2607bff916ca0b1e1-us17'
+            'content-type': 'application/json'
           },
           data: JSON.stringify({
             email_address: email,
