@@ -88,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
   const response = axios
     .post('https://us17.api.mailchimp.com/3.0/lists/6584bef461/members', {
       headers: {
-        athorization: 'b39036c919aa93c2607bff916ca0b1e1-us17',
+        athorization: 'Basic b39036c919aa93c2607bff916ca0b1e1-us17',
         'content-type': 'application/json'
       },
       data: JSON.stringify({
@@ -103,9 +103,6 @@ const Footer: React.FC<FooterProps> = ({}) => {
 
     .then(res => console.log(res))
     .catch(err => console.log(err));
-
-  console.log(response);
-
   return (
     <div className={styles.footer} id='footer'>
       <div className={styles.content}>
