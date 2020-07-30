@@ -89,24 +89,23 @@ const Footer: React.FC<FooterProps> = ({}) => {
     }
   });
 
-  const response = axios
-    .post('https://us17.api.mailchimp.com/3.0/lists/6584bef461/members', {
-      headers: {
-        athorization: 'Basic b39036c919aa93c2607bff916ca0b1e1-us17',
-        'content-type': 'application/json'
-      },
-      data: JSON.stringify({
-        email_address: 'somedude@gmail.com',
-        status: 'subscribed'
-      }),
-      auth: {
-        user: 'taras.pavliv@zade.agency',
-        pass: '$4zEUCrf2utSnt!'
-      }
-    })
+  const subscribe = async email => {
+    await axios
+      .post('https://us17.api.mailchimp.com/3.0/lists/6584bef461/members', {
+        headers: {
+          'content-type': 'application/json',
+          Origin: 'https://dev.d3fbrpbky13ysk.amplifyapp.com',
+          Authorization: 'Bearer b39036c919aa93c2607bff916ca0b1e1-us17'
+        },
+        data: JSON.stringify({
+          email_address: email,
+          status: 'subscribed'
+        })
+      })
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+  };
 
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
   return (
     <div className={styles.footer} id='footer'>
       <div className={styles.content}>
@@ -124,7 +123,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           <Formik
             initialValues={{ email: '' }}
             onSubmit={values => {
-              console.log(values);
+              subscribe(values.email);
             }}
             validationSchema={validationSchema}
           >
