@@ -12,7 +12,6 @@ import { gql, useQuery } from '@apollo/client';
 import axios from 'axios';
 
 import * as yup from 'yup';
-import { config } from 'process';
 
 /**
  * validation schema
@@ -90,21 +89,27 @@ const Footer: React.FC<FooterProps> = ({}) => {
     }
   });
 
+  const api = new ApiBuilder();
+
   const subscribe = async email => {
-    await axios
-      .post('https://us17.api.mailchimp.com/3.0/lists/6584bef461/members', {
-        headers: {
-          'content-type': 'application/json',
-          Origin: 'https://dev.d3fbrpbky13ysk.amplifyapp.com',
-          Authorization: 'Bearer b39036c919aa93c2607bff916ca0b1e1-us17'
-        },
-        data: JSON.stringify({
-          email_address: email,
-          status: 'subscribed'
-        })
-      })
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err));
+    api.post(
+      '/https://us17.api.mailchimp.com/3.0/lists/6584bef461/members',
+      async () => {
+        await axios
+          .post('https://us17.api.mailchimp.com/3.0/lists/6584bef461/members', {
+            headers: {
+              'content-type': 'application/json',
+              Authorization: 'Bearer b39036c919aa93c2607bff916ca0b1e1-us17'
+            },
+            data: JSON.stringify({
+              email_address: email,
+              status: 'subscribed'
+            })
+          })
+          .then(res => console.log(res.data))
+          .catch(err => console.log(err));
+      }
+    );
   };
 
   return (
