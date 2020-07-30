@@ -90,24 +90,22 @@ const Footer: React.FC<FooterProps> = ({}) => {
   });
 
   const subscribe = async email => {
-    async () => {
-      await axios
-        .post(
-          'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/',
-          {
-            headers: {
-              'content-type': 'application/json',
-              Authorization: 'Bearer b39036c919aa93c2607bff916ca0b1e1-us17'
-            },
-            data: JSON.stringify({
-              email_address: email,
-              status: 'subscribed'
-            })
-          }
-        )
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err));
-    };
+    axios
+      .post(
+        'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/',
+        {
+          headers: {
+            'content-type': 'application/json',
+            Authorization: 'Bearer b39036c919aa93c2607bff916ca0b1e1-us17'
+          },
+          data: JSON.stringify({
+            email_address: email,
+            status: 'subscribed'
+          })
+        }
+      )
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   };
 
   return (
