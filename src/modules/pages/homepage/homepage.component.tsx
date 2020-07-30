@@ -17,12 +17,17 @@ import {
   Socials,
   Intro
 } from './sections';
+import { useHomePageData } from './homepage.hook';
 
 /**
  * Renders Homepage
  */
 const Homepage: React.FC<HomepageProps> = ({}) => {
   const { contributors, loading } = useContributorsData();
+  const {
+    homePageTestimonials,
+    homepageTestimonialsLoading
+  } = useHomePageData();
 
   return (
     <div className={styles.homepage}>
@@ -33,7 +38,10 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       <Quote />
       <About />
       <TrainingInfo />
-      <Impact />
+      <Impact
+        testimonials={homePageTestimonials}
+        loading={homepageTestimonialsLoading}
+      />
       <Mentors contributors={contributors} loading={loading} url='mentor' />
       <FaqBlock showTitle />
       <InsightsBlock />

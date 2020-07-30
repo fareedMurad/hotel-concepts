@@ -1,10 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
-import { useHistory } from 'react-router';
-
-const useProgramPageData = programId => {
-  /**
-   * query mentors for current program
-   */
+/**
+ * Query mentors for current program
+ */
+const useProgramPageDataMentors = programId => {
   const GET_MENTORS = gql`
     query($id: String!) {
       onlineCourse(id: $id, locale: "en-US") {
@@ -39,4 +37,4 @@ const useProgramPageData = programId => {
   };
 };
 
-export { useProgramPageData };
+export { useProgramPageDataMentors };

@@ -12,24 +12,31 @@ const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({ programId }) => {
     additionalMaterialsData,
     additionalMaterialsLoading
   } = useProgramMaterialsData(programId);
-  console.log(additionalMaterialsData);
 
-  if (additionalMaterialsLoading || additionalMaterialsData === undefined)
-    return <Spinner />;
+  if (additionalMaterialsLoading) return <Spinner />;
   return (
     <section className={styles.programMaterials}>
-      <div className={styles.title}>Additional materials</div>
-      {additionalMaterialsData.map((item, index) => (
-        <div
-          className={styles.item}
-          key={index}
-          onClick={() => {
-            window.open(item.url, '_blank');
-          }}
-        >
-          {item.description}
+      {!additionalMaterialsData ? (
+        <div>
+          We haven't added additional materials yet. Please come back later!
         </div>
-      ))}
+      ) : (
+        <React.Fragment>
+          <div className={styles.title}>Additional materials</div>
+
+          {additionalMaterialsData.map((item, index) => (
+            <div
+              className={styles.item}
+              key={index}
+              onClick={() => {
+                window.open(item.url, '_blank');
+              }}
+            >
+              {item.description}
+            </div>
+          ))}
+        </React.Fragment>
+      )}
     </section>
   );
 };
