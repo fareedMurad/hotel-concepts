@@ -88,24 +88,16 @@ const Footer: React.FC<FooterProps> = ({}) => {
       setCategories(data.courseCategoryCollection.items);
     }
   });
-
-  const subscribe = async email => {
-    axios
-      .post(
-        'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/send-email',
-        {
-          headers: {
-            'content-type': 'application/json'
-          },
-          data: JSON.stringify({
-            email_address: email,
-            status: 'subscribed'
-          })
+  const subscribe = email =>
+    axios.post(
+      'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/send-email',
+      {
+        data: {
+          email_address: email,
+          status: 'subscribed'
         }
-      )
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err));
-  };
+      }
+    );
 
   return (
     <div className={styles.footer} id='footer'>
