@@ -1,12 +1,8 @@
 import * as React from 'react';
-import { ArticleFirstSectionProps } from './article-first-section.props';
-import * as styles from './article-first-section.scss';
-import { H1, Icon, Paragraph, Spinner } from '@core/components';
-import { useArticlePageData } from '@pages/article-page/article-page.hook';
+import { ArticleFirstSectionProps } from './article-intro.props';
+import * as styles from './article-intro.scss';
+import { H1, Paragraph } from '@core/components';
 import { useMediaPoints } from '@core/shared';
-import { useArticleFirstScreenData } from '../../hooks/article-first-screen.hook';
-import { useParams } from 'react-router';
-import Moment from 'react-moment';
 import { Share } from '@core/components/share';
 
 /**
@@ -28,18 +24,6 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
     articleImage: { url },
     categoriesCollection: { items: categories }
   } = articleData.article;
-
-  /**
-   * format number to minutes
-   */
-  // const minutes = Math.floor(readingTime / 60);
-  // const seconds = readingTime - minutes * 60;
-
-  // const str_pad_left = (string, pad, length) =>
-  //   (new Array(length + 1).join(pad) + string).slice(-length);
-
-  // const finalTime =
-  //   str_pad_left(minutes, '', 2) + ':' + str_pad_left(seconds, '0', 2);
 
   return (
     <div className={styles.articleFirstSection}>

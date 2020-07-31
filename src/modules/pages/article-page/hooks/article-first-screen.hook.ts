@@ -1,5 +1,4 @@
 import { gql, useQuery } from '@apollo/client';
-import { useHistory } from 'react-router';
 
 const useArticleFirstScreenData = articleId => {
   const GET_ARTICLE_FIRST_SCREEN_DATA = gql`

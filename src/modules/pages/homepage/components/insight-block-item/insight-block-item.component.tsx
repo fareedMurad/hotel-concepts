@@ -43,7 +43,6 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
           </div>
           <div className={styles.description}>{title}</div>
         </div>
-
         <Button
           className={styles.button}
           theme='secondary'
