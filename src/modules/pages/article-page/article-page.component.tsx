@@ -31,7 +31,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
       sys: { id }
     }
   } = articleData?.article;
-  console.log(articleData.article)
+
   return (
     <div className={styles.articlePage}>
       <ScrollToTop />
@@ -46,7 +46,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
         <ArticleLastSection />
       </main>
       <footer className={styles.footer}>
-        {/* <div className={styles.footerContent}>
+        <div className={styles.footerContent}>
           <H2>Read Next</H2>
           <div className={styles.footerContentDate}>
             <Moment format='MMM DD, YYYY'>{readNextDate}</Moment>
@@ -64,7 +64,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
               history.push(`/insights/article/${id}`);
             }}
           />
-        </div> */}
+        </div>
       </footer>
       <Footer />
     </div>

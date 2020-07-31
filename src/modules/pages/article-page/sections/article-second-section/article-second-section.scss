@@ -8,28 +8,6 @@
   }
 }
 
-.aside {
-  @include font($primary-gray, 18px, 400, 28px);
-  position: absolute;
-  top: 0;
-  right: 22px;
-  width: 316px;
-  height: 222px;
-  padding: 24px 16px;
-  background: $background;
-  border-radius: 8px;
-}
-
-.button {
-  height: 44px;
-  margin-top: 15px;
-}
-
-.title {
-  margin-top: 48px;
-  margin-bottom: 10px;
-}
-
 .hr {
   width: 55%;
   height: 2px;
@@ -39,14 +17,4 @@
 
 .content {
   width: 100%;
-}
-
-.form {
-  margin-top: 0;
-  & > div {
-    margin-top: 16px;
-    label {
-      font-weight: 400;
-    }
-  }
 }
