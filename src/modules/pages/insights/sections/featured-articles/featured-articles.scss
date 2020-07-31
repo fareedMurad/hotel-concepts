@@ -46,7 +46,7 @@
     @include flex($justify: center, $direction: column, $align: stretch);
     height: 100%;
     padding: 20px;
-
+    width: 100%;
     @include tablet() {
       padding: 80px 110px;
     }
