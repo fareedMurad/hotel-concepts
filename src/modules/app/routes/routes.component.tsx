@@ -2,7 +2,7 @@ import { Auth } from '@auth';
 import { Profile } from '@profile';
 import { Uikit } from '@uikit';
 import * as React from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import * as styles from './routes.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from '@app/store/state';
@@ -40,7 +40,6 @@ const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
-  const history = useHistory();
 
   return (
     <div className={styles.routes}>

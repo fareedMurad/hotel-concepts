@@ -23,7 +23,7 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
 
   const {
     title,
-    preText,
+    introText,
     readingTime,
     articleImage: { url },
     categoriesCollection: { items: categories }
@@ -32,14 +32,14 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
   /**
    * format number to minutes
    */
-  const minutes = Math.floor(readingTime / 60);
-  const seconds = readingTime - minutes * 60;
+  // const minutes = Math.floor(readingTime / 60);
+  // const seconds = readingTime - minutes * 60;
 
-  const str_pad_left = (string, pad, length) =>
-    (new Array(length + 1).join(pad) + string).slice(-length);
+  // const str_pad_left = (string, pad, length) =>
+  //   (new Array(length + 1).join(pad) + string).slice(-length);
 
-  const finalTime =
-    str_pad_left(minutes, '', 2) + ':' + str_pad_left(seconds, '0', 2);
+  // const finalTime =
+  //   str_pad_left(minutes, '', 2) + ':' + str_pad_left(seconds, '0', 2);
 
   return (
     <div className={styles.articleFirstSection}>
@@ -52,13 +52,13 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
         </div>
         <div className={styles.headingOptions}>
           <div className={styles.readingTime}>
-            <div>Reading time:</div> <div>{finalTime}</div>
+            <div>Reading time:</div> <div>{readingTime}</div>
           </div>
           <div className={styles.share}>
             <Share />
           </div>
         </div>
-        <Paragraph className={styles.heroDescription}>{preText}</Paragraph>
+        <Paragraph className={styles.heroDescription}>{introText}</Paragraph>
       </div>
       {desktop && (
         <div className={styles.imageWrapper}>

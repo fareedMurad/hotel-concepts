@@ -1,0 +1,19 @@
+@import 'core.scss';
+
+.rich-text-default {
+  p {
+    margin: 22px 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #3e3e3e;
+  }
+  h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 58px;
+    color: #3e3e3e;
+    font-family: 'EB Garamond';
+  }
+}

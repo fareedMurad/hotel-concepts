@@ -26,6 +26,7 @@
     &--pic {
       @include heroImage();
       @include size(100%);
+      border-radius: 8px;
     }
     &__content {
       @include flex($justify: center, $direction: column);

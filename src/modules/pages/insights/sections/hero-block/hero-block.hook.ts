@@ -23,6 +23,11 @@ const useMostPopularArticles = () => {
           }
         }
       }
+      insightsmainImage(id: "15NdYNUafzjKU7CaTLa6Qt") {
+        insightsHeroImage {
+          url
+        }
+      }
     }
   `;
 
@@ -30,7 +35,8 @@ const useMostPopularArticles = () => {
 
   return {
     firstScreenArticles: data?.articleCollection?.items,
-    firstScreenArticlesLoading: loading
+    firstScreenArticlesLoading: loading,
+    insightsHeroImage: data?.insightsmainImage?.insightsHeroImage
   };
 };
 
