@@ -46,21 +46,20 @@ const HeroCard = ({ firstScreenArticle }) => {
 const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
   const {
     firstScreenArticles,
-    firstScreenArticlesLoading
+    firstScreenArticlesLoading,
+    insightsHeroImage
   } = useMostPopularArticles();
 
   if (firstScreenArticlesLoading) return <Spinner />;
-  
+
   return (
     <div className={styles.heroBlock}>
       <div className={styles.heroMain}>
         <div
           className={styles.heroMainPic}
-          style={
-            {
-              // backgroundImage: `url(${require('img/insights/insights-1.png')}`
-            }
-          }
+          style={{
+            backgroundImage: `url(${insightsHeroImage?.url})`
+          }}
         >
           <div className={styles.heroMainContent}>
             <div>New</div>

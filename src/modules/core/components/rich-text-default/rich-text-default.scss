@@ -1,40 +1,19 @@
 @import 'core.scss';
 
-// .rich-text-default {
-//   & > * {
-//     line-height: 1.15;
-//     -webkit-text-size-adjust: 100%;
-//     margin: 0;
-//     padding: 0;
-//   }
-//   h1 {
-//     margin: 0.67em 0;
-//     font-size: 2em;
-//   }
-
-//   hr {
-//     box-sizing: content-box;
-//     height: 0;
-//     overflow: visible;
-//   }
-
-//   a {
-//     background-color: transparent;
-//   }
-
-//   b,
-//   strong {
-//     font-weight: bolder;
-//   }
-
-//   img {
-//     border-style: none;
-//   }
-//   p {
-
-//     margin: 22px 0px;
-//   }
-//   li {
-//   }
-// }
-
+.rich-text-default {
+  p {
+    margin: 22px 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #3e3e3e;
+  }
+  h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 58px;
+    color: #3e3e3e;
+    font-family: 'EB Garamond';
+  }
+}

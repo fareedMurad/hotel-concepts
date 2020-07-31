@@ -9,7 +9,7 @@ const useInsightsData = () => {
             id
           }
           title
-          preText
+          introText
           slug
           date
           articleImage {

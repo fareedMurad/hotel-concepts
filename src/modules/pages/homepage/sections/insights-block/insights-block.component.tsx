@@ -65,7 +65,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
         {articles.map(article => {
           const {
             title,
-            preText,
+            introText,
             categoriesCollection: { items: categories },
             slug,
             date,
@@ -75,7 +75,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
           return (
             <InsightBlockItem
               title={title}
-              text={preText}
+              text={introText}
               categories={categories}
               slug={slug}
               date={date}
