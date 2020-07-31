@@ -6,7 +6,7 @@ const useArticleFirstScreenData = articleId => {
     query($id: String!) {
       article(id: $id, locale: "en-US") {
         title
-        preText
+        introText
         readingTime
         articleImage {
           url
