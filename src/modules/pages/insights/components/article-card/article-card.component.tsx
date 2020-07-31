@@ -32,21 +32,22 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
           ))}
         </div>
       </div>
-
-      <div className={styles.content}>
-        <div className={styles.contentDate}>
-          <Moment format='MMM DD, YYYY'>{date}</Moment>
+      <div className={styles.contentWrapper}>
+        <div className={styles.content}>
+          <div className={styles.contentDate}>
+            <Moment format='MMM DD, YYYY'>{date}</Moment>
+          </div>
+          <div className={styles.contentDescription}>{title}</div>
         </div>
-        <div className={styles.contentDescription}>{title}</div>
+        <Button
+          theme='secondary'
+          className={styles.readMore}
+          children='Read more'
+          arrow='&#8594;'
+          onClick={() => history.push(`/insights/article/${id}`)}
+          width='100%'
+        />
       </div>
-      <Button
-        theme='secondary'
-        className={styles.readMore}
-        children='Read more'
-        arrow='&#8594;'
-        onClick={() => history.push(`/insights/article/${id}`)}
-        width='100%'
-      />
     </div>
   );
 };

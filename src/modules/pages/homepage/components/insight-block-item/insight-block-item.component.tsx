@@ -34,22 +34,27 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
           })}
         </div>
       </div>
-      <div className={styles.date}>
-        <Moment format='MMM DD, YYYY' className={styles.date}>
-          {date}
-        </Moment>
+      <div className={styles.contentWrapper}>
+        <div>
+          <div className={styles.date}>
+            <Moment format='MMM DD, YYYY' className={styles.date}>
+              {date}
+            </Moment>
+          </div>
+          <div className={styles.description}>{title}</div>
+        </div>
+
+        <Button
+          className={styles.button}
+          theme='secondary'
+          onClick={() => {
+            history.push(`/insights/article/${id}`);
+          }}
+          children='Read more'
+          arrow='&#8594;'
+          width='100%'
+        />
       </div>
-      <div className={styles.description}>{title}</div>
-      <Button
-        className={styles.button}
-        theme='secondary'
-        onClick={() => {
-          history.push(`/insights/article/${id}`);
-        }}
-        children='Read more'
-        arrow='&#8594;'
-        width='100%'
-      />
     </div>
   );
 };

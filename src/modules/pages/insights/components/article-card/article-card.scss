@@ -3,9 +3,11 @@
 .article-card {
   position: relative;
   width: 100%;
-  height: 100%;
+  max-height: 100%;
   border-bottom: 2px solid $hr;
   padding-bottom: 22px;
+  display: grid;
+  grid-template-rows: 270px 1fr;
 }
 
 .image {
@@ -18,6 +20,8 @@
 }
 
 .content {
+  width: 100%;
+
   &-description {
     @include font($primary-gray, 18px, 400, 28px);
     width: 100%;
@@ -61,4 +65,9 @@
   position: relative;
   min-height: 270px;
   object-fit: fill;
+}
+
+.content-wrapper {
+  height: 100%;
+  @include flex($direction: column, $justify: space-between);
 }
