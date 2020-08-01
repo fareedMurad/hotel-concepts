@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ArticleFirstSectionProps } from './article-intro.props';
+import { ArticleIntroProps } from './article-intro.props';
 import * as styles from './article-intro.scss';
 import { H1, Paragraph } from '@core/components';
 import { useMediaPoints } from '@core/shared';
@@ -12,9 +12,7 @@ const Tag = ({ caption }) => <div className={styles.tagsItem}>{caption}</div>;
 /**
  * Renders ArticleFirstSection
  */
-const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
-  articleData
-}) => {
+const ArticleIntro: React.FC<ArticleIntroProps> = ({ articleData }) => {
   const { desktop } = useMediaPoints();
 
   const {
@@ -26,7 +24,7 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
   } = articleData.article;
 
   return (
-    <div className={styles.articleFirstSection}>
+    <div className={styles.articleIntro}>
       <div className={styles.heading}>
         <H1>{title}</H1>
         <div className={styles.tags}>
@@ -53,4 +51,4 @@ const ArticleFirstSection: React.FC<ArticleFirstSectionProps> = ({
   );
 };
 
-export { ArticleFirstSection };
+export { ArticleIntro };

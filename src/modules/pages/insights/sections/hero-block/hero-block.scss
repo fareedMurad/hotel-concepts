@@ -35,7 +35,6 @@
       @include desktop() {
         padding-left: 108px;
       }
-      // fonts
       & > div:first-child {
         @include font(#cbd0d3, 24px, 600, 46px);
         font-family: $EBGaramond;
@@ -88,8 +87,13 @@
 .tags {
   @include flex($align: center);
   align-self: flex-start;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 16px;
+  left: 16px;
   & > div {
     margin-right: 8px;
+    margin-bottom: 3px;
   }
 }
 

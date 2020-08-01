@@ -42,8 +42,10 @@
   bottom: 16px;
   left: 16px;
   @include flex($align: center);
+  flex-wrap: wrap;
   & > div {
     margin-right: 8px;
+    margin-bottom: 3px;
   }
 }
 

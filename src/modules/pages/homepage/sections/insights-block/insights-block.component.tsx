@@ -53,6 +53,8 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
         draggable={false}
         swipeable={false}
         responsive={responsiveBreakpoints}
+        autoPlay
+        infinite
         customButtonGroup={
           <SliderButtons
             onClick={handleClick}
