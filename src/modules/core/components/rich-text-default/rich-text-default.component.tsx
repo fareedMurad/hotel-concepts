@@ -5,8 +5,8 @@ import * as styles from './rich-text-default.scss';
 /**
  * Renders RichTextDefault
  */
-const RichTextDefault: React.FC<RichTextDefaultProps> = ({ children }) => {
-  return <div className={styles.richTextDefault}>{children}</div>;
-};
+const RichTextDefault: React.FC<RichTextDefaultProps> = ({ children }) => (
+  <div className={styles.richTextDefault}>{children}</div>
+);
 
 export { RichTextDefault };

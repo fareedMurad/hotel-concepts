@@ -37,7 +37,7 @@ const Slider: React.FC<any> = ({
   return (
     <Carousel
       responsive={resp}
-      ssr={true}
+      ssr
       draggable={drag}
       swipeable={swipe}
       arrows={false}
