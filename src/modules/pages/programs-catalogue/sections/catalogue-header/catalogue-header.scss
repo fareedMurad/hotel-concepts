@@ -2,6 +2,10 @@
 
 .catalogue-header {
   @include heroImage();
+  background-position: right;
+  @include tablet(){
+    background-position: center;
+  }
   @include imageOverlay();
   @include flex($align: stretch, $direction: column, $justify: center);
   position: relative;

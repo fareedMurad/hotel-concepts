@@ -46,7 +46,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
     <section className={styles.onlineCourses}>
       <div className={styles.title} id='online-courses'>
         <SectionTitle>Online courses for you</SectionTitle>
-        <div>
+        <div className={styles.subtitle}>
           Contextualised and personalised hospitality learning at your
           fingertips.
         </div>

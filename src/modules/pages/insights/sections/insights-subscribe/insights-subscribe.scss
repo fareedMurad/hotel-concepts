@@ -14,19 +14,27 @@
 
 .submit-form {
   @include flex($align: stretch);
+  flex-direction: column;
   position: relative;
   width: 100%;
+  @include tablet(){
+    flex-direction: row;
+  }
   @include desktop() {
     width: 40%;
   }
 }
 
 .button-submit {
-  position: absolute;
   bottom: 0;
   right: 0;
+  top: 10px;
   padding: 11px 16px;
   border-radius: 4px;
+  @include tablet() {
+    position: absolute;
+    top: 0;
+  }
 }
 
 .form-input {

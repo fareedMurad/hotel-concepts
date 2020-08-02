@@ -34,7 +34,12 @@
 }
 
 .info {
-  @include flex($justify: flex-end);
+  @include flex($justify: center);
+  margin-top: 8px;
+  @include tablet() {
+    @include flex($justify: flex-end);
+    margin-top: 0px;
+  }
   flex: 1;
   flex-wrap: wrap;
   max-width: 490px;
