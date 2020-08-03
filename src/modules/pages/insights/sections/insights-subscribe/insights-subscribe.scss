@@ -33,7 +33,7 @@
   border-radius: 4px;
   @include tablet() {
     position: absolute;
-    top: 0;
+    top: initial;
   }
 }
 
