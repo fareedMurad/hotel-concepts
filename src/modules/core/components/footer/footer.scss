@@ -117,6 +117,8 @@
   @include tablet() {
     position: absolute;
     bottom: 0;
+    top: initial;
+    left: initial;
     right: -15px;
     margin-left: 10px;
   }
