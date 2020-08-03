@@ -13,6 +13,12 @@
   &-description {
     margin-top: 25px;
   }
+  @include ipad-p() {
+    height: calc(100vh - 30px);
+  }
+  @include ipad-l() {
+    height: calc(100vh - 30px);
+  }
 }
 
 .button {
