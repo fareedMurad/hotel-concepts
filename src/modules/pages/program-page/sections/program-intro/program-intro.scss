@@ -11,6 +11,12 @@
   min-height: 720px;
   padding-left: $left-offset;
   padding-right: $default-offset;
+  @include ipad-p() {
+    height: calc(100vh - 30px);
+  }
+  @include ipad-l() {
+    height: calc(100vh - 30px);
+  }
 }
 
 .video {

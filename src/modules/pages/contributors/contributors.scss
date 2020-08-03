@@ -9,6 +9,12 @@
     height: 100vh;
     @include heroImage();
     min-height: 500px;
+    @include ipad-p() {
+      height: calc(100vh - 30px);
+    }
+    @include ipad-l() {
+      height: calc(100vh - 30px);
+    }
   }
   &-content {
     @include container();
@@ -28,4 +34,5 @@
       left: 134px;
     }
   }
+
 }

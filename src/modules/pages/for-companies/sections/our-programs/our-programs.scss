@@ -6,7 +6,10 @@
 }
 
 .container {
-  padding: 60px 0px 20px 134px;
+  padding: 22px 22px;
+  @include tablet() {
+    padding: 60px 0px 20px 134px;
+  }
   & > p {
     font-size: 24px;
   }

@@ -3,11 +3,14 @@ import { InsightsSubscribeProps } from './insights-subscribe.props';
 import * as styles from './insights-subscribe.scss';
 import { H2, Form, Field, Button, Tabs, PreCaption } from '@core/components';
 import { Formik } from 'formik';
+import { useMediaPoints } from '@core/shared';
 
 /**
  * Renders InsightsSubscribe
  */
 const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
+  const { tablet } = useMediaPoints();
+
   return (
     <div className={styles.insightsSubscribe}>
       <div className={styles.wrapper}>
@@ -64,7 +67,7 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
                   type='submit'
                   children='Subscribe'
                   arrow='&#8594;'
-                  width='35%'
+                  width={tablet ? '35%' : '40%'}
                 />
               </div>
             </Form>

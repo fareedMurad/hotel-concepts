@@ -17,7 +17,10 @@
 
 .details {
   @include flex(space-between);
-  width: 204px;
+  width: 90px;
+  @include tablet() {
+    width: 204px;
+  }
   height: 44px;
   padding: 14px 10px;
   border: 1px solid $primary-orange;

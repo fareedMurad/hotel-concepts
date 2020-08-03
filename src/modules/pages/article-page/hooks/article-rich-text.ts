@@ -13,15 +13,43 @@ const useArticleRichTextData = (articleId: string) => {
         }
         richTextSection1 {
           json
+          links {
+            assets {
+              block {
+                url
+              }
+            }
+          }
         }
         richTextSection2 {
           json
+          links {
+            assets {
+              block {
+                url
+              }
+            }
+          }
         }
         richTextSection3 {
           json
+          links {
+            assets {
+              block {
+                url
+              }
+            }
+          }
         }
         richTextSection4 {
           json
+          links {
+            assets {
+              block {
+                url
+              }
+            }
+          }
         }
         imagesForSliderCollection {
           items {

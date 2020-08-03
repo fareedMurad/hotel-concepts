@@ -16,6 +16,12 @@
     margin-top: 25px;
     font-family: $IBMPlex;
   }
+  @include ipad-p() {
+    height: calc(100vh - 30px);
+  }
+  @include ipad-l() {
+    height: calc(100vh - 30px);
+  }
 }
 
 .button {

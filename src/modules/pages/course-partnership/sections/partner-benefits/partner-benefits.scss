@@ -2,7 +2,10 @@
 
 .partner-benefits {
   margin: 60px 0px 100px 0px;
-  padding: 0px 22px 0px 134px;
+  padding: 0px 22px;
+  @include tablet() {
+    padding: 0px 22px 0px 134px;
+  }
   @include desktop() {
     @include flex($align: stretch);
     margin-top: 120px;

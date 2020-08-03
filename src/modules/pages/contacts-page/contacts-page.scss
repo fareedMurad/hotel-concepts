@@ -111,14 +111,20 @@
     @include flex($align: center);
     & > div:first-child {
       width: 40%;
-      padding-top: 24px;
+      padding-top: 19px;
+      @include tablet() {
+        padding-top: 24px;
+      }
     }
   }
   &__b {
     @include flex($align: center);
     & > div:first-child {
       width: 20%;
-      padding-top: 24px;
+      padding-top: 19px;
+      @include tablet() {
+        padding-top: 24px;
+      }
     }
   }
 }

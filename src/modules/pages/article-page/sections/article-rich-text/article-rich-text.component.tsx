@@ -15,6 +15,12 @@ import { ArticleImageSlider } from '../article-image-slider';
  */
 const Hr = () => <div className={styles.hr} />;
 /**
+ * Rich Text 1
+ */
+const firstRichText = () => {
+  return null;
+};
+/**
  * Renders ArticleRichText
  */
 const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
@@ -30,6 +36,7 @@ const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
   const { desktop } = useMediaPoints();
 
   if (articleRichTextLoading) return <Spinner />;
+
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => <strong>{text}</strong>,
@@ -50,17 +57,17 @@ const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
       [BLOCKS.OL_LIST]: (node, children) => (
         <ol style={{ listStyleType: 'decimal' }}>{children}</ol>
       ),
-      [BLOCKS.QUOTE]: (node, children) => <blockquote>"{children}"</blockquote>
-      // [BLOCKS.EMBEDDED_ASSET]: node => {
-      //   console.log(firstRichTextData?.links?.assets);
-      //   return (
-      //     <img
-      //       src={secondRichTextData?.links?.assets?.block[0]?.url}
-      //       alt={node.data?.target?.fields?.title}
-      //       className={styles.embeddedImage}
-      //     />
-      //   );
-      // }
+      [BLOCKS.QUOTE]: (node, children) => <blockquote>"{children}"</blockquote>,
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        console.log(node);
+        return (
+          <img
+            src={firstRichTextData?.links?.assets?.block[0]?.url}
+            alt={node.data?.target?.fields?.title}
+            className={styles.embeddedImage}
+          />
+        );
+      }
     }
   };
   const parsedFirstRichText = documentToReactComponents(
@@ -79,6 +86,9 @@ const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
     fourthRichTextData?.json,
     options
   );
+
+  console.log(firstRichTextData, imagesForSliderData);
+
   return (
     <div className={styles.articleRichText}>
       <RichTextDefault>{parsedFirstRichText}</RichTextDefault>

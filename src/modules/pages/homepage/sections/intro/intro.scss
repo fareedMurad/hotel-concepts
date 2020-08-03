@@ -11,6 +11,12 @@
   // padding-right: $default-offset;
   box-sizing: border-box;
   overflow: hidden;
+  @include ipad-p() {
+    height: calc(100vh - 30px);
+  }
+  @include ipad-l() {
+    height: calc(100vh - 30px);
+  }
 }
 
 .video {

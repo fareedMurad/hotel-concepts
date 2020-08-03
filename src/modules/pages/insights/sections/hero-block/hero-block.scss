@@ -15,6 +15,9 @@
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
   }
+  @include ipad-p() {
+    grid-template: initial;
+  }
 }
 
 .hero {
@@ -23,6 +26,9 @@
     background-color: dimgrey;
     border-radius: 6px;
     position: relative;
+    @include ipad-l() {
+      height: 95%;
+    }
     &--pic {
       @include heroImage();
       @include size(100%);
@@ -44,8 +50,7 @@
         }
       }
       & > div:nth-child(2) {
-        @include font($white, 34px, 500, 70px);
-
+        @include font($white, 34px, 500, 22px);
         margin: 15px 0px;
         font-family: $EBGaramond;
         @include tablet() {
@@ -54,7 +59,9 @@
       }
       & > div:last-child {
         @include font($white, 14px, 400, 34px);
+        margin-bottom: 40px;
         @include tablet() {
+          margin-bottom: 0px;
           @include font($white, 24px, 400, 34px);
         }
       }
@@ -66,6 +73,9 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: 20px;
+  @include ipad-l() {
+    gap: 0px;
+  }
 }
 .overlay {
   position: absolute;
@@ -88,7 +98,9 @@
   @include flex($align: center);
   align-self: flex-start;
   flex-wrap: wrap;
-  position: absolute;
+  @include tablet() {
+    position: absolute;
+  }
   top: 16px;
   left: 16px;
   & > div {
@@ -101,7 +113,9 @@
   position: relative;
   @include size(100%);
   min-height: 270px;
-
+  @include ipad-l() {
+    height: 90%;
+  }
   &--image {
     // @include flex($align: stretch, $justify: space-between, $direction: column);
     display: grid;

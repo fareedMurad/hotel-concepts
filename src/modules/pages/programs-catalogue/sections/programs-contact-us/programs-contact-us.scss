@@ -20,7 +20,10 @@
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 16px, 400, 22px);
+    @include font($primary-gray, 16px, 400, 26px);
+    @include tablet() {
+      line-height: 22px;
+    }
     max-width: 520px;
     margin-bottom: 24px;
   }

@@ -41,6 +41,10 @@
     min-height: 301px;
     grid-row: 2;
     grid-column: 2 / 2 span;
+    margin-top: 4px;
+    @include tablet() {
+      margin-top: 0;
+    }
   }
   &-content {
     @include flex($justify: center, $direction: column, $align: stretch);

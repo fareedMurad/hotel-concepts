@@ -40,6 +40,9 @@
   @include tablet() {
     margin: 0;
   }
+  @include ipad-p(){
+    margin-top: 10px;
+  }
   & > div:first-child {
     @include font($primary-orange, 36px, 600, 48px);
     max-width: 600px;
