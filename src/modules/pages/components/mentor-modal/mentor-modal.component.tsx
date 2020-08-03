@@ -81,9 +81,11 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
         </div>
 
         <div className={styles.modalContent}>
-          <div className={styles.modalContentCaption}>Experience</div>
-          <div className={styles.modalContentDescription}>
-            {experience ? experience : 'No experience yet'}
+          <div className={styles.modalContentWrapper}>
+            <div className={styles.modalContentCaption}>Experience</div>
+            <div className={styles.modalContentDescription}>
+              {experience ? experience : 'No experience yet'}
+            </div>
           </div>
         </div>
         <Icon

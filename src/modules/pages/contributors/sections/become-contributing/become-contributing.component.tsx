@@ -11,13 +11,20 @@ const defaultValues = {
   name: '',
   specialisation: '',
   linkedIn: '',
-  email: '',
-  message: ''
+  email: ''
 };
 /**
  * Renders BecomeContributing
  */
 const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
+  const [formData, setFormData] = React.useState({
+    name: 'hello',
+    specialization: '',
+    linkedIn: '',
+    email: '',
+    message: ''
+  });
+
   return (
     <div className={styles.becomeContributing}>
       <div className={styles.wrapper}>
@@ -34,34 +41,39 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
         <div className={styles.rule}>Fields marked * are required.</div>
         <Formik
           initialValues={defaultValues}
-          onSubmit={values => {
-            // dispatch(action(values));
-            console.log(values);
-          }}
+          onSubmit={values => {}}
           // validationSchema={} add later
         >
           {({ handleSubmit }) => (
             <Form handleSubmit={handleSubmit} className={styles.form}>
               <div className={styles.formGroup}>
                 <Field.Text
+                  value={formData.name}
                   name='name'
                   label='Name*'
                   className={styles.formInput}
                   placeholder='John'
+                  onChange={e => setFormData({ ...formData, name: e })}
                 />
                 <Field.Text
+                  value={formData.specialization}
                   name='specialisation'
                   label='Specialisation*'
                   className={styles.formInput}
                   placeholder='Marketing'
+                  onChange={e =>
+                    setFormData({ ...formData, specialization: e })
+                  }
                 />
               </div>
               <div className={styles.formGroup}>
                 <Field.Text
+                  value={formData.linkedIn}
                   name='linkedIn'
                   label='LinkedIn profile*'
                   className={styles.formInput}
                   placeholder='linkedin.com/in/username'
+                  onChange={e => setFormData({ ...formData, linkedIn: e })}
                 />
                 <Field.Text
                   name='email'
