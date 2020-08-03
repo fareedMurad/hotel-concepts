@@ -1,6 +1,11 @@
 /**
  * Props
  */
-type JobApplyProps = {};
+type JobApplyProps = {
+  job: {
+    name: string;
+    location: string;
+  };
+};
 
 export { JobApplyProps };

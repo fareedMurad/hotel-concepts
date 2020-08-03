@@ -6,25 +6,56 @@ import { Formik } from 'formik';
 import { jobDetailsValidationSchema } from '@pages/job-details/models';
 import { useJobDetailsData } from '@pages/job-details/job-details.hook';
 import classNames from 'classnames';
+import { ConsoleView } from 'react-device-detect';
 
 const defaultValues = {
   name: '',
   phone: '',
   email: '',
-  location: '',
   linkedIn: ''
 };
 
 /**
  * Renders JobForm
  */
-const JobApply: React.FC<JobApplyProps> = ({}) => {
+const JobApply: React.FC<JobApplyProps> = ({ job }) => {
   const inputLetter = React.useRef<HTMLInputElement>();
   const inputCv = React.useRef<HTMLInputElement>();
   const { locations } = useJobDetailsData();
-  const [location, setLocation] = React.useState('');
   const [letter, setLetter] = React.useState(null);
   const [cv, setCv] = React.useState(null);
+  const [formData, setFormData] = React.useState<any>({
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
+    linkedIn: '',
+    files: []
+  });
+
+  const sendEmail = formData => {
+    fetch(
+      'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/apply-job-email',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          origin: 'http://localhost:8289'
+        },
+        body: JSON.stringify({
+          subject: `Apply for a job request`,
+          html: `<p>Name: ${formData.name}</p>
+          <p>Email: ${formData.email}</p>
+          <p>phone: ${formData.phone}</p>
+          <p>location(from):${formData.location}</p>
+          <p>linkedIn: ${formData.linkedIn}</p>`
+        })
+      }
+    )
+      .then(response => response)
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  };
 
   return (
     <div className={styles.jobForm}>
@@ -36,21 +67,29 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
         }}
         validationSchema={jobDetailsValidationSchema}
       >
-        {({ handleSubmit, validateForm }) => (
+        {({ handleSubmit }) => (
           <Form handleSubmit={handleSubmit}>
             <div className={styles.formSection}>
               <div className={styles.marginTop}>
                 <Field.Text
+                  value={formData.name}
                   name='name'
                   placeholder='John'
                   className={styles.input}
                   label='Full Name*'
+                  onChange={e => {
+                    setFormData({ ...formData, name: e });
+                  }}
                 />
                 <Field.Text
+                  value={formData.phone}
                   name='phone'
                   placeholder='+ (000) 111 222 3334'
                   className={styles.input}
                   label='Phone*'
+                  onChange={e => {
+                    setFormData({ ...formData, phone: e });
+                  }}
                 />
                 <label htmlFor='upload-cv' className={styles.labelUploadResume}>
                   Resume/CV*
@@ -61,7 +100,7 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                   })}
                   onClick={() => inputCv?.current?.click()}
                 >
-                  {cv && <div className={styles.cvFile}>{cv}</div>}
+                  {cv && <div className={styles.cvFile}>{cv.name}</div>}
                   <Icon className={styles.uploadIcon} name='upload-icon' />
                 </div>
                 <input
@@ -76,26 +115,31 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                       target: { files }
                     } = e;
                     if (!files) return;
-                    setCv(files[0].name);
+                    setCv(files[0]);
+                    setFormData({ ...formData, files: [files[0]] });
                   }}
                 />
               </div>
               <div>
                 <Field.Text
+                  value={formData.email}
                   name='email'
                   placeholder='example@gmail.com'
                   type='email'
                   className={styles.input}
                   label='Email*'
+                  onChange={e => {
+                    setFormData({ ...formData, email: e });
+                  }}
                 />
                 <div className={styles.select}>
                   <Select
-                    value={location}
+                    value={formData.location}
                     options={locations}
                     placeholder='click here to select'
                     className={styles.input}
                     label='Location*'
-                    onChange={setLocation}
+                    onChange={e => setFormData({ ...formData, location: e })}
                   />
                 </div>
 
@@ -108,7 +152,9 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                   })}
                   onClick={() => inputLetter?.current?.click()}
                 >
-                  {letter && <div className={styles.letterFile}>{letter}</div>}
+                  {letter && (
+                    <div className={styles.letterFile}>{letter.name}</div>
+                  )}
                   <Icon className={styles.uploadIcon} name='upload-icon' />
                 </div>
                 <input
@@ -123,22 +169,31 @@ const JobApply: React.FC<JobApplyProps> = ({}) => {
                       target: { files }
                     } = e;
                     if (!files) return;
-                    setLetter(files[0].name);
+                    setLetter(files[0]);
+                    setFormData({
+                      ...formData,
+                      files: [...formData.files, files[0]]
+                    });
                   }}
                 />
               </div>
             </div>
 
             <Field.Text
+              value={formData.linkedIn}
               name='linkedIn'
               placeholder='LinkedIn'
               type='text'
               className={styles.inputBottom}
               label='LinkedIn'
+              onChange={e => {
+                setFormData({ ...formData, linkedIn: e });
+              }}
             />
             <Button
               onClick={() => {
-                handleSubmit(), validateForm();
+                handleSubmit();
+                sendEmail(formData);
               }}
               className={styles.buttonSubmit}
               type='submit'

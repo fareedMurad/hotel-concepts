@@ -92,7 +92,7 @@ const Select: React.FC<SelectProps> = ({
           setFocused(false);
         }}
         // getOptionLabel={getOptionLabel}
-        // getOptionValue={getOptionValue}
+        getOptionValue={getOptionValue}
         isDisabled={disabled}
         value={options.find(one => one.value == value)}
         options={options}

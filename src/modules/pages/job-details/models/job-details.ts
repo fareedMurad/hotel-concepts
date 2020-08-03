@@ -16,28 +16,21 @@ type jobDetailsValues = {
  * Uikit form validation schema
  */
 const jobDetailsValidationSchema = yup.object<jobDetailsValues>().shape({
-  name: yup
-    .string()
-    .label('Full Name*')
-    .required(),
-  linkedIn: yup
-    .string()
-    .label('LinkedIn')
-    .required(),
+  name: yup.string().label('Full Name*'),
+
+  linkedIn: yup.string().label('LinkedIn'),
+
   phone: yup
     .string()
     .label('Phone*')
-    .min(6)
-    .required(),
+    .min(6),
+
   email: yup
     .string()
     .label('Email*')
-    .email()
-    .required(),
-  location: yup
-    .string()
-    .label('Location*')
-    .required()
+    .email(),
+
+  location: yup.string().label('Location*')
 });
 
 export { jobDetailsValues, jobDetailsValidationSchema };
