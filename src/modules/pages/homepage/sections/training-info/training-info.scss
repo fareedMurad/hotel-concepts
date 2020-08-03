@@ -37,8 +37,12 @@
   @include flex($justify: center);
   margin-top: 8px;
   @include tablet() {
-    @include flex($justify: flex-end);
+    @include flex($justify: flex-start);
     margin-top: 0px;
+    margin-right: 35px;
+  }
+  @include ipad-l(){
+    @include flex($justify: flex-end);
   }
   flex: 1;
   flex-wrap: wrap;

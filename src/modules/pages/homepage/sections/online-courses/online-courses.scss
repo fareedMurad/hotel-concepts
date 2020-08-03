@@ -41,8 +41,12 @@
   overflow-y: hidden;
   gap: 10px;
   padding-bottom: 10px;
+
   @include tablet() {
     grid-auto-flow: column;
+  }
+  @include ipad-p() {
+    grid-auto-flow: initial;
   }
   & > div {
     width: fit-content;

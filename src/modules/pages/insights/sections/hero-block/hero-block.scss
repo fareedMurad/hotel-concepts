@@ -15,6 +15,9 @@
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
   }
+  @include ipad-p() {
+    grid-template: initial;
+  }
 }
 
 .hero {
@@ -23,6 +26,9 @@
     background-color: dimgrey;
     border-radius: 6px;
     position: relative;
+    @include ipad-l() {
+      height: 95%;
+    }
     &--pic {
       @include heroImage();
       @include size(100%);
@@ -67,6 +73,9 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: 20px;
+  @include ipad-l() {
+    gap: 0px;
+  }
 }
 .overlay {
   position: absolute;
@@ -104,7 +113,9 @@
   position: relative;
   @include size(100%);
   min-height: 270px;
-
+  @include ipad-l() {
+    height: 90%;
+  }
   &--image {
     // @include flex($align: stretch, $justify: space-between, $direction: column);
     display: grid;
