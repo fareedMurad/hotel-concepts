@@ -89,14 +89,14 @@ const Footer: React.FC<FooterProps> = ({}) => {
     }
   });
   const subscribe = email => {
-    return fetch(
+    return axios(
       'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/send-email',
       {
         method: 'post',
-        body: JSON.stringify({
+        data: {
           email_address: email,
-          status: 'subscribed'
-        })
+          status: 'pending'
+        }
       }
     )
       .then(res => res)
