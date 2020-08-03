@@ -30,3 +30,14 @@
     }
   }
 }
+
+.hr {
+  margin: 50px 22px;
+  width: 53%;
+  @include desktop() {
+    margin: 50px 0px 50px 134px;
+    width: 36%;
+  }
+  height: 2px;
+  background: $hr;
+}

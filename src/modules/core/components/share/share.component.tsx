@@ -13,6 +13,7 @@ const Share: React.FC<ShareProps> = ({}) => {
   const [showSocial, setShowSocial] = React.useState(false);
   const socialsRef = React.useRef();
   useClickOutside(socialsRef, () => setShowSocial(false));
+
   return (
     <div
       ref={socialsRef}
@@ -21,7 +22,7 @@ const Share: React.FC<ShareProps> = ({}) => {
         setShowSocial(!showSocial);
       }}
     >
-      <span className={showSocial && styles.active}>Share</span>
+      <span className={showSocial ? styles.active : styles.none}>Share</span>
       <a className={styles.shareButton}>
         <Icon name='share' />
       </a>

@@ -35,7 +35,6 @@
       @include desktop() {
         padding-left: 108px;
       }
-      // fonts
       & > div:first-child {
         @include font(#cbd0d3, 24px, 600, 46px);
         font-family: $EBGaramond;
@@ -45,8 +44,7 @@
         }
       }
       & > div:nth-child(2) {
-        @include font($white, 34px, 500, 70px);
-
+        @include font($white, 34px, 500, 22px);
         margin: 15px 0px;
         font-family: $EBGaramond;
         @include tablet() {
@@ -55,7 +53,9 @@
       }
       & > div:last-child {
         @include font($white, 14px, 400, 34px);
+        margin-bottom: 40px;
         @include tablet() {
+          margin-bottom: 0px;
           @include font($white, 24px, 400, 34px);
         }
       }
@@ -88,8 +88,15 @@
 .tags {
   @include flex($align: center);
   align-self: flex-start;
+  flex-wrap: wrap;
+  @include tablet() {
+    position: absolute;
+  }
+  top: 16px;
+  left: 16px;
   & > div {
     margin-right: 8px;
+    margin-bottom: 3px;
   }
 }
 

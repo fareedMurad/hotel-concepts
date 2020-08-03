@@ -1,1 +1,1 @@
-export * from './insights-form'
+export * from './insights-form';

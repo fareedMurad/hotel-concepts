@@ -10,10 +10,34 @@
   }
   h1 {
     margin: 0;
+    margin-top: 48px;
     font-size: 48px;
     font-weight: 600;
     line-height: 58px;
     color: #3e3e3e;
     font-family: 'EB Garamond';
+  }
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: #3e3e3e;
+    font-family: 'EB Garamond';
+  }
+  ul,
+  ol {
+    margin-left: 22px;
+  }
+  blockquote {
+    display: -webkit-box;
+    p {
+      margin: 0;
+    }
+  }
+  a {
+    text-decoration: underline;
+    &:hover {
+        color: $primary-orange;
+    }
   }
 }

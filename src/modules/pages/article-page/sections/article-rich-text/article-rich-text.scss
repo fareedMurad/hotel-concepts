@@ -1,11 +1,18 @@
 @import 'core.scss';
 
-.article-second-section {
+.article-rich-text {
   position: relative;
+  width: 100%;
   padding: 0 22px;
   @include desktop() {
-    padding: 0px 355px 0px 134px;
+    padding: 0px 358px 0px 134px;
   }
+}
+
+.embeddedImage {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
 }
 
 .hr {
@@ -13,8 +20,4 @@
   height: 2px;
   margin: 50px 0px;
   background: $hr;
-}
-
-.content {
-  width: 100%;
 }

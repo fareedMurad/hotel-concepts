@@ -1,8 +1,8 @@
 /**
  * Props
  */
-type ArticleFirstSectionProps = {
+type ArticleIntroProps = {
   articleData: any;
 };
 
-export { ArticleFirstSectionProps };
+export { ArticleIntroProps };
