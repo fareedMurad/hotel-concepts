@@ -4,11 +4,12 @@ import * as styles from './share.scss';
 import { Icon } from '..';
 import { Trail } from 'react-spring/renderprops';
 import { useClickOutside } from '@core/shared';
+import { FacebookProvider, Share } from 'react-facebook';
 
 /**
  * Renders Share
  */
-const Share: React.FC<ShareProps> = ({}) => {
+const ShareSocial: React.FC<ShareProps> = ({ link }) => {
   const social = ['facebook-small', 'twitter', 'instagram-small'];
   const [showSocial, setShowSocial] = React.useState(false);
   const socialsRef = React.useRef();
@@ -26,24 +27,27 @@ const Share: React.FC<ShareProps> = ({}) => {
       <a className={styles.shareButton}>
         <Icon name='share' />
       </a>
-
-      <ul className={styles.shareButtonItems}>
-        <Trail
-          items={social}
-          keys={item => item}
-          to={{
-            opacity: showSocial && '1.0'
-          }}
-        >
-          {social => props => (
-            <li style={props}>
-              <Icon name={social} />
-            </li>
-          )}
-        </Trail>
-      </ul>
+      <FacebookProvider appId='978057235952932'>
+        <ul className={styles.shareButtonItems}>
+          <Trail
+            items={social}
+            keys={item => item}
+            to={{
+              opacity: showSocial && '1.0'
+            }}
+          >
+            {social => props => (
+              <li style={props}>
+                <Share href={link}>
+                  <Icon name={social} />
+                </Share>
+              </li>
+            )}
+          </Trail>
+        </ul>
+      </FacebookProvider>
     </div>
   );
 };
 
-export { Share };
+export { ShareSocial };

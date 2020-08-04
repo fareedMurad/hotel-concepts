@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type ShareProps = {};
+type ShareProps = {
+  link: string;
+};
 
 export { ShareProps };

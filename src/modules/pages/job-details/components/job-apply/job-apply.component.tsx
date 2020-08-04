@@ -24,12 +24,8 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
   const { locations } = useJobDetailsData();
   const [letter, setLetter] = React.useState(null);
   const [cv, setCv] = React.useState(null);
-  const [formData, setFormData] = React.useState<any>({
-    name: '',
-    email: '',
-    phone: '',
+  const [restFormValues, setFormData] = React.useState<any>({
     location: '',
-    linkedIn: '',
     files: []
   });
 
@@ -48,7 +44,8 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
           <p>Email: ${formData.email}</p>
           <p>phone: ${formData.phone}</p>
           <p>location(from):${formData.location}</p>
-          <p>linkedIn: ${formData.linkedIn}</p>`
+          <p>linkedIn: ${formData.linkedIn}</p>`,
+          fileContent: formData.files[0]
         })
       }
     )
@@ -63,7 +60,11 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
       <Formik
         initialValues={defaultValues}
         onSubmit={values => {
-          console.log(values);
+          const formData = {
+            ...values,
+            ...restFormValues
+          };
+          sendEmail(formData);
         }}
         validationSchema={jobDetailsValidationSchema}
       >
@@ -72,24 +73,16 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             <div className={styles.formSection}>
               <div className={styles.marginTop}>
                 <Field.Text
-                  value={formData.name}
                   name='name'
                   placeholder='John'
                   className={styles.input}
                   label='Full Name*'
-                  onChange={e => {
-                    setFormData({ ...formData, name: e });
-                  }}
                 />
                 <Field.Text
-                  value={formData.phone}
                   name='phone'
                   placeholder='+ (000) 111 222 3334'
                   className={styles.input}
                   label='Phone*'
-                  onChange={e => {
-                    setFormData({ ...formData, phone: e });
-                  }}
                 />
                 <label htmlFor='upload-cv' className={styles.labelUploadResume}>
                   Resume/CV*
@@ -116,30 +109,28 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                     } = e;
                     if (!files) return;
                     setCv(files[0]);
-                    setFormData({ ...formData, files: [files[0]] });
+                    setFormData({ ...restFormValues, files: [files[0]] });
                   }}
                 />
               </div>
               <div>
                 <Field.Text
-                  value={formData.email}
                   name='email'
                   placeholder='example@gmail.com'
                   type='email'
                   className={styles.input}
                   label='Email*'
-                  onChange={e => {
-                    setFormData({ ...formData, email: e });
-                  }}
                 />
                 <div className={styles.select}>
                   <Select
-                    value={formData.location}
+                    value={restFormValues.location}
                     options={locations}
                     placeholder='click here to select'
                     className={styles.input}
                     label='Location*'
-                    onChange={e => setFormData({ ...formData, location: e })}
+                    onChange={e =>
+                      setFormData({ ...restFormValues, location: e })
+                    }
                   />
                 </div>
 
@@ -171,8 +162,8 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                     if (!files) return;
                     setLetter(files[0]);
                     setFormData({
-                      ...formData,
-                      files: [...formData.files, files[0]]
+                      ...restFormValues,
+                      files: [...restFormValues.files, files[0]]
                     });
                   }}
                 />
@@ -180,20 +171,15 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             </div>
 
             <Field.Text
-              value={formData.linkedIn}
               name='linkedIn'
               placeholder='LinkedIn'
               type='text'
               className={styles.inputBottom}
               label='LinkedIn'
-              onChange={e => {
-                setFormData({ ...formData, linkedIn: e });
-              }}
             />
             <Button
               onClick={() => {
                 handleSubmit();
-                sendEmail(formData);
               }}
               className={styles.buttonSubmit}
               type='submit'

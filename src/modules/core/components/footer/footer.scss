@@ -214,3 +214,9 @@
     }
   }
 }
+
+.notification-message {
+  @include font($primary-gray, 12px, 500, 16px);
+  margin-top: 30px;
+  color: $primary-orange;
+}

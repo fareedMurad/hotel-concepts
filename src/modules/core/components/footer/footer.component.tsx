@@ -82,14 +82,15 @@ const Footer: React.FC<FooterProps> = ({}) => {
   const [categories, setCategories] = React.useState([]);
   const { weprovideLinks, moreLinks, socials } = useFooterData();
   const { data, loading, error } = useQuery(CATEGORIES);
+  const [sent, setSent] = React.useState(false);
 
   React.useEffect(() => {
     if (!loading) {
       setCategories(data.courseCategoryCollection.items);
     }
   });
-  const subscribe = email => {
-    return axios(
+  const subscribe = async email => {
+    await axios(
       'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/send-email',
       {
         method: 'post',
@@ -101,6 +102,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
     )
       .then(res => res)
       .catch(err => err.data);
+    return setSent(true);
   };
 
   return (
@@ -117,34 +119,41 @@ const Footer: React.FC<FooterProps> = ({}) => {
               worldleading hospitality experts
             </div>
           </div>
-          <Formik
-            initialValues={{ email: '' }}
-            onSubmit={values => {
-              subscribe(values.email);
-            }}
-            validationSchema={validationSchema}
-          >
-            {({ handleSubmit }) => (
-              <Form handleSubmit={handleSubmit}>
-                <div className={styles.submitForm}>
-                  <Field.Text
-                    name='email'
-                    label='E-mail'
-                    type='email'
-                    className={styles.formInput}
-                  />
-                  <Button
-                    onClick={() => handleSubmit()}
-                    className={styles.buttonSubmit}
-                    type='submit'
-                    children='Subscribe'
-                    arrow='&#8594;'
-                    width={176}
-                  />
-                </div>
-              </Form>
-            )}
-          </Formik>
+          {sent ? (
+            <div className={styles.notificationMessage}>
+              Your subscription request had been sent, please check email to
+              verify your account
+            </div>
+          ) : (
+            <Formik
+              initialValues={{ email: '' }}
+              onSubmit={values => {
+                subscribe(values.email);
+              }}
+              validationSchema={validationSchema}
+            >
+              {({ handleSubmit }) => (
+                <Form handleSubmit={handleSubmit}>
+                  <div className={styles.submitForm}>
+                    <Field.Text
+                      name='email'
+                      label='E-mail'
+                      type='email'
+                      className={styles.formInput}
+                    />
+                    <Button
+                      onClick={() => handleSubmit()}
+                      className={styles.buttonSubmit}
+                      type='submit'
+                      children='Subscribe'
+                      arrow='&#8594;'
+                      width={176}
+                    />
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          )}
         </section>
         <section className={styles.navigation}>
           <Navigation caption='Explore Programs' navigation={categories} />

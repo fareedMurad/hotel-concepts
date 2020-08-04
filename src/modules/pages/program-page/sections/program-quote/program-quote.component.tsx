@@ -15,6 +15,7 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
 
   if (programQuoteDataLoading) return <Spinner />;
 
+  if (!programQuoteData) return <div></div>;
   const scrollToEnroll = () => {
     scrollTo('enroll');
   };

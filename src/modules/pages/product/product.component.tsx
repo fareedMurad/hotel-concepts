@@ -13,7 +13,7 @@ import { ScrollToTop } from '@app';
 import { Trail } from 'react-spring/renderprops';
 import { useClickOutside } from '@core/shared';
 import { SEO } from '@core/components/seo/seo.component';
-import { Share } from '@core/components/share';
+import { ShareSocial } from '@core/components/share';
 
 /**
  * Product-card Data
@@ -83,7 +83,7 @@ const Product: React.FC<ProductProps> = ({}) => {
         <div className={styles.slider}>
           <ProductSlider images={images} />
           <div className={styles.links}>
-            <Share />
+            <ShareSocial link={''} />
             <div className={styles.linksDownload}>
               {previewPages &&
                 previewPages.map(el => (
