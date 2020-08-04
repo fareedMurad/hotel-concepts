@@ -26,37 +26,39 @@ const ArticleIntro: React.FC<ArticleIntroProps> = ({ articleData }) => {
   } = articleData.article;
 
   return (
-    <div className={styles.articleIntro}>
+    <React.Fragment>
       <SEO
-        title={title}
+        title='Helllo'
         thumbnail={url}
         url={`https://dev.d3fbrpbky13ysk.amplifyapp.com/${pathname}`}
       />
-      <div className={styles.heading}>
-        <H1>{title}</H1>
-        <div className={styles.tags}>
-          {categories.map(el => (
-            <Tag caption={el.category} key={el.sys.id} />
-          ))}
-        </div>
-        <div className={styles.headingOptions}>
-          <div className={styles.readingTime}>
-            <div>Reading time:</div> <div>{readingTime}</div>
+      <div className={styles.articleIntro}>
+        <div className={styles.heading}>
+          <H1>{title}</H1>
+          <div className={styles.tags}>
+            {categories.map(el => (
+              <Tag caption={el.category} key={el.sys.id} />
+            ))}
           </div>
-          <div className={styles.share}>
-            <ShareSocial
-              link={`https://dev.d3fbrpbky13ysk.amplifyapp.com/${pathname}`}
-            />
+          <div className={styles.headingOptions}>
+            <div className={styles.readingTime}>
+              <div>Reading time:</div> <div>{readingTime}</div>
+            </div>
+            <div className={styles.share}>
+              <ShareSocial
+                link={`https://dev.d3fbrpbky13ysk.amplifyapp.com/${pathname}`}
+              />
+            </div>
           </div>
+          <Paragraph className={styles.heroDescription}>{introText}</Paragraph>
         </div>
-        <Paragraph className={styles.heroDescription}>{introText}</Paragraph>
+        {desktop && (
+          <div className={styles.imageWrapper}>
+            <img src={url} className={styles.image} />
+          </div>
+        )}
       </div>
-      {desktop && (
-        <div className={styles.imageWrapper}>
-          <img src={url} className={styles.image} />
-        </div>
-      )}
-    </div>
+    </React.Fragment>
   );
 };
 
