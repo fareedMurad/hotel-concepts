@@ -104,7 +104,9 @@
     }
     &--photo {
       height: auto;
-      max-width: 50%;
+      height: 316px;
+      object-fit: cover;
+      max-width: 316px;
       @include tablet() {
         max-width: 100%;
       }

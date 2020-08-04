@@ -4,6 +4,8 @@
   cursor: pointer;
   width: 316px;
   user-select: none;
+  // display: grid;
+  // grid-template-rows: repeat(3, minmax(75px, auto));
   &:hover {
     .info {
       color: #ffffff;
@@ -19,6 +21,7 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
+  object-fit: cover;
 }
 
 .img-container {
