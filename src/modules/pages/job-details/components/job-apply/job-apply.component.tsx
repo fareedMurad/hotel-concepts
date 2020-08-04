@@ -35,7 +35,8 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type':
+            'multipart/form-data; boundary=<calculated when request is sent>',
           origin: 'http://localhost:8289'
         },
         body: JSON.stringify({
@@ -45,7 +46,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
           <p>phone: ${formData.phone}</p>
           <p>location(from):${formData.location}</p>
           <p>linkedIn: ${formData.linkedIn}</p>`,
-          fileContent: formData.files[0]
+          file: formData.files[0]
         })
       }
     )
@@ -65,6 +66,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             ...restFormValues
           };
           sendEmail(formData);
+          console.log(formData);
         }}
         validationSchema={jobDetailsValidationSchema}
       >
