@@ -36,8 +36,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
         method: 'POST',
         headers: {
           'Content-Type':
-            'multipart/form-data; boundary=<calculated when request is sent>',
-          origin: 'http://localhost:8289'
+            'multipart/form-data; boundary=<calculated when request is sent>'
         },
         body: JSON.stringify({
           subject: `Apply for a job request`,
@@ -66,7 +65,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             ...restFormValues
           };
           sendEmail(formData);
-          console.log(formData);
+          console.log(formData.files[0]);
         }}
         validationSchema={jobDetailsValidationSchema}
       >
