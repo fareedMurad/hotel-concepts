@@ -28,23 +28,9 @@ const responsiveBreakpoints = {
 };
 
 /**
- * testimonials query
- */
-
-/**
  * Renders Impact
  */
 const Impact: React.FC<ImpactProps> = ({ testimonials, loading }) => {
-  // const { data, loading } = useQuery(GET_TESTEMONIALS);
-  // const [testemonials, setTestemonials] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   if (!loading) {
-  //     const { items } = data.testimonialsCollection;
-  //     setTestemonials(items);
-  //   }
-  // });
-
   if (loading) return <Spinner />;
 
   return (
@@ -57,6 +43,8 @@ const Impact: React.FC<ImpactProps> = ({ testimonials, loading }) => {
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
+        autoPlay
+        infinite
         responsive={responsiveBreakpoints}
         customButtonGroup={<SliderButtons className={styles.controls} />}
       >
