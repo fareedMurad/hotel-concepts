@@ -27,25 +27,28 @@ const ShareSocial: React.FC<ShareProps> = ({ link }) => {
       <a className={styles.shareButton}>
         <Icon name='share' />
       </a>
-      <FacebookProvider appId='978057235952932'>
-        <ul className={styles.shareButtonItems}>
-          <Trail
-            items={social}
-            keys={item => item}
-            to={{
-              opacity: showSocial && '1.0'
-            }}
-          >
-            {social => props => (
-              <li style={props}>
+
+      <ul className={styles.shareButtonItems}>
+        <Trail
+          items={social}
+          keys={item => item}
+          to={{
+            opacity: showSocial && '1.0'
+          }}
+        >
+          {social => props => (
+            <li style={props}>
+              <FacebookProvider appId='978057235952932'>
                 <Share href={link}>
-                  <Icon name={social} />
+                  {({ handleClick, loading }) => (
+                    <Icon name={social} onClick={handleClick} />
+                  )}
                 </Share>
-              </li>
-            )}
-          </Trail>
-        </ul>
-      </FacebookProvider>
+              </FacebookProvider>
+            </li>
+          )}
+        </Trail>
+      </ul>
     </div>
   );
 };
