@@ -34,7 +34,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
     const fileData = new FormData();
     fileData.append('file', formData.files[0]);
 
-    fetch(
+    return fetch(
       'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/apply-job-email',
       {
         method: 'POST',
