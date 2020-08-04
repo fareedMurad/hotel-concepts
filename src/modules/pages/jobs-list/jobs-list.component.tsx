@@ -39,7 +39,6 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
 
   const selectedCollection =
     currentFilter === 'All' ? allJobs?.items : filteredJobs;
-  console.log(filteredJobs);
 
   return (
     <React.Fragment>
@@ -76,7 +75,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
               }
             } = item;
             const activeFilter = currentFilter === id;
-            console.log(id)
+            
             return (
               <ButtonFilter
                 key={id}
