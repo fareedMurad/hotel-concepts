@@ -28,7 +28,7 @@ const ArticleIntro: React.FC<ArticleIntroProps> = ({ articleData }) => {
   return (
     <React.Fragment>
       <SEO
-        title='Helllo'
+        title={title}
         thumbnail={url}
         url={`https://dev.d3fbrpbky13ysk.amplifyapp.com/${pathname}`}
       />
