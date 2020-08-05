@@ -5,6 +5,7 @@ const useProgramsData = (category: string) => {
     query($category: String!) {
       onlineCourseCollection(
         where: { category: { name: $category } }
+        limit: 6
         locale: "en-US"
       ) {
         total
