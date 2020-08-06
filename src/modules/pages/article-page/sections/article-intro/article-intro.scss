@@ -17,7 +17,7 @@
 .tags {
   @include flex($align: stretch);
   flex-wrap: wrap;
-  margin: 40px 0px 18px 0px;
+  margin: 36px 0px 18px 0px;
   &__item {
     width: fit-content;
     margin-bottom: 4px;
@@ -34,7 +34,7 @@
   width: 100%;
   padding-right: 22px;
   @include desktop() {
-    padding-right: 60px;
+    padding-right: 45px;
   }
   &__options {
     @include font($primary-gray, 16px, 400);
@@ -78,7 +78,7 @@
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
-  height: 100%;
+  height: -webkit-fill-available;
   &__wrapper {
     height: calc(100vh - 104px);
     min-height: calc(100% - 94px);

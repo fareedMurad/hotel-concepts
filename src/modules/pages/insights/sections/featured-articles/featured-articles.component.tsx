@@ -54,12 +54,6 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
       </div>
       <div className={styles.filters}>
         <ButtonFilter
-          title='Filter'
-          icon='filter'
-          onClick={() => {}}
-          active={false}
-        />
-        <ButtonFilter
           title='All'
           count={allArticlesAmount}
           onClick={() => handleClick('All')}
@@ -118,6 +112,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
                   children='Read article'
                   arrow='&#8594;'
                   width={204}
+                  theme='primary'
                   onClick={() =>
                     history.push(`/insights/article/${popularArticle.sys.id}`)
                   }

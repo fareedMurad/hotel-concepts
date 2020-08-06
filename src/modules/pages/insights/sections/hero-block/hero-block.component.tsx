@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { HeroBlockProps } from './hero-block.props';
 import * as styles from './hero-block.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { ScrollButton } from '@core/components/scroll-button';
 import { HeroTitle, HeroSubtitle, Spinner } from '@core/components';
 import { useMostPopularArticles } from './hero-block.hook';
 
 const HeroCard = ({ firstScreenArticle }) => {
   if (!firstScreenArticle) return <Spinner />;
+  const history = useHistory();
   const {
     title,
     categoriesCollection: { items: categories },
@@ -30,8 +31,12 @@ const HeroCard = ({ firstScreenArticle }) => {
           ))}
         </div>
 
-        <div className={styles.cardCaptions}>{title}</div>
-
+        <div
+          className={styles.cardCaptions}
+          onClick={() => history.push(`/insights/article/${id}`)}
+        >
+          {title}
+        </div>
         <NavLink to={`insights/article/${id}`} className={styles.cardLink}>
           Read more
         </NavLink>

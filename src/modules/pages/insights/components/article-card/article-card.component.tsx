@@ -37,7 +37,12 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
           <div className={styles.contentDate}>
             <Moment format='MMM DD, YYYY'>{date}</Moment>
           </div>
-          <div className={styles.contentDescription}>{title}</div>
+          <div
+            className={styles.contentDescription}
+            onClick={() => history.push(`/insights/article/${id}`)}
+          >
+            {title}
+          </div>
         </div>
         <Button
           theme='secondary'
