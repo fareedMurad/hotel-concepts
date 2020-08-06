@@ -91,18 +91,24 @@ const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
 
   return (
     <div className={styles.articleRichText}>
-      <RichTextDefault>{parsedFirstRichText}</RichTextDefault>
-      {desktop && <InsightsForm />}
-      <Hr />
-      <RichTextDefault>{parsedSecondRichText}</RichTextDefault>
-      {secondRichTextData != null && <Hr />}
-      <ArticleBgQuote />
-      {thirdRichTextData != null && <Hr />}
-      <RichTextDefault>{parsedThirdRichText}</RichTextDefault>
-      {fourthRichTextData != null && <Hr />}
-      <ArticleImageSlider imagesForSliderData={imagesForSliderData} />
-      {imagesForSliderData.length > 0 && <Hr />}
-      <RichTextDefault>{parsedFourthRichText}</RichTextDefault>
+      <div className={styles.wrapper}>
+        <RichTextDefault>{parsedFirstRichText}</RichTextDefault>
+        <Hr />
+        <RichTextDefault>{parsedSecondRichText}</RichTextDefault>
+        {secondRichTextData != null && <Hr />}
+        <ArticleBgQuote />
+        {thirdRichTextData != null && <Hr />}
+        <RichTextDefault>{parsedThirdRichText}</RichTextDefault>
+        {fourthRichTextData != null && <Hr />}
+        <ArticleImageSlider imagesForSliderData={imagesForSliderData} />
+        {imagesForSliderData.length > 0 && <Hr />}
+        <RichTextDefault>{parsedFourthRichText}</RichTextDefault>
+      </div>
+      {desktop && (
+        <div className={styles.stickyInsightsForm}>
+          <InsightsForm />
+        </div>
+      )}
     </div>
   );
 };

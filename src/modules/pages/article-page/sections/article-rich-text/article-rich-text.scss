@@ -2,11 +2,14 @@
 
 .article-rich-text {
   position: relative;
+  display: flex;
   width: 100%;
   padding: 0 22px;
   @include desktop() {
-    padding: 0px 358px 0px 134px;
+    padding: 0px 0px 0px 134px;
   }
+}
+.wrapper {
 }
 
 .embeddedImage {
