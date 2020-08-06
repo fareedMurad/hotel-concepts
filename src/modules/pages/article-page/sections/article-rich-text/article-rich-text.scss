@@ -2,17 +2,22 @@
 
 .article-rich-text {
   position: relative;
+  display: flex;
   width: 100%;
   padding: 0 22px;
   @include desktop() {
-    padding: 0px 358px 0px 134px;
+    padding: 0px 0px 0px 134px;
   }
+  text-align: justify;
+}
+.wrapper {
 }
 
 .embeddedImage {
   max-width: 100%;
   height: auto;
   margin-top: 10px;
+  border-radius: 8px;
 }
 
 .hr {
@@ -20,4 +25,8 @@
   height: 2px;
   margin: 50px 0px;
   background: $hr;
+}
+
+.sticky-insights-form {
+  margin: 0 22px 0 22px;
 }
