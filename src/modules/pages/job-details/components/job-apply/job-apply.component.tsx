@@ -56,27 +56,6 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
       .then(result => console.log(result.body))
       .catch(error => console.log('error', error));
   };
-  // const sendEmail = formData => {
-  //   const fileData = new FormData();
-  //   fileData.append('file', formData.files[0]);
-
-  //   return axios({
-  //     url:
-  //       'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/apply-job-email',
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/x-www-form-urlencoded',
-  //       crossDomain: true
-  //     },
-  //     data: fileData
-  //     subject: `Apply for a job request`,
-  //     html: `<p>Name: ${formData.name}</p>
-  //     <p>Email: ${formData.email}</p>
-  //     <p>phone: ${formData.phone}</p>
-  //     <p>location(from):${formData.location}</p>
-  //     <p>linkedIn: ${formData.linkedIn}</p>`
-  //   });
-  // };
 
   return (
     <div className={styles.jobForm}>
