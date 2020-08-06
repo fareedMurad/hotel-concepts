@@ -15,12 +15,6 @@ import { ArticleImageSlider } from '../article-image-slider';
  */
 const Hr = () => <div className={styles.hr} />;
 /**
- * Rich Text 1
- */
-const firstRichText = () => {
-  return null;
-};
-/**
  * Renders ArticleRichText
  */
 const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
@@ -86,8 +80,6 @@ const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
     fourthRichTextData?.json,
     options
   );
-
-  console.log(firstRichTextData, imagesForSliderData);
 
   return (
     <div className={styles.articleRichText}>

@@ -19,7 +19,7 @@
 
   &--secondary {
     @include font($primary-gray, 16px, 500, 22px);
-    background: transparent;
+    background: none;
     transition: $transition;
     border: 1px solid $primary-orange;
 
@@ -28,6 +28,32 @@
       background: $primary-orange;
       border-color: $primary-orange;
       border: 1px solid $primary-orange;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: $primary-orange;
+      opacity: 0.1;
+      z-index: 1;
+      transition: all 170ms cubic-bezier(0.29, 0.04, 0.23, 1);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      margin: 0;
+      border-radius: inherit;
+    }
+
+    &:hover {
+      border-color: $primary-orange;
+      border: 1px solid $primary-orange;
+      outline: none;
+      &::before {
+        top: unset;
+        bottom: 0;
+        height: 100%;
+        transition: all 170ms cubic-bezier(0.29, 0.04, 0.23, 1);
+      }
     }
   }
 

@@ -13,8 +13,7 @@ const ShareSocial: React.FC<ShareProps> = ({ link }) => {
   const social = ['facebook-small', 'twitter', 'instagram-small'];
   const [showSocial, setShowSocial] = React.useState(false);
   const socialsRef = React.useRef();
-  useClickOutside(socialsRef, () => setShowSocial(false));
-
+  
   return (
     <div
       ref={socialsRef}
@@ -24,11 +23,18 @@ const ShareSocial: React.FC<ShareProps> = ({ link }) => {
       }}
     >
       <span className={showSocial ? styles.active : styles.none}>Share</span>
-      <a className={styles.shareButton}>
+      <a
+        className={styles.shareButton}
+        onMouseEnter={() => setShowSocial(true)}
+        onMouseLeave={() => setShowSocial(false)}
+      >
         <Icon name='share' />
       </a>
-
-      <ul className={styles.shareButtonItems}>
+      <ul
+        className={styles.shareButtonItems}
+        onMouseEnter={() => setShowSocial(true)}
+        onMouseLeave={() => setShowSocial(false)}
+      >
         <Trail
           items={social}
           keys={item => item}
