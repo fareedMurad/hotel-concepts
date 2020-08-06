@@ -18,7 +18,34 @@
   position: relative;
   margin-right: 1px;
   overflow: hidden;
+  padding-bottom: 40px;
   ul {
-      margin: 0;
+    margin: 0;
   }
+}
+
+.dots {
+  @include flex($justify: center);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  & > div:last-child {
+    margin-right: 0;
+  }
+}
+
+.inactive-dot {
+  background-color: $light-grey;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+}
+
+.active-dot {
+  background-color: $primary-orange;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
 }
