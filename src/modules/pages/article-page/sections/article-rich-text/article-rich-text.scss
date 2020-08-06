@@ -14,8 +14,8 @@
 }
 
 .embeddedImage {
-  max-width: 100%;
-  height: auto;
+  max-width: -webkit-fill-available;
+  max-height: -webkit-fill-available;
   margin-top: 10px;
   border-radius: 8px;
 }
