@@ -27,6 +27,32 @@ const responsiveBreakpoints = {
     slidesToSlide: 1
   }
 };
+
+/**
+ * Custom Dots
+ */
+const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    index,
+    active,
+    carouselState: { currentSlide, deviceType },
+    images
+  } = rest;
+  const carouselItems = images.map(el => {
+    return <div />;
+  });
+  // onMove means if dragging or swiping in progress.
+  // active is provided by this lib for checking if the item is active or not.
+  return (
+    <div
+      className={active ? styles.activeDot : styles.inactiveDot}
+      onClick={() => onClick()}
+    >
+      {React.Children.toArray(carouselItems)[index]}
+    </div>
+  );
+};
 /**
  * Renders ArticleImageSlider
  */
@@ -44,6 +70,9 @@ const ArticleImageSlider: React.FC<ArticleImageSliderProps> = ({
         infinite
         autoPlaySpeed={3500}
         responsive={responsiveBreakpoints}
+        showDots
+        customDot={<CustomDot images={imagesForSliderData} />}
+        dotListClass={styles.dots}
         // customButtonGroup={
         //   <SliderButtons className={styles.controls} isBordered />
         // }
