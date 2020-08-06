@@ -30,53 +30,48 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
     files: []
   });
 
-  const sendEmail = formData => {
+  const sendEmail = async formData => {
+    debugger;
     const fileData = new FormData();
     fileData.append('file', formData.files[0]);
-
-    return fetch(
-      'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/apply-job-email',
-      {
+    // delete formData.files;
+    // let reader = new FileReader();
+    // reader.readAsArrayBuffer(formData.files[0]);
+    // const buffer = await new Promise((res, rej) => {
+    //   reader.onload = function() {
+    //     return res(reader.result);
+    //   };
+    //   reader.onerror = function() {
+    //     console.log(reader.error);
+    //     return rej(reader.result);
+    //   };
+    // });
+    const buffer = await formData.files[0].arrayBuffer();
+    console.log('buffer', buffer);
+    return (
+      axios({
+        url:
+          'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/apply-job-email',
         method: 'POST',
         headers: {
           'Content-Type': 'multipart/form-data'
         },
-        body: JSON.stringify({
-          fileData
-          // subject: `Apply for a job request`,
-          // html: `<p>Name: ${formData.name}</p>
-          // <p>Email: ${formData.email}</p>
-          // <p>phone: ${formData.phone}</p>
-          // <p>location(from):${formData.location}</p>
-          // <p>linkedIn: ${formData.linkedIn}</p>`
-        })
-      }
-    )
-      .then(response => response)
-      .then(result => console.log(result.body))
-      .catch(error => console.log('error', error));
+        data: {
+          ...formData.files[0],
+          buffer
+        }
+        // subject: `Apply for a job request`,
+        // html: `<p>Name: ${formData.name}</p>
+        // <p>Email: ${formData.email}</p>
+        // <p>phone: ${formData.phone}</p>
+        // <p>location(from):${formData.location}</p>
+        // <p>linkedIn: ${formData.linkedIn}</p>`
+      })
+        // .then(response => response)
+        .then(result => console.log(result.data))
+        .catch(error => console.log('error', error))
+    );
   };
-  // const sendEmail = formData => {
-  //   const fileData = new FormData();
-  //   fileData.append('file', formData.files[0]);
-
-  //   return axios({
-  //     url:
-  //       'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/apply-job-email',
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/x-www-form-urlencoded',
-  //       crossDomain: true
-  //     },
-  //     data: fileData
-  //     subject: `Apply for a job request`,
-  //     html: `<p>Name: ${formData.name}</p>
-  //     <p>Email: ${formData.email}</p>
-  //     <p>phone: ${formData.phone}</p>
-  //     <p>location(from):${formData.location}</p>
-  //     <p>linkedIn: ${formData.linkedIn}</p>`
-  //   });
-  // };
 
   return (
     <div className={styles.jobForm}>
@@ -88,6 +83,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             ...values,
             ...restFormValues
           };
+          debugger;
           sendEmail(formData);
           console.log(formData);
         }}
@@ -132,6 +128,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                     const {
                       target: { files }
                     } = e;
+                    debugger;
                     if (!files) return;
                     setCv(files[0]);
                     setFormData({ ...restFormValues, files: [files[0]] });
