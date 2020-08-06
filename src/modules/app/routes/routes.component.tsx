@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import * as styles from './routes.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from '@app/store/state';
-import { Toast } from '@core/components';
+import { Toast, Footer } from '@core/components';
 import {
   LearningApproach,
   Faq,
@@ -86,6 +86,7 @@ const Routes: React.FC = () => {
           <NotFound />
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 };
