@@ -30,7 +30,7 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
           {/* <img src={url} alt='' /> */}
           <Img
             src={url}
-            alt='React Cool Img'
+            alt='Online course'
             placeholder={require('img/placeholder')}
           />
           <div className={styles.name}>{name}</div>

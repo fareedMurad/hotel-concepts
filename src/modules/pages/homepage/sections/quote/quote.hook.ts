@@ -13,7 +13,7 @@ const useQuoteData = () => {
         }
       }
       asset(id: "6zdfD0o3y4CMyeGFPO4UsW") {
-        url
+        url(transform: { format: JPG_PROGRESSIVE, quality: 75 })
       }
     }
   `;

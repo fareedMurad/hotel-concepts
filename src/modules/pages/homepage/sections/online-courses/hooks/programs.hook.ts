@@ -22,7 +22,7 @@ const useProgramsData = (category: string) => {
             }
           }
           courseImage {
-            url
+            url(transform: { format: JPG_PROGRESSIVE, quality: 75 })
           }
           sys {
             id
