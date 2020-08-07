@@ -41,7 +41,14 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
               {date}
             </Moment>
           </div>
-          <div className={styles.description}>{title}</div>
+          <div
+            className={styles.description}
+            onClick={() => {
+              history.push(`/insights/article/${id}`);
+            }}
+          >
+            {title}
+          </div>
         </div>
         <Button
           className={styles.button}

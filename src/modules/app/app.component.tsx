@@ -9,6 +9,7 @@ import { State } from './store/state';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './graphql/apollo-client';
 import { useLocation } from 'react-router-dom';
+import { ErrorBoundary } from '@core/components/error-boundary';
 
 /**
  * Scroll to top
@@ -44,13 +45,15 @@ const Content: React.FC = ({ children }) => {
 const App: React.FC<AppProps> = ({ children, history, store }) => (
   <Provider store={store}>
     <ApolloProvider client={client}>
-      <Content>
-        <Localization>
-          <Router history={history}>
-            <div>{children}</div>
-          </Router>
-        </Localization>
-      </Content>
+      <ErrorBoundary history={history}>
+        <Content>
+          <Localization>
+            <Router history={history}>
+              <div>{children}</div>
+            </Router>
+          </Localization>
+        </Content>
+      </ErrorBoundary>
     </ApolloProvider>
   </Provider>
 );

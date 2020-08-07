@@ -16,7 +16,14 @@ const useContributorsData = () => {
           from
           experience
           mentorPicture {
-            url
+            url(
+              transform: {
+                format: JPG_PROGRESSIVE
+                width: 2400
+                height: 1600
+                resizeStrategy: FIT
+              }
+            )
           }
           sys {
             id
@@ -30,7 +37,7 @@ const useContributorsData = () => {
   `;
 
   const { data, error, loading } = useQuery(GET_MENTORS);
-  
+
   return {
     contributors: data?.mentorCollection?.items,
     loading,

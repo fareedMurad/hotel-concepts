@@ -75,7 +75,6 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             ...values,
             ...restFormValues
           };
-
           sendEmail(formData);
           console.log(formData);
         }}
@@ -120,6 +119,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                     const {
                       target: { files }
                     } = e;
+                    debugger;
                     if (!files) return;
                     setCv(files[0]);
                     setFormData({ ...restFormValues, files: [files[0]] });

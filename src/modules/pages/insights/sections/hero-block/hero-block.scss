@@ -95,17 +95,18 @@
 }
 
 .tags {
-  @include flex($align: center);
-  align-self: flex-start;
-  flex-wrap: wrap;
-  @include tablet() {
-    position: absolute;
-  }
-  top: 16px;
-  left: 16px;
   & > div {
-    margin-right: 8px;
-    margin-bottom: 3px;
+    max-height: 34px;
+  }
+  display: grid;
+  gap: 4px;
+  grid-template-columns: max-content max-content max-content;
+  @include tablet() {
+    grid-auto-flow: column;
+  }
+  @include desktop() {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
   }
 }
 
@@ -133,6 +134,7 @@
     @include tablet() {
       @include font($white, 36px, 600, 46px);
     }
+    cursor: pointer;
   }
   &__activity {
     @include font($primary-gray, 14px, 400, 22px);

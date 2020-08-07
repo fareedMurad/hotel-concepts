@@ -3,7 +3,7 @@ import { CourseItemProps } from './course-item.props';
 import * as styles from './course-item.scss';
 import { Button } from '@core/components';
 import { useHistory } from 'react-router-dom';
-
+import Img from 'react-cool-img';
 /**
  * Renders CourseItem
  */
@@ -27,7 +27,12 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
     <div className={styles.courseItem}>
       <div className={styles.card}>
         <div className={styles.header}>
-          <img src={url} alt='' />
+          {/* <img src={url} alt='' /> */}
+          <Img
+            src={url}
+            alt='Online course'
+            placeholder={require('img/placeholder')}
+          />
           <div className={styles.name}>{name}</div>
         </div>
         <div className={styles.descriptionBlock}>

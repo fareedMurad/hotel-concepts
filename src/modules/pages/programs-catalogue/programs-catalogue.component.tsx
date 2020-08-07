@@ -29,6 +29,28 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(5);
 
+  const usePrevious = value => {
+    if (!value) {
+      value = 'All';
+    }
+
+    let memoized = value;
+
+    React.useEffect(() => {
+      memoized = value;
+    }, [value]);
+
+    return memoized;
+  };
+
+  const usePreviousValue = usePrevious(currentFilters[0]);
+
+  React.useEffect(() => {
+    if (usePreviousValue != currentFilters[0]) {
+      setCurrentPage(1);
+    }
+  }, [currentFilters]);
+
   if (catalogueInfoLoading) return <Spinner />;
   if (catalogueProgramsLoading) return <Spinner />;
 
@@ -45,10 +67,12 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   };
 
   const filteredPrograms = catalogueProgramsData.filter(program => {
+    if (currentFilters.length > 1) {
+      currentFilters.shift();
+    }
     return program.subfilters?.some(item => currentFilters.includes(item));
   });
 
-  // since only Focused programs have subfilters.
   const isFilterable = catalogueInfoData.isSubfiltersAllowed
     ? filteredPrograms
     : catalogueProgramsData;
@@ -56,8 +80,12 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const pages = Math.ceil(isFilterable.length / itemsPerPage);
   const currentPrograms = isFilterable.slice(firstItemIndex, lastItemIndex);
 
-  // when no pagination we reduce margin top;
   const reduceMargin = isFilterable.length >= itemsPerPage || currentPage > 1;
+
+  console.log(currentFilters.length);
+  console.log(currentFilters);
+  console.log(currentPage);
+  console.log(usePreviousValue);
 
   return (
     <React.Fragment>

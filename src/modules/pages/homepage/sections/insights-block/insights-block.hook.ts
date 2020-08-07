@@ -13,7 +13,9 @@ const useInsightsData = () => {
           slug
           date
           articleImage {
-            url
+            url(
+              transform: { format: JPG_PROGRESSIVE, width: 2400, height: 1600 }
+            )
           }
           categoriesCollection {
             items {
