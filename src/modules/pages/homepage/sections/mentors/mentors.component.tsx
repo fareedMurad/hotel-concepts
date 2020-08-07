@@ -59,68 +59,70 @@ const Mentors: React.FC<MentorsProps> = ({
     return <div className={styles.noMentors}>No mentors yet</div>;
 
   return (
-    <section
-      className={classNames(styles.mentors, {
-        [styles.mentorsModified]: modifiedCaption
-      })}
-    >
-      <div
-        className={classNames(styles.title, {
-          [styles.titleModified]: !modifiedCaption
+    <React.Suspense fallback={<Spinner />}>
+      <section
+        className={classNames(styles.mentors, {
+          [styles.mentorsModified]: modifiedCaption
         })}
       >
-        <SectionTitle>
-          {modifiedCaption && (
-            <PreCaption className={styles.preCaption}>
-              Meet the faculty
-            </PreCaption>
-          )}
-          Meet mentors & Coauthors
-        </SectionTitle>
-        <Hr className={styles.hr} />
-        <div>
-          World-class faculty introduce you to the very latest in hospitality
-          business knowledge and provide you with the tools and skills to
-          overcome challenges and find solutions.
+        <div
+          className={classNames(styles.title, {
+            [styles.titleModified]: !modifiedCaption
+          })}
+        >
+          <SectionTitle>
+            {modifiedCaption && (
+              <PreCaption className={styles.preCaption}>
+                Meet the faculty
+              </PreCaption>
+            )}
+            Meet mentors & Coauthors
+          </SectionTitle>
+          <Hr className={styles.hr} />
+          <div>
+            World-class faculty introduce you to the very latest in hospitality
+            business knowledge and provide you with the tools and skills to
+            overcome challenges and find solutions.
+          </div>
         </div>
-      </div>
-      <Slider
-        containerClass={styles.slider}
-        draggable={false}
-        swipeable={false}
-        responsive={responsiveBreakpoints}
-        customButtonGroup={
-          <SliderButtons
-            onClick={handleClick}
-            className={styles.controls}
-            isBordered
-            btnText='See All Contributors'
+        <Slider
+          containerClass={styles.slider}
+          draggable={false}
+          swipeable={false}
+          responsive={responsiveBreakpoints}
+          customButtonGroup={
+            <SliderButtons
+              onClick={handleClick}
+              className={styles.controls}
+              isBordered
+              btnText='See All Contributors'
+            />
+          }
+        >
+          {contributors.map((contributor, index) => (
+            <ContributorCard
+              contributor={contributor}
+              key={index}
+              onClick={() => {
+                dispatch(
+                  navigate(
+                    `${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`
+                  )
+                );
+                !mobile &&
+                  (dispatch(showModal(Modals.contributor)),
+                  dispatch(toogleContributorModal(true)));
+              }}
+            />
+          ))}
+        </Slider>
+        {contributorModal && (
+          <MentorModal
+            hideComponent={() => dispatch(toogleContributorModal(false))}
           />
-        }
-      >
-        {contributors.map((contributor, index) => (
-          <ContributorCard
-            contributor={contributor}
-            key={index}
-            onClick={() => {
-              dispatch(
-                navigate(
-                  `${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`
-                )
-              );
-              !mobile &&
-                (dispatch(showModal(Modals.contributor)),
-                dispatch(toogleContributorModal(true)));
-            }}
-          />
-        ))}
-      </Slider>
-      {contributorModal && (
-        <MentorModal
-          hideComponent={() => dispatch(toogleContributorModal(false))}
-        />
-      )}
-    </section>
+        )}
+      </section>
+    </React.Suspense>
   );
 };
 

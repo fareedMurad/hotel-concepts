@@ -2,7 +2,7 @@ import * as React from 'react';
 import { HomepageProps } from './homepage.props';
 import * as styles from './homepage.scss';
 import { Header } from '@core/components/header';
-import { Footer } from '@core/components';
+import { Footer, Spinner } from '@core/components';
 import { FaqBlock } from '@pages/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import {
@@ -30,24 +30,26 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
   } = useHomePageData();
 
   return (
-    <div className={styles.homepage}>
-      <Header />
-      <Intro />
-      <SupportInfo />
-      <OnlineCourses />
-      <Quote />
-      <About />
-      <TrainingInfo />
-      <Impact
-        testimonials={homePageTestimonials}
-        loading={homepageTestimonialsLoading}
-      />
-      <Mentors contributors={contributors} loading={loading} url='mentor' />
-      <FaqBlock showTitle />
-      <InsightsBlock />
-      <Socials />
-      <Footer />
-    </div>
+    <React.Suspense fallback={<Spinner />}>
+      <div className={styles.homepage}>
+        <Header />
+        <Intro />
+        <SupportInfo />
+        <OnlineCourses />
+        <Quote />
+        <About />
+        <TrainingInfo />
+        <Impact
+          testimonials={homePageTestimonials}
+          loading={homepageTestimonialsLoading}
+        />
+        <Mentors contributors={contributors} loading={loading} url='mentor' />
+        <FaqBlock showTitle />
+        <InsightsBlock />
+        <Socials />
+        <Footer />
+      </div>
+    </React.Suspense>
   );
 };
 
