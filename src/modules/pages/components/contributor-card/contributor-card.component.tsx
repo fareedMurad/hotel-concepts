@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ContributorCardProps } from './contributor-card.props';
 import * as styles from './contributor-card.scss';
-
+import Img from 'react-cool-img';
 /**
  * Renders ContributorCard
  */
@@ -21,7 +21,13 @@ const ContributorCard: React.FC<ContributorCardProps> = ({
   return (
     <div onClick={onClick} className={styles.contributorCard}>
       <div className={styles.imgContainer}>
-        <img src={url} alt={name} className={styles.img} />
+        {/* <img src={url} alt={name} className={styles.img} /> */}
+        <Img
+          src={url}
+          alt='Person'
+          placeholder={require('img/person-placeholder')}
+          className={styles.img}
+        />
         <div className={styles.info}>
           <div className={styles.infoText}>Know about {name}</div>
         </div>
