@@ -14,7 +14,7 @@ const useInsightsData = () => {
           date
           articleImage {
             url(
-              transform: { format: JPG_PROGRESSIVE, width: 2400, height: 1600 }
+              transform: { format: JPG_PROGRESSIVE, width: 1800, height: 800 }
             )
           }
           categoriesCollection {

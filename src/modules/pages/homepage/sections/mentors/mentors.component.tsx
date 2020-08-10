@@ -58,6 +58,7 @@ const Mentors: React.FC<MentorsProps> = ({
   if (!contributors)
     return <div className={styles.noMentors}>No mentors yet</div>;
 
+  console.log(url);
   return (
     <React.Suspense fallback={<Spinner />}>
       <section

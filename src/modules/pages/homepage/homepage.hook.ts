@@ -10,7 +10,7 @@ const useHomePageData = () => {
             text
             companyName
             photo {
-              url
+              url(transform: { format: JPG_PROGRESSIVE, quality: 50 })
             }
           }
         }

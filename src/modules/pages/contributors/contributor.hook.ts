@@ -19,8 +19,8 @@ const useContributorsData = () => {
             url(
               transform: {
                 format: JPG_PROGRESSIVE
-                width: 2400
-                height: 1600
+                width: 1600
+                height: 800
                 resizeStrategy: FIT
               }
             )

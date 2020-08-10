@@ -14,8 +14,10 @@
 }
 
 .embeddedImage {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
+  min-width: 100%;
+  object-fit: cover;
   max-height: 946px;
   margin-top: 10px;
   border-radius: 8px;

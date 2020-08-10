@@ -60,7 +60,8 @@ const Routes: React.FC = () => {
             path={[
               '/contributors/mentor',
               '/mentor/:url?/:slug?/:mentorId',
-              '/program/:slug/mentor/:slug'
+              '/program/:slug/mentor/:slug',
+              '/program/:slug?/:programId?/mentor/:slug?/:mentorId'
             ]}
             render={() => (
               <MentorModal

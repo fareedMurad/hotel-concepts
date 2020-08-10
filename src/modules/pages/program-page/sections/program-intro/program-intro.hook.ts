@@ -8,7 +8,14 @@ const useProgramIntroData = (programId: string) => {
         description
         videoVimeoUrl
         heroImage {
-          url
+          url(
+            transform: {
+              format: JPG_PROGRESSIVE
+              quality: 70
+              width: 1300
+              height: 860
+            }
+          )
         }
         previewVideo {
           video {
