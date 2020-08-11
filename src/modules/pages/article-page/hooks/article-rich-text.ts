@@ -8,7 +8,7 @@ const useArticleRichTextData = (articleId: string) => {
           quoteText
           author
           backgroundImg {
-            url
+            url(transform: { format: JPG_PROGRESSIVE, quality: 70 })
           }
         }
         richTextSection1 {
@@ -16,7 +16,7 @@ const useArticleRichTextData = (articleId: string) => {
           links {
             assets {
               block {
-                url
+                url(transform: { format: JPG_PROGRESSIVE, quality: 70 })
               }
             }
           }
@@ -26,7 +26,7 @@ const useArticleRichTextData = (articleId: string) => {
           links {
             assets {
               block {
-                url
+                url(transform: { format: JPG_PROGRESSIVE, quality: 70 })
               }
             }
           }
@@ -36,7 +36,7 @@ const useArticleRichTextData = (articleId: string) => {
           links {
             assets {
               block {
-                url
+                url(transform: { format: JPG_PROGRESSIVE, quality: 70 })
               }
             }
           }
@@ -46,14 +46,14 @@ const useArticleRichTextData = (articleId: string) => {
           links {
             assets {
               block {
-                url
+                url(transform: { format: JPG_PROGRESSIVE, quality: 70 })
               }
             }
           }
         }
         imagesForSliderCollection {
           items {
-            url
+            url(transform: { format: JPG_PROGRESSIVE, quality: 70 })
           }
         }
       }

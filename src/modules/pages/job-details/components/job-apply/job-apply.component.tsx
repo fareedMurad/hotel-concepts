@@ -6,8 +6,8 @@ import { Formik } from 'formik';
 import { jobDetailsValidationSchema } from '@pages/job-details/models';
 import { useJobDetailsData } from '@pages/job-details/job-details.hook';
 import classNames from 'classnames';
-import { ConsoleView } from 'react-device-detect';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
+import { enviroment } from 'src/environment';
 
 const defaultValues = {
   name: '',
@@ -31,46 +31,38 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
   });
 
   const sendEmail = async formData => {
-    debugger;
-    const fileData = new FormData();
-    fileData.append('file', formData.files[0]);
-    // delete formData.files;
-    // let reader = new FileReader();
-    // reader.readAsArrayBuffer(formData.files[0]);
-    // const buffer = await new Promise((res, rej) => {
-    //   reader.onload = function() {
-    //     return res(reader.result);
-    //   };
-    //   reader.onerror = function() {
-    //     console.log(reader.error);
-    //     return rej(reader.result);
-    //   };
-    // });
-    const buffer = await formData.files[0].arrayBuffer();
-    console.log('buffer', buffer);
-    return (
-      axios({
-        url:
-          'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/apply-job-email',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        data: {
-          ...formData.files[0],
-          buffer
-        }
-        // subject: `Apply for a job request`,
-        // html: `<p>Name: ${formData.name}</p>
-        // <p>Email: ${formData.email}</p>
-        // <p>phone: ${formData.phone}</p>
-        // <p>location(from):${formData.location}</p>
-        // <p>linkedIn: ${formData.linkedIn}</p>`
+    let fileUrls: AxiosResponse[] = await Promise.all(
+      formData.files.map(file => {
+        const fileData = new FormData();
+        fileData.append('file', file);
+        return axios({
+          url: `${enviroment.apiUrl}/upload-file`,
+          method: 'POST',
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            crossDomain: true
+          },
+          data: fileData
+        });
       })
-        // .then(response => response)
-        .then(result => console.log(result.data))
-        .catch(error => console.log('error', error))
     );
+    const filesToSend = fileUrls
+      .filter(response => response.status === 201)
+      .map(response => ({
+        path: response.data.Location,
+        filename: response.data.Key
+      }));
+
+    const { email, name, phone } = formData;
+    return axios({
+      url: `${enviroment.apiUrl}/apply-job-email`,
+      method: 'POST',
+      data: {
+        subject: 'New Job Application',
+        html: `<div><p>Name ${name}</p><p>Email ${email}</p><p>Phone ${phone}</p></div>`,
+        files: filesToSend
+      }
+    });
   };
 
   return (
@@ -83,7 +75,6 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             ...values,
             ...restFormValues
           };
-          debugger;
           sendEmail(formData);
           console.log(formData);
         }}

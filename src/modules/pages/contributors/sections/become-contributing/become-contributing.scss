@@ -38,10 +38,20 @@
 }
 
 .form-group {
-  @include flex($align: stretch);
+  @include flex($align: stretch, $direction: column);
   width: 100%;
+
   & > div:not(:last-child) {
     margin-right: 8px;
+  }
+  & > div:last-child {
+    margin-top: 18px;
+  }
+  @include tablet() {
+    @include flex($direction: row);
+    & > div:last-child {
+      margin-top: 0;
+    }
   }
 }
 

@@ -34,7 +34,8 @@
   // @include desktop() {
   //   margin: 0px 358px 0px 134px;
   // }
-  max-width: 100%;
+  min-width: 100%;
+  background-position: center;
   height: auto;
   min-height: 400px;
 }

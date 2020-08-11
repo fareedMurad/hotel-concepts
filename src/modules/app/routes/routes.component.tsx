@@ -6,32 +6,101 @@ import { Route, Switch } from 'react-router-dom';
 import * as styles from './routes.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from '@app/store/state';
-import { Toast, Footer } from '@core/components';
-import {
-  LearningApproach,
-  Faq,
-  Contributors,
-  ContactsPage,
-  ArticlePage,
-  PrivacyPolicy,
-  StoryMission,
-  MentorModal,
-  ProgramPage,
-  ProgramsCatalogue,
-  Insights,
-  JobDetails,
-  JobsList,
-  ForCompanies,
-  Marketplace,
-  Product,
-  CoursePartnership,
-  Homepage
-} from 'src/modules/pages';
+import { Toast, Footer, Spinner } from '@core/components';
+const LearningApproach = lazy(() =>
+  import('src/modules/pages').then(({ LearningApproach }) => ({
+    default: LearningApproach
+  }))
+);
+const Faq = lazy(() =>
+  import('src/modules/pages').then(({ Faq }) => ({ default: Faq }))
+);
+const Contributors = lazy(() =>
+  import('src/modules/pages').then(({ Contributors }) => ({
+    default: Contributors
+  }))
+);
+const ContactsPage = lazy(() =>
+  import('src/modules/pages').then(({ ContactsPage }) => ({
+    default: ContactsPage
+  }))
+);
+const ArticlePage = lazy(() =>
+  import('src/modules/pages').then(({ ArticlePage }) => ({
+    default: ArticlePage
+  }))
+);
+const PrivacyPolicy = lazy(() =>
+  import('src/modules/pages').then(({ PrivacyPolicy }) => ({
+    default: PrivacyPolicy
+  }))
+);
+const StoryMission = lazy(() =>
+  import('src/modules/pages').then(({ StoryMission }) => ({
+    default: StoryMission
+  }))
+);
+const MentorModal = lazy(() =>
+  import('src/modules/pages').then(({ MentorModal }) => ({
+    default: MentorModal
+  }))
+);
+const ProgramsCatalogue = lazy(() =>
+  import('src/modules/pages').then(({ ProgramsCatalogue }) => ({
+    default: ProgramsCatalogue
+  }))
+);
+const Insights = lazy(() =>
+  import('src/modules/pages').then(({ Insights }) => ({
+    default: Insights
+  }))
+);
+const JobDetails = lazy(() =>
+  import('src/modules/pages').then(({ JobDetails }) => ({
+    default: JobDetails
+  }))
+);
+const JobsList = lazy(() =>
+  import('src/modules/pages').then(({ JobsList }) => ({
+    default: JobsList
+  }))
+);
+const ForCompanies = lazy(() =>
+  import('src/modules/pages').then(({ ForCompanies }) => ({
+    default: ForCompanies
+  }))
+);
+const Marketplace = lazy(() =>
+  import('src/modules/pages').then(({ Marketplace }) => ({
+    default: Marketplace
+  }))
+);
+const Product = lazy(() =>
+  import('src/modules/pages').then(({ Product }) => ({
+    default: Product
+  }))
+);
+const CoursePartnership = lazy(() =>
+  import('src/modules/pages').then(({ CoursePartnership }) => ({
+    default: CoursePartnership
+  }))
+);
+const Homepage = lazy(() =>
+  import('src/modules/pages').then(({ Homepage }) => ({
+    default: Homepage
+  }))
+);
+const ProgramPage = lazy(() =>
+  import('src/modules/pages').then(({ ProgramPage }) => ({
+    default: ProgramPage
+  }))
+);
 
 import { useMediaPoints } from '@core/shared';
 import { toogleContributorModal } from '@ui/modal';
 import { NotFound } from '@app/components';
 import { TestPage } from 'src/modules/test-page';
+import { lazy } from 'react';
 
 /**
  * Renders Routes
@@ -44,48 +113,54 @@ const Routes: React.FC = () => {
   return (
     <div className={styles.routes}>
       {isToastVisible && <Toast />}
-      <Switch>
-        <Route path='/profile' component={Profile} />
-        <Route path='/auth' component={Auth} />
-        <Route path='/uikit' component={Uikit} />
-        <Route path='/testing' component={TestPage} />
+      <React.Suspense fallback={<Spinner></Spinner>}>
+        <Switch>
+          <Route path='/profile' component={Profile} />
+          <Route path='/auth' component={Auth} />
+          <Route path='/uikit' component={Uikit} />
+          <Route path='/testing' component={TestPage} />
 
-        {/* ROUTES */}
-        <Route path='/insights/article/:articleId' component={ArticlePage} />
-        <Route path='/contact-us' component={ContactsPage} />
-        <Route path='/privacy-policy' component={PrivacyPolicy} />
-        <Route path='/about-us' component={StoryMission} />
-        {mobile && (
+          {/* ROUTES */}
+          <Route path='/insights/article/:articleId' component={ArticlePage} />
+          <Route path='/contact-us' component={ContactsPage} />
+          <Route path='/privacy-policy' component={PrivacyPolicy} />
+          <Route path='/about-us' component={StoryMission} />
+          {mobile && (
+            <Route
+              path={[
+                '/contributors/mentor',
+                '/mentor/:url?/:slug?/:mentorId',
+                '/program/:slug/mentor/:slug',
+                '/program/:slug?/:programId?/mentor/:slug?/:mentorId'
+              ]}
+              render={() => (
+                <MentorModal
+                  hideComponent={() => dispatch(toogleContributorModal(false))}
+                />
+              )}
+            />
+          )}
+          <Route exact={mobile} path='/program/:slug' component={ProgramPage} />
+          <Route exact={mobile} path='/contributors' component={Contributors} />
+          <Route path='/faq' component={Faq} />
+          <Route path='/programs-catalogue/:id' component={ProgramsCatalogue} />
+          <Route path='/learning-approach' component={LearningApproach} />
+          <Route path='/insights' component={Insights} />
+          <Route path='/jobs/job-details/:id' component={JobDetails} />
+          <Route path='/jobs' component={JobsList} />
+          <Route path='/for-companies' component={ForCompanies} />
+          <Route path='/marketplace' component={Marketplace} />
           <Route
-            path={[
-              '/contributors/mentor',
-              '/mentor/:url?/:slug?/:mentorId',
-              '/program/:slug/mentor/:slug'
-            ]}
-            render={() => (
-              <MentorModal
-                hideComponent={() => dispatch(toogleContributorModal(false))}
-              />
-            )}
+            path='/category/:categorySlug/product/:id'
+            component={Product}
           />
-        )}
-        <Route exact={mobile} path='/program/:slug' component={ProgramPage} />
-        <Route exact={mobile} path='/contributors' component={Contributors} />
-        <Route path='/faq' component={Faq} />
-        <Route path='/programs-catalogue/:id' component={ProgramsCatalogue} />
-        <Route path='/learning-approach' component={LearningApproach} />
-        <Route path='/insights' component={Insights} />
-        <Route path='/jobs/job-details/:id' component={JobDetails} />
-        <Route path='/jobs' component={JobsList} />
-        <Route path='/for-companies' component={ForCompanies} />
-        <Route path='/marketplace' component={Marketplace} />
-        <Route path='/category/:categorySlug/product/:id' component={Product} />
-        <Route path='/course-partnership' component={CoursePartnership} />
-        <Route exact={mobile} path='/' component={Homepage} />
-        <Route path='*'>
-          <NotFound />
-        </Route>
-      </Switch>
+          <Route path='/course-partnership' component={CoursePartnership} />
+          <Route exact={mobile} path='/' component={Homepage} />
+          <Route path='*'>
+            <NotFound />
+          </Route>
+        </Switch>
+      </React.Suspense>
       <Footer />
     </div>
   );

@@ -6,7 +6,7 @@ const useContributorsData = () => {
    */
   const GET_MENTORS = gql`
     {
-      mentorCollection(limit: 10, locale: "en-US") {
+      mentorCollection(locale: "en-US") {
         items {
           name
           surname
@@ -19,8 +19,8 @@ const useContributorsData = () => {
             url(
               transform: {
                 format: JPG_PROGRESSIVE
-                width: 2400
-                height: 1600
+                width: 1600
+                height: 800
                 resizeStrategy: FIT
               }
             )

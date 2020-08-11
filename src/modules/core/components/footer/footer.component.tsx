@@ -10,6 +10,7 @@ import { Form } from '../form';
 import { Field } from '../field';
 import { gql, useQuery } from '@apollo/client';
 import axios from 'axios';
+import { enviroment } from 'src/environment';
 
 import * as yup from 'yup';
 
@@ -90,16 +91,13 @@ const Footer: React.FC<FooterProps> = ({}) => {
     }
   });
   const subscribe = async email => {
-    await axios(
-      'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/send-email',
-      {
-        method: 'post',
-        data: {
-          email_address: email,
-          status: 'pending'
-        }
+    await axios(`${enviroment.apiUrl}/send-email`, {
+      method: 'post',
+      data: {
+        email_address: email,
+        status: 'pending'
       }
-    )
+    })
       .then(res => res)
       .catch(err => err.data);
     return setSent(true);

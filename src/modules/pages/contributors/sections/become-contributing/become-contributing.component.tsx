@@ -5,6 +5,7 @@ import { Paragraph, Form, Field, Button, SectionTitle } from '@core/components';
 import { Formik } from 'formik';
 import axios from 'axios';
 import { contributorsApplyValidationSchema } from '@pages/contributors/models';
+import { enviroment } from 'src/environment';
 
 /**
  * default values
@@ -24,21 +25,18 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
   const [sent, setSent] = React.useState(false);
 
   const sendContributorApplyEmail = async (formData, message) => {
-    await axios(
-      'https://i2vv6fs61f.execute-api.eu-central-1.amazonaws.com/latest/apply-contributor-email',
-      {
-        method: 'post',
-        data: {
-          subject: 'Contributor Apply',
-          html: `<p>Name: ${formData.name}</p> 
+    await axios(`${enviroment.apiUrl}/apply-contributor-email`, {
+      method: 'post',
+      data: {
+        subject: 'Contributor Apply',
+        html: `<p>Name: ${formData.name}</p> 
                 <p>Specialization: ${formData.specialization}</p>
                 <pEmail: ${formData.email}</p>
                 <p>LinkedIn profile: ${formData.linkedIn}
                 <p>${message}</p>
                 `
-        }
       }
-    );
+    });
     return setSent(true);
   };
 
