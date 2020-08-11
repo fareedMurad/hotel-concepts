@@ -12,13 +12,12 @@ import {
   About,
   TrainingInfo,
   Impact,
-  Mentors,
   InsightsBlock,
   Socials,
   Intro
 } from './sections';
 import { useHomePageData } from './homepage.hook';
-
+import Mentors from '@pages/homepage/sections/mentors/mentors.component';
 /**
  * Renders Homepage
  */

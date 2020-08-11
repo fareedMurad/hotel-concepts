@@ -57,8 +57,7 @@ const Mentors: React.FC<MentorsProps> = ({
   if (loading) return <Spinner />;
   if (!contributors)
     return <div className={styles.noMentors}>No mentors yet</div>;
-
-  console.log(url);
+  
   return (
     <React.Suspense fallback={<Spinner />}>
       <section
@@ -105,17 +104,12 @@ const Mentors: React.FC<MentorsProps> = ({
               contributor={contributor}
               key={index}
               onClick={() => {
-                mobile
-                  ? dispatch(
-                      navigate(
-                        `/mentor/${contributor.slug}?&mentorId=${contributor.sys.id}`
-                      )
-                    )
-                  : dispatch(
-                      navigate(
-                        `${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`
-                      )
-                    );
+                
+                dispatch(
+                  navigate(
+                    `${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`
+                  )
+                );
                 !mobile &&
                   (dispatch(showModal(Modals.contributor)),
                   dispatch(toogleContributorModal(true)));
@@ -133,4 +127,4 @@ const Mentors: React.FC<MentorsProps> = ({
   );
 };
 
-export { Mentors };
+export default React.memo(Mentors);

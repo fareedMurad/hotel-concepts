@@ -16,7 +16,7 @@ import {
   ProgramEnrollNow,
   ProgramQuote
 } from './sections';
-import { Mentors, Impact } from '@pages/homepage/sections';
+import { Impact } from '@pages/homepage/sections';
 import { FaqBlock, PartnerApply } from '@pages/components';
 import { useHistory } from 'react-router';
 import {
@@ -25,6 +25,7 @@ import {
   useProgramPageDataTestimonials
 } from './hooks';
 
+import Mentors from '@pages/homepage/sections/mentors/mentors.component';
 /**
  * Renders ProgramPage
  */

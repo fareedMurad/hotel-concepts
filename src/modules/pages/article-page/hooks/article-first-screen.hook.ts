@@ -8,14 +8,7 @@ const useArticleFirstScreenData = articleId => {
         introText
         readingTime
         articleImage {
-          url(
-            transform: {
-              format: JPG_PROGRESSIVE
-              quality: 70
-              width: 1600
-              height: 800
-            }
-          )
+          url(transform: { format: JPG_PROGRESSIVE, quality: 85 })
         }
         categoriesCollection {
           items {
