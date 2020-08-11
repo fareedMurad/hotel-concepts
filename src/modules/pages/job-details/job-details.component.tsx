@@ -97,7 +97,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
         </section>
         <JobApply job={job} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

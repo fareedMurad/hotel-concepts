@@ -131,7 +131,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
         )}
         <ProgramsContactUs reduceMargin={reduceMargin} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

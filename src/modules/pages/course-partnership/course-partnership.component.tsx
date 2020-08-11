@@ -30,7 +30,7 @@ const CoursePartnership: React.FC<CoursePartnershipProps> = ({}) => {
         title='Want to get involved?'
         subtitle='We’re always happy to talk if you are interested in becoming a Partner'
       />
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

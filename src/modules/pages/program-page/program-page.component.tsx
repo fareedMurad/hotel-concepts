@@ -82,7 +82,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
         subtitle='Whether you are an individual or an organisation/group, looking for a
                   programme, get in touch and we can help find the best solution for you.'
       />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

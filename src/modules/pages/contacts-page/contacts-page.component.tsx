@@ -170,7 +170,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
         </div>
         <img src={contactsFooterImage} className={styles.footerImg} />
       </footer>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

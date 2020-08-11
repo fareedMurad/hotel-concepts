@@ -283,7 +283,7 @@ Victoria, BC, V8W 1K8, Canada.'
           />
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

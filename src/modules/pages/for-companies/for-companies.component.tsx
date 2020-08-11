@@ -37,7 +37,7 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
       <IncreaseYourCompetitive />
       <Brochure />
       <ConsultRequest />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

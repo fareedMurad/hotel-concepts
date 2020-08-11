@@ -124,7 +124,7 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
         title='Want to get involved?'
         subtitle='We’re always happy to talk if you are interested in becoming a Partner'
       />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

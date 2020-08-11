@@ -47,7 +47,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <FaqBlock showTitle />
         <InsightsBlock />
         <Socials />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </React.Suspense>
   );

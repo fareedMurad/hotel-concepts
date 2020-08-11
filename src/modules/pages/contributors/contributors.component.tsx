@@ -53,7 +53,7 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
       <main>
         <ContributorsContainer />
         <BecomeContributing />
-        <Footer />
+        {/* <Footer /> */}
       </main>
     </div>
   );

@@ -33,7 +33,7 @@ const LearningApproach: React.FC = ({}) => (
     <OurMaterials />
     <ReadingMaterials />
     <FooterHeroLearningApproach />
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 

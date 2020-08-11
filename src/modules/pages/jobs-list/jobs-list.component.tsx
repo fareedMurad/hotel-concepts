@@ -110,7 +110,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
           })}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

@@ -70,7 +70,7 @@ const Faq: React.FC<FaqProps> = ({}) => (
         </div>
       </div>
     </footer>
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 

@@ -43,7 +43,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
           </React.Fragment>
         );
       })}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

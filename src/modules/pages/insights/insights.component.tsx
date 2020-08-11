@@ -22,7 +22,7 @@ const Insights: React.FC<InsightsProps> = ({}) => {
         <HeroBlock />
         <FeaturedArticles />
         <InsightsSubscribe />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </React.Suspense>
   );

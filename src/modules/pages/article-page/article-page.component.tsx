@@ -65,7 +65,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
           />
         </div>
       </footer>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
