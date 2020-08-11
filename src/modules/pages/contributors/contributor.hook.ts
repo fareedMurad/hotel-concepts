@@ -6,7 +6,7 @@ const useContributorsData = () => {
    */
   const GET_MENTORS = gql`
     {
-      mentorCollection(limit: 10, locale: "en-US") {
+      mentorCollection(locale: "en-US") {
         items {
           name
           surname

@@ -105,11 +105,17 @@ const Mentors: React.FC<MentorsProps> = ({
               contributor={contributor}
               key={index}
               onClick={() => {
-                dispatch(
-                  navigate(
-                    `${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`
-                  )
-                );
+                mobile
+                  ? dispatch(
+                      navigate(
+                        `/mentor/${contributor.slug}?&mentorId=${contributor.sys.id}`
+                      )
+                    )
+                  : dispatch(
+                      navigate(
+                        `${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`
+                      )
+                    );
                 !mobile &&
                   (dispatch(showModal(Modals.contributor)),
                   dispatch(toogleContributorModal(true)));
