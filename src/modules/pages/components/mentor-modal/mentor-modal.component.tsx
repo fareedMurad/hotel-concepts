@@ -41,10 +41,36 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
   const { data, loading, error } = useQuery(GET_MENTOR, {
     variables: { id: mentorId }
   });
+  const [mentor, setMentor] = React.useState({
+    name: '',
+    surname: '',
+    position: '',
+    mentorPicture: { url: '' },
+    from: '',
+    experience: '',
+    linkedIn: '',
+    workAt: ''
+  });
 
+  React.useEffect(() => {
+    if (data) {
+      setMentor(data?.mentor);
+    }
+    return () => {
+      setMentor({
+        name: '',
+        surname: '',
+        position: '',
+        mentorPicture: { url: '' },
+        from: '',
+        experience: '',
+        linkedIn: '',
+        workAt: ''
+      });
+    };
+  }, [data]);
   if (loading) return <div>{mobile && <Spinner />}</div>;
 
-  const mentor = data?.mentor;
   const {
     name,
     surname,
@@ -55,6 +81,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     linkedIn,
     workAt
   } = mentor;
+
   return (
     <React.Fragment>
       {mobile && <ScrollToTop />}
