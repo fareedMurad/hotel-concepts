@@ -4,8 +4,12 @@
   position: relative;
   width: 100%;
   padding: 0 22px;
+ 
   @include tablet() {
     display: flex;
+  }
+  @include ipad-p() {
+    display: block;
   }
   @include desktop() {
     padding: 0px 0px 0px 134px;

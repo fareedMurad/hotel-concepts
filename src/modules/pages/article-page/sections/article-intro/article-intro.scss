@@ -39,7 +39,9 @@
   &__title {
     @include font($primary-gray, 36px, 500, 42px);
     @include tablet() {
-      font-size: inherit;
+      margin: 0;
+      font-family: $EBGaramond;
+      @include font($primary-gray, 58px, 600, 58px);
     }
   }
   &__options {
