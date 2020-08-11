@@ -36,6 +36,12 @@
   @include desktop() {
     padding-right: 45px;
   }
+  &__title {
+    @include font($primary-gray, 36px, 500, 42px);
+    @include tablet() {
+      font-size: inherit;
+    }
+  }
   &__options {
     @include font($primary-gray, 16px, 400);
     @include flex($align: stretch, $direction: column);

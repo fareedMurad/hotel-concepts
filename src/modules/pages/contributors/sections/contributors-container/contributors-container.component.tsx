@@ -57,7 +57,7 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
   const currentContributors = contributors.slice(firstItemIndex, lastItemIndex);
-
+  const isMobileRendering = mobile ? contributors : currentContributors;
   const pages = Math.ceil(contributors.length / itemsPerPage);
 
   const changePage = page => () => {
@@ -81,7 +81,7 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
           <Hr className={styles.headingHr} />
           <div className={styles.headingStatistic}>
             <div>
-              <H2>75+</H2>
+              <H2>{contributors.length}+</H2>
               <div className={styles.headingCaption}>Teaching Experts</div>
             </div>
             <div>
@@ -95,7 +95,7 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
           <Spinner />
         ) : (
           <section className={styles.contributorsList} id='contributors'>
-            {currentContributors.map((contributor, index) => (
+            {isMobileRendering.map((contributor, index) => (
               <ContributorCard
                 contributor={contributor}
                 key={index}
@@ -119,13 +119,15 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
           />
         )}
       </div>
-      <div className={styles.pagination}>
-        <Pagination
-          currentPage={currentPage}
-          onChangePage={changePage}
-          countOfPages={pages}
-        />
-      </div>
+      {!mobile && (
+        <div className={styles.pagination}>
+          <Pagination
+            currentPage={currentPage}
+            onChangePage={changePage}
+            countOfPages={pages}
+          />
+        </div>
+      )}
     </React.Fragment>
   );
 };

@@ -1,13 +1,13 @@
 @import 'core.scss';
 
 .hero-block {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  // grid-template-columns: 1fr;
+  // grid-template-rows: 1fr;
   min-height: calc(100vh - 60px);
   margin: 0 22px;
   gap: 20px;
   @include tablet() {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
   }
@@ -26,6 +26,10 @@
     background-color: dimgrey;
     border-radius: 6px;
     position: relative;
+    margin-bottom: 10px;
+    @include tablet() {
+      margin-bottom: 0px;
+    }
     @include ipad-l() {
       height: 95%;
     }
@@ -70,9 +74,11 @@
 }
 .hero-submain {
   position: relative;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 20px;
+  @include tablet() {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
   @include ipad-l() {
     gap: 0px;
   }
@@ -100,8 +106,8 @@
   }
   display: grid;
   gap: 4px;
-  grid-template-columns: max-content max-content max-content;
   @include tablet() {
+    grid-template-columns: max-content max-content max-content;
     grid-auto-flow: column;
   }
   @include desktop() {
@@ -114,6 +120,10 @@
   position: relative;
   @include size(100%);
   min-height: 270px;
+  margin-bottom: 10px;
+  @include tablet(){
+    margin-bottom: 0px;
+  }
   @include ipad-l() {
     height: 90%;
   }

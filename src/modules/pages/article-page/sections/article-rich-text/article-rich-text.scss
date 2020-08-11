@@ -2,9 +2,11 @@
 
 .article-rich-text {
   position: relative;
-  display: flex;
   width: 100%;
   padding: 0 22px;
+  @include tablet() {
+    display: flex;
+  }
   @include desktop() {
     padding: 0px 0px 0px 134px;
   }

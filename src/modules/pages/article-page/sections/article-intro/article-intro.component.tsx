@@ -34,7 +34,7 @@ const ArticleIntro: React.FC<ArticleIntroProps> = ({ articleData }) => {
       />
       <div className={styles.articleIntro}>
         <div className={styles.heading}>
-          <H1>{title}</H1>
+          <H1 className={styles.headingTitle}>{title}</H1>
           <div className={styles.tags}>
             {categories.map(el => (
               <Tag caption={el.category} key={el.sys.id} />

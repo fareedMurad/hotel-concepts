@@ -5,6 +5,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { ScrollButton } from '@core/components/scroll-button';
 import { HeroTitle, HeroSubtitle, Spinner } from '@core/components';
 import { useMostPopularArticles } from './hero-block.hook';
+import { useMediaPoints } from '@core/shared';
 
 const HeroCard = ({ firstScreenArticle }) => {
   if (!firstScreenArticle) return <Spinner />;
@@ -54,7 +55,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
     firstScreenArticlesLoading,
     insightsHeroImage
   } = useMostPopularArticles();
-
+  const { mobile } = useMediaPoints();
   if (firstScreenArticlesLoading) return <Spinner />;
 
   return (
@@ -74,7 +75,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
             </HeroSubtitle>
           </div>
         </div>
-        <ScrollButton text='Scroll' className={styles.arrow} />
+        {!mobile && <ScrollButton text='Scroll' className={styles.arrow} />}
       </div>
       <div className={styles.heroSubmain}>
         <HeroCard firstScreenArticle={firstScreenArticles[0]} />
