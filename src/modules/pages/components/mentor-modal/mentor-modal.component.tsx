@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MentorModalProps } from './mentor-modal.props';
 import * as styles from './mentor-modal.scss';
-import { Modal, Icon, Footer } from '@core/components';
+import { Modal, Icon, Footer, RichTextDefault } from '@core/components';
 import { Modals } from '@ui/models';
 import { closeModal } from '@ui/modal';
 import { useDispatch } from 'react-redux';
@@ -10,6 +10,7 @@ import { gql, useQuery } from '@apollo/client';
 import { useMediaPoints } from '@core/shared';
 import { Spinner } from '@core/components/spinner';
 import { ScrollToTop } from '@app';
+import ReactMarkdown from 'react-markdown';
 
 const GET_MENTOR = gql`
   query($id: String!) {
@@ -54,7 +55,6 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     linkedIn,
     workAt
   } = mentor;
-
   return (
     <React.Fragment>
       {mobile && <ScrollToTop />}
@@ -84,7 +84,14 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
           <div className={styles.modalContentWrapper}>
             <div className={styles.modalContentCaption}>Experience</div>
             <div className={styles.modalContentDescription}>
-              {experience ? experience : 'No experience yet'}
+              {experience ? (
+                <ReactMarkdown
+                  source={experience}
+                  className={styles.markdown}
+                />
+              ) : (
+                'No experience yet'
+              )}
             </div>
           </div>
         </div>
