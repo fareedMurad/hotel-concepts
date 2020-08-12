@@ -132,7 +132,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
           }}
         />
       </Modal>
-      {mobile && <Footer />}
+      {/* {mobile && <Footer />} */}
     </React.Fragment>
   );
 };

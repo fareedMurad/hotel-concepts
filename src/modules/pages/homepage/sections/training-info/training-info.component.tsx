@@ -3,13 +3,15 @@ import { TrainingInfoProps } from './training-info.props';
 import * as styles from './training-info.scss';
 import { useTrainingInfoData } from './training-info.hook';
 import { Button, PreCaption, SectionTitle } from '@core/components';
+import { useDispatch } from 'react-redux';
+import { navigate } from '@router/store';
 
 /**
  * Renders TrainingInfo
  */
 const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
   const { trainingData, trainingInfoImage } = useTrainingInfoData();
-
+  const dispatch = useDispatch();
   return (
     <section className={styles.trainingInfo}>
       <div className={styles.container}>
@@ -30,6 +32,7 @@ const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
             children='Learn more'
             arrow='&#8594;'
             width={224}
+            onClick={() => dispatch(navigate('/learning-approach'))}
           />
         </div>
         <div className={styles.info}>
