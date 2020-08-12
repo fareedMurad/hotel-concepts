@@ -7,6 +7,12 @@ import * as styles from './routes.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from '@app/store/state';
 import { Toast, Footer, Spinner } from '@core/components';
+import { useMediaPoints } from '@core/shared';
+import { toogleContributorModal } from '@ui/modal';
+import { NotFound } from '@app/components';
+import { TestPage } from 'src/modules/test-page';
+import { lazy } from 'react';
+
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
     default: LearningApproach
@@ -96,12 +102,6 @@ const ProgramPage = lazy(() =>
   }))
 );
 
-import { useMediaPoints } from '@core/shared';
-import { toogleContributorModal } from '@ui/modal';
-import { NotFound } from '@app/components';
-import { TestPage } from 'src/modules/test-page';
-import { lazy } from 'react';
-
 /**
  * Renders Routes
  */
@@ -113,7 +113,7 @@ const Routes: React.FC = () => {
   return (
     <div className={styles.routes}>
       {isToastVisible && <Toast />}
-      <React.Suspense fallback={<Spinner></Spinner>}>
+      <React.Suspense fallback={<Spinner />}>
         <Switch>
           <Route path='/profile' component={Profile} />
           <Route path='/auth' component={Auth} />
@@ -131,7 +131,8 @@ const Routes: React.FC = () => {
                 '/contributors/mentor',
                 '/mentor/:url?/:slug?/:mentorId',
                 '/program/:slug/mentor/:slug',
-                '/program/:slug?/:programId?/mentor/:slug?/:mentorId'
+                '/program/:slug?/:programId?/mentor/:slug?/:mentorId',
+                '/contributors/mentor/:slug?/:mentorId'
               ]}
               render={() => (
                 <MentorModal

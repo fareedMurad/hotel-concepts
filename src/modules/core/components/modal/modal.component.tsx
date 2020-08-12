@@ -7,6 +7,7 @@ import { State } from '@app/store/state';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModal } from '@ui/modal';
 import { useMediaPoints, useClickOutside } from '@core/shared';
+import { useHistory } from 'react-router';
 
 /**
  * Renders Modal
@@ -18,8 +19,12 @@ const Modal: React.FC<ModalProps> = ({ id, className, children, ...props }) => {
   const isActive =
     'isActive' in props ? props.isActive : active.some(one => one == id);
   const modalRef = useRef();
+  const history = useHistory();
 
-  useClickOutside(modalRef, () => dispatch(closeModal(id)));
+  useClickOutside(modalRef, () => {
+    dispatch(closeModal(id));
+    !mobile && history.goBack();
+  });
 
   const Content = () => (
     <div className={classNames(className, styles.modal)} ref={modalRef}>

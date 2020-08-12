@@ -14,7 +14,8 @@ import {
   ProgramLearningApproach,
   ProgramMaterials,
   ProgramEnrollNow,
-  ProgramQuote
+  ProgramQuote,
+  ProgramMentors
 } from './sections';
 import { Impact } from '@pages/homepage/sections';
 import { FaqBlock, PartnerApply } from '@pages/components';
@@ -25,7 +26,6 @@ import {
   useProgramPageDataTestimonials
 } from './hooks';
 
-import Mentors from '@pages/homepage/sections/mentors/mentors.component';
 /**
  * Renders ProgramPage
  */
@@ -62,7 +62,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
         }}
       />
       <ProgramResults programId={programId} />
-      <Mentors
+      <ProgramMentors
         modifiedCaption
         contributors={mentorsForCurrentCourse}
         loading={mentorsForCurrentCourseLoading}
