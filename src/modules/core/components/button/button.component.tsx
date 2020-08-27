@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
     )}
     disabled={disabled}
     {...props}
-    style={{ width: width }}
+    style={{ width: width, justifyContent: !arrow && 'center' }}
   >
     <div>{children}</div> {arrow && <div>{arrow}</div>}
     {/* → */}

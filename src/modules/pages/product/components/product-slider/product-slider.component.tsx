@@ -5,7 +5,7 @@ import Carousel from 'react-multi-carousel';
 import { ButtonGroupProps, DotProps } from 'react-multi-carousel/lib/types';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { useMarketplaceData } from '@pages/marketplace/hooks/marketplace.hook';
-import { Icon } from '@core/components';
+import { Icon, Button } from '@core/components';
 import classNames from 'classnames';
 import { useProductsData } from '@pages/marketplace/hooks/marketplace-products.hook';
 import { useParams } from 'react-router';
@@ -99,40 +99,18 @@ const CustomRightArrow: React.FC<any> = ({ onClick, ...rest }) => {
 };
 
 const ProductSlider: React.FC<ProductSliderProps> = ({ images }) => {
+  const { url } = images[0];
   return (
-    <div className={styles.productSlider}>
-      <div className={styles.productSliderWrap}>
-        <Carousel
-          swipeable={false}
-          draggable={false}
-          responsive={responsive}
-          containerClass={styles.container}
-          itemClass={styles.item}
-          sliderClass={styles.slider}
-          infinite
-          arrows
-          customRightArrow={<CustomRightArrow />}
-          customLeftArrow={<CustomLefttArrow />}
-          showDots
-          customDot={<CustomDot images={images} />}
-          dotListClass={styles.dots}
-        >
-          {images.map(book => {
-            const { url } = book;
-
-            return (
-              <div key={url} className={styles.block}>
-                <img
-                  className={styles.image}
-                  src={url}
-                  alt=''
-                  width='244px'
-                  height='375px'
-                />
-              </div>
-            );
-          })}
-        </Carousel>
+    <div className={styles.productImage}>
+      <div className={styles.imageWrap}>
+        <img
+          className={styles.image}
+          src={url}
+          alt=''
+          width='244px'
+          height='375px'
+        />
+        <Button theme='secondary'>Show Content</Button>
       </div>
     </div>
   );

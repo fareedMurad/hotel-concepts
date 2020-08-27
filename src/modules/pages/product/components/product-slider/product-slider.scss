@@ -1,88 +1,11 @@
 @import 'core.scss';
 
-.product-slider-wrap {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.productSlider {
-  width: 100%;
-  padding-top: 55px;
-}
-.container {
-  position: relative;
-  display: flex;
-  width: 500px;
-  overflow: hidden;
-  height: auto;
-  padding-bottom: 32px;
+.product-image {
 }
 
-.slider {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  flex-direction: row;
-  transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: transform, transition;
-}
-
-.arrow {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  fill: $light-grey;
-  transition: $transition;
-  &:hover {
-    fill: $primary-gray;
-  }
-}
-.arrow-right {
-  top: calc(50% - 30px);
-  right: 55px;
-  transform: rotate(180deg);
-}
-
-.arrow-left {
-  top: calc(50% - 30px);
-  left: 55px;
-}
-
-.inactive-dot {
-  background-color: $light-grey;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
-}
-
-.active-dot {
-  background-color: $primary-orange;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
-}
-
-.block {
-  display: flex;
-  justify-content: center;
-}
-.image {
-  object-fit: cover;
-  box-shadow: 5px 5px 10px rgba(62, 62, 62, 0.2);
-  border-radius: 5px;
-}
-
-.dots {
-  @include flex($justify: center);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  & > div:last-child {
-    margin-right: 0;
+.image-wrap {
+  @include flex($justify: center, $align: center, $direction: column);
+  & > button {
+    margin-top: 20px;
   }
 }

@@ -26,42 +26,41 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         1500s, when an unknown printer took book Lorem Ipsum has been the Lorem
         .
       </Paragraph>
-      <div className={styles.descriptionAuthors}>
+      <div className={styles.authors}>
         by <span>{author}</span>
       </div>
 
-      <div className={styles.wrapper}>
-        <div>
-          <div className={styles.desription}>
-            <div className={styles.descriptionBlock}>
-              <H4 className={styles.descriptionTitle}>Category</H4>
-              <Paragraph>{bookCategory}</Paragraph>
-            </div>
-            <div className={styles.descriptionBlock}>
-              <H4 className={styles.descriptionTitle}>Languege</H4>
-              <Paragraph>{languages}</Paragraph>
-            </div>
+      <div className={styles.productCardAdditional}>
+        <div className={styles.productCardAdditionalLanguages}>
+          <h1>Langueges</h1>
+          <Paragraph>{languages}</Paragraph>
+        </div>
+        <div className={styles.productCardAdditionalPublished}>
+          <h1>Publish Date</h1>
+          <Paragraph>
+            <Moment format={'MMM DD, YYYY'}>{publishDate}</Moment>
+          </Paragraph>
+        </div>
+      </div>
 
-            <div className={styles.descriptionBlock}>
-              <H4 className={styles.descriptionTitle}>Publish Date</H4>
-              <Paragraph>
-                <Moment format={'MMM DD, YYYY'}>{publishDate}</Moment>
-              </Paragraph>
-            </div>
-          </div>
-          <div className={styles.details}>
-            <H4 className={styles.detailsTitle}>Details</H4>
-            <Paragraph>{details}</Paragraph>
-          </div>
+      <div className={styles.circlesWrapper}>
+        <div className={styles.circlesWrapperCircle}>
+          Lorem Ipsum has been the industry's standard dummy text.
         </div>
-        <div>
-          <H3 className={styles.price}>{`$${price}`}</H3>
-          <Button
-            className={styles.confirmButton}
-            children='Go to Checkout'
-            arrow='&rarr;'
-          />
+        <div className={styles.circlesWrapperCircle}>
+          Lorem Ipsum has been the industry's standard dummy text.
         </div>
+        <div className={styles.circlesWrapperCircle}>
+          Lorem Ipsum has been the industry's standard dummy text.
+        </div>
+      </div>
+      <div>
+        <H3 className={styles.price}>{`$${price}`}</H3>
+        <Button
+          className={styles.confirmButton}
+          children='Go to Checkout'
+          arrow='&rarr;'
+        />
       </div>
     </div>
   );

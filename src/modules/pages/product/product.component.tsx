@@ -104,9 +104,7 @@ const Product: React.FC<ProductProps> = ({}) => {
       <H2 className={styles.recomendedBooks}>Recommended books</H2>
 
       <ProductsSlider data={recomendedProducts} notOrangeButtons />
-      <div className={styles.footer}>
-        {/* <Footer /> */}
-      </div>
+      <div className={styles.footer}>{/* <Footer /> */}</div>
     </div>
   );
 };
