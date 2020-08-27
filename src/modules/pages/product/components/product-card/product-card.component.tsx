@@ -17,11 +17,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     languages,
     details
   } = product;
+  console.log(author);
   return (
     <div className={styles.productCard}>
       <H2 className={styles.productCardTitle}>{name}</H2>
-      <Paragraph className={styles.productCardAuthor}>{author}</Paragraph>
-      <div className={styles.hr} />
+      <Paragraph className={styles.productCardDescription}>
+        Lorem Ipsum has been the industry’s standard dummy text ever since the
+        1500s, when an unknown printer took book Lorem Ipsum has been the Lorem
+        .
+      </Paragraph>
+      <div className={styles.descriptionAuthors}>
+        by <span>{author}</span>
+      </div>
+
       <div className={styles.wrapper}>
         <div>
           <div className={styles.desription}>
@@ -33,6 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               <H4 className={styles.descriptionTitle}>Languege</H4>
               <Paragraph>{languages}</Paragraph>
             </div>
+
             <div className={styles.descriptionBlock}>
               <H4 className={styles.descriptionTitle}>Publish Date</H4>
               <Paragraph>

@@ -1,56 +1,135 @@
 @import 'core.scss';
 
 .header {
-  @include flex($align: center);
-  position: fixed;
+  @include flex($direction: column);
+  position: absolute;
   z-index: 9999;
   top: 0;
   left: 0px;
   width: 100%;
-  height: $header-height;
-  padding-left: $left-offset;
-  transition: background-color 200ms linear;
-  &.inverted {
-    background-color: #ffffff;
-    transition: background-color 200ms linear;
-  }
-  .logo {
-    position: absolute;
-    top: 15px;
-    left: 22px;
-  }
-  .navigation {
-    @include flex($align: center);
-    &-links {
-      @include font($white, 16px, 500);
+
+  &__main {
+    @include flex($justify: flex-end);
+    border-bottom: 1px solid #f5f1f060;
+    background-color: #f5f1f010;
+    width: 100%;
+    padding: 10px 34px;
+    &--link {
+      @include font(white, 15px, 500, 20px);
       font-family: $IBMPlex;
-      user-select: none;
-      & > a {
-        margin-left: 40px;
-        &:hover {
-          border-bottom: 2px solid $white;
-          margin-top: 6px;
-          padding-bottom: 4px;
+      min-width: fit-content;
+      cursor: pointer;
+      transition: $transition;
+      &:not(:last-child) {
+        margin-right: 80px;
+      }
+      &:hover {
+        color: $primary-orange;
+      }
+    }
+  }
+  &__secondary {
+    @include flex($align: baseline);
+    padding: 10px 20px 0 22px;
+    width: 100%;
+    &_navigation {
+      @include flex($justify: flex-end, $align: center);
+      width: 100%;
+
+      &-item {
+        @include flex($align: center, $justify: center);
+        @include font(white, 20px, 500, 24px);
+        border-bottom: 1px solid white;
+        padding-bottom: 4px;
+        cursor: pointer;
+        &:not(:last-child) {
+          margin-right: 60px;
+        }
+        & > div > div {
+          @include flex();
+          margin-left: 8px;
         }
       }
-      &.inverted {
-        @include font($primary-gray, 16px, 500);
-        & > a {
-          &:hover {
-            border-bottom: 2px solid $primary-gray;
+      &-profile {
+        @include flex($align: center);
+        cursor: pointer;
+        & > div:first-child {
+          margin-right: 16px;
+        }
+        .local {
+          @include font(white, 12px, 500, 16px);
+          @include flex($align: center, $justify: space-between);
+          cursor: pointer;
+          width: 55px;
+          height: 27px;
+          font-family: $IBMPlex;
+          padding: 6px 8px;
+          border: 1px solid white;
+          border-radius: 4px;
+          & > div {
+            margin-left: 3px;
           }
         }
       }
     }
   }
 }
-
-@media screen and (max-width: 768px) {
-  .header {
-    @include flex($align: center, $justify: flex-end);
-    padding-right: 15px;
-  }
-  .navigation-links {
-    display: none;
-  }
+.inverted-header {
+  color: $black !important;
+  border-color: $black !important;
 }
+
+// .header {
+//   @include flex($align: center);
+//   position: fixed;
+//   z-index: 9999;
+//   top: 0;
+//   left: 0px;
+//   width: 100%;
+//   height: $header-height;
+//   padding-left: $left-offset;
+//   transition: background-color 200ms linear;
+//   &.inverted {
+//     background-color: #ffffff;
+//     transition: background-color 200ms linear;
+//   }
+//   .logo {
+//     position: absolute;
+//     top: 15px;
+//     left: 22px;
+//   }
+//   .navigation {
+//     @include flex($align: center);
+//     &-links {
+//       @include font($white, 16px, 500);
+//       font-family: $IBMPlex;
+//       user-select: none;
+//       & > a {
+//         margin-left: 40px;
+//         &:hover {
+//           border-bottom: 2px solid $white;
+//           margin-top: 6px;
+//           padding-bottom: 4px;
+//         }
+//       }
+//       &.inverted {
+//         @include font($primary-gray, 16px, 500);
+//         & > a {
+//           &:hover {
+//             border-bottom: 2px solid $primary-gray;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 768px) {
+//   .header {
+//     @include flex($align: center, $justify: flex-end);
+//     padding-right: 15px;
+//   }
+//   .navigation-links {
+//     display: none;
+//   }
+// }

@@ -11,73 +11,75 @@ import { ProgramsButton } from './programs-button';
 import { ProgramsMenu } from './programs-menu';
 import { useHeaderData } from './header.hook';
 import { Icon } from '../icon';
+import { useMenuData } from './burger-menu/burger-menu.hooks';
+import { useDispatch } from 'react-redux';
+import { navigate } from '@router/store';
 
 /**
  * Renders Header
  */
-class Header extends React.Component<HeaderProps, HeaderState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHeaderInvert: false,
-      activeMenuType: ActiveMenuType.none
-    };
-  }
+const Header: React.FC<HeaderProps> = ({ whiteBackground }) => {
+  const { navigation } = useHeaderData();
+  const { dispatch } = useDispatch();
+  const { pagesLinks } = useMenuData();
 
-  public toggleBgColor = () => {
-    const isChangeBg = window.pageYOffset >= 100;
-    !this.props.whiteBackground &&
-      this.state.activeMenuType === ActiveMenuType.none &&
-      isChangeBg !== this.state.isHeaderInvert &&
-      this.setState({ isHeaderInvert: isChangeBg });
-  };
-
-  public componentDidMount() {
-    window.addEventListener('scroll', this.toggleBgColor);
-    window.addEventListener('resize', this.resize);
-  }
-
-  public componentWillUnmount() {
-    window.removeEventListener('scroll', this.toggleBgColor);
-    window.removeEventListener('resize', this.resize);
-  }
-
-  public resize = () => {
-    if (
-      window.innerWidth < 768 &&
-      this.state.activeMenuType === ActiveMenuType.programs
-    ) {
-      this.closeMenu();
-    }
-  };
-
-  public get isInvertHeader(): boolean {
-    return (
-      this.props.whiteBackground ||
-      this.state.activeMenuType !== ActiveMenuType.none ||
-      window.pageYOffset >= 100
-    );
-  }
-
-  public toggleOpenMenu(type: ActiveMenuType) {
-    this.setState({
-      activeMenuType:
-        type === this.state.activeMenuType ? ActiveMenuType.none : type
-    });
-  }
-
-  public closeMenu() {
-    this.setState({
-      activeMenuType: ActiveMenuType.none
-    });
-  }
-
-  render() {
-    const { navigation } = useHeaderData();
-
-    return (
-      <>
-        <BurgerMenu
+  return (
+    <React.Fragment>
+      <div className={styles.header}>
+        <div className={styles.headerMain}>
+          {pagesLinks.map((el, idx) => {
+            return (
+              <NavLink
+                key={idx}
+                className={classNames(styles.headerMainLink, {
+                  [styles.invertedHeader]: whiteBackground
+                })}
+                to={el.path}
+              >
+                {el.name}
+              </NavLink>
+            );
+          })}
+        </div>
+        <div className={styles.headerSecondary}>
+          <div className={styles.logo}>
+            <Icon name={whiteBackground ? 'logo-b' : 'logo'} />
+          </div>
+          <div className={styles.headerSecondaryNavigation}>
+            {navigation.map(el => {
+              return (
+                <div
+                  key={el.id}
+                  className={classNames(styles.headerSecondaryNavigationItem, {
+                    [styles.invertedHeader]: whiteBackground
+                  })}
+                >
+                  {el.title}{' '}
+                  <Icon
+                    name={whiteBackground ? 'triangle-arr-b' : 'triangle-arr'}
+                  />
+                </div>
+              );
+            })}
+            <div className={styles.headerSecondaryNavigationProfile}>
+              <Icon
+                name={whiteBackground ? 'default-avatar-b' : 'default-avatar'}
+              />
+              <div
+                className={classNames(styles.local, {
+                  [styles.invertedHeader]: whiteBackground
+                })}
+              >
+                Eng{' '}
+                <Icon
+                  name={whiteBackground ? 'triangle-arr-b' : 'triangle-arr'}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <BurgerMenu
           isOpened={this.state.activeMenuType === ActiveMenuType.menu}
           closeMenu={() => this.closeMenu()}
           onClick={() => this.toggleOpenMenu(ActiveMenuType.programs)}
@@ -122,10 +124,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               );
             })}
           </div>
-        </header>
-      </>
-    );
-  }
-}
+        </header> */}
+    </React.Fragment>
+  );
+};
 
 export { Header };

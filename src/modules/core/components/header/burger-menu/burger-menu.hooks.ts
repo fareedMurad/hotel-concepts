@@ -14,17 +14,9 @@ const useMenuData = () => {
     }
   ];
 
-  const secondaryLinks = [
+  const pagesLinks = [
     {
-      name: 'For Corporate Clients',
-      path: '/for-companies'
-    },
-    {
-      name: 'Program-Partnership',
-      path: '/course-partnership'
-    },
-    {
-      name: 'Contributors',
+      name: 'Mentors&Co-authors',
       path: '/contributors'
     },
     {
@@ -32,19 +24,15 @@ const useMenuData = () => {
       path: '/learning-approach'
     },
     {
-      name: 'Our Story',
-      path: '/about-us'
-    },
-    {
-      name: 'Jobs',
-      path: '/jobs'
+      name: 'Insights',
+      path: '/insights'
     },
     {
       name: 'Contacts',
       path: '/contact-us'
     }
   ];
-  return { mainLinks, secondaryLinks };
+  return { mainLinks, pagesLinks };
 };
 
 export { useMenuData };

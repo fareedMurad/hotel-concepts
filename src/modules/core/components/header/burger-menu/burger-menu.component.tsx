@@ -13,7 +13,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
   isOpened,
   onClick
 }) => {
-  const { mainLinks, secondaryLinks } = useMenuData();
+  // const { mainLinks, secondaryLinks } = useMenuData();
   const [isFullHide, setFullHide] = React.useState(true);
 
   React.useEffect(() => {
@@ -60,11 +60,11 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
         </div>
         <div className={styles.separator} />
         <div className={styles.secondaryContainer}>
-          {secondaryLinks.map((link, i) => (
+          {/* {secondaryLinks.map((link, i) => (
             <NavLink to={link.path} key={i} className={styles.secondaryLink}>
               <div>{link.name}</div>
             </NavLink>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
