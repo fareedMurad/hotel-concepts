@@ -1,7 +1,7 @@
 /**
  * Props
  */
-type ProductCardProps = {
+type ProductDescriptionProps = {
   product: {
     name: string;
     details: string;
@@ -17,7 +17,8 @@ type ProductCardProps = {
     price: string;
     publishDate: string;
     description: string;
+    skills: string[];
   };
 };
 
-export { ProductCardProps };
+export { ProductDescriptionProps };

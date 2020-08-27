@@ -53,7 +53,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <div className={styles.hr} />
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />
-      <Enroll programId={programId} />
+      <Enroll programId={programId} title={'Who Should Enroll?'} />
       <ProgramModules programId={programId} />
       <div
         className={styles.img}

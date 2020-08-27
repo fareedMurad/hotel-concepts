@@ -42,8 +42,7 @@ const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
   const carouselItems = images.map(el => {
     return <div />;
   });
-  // onMove means if dragging or swiping in progress.
-  // active is provided by this lib for checking if the item is active or not.
+
   return (
     <div
       className={active ? styles.activeDot : styles.inactiveDot}

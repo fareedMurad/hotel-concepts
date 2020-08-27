@@ -1,0 +1,53 @@
+@import 'core.scss';
+
+.authors {
+  @include container();
+  @include flex();
+  padding-right: 20px !important;
+
+  min-height: 700px;
+  max-height: auto;
+  background-color: $background;
+}
+
+.about-author {
+  width: 50%;
+  height: 100%;
+  &__caption {
+    padding-top: 60px;
+  }
+  &--position {
+    margin-top: 230px;
+  }
+  &--description {
+    @include font($primary-gray, 16px, 400, 22px);
+    margin-top: 12px;
+  }
+}
+
+.buttons {
+  @include flex();
+  margin-top: 32px;
+  & > button {
+    margin-right: 12px;
+  }
+  &--arrow {
+    @include flex($align: center, $justify: center);
+    position: relative;
+    width: 44px;
+    height: 44px;
+    color: $primary-gray;
+
+    border: 1px solid #98a2a8;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    @include buttonHover;
+  }
+}
+
+.author-image {
+  margin-top: 48px;
+  margin-left: 131px;
+  object-fit: fill;
+}

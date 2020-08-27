@@ -6,7 +6,6 @@
   padding: 20px;
   background-color: $background;
   border-radius: 12px;
-  max-height: calc(100ch - 100px);
   @include tablet() {
     width: auto;
     margin-right: 0;
@@ -121,5 +120,13 @@
     border-radius: 100%;
     width: 204px;
     height: 204px;
+    &:first-child {
+      margin-right: -20px;
+    }
+    &:nth-child(2) {
+      position: relative;
+      margin-right: -20px;
+      z-index: 1000;
+    }
   }
 }

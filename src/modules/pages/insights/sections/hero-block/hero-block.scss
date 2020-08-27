@@ -3,7 +3,7 @@
 .hero-block {
   // grid-template-columns: 1fr;
   // grid-template-rows: 1fr;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 120px);
   margin: 0 22px;
   gap: 20px;
   @include tablet() {
@@ -121,7 +121,7 @@
   @include size(100%);
   min-height: 270px;
   margin-bottom: 10px;
-  @include tablet(){
+  @include tablet() {
     margin-bottom: 0px;
   }
   @include ipad-l() {

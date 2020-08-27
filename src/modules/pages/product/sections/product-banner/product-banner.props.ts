@@ -1,7 +1,7 @@
 /**
  * Props
  */
-type ProductCardProps = {
+type ProductBannerProps = {
   product: {
     name: string;
     details: string;
@@ -20,4 +20,4 @@ type ProductCardProps = {
   };
 };
 
-export { ProductCardProps };
+export { ProductBannerProps };

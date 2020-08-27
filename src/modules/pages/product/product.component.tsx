@@ -4,7 +4,7 @@ import * as styles from './product.scss';
 import { Header } from '@core/components/header';
 import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
-import { Footer, H2, Icon, Spinner } from '@core/components';
+import { Footer, H2, Icon, Spinner, Hr } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
 import { useHistory, useParams, useLocation } from 'react-router';
 import { useProductData } from './hooks/product.hook';
@@ -14,20 +14,15 @@ import { Trail } from 'react-spring/renderprops';
 import { useClickOutside } from '@core/shared';
 import { SEO } from '@core/components/seo/seo.component';
 import { ShareSocial } from '@core/components/share';
+import { ProductDescription } from './sections/product-description';
 
-/**
- * Product-card Data
- */
-const productCardData = {
-  title: 'Twilight of the Money Goods',
-  author: 'by John Rapley',
-  category: 'Economics',
-  language: 'English',
-  publishDate: 'Oct. 2014',
-  details:
-    'Best selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and ThinkingBest selling book like Nudge,Predictably Irrational and Thinking',
-  price: '$26.99'
-};
+import { Enroll, ProgramResults } from '@pages/program-page/sections';
+import { Brochure } from '@pages/for-companies/sections';
+import { MaterialsIncluded } from './sections/materials-included';
+import { ExplorePages } from './sections/explore-pages';
+import { Authors } from './sections/authors';
+import { Feedback } from './sections/feedback';
+import { ProductBanner } from './sections/product-banner';
 
 /**
  * Renders Product
@@ -37,7 +32,7 @@ const Product: React.FC<ProductProps> = ({}) => {
 
   const { id: productId, categorySlug } = useParams();
 
-  const { product, productLoading } = useProductData(productId);
+  const { product } = useProductData();
   const { pathname } = useLocation();
 
   const {
@@ -45,14 +40,8 @@ const Product: React.FC<ProductProps> = ({}) => {
     redomendedProductsLoading
   } = useRecomendedProductsData(categorySlug, productId);
 
-  if (productLoading) return <Spinner />;
+  // if (productLoading) return <Spinner />;
   if (redomendedProductsLoading) return <Spinner />;
-
-  const {
-    productImagesCollection: { items: images },
-    previewPagesCollection: { items: previewPages },
-    name
-  } = product;
 
   const convertToFileType = file =>
     file
@@ -66,11 +55,11 @@ const Product: React.FC<ProductProps> = ({}) => {
   return (
     <div className={styles.product}>
       <ScrollToTop />
-      <SEO
+      {/* <SEO
         title={name}
         thumbnail={images[0].url}
         url={`localhost:8289${pathname}`}
-      ></SEO>
+      ></SEO> */}
 
       <div className={styles.header}>
         <Header whiteBackground />
@@ -81,11 +70,11 @@ const Product: React.FC<ProductProps> = ({}) => {
       </div>
       <div className={styles.productReview}>
         <div className={styles.slider}>
-          <ProductSlider images={images} />
+          <ProductSlider images={product.productImage} />
           <div className={styles.links}>
             <ShareSocial link={''} />
             <div className={styles.linksDownload}>
-              {previewPages &&
+              {/* {previewPages &&
                 previewPages.map(el => (
                   <button
                     key={el.sys.id}
@@ -94,17 +83,29 @@ const Product: React.FC<ProductProps> = ({}) => {
                   >
                     {convertToFileType(el.contentType)}
                   </button>
-                ))}
+                ))} */}
             </div>
           </div>
         </div>
         <ProductCard product={product} />
       </div>
+      <ProductDescription product={product} />
+      <div className={styles.hr}>
+        <Hr />
+      </div>
+
+      <Enroll programId={'1fHQgCpPPwnmhdVZFR4WEW'} title={'For whom'} />
+      <MaterialsIncluded productMaterials={product.productMaterials} />
+      <ExplorePages />
+      <Authors authors={product.authors} />
+      <ProgramResults programId='3CaXsOXeY9OWY7YxPz4sy0' />
+      <Feedback />
+      <ProductBanner product={product} />
 
       <H2 className={styles.recomendedBooks}>Recommended books</H2>
 
       <ProductsSlider data={recomendedProducts} notOrangeButtons />
-      <div className={styles.footer}>{/* <Footer /> */}</div>
+      <Brochure />
     </div>
   );
 };

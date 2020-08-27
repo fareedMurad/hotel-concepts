@@ -1,0 +1,32 @@
+@import 'core.scss';
+
+.materials-included {
+  @include container();
+  background-color: $background;
+  &--content {
+    padding: 60px 0 60px 0;
+    &--title {
+      margin-bottom: 32px;
+    }
+    &--item {
+      @include flex($align: center);
+      @include font($primary-gray, 18px, 400, 28px);
+      padding: 12px;
+      background-color: white;
+      border-radius: 8px;
+      width: 50%;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      & > div:last-child {
+        margin-left: 12px;
+      }
+
+      //Icon to center
+
+      & > div > div {
+        @include flex();
+      }
+    }
+  }
+}

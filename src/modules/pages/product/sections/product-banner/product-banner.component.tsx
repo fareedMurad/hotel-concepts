@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { ProductCardProps } from './product-card.props';
-import * as styles from './product-card.scss';
-import { Paragraph, H2, H4, H3, Button } from '@core/components';
+import { ProductBannerProps } from './product-banner.props';
+import * as styles from './product-banner.scss';
+import { H2, Paragraph } from '@core/components';
 import Moment from 'react-moment';
 
 /**
- * Renders ProductCard
+ * Renders ProductBanner
  */
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
   const {
     authors,
     name,
@@ -17,9 +17,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     languages,
     details
   } = product;
-
   return (
-    <div className={styles.productCard}>
+    <div className={styles.productBanner}>
       <H2 className={styles.productCardTitle}>{name}</H2>
       <Paragraph className={styles.productCardDescription}>
         Lorem Ipsum has been the industry’s standard dummy text ever since the
@@ -42,28 +41,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </Paragraph>
         </div>
       </div>
-
-      <div className={styles.circlesWrapper}>
-        <div className={styles.circlesWrapperCircle}>
-          Lorem Ipsum has been the industry's standard dummy text.
-        </div>
-        <div className={styles.circlesWrapperCircle}>
-          Lorem Ipsum has been the industry's standard dummy text.
-        </div>
-        <div className={styles.circlesWrapperCircle}>
-          Lorem Ipsum has been the industry's standard dummy text.
-        </div>
-      </div>
-      <div>
-        <H3 className={styles.price}>{`$${price}`}</H3>
-        <Button
-          className={styles.confirmButton}
-          children='Go to Checkout'
-          arrow='&rarr;'
-        />
-      </div>
     </div>
   );
 };
 
-export { ProductCard };
+export { ProductBanner };

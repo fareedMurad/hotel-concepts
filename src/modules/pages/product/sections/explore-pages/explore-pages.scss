@@ -1,0 +1,41 @@
+@import 'core.scss';
+
+.explore-pages {
+  &--title {
+    @include container();
+    margin-top: 80px;
+  }
+}
+
+.squer {
+  @include flex($align: center, $justify: center);
+  height: 416px;
+  width: 316px;
+  background-color: #f5f1f0;
+  border: 1px solid #707070;
+}
+
+.slider {
+  @include flex($justify: space-between, $align: center);
+  margin-top: 46px;
+  position: relative;
+  padding-bottom: 60px;
+  overflow: hidden;
+  padding-left: 12px;
+  width: 100%;
+  @include tablet() {
+    margin-top: 24px;
+    padding-left: 15px;
+  }
+}
+
+.controls {
+  @include tablet() {
+    margin-left: 97px;
+  }
+  button {
+    background-color: transparent;
+    color: $primary-gray;
+    border: 1px solid #98a2a8;
+  }
+}

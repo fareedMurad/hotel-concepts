@@ -1,0 +1,39 @@
+@import 'core.scss';
+
+.feedback-item {
+  @include flex($direction: column, $justify: space-between);
+  height: 100%;
+  max-width: 1000px;
+  margin-top: 48px;
+  padding-right: $default-offset;
+}
+
+.container {
+  @include flex($align: center);
+  margin-top: 24px;
+}
+
+.info {
+  @include flex($direction: column);
+}
+
+.img {
+  @include size(90px);
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.text {
+  @include font($primary-gray, 28px, 400, 35px);
+  font-family: $EBGaramond;
+}
+
+.name {
+  @include font($primary-gray, 20px, 500, 28px);
+}
+
+.from {
+  @include font($primary-gray, 16px, 400, 22px);
+}

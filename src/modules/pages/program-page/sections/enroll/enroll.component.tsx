@@ -8,7 +8,7 @@ import { useEnrollData } from './enroll.hook';
 /**
  * Renders Enroll
  */
-const Enroll: React.FC<EnrollProps> = ({ programId }) => {
+const Enroll: React.FC<EnrollProps> = ({ programId, title }) => {
   const { whoShouldEnrollData, whoSouldEnrollLoading } = useEnrollData(
     programId
   );
@@ -18,7 +18,7 @@ const Enroll: React.FC<EnrollProps> = ({ programId }) => {
   return (
     <section id='content' className={styles.enroll}>
       <div className={styles.title}>
-        <div>Who Should Enroll?</div>
+        <div>{title}</div>
         <div>{whoShouldEnrollData.description}</div>
       </div>
       <div className={styles.roles}>

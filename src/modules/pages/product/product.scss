@@ -45,7 +45,6 @@
   @include flex($align: center, $justify: space-between);
   width: 100%;
   margin: 22px 0px;
-  padding-left: 22px;
   @include desktop() {
     margin-top: 54px;
   }
@@ -60,4 +59,8 @@
   border: unset;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.hr {
+  margin: 80px 26px 0 26px;
 }
