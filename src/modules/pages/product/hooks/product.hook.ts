@@ -45,7 +45,17 @@ const useProductData = () => {
         picture:
           'https://images.ctfassets.net/qgx3dmmccd7u/3ebRS5PO18BbJZgZ0JLxs6/7316a3db3ca0181ce5c2130107b33dbe/author.png',
         description:
-          'Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy. In this program, you will gain general knowledge about the principles of digital marketing and acquire the skills, analytical techniques and approaches to apply digitalst rategies effectively for customer acquisition, engagement and retention.'
+          'Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy. In this program, you will gain general knowledge about the principles of digital marketing and acquire the skills, analytical techniques and approaches to apply digitalst rategies effectively for customer acquisition, engagement and retention.',
+        key: 125232
+      },
+      {
+        name: 'Dorothy Graham',
+        position: 'Hilton, Project Manager',
+        picture:
+          'https://images.ctfassets.net/qgx3dmmccd7u/3ebRS5PO18BbJZgZ0JLxs6/7316a3db3ca0181ce5c2130107b33dbe/author.png',
+        description:
+          'Digital marketing has emerged as the pillar of many businesses’ promotion and branding strategy. In this program, you will gain general knowledge about the principles of digital marketing and acquire the skills, analytical techniques and approaches to apply digitalst rategies effectively for customer acquisition, engagement and retention.',
+        key: 12345345
       }
     ],
     bookCategory: 'bussiness',

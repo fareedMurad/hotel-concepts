@@ -6,7 +6,7 @@
   background-color: $background;
   @include tablet() {
     @include flex($direction: row);
-    min-height:700px;
+    min-height: 700px;
     padding-bottom: 0;
   }
 }
@@ -17,7 +17,7 @@
   &__caption {
     padding-top: 29px;
   }
-  
+
   &--description {
     @include font($primary-gray, 16px, 400, 22px);
     margin-top: 12px;
@@ -33,10 +33,9 @@
 .buttons {
   @include flex();
   margin-top: 32px;
-  padding-bottom:20px;
+  padding-bottom: 20px;
   & > button {
     margin-right: 12px;
-   
   }
   &--arrow {
     @include flex($align: center, $justify: center);
@@ -52,14 +51,17 @@
     @include buttonHover;
   }
   @include tablet {
-    padding-bottom: 0
+    padding-bottom: 0;
   }
 }
 
 .author-image {
   margin: 48px 0 20px 131px;
+
   object-fit: fill;
   &--mobile {
+    max-height: 300px;
+    overflow: hidden;
     margin: 20px 0;
   }
 }
