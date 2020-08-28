@@ -90,7 +90,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   return (
     <React.Fragment>
       <ScrollToTop />
-      <Header />
+
       <div className={styles.programsCatalogue}>
         <CatalogueHeader
           title={catalogueInfoData.name}

@@ -17,6 +17,8 @@ import { useContactsPageData } from './contacts-page.hook';
 import { Formik } from 'formik';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { isBackgroundWhite } from '@core/components/header/store';
 
 const Card = ({ title, description, href, link }) => {
   return (
@@ -44,6 +46,7 @@ const defaultValues = {
  * Renders ContactsPage
  */
 const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
+  const dispatch = useDispatch();
   const { cardsData, contactsFooterImage } = useContactsPageData();
   const types = [
     { label: '1', value: '1' },
@@ -55,12 +58,15 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
     { label: 'Female', value: '2' }
   ];
   React.useEffect(() => {
+    dispatch(isBackgroundWhite(true));
     window.scrollTo(0, 0);
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
   }, []);
 
   return (
     <div className={styles.contactsPage}>
-      <Header whiteBackground />
       <div className={styles.container}>
         <PreCaption>We're here to help!</PreCaption>
         <SectionTitle>Contact Us</SectionTitle>

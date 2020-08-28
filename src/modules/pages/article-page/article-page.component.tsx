@@ -9,6 +9,8 @@ import { useArticleFirstScreenData } from './hooks/article-first-screen.hook';
 import Moment from 'react-moment';
 import { ArticleIntro } from './sections/article-intro';
 import { ArticleRichText } from './sections/article-rich-text';
+import { useDispatch } from 'react-redux';
+import { isBackgroundWhite } from '@core/components/header/store';
 /**
  * HR
  */
@@ -20,6 +22,13 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
   const history = useHistory();
   const { articleId } = useParams();
   const { articleData, articleLoading } = useArticleFirstScreenData(articleId);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
 
   if (articleLoading) return <Spinner />;
 
@@ -34,7 +43,6 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
   return (
     <div className={styles.articlePage}>
       <ScrollToTop />
-      <Header whiteBackground />
       <main className={styles.content}>
         <div onClick={() => history.goBack()} className={styles.back}>
           <div>&#8592;</div>

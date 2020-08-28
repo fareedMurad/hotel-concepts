@@ -18,13 +18,12 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   const { contributorsHeroImage } = useContributorsData();
 
   return (
     <div className={styles.contributors}>
       <header className={styles.header}>
-        <Header />
         <div
           style={{
             backgroundImage: `url(${contributorsHeroImage})`

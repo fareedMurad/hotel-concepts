@@ -21,7 +21,7 @@ const Hr = () => <div className={styles.hr} />;
 const LearningApproach: React.FC = ({}) => (
   <div className={styles.main}>
     <ScrollToTop />
-    <Header />
+
     <HeroLearningApproach />
     <MeetKordie />
     <Hr />

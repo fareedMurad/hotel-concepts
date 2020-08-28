@@ -10,6 +10,7 @@ import { ApolloProvider } from '@apollo/client';
 import { client } from './graphql/apollo-client';
 import { useLocation } from 'react-router-dom';
 import { ErrorBoundary } from '@core/components/error-boundary';
+import { StickyContainer } from 'react-sticky';
 
 /**
  * Scroll to top
@@ -48,9 +49,11 @@ const App: React.FC<AppProps> = ({ children, history, store }) => (
       <ErrorBoundary history={history}>
         <Content>
           <Localization>
-            <Router history={history}>
-              <div>{children}</div>
-            </Router>
+            <StickyContainer>
+              <Router history={history}>
+                <div>{children}</div>
+              </Router>
+            </StickyContainer>
           </Localization>
         </Content>
       </ErrorBoundary>

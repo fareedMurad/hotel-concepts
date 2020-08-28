@@ -18,7 +18,6 @@ import { FaqBlock } from '@pages/components';
  */
 const Faq: React.FC<FaqProps> = ({}) => (
   <div className={styles.faq}>
-    <Header whiteBackground />
     <div className={styles.container}>
       <SectionTitle>
         Relax because we always <br /> be here for you.

@@ -20,7 +20,6 @@ const CoursePartnership: React.FC<CoursePartnershipProps> = ({}) => {
   return (
     <React.Fragment>
       <ScrollToTop />
-      <Header />
       <CoursePartnershipHero />
       <PartneringForSuccess />
       <HowBecomePartner />

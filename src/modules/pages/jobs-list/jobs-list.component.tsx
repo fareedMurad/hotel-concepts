@@ -16,13 +16,21 @@ import {
   useAllJobsData,
   useFilteredJobsData
 } from './hooks';
+import { useDispatch } from 'react-redux';
+import { isBackgroundWhite } from '@core/components/header/store';
 
 /**
  * Renders JobsList
  */
 const JobsList: React.FC<JobsListProps> = ({}) => {
   const [currentFilter, setCurrentFilter] = React.useState('All');
-
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
   const {
     filterCategories,
     filterCategoriesLoading
@@ -43,9 +51,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
   return (
     <React.Fragment>
       <ScrollToTop />
-      <div className={styles.header}>
-        <Header whiteBackground />
-      </div>
+      <div className={styles.header}></div>
       <div className={styles.jobsList}>
         <SectionTitle className={styles.title}>
           Want to create <br /> better hospitality impact?
@@ -75,7 +81,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
               }
             } = item;
             const activeFilter = currentFilter === id;
-            
+
             return (
               <ButtonFilter
                 key={id}

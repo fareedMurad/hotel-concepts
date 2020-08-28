@@ -17,6 +17,8 @@ import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { useDispatch } from 'react-redux';
+import { isBackgroundWhite } from '@core/components/header/store';
 /**
  * query job
  */
@@ -40,6 +42,13 @@ const GET_JOB = gql`
 const JobDetails: React.FC<JobDetailsProps> = ({}) => {
   const history = useHistory();
   const { id: jobId } = useParams();
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
   const { data, loading, error } = useQuery(GET_JOB, {
     variables: { id: jobId }
   });
@@ -70,7 +79,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
     }
   };
   const parsedDescription = documentToReactComponents(job?.description?.json);
-  
+
   return (
     <React.Fragment>
       <ScrollToTop />
@@ -78,7 +87,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
         <div>&#8592;</div>
         <div>Back</div>
       </div>
-      <Header whiteBackground />
+
       <div className={styles.jobPage}>
         <section className={styles.sectionA}>
           <SectionTitle className={styles.title}>{job.name}</SectionTitle>

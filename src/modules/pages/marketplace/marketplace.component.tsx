@@ -29,7 +29,6 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
 
   return (
     <div className={styles.marketplace}>
-      <Header />
       <MarketplaceHero />
 
       {productCategories.map(el => {

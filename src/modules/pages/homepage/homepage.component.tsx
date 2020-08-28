@@ -31,7 +31,6 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
   return (
     <React.Suspense fallback={<Spinner />}>
       <div className={styles.homepage}>
-        <Header />
         <Intro />
         <SupportInfo />
         <OnlineCourses />

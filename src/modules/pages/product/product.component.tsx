@@ -23,18 +23,24 @@ import { ExplorePages } from './sections/explore-pages';
 import { Authors } from './sections/authors';
 import { Feedback } from './sections/feedback';
 import { ProductBanner } from './sections/product-banner';
+import { useDispatch } from 'react-redux';
+import { isBackgroundWhite } from '@core/components/header/store';
 
 /**
  * Renders Product
  */
 const Product: React.FC<ProductProps> = ({}) => {
   const history = useHistory();
-
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
   const { id: productId, categorySlug } = useParams();
-
   const { product } = useProductData();
   const { pathname } = useLocation();
-
   const {
     recomendedProducts,
     redomendedProductsLoading
@@ -61,9 +67,7 @@ const Product: React.FC<ProductProps> = ({}) => {
         url={`localhost:8289${pathname}`}
       ></SEO> */}
 
-      <div className={styles.header}>
-        <Header whiteBackground />
-      </div>
+      <div className={styles.header}></div>
       <div onClick={() => history.goBack()} className={styles.back}>
         <div>&#8592;</div>
         <div>Back</div>

@@ -1,0 +1,52 @@
+@import 'core.scss';
+
+.header-main {
+  @include flex($align: baseline);
+  width: 100%;
+  padding: 22px 20px 0 22px;
+  transition: $transition;
+  &_navigation {
+    @include flex($justify: flex-end, $align: center);
+    width: 100%;
+    &-item {
+      @include flex($align: center, $justify: center);
+      @include font(white, 20px, 500, 24px);
+      border-bottom: 1px solid white;
+      padding-bottom: 4px;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 60px;
+      }
+      & > div > div {
+        @include flex();
+        margin-left: 8px;
+      }
+    }
+    &-profile {
+      @include flex($align: center);
+      cursor: pointer;
+      & > div:first-child {
+        margin-right: 16px;
+      }
+      .local {
+        @include font(white, 12px, 500, 16px);
+        @include flex($align: center, $justify: space-between);
+        cursor: pointer;
+        width: 55px;
+        height: 27px;
+        font-family: $IBMPlex;
+        padding: 6px 8px;
+        border: 1px solid white;
+        border-radius: 4px;
+        & > div {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+}
+
+.inverted-header {
+  color: $primary-gray !important;
+  border-color: $primary-gray !important;
+}

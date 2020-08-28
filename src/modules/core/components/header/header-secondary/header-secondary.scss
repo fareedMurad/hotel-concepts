@@ -1,0 +1,28 @@
+@import 'core.scss';
+
+.header-secondary {
+  @include flex($justify: flex-end);
+  border-bottom: 1px solid #f5f1f060;
+  background-color: #f5f1f010;
+  width: 100%;
+  padding: 10px 34px;
+
+  &--link {
+    @include font(white, 15px, 500, 20px);
+    font-family: $IBMPlex;
+    min-width: fit-content;
+    cursor: pointer;
+    transition: $transition;
+    &:not(:last-child) {
+      margin-right: 80px;
+    }
+    &:hover {
+      color: $primary-orange !important;
+    }
+  }
+}
+
+.inverted-header {
+  color: $black !important;
+  border-color: $black !important;
+}

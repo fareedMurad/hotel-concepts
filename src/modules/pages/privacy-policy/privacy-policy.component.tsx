@@ -4,6 +4,8 @@ import * as styles from './privacy-policy.scss';
 import { Header } from '@core/components/header';
 import { H2, Paragraph, Footer } from '@core/components';
 import { usePrivacyPolicyData } from './privacy-policy.hook';
+import { useDispatch } from 'react-redux';
+import { isBackgroundWhite } from '@core/components/header/store';
 /**
  * Renders Block
  */
@@ -26,16 +28,19 @@ const Block: React.FC<{
  * Renders PrivacyPolicy
  */
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
+  const dispatch = useDispatch();
   const { list } = usePrivacyPolicyData();
   React.useEffect(() => {
     window.scrollTo(0, 0);
-  });
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
 
   return (
     <div className={styles.privacyPolicy}>
-      <header className={styles.header}>
-        <Header whiteBackground />
-      </header>
+      <header className={styles.header}></header>
       <main className={styles.container}>
         <H2 className={styles.title}>Privacy policy</H2>
         <Block

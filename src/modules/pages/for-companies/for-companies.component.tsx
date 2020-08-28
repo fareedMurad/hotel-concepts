@@ -26,7 +26,6 @@ const ForCompanies: React.FC<ForCompaniesProps> = ({}) => {
 
   return (
     <div className={styles.forCompanies}>
-      <Header />
       <Intro />
       <TalentMatters />
       <Benefits />

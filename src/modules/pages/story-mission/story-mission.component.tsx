@@ -50,7 +50,6 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
     <div className={styles.storyMission}>
       <ScrollToTop />
       <header className={styles.header}>
-        <Header />
         <div
           style={{
             backgroundImage: `url(${storyMissionHeroImage})`

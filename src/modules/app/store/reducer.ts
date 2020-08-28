@@ -1,6 +1,7 @@
 import { general } from '@general/store';
 import { localization } from '@localization/store';
 import { router } from '@router/store';
+import { header } from '@core/components/header/store';
 import { combineReducers } from 'redux';
 import { ui } from '@ui';
 import { profile } from '@profile/store';
@@ -13,7 +14,8 @@ const app = combineReducers({
   localization,
   general,
   profile,
-  ui
+  ui,
+  header
 });
 
 export { app };

@@ -12,6 +12,10 @@ import { toogleContributorModal } from '@ui/modal';
 import { NotFound } from '@app/components';
 import { TestPage } from 'src/modules/test-page';
 import { lazy } from 'react';
+import { HeaderMain } from '@core/components/header/header-main';
+import { Header } from '@core/components/header';
+import { HeaderSecondary } from '@core/components/header/header-secondary';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -107,63 +111,95 @@ const ProgramPage = lazy(() =>
  */
 const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
+  const { isBackgroundWhite } = useSelector((state: State) => state.header);
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.routes}>
-      {isToastVisible && <Toast />}
-      <React.Suspense fallback={<Spinner />}>
-        <Switch>
-          <Route path='/profile' component={Profile} />
-          <Route path='/auth' component={Auth} />
-          <Route path='/uikit' component={Uikit} />
-          <Route path='/testing' component={TestPage} />
-
-          {/* ROUTES */}
-          <Route path='/insights/article/:articleId' component={ArticlePage} />
-          <Route path='/contact-us' component={ContactsPage} />
-          <Route path='/privacy-policy' component={PrivacyPolicy} />
-          <Route path='/about-us' component={StoryMission} />
-          {mobile && (
-            <Route
-              path={[
-                '/contributors/mentor',
-                '/mentor/:url?/:slug?/:mentorId',
-                '/program/:slug/mentor/:slug',
-                '/program/:slug?/:programId?/mentor/:slug?/:mentorId',
-                '/contributors/mentor/:slug?/:mentorId'
-              ]}
-              render={() => (
-                <MentorModal
-                  hideComponent={() => dispatch(toogleContributorModal(false))}
+    <StickyContainer>
+      <div className={styles.routes}>
+        {isToastVisible && <Toast />}
+        <div className={styles.header}>
+          <HeaderSecondary whiteBackground={isBackgroundWhite && true} />
+          <Sticky topOffset={40}>
+            {({ style, isSticky }) => (
+              <div style={style}>
+                <HeaderMain
+                  whiteBackground={isBackgroundWhite && true}
+                  isSticky={isSticky}
                 />
-              )}
+              </div>
+            )}
+          </Sticky>
+        </div>
+        <React.Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route path='/profile' component={Profile} />
+            <Route path='/auth' component={Auth} />
+            <Route path='/uikit' component={Uikit} />
+            <Route path='/testing' component={TestPage} />
+
+            {/* ROUTES */}
+            <Route
+              path='/insights/article/:articleId'
+              component={ArticlePage}
             />
-          )}
-          <Route exact={mobile} path='/program/:slug' component={ProgramPage} />
-          <Route exact={mobile} path='/contributors' component={Contributors} />
-          <Route path='/faq' component={Faq} />
-          <Route path='/programs-catalogue/:id' component={ProgramsCatalogue} />
-          <Route path='/learning-approach' component={LearningApproach} />
-          <Route path='/insights' component={Insights} />
-          <Route path='/jobs/job-details/:id' component={JobDetails} />
-          <Route path='/jobs' component={JobsList} />
-          <Route path='/for-companies' component={ForCompanies} />
-          <Route path='/marketplace' component={Marketplace} />
-          <Route
-            path='/category/:categorySlug/product/:id'
-            component={Product}
-          />
-          <Route path='/course-partnership' component={CoursePartnership} />
-          <Route exact={mobile} path='/' component={Homepage} />
-          <Route path='*'>
-            <NotFound />
-          </Route>
-        </Switch>
-      </React.Suspense>
-      <Footer />
-    </div>
+            <Route path='/contact-us' component={ContactsPage} />
+            <Route path='/privacy-policy' component={PrivacyPolicy} />
+            <Route path='/about-us' component={StoryMission} />
+            {mobile && (
+              <Route
+                path={[
+                  '/contributors/mentor',
+                  '/mentor/:url?/:slug?/:mentorId',
+                  '/program/:slug/mentor/:slug',
+                  '/program/:slug?/:programId?/mentor/:slug?/:mentorId',
+                  '/contributors/mentor/:slug?/:mentorId'
+                ]}
+                render={() => (
+                  <MentorModal
+                    hideComponent={() =>
+                      dispatch(toogleContributorModal(false))
+                    }
+                  />
+                )}
+              />
+            )}
+            <Route
+              exact={mobile}
+              path='/program/:slug'
+              component={ProgramPage}
+            />
+            <Route
+              exact={mobile}
+              path='/contributors'
+              component={Contributors}
+            />
+            <Route path='/faq' component={Faq} />
+            <Route
+              path='/programs-catalogue/:id'
+              component={ProgramsCatalogue}
+            />
+            <Route path='/learning-approach' component={LearningApproach} />
+            <Route path='/insights' component={Insights} />
+            <Route path='/jobs/job-details/:id' component={JobDetails} />
+            <Route path='/jobs' component={JobsList} />
+            <Route path='/for-companies' component={ForCompanies} />
+            <Route path='/marketplace' component={Marketplace} />
+            <Route
+              path='/category/:categorySlug/product/:id'
+              component={Product}
+            />
+            <Route path='/course-partnership' component={CoursePartnership} />
+            <Route exact={mobile} path='/' component={Homepage} />
+            <Route path='*'>
+              <NotFound />
+            </Route>
+          </Switch>
+        </React.Suspense>
+        <Footer />
+      </div>
+    </StickyContainer>
   );
 };
 export { Routes };
