@@ -24,18 +24,24 @@
         margin-right: 80px;
       }
       &:hover {
-        color: $primary-orange;
+        color: $primary-orange !important;
       }
     }
   }
+
+  .logo {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+  }
   &__secondary {
     @include flex($align: baseline);
-    padding: 10px 20px 0 22px;
+    position: relative;
     width: 100%;
+    padding: 22px 20px 0 22px;
     &_navigation {
       @include flex($justify: flex-end, $align: center);
       width: 100%;
-
       &-item {
         @include flex($align: center, $justify: center);
         @include font(white, 20px, 500, 24px);
@@ -77,6 +83,13 @@
 .inverted-header {
   color: $black !important;
   border-color: $black !important;
+}
+
+.mobile-menu {
+  width: 100%;
+  & > div > div {
+    @include flex($justify: flex-end);
+  }
 }
 
 // .header {

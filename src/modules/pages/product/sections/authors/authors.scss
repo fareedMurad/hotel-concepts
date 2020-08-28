@@ -2,34 +2,41 @@
 
 .authors {
   @include container();
-  @include flex();
-  padding-right: 20px !important;
-
-  min-height: 700px;
-  max-height: auto;
+  min-height: auto;
   background-color: $background;
+  @include tablet() {
+    @include flex($direction: row);
+    min-height:700px;
+    padding-bottom: 0;
+  }
 }
 
 .about-author {
-  width: 50%;
+  width: 100%;
   height: 100%;
   &__caption {
-    padding-top: 60px;
+    padding-top: 29px;
   }
-  &--position {
-    margin-top: 230px;
-  }
+  
   &--description {
     @include font($primary-gray, 16px, 400, 22px);
     margin-top: 12px;
+  }
+  @include tablet() {
+    width: 50%;
+    &--position {
+      margin-top: 230px;
+    }
   }
 }
 
 .buttons {
   @include flex();
   margin-top: 32px;
+  padding-bottom:20px;
   & > button {
     margin-right: 12px;
+   
   }
   &--arrow {
     @include flex($align: center, $justify: center);
@@ -44,10 +51,15 @@
     cursor: pointer;
     @include buttonHover;
   }
+  @include tablet {
+    padding-bottom: 0
+  }
 }
 
 .author-image {
-  margin-top: 48px;
-  margin-left: 131px;
+  margin: 48px 0 20px 131px;
   object-fit: fill;
+  &--mobile {
+    margin: 20px 0;
+  }
 }

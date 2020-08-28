@@ -75,15 +75,16 @@ const Product: React.FC<ProductProps> = ({}) => {
             <ShareSocial link={''} />
             <div className={styles.linksDownload}>
               {/* {previewPages &&
-                previewPages.map(el => (
-                  <button
-                    key={el.sys.id}
-                    className={styles.downloadBtn}
-                    onClick={() => window.open(el.url, '_blank')}
-                  >
-                    {convertToFileType(el.contentType)}
-                  </button>
-                ))} */}
+                previewPages.map(el => ( */}
+              <button
+                // key={el.sys.id}
+                className={styles.downloadBtn}
+                // onClick={() => window.open(el.url, '_blank')}
+              >
+                {/* {convertToFileType(el.contentType)} */}
+                PDF
+              </button>
+              {/* ))} */}
             </div>
           </div>
         </div>

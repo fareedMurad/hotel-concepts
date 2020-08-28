@@ -3,7 +3,7 @@
 .hero-block {
   // grid-template-columns: 1fr;
   // grid-template-rows: 1fr;
-  min-height: calc(100vh - 120px);
+  max-height: calc(100vh - 120px);
   margin: 0 22px;
   gap: 20px;
   @include tablet() {

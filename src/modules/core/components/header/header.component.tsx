@@ -14,6 +14,7 @@ import { Icon } from '../icon';
 import { useMenuData } from './burger-menu/burger-menu.hooks';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
+import { useMediaPoints } from '@core/shared';
 
 /**
  * Renders Header
@@ -22,61 +23,73 @@ const Header: React.FC<HeaderProps> = ({ whiteBackground }) => {
   const { navigation } = useHeaderData();
   const { dispatch } = useDispatch();
   const { pagesLinks } = useMenuData();
+  const { mobile } = useMediaPoints();
 
   return (
     <React.Fragment>
       <div className={styles.header}>
-        <div className={styles.headerMain}>
-          {pagesLinks.map((el, idx) => {
-            return (
-              <NavLink
-                key={idx}
-                className={classNames(styles.headerMainLink, {
-                  [styles.invertedHeader]: whiteBackground
-                })}
-                to={el.path}
-              >
-                {el.name}
-              </NavLink>
-            );
-          })}
-        </div>
-        <div className={styles.headerSecondary}>
-          <div className={styles.logo}>
-            <Icon name={whiteBackground ? 'logo-b' : 'logo'} />
-          </div>
-          <div className={styles.headerSecondaryNavigation}>
-            {navigation.map(el => {
+        {!mobile && (
+          <div className={styles.headerMain}>
+            {pagesLinks.map((el, idx) => {
               return (
+                <NavLink
+                  key={idx}
+                  className={classNames(styles.headerMainLink, {
+                    [styles.invertedHeader]: whiteBackground
+                  })}
+                  to={el.path}
+                >
+                  {el.name}
+                </NavLink>
+              );
+            })}
+          </div>
+        )}
+        <div className={styles.headerSecondary}>
+          <NavLink className={styles.logo} to={'/'}>
+            <Icon name={whiteBackground ? 'logo-b' : 'logo'} />
+          </NavLink>
+          {mobile ? (
+            <div className={styles.mobileMenu}>
+              <Icon name='burger' />
+            </div>
+          ) : (
+            <div className={styles.headerSecondaryNavigation}>
+              {navigation.map(el => {
+                return (
+                  <div
+                    key={el.id}
+                    className={classNames(
+                      styles.headerSecondaryNavigationItem,
+                      {
+                        [styles.invertedHeader]: whiteBackground
+                      }
+                    )}
+                  >
+                    {el.title}{' '}
+                    <Icon
+                      name={whiteBackground ? 'triangle-arr-b' : 'triangle-arr'}
+                    />
+                  </div>
+                );
+              })}
+              <div className={styles.headerSecondaryNavigationProfile}>
+                <Icon
+                  name={whiteBackground ? 'default-avatar-b' : 'default-avatar'}
+                />
                 <div
-                  key={el.id}
-                  className={classNames(styles.headerSecondaryNavigationItem, {
+                  className={classNames(styles.local, {
                     [styles.invertedHeader]: whiteBackground
                   })}
                 >
-                  {el.title}{' '}
+                  Eng{' '}
                   <Icon
                     name={whiteBackground ? 'triangle-arr-b' : 'triangle-arr'}
                   />
                 </div>
-              );
-            })}
-            <div className={styles.headerSecondaryNavigationProfile}>
-              <Icon
-                name={whiteBackground ? 'default-avatar-b' : 'default-avatar'}
-              />
-              <div
-                className={classNames(styles.local, {
-                  [styles.invertedHeader]: whiteBackground
-                })}
-              >
-                Eng{' '}
-                <Icon
-                  name={whiteBackground ? 'triangle-arr-b' : 'triangle-arr'}
-                />
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
       {/* <BurgerMenu

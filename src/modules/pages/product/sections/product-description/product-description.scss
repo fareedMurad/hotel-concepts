@@ -2,7 +2,7 @@
 
 .product-description {
   @include container();
-  @include flex();
+  @include flex($direction: column);
   margin-top: 95px;
   &--additional {
     @include flex();
@@ -18,7 +18,7 @@
   }
 
   &__block {
-    width: 50%;
+    width: 100%;
     &--text {
       margin-top: 47px;
       & > p {
@@ -28,6 +28,12 @@
       & > p:last-child {
         margin-bottom: 24px;
       }
+    }
+  }
+  @include tablet(){
+    @include flex($direction: row)
+    &__block {
+      width:50%;
     }
   }
 }

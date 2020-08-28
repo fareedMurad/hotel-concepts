@@ -109,7 +109,7 @@
 }
 
 .circles-wrapper {
-  @include flex();
+  @include flex($direction: column, $align: center);
   margin-top: 52px;
   &--circle {
     @include flex($align: center, $justify: center);
@@ -121,12 +121,21 @@
     width: 204px;
     height: 204px;
     &:first-child {
-      margin-right: -20px;
+      margin-bottom: -20px;
+      @include tablet() {
+        margin-right: -20px;
+      }
     }
     &:nth-child(2) {
       position: relative;
-      margin-right: -20px;
+      margin-bottom: -20px;
       z-index: 1000;
+      @include tablet() {
+        margin-right: -20px;
+      }
     }
+  }
+  @include tablet() {
+    @include flex($direction: row, $align: flex-start);
   }
 }

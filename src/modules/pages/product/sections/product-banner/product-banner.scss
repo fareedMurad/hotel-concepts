@@ -1,5 +1,73 @@
-@import "core.scss";
+@import 'core.scss';
 
 .product-banner {
-	
+  @include container();
+  @include flex($direction: column);
+  padding-top: 60px;
+  min-height: 465px;
+  background-color: $background;
+  @include tablet() {
+    @include flex($direction: row);
+  }
+}
+
+.product-image {
+  margin-top: 38px;
+  margin-left: 89px;
+}
+.product-description {
+  & > p {
+    margin: 12px 0;
+  }
+  @include tablet() {
+    max-width: 652px;
+    margin-top: 58px;
+    margin-left: 66px;
+  }
+}
+
+.authors {
+  @include font($primary-gray, 18px, 400, 58px);
+  font-family: $EBGaramond;
+
+  & > span {
+    text-decoration: underline;
+  }
+}
+
+.product-card-additional {
+  @include flex();
+
+  & > div {
+    @include flex();
+  }
+  & > div > h1 {
+    @include font($black, 12px, 500, 16px);
+    margin: 0 8px 0 0;
+  }
+  & > div > p {
+    @include font($black, 12px, 400, 16px);
+    margin: 0;
+  }
+  & > div:first-child {
+    margin-right: 70px;
+  }
+}
+
+.price {
+  margin-top: 40px;
+  font-size: 36px;
+  @include desktop() {
+    margin-top: 20px;
+  }
+}
+
+.confirm-button {
+  justify-content: space-between;
+  width: 224px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  @include tablet() {
+    margin-bottom: 0;
+  }
 }

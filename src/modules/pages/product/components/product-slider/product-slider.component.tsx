@@ -105,10 +105,11 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ images }) => {
       <div className={styles.imageWrap}>
         <img
           className={styles.image}
-          src={url}
+          src={
+            'https://images.ctfassets.net/qgx3dmmccd7u/M9DtD304X9Qi36JV8R32B/1635006a72c5ad51d3000fe230a89dbd/book-large.png'
+          }
           alt=''
-          width='244px'
-          height='375px'
+          width=''
         />
         <Button theme='secondary'>Show Content</Button>
       </div>
