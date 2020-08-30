@@ -1,7 +1,7 @@
 @import 'core.scss';
 
 .header-main {
-  @include flex($align: baseline);
+  @include flex($align: baseline, $justify: space-between);
   width: 100%;
   padding: 22px 20px 20px 22px;
   transition: $transition;
@@ -11,6 +11,7 @@
     &-item {
       @include flex($align: center, $justify: center);
       @include font(white, 20px, 500, 24px);
+      position: relative;
       border-bottom: 1px solid white;
       padding-bottom: 4px;
       cursor: pointer;
@@ -34,8 +35,8 @@
         cursor: pointer;
         width: 55px;
         height: 27px;
-        font-family: $IBMPlex;
         padding: 6px 8px;
+        font-family: $IBMPlex;
         border: 1px solid white;
         border-radius: 4px;
         & > div {
