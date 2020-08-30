@@ -11,7 +11,7 @@ import {
   PreCaption,
   RichTextDefault
 } from '@core/components';
-import { Header } from '@core/components/header';
+
 import { useHistory, useParams } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';

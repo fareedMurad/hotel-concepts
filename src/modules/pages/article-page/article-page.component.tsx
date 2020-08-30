@@ -2,7 +2,6 @@ import * as React from 'react';
 import { ArticlePageProps } from './article-page.props';
 import * as styles from './article-page.scss';
 import { useHistory, useParams } from 'react-router';
-import { Header } from '@core/components/header';
 import { H2, Paragraph, Button, Footer, Spinner } from '@core/components';
 import { ScrollToTop } from '@app';
 import { useArticleFirstScreenData } from './hooks/article-first-screen.hook';

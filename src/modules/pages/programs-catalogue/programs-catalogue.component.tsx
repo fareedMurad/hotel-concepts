@@ -4,7 +4,6 @@ import * as styles from './programs-catalogue.scss';
 import { CatalogueHeader } from './sections/catalogue-header';
 import { CatalogueFilters } from './sections/catalogue-filters';
 import { ProgramsContactUs } from './sections/programs-contact-us';
-import { Header } from '@core/components/header';
 import { ProgramItem } from './components';
 import { Footer, Spinner, SectionTitle } from '@core/components';
 import { useParams } from 'react-router';

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ProductProps } from './product.props';
 import * as styles from './product.scss';
-import { Header } from '@core/components/header';
 import { ProductSlider } from '@pages/product/components/product-slider';
 import { ProductCard } from './components';
 import { Footer, H2, Icon, Spinner, Hr } from '@core/components';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FaqProps } from './faq.props';
 import * as styles from './faq.scss';
-import { Header } from '@core/components/header';
+
 import {
   Footer,
   H3,

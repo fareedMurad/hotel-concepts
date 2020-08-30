@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ContributorsProps } from './contributors.props';
 import * as styles from './contributors.scss';
-import { Header } from '@core/components/header';
 import { Button, Footer, HeroTitle, HeroSubtitle } from '@core/components';
 import { ContributorsContainer, BecomeContributing } from './sections';
 import { ScrollButton } from '@core/components/scroll-button';

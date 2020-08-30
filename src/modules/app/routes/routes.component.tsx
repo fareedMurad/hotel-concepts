@@ -13,7 +13,6 @@ import { NotFound } from '@app/components';
 import { TestPage } from 'src/modules/test-page';
 import { lazy } from 'react';
 import { HeaderMain } from '@core/components/header/header-main';
-import { Header } from '@core/components/header';
 import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { StickyContainer, Sticky } from 'react-sticky';
 

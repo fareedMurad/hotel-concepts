@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { PrivacyPolicyProps } from './privacy-policy.props';
 import * as styles from './privacy-policy.scss';
-import { Header } from '@core/components/header';
 import { H2, Paragraph, Footer } from '@core/components';
 import { usePrivacyPolicyData } from './privacy-policy.hook';
 import { useDispatch } from 'react-redux';

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { MarketplaceProps } from './marketplace.props';
 import * as styles from './marketplace.scss';
-import { Header } from '@core/components/header';
 import {
   H1,
   ButtonFilter,

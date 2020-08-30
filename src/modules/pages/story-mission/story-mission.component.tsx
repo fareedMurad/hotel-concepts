@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { StoryMissionProps } from './story-mission.props';
 import * as styles from './story-mission.scss';
-import { Header } from '@core/components/header';
 import {
   Button,
   H2,

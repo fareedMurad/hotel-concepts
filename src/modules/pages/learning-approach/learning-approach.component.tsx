@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as styles from './learning-approach.scss';
-import { Header } from '@core/components/header';
 import { Footer } from '@core/components';
 import {
   WhatWeTeach,

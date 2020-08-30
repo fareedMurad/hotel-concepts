@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ContactsPageProps } from './contacts-page.props';
 import * as styles from './contacts-page.scss';
-import { Header } from '@core/components/header';
 import {
   H2,
   Paragraph,

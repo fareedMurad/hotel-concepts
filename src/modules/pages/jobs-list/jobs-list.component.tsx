@@ -9,7 +9,7 @@ import {
   Paragraph
 } from '@core/components';
 import { Vacancy } from './components';
-import { Header } from '@core/components/header';
+
 import { ScrollToTop } from '@app';
 import {
   useJobsFilterCategories,

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { HomepageProps } from './homepage.props';
 import * as styles from './homepage.scss';
-import { Header } from '@core/components/header';
 import { Footer, Spinner } from '@core/components';
 import { FaqBlock } from '@pages/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';

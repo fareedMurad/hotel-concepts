@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ProgramPageProps } from './program-page.props';
 import * as styles from './program-page.scss';
-import { Header } from '@core/components/header';
 import { Footer } from '@core/components';
 import { ScrollToTop } from '@app';
 import {
