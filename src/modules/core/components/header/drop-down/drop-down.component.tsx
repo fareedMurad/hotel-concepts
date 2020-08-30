@@ -6,13 +6,7 @@ import * as styles from './drop-down.scss';
  * Renders DropDown
  */
 const DropDown: React.FC<DropDownProps> = ({}) => {
-  return (
-    <div className={styles.dropDown}>
-      {/* content */}
-      {/* content */}
-      {/* content */}
-    </div>
-  );
+  return <div className={styles.dropDown}></div>;
 };
 
 export { DropDown };
