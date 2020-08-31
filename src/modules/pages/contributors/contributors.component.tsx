@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { ContributorsProps } from './contributors.props';
 import * as styles from './contributors.scss';
-import { Button, Footer, HeroTitle, HeroSubtitle } from '@core/components';
+import { Button, HeroTitle, HeroSubtitle } from '@core/components';
 import { ContributorsContainer, BecomeContributing } from './sections';
 import { ScrollButton } from '@core/components/scroll-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useContributorsData } from './contributor.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Contributors
@@ -13,6 +14,7 @@ import { useContributorsData } from './contributor.hook';
 
 const Contributors: React.FC<ContributorsProps> = ({}) => {
   const ScrollToEnroll = () => scrollTo('become-contributor');
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,28 +32,25 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
           className={styles.headerImg}
         >
           <div className={styles.headerContent}>
-            <HeroTitle>
-              Programs <br /> Mentors & Co-authors
-            </HeroTitle>
-            <HeroSubtitle>
-              Our faculty members are internationally recognised <br />{' '}
-              hospitality leaders whom we are proud to work with.
-            </HeroSubtitle>
+            <HeroTitle>{t('contributors.hero.title')}</HeroTitle>
+            <HeroSubtitle>{t('contributors.hero.sub-title')}</HeroSubtitle>
             <Button
               className={styles.headerBtn}
               onClick={ScrollToEnroll}
-              children='Contact us'
+              children={t('contributors.hero.button-text')}
               arrow='&#8594;'
               width={230}
             />
           </div>
-          <ScrollButton text='Scroll' className={styles.headerScroll} />
+          <ScrollButton
+            text={t('contributors.hero.scroll')}
+            className={styles.headerScroll}
+          />
         </div>
       </header>
       <main>
         <ContributorsContainer />
         <BecomeContributing />
-        {/* <Footer /> */}
       </main>
     </div>
   );

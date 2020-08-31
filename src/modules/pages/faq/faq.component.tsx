@@ -13,64 +13,79 @@ import {
 } from '@core/components';
 import { Formik } from 'formik';
 import { FaqBlock } from '@pages/components';
+import { useDispatch } from 'react-redux';
+import { isBackgroundWhite } from '@core/components/header/store';
+import { useTranslation } from 'react-i18next';
 /**
  * Renders Faq
  */
-const Faq: React.FC<FaqProps> = ({}) => (
-  <div className={styles.faq}>
-    <div className={styles.container}>
-      <SectionTitle>
-        Relax because we always <br /> be here for you.
-      </SectionTitle>
-    </div>
-    <FaqBlock className={styles.faqWrapper} showTitle={false} />
-    <footer className={styles.footer}>
-      <div className={styles.footerContent}>
-        <div>
-          <PreCaption>
-            Don't like forms? Send us an{' '}
-            <span style={{ textDecoration: 'underline' }}>email</span>
-          </PreCaption>
-        </div>
-        <div>
-          <H3 className={styles.h3}>Let's talk about everything.</H3>
-        </div>
-        <div className={styles.form}>
-          <Formik
-            initialValues={{ name: '', email: '', comment: '' }}
-            onSubmit={values => console.log(values)}
-          >
-            {({ handleSubmit }) => (
-              <Form>
-                <div className={styles.formInputs}>
-                  <Field.Text name='name' label='Name' />
-                  <Field.Text name='email' type='email' label='E-mail' />
-                </div>
-                <div className={styles.textAreaWrapper}>
-                  <div>Comment</div>
-                  <textarea name='comment' className={styles.textArea} />
-                </div>
-
-                <div className={styles.submitForm}>
-                  <Field.Checkbox
-                    name='accept'
-                    label='Accept terms & Conditions'
-                  />
-                  <Button
-                    onClick={() => handleSubmit()}
-                    className={styles.submitButton}
-                    children='Send'
-                    arrow='&#8594;'
-                  />
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
+const Faq: React.FC<FaqProps> = ({}) => {
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
+  return (
+    <div className={styles.faq}>
+      <div className={styles.container}>
+        <SectionTitle>{t('faq.title')}</SectionTitle>
       </div>
-    </footer>
-    {/* <Footer /> */}
-  </div>
-);
+      <FaqBlock className={styles.faqWrapper} showTitle={false} />
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <div>
+            <PreCaption>
+              {t('faq.form.question')}{' '}
+              <span style={{ textDecoration: 'underline' }}>email</span>
+            </PreCaption>
+          </div>
+          <div>
+            <H3 className={styles.h3}>{t('faq.form.title')}</H3>
+          </div>
+          <div className={styles.form}>
+            <Formik
+              initialValues={{ name: '', email: '', comment: '' }}
+              onSubmit={values => console.log(values)}
+            >
+              {({ handleSubmit }) => (
+                <Form>
+                  <div className={styles.formInputs}>
+                    <Field.Text name='name' label={t('faq.form.lable.name')} />
+                    <Field.Text
+                      name='email'
+                      type='email'
+                      label={t('faq.form.lable.email')}
+                    />
+                  </div>
+                  <div className={styles.textAreaWrapper}>
+                    <div>{t('faq.form.lable.comment')}</div>
+                    <textarea name='comment' className={styles.textArea} />
+                  </div>
+
+                  <div className={styles.submitForm}>
+                    <Field.Checkbox
+                      name='accept'
+                      label={t('faq.form.lable.accept-terms')}
+                    />
+                    <Button
+                      onClick={() => handleSubmit()}
+                      className={styles.submitButton}
+                      children={t('faq.form.lable.button-text')}
+                      arrow='&#8594;'
+                    />
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        </div>
+      </footer>
+      {/* <Footer /> */}
+    </div>
+  );
+};
 
 export { Faq };

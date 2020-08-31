@@ -21,6 +21,9 @@
     & > div:nth-child(2) {
       margin: 24px 0px;
     }
+    @include desktop() {
+      width: 80%;
+    }
   }
   &-btn {
     margin-top: 24px;
@@ -34,5 +37,4 @@
       left: 134px;
     }
   }
-
 }

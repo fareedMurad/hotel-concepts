@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import axios from 'axios';
 import { contributorsApplyValidationSchema } from '@pages/contributors/models';
 import { enviroment } from 'src/environment';
+import { useTranslation } from 'react-i18next';
 
 /**
  * default values
@@ -23,6 +24,7 @@ const defaultValues = {
 const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
   const [message, setMessage] = React.useState('');
   const [sent, setSent] = React.useState(false);
+  const { t } = useTranslation();
 
   const sendContributorApplyEmail = async (formData, message) => {
     await axios(`${enviroment.apiUrl}/apply-contributor-email`, {
@@ -44,16 +46,12 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
     <div className={styles.becomeContributing}>
       <div className={styles.wrapper}>
         <div id='become-contributor' />
-        <SectionTitle>Become a contributing expert</SectionTitle>
+        <SectionTitle>{t('contributors.form.title')}</SectionTitle>
         <Paragraph className={styles.paragraph}>
-          Interested in contributing to providing top class <br /> hospitality
-          online education?
+          {t('contributors.form.description-one')}
         </Paragraph>
-        <Paragraph>
-          Explore here to learn how you could be a part of it <br />
-          through sharing your expertise.
-        </Paragraph>
-        <div className={styles.rule}>Fields marked * are required.</div>
+        <Paragraph>{t('contributors.form.description-two')}</Paragraph>
+        <div className={styles.rule}>{t('contributors.form.rule')}</div>
         <Formik
           initialValues={defaultValues}
           onSubmit={values => {
@@ -67,13 +65,13 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
               <div className={styles.formGroup}>
                 <Field.Text
                   name='name'
-                  label='Name*'
+                  label={t('contributors.form.lable.name')}
                   className={styles.formInput}
                   placeholder='John'
                 />
                 <Field.Text
                   name='specialization'
-                  label='Specialization*'
+                  label={t('contributors.form.lable.specialization')}
                   className={styles.formInput}
                   placeholder='Marketing'
                 />
@@ -81,19 +79,21 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
               <div className={styles.formGroup}>
                 <Field.Text
                   name='linkedIn'
-                  label='LinkedIn profile*'
+                  label={t('contributors.form.lable.linkedin')}
                   className={styles.formInput}
                   placeholder='linkedin.com/in/username'
                 />
                 <Field.Text
                   name='email'
-                  label='Contact e-mail*'
+                  label={t('contributors.form.lable.email')}
                   className={styles.formInput}
                   placeholder='example@gmail.com'
                 />
               </div>
 
-              <div style={{ marginTop: 14 }}>Message</div>
+              <div style={{ marginTop: 14 }}>
+                {t('contributors.form.lable.message')}
+              </div>
               <textarea
                 value={message}
                 className={styles.textArea}
@@ -103,11 +103,11 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                 onClick={() => handleSubmit()}
                 className={styles.buttonSubmit}
                 type='submit'
-                children='Send Request'
+                children={t('contributors.form.lable.button-text')}
                 arrow='&#8594;'
                 width={230}
               />
-              {sent && <div>Your apply successfuly sent</div>}
+              {sent && <div>{t('contributors.form.send-successful')}</div>}
             </Form>
           )}
         </Formik>

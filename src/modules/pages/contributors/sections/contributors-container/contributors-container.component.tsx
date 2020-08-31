@@ -14,6 +14,7 @@ import { Spinner } from '@core/components/spinner';
 import { State } from '@app/store/state';
 import { Pagination } from '@core/components/pagination';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { useTranslation } from 'react-i18next';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -44,6 +45,7 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   const [contributors, setContributors] = React.useState([]);
   const { mobile } = useMediaPoints();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -69,24 +71,28 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
     <React.Fragment>
       <div className={styles.contributorsContainer}>
         <div className={styles.heading}>
-          <PreCaption>Contributors</PreCaption>
+          <PreCaption>
+            {t('contributors.contributors-container.pre-caption')}
+          </PreCaption>
           <SectionTitle className={styles.headingTitle}>
-            Meet the experts
+            {t('contributors.contributors-container.title')}
           </SectionTitle>
           <Paragraph className={styles.headingParagraph}>
-            Cordie participants can benefit from a wide spectrum of experts with
-            diverse backgrounds. <br /> Our expert team are knowledge creators
-            and industry leaders at the cutting edge of their fields.
+            {t('contributors.contributors-container.description')}
           </Paragraph>
           <Hr className={styles.headingHr} />
           <div className={styles.headingStatistic}>
             <div>
               <H2>{contributors.length}+</H2>
-              <div className={styles.headingCaption}>Teaching Experts</div>
+              <div className={styles.headingCaption}>
+                {t('contributors.contributors-container.experts')}
+              </div>
             </div>
             <div>
               <H2>25+</H2>
-              <div className={styles.headingCaption}>Nationalities</div>
+              <div className={styles.headingCaption}>
+                {t('contributors.contributors-container.nationalities')}
+              </div>
             </div>
           </div>
         </div>

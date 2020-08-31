@@ -67,5 +67,49 @@
       "title": "Join our social media.",
       "description": " Be the first to read useful articles and get information about latest promotions!"
     }
+  },
+  "faq": {
+    "title": "Relax because we always be here for you.",
+    "form": {
+      "question": "Don't like forms? Send us an",
+      "title": "Let's talk about everything.",
+      "lable": {
+        "name": "Name",
+        "email": "E-mail",
+        "comment": "Comment",
+        "accept-terms": "Accept terms & Conditions",
+        "button-text": "Send"
+      }
+    }
+  },
+  "contributors": {
+    "hero": {
+      "title": "Programs Mentors & Co-authors",
+      "sub-title": "Our faculty members are internationally recognised hospitality leaders whom we are proud to work with.",
+      "button-text": "Contact us",
+      "scroll": "Scroll"
+    },
+    "contributors-container": {
+      "pre-caption": "Contributors",
+      "title": "Meet the experts",
+      "description": "Cordie participants can benefit from a wide spectrum of experts with diverse backgrounds. Our expert team are knowledge creators and industry leaders at the cutting edge of their fields.",
+      "experts": "Teaching Experts",
+      "nationalities": "Nationalities"
+    },
+    "form": {
+      "title": "Become a contributing expert",
+      "description-one": "Interested in contributing to providing top class hospitality online education?",
+      "description-two": "Explore here to learn how you could be a part of it through sharing your expertise.",
+      "rule": "Fields marked * are required.",
+      "lable": {
+        "name": "Name*",
+        "specialization": "Specialization*",
+        "linkedin": "LinkedIn profile*",
+        "email": "contact e-mail*",
+        "message": "Message",
+        "button-text": "Sentd Request"
+      },
+      "sent-successful": "Your apply successfuly sent"
+    }
   }
 }
