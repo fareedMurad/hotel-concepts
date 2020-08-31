@@ -124,5 +124,43 @@
       },
       "sent-successful": "Your apply successfuly sent"
     }
+  },
+  "contacts": {
+    "pre-caption": "We're here to help!",
+    "title": "Contact Us",
+    "cards": {
+      "card-one": {
+        "title": "FAQ",
+        "description": "For quick answers to common questions, try our FAQ"
+      },
+      "card-two": {
+        "title": "Feedback",
+        "description": "If you need help using Kordie just press the “support” button at the bottom right of every course page."
+      },
+      "card-three": {
+        "title": "Media Enquiries",
+        "description": "Please send an email to:"
+      },
+      "card-four": {
+        "title": "Community Manager",
+        "description": "For quick answers to common questions, try our FAQ"
+      }
+    },
+    "form": {
+      "pre-caption": "Still seeking your answer?",
+      "title": "Let us help you directly",
+      "description": "Please complete the form below with details of your request. We’ll get back to you by email, so make sure you include the right email address.",
+      "sub-title": "What is your question about?",
+      "lable": {
+        "email": "E-mail",
+        "name": "Name",
+        "surname": "Surname",
+        "comment": "Comment"
+      },
+      "button-text": "Send",
+      "terms-one": " Kordie takes your privacy very seriously. We may process your personal information for carefully considered and specific purposes which are in our interests and enable us to enhance the services we provide, but which we believe also benefit our customers. View our",
+      "p-p": "Privacy Policy",
+      "terms-two": "  to learn more about these interests and when we may process your information in this way."
+    }
   }
 }

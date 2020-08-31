@@ -18,6 +18,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
+import { useTranslation } from 'react-i18next';
 
 const Card = ({ title, description, href, link }) => {
   return (
@@ -46,6 +47,7 @@ const defaultValues = {
  */
 const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { cardsData, contactsFooterImage } = useContactsPageData();
   const types = [
     { label: '1', value: '1' },
@@ -67,8 +69,8 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   return (
     <div className={styles.contactsPage}>
       <div className={styles.container}>
-        <PreCaption>We're here to help!</PreCaption>
-        <SectionTitle>Contact Us</SectionTitle>
+        <PreCaption>{t('contacts.pre-caption')}</PreCaption>
+        <SectionTitle>{t('contacts.title')}</SectionTitle>
       </div>
       <section className={styles.cardsList}>
         {cardsData.map(({ id, title, description, href, link }) => (
@@ -84,16 +86,14 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
       <footer className={styles.footer}>
         <div className={styles.footerForm}>
           <PreCaption className={styles.preCaption}>
-            Still seeking your answer?
+            {t('contacts.form.pre-caption')}
           </PreCaption>
-          <SectionTitle>Let us help you directly</SectionTitle>
+          <SectionTitle>{t('contacts.form.title')}</SectionTitle>
           <Paragraph className={styles.footerFormParagraph}>
-            Please complete the form below with details of your request. We’ll
-            get back to you by email, so make sure you include the right email
-            address.
+            {t('contacts.form.description')}
           </Paragraph>
           <div className={styles.footerFormCaption}>
-            What is your question about?
+            {t('contacts.form.sub-title')}
           </div>
           <main>
             <Formik
@@ -113,7 +113,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                     <Field.Text
                       name='email'
                       type='email'
-                      label='E-mail'
+                      label={t('contacts.form.lable.email')}
                       className={styles.inputEmail}
                       placeholder='example@gmail.com'
                     />
@@ -128,24 +128,24 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                     />
                     <Field.Text
                       name='name'
-                      label='Name'
+                      label={t('contacts.form.lable.name')}
                       className={styles.inputName}
                       placeholder='John'
                     />
                     <Field.Text
                       name='surname'
-                      label='Surname'
+                      label={t('contacts.form.lable.surname')}
                       className={styles.inputSurname}
                       placeholder='Doe'
                     />
                   </div>
                   <div className={styles.textAreaWrapper}>
-                    <div>Comment</div>
+                    <div>{t('contacts.form.lable.comment')}</div>
                     <textarea name='comment' className={styles.textArea} />
                   </div>
                   <Button
                     className={styles.buttonSend}
-                    children='Send'
+                    children={t('contacts.form.button-text')}
                     arrow='&#8594;'
                     width={204}
                   />
@@ -153,11 +153,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
               )}
             </Formik>
             <Paragraph className={styles.footerCaption}>
-              Kordie takes your privacy very seriously. We may process your
-              personal information for carefully considered and specific
-              purposes which are in our interests and enable us to enhance the
-              services we provide, but which we believe also benefit our
-              customers. View our{' '}
+              {t('contacts.form.terms-one')}{' '}
               <Link
                 to='/privacy-policy'
                 style={{
@@ -166,10 +162,9 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                   fontWeight: 500
                 }}
               >
-                Privacy Policy
+                {t('contacts.form.p-p')}
               </Link>{' '}
-              to learn more about these interests and when we may process your
-              information in this way.
+              {t('contacts.form.terms-two')}
             </Paragraph>
           </main>
         </div>

@@ -1,33 +1,34 @@
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const useContactsPageData = () => {
+  const { t } = useTranslation();
   const cardsData = [
     {
       id: 1,
-      title: 'FAQ',
-      description: 'For quick answers to common questions, try our FAQ',
+      title: t('contacts.cards.card-one.title'),
+      description: t('contacts.cards.card-one.description'),
       href: '/help-center',
       link: 'Help Center'
     },
     {
       id: 2,
-      title: 'Feedback',
-      description:
-        'If you need help using Kordie just press the “support” button at the bottom right of every course page. ',
+      title: t('contacts.cards.card-two.title'),
+      description: t('contacts.cards.card-two.description'),
       href: 'mailto:support@cordie.co',
       link: 'support@cordie.co'
     },
     {
       id: 3,
-      title: 'Media Enquiries',
-      description: 'Please send an email to:',
+      title: t('contacts.cards.card-three.title'),
+      description: t('contacts.cards.card-three.description'),
       href: 'mailto:support@cordie.co',
       link: 'support@cordie.co'
     },
     {
       id: 4,
-      title: 'Community Manager',
-      description: 'For quick answers to common questions, try our FAQ',
+      title: t('contacts.cards.card-four.title'),
+      description: t('contacts.cards.card-four.description'),
       href: 'mailto:support@cordie.co',
       link: 'support@cordie.co'
     }
