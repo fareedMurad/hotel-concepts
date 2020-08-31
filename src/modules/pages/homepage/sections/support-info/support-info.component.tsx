@@ -3,26 +3,23 @@ import { SupportInfoProps } from './support-info.props';
 import * as styles from './support-info.scss';
 import { useSupportInfoData } from './support-info.hook';
 import { SectionTitle, Hr } from '@core/components';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders SupportInfo
  */
 const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
   const { data } = useSupportInfoData();
+  const { t } = useTranslation();
 
   return (
     <section className={styles.supportInfo}>
       <div className={styles.titleWrapper}>
         <div className={styles.title}>
-          <SectionTitle>
-            We support <br /> the future generation <br /> of hospitality
-            industry
-          </SectionTitle>
+          <SectionTitle>{t('home.support-info.title')}</SectionTitle>
           <Hr className={styles.hr} />
           <div className={styles.subtitle}>
-            While there is much talk of machines replacing people in the
-            workplace, at Cordie we believe that the centrality of technology
-            makes human development all the more crucial.
+            {t('home.support-info.sub-title')}
           </div>
         </div>
       </div>

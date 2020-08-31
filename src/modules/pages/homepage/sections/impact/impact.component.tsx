@@ -8,6 +8,7 @@ import { OpinionItem } from '@pages/homepage/components/opinion-item';
 import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components/spinner';
 import { PreCaption, SectionTitle } from '@core/components';
+import { useTranslation } from 'react-i18next';
 
 const responsiveBreakpoints = {
   desktop: {
@@ -31,13 +32,16 @@ const responsiveBreakpoints = {
  * Renders Impact
  */
 const Impact: React.FC<ImpactProps> = ({ testimonials, loading }) => {
+  const { t } = useTranslation();
   if (loading) return <Spinner />;
 
   return (
     <section className={styles.impact}>
       <div className={styles.title}>
-        <PreCaption className={styles.preCaption}>Opinions</PreCaption>
-        <SectionTitle>Cordie Impact</SectionTitle>
+        <PreCaption className={styles.preCaption}>
+          {t('home.impact.pre-caption')}
+        </PreCaption>
+        <SectionTitle>{t('home.impact.title')}</SectionTitle>
       </div>
       <Slider
         containerClass={styles.slider}

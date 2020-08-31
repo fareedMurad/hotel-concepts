@@ -1,5 +1,61 @@
 {
-  "header": {
-    "header-secondary": ""
+  "home": {
+    "hero": {
+      "hero-title": "Cutting edge online education for hospitality",
+      "hero-subtitle": "Bridging the skills gap for hotel managers",
+      "button-text": "Find the program",
+      "video": "Watch Trailer",
+      "scroll": "Scroll"
+    },
+    "support-info": {
+      "title": "We support  the future generation  of hospitality industry",
+      "sub-title": "While there is much talk of machines replacing people in the workplace, at Cordie we believe that the centrality of technology makes human development all the more crucial."
+    },
+    "online-courses": {
+      "title": "Online courses for you",
+      "sub-title": "Contextualised and personalised hospitality learning at your fingertips.",
+      "no-corses-caprion": "We haven't added courses to this category yet. Please come back later!",
+      "footer-title": "Can’t you find course for you in this category?",
+      "button-text": "See more corses"
+    },
+    "about": {
+      "pre-caption": "Online Learning",
+      "title": "What’s unique about Cordie?",
+      "sub-title": "We have the critical factors to deliver real results.",
+      "card-one": {
+        "title": "Get real much-needed skills",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-two": {
+        "title": "Personalised coaching",
+        "description": "Personalised coaching at each step, live open sessions with your professors and the help you need 24/7"
+      },
+      "card-three": {
+        "title": "Case-based",
+        "description": "Immerse yourself in real-world learning. Lessons are brought to life through cases, which put you in the shoes of business leaders. Hear firsthand the challenges they faced, and wrestle with the same issues and imperfect information."
+      }
+    },
+    "training-info": {
+      "pre-caption": "Systematic Approach",
+      "title": "Online Executive Training",
+      "description": "Cordie online courses are nothing like a typicalsit-back-and-listen lecture. You’ll engage in a new activity every three to five minutes. Each element is designed to keep you interested & involved.",
+      "button-text": "Learn more",
+      "training-data": {
+        "title-one": "Practical Assignments",
+        "title-two": "Coaching sessions",
+        "title-three": "Mentorship",
+        "title-four": "Q&A sessions",
+        "title-five": "Video lectures",
+        "title-six": "Tests & Quizzes"
+      }
+    },
+    "impact": {
+      "pre-caption": "Options",
+      "title": "Cordie Impact"
+    },
+    "mentors": {
+      "title": "Meet mentors & Coauthors",
+      "description": "World-class faculty introduce you to the very latest in hospitality business knowledge and provide you with the tools and skills to overcome challenges and find solutions."
+    }
   }
 }

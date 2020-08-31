@@ -7,12 +7,14 @@ import { Spinner } from '@core/components/spinner';
 import { navigate } from '@router/store';
 import { useDispatch } from 'react-redux';
 import { useProgramsFiltersData, useProgramsData } from './hooks';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = React.useState({
     name: '',
     description: '',
@@ -46,10 +48,9 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
     <React.Suspense fallback={<Spinner />}>
       <section className={styles.onlineCourses}>
         <div className={styles.title} id='online-courses'>
-          <SectionTitle>Online courses for you</SectionTitle>
+          <SectionTitle>{t('home.online-courses.title')}</SectionTitle>
           <div className={styles.subtitle}>
-            Contextualised and personalised hospitality learning at your
-            fingertips.
+            {t('home.online-courses.sub-title')}
           </div>
         </div>
         <div className={styles.content}>
@@ -80,10 +81,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
           <div className={styles.info}>{selectedCategory.description}</div>
 
           {selectedCategory.linkedFrom.onlineCourseCollection.total === 0 ? (
-            <div>
-              We haven't added courses to this category yet. Please come back
-              later!
-            </div>
+            <div>{t('home.online-courses.no-corses-caprion')}</div>
           ) : (
             <React.Fragment>
               {programsLoading ? (
@@ -99,7 +97,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
               )}
               <div className={styles.footer}>
                 <div className={styles.footerTitle}>
-                  Can’t you find course for you in this category?
+                  {t('home.online-courses.footer-title')}
                 </div>
                 <Button
                   onClick={() =>
@@ -108,7 +106,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                     )
                   }
                   className={styles.button}
-                  children='See more courses'
+                  children={t('home.online-courses.button-text')}
                   arrow='&#8594;'
                 />
               </div>

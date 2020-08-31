@@ -1,13 +1,16 @@
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const useTrainingInfoData = () => {
+  const { t } = useTranslation();
+
   const trainingData = [
-    'Practical Assignments ',
-    'Coaching sessions',
-    'Mentorship',
-    'Q&A sessions',
-    'Video lectures',
-    'Tests & Quizzes'
+    t('home.training-info.training-data.title-one'),
+    t('home.training-info.training-data.title-two'),
+    t('home.training-info.training-data.title-three'),
+    t('home.training-info.training-data.title-four'),
+    t('home.training-info.training-data.title-five'),
+    t('home.training-info.training-data.title-six')
   ];
 
   const GET_HERO_IMAGE = gql`

@@ -15,6 +15,7 @@ import { Spinner } from '@core/components/spinner';
 import { State } from '@app/store/state';
 import { SectionTitle, Hr, PreCaption } from '@core/components';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -51,6 +52,7 @@ const Mentors: React.FC<MentorsProps> = ({
   const history = useHistory();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleClick = () => history.push(`/contributors`);
 
@@ -76,7 +78,7 @@ const Mentors: React.FC<MentorsProps> = ({
                 Meet the faculty
               </PreCaption>
             )}
-            Meet mentors & Coauthors
+            {t('home.mentors.title')}
           </SectionTitle>
           <Hr className={styles.hr} />
           <div>

@@ -5,31 +5,27 @@ import { useTrainingInfoData } from './training-info.hook';
 import { Button, PreCaption, SectionTitle } from '@core/components';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders TrainingInfo
  */
 const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
   const { trainingData, trainingInfoImage } = useTrainingInfoData();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   return (
     <section className={styles.trainingInfo}>
       <div className={styles.container}>
         <div className={styles.titleWrapper}>
           <div className={styles.title}>
-            <PreCaption>Systematic Approach</PreCaption>
-            <SectionTitle>Online Executive Training</SectionTitle>
-            <div>
-              Cordie online courses are nothing like a typical
-              sit-back-and-listen lecture.
-              <br /> You’ll engage in a new activity every three to five
-              minutes. Each element is designed to keep you interested &
-              involved.
-            </div>
+            <PreCaption>{t('home.training-info.pre-caption')}</PreCaption>
+            <SectionTitle>{t('home.training-info.title')}</SectionTitle>
+            <div>{t('home.training-info.description')}</div>
           </div>
           <Button
             className={styles.button}
-            children='Learn more'
+            children={t('home.training-info.button-text')}
             arrow='&#8594;'
             width={224}
             onClick={() => dispatch(navigate('/learning-approach'))}

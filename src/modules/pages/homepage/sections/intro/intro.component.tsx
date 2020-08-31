@@ -9,6 +9,7 @@ import { Button, HeroTitle, HeroSubtitle } from '@core/components';
 import { useHistory } from 'react-router';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 /**
  *  preview video query
@@ -37,6 +38,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const [video, setVideo] = React.useState<HTMLVideoElement>();
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
   const { data, loading, error } = useQuery(GET_PREVIEW_VIDEO);
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     if (videoRef.current) {
@@ -78,17 +80,14 @@ const Intro: React.FC<IntroProps> = ({}) => {
       className={styles.intro}
       style={{ backgroundImage: `url(${data?.asset?.url})` }}
     >
-      <HeroTitle>
-        Cutting edge online
-        <br /> education for hospitality
-      </HeroTitle>
+      <HeroTitle>{t('home.hero.hero-title')}</HeroTitle>
       <HeroSubtitle className={styles.subtitle}>
-        Bridging the skills gap for hotel managers
+        {t('home.hero.hero-subtitle')}
       </HeroSubtitle>
       <Button
         className={styles.findButton}
         onClick={scrollToEnroll}
-        children='Find the program'
+        children={t('home.hero.button-text')}
         arrow='→'
         width={230}
       />
@@ -104,7 +103,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
               onEnter={playVideo}
               onLeave={stopVideo}
               time='0:56'
-              titleText='Watch Trailer'
+              titleText={t('home.hero.video')}
             />
           </div>
         }
@@ -121,7 +120,10 @@ const Intro: React.FC<IntroProps> = ({}) => {
 
       <video ref={videoRef} className={styles.video} src={previewVideo} muted />
 
-      <ScrollButton text='Scroll' className={styles.scrollButton} />
+      <ScrollButton
+        text={t('home.hero.scroll')}
+        className={styles.scrollButton}
+      />
     </section>
   );
 };
