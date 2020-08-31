@@ -3,7 +3,11 @@ import { initReactI18next } from 'react-i18next';
 
 const localize = () => {
   i18next.use(initReactI18next).init({
-    resources: {},
+    resources: {
+      en: {
+        translation: require('../languages/en-us.json')
+      }
+    },
     lng: 'en-us',
     fallbackLng: 'en-us',
     interpolation: {

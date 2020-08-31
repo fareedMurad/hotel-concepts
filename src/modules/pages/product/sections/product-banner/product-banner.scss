@@ -12,8 +12,11 @@
 }
 
 .product-image {
-  margin-top: 38px;
-  margin-left: 89px;
+  margin: 0 auto;
+  @include desktop() {
+    margin-top: 38px;
+    margin-left: 89px;
+  }
 }
 .product-description {
   & > p {

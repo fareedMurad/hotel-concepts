@@ -5,10 +5,16 @@
 
 .image-wrap {
   @include flex($justify: center, $align: center, $direction: column);
+
+ 
   & > button {
     margin-top: -20px;
   }
   & > img {
     object-fit: fill;
+    max-width: 320px;
+    @include desktop() {
+      max-width: 100%;
+    }
   }
 }
