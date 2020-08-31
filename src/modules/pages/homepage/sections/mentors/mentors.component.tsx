@@ -81,11 +81,7 @@ const Mentors: React.FC<MentorsProps> = ({
             {t('home.mentors.title')}
           </SectionTitle>
           <Hr className={styles.hr} />
-          <div>
-            World-class faculty introduce you to the very latest in hospitality
-            business knowledge and provide you with the tools and skills to
-            overcome challenges and find solutions.
-          </div>
+          <div>{t('home.mentors.description')}</div>
         </div>
         <Slider
           containerClass={styles.slider}
@@ -97,7 +93,7 @@ const Mentors: React.FC<MentorsProps> = ({
               onClick={handleClick}
               className={styles.controls}
               isBordered
-              btnText='See All Contributors'
+              btnText={t('home.mentors.button-text')}
             />
           }
         >

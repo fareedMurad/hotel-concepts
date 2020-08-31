@@ -2,12 +2,14 @@ import * as React from 'react';
 import { SocialsProps } from './socials.props';
 import * as styles from './socials.scss';
 import { useSocialsData } from './socials.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Socials
  */
 const Socials: React.FC<SocialsProps> = ({}) => {
   const { data } = useSocialsData();
+  const { t } = useTranslation();
 
   return (
     <React.Fragment>
@@ -15,14 +17,9 @@ const Socials: React.FC<SocialsProps> = ({}) => {
         <div className={styles.leftSide} />
         <div className={styles.rightSide}>
           <div className={styles.title}>
-            <div>
-              Join our <br /> social media.
-            </div>
+            <div>{t('home.socials.title')}</div>
             <div />
-            <div>
-              Be the first to read useful articles and get information about
-              latest promotions!
-            </div>
+            <div>{t('home.socials.description')}</div>
           </div>
           <div className={styles.links}>
             {data.map((social, index) => (

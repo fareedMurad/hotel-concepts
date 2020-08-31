@@ -55,7 +55,17 @@
     },
     "mentors": {
       "title": "Meet mentors & Coauthors",
-      "description": "World-class faculty introduce you to the very latest in hospitality business knowledge and provide you with the tools and skills to overcome challenges and find solutions."
+      "description": "World-class faculty introduce you to the very latest in hospitality business knowledge and provide you with the tools and skills to overcome challenges and find solutions.",
+      "button-text": "See All Contributors"
+    },
+    "cordie-insights": {
+      "title": "Cordie Insights",
+      "sub-title": "Make the most of your learning experience",
+      "button-text": "Read All Insights"
+    },
+    "socials": {
+      "title": "Join our social media.",
+      "description": " Be the first to read useful articles and get information about latest promotions!"
     }
   }
 }

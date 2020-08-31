@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 import { Spinner } from '@core/components/spinner';
 import { SectionTitle } from '@core/components';
 import { useInsightsData } from './insights-block.hook';
+import { useTranslation } from 'react-i18next';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -37,6 +38,7 @@ const responsiveBreakpoints = {
 const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
   const history = useHistory();
   const handleClick = () => history.push(`/insights`);
+  const { t } = useTranslation();
 
   const { articles, insightsDataLoading } = useInsightsData();
 
@@ -45,8 +47,8 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
   return (
     <section className={styles.insightsBlock}>
       <div className={styles.title}>
-        <SectionTitle>Cordie Insights</SectionTitle>
-        <div>Make the most of your learning experience</div>
+        <SectionTitle>{t('home.cordie-insights.title')}</SectionTitle>
+        <div>{t('home.cordie-insights.sub-title')}</div>
       </div>
       <Slider
         containerClass={styles.slider}
@@ -60,7 +62,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
             onClick={handleClick}
             className={styles.controls}
             isBordered
-            btnText='Read All Insights'
+            btnText={t('home.cordie-isights.button-text')}
           />
         }
       >
