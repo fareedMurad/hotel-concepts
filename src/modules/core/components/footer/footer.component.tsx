@@ -13,6 +13,7 @@ import axios from 'axios';
 import { enviroment } from 'src/environment';
 
 import * as yup from 'yup';
+import { useTranslation } from 'react-i18next';
 
 /**
  * validation schema
@@ -84,6 +85,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
   const { weprovideLinks, moreLinks, socials } = useFooterData();
   const { data, loading, error } = useQuery(CATEGORIES);
   const [sent, setSent] = React.useState(false);
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     if (!loading) {
@@ -108,19 +110,12 @@ const Footer: React.FC<FooterProps> = ({}) => {
       <div className={styles.content}>
         <section className={styles.subscribe}>
           <div className={styles.title}>
-            <div>
-              Sign up <br />
-              to newsletter
-            </div>
-            <div>
-              Get fresh ideas and opinion from our <br />
-              worldleading hospitality experts
-            </div>
+            <div>{t('footer.form.title')}</div>
+            <div>{t('footer.form.description')}</div>
           </div>
           {sent ? (
             <div className={styles.notificationMessage}>
-              Your subscription request had been sent, please check email to
-              verify your account
+              {t('footer.form.notification-message')}
             </div>
           ) : (
             <Formik
@@ -143,7 +138,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
                       onClick={() => handleSubmit()}
                       className={styles.buttonSubmit}
                       type='submit'
-                      children='Subscribe'
+                      children={t('footer.form.button-text')}
                       arrow='&#8594;'
                       width={176}
                     />
@@ -154,10 +149,16 @@ const Footer: React.FC<FooterProps> = ({}) => {
           )}
         </section>
         <section className={styles.navigation}>
-          <Navigation caption='Explore Programs' navigation={categories} />
-          <Navigation caption='About' navigation={weprovideLinks} />
           <Navigation
-            caption='Support'
+            caption={t('footer.navigation.programs')}
+            navigation={categories}
+          />
+          <Navigation
+            caption={t('footer.navigation.about')}
+            navigation={weprovideLinks}
+          />
+          <Navigation
+            caption={t('footer.navigation.support')}
             navigation={moreLinks}
             socials={socials}
           />
@@ -166,14 +167,14 @@ const Footer: React.FC<FooterProps> = ({}) => {
       <div className={styles.hr} />
       <footer className={styles.copyrights}>
         <div className={styles.copyrightInfo}>
-          © 2020 Kordie. All rights reserved.
+          {t('footer.copyrights.info')}
         </div>
         <div className={styles.copyrightsLinkContainer}>
           <Link to='/privacy-policy' className={styles.policy}>
-            Privacy Policy
+            {t('footer.copyrights.p-p')}
           </Link>
           <Link to='/' className={styles.terms}>
-            Terms and Conditions
+            {t('footer.copyrights.terms')}
           </Link>
         </div>
       </footer>
