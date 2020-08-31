@@ -1,4 +1,17 @@
 {
+  "header": {
+    "header-secondary": {
+      "link-one": "Mentors&Co-authors",
+      "link-two": "Learning Approach",
+      "link-three": "Insights",
+      "link-four": "Contacts"
+    },
+    "header-main": {
+      "link-one": "Programs",
+      "link-two": "Store",
+      "link-three": "About Us"
+    }
+  },
   "home": {
     "hero": {
       "hero-title": "Cutting edge online education for hospitality",

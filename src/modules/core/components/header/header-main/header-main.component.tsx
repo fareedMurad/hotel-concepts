@@ -8,6 +8,7 @@ import { useMediaPoints, useClickOutside } from '@core/shared';
 import { DropDown } from '../drop-down';
 import { useDispatch } from 'react-redux';
 import { ProgramsMenu } from './programs-menu/programs-menu.component';
+import { Spinner } from '@core/components/spinner';
 
 /**
  * Renders HeaderMain

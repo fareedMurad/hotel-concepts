@@ -1,4 +1,6 @@
+import { useTranslation } from 'react-i18next';
 const useMenuData = () => {
+  const { t } = useTranslation();
   const mainLinks = [
     {
       name: 'Home',
@@ -16,19 +18,19 @@ const useMenuData = () => {
 
   const pagesLinks = [
     {
-      name: 'Mentors&Co-authors',
+      name: t('header.header-secondary.link-one'),
       path: '/contributors'
     },
     {
-      name: 'Learning Approach',
+      name: t('header.header-secondary.link-two'),
       path: '/learning-approach'
     },
     {
-      name: 'Insights',
+      name: t('header.header-secondary.link-three'),
       path: '/insights'
     },
     {
-      name: 'Contacts',
+      name: t('header.header-secondary.link-four'),
       path: '/contact-us'
     }
   ];
