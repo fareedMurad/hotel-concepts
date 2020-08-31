@@ -5,12 +5,14 @@ import { H4, H3, Button } from '@core/components';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
 import { useFooterHeroLearningApproachData } from './footer-hero-learning-approach.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders HeroBottom
  */
 const FooterHeroLearningApproach: React.FC<HeroBottomProps> = ({}) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { footerHeroImage } = useFooterHeroLearningApproachData();
 
   return (
@@ -21,15 +23,14 @@ const FooterHeroLearningApproach: React.FC<HeroBottomProps> = ({}) => {
       <div className={styles.overlay}>
         <div className={styles.heroContent}>
           <H3 className={styles.heroContentTitle}>
-            Make the most of your <br /> online learning experience
+            {t('learning-approach.footer-hero.title')}
           </H3>
           <H4 className={styles.heroContentDescription}>
-            Explore the latest business <br />
-            insights and thought leadership <br /> from Kordie
+            {t('learning-approach.footer-hero.description')}
           </H4>
           <Button
             className={styles.heroContentButton}
-            children='Explore our insights'
+            children={t('learning-approach.footer-hero.button-text')}
             arrow='&rarr;'
             onClick={() => dispatch(navigate('/insights'))}
             width={204}

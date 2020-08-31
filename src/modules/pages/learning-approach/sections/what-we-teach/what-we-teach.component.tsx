@@ -4,6 +4,7 @@ import * as styles from './what-we-teach.scss';
 import { useWhatWeTeachData } from './what-we-teach.hook';
 import { Button, H2, Spinner } from '@core/components';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Card = ({ card, rate }) => {
   const {
@@ -32,6 +33,7 @@ const Card = ({ card, rate }) => {
  * Renders WhatWeTeach
  */
 const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
+  const { t } = useTranslation();
   const {
     filtersCategoriesData,
     filtersCategoriesLoading
@@ -41,7 +43,9 @@ const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
 
   return (
     <div className={styles.whatWeTeach}>
-      <H2 className={styles.caption}>What do we teach</H2>
+      <H2 className={styles.caption}>
+        {t('learning-approach.what-we-teach.title')}
+      </H2>
       <main className={styles.cardContainer}>
         {filtersCategoriesData.map((card, index) => (
           <Card card={card} key={index} rate={index} />

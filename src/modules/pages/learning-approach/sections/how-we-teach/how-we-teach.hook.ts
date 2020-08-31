@@ -1,60 +1,42 @@
+import { useTranslation } from 'react-i18next';
+
 const useHowWeTeachData = () => {
+  const { t } = useTranslation();
   const data = [
     {
       id: 1,
-      title: 'Test & Quizzes ',
-      description: `Our quality curriculum is designed with top-tier 
-    industry partners, not academics, so you learn 
-    the high impact skills that are needed in today’s 
-    hospitality ecosystem.`
+      title: t('learning-approach.cards.card-one.title'),
+      description: t('learning-approach.cards.card-one.description')
     },
     {
       id: 2,
-      title: 'Literature',
-      description: `Our quality curriculum is designed with top-tier 
-      industry partners, not academics, so you learn 
-      the high impact skills that are needed in today’s 
-      hospitality ecosystem.`
+      title: t('learning-approach.cards.card-two.title'),
+      description: t('learning-approach.cards.card-two.description')
     },
     {
       id: 3,
-      title: 'Practical Assignments',
-      description: `Our quality curriculum is designed with top-tier 
-      industry partners, not academics, so you learn 
-      the high impact skills that are needed in today’s 
-      hospitality ecosystem.`
+      title: t('learning-approach.cards.card-three.title'),
+      description: t('learning-approach.cards.card-three.description')
     },
     {
       id: 4,
-      title: 'Video Materials',
-      description: `Our quality curriculum is designed with top-tier 
-      industry partners, not academics, so you learn 
-      the high impact skills that are needed in today’s 
-      hospitality ecosystem.`
+      title: t('learning-approach.cards.card-four.title'),
+      description: t('learning-approach.cards.card-four.description')
     },
     {
       id: 5,
-      title: 'Case Studies',
-      description: `Our quality curriculum is designed with top-tier 
-      industry partners, not academics, so you learn 
-      the high impact skills that are needed in today’s 
-      hospitality ecosystem.`
+      title: t('learning-approach.cards.card-five.title'),
+      description: t('learning-approach.cards.card-five.description')
     },
     {
       id: 6,
-      title: 'Q&A',
-      description: `Our quality curriculum is designed with top-tier 
-      industry partners, not academics, so you learn 
-      the high impact skills that are needed in today’s 
-      hospitality ecosystem.`
+      title: t('learning-approach.cards.card-six.title'),
+      description: t('learning-approach.cards.card-six.description')
     },
     {
       id: 7,
-      title: 'Access to coaching sessions',
-      description: `Our quality curriculum is designed with top-tier 
-      industry partners, not academics, so you learn 
-      the high impact skills that are needed in today’s 
-      hospitality ecosystem.`
+      title: t('learning-approach.cards.card-seven.title'),
+      description: t('learning-approach.cards.card-seven.description')
     }
   ];
   return { data };

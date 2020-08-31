@@ -1,52 +1,79 @@
+import { useTranslation } from 'react-i18next';
+
 const useExperiencesAssignmentData = () => {
+  const { t } = useTranslation();
   const data = [
     {
       id: 1,
-      title: 'Experienced assignment reviewers',
+      title: t('learning-approach.experiancess-assignment.slides.slide1.title'),
       list: [
-        { id: 1, caption: 'Personalised feedback' },
+        {
+          id: 1,
+          caption: t(
+            'learning-approach.experiancess-assignment.slides.slide1.list.caption1'
+          )
+        },
         {
           id: 2,
-          caption: `Practical tips and industry best 
-        practices`
+          caption: t(
+            'learning-approach.experiancess-assignment.slides.slide1.list.caption2'
+          )
         },
         {
           id: 3,
-          caption: `Additional suggested resources 
-        to improve`
+          caption: t(
+            'learning-approach.experiancess-assignment.slides.slide1.list.caption3'
+          )
         }
       ]
     },
     {
       id: 2,
-      title: 'Experienced assignment',
+      title: t('learning-approach.experiancess-assignment.slides.slide2.title'),
       list: [
-        { id: 1, caption: 'Personalised' },
+        {
+          id: 1,
+          caption: t(
+            t(
+              'learning-approach.experiancess-assignment.slides.slide2.list.caption1'
+            )
+          )
+        },
         {
           id: 2,
-          caption: `Practical tips and industry best 
-        `
+          caption: t(
+            'learning-approach.experiancess-assignment.slides.slide2.list.caption2'
+          )
         },
         {
           id: 3,
-          caption: `Additional suggested resources 
-        to improve`
+          caption: t(
+            'learning-approach.experiancess-assignment.slides.slide2.list.caption3'
+          )
         }
       ]
     },
     {
       id: 3,
-      title: 'Experienced',
+      title: t('learning-approach.experiancess-assignment.slides.slide3.title'),
       list: [
-        { id: 1, caption: 'Personalised feedback' },
+        {
+          id: 1,
+          caption: t(
+            'learning-approach.experiancess-assignment.slides.slide3.list.caption1'
+          )
+        },
         {
           id: 2,
-          caption: `Practical tips`
+          caption: t(
+            'learning-approach.experiancess-assignment.slides.slide3.list.caption2'
+          )
         },
         {
           id: 3,
-          caption: `Additional suggested resources 
-        to improve`
+          caption: t(
+            'learning-approach.experiancess-assignment.slides.slide3.list.caption3'
+          )
         }
       ]
     }

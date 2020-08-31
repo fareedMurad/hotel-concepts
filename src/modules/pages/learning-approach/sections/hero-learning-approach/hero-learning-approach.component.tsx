@@ -4,12 +4,14 @@ import * as styles from './hero-learning-approach.scss';
 import { HeroTitle, HeroSubtitle } from '@core/components';
 import { ScrollButton } from '@core/components/scroll-button';
 import { useHeroLearningApproachData } from './hero-learning-approach.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Hero
  */
 const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
   const { heroLearningApproachData } = useHeroLearningApproachData();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.hero}>
@@ -19,16 +21,16 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
       >
         <main className={styles.heroContent}>
           <HeroTitle className={styles.heroCaption}>
-            Our Learning <br /> Approach
+            {t('learning-approach.hero.title')}
           </HeroTitle>
           <HeroSubtitle className={styles.heroDescription}>
-            Experience transformational hospitality e-learning bringing together
-            <br />
-            the best in industry and academia, dedicated mentorship, new <br />
-            technologies and intensive support
+            {t('learning-approach.hero.description')}
           </HeroSubtitle>
         </main>
-        <ScrollButton text='Scroll' className={styles.arrow} />
+        <ScrollButton
+          text={t('learning-approach.hero.scroll')}
+          className={styles.arrow}
+        />
       </div>
     </div>
   );

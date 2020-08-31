@@ -5,15 +5,20 @@ import { Caption, DownloadButton } from '@pages/components';
 import { Spinner } from '@core/components';
 import { useReadingMaterialsData } from './reading-materials.hook';
 import { fileSize } from '@core/shared/formaters';
+import { useTranslation } from 'react-i18next';
 /**
  * Renders ReadingMaterials
  */
 const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({}) => {
   const { readingData, readingDataLoading } = useReadingMaterialsData();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.readingMaterials}>
-      <Caption rate='2.0' title='Reading Materials' />
+      <Caption
+        rate='2.0'
+        title={t('learning-approach.reading-materials.title')}
+      />
       <div className={styles.wrapper}>
         <div className={styles.cardsContainer}>
           {readingData?.map((el, idx) => {

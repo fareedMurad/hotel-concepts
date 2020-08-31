@@ -162,5 +162,118 @@
       "p-p": "Privacy Policy",
       "terms-two": "  to learn more about these interests and when we may process your information in this way."
     }
+  },
+  "learning-approach": {
+    "hero": {
+      "title": "Our Learning Approach",
+      "description": "Experience transformational hospitality e-learning bringing together the best in industry and academia, dedicated mentorship, new technologies and intensive support.",
+      "scroll": "Scroll"
+    },
+    "meet-kordie": {
+      "title": "Meet Kordie",
+      "description": "Kordie - is online university for hospitality. We deliver practical programs and courses developed in team withkey industry leaders, most relevant approach to education, case based assignments and mentorship from leading experts."
+    },
+    "what-we-teach": {
+      "title": "What do we teach"
+    },
+    "how-we-teach": {
+      "title": "How we teach"
+    },
+    "word-class-cards": {
+      "wcc1": {
+        "title": "World class content",
+        "cards": {
+          "card1": {
+            "sub-title": "Cutting Edge Curriculum",
+            "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high-impact practical skills needed in hospitality of today and tomorrow."
+          },
+          "card2": {
+            "sub-title": "Relevant approach to education",
+            "description": "Programs developed with a combination of best practices in best traditional hospitality education and most innovative e-learning approaches and technology."
+          }
+        }
+      },
+      "wcc2": {
+        "title": "Flexibility",
+        "description": "Each program is spread over weekly sprints which are comprehensive on their own. You can enrol for a whole program or for a particular sprints to get a custom learning plan tailored to fit your busy life. Along with easy monthly payments you can learn at your own pace and reach your personal goals."
+      },
+      "wcc3": {
+        "title": "Instruments and tools",
+        "description": "We implement innovative and complex learning system to measure and build skills. We combine these with mentorship for maximum impact."
+      },
+      "wcc4": {
+        "title": "Personal approach",
+        "description": "Personalised coaching at each step, live open sessions with your mentors and frequent interaction ensures an immersive and interactive learning experience."
+      }
+    },
+    "cards": {
+      "card-one": {
+        "title": "Test & Quizzes",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-two": {
+        "title": "Literature",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-three": {
+        "title": "Practical Assignments",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-four": {
+        "title": "Video Materials",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-five": {
+        "title": "Case Studies",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-six": {
+        "title": "Q&A",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-seven": {
+        "title": "Access to coaching sessions",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      }
+    },
+    "experiancess-assignment": {
+      "slides": {
+        "slide1": {
+          "title": "Experienced assignment reviewers",
+          "list": {
+            "caption1": "Personalised feedback",
+            "caption2": "Practical tips and industry best practices",
+            "caption3": "Additional suggested resources to improve"
+          }
+        },
+        "slide2": {
+          "title": "Experienced assignment",
+          "list": {
+            "caption1": "Personalised",
+            "caption2": "Practical tips and industry best",
+            "caption3": "Additional suggested resources to improve"
+          }
+        },
+        "slide3": {
+          "title": "Experienced",
+          "list": {
+            "caption1": "Personalised feedback",
+            "caption2": "Practical tips",
+            "caption3": "Additional suggested resources to improve"
+          }
+        }
+      }
+    },
+    "our-materials": {
+      "title": "Video Lectures"
+    },
+    "reading-materials": {
+      "title": "Reading Materials"
+    },
+    "footer-hero": {
+      "title": "Make the most of your online learning experience",
+      "description": "Explore the latest business insights and thought leadership from Kordie",
+      "button-text": "Explore our insights"
+    }
   }
 }

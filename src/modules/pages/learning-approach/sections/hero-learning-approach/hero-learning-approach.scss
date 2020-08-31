@@ -3,6 +3,9 @@
 .hero {
   &-content {
     @include container();
+    @include desktop() {
+      width: 70%;
+    }
   }
   &-caption {
     width: 100%;

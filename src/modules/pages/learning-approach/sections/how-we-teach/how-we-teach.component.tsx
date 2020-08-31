@@ -4,6 +4,7 @@ import * as styles from './how-we-teach.scss';
 import { useHowWeTeachData } from './how-we-teach.hook';
 import { Caption } from '@pages/components';
 import { H1, SectionTitle } from '@core/components';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Instrument and Tools Card
@@ -30,40 +31,52 @@ const WorldClassCard = ({ img, title, description }) => (
  * Renders HowWeTeach
  */
 const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
+  const { t } = useTranslation();
   const { data } = useHowWeTeachData();
 
   return (
     <div className={styles.howWeTeach}>
-      <SectionTitle className={styles.title}>How we teach</SectionTitle>
+      <SectionTitle className={styles.title}>
+        {t('learning-approach.how-we-teach.title')}
+      </SectionTitle>
       <Caption
         className={styles.captionWrapper}
         rate='1.0'
-        title='World class content'
+        title={t('learning-approach.word-class-cards.wcc1.title')}
       />
       <section className={styles.wrapper}>
         <div className={styles.wccCards}>
           <WorldClassCard
             img={'learning-approach/wcc-1'}
-            title='Cutting Edge Curriculum '
-            description='Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high-impact practical skills needed in hospitality of today and tomorrow. '
+            title={t(
+              'learning-approach.word-class-cards.wcc1.cards.card1.sub-title'
+            )}
+            description={t(
+              'learning-approach.word-class-cards.wcc1.cards.card1.description'
+            )}
           />
           <WorldClassCard
             img={'learning-approach/wcc-2'}
-            title='Relevant approach to education'
-            description='Programs developed with a combination of best practices in best traditional hospitality education and most innovative e-learning approaches and technology.'
+            title={t(
+              'learning-approach.word-class-cards.wcc1.cards.card2.sub-title'
+            )}
+            description={t(
+              'learning-approach.word-class-cards.wcc1.cards.card2.description'
+            )}
           />
         </div>
       </section>
-      <Caption rate='2.0' title='Flexibility'>
-        Each program is spread over weekly sprints which are comprehensive on
-        their own. You can enrol for a whole program or for a particular sprints
-        to get a custom learning plan tailored to fit your busy life. Along with
-        easy monthly payments you can learn at your own pace and reach your
-        personal goals.
+      <Caption
+        rate='2.0'
+        title={t('learning-approach.word-class-cards.wcc2.title')}
+      >
+        {t('learning-approach.word-class-cards.wcc2.description')}
       </Caption>
-      <Caption rate='3.0' title='Instruments and tools'>
-        We implement innovative and complex learning system to measure and build
-        skills. We combine these with mentorship for maximum impact.
+      <Caption
+        rate='3.0'
+        title={t('learning-approach.word-class-cards.wcc3.title')}
+      >
+        {t('learning-approach.word-class-cards.wcc3.description')}
       </Caption>
       <div className={styles.toolsCards}>
         {data.map(({ title, description, id }) => (
@@ -72,12 +85,10 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
       </div>
       <Caption
         rate='4.0'
-        title='Personal approach'
+        title={t('learning-approach.word-class-cards.wcc4.title')}
         className={styles.captionPersonalApproach}
       >
-        Personalised coaching at each step, live open sessions with your mentors
-        and frequent interaction ensures an immersive and interactive learning
-        experience.
+        {t('learning-approach.word-class-cards.wcc4.description')}
       </Caption>
     </div>
   );
