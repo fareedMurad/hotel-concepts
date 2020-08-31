@@ -3,6 +3,7 @@ import { CatalogueHeaderProps } from './catalogue-header.props';
 import * as styles from './catalogue-header.scss';
 import { ScrollButton } from '@core/components/scroll-button';
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const GET_CATEGORY_INFO = gql`
   {
@@ -18,6 +19,7 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
   title,
   description
 }) => {
+  const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_CATEGORY_INFO);
   const catalogueHeroImage = data?.asset?.url;
 
@@ -30,7 +32,10 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
         <div>{title}</div>
         <div>{description}</div>
       </div>
-      <ScrollButton text='Scroll' className={styles.scrollButton} />
+      <ScrollButton
+        text={t('programs-catalogue.scroll')}
+        className={styles.scrollButton}
+      />
     </section>
   );
 };

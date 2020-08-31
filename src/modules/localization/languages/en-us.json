@@ -306,5 +306,23 @@
         "contact-us": "Contact Us"
       }
     }
+  },
+  "programs-catalogue": {
+    "title": "Find the right course for you",
+    "sub-title": " Choose from our growing range of online courses to meet your professional goals.",
+    "scroll": "Scroll",
+    "empty-info": "There are no programs with these filters",
+    "form": {
+      "title": "Contact Us",
+      "description": "Whether you are an individual or an organisation/group, looking for a program, get in touch and we can help find the best solution for you.",
+      "lable": {
+        "name": "Name",
+        "email": "E-mail",
+        "website": "Website",
+        "question1": "How many employees need training?",
+        "question2": "What paths are you interested in?",
+        "button-text": "Contact me"
+      }
+    }
   }
 }

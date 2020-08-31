@@ -5,18 +5,20 @@ import { CatalogueHeader } from './sections/catalogue-header';
 import { CatalogueFilters } from './sections/catalogue-filters';
 import { ProgramsContactUs } from './sections/programs-contact-us';
 import { ProgramItem } from './components';
-import { Footer, Spinner, SectionTitle } from '@core/components';
+import { Spinner, SectionTitle } from '@core/components';
 import { useParams } from 'react-router';
 import { Pagination } from '@core/components/pagination';
 import { ScrollToTop } from '@app';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useCatalogueInfoData, useCatalogueProgramsData } from './hooks';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProgramsCatalogue
  */
 
 const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const { catalogueInfoData, catalogueInfoLoading } = useCatalogueInfoData(id);
   const {
@@ -96,11 +98,8 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
           description={catalogueInfoData.description}
         />
         <div className={styles.title}>
-          <SectionTitle>Find the right course for you</SectionTitle>
-          <div>
-            Choose from our growing range of online courses to meet your
-            professional goals.
-          </div>
+          <SectionTitle>{t('programs-catalogue.title')}</SectionTitle>
+          <div>{t('programs-catalogue.sub-title')}</div>
         </div>
         {catalogueInfoData.isSubfiltersAllowed && (
           <CatalogueFilters
@@ -130,7 +129,6 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
         )}
         <ProgramsContactUs reduceMargin={reduceMargin} />
       </div>
-      {/* <Footer /> */}
     </React.Fragment>
   );
 };

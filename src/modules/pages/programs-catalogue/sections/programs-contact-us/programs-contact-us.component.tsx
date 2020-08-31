@@ -4,6 +4,7 @@ import * as styles from './programs-contact-us.scss';
 import { Button } from '@core/components';
 import classNames from 'classnames';
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 /**
  * Get hero image
  */
@@ -27,6 +28,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
     employees: '',
     interest: ''
   };
+  const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
 
   const [formValues, setFormValue] = React.useState(formInitValue || {});
@@ -49,16 +51,14 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
         })}
       >
         <div className={styles.title}>
-          <div>Contact Us</div>
-          <div>
-            Whether you are an individual or an organisation/group, looking for
-            a program, get in touch and we can help find the best solution for
-            you.
-          </div>
+          <div>{t('programs-catalogue.form.title')}</div>
+          <div>{t('programs-catalogue.sub-title')}</div>
         </div>
         <form className={styles.contactForm} onSubmit={submitHandler}>
           <div className={styles.inputGroup}>
-            <div className={styles.inputTitle}>Name</div>
+            <div className={styles.inputTitle}>
+              {t('programs-catalogue.form.lable.name')}
+            </div>
             <input
               name='name'
               onChange={changeTextValue}
@@ -68,7 +68,9 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
           </div>
 
           <div className={styles.inputGroup}>
-            <div className={styles.inputTitle}>E-mail</div>
+            <div className={styles.inputTitle}>
+              {t('programs-catalogue.form.lable.email')}
+            </div>
             <input
               name='email'
               onChange={changeTextValue}
@@ -78,7 +80,9 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
           </div>
 
           <div className={styles.inputGroup}>
-            <div className={styles.inputTitle}>Website</div>
+            <div className={styles.inputTitle}>
+              {t('programs-catalogue.form.lable.website')}
+            </div>
             <input
               name='website'
               onChange={changeTextValue}
@@ -98,7 +102,9 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
               onChange={changeTextValue}
               className={classNames(styles.inputField, styles.inputSelect)}
             >
-              <option value=''>How many employees need training?</option>
+              <option value=''>
+                {t('programs-catalogue.form.lable.question1')}
+              </option>
               <option value='1'>1</option>
               <option value='2'>2</option>
               <option value='3'>3</option>
@@ -116,7 +122,9 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
               onChange={changeTextValue}
               className={classNames(styles.inputField, styles.inputSelect)}
             >
-              <option value=''>What paths are you interested in?</option>
+              <option value=''>
+                {t('programs-catalogue.form.lable.question2')}
+              </option>
               <option value='1'>1</option>
               <option value='2'>2</option>
               <option value='3'>3</option>
@@ -125,7 +133,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
           <Button
             type='submit'
             className={styles.button}
-            children='Contact me'
+            children={t('programs-catalogue.form.lable.button-text')}
             arrow='&#8594;'
           />
         </form>
