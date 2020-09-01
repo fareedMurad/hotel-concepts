@@ -7,8 +7,9 @@ import classNames from 'classnames';
 import { useMediaPoints, useClickOutside } from '@core/shared';
 import { DropDown } from '../drop-down';
 import { useDispatch } from 'react-redux';
-import { ProgramsMenu } from './programs-menu/programs-menu.component';
+import { ProgramsMenu } from './components/programs-menu/programs-menu.component';
 import { Spinner } from '@core/components/spinner';
+import { LocalizationMenu } from './components/localization-menu';
 
 /**
  * Renders HeaderMain
@@ -114,20 +115,15 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                   : 'default-avatar'
               }
             />
-            <div
+
+            <LocalizationMenu
               className={classNames(styles.local, {
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}
-            >
-              Eng{' '}
-              <Icon
-                name={
-                  whiteBackground || isSticky
-                    ? 'triangle-arr-b'
-                    : 'triangle-arr'
-                }
-              />
-            </div>
+              iconName={
+                whiteBackground || isSticky ? 'triangle-arr-b' : 'triangle-arr'
+              }
+            />
           </div>
         </div>
       )}

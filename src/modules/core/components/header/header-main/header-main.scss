@@ -40,6 +40,7 @@
       .local {
         @include font(white, 12px, 500, 16px);
         @include flex($align: center, $justify: space-between);
+        position: relative;
         cursor: pointer;
         width: 55px;
         height: 27px;
@@ -47,7 +48,7 @@
         font-family: $IBMPlex;
         border: 1px solid white;
         border-radius: 4px;
-        & > div {
+        & > div:first-child {
           margin-left: 3px;
         }
       }

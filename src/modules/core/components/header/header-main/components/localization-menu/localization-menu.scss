@@ -1,0 +1,20 @@
+@import 'core.scss';
+
+.localization-menu {
+}
+
+.drop-down {
+  @include font($primary-gray, 12px, 400, 24px);
+  position: absolute;
+  bottom: -68px;
+  left: 0;
+  width: 56px;
+  padding: 10px;
+  background-color: $background;
+  border-radius: 8px;
+  & > div {
+    &:hover {
+      color: $primary-orange;
+    }
+  }
+}

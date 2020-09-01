@@ -1,0 +1,767 @@
+{
+  "header": {
+    "header-secondary": {
+      "link-one": "Mentors&Co-authors",
+      "link-two": "Learning Approach",
+      "link-three": "Insights",
+      "link-four": "Contacts"
+    },
+    "header-main": {
+      "link-one": "Programs",
+      "link-two": "Store",
+      "link-three": "About Us"
+    }
+  },
+  "home": {
+    "hero": {
+      "hero-title": "Cutting edge online education for hospitality ES",
+      "hero-subtitle": "Bridging the skills gap for hotel managers",
+      "button-text": "Find the program",
+      "video": "Watch Trailer",
+      "scroll": "Scroll"
+    },
+    "support-info": {
+      "title": "We support  the future generation  of hospitality industry",
+      "sub-title": "While there is much talk of machines replacing people in the workplace, at Cordie we believe that the centrality of technology makes human development all the more crucial."
+    },
+    "online-courses": {
+      "title": "Online courses for you",
+      "sub-title": "Contextualised and personalised hospitality learning at your fingertips.",
+      "no-corses-caprion": "We haven't added courses to this category yet. Please come back later!",
+      "footer-title": "Can’t you find course for you in this category?",
+      "button-text": "See more corses"
+    },
+    "about": {
+      "pre-caption": "Online Learning",
+      "title": "What’s unique about Cordie?",
+      "sub-title": "We have the critical factors to deliver real results.",
+      "card-one": {
+        "title": "Get real much-needed skills",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-two": {
+        "title": "Personalised coaching",
+        "description": "Personalised coaching at each step, live open sessions with your professors and the help you need 24/7"
+      },
+      "card-three": {
+        "title": "Case-based",
+        "description": "Immerse yourself in real-world learning. Lessons are brought to life through cases, which put you in the shoes of business leaders. Hear firsthand the challenges they faced, and wrestle with the same issues and imperfect information."
+      }
+    },
+    "training-info": {
+      "pre-caption": "Systematic Approach",
+      "title": "Online Executive Training",
+      "description": "Cordie online courses are nothing like a typicalsit-back-and-listen lecture. You’ll engage in a new activity every three to five minutes. Each element is designed to keep you interested & involved.",
+      "button-text": "Learn more",
+      "training-data": {
+        "title-one": "Practical Assignments",
+        "title-two": "Coaching sessions",
+        "title-three": "Mentorship",
+        "title-four": "Q&A sessions",
+        "title-five": "Video lectures",
+        "title-six": "Tests & Quizzes"
+      }
+    },
+    "impact": {
+      "pre-caption": "Options",
+      "title": "Cordie Impact"
+    },
+    "mentors": {
+      "title": "Meet mentors & Coauthors",
+      "description": "World-class faculty introduce you to the very latest in hospitality business knowledge and provide you with the tools and skills to overcome challenges and find solutions.",
+      "button-text": "See All Contributors"
+    },
+    "cordie-insights": {
+      "title": "Cordie Insights",
+      "sub-title": "Make the most of your learning experience",
+      "button-text": "Read All Insights"
+    },
+    "socials": {
+      "title": "Join our social media.",
+      "description": " Be the first to read useful articles and get information about latest promotions!"
+    }
+  },
+  "faq": {
+    "title": "Relax because we always be here for you.",
+    "form": {
+      "question": "Don't like forms? Send us an",
+      "title": "Let's talk about everything.",
+      "lable": {
+        "name": "Name",
+        "email": "E-mail",
+        "comment": "Comment",
+        "accept-terms": "Accept terms & Conditions",
+        "button-text": "Send"
+      }
+    }
+  },
+  "contributors": {
+    "hero": {
+      "title": "Programs Mentors & Co-authors",
+      "sub-title": "Our faculty members are internationally recognised hospitality leaders whom we are proud to work with.",
+      "button-text": "Contact us",
+      "scroll": "Scroll"
+    },
+    "contributors-container": {
+      "pre-caption": "Contributors",
+      "title": "Meet the experts",
+      "description": "Cordie participants can benefit from a wide spectrum of experts with diverse backgrounds. Our expert team are knowledge creators and industry leaders at the cutting edge of their fields.",
+      "experts": "Teaching Experts",
+      "nationalities": "Nationalities"
+    },
+    "form": {
+      "title": "Become a contributing expert",
+      "description-one": "Interested in contributing to providing top class hospitality online education?",
+      "description-two": "Explore here to learn how you could be a part of it through sharing your expertise.",
+      "rule": "Fields marked * are required.",
+      "lable": {
+        "name": "Name*",
+        "specialization": "Specialization*",
+        "linkedin": "LinkedIn profile*",
+        "email": "contact e-mail*",
+        "message": "Message",
+        "button-text": "Sentd Request"
+      },
+      "sent-successful": "Your apply successfuly sent"
+    }
+  },
+  "contacts": {
+    "pre-caption": "We're here to help!",
+    "title": "Contact Us",
+    "cards": {
+      "card-one": {
+        "title": "FAQ",
+        "description": "For quick answers to common questions, try our FAQ"
+      },
+      "card-two": {
+        "title": "Feedback",
+        "description": "If you need help using Kordie just press the “support” button at the bottom right of every course page."
+      },
+      "card-three": {
+        "title": "Media Enquiries",
+        "description": "Please send an email to:"
+      },
+      "card-four": {
+        "title": "Community Manager",
+        "description": "For quick answers to common questions, try our FAQ"
+      }
+    },
+    "form": {
+      "pre-caption": "Still seeking your answer?",
+      "title": "Let us help you directly",
+      "description": "Please complete the form below with details of your request. We’ll get back to you by email, so make sure you include the right email address.",
+      "sub-title": "What is your question about?",
+      "lable": {
+        "email": "E-mail",
+        "name": "Name",
+        "surname": "Surname",
+        "comment": "Comment"
+      },
+      "button-text": "Send",
+      "terms-one": " Kordie takes your privacy very seriously. We may process your personal information for carefully considered and specific purposes which are in our interests and enable us to enhance the services we provide, but which we believe also benefit our customers. View our",
+      "p-p": "Privacy Policy",
+      "terms-two": "  to learn more about these interests and when we may process your information in this way."
+    }
+  },
+  "learning-approach": {
+    "hero": {
+      "title": "Our Learning Approach",
+      "description": "Experience transformational hospitality e-learning bringing together the best in industry and academia, dedicated mentorship, new technologies and intensive support.",
+      "scroll": "Scroll"
+    },
+    "meet-kordie": {
+      "title": "Meet Kordie",
+      "description": "Kordie - is online university for hospitality. We deliver practical programs and courses developed in team withkey industry leaders, most relevant approach to education, case based assignments and mentorship from leading experts."
+    },
+    "what-we-teach": {
+      "title": "What do we teach"
+    },
+    "how-we-teach": {
+      "title": "How we teach"
+    },
+    "word-class-cards": {
+      "wcc1": {
+        "title": "World class content",
+        "cards": {
+          "card1": {
+            "sub-title": "Cutting Edge Curriculum",
+            "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high-impact practical skills needed in hospitality of today and tomorrow."
+          },
+          "card2": {
+            "sub-title": "Relevant approach to education",
+            "description": "Programs developed with a combination of best practices in best traditional hospitality education and most innovative e-learning approaches and technology."
+          }
+        }
+      },
+      "wcc2": {
+        "title": "Flexibility",
+        "description": "Each program is spread over weekly sprints which are comprehensive on their own. You can enrol for a whole program or for a particular sprints to get a custom learning plan tailored to fit your busy life. Along with easy monthly payments you can learn at your own pace and reach your personal goals."
+      },
+      "wcc3": {
+        "title": "Instruments and tools",
+        "description": "We implement innovative and complex learning system to measure and build skills. We combine these with mentorship for maximum impact."
+      },
+      "wcc4": {
+        "title": "Personal approach",
+        "description": "Personalised coaching at each step, live open sessions with your mentors and frequent interaction ensures an immersive and interactive learning experience."
+      }
+    },
+    "cards": {
+      "card-one": {
+        "title": "Test & Quizzes",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-two": {
+        "title": "Literature",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-three": {
+        "title": "Practical Assignments",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-four": {
+        "title": "Video Materials",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-five": {
+        "title": "Case Studies",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-six": {
+        "title": "Q&A",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      },
+      "card-seven": {
+        "title": "Access to coaching sessions",
+        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+      }
+    },
+    "experiancess-assignment": {
+      "slides": {
+        "slide1": {
+          "title": "Experienced assignment reviewers",
+          "list": {
+            "caption1": "Personalised feedback",
+            "caption2": "Practical tips and industry best practices",
+            "caption3": "Additional suggested resources to improve"
+          }
+        },
+        "slide2": {
+          "title": "Experienced assignment",
+          "list": {
+            "caption1": "Personalised",
+            "caption2": "Practical tips and industry best",
+            "caption3": "Additional suggested resources to improve"
+          }
+        },
+        "slide3": {
+          "title": "Experienced",
+          "list": {
+            "caption1": "Personalised feedback",
+            "caption2": "Practical tips",
+            "caption3": "Additional suggested resources to improve"
+          }
+        }
+      }
+    },
+    "our-materials": {
+      "title": "Video Lectures"
+    },
+    "reading-materials": {
+      "title": "Reading Materials"
+    },
+    "footer-hero": {
+      "title": "Make the most of your online learning experience",
+      "description": "Explore the latest business insights and thought leadership from Kordie",
+      "button-text": "Explore our insights"
+    }
+  },
+  "footer": {
+    "form": {
+      "title": "Sign up to newsletter",
+      "description": "Get fresh ideas and opinion from our worldleading hospitality experts",
+      "notification-message": "Your subscription request had been sent, please check email to verify your account",
+      "button-text": "Subscribe"
+    },
+    "copyrights": {
+      "info": "© 2020 Kordie. All rights reserved.",
+      "p-p": "Privacy Policy",
+      "terms": "Terms and Conditions"
+    },
+    "navigation": {
+      "programs": "Explore Programs",
+      "about": "About",
+      "support": "Support"
+    },
+    "links": {
+      "we-provide-links": {
+        "company": "Company",
+        "education-system": "Education System",
+        "for-corporated-client": "For Corporated Client",
+        "programs-partnership": "Programs Partnership",
+        "jobs": "Jobs"
+      },
+      "more-links": {
+        "help": "Help & FAQ",
+        "contact-us": "Contact Us"
+      }
+    }
+  },
+  "programs-catalogue": {
+    "title": "Find the right course for you",
+    "sub-title": " Choose from our growing range of online courses to meet your professional goals.",
+    "scroll": "Scroll",
+    "empty-info": "There are no programs with these filters",
+    "form": {
+      "title": "Contact Us",
+      "description": "Whether you are an individual or an organisation/group, looking for a program, get in touch and we can help find the best solution for you.",
+      "lable": {
+        "name": "Name",
+        "email": "E-mail",
+        "website": "Website",
+        "question1": "How many employees need training?",
+        "question2": "What paths are you interested in?",
+        "button-text": "Contact me"
+      }
+    },
+    "empty-info": "There are no programs with these filters"
+  },
+  "article-page": {
+    "back-button": "Back",
+    "read-next": "Read Next",
+    "button-text": "Read",
+    "intro": {
+      "reading-time": "Reading time"
+    },
+    "form": {}
+  },
+  "insights-form": {
+    "title": "Fresh insight in your box",
+    "notification-message": "Your subscription request had been sent, please check email to verify your account",
+    "button-text": "Subscribe"
+  },
+  "course-partnership": {
+    "hero": {
+      "title": "Program Partnership whith Kordie",
+      "description": "Combining Kordie’ expertise with the insights of industry leaders",
+      "button-text": "Contact us",
+      "scroll": "Scroll"
+    },
+    "partnering-for-success": {
+      "title": "Partnering for Success",
+      "description": "Kordie is proud to partner with a select number of organisations, partnerships which allow us to provide  access to exclusive knowledge and practice for specific sectors."
+    },
+    "how-program": {
+      "title": "How Program Partnership works?",
+      "description1": "A Kordie partner is an organisation that creates courses together with us by sharing knowledge and expertise.",
+      "description2": "A partner engages in creating the program content, with guidance from us on learning design, and we then work together to put the course onto the platform."
+    },
+    "how-become-partner": {
+      "title": "Who can become a Partner?",
+      "cards": {
+        "card1": {
+          "title": "Academic Institutions",
+          "description": "Providing or aiming to provide hospitality degrees."
+        },
+        "card2": {
+          "title": "Specialist Organisations",
+          "description": "Organisations providing services for hospitality."
+        },
+        "card3": {
+          "title": "Hospitality  Professionals",
+          "description": "Specialist with high-profile expertise in different hospitality segments."
+        },
+        "card4": {
+          "title": "Industry Leaders",
+          "description": "Hotels and resorts with higher output."
+        }
+      }
+    },
+    "partner-benefits": {
+      "title": "Benefits of becoming a Partner",
+      "description": " As Curriculum Partners, co-developing programs, companies receive an incredible platform to:",
+      "list": {
+        "item1": "Build brand visibility",
+        "item2": "Showcase subject matter expertise",
+        "item3": "Enhance thought leadership"
+      },
+      "paragraph1": "This also contributes to nurturing a  uniquely qualified talent pipeline, and  encourages product andoffering usage.",
+      "paragraph2": " For students, this represents an unrivalled opportunity to learn the most-cutting edge skills  from the brands leading the industry and address real-world situations through cross-disciplinary collaboration."
+    },
+    "criteria": {
+      "title": " What criteria do you need to meet to be a Kordie partner?",
+      "cards": {
+        "card1": "Demonstrable expertise in an area of knowledge related to hospitality industry",
+        "card2": "A commitment to advancing and democratising hospitality education",
+        "card3": "Substantial experience and reputation"
+      }
+    }
+  },
+  "for-companies": {
+    "intro": {
+      "title": "Hospitality education designed for impact",
+      "description": "Enforce your people and power your future",
+      "scroll": "Scroll",
+      "button-text": "Contact Us"
+    },
+    "talent-metters": {
+      "title": "Talent matters",
+      "description": " Investing in your people solves skills shortages, develops new and creative growth areas, open up new  revenue possibilities and prepares your hospitality  business for a dynamic future."
+    },
+    "benefits": {
+      "for-organization": {
+        "title": "Benefits for organisation",
+        "list": {
+          "item1": "Improve employee retention - show long-term commitment to your staff by investing in their personal development. Benefit from higher levels of motivation and stronger personal connections to the business.",
+          "item2": "Address organisational challenges .",
+          "item3": "Increase your competitive advantage with new knowledge and practices."
+        }
+      },
+      "for-employees": {
+        "title": "Benefits for employees"
+      }
+    },
+    "how-we-work": {
+      "title": "How we work",
+      "cards": {
+        "card1": {
+          "title": "Dedicated customer success manager",
+          "text": "From sharing best practices to co-designing your team’s transformational plans, your success is our priority"
+        },
+        "card2": {
+          "title": "Regular reviews",
+          "text": "Monthly or quarterly reviews keep individual and programwide progress on track"
+        },
+        "card3": {
+          "title": "World-class best practices",
+          "text": "Our world-class faculty provides a global perspective and brings relevant, practically rigorous knowledge"
+        }
+      }
+    },
+    "our-approach": {
+      "title": "Our approach",
+      "text": "  We care deeply about the learning experience of each and every participant, and the impact they bring back to your organisation. Learning is just the beginning. We give your people the tools they need to make a difference – for you and for them."
+    },
+    "why-cordie": {
+      "title": "Why Kordie?",
+      "block1": {
+        "title": "Your Global Partner",
+        "text": " With an unrivalled capability to deliver learning globally, we equip people, teams and organisations with hospitality industry to succeed, change and grow."
+      },
+      "block2": {
+        "title": "Powerful Network",
+        "text": "We provide access global network of hospitality business leaders. We are a closeknit hospitality learning community whose mission is to support and accelerate you beyond your journey."
+      },
+      "block3": {
+        "title": "The Kordie Approach",
+        "text": " We define success by results achieved. To get there, we partner with you to fully understand your needs and the outcomes you want to achieve. The process is highly collaborative, informed by your current business environment and your corporate culture."
+      },
+      "block4": {
+        "title": "World-class Faculty",
+        "text": " You can benefit from a wide spectrum of world-class hospitality coaching experts with diverse backgrounds, talents and expertise."
+      }
+    },
+    "our-programs": {
+      "title": "Our programs",
+      "description": "Our programs are organised into subject-specific departments, such as:",
+      "cards": {
+        "card1": {
+          "title": "Focused Programs",
+          "text": "Focused programs are an opportunity for you to develop in-depth expertise in areas that are critical for you. Choose from many topics including hospitality digital marketing, revenue management, human resources and others."
+        },
+        "card2": {
+          "title": "Strategy",
+          "text": "Our suite of world-class strategy courses gives you the tools and capabilities to create competitive advantage and deliver growth in the fast-changing hospitality business environment."
+        },
+        "card3": {
+          "title": "Hospitality Leadership",
+          "text": "Leadership programs are about enabling the full potential in others and in yourself. Explore how to become a better hospitality leader, discover how to energise and mobilise people to reach a common goal, see more opportunities."
+        },
+        "card4": {
+          "title": "Soft Skills",
+          "text": "Gain the skills and confidence to succeed in the world of hospitality supported by a mentor. Start today and be fully equipped for the challenges of tomorrow."
+        },
+        "card5": {
+          "title": "Digital Transformation & Innovation",
+          "text": "Focused programs are an opportunity for you to develop in-depth expertise in areas that are critical for you. Choose from many topics including hospitality digital marketing, revenue management, human resources and others."
+        }
+      }
+    },
+    "increase-your-competitive": {
+      "title": "Increase your competitive advantage with new knowledge.",
+      "description": " Kordie innovates the way hospitality professionals learn and travel organisations develop talent. Powerful knowledge is brought directly to you in a convenient, flexible way. Connect with Kordie’s renowned faculty and mentors from all over the world to deepen your expertise. Scale the learning across your hospitality business to drive powerful results."
+    },
+    "brochure": {
+      "title": "Unique learning. Unique business impact.",
+      "description": "Find out more about how we can collaborate towards your future."
+    }
+  },
+  "insights": {
+    "hero": {
+      "pre-caption": "New",
+      "title": "Cordie Insights",
+      "description": "Talks recommended just for you, delivered to your inbox.",
+      "scroll": "Scroll"
+    },
+    "featured-articles": {
+      "pre-caption": "Articles",
+      "title": "Featured Articles",
+      "all": "All",
+      "button-text": "Show more"
+    },
+    "insights-subscribe": {
+      "pre-caption": "Delivered to your inbox.",
+      "title": "Industry insights you won't delete",
+      "tabs": {
+        "tab1": {
+          "title": "Weekly Insights",
+          "description": "The editor picks highlights delivered every sundays."
+        },
+        "tab2": {
+          "title": "The Daily Alert",
+          "description": "Links to all the digital articles published in the last 24 hours."
+        },
+        "tab3": {
+          "title": "Leadership",
+          "description": "Must-reads from our most recent articles on leadership delivered once a month."
+        }
+      },
+      "button-text": "Subscribe"
+    }
+  },
+  "jobs-list": {
+    "title": "Want to create better hospitality impact?",
+    "description": "We are a fast-growing, London-based company that builds hospitality online courses taught by the greatest masters in the world.",
+    "all": "All",
+    "vacancy": {
+      "button-text": "Details"
+    }
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "description": "Marketplace is for busy hospitality managers looking for smart answers to common challenges.",
+    "popular-items": "Popular items in"
+  },
+  "privacy-policy": {
+    "title": "Privacy policy",
+    "block1": {
+      "title": "Overview",
+      "description": "Dribbble Holdings Ltd. (“Dribbble”, “we”, “us” or “our”) is committed to protecting the privacy of personal information (i.e. any information relating to an identified or identifiable natural person) who visit the https://dribbble.com website and Dribbble mobile software application (collectively, the “Site”) and use the services available thereon (the “Services”). Amendments to this Privacy Policy will be posted to the Site and/or Services and will be effective when posted. Your continued use of the Site and/or Services following the posting of any amendment to this Privacy Policy shall constitute your acceptance of such amendment."
+    },
+    "block2": {
+      "title": "Consent and Information Collection and Use",
+      "paragraph1": "When you register as a user of our Site and Services, we ask for personal information that will be used to activate your account, provide the Services to you, communicate with you about the status of your account, and for other purposes set out in this Privacy Policy. Your name, company name, address, telephone number, email address, credit card information and certain other information about you may be required by us to provide the Services or be disclosed by you during your use of the Services. You will also be asked to create a user name and private password, which will become part of your account information.",
+      "paragraph2": "By providing personal information to us and by retaining us to provide you with the Services, you voluntarily consent to the collection, use and disclosure of such personal information as specified in this Privacy Policy. The legal bases for our processing of personal information are primarily that the processing is necessary for providing the Services and that the processing is carried out in our legitimate interests, which are further explained below. Without limiting the foregoing, we may on occasion ask you to consent when we collect, use, or disclose your personal information in specific circumstances.",
+      "paragraph3": " We take steps designed to ensure that only those employees who need access to your personal information to fulfil their employment duties will have access to it. We may use and disclose your personal or account information for the following purposes:",
+      "list": {
+        "item1": "To provide the Site and Services to you and to other users of the Site and Services;",
+        "item2": "To improve the quality of the Site and Services through polls, surveys and other similar feedback gathering activities conducted by Dribbble and/or third parties;",
+        "item3": "To create, manage and control your account information, and to verify access rights to the Site and Services;",
+        "item4": "To bill your account;",
+        "item5": "To communicate with you (subject to your opt-out rights set forth in this Privacy Policy), including without limitation for the purpose of providing you with information about the Services, or informing you of changes or additions to the Services or of the availability of any other services or features we provide;",
+        "item6": "To assess service levels, monitor traffic patterns and gauge popularity of different features and service options of the Site and/or Services;",
+        "item7": "To enforce this Privacy Policy or our Terms of Service;",
+        "item8": "To protect against fraud or error, and to respond to claims of any violation of our rights or those of any third parties;",
+        "item9": "To respond to your requests for customer service;",
+        "item10": "To protect the rights, property or personal safety of you, us, our users and the public; and As required to comply with applicable laws or as authorized by applicable laws. For the purposes of billing your account (if you have a paid account) and in order to process payments, Dribbble utilizes third party payment gateways, such as Stripe and Paypal, who will utilize your credit card and other payment information in accordance with their respective privacy policies. Dribbble shall not be liable to you or any other person for any damages that might result from unauthorized use, publication, disclosure or any other misuse of such payment information, including credit card information."
+      },
+      "paragraph4": "When we disclose your personal information to third parties, we take reasonable measures to ensure that the rules set forth in this Privacy Policy are complied with and these third parties provide sufficient guarantees to implement appropriate technical and organisational measures.",
+      "paragraph5": "Your personal information may be stored and processed in any country where we have facilities or in which we engage third party service providers. By using the Services, you consent to the transfer of information to countries outside your country of residence, which may have different data protection rules than in your country. While such information is outside of Canada, it is subject to the laws of the country in which it is held, and may be subject to disclosure to the governments, courts or law enforcement or regulatory agencies of such other country, pursuant to the laws of such country. However, our practices regarding your personal information will at all times continue to be governed by this Privacy Policy and, if applicable, we will comply with the General Data Protection Regulation (“GDPR”) requirements providing adequate protection for the transfer of personal information from the EU/EEA to third country.",
+      "paragraph6": " We may occasionally communicate with you regarding our products, services, news and events. You have the option to not receive this information. We provide an opt-out function within all email communications of this nature, or will cease to communicate with you for this purpose if you contact us and tell us not to communicate this information to you. The only kind of these communications that you may not “opt-out” of are those required to communicate announcements related to the Services, including information specific to your Account, planned Services suspensions and outages. We will attempt to minimize this type of communication to you."
+    },
+    "block3": {
+      "title": "Age of Consent",
+      "paragraph1": "We do not knowingly provide the Services to, and will not knowingly collect the personal information from anyone under the age of consent. If you live in a country in the EU/EEA, you must be at least 16 years old to use our Services or such greater age required in your country to register for or use our Services. If you live in any other country except those in the EU/EEA, you must be at least 13 years old to use our Services or such greater age required in your country to register for or use our Services. In addition to being of the minimum required age to use our Services under applicable law, if you are not old enough to have authority to agree to our Privacy Policy in your country, your parent or guardian must agree to our Privacy Policy on your behalf. If you have any concerns about your child’s personal information, please contact us at privacy@dribbble.com.",
+      "paragraph2": " Neither the Site nor the Services are intended for children under 13 years of age, and no one under age 13 may provide any personal information to, on or through the Site or Services. We do not knowingly collect personal information from children under 13. If you are under 13, do not use or provide any information to, on or through the Site or Services, make any purchases through the Site or Services, use any of the interactive or public comment features, or provide any information about yourself to us, including your name, address, telephone number, email address, or any screen name or user name you may use. If we learn we have collected or received personal information from a child under 13 without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under 13, please contact us at the email address provided in the paragraph above."
+    },
+    "block4": {
+      "title": "Rights to Your Information",
+      "paragraph1": "We do not knowingly provide the Services to, and will not knowingly collect the personal information from anyone under the age of consent. If you live in a country in the EU/EEA, you must be at least 16 years old to use our Services or such greater age required in your country to register for or use our Services. If you live in any other country except those in the EU/EEA, you must be at least 13 years old to use our Services or such greater age required in your country to register for or use our Services. In addition to being of the minimum required age to use our Services under applicable law, if you are not old enough to have authority to agree to our Privacy Policy in your country, your parent or guardian must agree to our Privacy Policy on your behalf. If you have any concerns about your child’s personal information, please contact us at privacy@dribbble.com.",
+      "paragraph2": "Neither the Site nor the Services are intended for children under 13 years of age, and no one under age 13 may provide any personal information to, on or through the Site or Services. We do not knowingly collect personal information from children under 13. If you are under 13, do not use or provide any information to, on or through the Site or Services, make any purchases through the Site or Services, use any of the interactive or public comment features, or provide any information about yourself to us, including your name, address, telephone number, email address, or any screen name or user name you may use. If we learn we have collected or received personal information from a child under 13 without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under 13, please contact us at the email address provided in the paragraph above."
+    },
+
+    "block5": {
+      "title": "Your California Privacy Rights",
+      "description": "California Civil Code Section §1798.83 permits users of the Site and/or Services who are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes. To make such a request, please send an email to [email] with “Request for California Privacy Information” in the subject line and in the body of your message. We will provide the requested information to you in your email address in response."
+    },
+    "block6": {
+      "title": "Aggregated Data",
+      "description": "We may also use your personal information to generate Aggregated Data for internal use and for sharing with others on a selective basis. “Aggregated Data” means records which have been stripped of information potentially identifying users, and which have been manipulated or combined to provide generalized, anonymous information. Your identity and personal information will be kept anonymous in Aggregated Data."
+    },
+    "block7": {
+      "title": "Links",
+      "description": "The Site and/or Services may contain links to other sites and we are not responsible for the privacy  practices or the content of such sites. We encourage you to read the privacy policy of linked sites. Their  privacy policies and practices differ from our policies and practices."
+    },
+    "block8": {
+      "title": "Cookies and Log Files",
+      "description": "We use cookies and log files to track user information. Cookies are small amounts of data that are  transferred to your web browser by a web server and are stored on your computer’s hard drive. We use  cookies to track which page variant a visitor has seen, to track if a visitor has clicked on a page variant,  to monitor traffic patterns and to gauge popularity of service options. We will use this information to  deliver relevant content and services to you."
+    },
+    "block9": {
+      "title": "Third Parties’ & Interest-Based Ads",
+      "description": "We do not control third parties’ collection or use of your information to serve interest-based advertising.  However, these third parties may provide you with ways to choose not to have your information collected  or used in this way. You can opt out of receiving targeted ads from members of the Network Advertising  Initiative (“NAI”) on the NAI’s website."
+    },
+    "block10": {
+      "title": "Change of Ownership or Business Transition",
+      "description": "In the event of a change of ownership or other business transition, such as a merger, acquisition or sale  of our assets, your information may be transferred in accordance with applicable privacy laws."
+    },
+    "block11": {
+      "title": "Security and Retention",
+      "paragraph1": "We will strive to prevent unauthorized access to your personal information, however, no data transmission over the Internet, by wireless device or over the air is guaranteed to be 100% secure. We have implemented and maintain reasonable security procedures and practices (based on the nature of the information we collect) to protect that information from unauthorized disclosure. We will continue to enhance security procedures as new technologies and procedures become available. We strongly recommend that you do not disclose your password to anyone.",
+      "paragraph2": "Please remember that you control what personal information you provide while using the Site and Services. Ultimately, you are responsible for maintaining the secrecy of your identification, passwords and/or any personal information in your possession for the use of the Site and/or Services. Always be careful and responsible regarding your personal information. We are not responsible for, and cannot control, the use by others of any information which you provide to them and you should use caution in selecting the personal information you provide to others through the Site or Services. Similarly, we cannot assume any responsibility for the content of any personal information or other information which you receive from other users through the Site or Services, and you release us from any and all liability in connection with the contents of any personal information or other information which you may receive using the Site or Services. We cannot guarantee, or assume any responsibility for verifying, the accuracy of the personal information or other information provided by any third party. You release us from any and all liability in connection with the use of such personal information or other information of others.",
+      "paragraph3": "We will maintain your personal information for as long as they are needed, or as required by applicable laws, regulations, or government orders."
+    },
+    "block12": {
+      "title": "Changes to this Policy",
+      "description": "We may update this Privacy Policy from time to time. If we do so, we will send an email to users  subscribed to the Company News list. We will also add a site banner alerting users who may not be  subscribed. If the change materially effects the treatment of your personal data, and we have your  email but you are not subscribed to the Company News list, we will send you an email. (You are  responsible for ensuring that we have an up-to-date email for this purpose.)"
+    },
+    "block13": {
+      "title": "Contact Us",
+      "description": "If you have any questions or comments about this Privacy Policy or your personal information, to make an access or correction request, to exercise any applicable rights, to make a complaint, or to  obtain information about our policies and practices with respect to any service providers outside  Canada, our Privacy Officer (or Data Protection Officer) can be reached by mail or email using the  following contact information: by email at privacy@dribbble.com or by mail at 524 Yates St., Victoria, BC, V8W 1K8, Canada."
+    }
+  },
+  "product": {
+    "back": "Back",
+    "recomended": "Recomended Books",
+    "card": {
+      "button-text": "Go to checkout"
+    },
+    "slider": {
+      "button-text": "Show Content"
+    },
+    "authors": {
+      "title": "Authors",
+      "button-text": "See All Contributors"
+    },
+    "product-banner": {
+      "button-text": "Go to Checkout"
+    }
+  },
+  "program-page": {
+    "partner-apply": {
+      "title": "Got questions?",
+      "sub-title": "Whether you are an individual or an organisation/group, looking for a programme, get in touch and we can help find the best solution for you.",
+      "button-text": "Send",
+      "lable": {
+        "name": "Name",
+        "email": "E-mail",
+        "comment": "Comment",
+        "accept": "Accept Terms & Conditions"
+      }
+    },
+    "overview": {
+      "title": "Overview",
+      "duration": "Duration",
+      "weeks": "Weeks",
+      "sprints": "Sprints",
+      "enroll": "Enroll by",
+      "languages": "Languages"
+    },
+    "about": {
+      "title": "About",
+      "sub-title": "Skills covered"
+    },
+    "enroll": {
+      "title": "Who Should Enroll?"
+    },
+    "modules": {
+      "title": "Modules"
+    },
+    "results": "Results",
+    "learning-approach": {
+      "title": "Learning approach",
+      "button-text": "Learn more"
+    },
+    "program-enroll-now": {
+      "title": "Enroll now",
+      "button-text": "Enroll now",
+      "sub-title": "Features"
+    },
+    "program-quote": {
+      "button-text": "Enroll now"
+    }
+  },
+  "story-mission": {
+    "title": "About Kordie",
+    "description": "New Knowledge for the New Hospitality Economy",
+    "button-text": "Contact us",
+    "anchors": {
+      "overview": "Overview",
+      "mission": "Mission & Vision",
+      "work": "Our work",
+      "values": "Values"
+    },
+    "caption": {
+      "title": "Hospitality education designed for impact",
+      "description": "Kordie - is online university for hospitality. We deliver practical programs and courses developed in team with key industry leaders, most relevant approach to education, case based assignments and mentorship from leading experts."
+    },
+    "managing-hospitality": {
+      "title": "Managing hospitality in extraordinary times",
+      "cards": {
+        "card1": {
+          "title": "Explore New Ideas",
+          "sub-title": "to reimagine business",
+          "description": "Innovative learning, guided by world-renowned faculty, that challenges assumptions and encourages experimentation."
+        },
+        "card2": {
+          "title": "Drive Business Results",
+          "sub-title": "through real-word application",
+          "description": "An integrated approach that includes analytics, evidence-based research, and experiential learning."
+        },
+        "card3": {
+          "title": "Transform Leaders",
+          "sub-title": "who redefine success",
+          "description": "The vision, confidence, and knowledge to inspire greater performance and create lasting impact."
+        }
+      }
+    },
+    "why-cordie": {
+      "title": "Why 'Kordie' ?",
+      "paragraph1": "Hospitality and Cordiality are inseparable. Principle of cordiality, more than a mere politeness, is at the very heart of any business or relations within hospitality industry.",
+      "paragraph2": "he aspects of cordiality - welcome, warmth, kindness, friendliness, sociability - are the core of our company, just as for any hospitality business."
+    },
+    "our-mission": {
+      "title": "Our mission & Vision",
+      "text": "To be your best-in-class online education partner for transformational learning that prepares today’s hospitality business leaders and organisations for long-term success.",
+      "button-text": "Explore programs"
+    },
+    "kordie-impact": {
+      "title": "The Kordie Impact",
+      "text": "Kordie provides world-class online education for hospitality that is innovative, practical, and results-focused to prepare individuals and organisations for greater success.",
+      "list": {
+        "item1": {
+          "caption": "Marketing Fundamentals",
+          "description": "Early career or senior leadership focus. Whatever your  ambitions, we have a programme to suit your needs."
+        },
+        "item2": {
+          "caption": "Our Experts",
+          "description": "Our expert program team brings to life the learning solution which we have cocreated, working hard to match your ambition and needs."
+        },
+        "item3": {
+          "caption": "Our Work with Organisations",
+          "description": "Unlock your organisation’s potential. Discover how partnering with Kordie can help you achieve your business goals."
+        }
+      }
+    },
+    "our-founding": {
+      "title": "Our Founding Values",
+      "cards": {
+        "card1": {
+          "title": "Diversity as a source of learning and enrichment",
+          "description": "We are free from any dominant culture or prevalent dogma; we are open to, and respectful of, other views; we learn through the exchange of ideas and experiences."
+        },
+        "card2": {
+          "title": "Closeness to the international business community",
+          "description": "We partner with the international business community to explore management knowledge; we believe in the role of business as a force for improving people’s lives."
+        },
+        "card3": {
+          "title": "Entrepreneurial spirit",
+          "description": "We are willing to experiment and innovate; we are ready to take risks and manage the results of our actions."
+        }
+      }
+    },
+    "form": {
+      "title": "Want to get involved?",
+      "subtitle": "We’re always happy to talk if you are interested in becoming a Partner"
+    }
+  }
+}

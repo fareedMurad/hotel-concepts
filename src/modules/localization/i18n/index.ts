@@ -6,6 +6,9 @@ const localize = () => {
     resources: {
       en: {
         translation: require('../languages/en-us.json')
+      },
+      es: {
+        translation: require('../languages/es.json')
       }
     },
     lng: 'en-us',
