@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { ProgramQuestionsFormProps } from './program-questions-form.props';
 import * as styles from './program-questions-form.scss';
-import {
-  Form,
-  Button,
-  Field
-} from '@core/components';
+import { Form, Button, Field } from '@core/components';
 import { Formik } from 'formik';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Default values
@@ -22,23 +19,23 @@ const defaultValues = {
  * Renders ProgramQuestionsForm
  */
 const ProgramQuestionsForm: React.FC<ProgramQuestionsFormProps> = ({}) => {
+  const { t } = useTranslation();
   const [focused, setFocused] = React.useState(false);
   return (
     <div className={styles.programQuestionsForm}>
-       <div className={styles.container}>
-         <div className={styles.formWrapper}>
-            <div className={styles.title}>Got questions?</div>
-            <div className={styles.subtitle}>
-              Whether you are an individual or an organisation/group, looking for a
-              programme, get in touch and we can help find the best solution for you.
-            </div>
-            <Formik
-              initialValues={defaultValues}
-              onSubmit={values => {
-                console.log(values);
-              }}
-              // validationSchema={jobDetailsValidationSchema}
-            >
+      <div className={styles.container}>
+        <div className={styles.formWrapper}>
+          <div className={styles.title}>{t('program-page.form.title')}</div>
+          <div className={styles.subtitle}>
+            {t('program-page.form.sub-title')}
+          </div>
+          <Formik
+            initialValues={defaultValues}
+            onSubmit={values => {
+              console.log(values);
+            }}
+            // validationSchema={jobDetailsValidationSchema}
+          >
             {({ handleSubmit, validateForm }) => (
               <Form handleSubmit={handleSubmit}>
                 <div className={styles.formSection}>

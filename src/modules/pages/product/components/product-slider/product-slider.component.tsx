@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import { useProductsData } from '@pages/marketplace/hooks/marketplace-products.hook';
 import { useParams } from 'react-router';
 import { useProductData } from '@pages/product/hooks/product.hook';
+import { useTranslation } from 'react-i18next';
 
 interface CarouselButtonGroupProps extends ButtonGroupProps {
   className?: string;
@@ -99,6 +100,7 @@ const CustomRightArrow: React.FC<any> = ({ onClick, ...rest }) => {
 };
 
 const ProductSlider: React.FC<ProductSliderProps> = ({ images }) => {
+  const { t } = useTranslation();
   const { url } = images[0];
   return (
     <div className={styles.productImage}>
@@ -111,7 +113,7 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ images }) => {
           alt=''
           width=''
         />
-        <Button theme='secondary'>Show Content</Button>
+        <Button theme='secondary'>{t('product.slider.button-text')}</Button>
       </div>
     </div>
   );

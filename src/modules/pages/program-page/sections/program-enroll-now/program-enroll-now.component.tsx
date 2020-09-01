@@ -4,12 +4,14 @@ import * as styles from './program-enroll-now.scss';
 import { Button, Spinner } from '@core/components';
 import classNames from 'classnames';
 import { useProgramEnrollData } from './program-enroll.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProgramEnrollNow
  */
 
 const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
+  const { t } = useTranslation();
   const { programEnrollData, programEnrollLoading } = useProgramEnrollData(
     programId
   );
@@ -27,7 +29,9 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
 
   return (
     <section id='enroll' className={styles.programEnrollNow}>
-      <div className={styles.title}>Enroll Now</div>
+      <div className={styles.title}>
+        {t('program-page.program-enroll-now.title')}
+      </div>
       <div className={styles.container}>
         {copy.map((item, index) => (
           <div
@@ -48,7 +52,7 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
                 </div>
                 <Button
                   className={styles.button}
-                  children='Enroll now'
+                  children={t('program-page.program-enroll-now.button-text')}
                   arrow='&#8594;'
                   width='100%'
                 />
@@ -56,7 +60,9 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
             </div>
             <div className={styles.hr} />
             <div className={styles.features}>
-              <div className={styles.featureTitle}>Features</div>
+              <div className={styles.featureTitle}>
+                {t('program-page.program-enroll-now.sub-title')}
+              </div>
               {item.features.map((item, index) => (
                 <div className={styles.featureItem} key={index}>
                   <div>+</div>

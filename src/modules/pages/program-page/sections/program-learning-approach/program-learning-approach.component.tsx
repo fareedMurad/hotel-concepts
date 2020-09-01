@@ -4,6 +4,7 @@ import * as styles from './program-learning-approach.scss';
 import { Button, Spinner } from '@core/components';
 import { Link } from 'react-router-dom';
 import { useProgramLearningApproachData } from './program-learning-approach.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProgramLearningApproach
@@ -15,12 +16,15 @@ const ProgramLearningApproach: React.FC<ProgramLearningApproachProps> = ({
     learningApproachData,
     learningApproachLoading
   } = useProgramLearningApproachData(programId);
+  const { t } = useTranslation();
 
   if (learningApproachLoading) return <Spinner />;
-  
+
   return (
     <section className={styles.programLearningApproach}>
-      <div className={styles.title}>Learning approach</div>
+      <div className={styles.title}>
+        {t('program-page.learning-approach.title')}
+      </div>
       <div className={styles.content}>
         {learningApproachData.map((item, index) => (
           <div className={styles.item} key={index}>
@@ -30,7 +34,11 @@ const ProgramLearningApproach: React.FC<ProgramLearningApproachProps> = ({
         ))}
       </div>
       <Link to='/learning-approach'>
-        <Button className={styles.button} children='Learn more' arrow='→' />
+        <Button
+          className={styles.button}
+          children={t('program-page.learning-approach.button-text')}
+          arrow='→'
+        />
       </Link>
     </section>
   );

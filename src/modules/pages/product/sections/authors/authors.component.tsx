@@ -7,11 +7,13 @@ import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
 import { useAnimatedTransition } from './animation-config/animation';
 import { animated, useTransition, config } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Authors
  */
 const Authors: React.FC<AuthorsProps> = ({ authors }) => {
+  const { t } = useTranslation();
   const { mobile } = useMediaPoints();
   const [index, setIndex] = React.useState(0);
   const { dispatch } = useDispatch();
@@ -28,14 +30,13 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
       <div className={styles.aboutAuthor}>
         <div className={styles.aboutAuthorCaption}>
           <Icon name='abstract-1' />
-          <H2>Authors</H2>
+          <H2>{t('product.authors.title')}</H2>
         </div>
         {mobile &&
           transitions.map(({ item, key, props }) => {
             return (
-              <div style={props} className={styles.authorImageMobile}>
+              <div key={key} style={props} className={styles.authorImageMobile}>
                 <animated.img
-                  key={key}
                   style={props}
                   src={item.picture}
                   alt={item.name}
@@ -69,7 +70,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
             →
           </button>
           <Button arrow='→' onClick={() => dispatch(navigate('/contributors'))}>
-            See All Contributors
+            {t('product.authors.button-text')}
           </Button>
         </div>
       </div>

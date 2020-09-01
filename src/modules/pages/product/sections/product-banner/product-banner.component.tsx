@@ -3,6 +3,7 @@ import { ProductBannerProps } from './product-banner.props';
 import * as styles from './product-banner.scss';
 import { H2, Paragraph, H3, Button } from '@core/components';
 import Moment from 'react-moment';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProductBanner
@@ -17,10 +18,11 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
     languages,
     details
   } = product;
+  const { t } = useTranslation();
 
   return (
     <div className={styles.productBanner}>
-    <div className={styles.productImage}>
+      <div className={styles.productImage}>
         <img
           src='https://images.ctfassets.net/qgx3dmmccd7u/M9DtD304X9Qi36JV8R32B/1635006a72c5ad51d3000fe230a89dbd/book-large.png'
           alt='book'
@@ -54,7 +56,7 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
           <H3 className={styles.price}>{`$${price}`}</H3>
           <Button
             className={styles.confirmButton}
-            children='Go to Checkout'
+            children={t('product.product-banner.button-text')}
             arrow='&rarr;'
           />
         </div>

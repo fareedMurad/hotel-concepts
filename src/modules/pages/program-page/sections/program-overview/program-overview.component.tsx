@@ -5,26 +5,31 @@ import { number } from 'yup';
 import { useProgramOverviewData } from './program-overview.hook';
 import { Spinner } from '@core/components';
 import { useQuery, gql } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
+  const { t } = useTranslation();
   const { months, day, year } = enrollBy;
   return (
     <section className={styles.item}>
       <div className={styles.block}>
-        <div className={styles.name}>Duration</div>
+        <div className={styles.name}>{t('program-page.overview.duration')}</div>
         <div className={styles.info}>
-          {weeks} Weeks / {sprints} Sprints
+          {weeks} {t('program-page.overview.weeks')} / {sprints}{' '}
+          {t('program-page.overview.sprints')}
         </div>
       </div>
       <div className={styles.hr} />
       <div className={styles.block}>
-        <div className={styles.name}>Enroll by</div>
+        <div className={styles.name}>{t('program-page.overview.enroll')}</div>
         <div className={styles.info}>{`
   ${months} ${day}, ${year}`}</div>
       </div>
       <div className={styles.hr} />
       <div className={styles.block}>
-        <div className={styles.name}>Languages</div>
+        <div className={styles.name}>
+          {t('program-page.overview.languages')}
+        </div>
         <div className={styles.info}>{languages}</div>
       </div>
     </section>
@@ -49,6 +54,7 @@ const GET_PROGRAM_OVERVIEW_DATA = gql`
 `;
 
 const ProgramOverview: React.FC<ProgramOverviewProps> = ({ programId }) => {
+  const { t } = useTranslation();
   // const { GET_PROGRAM_OVERVIEW_DATA } = useProgramOverviewData(programId);
   const { data, loading, error } = useQuery(GET_PROGRAM_OVERVIEW_DATA, {
     variables: { id: programId }
@@ -59,7 +65,7 @@ const ProgramOverview: React.FC<ProgramOverviewProps> = ({ programId }) => {
 
   return (
     <section className={styles.programOverview}>
-      <div className={styles.title}>Overview</div>
+      <div className={styles.title}>{t('program-page.overview.title')}</div>
       <OverviewItem
         weeks={weeks}
         sprints={sprints}

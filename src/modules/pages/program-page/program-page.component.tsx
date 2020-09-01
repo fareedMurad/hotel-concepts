@@ -24,6 +24,7 @@ import {
   useProgramPageDataDivider,
   useProgramPageDataTestimonials
 } from './hooks';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProgramPage
@@ -32,6 +33,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const history = useHistory();
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
+  const { t } = useTranslation();
   const {
     mentorsForCurrentCourse,
     mentorsForCurrentCourseLoading
@@ -51,7 +53,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <div className={styles.hr} />
       <ProgramAbout programId={programId} />
       <div className={styles.hr} />
-      <Enroll programId={programId} title={'Who Should Enroll?'} />
+      <Enroll programId={programId} title={t('program-page.enroll.title')} />
       <ProgramModules programId={programId} />
       <div
         className={styles.img}
@@ -77,9 +79,8 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
       <ProgramQuote programId={programId} />
       <FaqBlock showTitle />
       <PartnerApply
-        title='Got questions?'
-        subtitle='Whether you are an individual or an organisation/group, looking for a
-                  programme, get in touch and we can help find the best solution for you.'
+        title={t('program-page.partner-apply.title')}
+        subtitle={t('program-page.partner-apply.sub-title')}
       />
       {/* <Footer /> */}
     </div>

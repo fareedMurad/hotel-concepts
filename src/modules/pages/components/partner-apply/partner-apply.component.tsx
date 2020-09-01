@@ -13,6 +13,7 @@ import {
 } from '@core/components';
 import { Formik } from 'formik';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Default values
@@ -29,6 +30,7 @@ const defaultValues = {
 
 const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
   const [focused, setFocused] = React.useState(false);
+  const { t } = useTranslation();
   return (
     <div className={styles.partnerApply} id='get-involved'>
       <div className={styles.container}>
@@ -49,13 +51,13 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                     <Field.Text
                       name='name'
                       className={styles.name}
-                      label='Name'
+                      label={t('program-page.partner-apply.lable.name')}
                       placeholder='John'
                     />
                     <Field.Text
                       name='phone'
                       className={styles.email}
-                      label='E-mail'
+                      label={t('program-page.partner-apply.lable.email')}
                       placeholder='example@gmail.com'
                     />
                   </div>
@@ -69,7 +71,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                     </label>
                     <textarea
                       id='comment'
-                      name='Comment'
+                      name={t('program-page.partner-apply.lable.comment')}
                       className={styles.input}
                       onFocus={() => setFocused(true)}
                       onBlur={() => setFocused(false)}
@@ -80,7 +82,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                 <div className={styles.send}>
                   <Field.Checkbox
                     name='accept'
-                    label='Accept Terms & Conditions'
+                    label={t('program-page.partner-apply.lable.accept')}
                   />
 
                   <Button
@@ -90,7 +92,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                     //
                     className={styles.buttonSubmit}
                     type='submit'
-                    children='Send'
+                    children={t('program-page.partner-apply.button-text')}
                     arrow='&#8594;'
                     width={204}
                   />

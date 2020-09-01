@@ -4,6 +4,7 @@ import * as styles from './program-quote.scss';
 import { Button, Spinner } from '@core/components';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useProgramQuoteData } from './program-quote.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProgramQuote
@@ -12,6 +13,7 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
   const { programQuoteData, programQuoteDataLoading } = useProgramQuoteData(
     programId
   );
+  const { t } = useTranslation();
 
   if (programQuoteDataLoading) return <Spinner />;
 
@@ -31,7 +33,7 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
       <Button
         onClick={scrollToEnroll}
         className={styles.button}
-        children='Enroll now'
+        children={t('program-page.program-quote.button-text')}
         arrow='→'
       />
     </section>

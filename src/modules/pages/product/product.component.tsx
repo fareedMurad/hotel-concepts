@@ -24,11 +24,13 @@ import { Feedback } from './sections/feedback';
 import { ProductBanner } from './sections/product-banner';
 import { useDispatch } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Product
  */
 const Product: React.FC<ProductProps> = ({}) => {
+  const { t } = useTranslation();
   const history = useHistory();
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -69,7 +71,7 @@ const Product: React.FC<ProductProps> = ({}) => {
       <div className={styles.header}></div>
       <div onClick={() => history.goBack()} className={styles.back}>
         <div>&#8592;</div>
-        <div>Back</div>
+        <div>{t('product.back')}</div>
       </div>
       <div className={styles.productReview}>
         <div className={styles.slider}>
@@ -106,7 +108,7 @@ const Product: React.FC<ProductProps> = ({}) => {
       <Feedback />
       <ProductBanner product={product} />
 
-      <H2 className={styles.recomendedBooks}>Recommended books</H2>
+      <H2 className={styles.recomendedBooks}>{t('product.recomended')}</H2>
 
       <ProductsSlider data={recomendedProducts} notOrangeButtons />
       <Brochure />

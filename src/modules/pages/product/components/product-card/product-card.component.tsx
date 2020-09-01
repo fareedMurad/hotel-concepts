@@ -3,11 +3,13 @@ import { ProductCardProps } from './product-card.props';
 import * as styles from './product-card.scss';
 import { Paragraph, H2, H4, H3, Button } from '@core/components';
 import Moment from 'react-moment';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProductCard
  */
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const { t } = useTranslation();
   const {
     authors,
     name,
@@ -58,7 +60,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <H3 className={styles.price}>{`$${price}`}</H3>
         <Button
           className={styles.confirmButton}
-          children='Go to Checkout'
+          children={t('product.card.button-text')}
           arrow='&rarr;'
         />
       </div>

@@ -3,6 +3,7 @@ import { ProgramResultsProps } from './program-results.props';
 import * as styles from './program-results.scss';
 import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components';
+import { useTranslation } from 'react-i18next';
 
 const GET_RESULTS = gql`
   query($id: String!) {
@@ -15,6 +16,7 @@ const GET_RESULTS = gql`
  * Renders ProgramResults
  */
 const ProgramResults: React.FC<ProgramResultsProps> = ({ programId }) => {
+  const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_RESULTS, {
     variables: { id: programId }
   });
@@ -23,7 +25,7 @@ const ProgramResults: React.FC<ProgramResultsProps> = ({ programId }) => {
   const results = data?.onlineCourse?.results;
   return (
     <section id='results' className={styles.programResults}>
-      <div className={styles.title}>Results</div>
+      <div className={styles.title}>{t('program-page.results')}</div>
       <div className={styles.hr} />
       {results.map(item => (
         <div key={item}>

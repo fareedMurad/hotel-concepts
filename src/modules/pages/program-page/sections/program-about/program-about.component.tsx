@@ -3,11 +3,13 @@ import { ProgramAboutProps } from './program-about.props';
 import * as styles from './program-about.scss';
 import { useProgramAboutData } from './program-about.hook';
 import { Spinner } from '@core/components';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProgramAbout
  */
 const ProgramAbout: React.FC<ProgramAboutProps> = ({ programId }) => {
+  const { t } = useTranslation();
   const { programAboutData, programAboutLoading } = useProgramAboutData(
     programId
   );
@@ -18,12 +20,12 @@ const ProgramAbout: React.FC<ProgramAboutProps> = ({ programId }) => {
   return (
     <section id='about' className={styles.programAbout}>
       <div className={styles.title}>
-        <div>About</div>
+        <div>{t('program-page.about.title')}</div>
         <div>{aboutText}</div>
       </div>
       <div className={styles.skillsWrapper}>
         <div className={styles.skills}>
-          <div>Skills covered</div>
+          <div>{t('program-page.about.sub-title')}</div>
           {skills.map((item, index) => (
             <div className={styles.item} key={index}>
               {item}

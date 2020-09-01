@@ -23,7 +23,6 @@ const useProgramModulesData = (programId: string) => {
   const { data, loading, error } = useQuery(GET_PROGRAM_MODULES_DATA, {
     variables: { id: programId }
   });
-
   return {
     modulesData: data?.onlineCourse?.modulesCollection,
     modulesLoading: loading
