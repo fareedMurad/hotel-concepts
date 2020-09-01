@@ -8,11 +8,13 @@ import { HeroCaption } from '@pages/story-mission/components';
 import { Paragraph, H2, Button, SectionTitle } from '@core/components';
 import { Link } from 'react-router-dom';
 import { useOurMissionVisionData } from './our-mission-vision.hook';
+import { useTranslation } from 'react-i18next';
 
 const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
   program
 }) => {
   const { rate, caption, id, description } = program;
+  const { t } = useTranslation();
   return (
     <div className={styles.program}>
       <div className={styles.programBlock}>
@@ -26,7 +28,7 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
         <Button
           theme='secondary'
           width={224}
-          children='Explore programs'
+          children={t('story-mission.our-mission.button-text')}
           arrow='&#8594;'
         />
       </Link>
@@ -38,7 +40,7 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
  */
 const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
   const { programs, ourMissionImage } = useOurMissionVisionData();
-
+  const { t } = useTranslation();
   return (
     <div className={styles.ourMissionVision} id='mission'>
       <section
@@ -48,22 +50,18 @@ const OurMissionVision: React.FC<OurMissionVisionProps> = ({}) => {
         }}
       >
         <HeroCaption
-          title='Our mission & Vision'
+          title={t('story-mission.our-mission.title')}
           className={styles.heroCaption}
         />
         <Paragraph className={styles.heroDescription}>
-          To be your best-in-class online education partner for transformational
-          learning that prepares today’s hospitality business leaders and
-          organisations for long-term success.
+          {t('story-mission.our-mission.text')}
         </Paragraph>
       </section>
       <section className={styles.kordie}>
         <div className={styles.kordieWrapper} id='our-work'>
-          <SectionTitle>The Kordie Impact</SectionTitle>
+          <SectionTitle>{t('story-mission.kordie-impact.title')}</SectionTitle>
           <Paragraph className={styles.kordieParagraph}>
-            Kordie provides world-class online education for hospitality that is
-            innovative, practical, and results-focused to prepare individuals
-            and organisations for greater success.
+            {t('story-mission.kordie-impact.text')}
           </Paragraph>
         </div>
         <div className={styles.programsList}>

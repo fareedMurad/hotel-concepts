@@ -1,11 +1,33 @@
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const useStoryMissionData = () => {
+  const { t } = useTranslation();
   const anchors = [
-    { id: 1, caption: 'Overview', rate: '1.0', anchor: 'overview' },
-    { id: 2, caption: 'Mission & Vision', rate: '2.0', anchor: 'mission' },
-    { id: 3, caption: 'Our work', rate: '3.0', anchor: 'our-work' },
-    { id: 4, caption: 'Values', rate: '4.0', anchor: 'values' }
+    {
+      id: 1,
+      caption: t('story-mission.anchors.overview'),
+      rate: '1.0',
+      anchor: 'overview'
+    },
+    {
+      id: 2,
+      caption: t('story-mission.anchors.mission'),
+      rate: '2.0',
+      anchor: 'mission'
+    },
+    {
+      id: 3,
+      caption: t('story-mission.anchors.work'),
+      rate: '3.0',
+      anchor: 'our-work'
+    },
+    {
+      id: 4,
+      caption: t('story-mission.anchors.values'),
+      rate: '4.0',
+      anchor: 'values'
+    }
   ];
   const GET_HERO_IMAGE = gql`
     {

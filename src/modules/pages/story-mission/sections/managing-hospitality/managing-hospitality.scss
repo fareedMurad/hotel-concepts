@@ -2,6 +2,9 @@
 
 .title {
   @include container();
+  @include desktop {
+    width: 60%;
+  }
 }
 
 .cards-container {

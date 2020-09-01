@@ -323,7 +323,8 @@
         "question2": "What paths are you interested in?",
         "button-text": "Contact me"
       }
-    }
+    },
+    "empty-info": "There are no programs with these filters"
   },
   "article-page": {
     "back-button": "Back",
@@ -677,6 +678,90 @@
     },
     "program-quote": {
       "button-text": "Enroll now"
+    }
+  },
+  "story-mission": {
+    "title": "About Kordie",
+    "description": "New Knowledge for the New Hospitality Economy",
+    "button-text": "Contact us",
+    "anchors": {
+      "overview": "Overview",
+      "mission": "Mission & Vision",
+      "work": "Our work",
+      "values": "Values"
+    },
+    "caption": {
+      "title": "Hospitality education designed for impact",
+      "description": "Kordie - is online university for hospitality. We deliver practical programs and courses developed in team with key industry leaders, most relevant approach to education, case based assignments and mentorship from leading experts."
+    },
+    "managing-hospitality": {
+      "title": "Managing hospitality in extraordinary times",
+      "cards": {
+        "card1": {
+          "title": "Explore New Ideas",
+          "sub-title": "to reimagine business",
+          "description": "Innovative learning, guided by world-renowned faculty, that challenges assumptions and encourages experimentation."
+        },
+        "card2": {
+          "title": "Drive Business Results",
+          "sub-title": "through real-word application",
+          "description": "An integrated approach that includes analytics, evidence-based research, and experiential learning."
+        },
+        "card3": {
+          "title": "Transform Leaders",
+          "sub-title": "who redefine success",
+          "description": "The vision, confidence, and knowledge to inspire greater performance and create lasting impact."
+        }
+      }
+    },
+    "why-cordie": {
+      "title": "Why 'Kordie' ?",
+      "paragraph1": "Hospitality and Cordiality are inseparable. Principle of cordiality, more than a mere politeness, is at the very heart of any business or relations within hospitality industry.",
+      "paragraph2": "he aspects of cordiality - welcome, warmth, kindness, friendliness, sociability - are the core of our company, just as for any hospitality business."
+    },
+    "our-mission": {
+      "title": "Our mission & Vision",
+      "text": "To be your best-in-class online education partner for transformational learning that prepares today’s hospitality business leaders and organisations for long-term success.",
+      "button-text": "Explore programs"
+    },
+    "kordie-impact": {
+      "title": "The Kordie Impact",
+      "text": "Kordie provides world-class online education for hospitality that is innovative, practical, and results-focused to prepare individuals and organisations for greater success.",
+      "list": {
+        "item1": {
+          "caption": "Marketing Fundamentals",
+          "description": "Early career or senior leadership focus. Whatever your  ambitions, we have a programme to suit your needs."
+        },
+        "item2": {
+          "caption": "Our Experts",
+          "description": "Our expert program team brings to life the learning solution which we have cocreated, working hard to match your ambition and needs."
+        },
+        "item3": {
+          "caption": "Our Work with Organisations",
+          "description": "Unlock your organisation’s potential. Discover how partnering with Kordie can help you achieve your business goals."
+        }
+      }
+    },
+    "our-founding": {
+      "title": "Our Founding Values",
+      "cards": {
+        "card1": {
+          "title": "Diversity as a source of learning and enrichment",
+          "description": "We are free from any dominant culture or prevalent dogma; we are open to, and respectful of, other views; we learn through the exchange of ideas and experiences."
+        },
+        "card2": {
+          "title": "Closeness to the international business community",
+          "description": "We partner with the international business community to explore management knowledge; we believe in the role of business as a force for improving people’s lives."
+        },
+        "card3": {
+          "title": "Entrepreneurial spirit",
+          "description": "We are willing to experiment and innovate; we are ready to take risks and manage the results of our actions."
+        }
+      }
+    },
+    "form": {
+      "title": "Want to get involved?",
+      "subtitle": "We’re always happy to talk if you are interested in becoming a Partner"
     }
   }
 }

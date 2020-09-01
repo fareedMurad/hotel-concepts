@@ -17,6 +17,8 @@ import { OurFoundingValues } from './sections/our-founding-values';
 import { PartnerApply } from '@pages/components';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { ScrollToTop } from '@app';
+import { useTransition } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 
 const Hr = () => {
   return <div className={styles.hr} />;
@@ -44,6 +46,7 @@ const Anchor: React.FC<{ anchor: string; rate: string; caption: string }> = ({
  */
 const StoryMission: React.FC<StoryMissionProps> = ({}) => {
   const { anchors, storyMissionHeroImage } = useStoryMissionData();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.storyMission}>
@@ -56,10 +59,9 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
           className={styles.headerImg}
         >
           <div className={styles.headerContent}>
-            <HeroTitle>About Kordie</HeroTitle>
+            <HeroTitle>{t('story-mission.title')}</HeroTitle>
             <HeroSubtitle className={styles.headerContentDescription}>
-              New Knowledge for the New <br />
-              Hospitality Economy
+              {t('story-mission.description')}
             </HeroSubtitle>
             <div className={styles.headerBar}>
               {anchors.map(item => {
@@ -77,7 +79,7 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
               <Button
                 className={styles.headerBtn}
                 onClick={() => scrollTo('get-involved')}
-                children='Contact us'
+                children={t('story-mission.button-text')}
                 arrow='&#8594;'
                 width='inherit'
               />
@@ -88,41 +90,32 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
       <HeroCaption
         id='overview'
         className={styles.captionContainer}
-        title='Hospitality education designed for impact'
-        description='Kordie - is online university for hospitality. We deliver practical programs and courses developed in team with key industry leaders, most relevant approach to education, case based assignments and mentorship from leading experts.'
+        title={t('story-mission.caption.title')}
+        description={t('story-mission.caption.description')}
       />
       <Hr />
       <ManagingHospitality />
       <Hr />
       <section className={styles.whyKordieSection}>
         <SectionTitle className={styles.whyKordieTitle}>
-          Why 'Kordie' ?
+          {t('story-mission.why-cordie.title')}
         </SectionTitle>
         <main className={styles.whyKordieContainer}>
           <SectionTitle className={styles.animation}>
             Animation here
           </SectionTitle>
           <div className={styles.whyKordieParagraph}>
-            <Paragraph>
-              Hospitality and Cordiality are inseparable. Principle of
-              cordiality, more than a mere politeness, is at the very heart of
-              any business or relations within hospitality industry.
-            </Paragraph>
-            <Paragraph>
-              The aspects of cordiality - welcome, warmth, kindness,
-              friendliness, sociability - are the core of our company, just as
-              for any hospitality business.
-            </Paragraph>
+            <Paragraph>{t('story-mission.why-cordie.paragraph1')}</Paragraph>
+            <Paragraph>{t('story-mission.why-cordie.paragraph2')}</Paragraph>
           </div>
         </main>
       </section>
       <OurMissionVision />
       <OurFoundingValues />
       <PartnerApply
-        title='Want to get involved?'
-        subtitle='We’re always happy to talk if you are interested in becoming a Partner'
+        title={t('story-mission.form.title')}
+        subtitle={t('story-mission.form.subtitle')}
       />
-      {/* <Footer /> */}
     </div>
   );
 };

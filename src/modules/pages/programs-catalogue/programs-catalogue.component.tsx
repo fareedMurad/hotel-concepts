@@ -45,7 +45,6 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   };
 
   const usePreviousValue = usePrevious(currentFilters[0]);
-
   React.useEffect(() => {
     if (usePreviousValue != currentFilters[0]) {
       setCurrentPage(1);
@@ -83,11 +82,6 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
 
   const reduceMargin = isFilterable.length >= itemsPerPage || currentPage > 1;
 
-  console.log(currentFilters.length);
-  console.log(currentFilters);
-  console.log(currentPage);
-  console.log(usePreviousValue);
-
   return (
     <React.Fragment>
       <ScrollToTop />
@@ -114,7 +108,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
             })
           ) : (
             <div className={styles.emptyInfo}>
-              There are no programs with these filters
+              {t('programs-catalogue.empty-info')}
             </div>
           )}
         </div>
