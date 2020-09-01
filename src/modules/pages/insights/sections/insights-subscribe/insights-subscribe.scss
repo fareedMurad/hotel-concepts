@@ -17,7 +17,7 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  @include tablet(){
+  @include tablet() {
     flex-direction: row;
   }
   @include desktop() {
@@ -50,6 +50,9 @@
 
 .title {
   margin: 10px 0px;
+  @include desktop() {
+    width: 40%;
+  }
 }
 
 .form {

@@ -18,11 +18,13 @@ import {
 } from './hooks';
 import { useDispatch } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders JobsList
  */
 const JobsList: React.FC<JobsListProps> = ({}) => {
+  const { t } = useTranslation();
   const [currentFilter, setCurrentFilter] = React.useState('All');
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -54,17 +56,15 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
       <div className={styles.header}></div>
       <div className={styles.jobsList}>
         <SectionTitle className={styles.title}>
-          Want to create <br /> better hospitality impact?
+          {t('jobs-list.title')}
         </SectionTitle>
         <Paragraph className={styles.description}>
-          We are a fast-growing, London-based company that builds <br />{' '}
-          hospitality online courses taught by the greatest masters in the{' '}
-          <br /> world.
+          {t('jobs-list.description')}
         </Paragraph>
         <div className={styles.filters}>
           <ButtonFilter
             id='All'
-            title='All'
+            title={t('jobs-list.all')}
             count={allJobs.total}
             active={currentFilter == 'All'}
             onClick={() => {

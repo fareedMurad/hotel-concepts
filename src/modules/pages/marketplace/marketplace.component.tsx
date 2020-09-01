@@ -14,11 +14,13 @@ import { ProductsSlider } from '@pages/components/products-slider';
 import { MarketplaceHero } from './marketplace-hero';
 import { useProductsCategoriesData } from './hooks/marketplace-categories.hook';
 import { MarketplaceProductsCarusel } from './marketplace-products-carusel';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Marketplace
  */
 const Marketplace: React.FC<MarketplaceProps> = ({}) => {
+  const { t } = useTranslation();
   const {
     productCategories,
     productCategoriesLoading
@@ -34,7 +36,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({}) => {
         return (
           <React.Fragment key={el.sys.id}>
             <div className={styles.itemsContainer} id={el.category}>
-              <PreCaption>Popular items in</PreCaption>
+              <PreCaption>{t('marketplace.popular-items')}</PreCaption>
               <H2 className={styles.title}>{el.category}</H2>
             </div>
             <MarketplaceProductsCarusel category={el.category} />

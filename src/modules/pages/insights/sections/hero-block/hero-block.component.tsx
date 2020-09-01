@@ -6,6 +6,7 @@ import { ScrollButton } from '@core/components/scroll-button';
 import { HeroTitle, HeroSubtitle, Spinner } from '@core/components';
 import { useMostPopularArticles } from './hero-block.hook';
 import { useMediaPoints } from '@core/shared';
+import { useTranslation } from 'react-i18next';
 
 const HeroCard = ({ firstScreenArticle }) => {
   if (!firstScreenArticle) return <Spinner />;
@@ -50,6 +51,7 @@ const HeroCard = ({ firstScreenArticle }) => {
  * Renders HeroBlock
  */
 const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
+  const { t } = useTranslation();
   const {
     firstScreenArticles,
     firstScreenArticlesLoading,
@@ -68,14 +70,17 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
           }}
         >
           <div className={styles.heroMainContent}>
-            <div>New</div>
-            <HeroTitle>Cordie Insights</HeroTitle>
-            <HeroSubtitle>
-              Talks recommended just for you, delivered to your inbox.
-            </HeroSubtitle>
+            <div>{t('insights.hero.pre-caption')}</div>
+            <HeroTitle>{t('insights.hero.title')}</HeroTitle>
+            <HeroSubtitle>{t('insights.hero.description')}</HeroSubtitle>
           </div>
         </div>
-        {!mobile && <ScrollButton text='Scroll' className={styles.arrow} />}
+        {!mobile && (
+          <ScrollButton
+            text={t('insights.hero.scroll')}
+            className={styles.arrow}
+          />
+        )}
       </div>
       <div className={styles.heroSubmain}>
         <HeroCard firstScreenArticle={firstScreenArticles[0]} />

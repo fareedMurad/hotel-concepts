@@ -8,8 +8,16 @@
   }
 }
 
+.title {
+  @include desktop() {
+    width: 50%;
+  }
+}
 .description {
   margin-bottom: 0;
+  @include desktop {
+    width: 50%;
+  }
 }
 
 .filters {

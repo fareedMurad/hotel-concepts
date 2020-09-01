@@ -16,11 +16,13 @@ import { useArticlesAmount } from './hooks/articles-amount.hook';
 import { usePopularArticlesData } from './hooks/popular.articles.hook';
 import Moment from 'react-moment';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders FeaturedArticles
  */
 const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
+  const { t } = useTranslation();
   const { categories, loadingArticlesCategories } = useArticlesCategoriesData();
   const { amountLoading, allArticlesAmount } = useArticlesAmount();
   const history = useHistory();
@@ -49,12 +51,14 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
   return (
     <div className={styles.featuredArticles}>
       <div className={styles.caption}>
-        <PreCaption>{`${allArticlesAmount} Articles`}</PreCaption>
-        <H2>Featured Articles</H2>
+        <PreCaption>{`${allArticlesAmount} ${t(
+          'insights.featured-articles.pre-caption'
+        )}`}</PreCaption>
+        <H2>{t('insights.featured-articles.title')}</H2>
       </div>
       <div className={styles.filters}>
         <ButtonFilter
-          title='All'
+          title={t('insights.featured-articles.all')}
           count={allArticlesAmount}
           onClick={() => handleClick('All')}
           active={categoryId === 'All'}
@@ -124,7 +128,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
       </div>
       <Button
         className={styles.showMore}
-        children='Show more'
+        children={t('insights.featured-articles.button-text')}
         arrow='&#8595;'
         onClick={() => setArticlesToSkip(categoryId === 'All' ? 7 : 9)}
         width={204}

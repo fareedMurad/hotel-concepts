@@ -4,21 +4,21 @@ import * as styles from './insights-subscribe.scss';
 import { H2, Form, Field, Button, Tabs, PreCaption } from '@core/components';
 import { Formik } from 'formik';
 import { useMediaPoints } from '@core/shared';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders InsightsSubscribe
  */
 const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
   const { tablet } = useMediaPoints();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.insightsSubscribe}>
       <div className={styles.wrapper}>
-        <PreCaption>Delivered to your inbox.</PreCaption>
+        <PreCaption>{t('insights.insights-subscribe.pre-caption')}</PreCaption>
         <div className={styles.title}>
-          <H2>
-            Industry insights you <br /> won't delete
-          </H2>
+          <H2>Industry insights you won't delete</H2>
         </div>
         <Formik
           initialValues={{ email: '', subscribeType: '0' }}
@@ -36,21 +36,24 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
                 data={[
                   {
                     id: '0',
-                    caption: 'Weekly Insights',
-                    description:
-                      'The editor picks highlights delivered every sundays.'
+                    caption: t('insights.insights-subscribe.tabs.tab1.title'),
+                    description: t(
+                      'insights.insights-subscribe.tabs.tab1.description'
+                    )
                   },
                   {
                     id: '1',
-                    caption: 'The Daily Alert',
-                    description:
-                      'Links to all the digital articles published in the last 24 hours.'
+                    caption: t('insights.insights-subscribe.tabs.tab2.title'),
+                    description: t(
+                      'insights.insights-subscribe.tabs.tab2.description'
+                    )
                   },
                   {
                     id: '2',
-                    caption: 'Leadership',
-                    description:
-                      'Must-reads from our most recent articles on leadership delivered once a month.'
+                    caption: t('insights.insights-subscribe.tabs.tab3.title'),
+                    description: t(
+                      'insights.insights-subscribe.tabs.tab3.description'
+                    )
                   }
                 ]}
               />
@@ -65,7 +68,7 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
                   onClick={() => handleSubmit()}
                   className={styles.buttonSubmit}
                   type='submit'
-                  children='Subscribe'
+                  children={t('insights.insights-subscribe.button-text')}
                   arrow='&#8594;'
                   width={tablet ? '35%' : '40%'}
                 />

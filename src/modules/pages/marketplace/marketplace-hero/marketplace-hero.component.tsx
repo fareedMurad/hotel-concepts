@@ -6,6 +6,7 @@ import { useMarketplaceData } from '../hooks/marketplace.hook';
 import classNames from 'classnames';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useProductsCategoriesData } from '../hooks/marketplace-categories.hook';
+import { useTranslation } from 'react-i18next';
 
 // todo fix counter!!
 
@@ -15,6 +16,7 @@ import { useProductsCategoriesData } from '../hooks/marketplace-categories.hook'
 const MarketplaceHero: React.FC<IntroProps> = ({}) => {
   const [isActive, setIsActive] = React.useState(null);
   const { marketPlaceHeroImage } = useMarketplaceData();
+  const { t } = useTranslation();
   const {
     productCategories,
     productCategoriesLoading
@@ -34,10 +36,9 @@ const MarketplaceHero: React.FC<IntroProps> = ({}) => {
         }}
       >
         <main className={styles.wrapperContent}>
-          <H1 className={styles.wrapperCaption}>Marketplace</H1>
+          <H1 className={styles.wrapperCaption}>{t('marketplace.title')}</H1>
           <div className={styles.wrapperDescription}>
-            Marketplace is for busy hospitality managers looking <br /> for
-            smart answers to common challenges.
+            {t('marketplace.description')}
           </div>
         </main>
         <div className={styles.filtersField}>
