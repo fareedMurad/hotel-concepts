@@ -3,11 +3,18 @@
 .partnering {
   @include container($top: 60px);
   box-sizing: border-box;
+  @include desktop() {
+    width: 50%;
+    & > div:nth-child(2) {
+      width: 80%;
+    }
+  }
 }
 
 .how-program {
   @include container($top: 60px);
   padding-bottom: 10px;
+
   &__description {
     display: grid;
     width: 100%;
@@ -27,6 +34,11 @@
       @include tablet() {
         margin-bottom: 0;
       }
+    }
+  }
+  @include desktop {
+    &__title {
+      width: 40%;
     }
   }
 }

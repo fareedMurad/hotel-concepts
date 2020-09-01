@@ -2,38 +2,35 @@ import * as React from 'react';
 import { PartneringForSuccessProps } from './partnering-for-success.props';
 import * as styles from './partnering-for-success.scss';
 import { Icon, H2, Paragraph, SectionTitle } from '@core/components';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders PartneringForSuccess
  */
 const PartneringForSuccess: React.FC<PartneringForSuccessProps> = ({}) => {
+  const { t } = useTranslation();
   return (
     <div className={styles.partneringForSuccess}>
       <div className={styles.partnering}>
         <Icon name='abstract-1' />
         <SectionTitle>
-          Partnering for <br /> Success
+          {t('course-partnership.partnering-for-success.title')}
         </SectionTitle>
         <Paragraph>
-          Kordie is proud to partner with a select number of <br />{' '}
-          organisations, partnerships which allow us to provide <br /> access to
-          exclusive knowledge and practice for <br /> specific sectors.
+          {t('course-partnership.partnering-for-success.description')}
         </Paragraph>
       </div>
       <div className={styles.hr} />
       <div className={styles.howProgram}>
         <H2 className={styles.howProgramTitle}>
-          How Program <br /> Partnership works?
+          {t('course-partnership.how-program.title')}
         </H2>
         <div className={styles.howProgramDescription}>
           <Paragraph className={styles.howProgramDescriptionBlock}>
-            A Kordie partner is an organisation that creates courses together
-            with us by sharing knowledge and expertise.
+            {t('course-partnership.how-program.description1')}
           </Paragraph>
           <Paragraph className={styles.howProgramDescriptionBlock}>
-            A partner engages in creating the program content, with guidance
-            from us on learning design, and we then work together to put the
-            course onto the platform.
+            {t('course-partnership.how-program.description2')}
           </Paragraph>
         </div>
       </div>

@@ -5,4 +5,7 @@
   &--text {
     @include font($primary-gray, 24px, 400, 34px);
   }
+  @include desktop() {
+    width: 80%;
+  }
 }

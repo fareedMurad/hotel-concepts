@@ -1,22 +1,22 @@
+import { useTranslation } from 'react-i18next';
+
 const useHowWeWork = () => {
+  const { t } = useTranslation();
   const cardsData = [
     {
       id: 1,
-      title: 'Dedicated customer success manager',
-      text:
-        'From sharing best practices to co-designing your team’s transformational plans, your success is our priority'
+      title: t('for-companies.how-we-work.cards.card1.title'),
+      text: t('for-companies.how-we-work.cards.card1.text')
     },
     {
       id: 2,
-      title: 'Regular reviews',
-      text:
-        'Monthly or quarterly reviews keep individual and programwide progress on track '
+      title: t('for-companies.how-we-work.cards.card2.title'),
+      text: t('for-companies.how-we-work.cards.card2.text')
     },
     {
       id: 3,
-      title: 'World-class best practices',
-      text:
-        'Our world-class faculty provides a global perspective and brings relevant, practically rigorous knowledge'
+      title: t('for-companies.how-we-work.cards.card3.title'),
+      text: t('for-companies.how-we-work.cards.card3.text')
     }
   ];
   return cardsData;

@@ -10,6 +10,7 @@ import { ArticleIntro } from './sections/article-intro';
 import { ArticleRichText } from './sections/article-rich-text';
 import { useDispatch } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
+import { useTranslation } from 'react-i18next';
 /**
  * HR
  */
@@ -21,6 +22,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
   const history = useHistory();
   const { articleId } = useParams();
   const { articleData, articleLoading } = useArticleFirstScreenData(articleId);
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(isBackgroundWhite(true));
@@ -45,7 +47,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
       <main className={styles.content}>
         <div onClick={() => history.goBack()} className={styles.back}>
           <div>&#8592;</div>
-          <div>Back</div>
+          <div>{t('article-page.back-button')}</div>
         </div>
         <ArticleIntro articleData={articleData} />
         <Hr />
@@ -53,7 +55,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
       </main>
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <H2>Read Next</H2>
+          <H2>{t('article-page.read-next')}</H2>
           <div className={styles.footerContentDate}>
             <Moment format='MMM DD, YYYY'>{readNextDate}</Moment>
           </div>
@@ -63,7 +65,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
           <Button
             theme='secondary'
             className={styles.button}
-            children='Read'
+            children={t('article-page.button-text')}
             arrow='&#8594;'
             width={204}
             onClick={() => {

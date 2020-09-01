@@ -1,20 +1,20 @@
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const useBenefitsCards = () => {
+  const { t } = useTranslation();
   const cardsText = [
     {
       id: 1,
-      text:
-        'Improve employee retention - show long-term commitment to your staff by investing in their personal development. Benefit from higher levels of motivation and stronger personal connections to the business. '
+      text: t('for-companies.benefits.for-organization.list.item1')
     },
     {
       id: 2,
-      text: 'Address organisational challenges .'
+      text: t('for-companies.benefits.for-organization.list.item2')
     },
     {
       id: 3,
-      text:
-        'Increase your competitive advantage with new knowledge and practices.'
+      text: t('for-companies.benefits.for-organization.list.item3')
     }
   ];
   const GET_HERO_IMAGE = gql`

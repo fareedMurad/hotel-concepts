@@ -324,5 +324,182 @@
         "button-text": "Contact me"
       }
     }
+  },
+  "article-page": {
+    "back-button": "Back",
+    "read-next": "Read Next",
+    "button-text": "Read",
+    "intro": {
+      "reading-time": "Reading time"
+    },
+    "form": {}
+  },
+  "insights-form": {
+    "title": "Fresh insight in your box",
+    "notification-message": "Your subscription request had been sent, please check email to verify your account",
+    "button-text": "Subscribe"
+  },
+  "course-partnership": {
+    "hero": {
+      "title": "Program Partnership whith Kordie",
+      "description": "Combining Kordie’ expertise with the insights of industry leaders",
+      "button-text": "Contact us",
+      "scroll": "Scroll"
+    },
+    "partnering-for-success": {
+      "title": "Partnering for Success",
+      "description": "Kordie is proud to partner with a select number of organisations, partnerships which allow us to provide  access to exclusive knowledge and practice for specific sectors."
+    },
+    "how-program": {
+      "title": "How Program Partnership works?",
+      "description1": "A Kordie partner is an organisation that creates courses together with us by sharing knowledge and expertise.",
+      "description2": "A partner engages in creating the program content, with guidance from us on learning design, and we then work together to put the course onto the platform."
+    },
+    "how-become-partner": {
+      "title": "Who can become a Partner?",
+      "cards": {
+        "card1": {
+          "title": "Academic Institutions",
+          "description": "Providing or aiming to provide hospitality degrees."
+        },
+        "card2": {
+          "title": "Specialist Organisations",
+          "description": "Organisations providing services for hospitality."
+        },
+        "card3": {
+          "title": "Hospitality  Professionals",
+          "description": "Specialist with high-profile expertise in different hospitality segments."
+        },
+        "card4": {
+          "title": "Industry Leaders",
+          "description": "Hotels and resorts with higher output."
+        }
+      }
+    },
+    "partner-benefits": {
+      "title": "Benefits of becoming a Partner",
+      "description": " As Curriculum Partners, co-developing programs, companies receive an incredible platform to:",
+      "list": {
+        "item1": "Build brand visibility",
+        "item2": "Showcase subject matter expertise",
+        "item3": "Enhance thought leadership"
+      },
+      "paragraph1": "This also contributes to nurturing a  uniquely qualified talent pipeline, and  encourages product andoffering usage.",
+      "paragraph2": " For students, this represents an unrivalled opportunity to learn the most-cutting edge skills  from the brands leading the industry and address real-world situations through cross-disciplinary collaboration."
+    },
+    "criteria": {
+      "title": " What criteria do you need to meet to be a Kordie partner?",
+      "cards": {
+        "card1": "Demonstrable expertise in an area of knowledge related to hospitality industry",
+        "card2": "A commitment to advancing and democratising hospitality education",
+        "card3": "Substantial experience and reputation"
+      }
+    }
+  },
+  "for-companies": {
+    "intro": {
+      "title": "Hospitality education designed for impact",
+      "description": "Enforce your people and power your future",
+      "scroll": "Scroll",
+      "button-text": "Contact Us"
+    },
+    "talent-metters": {
+      "title": "Talent matters",
+      "description": " Investing in your people solves skills shortages, develops new and creative growth areas, open up new  revenue possibilities and prepares your hospitality  business for a dynamic future."
+    },
+    "benefits": {
+      "for-organization": {
+        "title": "Benefits for organisation",
+        "list": {
+          "item1": "Improve employee retention - show long-term commitment to your staff by investing in their personal development. Benefit from higher levels of motivation and stronger personal connections to the business.",
+          "item2": "Address organisational challenges .",
+          "item3": "Increase your competitive advantage with new knowledge and practices."
+        }
+      },
+      "for-employees": {
+        "title": "Benefits for employees"
+      }
+    },
+    "how-we-work": {
+      "title": "How we work",
+      "cards": {
+        "card1": {
+          "title": "Dedicated customer success manager",
+          "text": "From sharing best practices to co-designing your team’s transformational plans, your success is our priority"
+        },
+        "card2": {
+          "title": "Regular reviews",
+          "text": "Monthly or quarterly reviews keep individual and programwide progress on track"
+        },
+        "card3": {
+          "title": "World-class best practices",
+          "text": "Our world-class faculty provides a global perspective and brings relevant, practically rigorous knowledge"
+        }
+      }
+    },
+    "our-approach": {
+      "title": "Our approach",
+      "text": "  We care deeply about the learning experience of each and every participant, and the impact they bring back to your organisation. Learning is just the beginning. We give your people the tools they need to make a difference – for you and for them."
+    },
+    "why-cordie": {
+      "title": "Why Kordie?",
+      "block1": {
+        "title": "Your Global Partner",
+        "text": " With an unrivalled capability to deliver learning globally, we equip people, teams and organisations with hospitality industry to succeed, change and grow."
+      },
+      "block2": {
+        "title": "Powerful Network",
+        "text": "We provide access global network of hospitality business leaders. We are a closeknit hospitality learning community whose mission is to support and accelerate you beyond your journey."
+      },
+      "block3": {
+        "title": "The Kordie Approach",
+        "text": " We define success by results achieved. To get there, we partner with you to fully understand your needs and the outcomes you want to achieve. The process is highly collaborative, informed by your current business environment and your corporate culture."
+      },
+      "block4": {
+        "title": "World-class Faculty",
+        "text": " You can benefit from a wide spectrum of world-class hospitality coaching experts with diverse backgrounds, talents and expertise."
+      }
+    },
+    "our-programs": {
+      "title": "Our programs",
+      "description": "Our programs are organised into subject-specific departments, such as:",
+      "cards": {
+        "card1": {
+          "title": "Focused Programs",
+          "text": "Focused programs are an opportunity for you to develop in-depth expertise in areas that are critical for you. Choose from many topics including hospitality digital marketing, revenue management, human resources and others."
+        },
+        "card2": {
+          "title": "Strategy",
+          "text": "Our suite of world-class strategy courses gives you the tools and capabilities to create competitive advantage and deliver growth in the fast-changing hospitality business environment."
+        },
+        "card3": {
+          "title": "Hospitality Leadership",
+          "text": "Leadership programs are about enabling the full potential in others and in yourself. Explore how to become a better hospitality leader, discover how to energise and mobilise people to reach a common goal, see more opportunities."
+        },
+        "card4": {
+          "title": "Soft Skills",
+          "text": "Gain the skills and confidence to succeed in the world of hospitality supported by a mentor. Start today and be fully equipped for the challenges of tomorrow."
+        },
+        "card5": {
+          "title": "Digital Transformation & Innovation",
+          "text": "Focused programs are an opportunity for you to develop in-depth expertise in areas that are critical for you. Choose from many topics including hospitality digital marketing, revenue management, human resources and others."
+        }
+      }
+    },
+    "increase-your-competitive": {
+      "title": "Increase your competitive advantage with new knowledge.",
+      "description": " Kordie innovates the way hospitality professionals learn and travel organisations develop talent. Powerful knowledge is brought directly to you in a convenient, flexible way. Connect with Kordie’s renowned faculty and mentors from all over the world to deepen your expertise. Scale the learning across your hospitality business to drive powerful results."
+    },
+    "brochure": {
+      "title": "Unique learning. Unique business impact.",
+      "description": "Find out more about how we can collaborate towards your future."
+    }
+  },
+  "insights": {
+    "hero": {
+      "pre-caprion": "New",
+      "title": "",
+      "decsription": ""
+    }
   }
 }

@@ -4,11 +4,13 @@ import * as styles from './insights-form.scss';
 import { Formik } from 'formik';
 import { Form, Field, Button } from '@core/components';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders InsightsForm
  */
 const InsightsForm: React.FC<InsightsFormProps> = ({}) => {
+  const { t } = useTranslation();
   const [sent, setSent] = React.useState(false);
   const subscribe = async email => {
     await axios(
@@ -28,11 +30,10 @@ const InsightsForm: React.FC<InsightsFormProps> = ({}) => {
   return (
     <aside className={styles.aside}>
       <div>
-        <div>Fresh insight in your box</div>
+        <div>{t('insights-form.title')}</div>
         {sent ? (
           <div className={styles.notificationMessage}>
-            Your subscription request had been sent, please check email to
-            verify your account
+            {t('insights-form.notification-message')}
           </div>
         ) : (
           <Formik
@@ -45,7 +46,7 @@ const InsightsForm: React.FC<InsightsFormProps> = ({}) => {
                 <Button
                   className={styles.button}
                   onClick={() => handleSubmit()}
-                  children='Subscribe'
+                  children={t('insights-form.button-text')}
                   arrow='&#8594;'
                   width={284}
                 />

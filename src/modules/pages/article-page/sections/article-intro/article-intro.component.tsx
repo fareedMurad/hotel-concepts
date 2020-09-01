@@ -6,6 +6,7 @@ import { useMediaPoints } from '@core/shared';
 import { ShareSocial } from '@core/components/share';
 import { SEO } from '@core/components/seo/seo.component';
 import { useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Tags
@@ -24,6 +25,7 @@ const ArticleIntro: React.FC<ArticleIntroProps> = ({ articleData }) => {
     articleImage: { url },
     categoriesCollection: { items: categories }
   } = articleData.article;
+  const { t } = useTranslation();
 
   return (
     <React.Fragment>
@@ -42,7 +44,8 @@ const ArticleIntro: React.FC<ArticleIntroProps> = ({ articleData }) => {
           </div>
           <div className={styles.headingOptions}>
             <div className={styles.readingTime}>
-              <div>Reading time:</div> <div>{readingTime}</div>
+              <div>{t('article-page.intro.reading-time')}</div>{' '}
+              <div>{readingTime}</div>
             </div>
             <div className={styles.share}>
               <ShareSocial

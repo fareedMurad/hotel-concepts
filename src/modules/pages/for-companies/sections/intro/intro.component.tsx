@@ -5,16 +5,18 @@ import { Button, HeroTitle, HeroSubtitle } from '@core/components';
 import { ScrollButton } from '@core/components/scroll-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useIntroData } from './intro.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Intro
  */
 const Intro: React.FC<IntroProps> = ({}) => {
+  const { t } = useTranslation();
   const ScrollToEnroll = () => {
     scrollTo('consult-request');
   };
   const { introData } = useIntroData();
-  
+
   return (
     <div
       className={styles.intro}
@@ -22,19 +24,22 @@ const Intro: React.FC<IntroProps> = ({}) => {
     >
       <main className={styles.introContent}>
         <HeroTitle className={styles.introCaption}>
-          Hospitality education <br /> designed for impact
+          {t('for-companies.intro.title')}
         </HeroTitle>
         <HeroSubtitle className={styles.introDescription}>
-          Enforce your people and power your future
+          {t('for-companies.intro.description')}
         </HeroSubtitle>
         <Button
           className={styles.button}
           onClick={ScrollToEnroll}
-          children='Contact us'
+          children={t('for-companies.intro.button-text')}
           arrow='&rarr;'
         />
       </main>
-      <ScrollButton text='Scroll' className={styles.arrow} />
+      <ScrollButton
+        text={t('for-companies.intro.scroll')}
+        className={styles.arrow}
+      />
     </div>
   );
 };

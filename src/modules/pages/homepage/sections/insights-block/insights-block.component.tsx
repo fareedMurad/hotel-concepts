@@ -62,7 +62,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
             onClick={handleClick}
             className={styles.controls}
             isBordered
-            btnText={t('home.cordie-isights.button-text')}
+            btnText={t('home.cordie-insights.button-text')}
           />
         }
       >

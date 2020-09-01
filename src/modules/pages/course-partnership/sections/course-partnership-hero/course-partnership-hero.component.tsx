@@ -4,12 +4,14 @@ import * as styles from './course-partnership-hero.scss';
 import { Button, HeroTitle, HeroSubtitle } from '@core/components';
 import { ScrollButton } from '@core/components/scroll-button';
 import { useCoursePartnershipHeroData } from './course-partnership-hero.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Hero
  */
 const CoursePartnershipHero: React.FC<HeroProps> = ({}) => {
   const { coursePartnershipHeroData } = useCoursePartnershipHeroData();
+  const { t } = useTranslation();
 
   return (
     <div
@@ -18,21 +20,23 @@ const CoursePartnershipHero: React.FC<HeroProps> = ({}) => {
     >
       <main className={styles.heroContent}>
         <HeroTitle className={styles.heroCaption}>
-          Program Partnership <br /> with Kordie
+          {t('course-partnership.hero.title')}
         </HeroTitle>
         <HeroSubtitle className={styles.heroDescription}>
-          Combining Kordie’ expertise with the <br />
-          insights of industry leaders
+          {t('course-partnership.hero.description')}
         </HeroSubtitle>
         <a href='#get-involved'>
           <Button
             className={styles.button}
-            children='Contact us'
+            children={t('course-partnership.hero.button-text')}
             arrow='&rarr;'
           />
         </a>
       </main>
-      <ScrollButton text='Scroll' className={styles.arrow} />
+      <ScrollButton
+        text={t('course-partnership.hero.scroll')}
+        className={styles.arrow}
+      />
     </div>
   );
 };

@@ -4,18 +4,20 @@ import * as styles from './how-become-partner.scss';
 import { H2, Icon, SectionTitle } from '@core/components';
 import { Card } from './card';
 import { useCoursePartnershipHook } from '@pages/course-partnership/course-partnership.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders HowBecomePartner
  */
 const HowBecomePartner: React.FC<HowBecomePartnerProps> = ({}) => {
+  const { t } = useTranslation();
   const { cardsData } = useCoursePartnershipHook();
   return (
     <div className={styles.howBecomePartner}>
       <div className={styles.howBecomePartnerTitle}>
         <Icon name='abstract-1' />
         <SectionTitle>
-          Who can become a <br /> Partner?
+          {t('course-partnership.how-become-partner.title')}
         </SectionTitle>
       </div>
       <div className={styles.cardsRow}>

@@ -15,6 +15,9 @@
   @include desktop() {
     width: 40%;
   }
+  @include desktop() {
+    width: 30%;
+  }
 }
 .title {
   @include font($white, 36px, 400, 46px);

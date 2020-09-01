@@ -4,6 +4,7 @@ import * as styles from './partner-benefits.scss';
 import { Paragraph, Icon, H4, SectionTitle } from '@core/components';
 import { useMediaPoints } from '@core/shared';
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const GET_HERO_IMAGE = gql`
   {
@@ -19,37 +20,41 @@ const GET_HERO_IMAGE = gql`
 const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
   const { desktop } = useMediaPoints();
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+  const { t } = useTranslation();
 
   return (
     <div className={styles.partnerBenefits}>
       <div className={styles.content}>
         <SectionTitle>
-          Benefits of becoming <br /> a Partner
+          {t('course-partnership.partner-benefits.title')}
         </SectionTitle>
         <Paragraph className={styles.paragraph}>
-          As Curriculum Partners, co-developing programs, companies receive an
-          incredible platform to:
+          {t('course-partnership.partner-benefits.description')}
         </Paragraph>
         <div className={styles.contentList}>
           <div className={styles.contentListItem}>
             <Icon className={styles.listIcon} name='list-dot' />
-            <H4 className={styles.listTitle}>Build brand visibility</H4>
-          </div>
-          <div className={styles.contentListItem}>
-            <Icon className={styles.listIcon} name='list-dot' />
             <H4 className={styles.listTitle}>
-              Showcase subject matter expertise
+              {t('course-partnership.partner-benefits.list.item1')}
             </H4>
           </div>
           <div className={styles.contentListItem}>
             <Icon className={styles.listIcon} name='list-dot' />
-            <H4 className={styles.listTitle}>Enhance thought leadership</H4>
+            <H4 className={styles.listTitle}>
+              {t('course-partnership.partner-benefits.list.item2')}
+            </H4>
+          </div>
+          <div className={styles.contentListItem}>
+            <Icon className={styles.listIcon} name='list-dot' />
+            <H4 className={styles.listTitle}>
+              {' '}
+              {t('course-partnership.partner-benefits.list.item3')}
+            </H4>
           </div>
         </div>
         <div className={styles.hr} />
         <Paragraph className={styles.fz}>
-          This also contributes to nurturing a <br /> uniquely qualified talent
-          pipeline, and <br /> encourages product andoffering usage.
+          {t('course-partnership.partner-benefits.paragraph1')}
         </Paragraph>
       </div>
       <div className={styles.content}>
@@ -63,10 +68,7 @@ const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
             />
           )}
           <Paragraph className={styles.contentImgDescription}>
-            For students, this represents an unrivalled <br />
-            opportunity to learn the most-cutting edge skills <br /> from the
-            brands leading the industry and address real-world situations
-            through cross-disciplinary <br /> collaboration.
+            {t('course-partnership.partner-benefits.paragraph2')}
           </Paragraph>
         </div>
       </div>

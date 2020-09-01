@@ -6,4 +6,7 @@
   &__paragraph {
     margin-bottom: 60px;
   }
+  @include desktop {
+    width: 60%;
+  }
 }

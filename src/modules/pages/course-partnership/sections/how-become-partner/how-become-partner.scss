@@ -4,6 +4,9 @@
   &__title {
     @include container();
     margin-top: 64px;
+    @include desktop() {
+      width: 50%;
+    }
   }
 }
 
