@@ -11,6 +11,7 @@ import { State } from '@app/store/state';
 /**
  * Renders ProgramQuote
  */
+//
 const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
   const { language } = useSelector((state: State) => state.localization);
   const { programQuoteData, programQuoteDataLoading } = useProgramQuoteData(

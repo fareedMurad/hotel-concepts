@@ -6,6 +6,8 @@ import { useProgramOverviewData } from './program-overview.hook';
 import { Spinner } from '@core/components';
 import { useQuery, gql } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
   const { t } = useTranslation();
@@ -39,8 +41,8 @@ const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
  * Renders ProgramOverview
  */
 const GET_PROGRAM_OVERVIEW_DATA = gql`
-  query($id: String!) {
-    onlineCourse(id: $id, locale: "en-US") {
+  query($id: String!, $locale: String!) {
+    onlineCourse(id: $id, locale: $locale) {
       weeks
       sprints
       enroll {
@@ -55,9 +57,10 @@ const GET_PROGRAM_OVERVIEW_DATA = gql`
 
 const ProgramOverview: React.FC<ProgramOverviewProps> = ({ programId }) => {
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
   // const { GET_PROGRAM_OVERVIEW_DATA } = useProgramOverviewData(programId);
   const { data, loading, error } = useQuery(GET_PROGRAM_OVERVIEW_DATA, {
-    variables: { id: programId }
+    variables: { id: programId, locale: language }
   });
 
   if (loading) return <Spinner />;
