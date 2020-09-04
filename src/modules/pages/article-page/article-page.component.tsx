@@ -22,18 +22,12 @@ const Hr = () => <div className={styles.hr} />;
  */
 const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
   const { language } = useSelector((state: State) => state.localization);
-  const [lang, setLang] = React.useState('');
 
-  React.useEffect(() => {
-    setLang(language === 'en-us' ? 'en-US' : language);
-  }, [language]);
-
-  console.log(lang);
   const history = useHistory();
   const { articleId } = useParams();
   const { articleData, articleLoading } = useArticleFirstScreenData(
     articleId,
-    lang
+    language
   );
 
   const { t } = useTranslation();
