@@ -6,10 +6,12 @@ import { Icon } from '@core/components';
 import classNames from 'classnames';
 import { useMediaPoints, useClickOutside } from '@core/shared';
 import { DropDown } from '../drop-down';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ProgramsMenu } from './components/programs-menu/programs-menu.component';
 import { Spinner } from '@core/components/spinner';
 import { LocalizationMenu } from './components/localization-menu';
+import { State } from '@app/store/state';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders HeaderMain
@@ -32,6 +34,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   const handleMenuClick = () => {
     setToggleDropDown(!toggleDropDown);
   };
+  const { t } = useTranslation();
 
   return (
     <div
@@ -64,7 +67,8 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}
             >
-              Store <span className={styles.arrow}>&#x25BE;</span>
+              {t('header.header-main.link-three')}
+              <span className={styles.arrow}>&#x25BE;</span>
             </div>
           </div>
           <div className={styles.headerMainNavigationBlock} ref={ref}>
@@ -73,7 +77,8 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}
             >
-              About Us <span className={styles.arrow}>&#x25BE;</span>
+              {t('header.header-main.link-two')}
+              <span className={styles.arrow}>&#x25BE;</span>
             </div>
           </div>
 

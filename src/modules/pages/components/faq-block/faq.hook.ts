@@ -1,12 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useFaqData = () => {
+const useFaqData = language => {
   /**
    * faq query
    */
   const GET_FAQ = gql`
-    {
-      faqCollection(locale: "en-US") {
+    query($locale: String!) {
+      faqCollection(locale: $locale) {
         items {
           question
           answer
@@ -15,7 +15,9 @@ const useFaqData = () => {
       }
     }
   `;
-  const { data, loading, error } = useQuery(GET_FAQ);
+  const { data, loading, error } = useQuery(GET_FAQ, {
+    variables: { locale: language }
+  });
 
   return { faqData: data?.faqCollection?.items, faqDataLoading: loading };
 };

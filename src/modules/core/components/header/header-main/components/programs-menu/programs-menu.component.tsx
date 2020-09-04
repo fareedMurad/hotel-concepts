@@ -5,6 +5,8 @@ import { useProgramsMenuData } from './programs.hook';
 import { DropDown } from '../../../drop-down';
 import { Icon } from '@core/components';
 import { useTranslation } from 'react-i18next';
+import { State } from '@app/store/state';
+import { useSelector } from 'react-redux';
 
 /**
  * Renders ProgramsMenu
@@ -14,7 +16,8 @@ const ProgramsMenu: React.FC<any> = ({
   toggleDropDown,
   onClick
 }) => {
-  const { programsData, programsLoading } = useProgramsMenuData();
+  const { language } = useSelector((state: State) => state.localization);
+  const { programsData, programsLoading } = useProgramsMenuData(language);
   const { t } = useTranslation();
   if (programsLoading) return <div></div>;
 

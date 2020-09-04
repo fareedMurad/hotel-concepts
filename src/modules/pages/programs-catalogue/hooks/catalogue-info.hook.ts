@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useCatalogueInfoData = (categoryId?: string) => {
+const useCatalogueInfoData = (categoryId?: string, language?: string) => {
   const GET_CATEGORY_INFO = gql`
-    query($id: String!) {
-      courseCategory(id: $id, locale: "en-US") {
+    query($id: String!, $locale: String!) {
+      courseCategory(id: $id, locale: $locale) {
         name
         description
         subtitle
@@ -13,7 +13,7 @@ const useCatalogueInfoData = (categoryId?: string) => {
   `;
 
   const { data, loading, error } = useQuery(GET_CATEGORY_INFO, {
-    variables: { id: categoryId }
+    variables: { id: categoryId, locale: language }
   });
 
   return {

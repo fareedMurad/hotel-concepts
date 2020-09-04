@@ -1,20 +1,20 @@
 {
   "header": {
     "header-secondary": {
-      "link-one": "Mentores y coautores",
-      "link-two": "Enfoque de aprendizaje",
+      "link-one": "Mentors&Co-authors",
+      "link-two": "Learning Approach",
       "link-three": "Insights",
-      "link-four": "Contactos"
+      "link-four": "Contacts"
     },
     "header-main": {
-      "link-one": "Programas",
-      "link-two": "Tienda",
-      "link-three": "Sobre nosotras"
+      "link-one": "Programs",
+      "link-two": "Store",
+      "link-three": "About Us"
     }
   },
   "home": {
     "hero": {
-      "hero-title": "Cutting edge online education for hospitality ES",
+      "hero-title": "Cutting edge online education for hospitality",
       "hero-subtitle": "Bridging the skills gap for hotel managers",
       "button-text": "Find the program",
       "video": "Watch Trailer",

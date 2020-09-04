@@ -4,17 +4,18 @@ import * as styles from './mentor-modal.scss';
 import { Modal, Icon, Footer, RichTextDefault } from '@core/components';
 import { Modals } from '@ui/models';
 import { closeModal } from '@ui/modal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
 import { useMediaPoints } from '@core/shared';
 import { Spinner } from '@core/components/spinner';
 import { ScrollToTop } from '@app';
 import ReactMarkdown from 'react-markdown';
+import { State } from '@app/store/state';
 
 const GET_MENTOR = gql`
-  query($id: String!) {
-    mentor(id: $id, locale: "en-US") {
+  query($id: String!, $locale: String!) {
+    mentor(id: $id, locale: $locale) {
       name
       surname
       workAt
@@ -33,13 +34,13 @@ const GET_MENTOR = gql`
  */
 const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
   const { mobile } = useMediaPoints();
-
+  const { language } = useSelector((state: State) => state.localization);
   const dispatch = useDispatch();
   const history = useHistory();
   const searchParams = new URLSearchParams(history.location.search);
   const mentorId = searchParams.get('mentorId');
   const { data, loading, error } = useQuery(GET_MENTOR, {
-    variables: { id: mentorId }
+    variables: { id: mentorId, locale: language }
   });
   const [mentor, setMentor] = React.useState({
     name: '',

@@ -5,13 +5,17 @@ import { Button, Spinner } from '@core/components';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useProgramQuoteData } from './program-quote.hook';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders ProgramQuote
  */
 const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
+  const { language } = useSelector((state: State) => state.localization);
   const { programQuoteData, programQuoteDataLoading } = useProgramQuoteData(
-    programId
+    programId,
+    language
   );
   const { t } = useTranslation();
 
