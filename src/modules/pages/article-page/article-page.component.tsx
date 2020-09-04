@@ -8,9 +8,11 @@ import { useArticleFirstScreenData } from './hooks/article-first-screen.hook';
 import Moment from 'react-moment';
 import { ArticleIntro } from './sections/article-intro';
 import { ArticleRichText } from './sections/article-rich-text';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
+import { State } from '@app/store/state';
+import { launch } from 'puppeteer';
 /**
  * HR
  */
@@ -19,9 +21,21 @@ const Hr = () => <div className={styles.hr} />;
  * Renders ArticlePage
  */
 const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
+  const { language } = useSelector((state: State) => state.localization);
+  const [lang, setLang] = React.useState('');
+
+  React.useEffect(() => {
+    setLang(language === 'en-us' ? 'en-US' : language);
+  }, [language]);
+
+  console.log(lang);
   const history = useHistory();
   const { articleId } = useParams();
-  const { articleData, articleLoading } = useArticleFirstScreenData(articleId);
+  const { articleData, articleLoading } = useArticleFirstScreenData(
+    articleId,
+    lang
+  );
+
   const { t } = useTranslation();
   const dispatch = useDispatch();
   React.useEffect(() => {

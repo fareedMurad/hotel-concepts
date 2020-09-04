@@ -12,7 +12,7 @@ class GeneralSaga {
    */
   @Saga(startup)
   public *startup() {
-    yield put(setupLocalization('en-us'));
+    yield put(setupLocalization('en-US'));
 
     yield take(setupLocalization.success);
 

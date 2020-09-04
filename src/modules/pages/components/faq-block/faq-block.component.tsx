@@ -6,17 +6,20 @@ import { ButtonFilter, H2 } from '@core/components';
 import { FaqItem } from '@pages/homepage/components/faq-item';
 import classNames from 'classnames';
 import { Spinner } from '@core/components/spinner';
+import { State } from '@app/store/state';
+import { useSelector } from 'react-redux';
 
 /**
  * Renders FaqBlock
  */
 const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle }) => {
   const [currentCategory, setCurrentCutegory] = React.useState('All');
+  const { language } = useSelector((state: State) => state.localization);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const { faqData, faqDataLoading } = useFaqData();
+  const { faqData, faqDataLoading } = useFaqData(language);
 
   if (faqDataLoading) return <Spinner />;
 

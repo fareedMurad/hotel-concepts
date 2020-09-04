@@ -17,6 +17,8 @@ import { usePopularArticlesData } from './hooks/popular.articles.hook';
 import Moment from 'react-moment';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders FeaturedArticles
@@ -29,12 +31,14 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
   const [articlesToSkip, setArticlesToSkip] = React.useState(0);
-
+  const { language } = useSelector((state: State) => state.localization);
   const { articlesLoading, articles } = useArticlesData(
     categoryId,
     articlesToSkip
   );
-  const { popularArticle, popularArticleLoading } = usePopularArticlesData();
+  const { popularArticle, popularArticleLoading } = usePopularArticlesData(
+    language
+  );
 
   React.useEffect(() => {
     if (!articlesLoading) {

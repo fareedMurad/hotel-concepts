@@ -5,12 +5,19 @@ import { ProgramModuleItem } from '@pages/program-page/components/program-module
 import { useProgramModulesData } from './program-modules.hook';
 import { Spinner } from '@core/components';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from '@apollo/client';
+import { State } from '@app/store/state';
+import { useSelector } from 'react-redux';
 
 /**
  * Renders ProgramModules
  */
 const ProgramModules: React.FC<ProgramModulesProps> = ({ programId }) => {
-  const { modulesData, modulesLoading } = useProgramModulesData(programId);
+  const { language } = useSelector((state: State) => state.localization);
+  const { modulesData, modulesLoading } = useProgramModulesData(
+    programId,
+    language
+  );
   const { t } = useTranslation();
 
   if (modulesLoading) return <Spinner />;

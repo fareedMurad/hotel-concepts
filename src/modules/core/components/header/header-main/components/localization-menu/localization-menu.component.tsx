@@ -38,7 +38,7 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
 }) => {
   const languages = [
     {
-      id: 'en-us',
+      id: 'en-US',
       name: 'eng'
     },
     {

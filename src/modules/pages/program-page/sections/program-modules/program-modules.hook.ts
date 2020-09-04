@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProgramModulesData = (programId: string) => {
+const useProgramModulesData = (programId: string, language: string) => {
   const GET_PROGRAM_MODULES_DATA = gql`
-    query($id: String!) {
-      onlineCourse(id: $id, locale: "en-US") {
+    query($id: String!, $locale: String!) {
+      onlineCourse(id: $id, locale: $locale) {
         modulesCollection {
           total
           items {
@@ -21,7 +21,7 @@ const useProgramModulesData = (programId: string) => {
   `;
 
   const { data, loading, error } = useQuery(GET_PROGRAM_MODULES_DATA, {
-    variables: { id: programId }
+    variables: { id: programId, locale: language }
   });
   return {
     modulesData: data?.onlineCourse?.modulesCollection,

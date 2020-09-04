@@ -12,6 +12,8 @@ import { ScrollToTop } from '@app';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useCatalogueInfoData, useCatalogueProgramsData } from './hooks';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders ProgramsCatalogue
@@ -20,7 +22,11 @@ import { useTranslation } from 'react-i18next';
 const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { t } = useTranslation();
   const { id } = useParams();
-  const { catalogueInfoData, catalogueInfoLoading } = useCatalogueInfoData(id);
+  const { language } = useSelector((state: State) => state.localization);
+  const { catalogueInfoData, catalogueInfoLoading } = useCatalogueInfoData(
+    id,
+    language
+  );
   const {
     catalogueProgramsData,
     catalogueProgramsLoading

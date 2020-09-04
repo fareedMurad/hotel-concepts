@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useArticleFirstScreenData = articleId => {
+const useArticleFirstScreenData = (articleId, language) => {
   const GET_ARTICLE_FIRST_SCREEN_DATA = gql`
-    query($id: String!) {
-      article(id: $id, locale: "en-US") {
+    query($id: String!, $locale: String!) {
+      article(id: $id, locale: $locale) {
         title
         introText
         readingTime
@@ -30,7 +30,7 @@ const useArticleFirstScreenData = articleId => {
   `;
 
   const { data, loading, error } = useQuery(GET_ARTICLE_FIRST_SCREEN_DATA, {
-    variables: { id: articleId }
+    variables: { id: articleId, locale: language }
   });
 
   return { articleData: data, articleLoading: loading };
