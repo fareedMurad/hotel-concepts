@@ -5,14 +5,12 @@ import { gql, useQuery } from '@apollo/client';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { HeroTitle, PreCaption, RichTextDefault } from '@core/components';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
 /**
  * Renders TestPage
  */
 const GET_RICH_TEXT = gql`
- query($locale: String!) {
-    testRichText(id: "4L09BPBmfp4lZUwWQh6HIs", locale: $locale {
+  {
+    testRichText(id: "4L09BPBmfp4lZUwWQh6HIs", locale: "en-US") {
       richtext {
         json
       }
@@ -22,10 +20,7 @@ const GET_RICH_TEXT = gql`
 const Bold = ({ children }) => <span className='bold'>{children}</span>;
 
 const TestPage: React.FC<TestPageProps> = ({}) => {
-  const { language } = useSelector((state: State) => state.localization);
-  const { data, loading, error } = useQuery(GET_RICH_TEXT, {
-    variables: { locale: language }
-  });
+  const { data, loading, error } = useQuery(GET_RICH_TEXT);
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => <strong>{text}</strong>,
