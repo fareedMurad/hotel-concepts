@@ -4,14 +4,18 @@ import * as styles from './program-about.scss';
 import { useProgramAboutData } from './program-about.hook';
 import { Spinner } from '@core/components';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders ProgramAbout
  */
 const ProgramAbout: React.FC<ProgramAboutProps> = ({ programId }) => {
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
   const { programAboutData, programAboutLoading } = useProgramAboutData(
-    programId
+    programId,
+    language
   );
 
   if (programAboutLoading) return <Spinner />;

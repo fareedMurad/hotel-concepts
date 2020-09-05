@@ -23,7 +23,6 @@ const ProgramModules: React.FC<ProgramModulesProps> = ({ programId }) => {
   if (modulesLoading) return <Spinner />;
   console.log(modulesData);
   const { items, total } = modulesData;
-  debugger;
   return (
     <section id='facility' className={styles.programModules}>
       <div className={styles.title}>
