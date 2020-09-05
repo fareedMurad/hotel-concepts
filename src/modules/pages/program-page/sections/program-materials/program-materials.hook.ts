@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProgramMaterialsData = (programId: string) => {
+const useProgramMaterialsData = (programId: string, language: string) => {
   const GET_MENTORS = gql`
-    query($id: String!) {
-      onlineCourse(id: $id, locale: "en-US") {
+    query($id: String!, $locale: String!) {
+      onlineCourse(id: $id, locale: $locale) {
         additionalMaterials {
           materialsCollection {
             items {
@@ -17,7 +17,7 @@ const useProgramMaterialsData = (programId: string) => {
   `;
 
   const { data, loading, error } = useQuery(GET_MENTORS, {
-    variables: { id: programId }
+    variables: { id: programId, locale: language }
   });
 
   return {

@@ -5,6 +5,8 @@ import { Button, Spinner } from '@core/components';
 import { Link } from 'react-router-dom';
 import { useProgramLearningApproachData } from './program-learning-approach.hook';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders ProgramLearningApproach
@@ -12,10 +14,11 @@ import { useTranslation } from 'react-i18next';
 const ProgramLearningApproach: React.FC<ProgramLearningApproachProps> = ({
   programId
 }) => {
+  const { language } = useSelector((state: State) => state.localization);
   const {
     learningApproachData,
     learningApproachLoading
-  } = useProgramLearningApproachData(programId);
+  } = useProgramLearningApproachData(programId, language);
   const { t } = useTranslation();
 
   if (learningApproachLoading) return <Spinner />;

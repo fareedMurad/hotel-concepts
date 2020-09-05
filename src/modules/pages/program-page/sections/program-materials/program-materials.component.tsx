@@ -3,15 +3,18 @@ import { ProgramMaterialsProps } from './program-materials.props';
 import * as styles from './program-materials.scss';
 import { Spinner } from '@core/components';
 import { useProgramMaterialsData } from './program-materials.hook';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders ProgramMaterials
  */
 const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({ programId }) => {
+  const { language } = useSelector((state: State) => state.localization);
   const {
     additionalMaterialsData,
     additionalMaterialsLoading
-  } = useProgramMaterialsData(programId);
+  } = useProgramMaterialsData(programId, language);
 
   if (additionalMaterialsLoading) return <Spinner />;
   return (

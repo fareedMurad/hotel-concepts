@@ -10,13 +10,17 @@ import { ProgramNavButton } from '@pages/program-page/components/program-nav-but
 import { BackButton } from '@core/components/back-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import Player from '@vimeo/player';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders ProgramIntro
  */
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
+  const { language } = useSelector((state: State) => state.localization);
   const { programData, programDataLoading, navButtons } = useProgramIntroData(
-    programId
+    programId,
+    language
   );
 
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;

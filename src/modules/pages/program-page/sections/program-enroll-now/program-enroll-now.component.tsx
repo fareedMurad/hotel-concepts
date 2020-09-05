@@ -5,6 +5,8 @@ import { Button, Spinner } from '@core/components';
 import classNames from 'classnames';
 import { useProgramEnrollData } from './program-enroll.hook';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders ProgramEnrollNow
@@ -12,8 +14,10 @@ import { useTranslation } from 'react-i18next';
 
 const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
   const { programEnrollData, programEnrollLoading } = useProgramEnrollData(
-    programId
+    programId,
+    language
   );
 
   if (programEnrollLoading) return <Spinner />;

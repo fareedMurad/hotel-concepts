@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProgramOverviewData = (programId: string) => {
+const useProgramOverviewData = (programId: string, language) => {
   const GET_PROGRAM_OVERVIEW_DATA = gql`
-    query($id: String!) {
-      onlineCourse(id: $id, locale: "en-US") {
+    query($id: String!, $locale: String!) {
+      onlineCourse(id: $id, locale: $locale) {
         weeks
         sprints
         enroll {
