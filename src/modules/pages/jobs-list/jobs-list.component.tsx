@@ -16,9 +16,10 @@ import {
   useAllJobsData,
   useFilteredJobsData
 } from './hooks';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
+import { State } from '@app/store/state';
 
 /**
  * Renders JobsList
@@ -27,16 +28,16 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
   const { t } = useTranslation();
   const [currentFilter, setCurrentFilter] = React.useState('All');
   const dispatch = useDispatch();
+  const { language } = useSelector((state: State) => state.localization);
   React.useEffect(() => {
     dispatch(isBackgroundWhite(true));
     return () => {
       dispatch(isBackgroundWhite(false));
     };
   }, []);
-  const {
-    filterCategories,
-    filterCategoriesLoading
-  } = useJobsFilterCategories();
+  const { filterCategories, filterCategoriesLoading } = useJobsFilterCategories(
+    language
+  );
   const { allJobs, allJobsLoader } = useAllJobsData();
   const {
     filteredJobs,
@@ -89,7 +90,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
                 count={total}
                 onClick={() => {
                   setCurrentFilter(id);
-                  getFilteredJobs({ variables: { id: id } });
+                  getFilteredJobs({ variables: { id: id, locale: language } });
                 }}
                 active={activeFilter}
               />

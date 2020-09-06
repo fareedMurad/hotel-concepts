@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useJobsFilterCategories = () => {
+const useJobsFilterCategories = language => {
   const GET_JOBS_CATEGORIES = gql`
-    {
-      jobCategoriesCollection(locale: "en-US") {
+    query($locale: String!) {
+      jobCategoriesCollection(locale: $locale) {
         items {
           category
           sys {
@@ -20,7 +20,10 @@ const useJobsFilterCategories = () => {
   `;
 
   const { data: filterCategories, loading, error } = useQuery(
-    GET_JOBS_CATEGORIES
+    GET_JOBS_CATEGORIES,
+    {
+      variables: { locale: language }
+    }
   );
 
   return {

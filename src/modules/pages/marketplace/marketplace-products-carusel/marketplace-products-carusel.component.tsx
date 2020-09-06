@@ -4,6 +4,8 @@ import * as styles from './marketplace-products-carusel.scss';
 import { PreCaption, H2, Spinner } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
 import { useProductsData } from '../hooks/marketplace-products.hook';
+import { State } from '@app/store/state';
+import { useSelector } from 'react-redux';
 
 /**
  * Renders MarketplaceProductsCarusel
@@ -11,7 +13,8 @@ import { useProductsData } from '../hooks/marketplace-products.hook';
 const MarketplaceProductsCarusel: React.FC<MarketplaceProductsCaruselProps> = ({
   category
 }) => {
-  const { products, productsLoading } = useProductsData(category);
+  const { language } = useSelector((state: State) => state.localization);
+  const { products, productsLoading } = useProductsData(category, language);
   if (productsLoading) return <Spinner />;
 
   return (

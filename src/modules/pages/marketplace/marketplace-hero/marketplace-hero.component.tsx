@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useProductsCategoriesData } from '../hooks/marketplace-categories.hook';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 // todo fix counter!!
 
@@ -17,10 +19,11 @@ const MarketplaceHero: React.FC<IntroProps> = ({}) => {
   const [isActive, setIsActive] = React.useState(null);
   const { marketPlaceHeroImage } = useMarketplaceData();
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
   const {
     productCategories,
     productCategoriesLoading
-  } = useProductsCategoriesData();
+  } = useProductsCategoriesData(language);
   const ScrollToEnroll = to => {
     scrollTo(to);
   };

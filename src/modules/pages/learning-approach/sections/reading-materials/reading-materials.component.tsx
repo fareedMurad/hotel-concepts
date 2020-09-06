@@ -6,11 +6,14 @@ import { Spinner } from '@core/components';
 import { useReadingMaterialsData } from './reading-materials.hook';
 import { fileSize } from '@core/shared/formaters';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 /**
  * Renders ReadingMaterials
  */
 const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({}) => {
-  const { readingData, readingDataLoading } = useReadingMaterialsData();
+  const { language } = useSelector((state: State) => state.localization);
+  const { readingData, readingDataLoading } = useReadingMaterialsData(language);
   const { t } = useTranslation();
 
   return (

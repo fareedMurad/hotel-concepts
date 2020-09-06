@@ -1,9 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
 
-const useWhatWeTeachData = () => {
+const useWhatWeTeachData = language => {
   const GET_FILTERS_CATEGORIES = gql`
-    {
-      courseCategoryCollection(limit: 6, locale: "en-US") {
+    query($locale: String!) {
+      courseCategoryCollection(limit: 6, locale: $locale) {
         items {
           sys {
             id
@@ -15,7 +15,9 @@ const useWhatWeTeachData = () => {
     }
   `;
 
-  const { data, error, loading } = useQuery(GET_FILTERS_CATEGORIES);
+  const { data, error, loading } = useQuery(GET_FILTERS_CATEGORIES, {
+    variables: { locale: language }
+  });
   return {
     filtersCategoriesData: data?.courseCategoryCollection?.items,
     filtersCategoriesLoading: loading

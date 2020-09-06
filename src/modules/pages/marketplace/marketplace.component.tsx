@@ -15,16 +15,19 @@ import { MarketplaceHero } from './marketplace-hero';
 import { useProductsCategoriesData } from './hooks/marketplace-categories.hook';
 import { MarketplaceProductsCarusel } from './marketplace-products-carusel';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders Marketplace
  */
 const Marketplace: React.FC<MarketplaceProps> = ({}) => {
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
   const {
     productCategories,
     productCategoriesLoading
-  } = useProductsCategoriesData();
+  } = useProductsCategoriesData(language);
 
   if (productCategoriesLoading) return <Spinner />;
 

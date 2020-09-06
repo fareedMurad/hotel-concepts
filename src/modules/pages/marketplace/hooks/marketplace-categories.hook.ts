@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProductsCategoriesData = () => {
+const useProductsCategoriesData = language => {
   const GET_PRODUCTS_CATEGORIES = gql`
-    {
-      productsCategoriesCollection(locale: "en-US") {
+    query($locale: String!) {
+      productsCategoriesCollection(locale: $locale) {
         items {
           category
           sys {
@@ -19,7 +19,9 @@ const useProductsCategoriesData = () => {
     }
   `;
 
-  const { data, loading, error } = useQuery(GET_PRODUCTS_CATEGORIES);
+  const { data, loading, error } = useQuery(GET_PRODUCTS_CATEGORIES, {
+    variables: { locale: language }
+  });
 
   return {
     productCategories: data?.productsCategoriesCollection?.items,

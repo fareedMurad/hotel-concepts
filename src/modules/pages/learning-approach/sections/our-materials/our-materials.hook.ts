@@ -1,9 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
 
-const useVideoLecturesData = () => {
+const useVideoLecturesData = language => {
   const GET_VIDO_LECTURES = gql`
-    {
-      videoLecturesCollection(locale: "en-US") {
+    query($locale: String!) {
+      videoLecturesCollection(locale: $locale) {
         items {
           sys {
             id
@@ -20,7 +20,9 @@ const useVideoLecturesData = () => {
     }
   `;
 
-  const { data, loading, error } = useQuery(GET_VIDO_LECTURES);
+  const { data, loading, error } = useQuery(GET_VIDO_LECTURES, {
+    variables: { locale: language }
+  });
 
   return {
     videoLecturessData: data?.videoLecturesCollection?.items,

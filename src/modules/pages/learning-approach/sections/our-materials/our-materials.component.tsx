@@ -5,12 +5,17 @@ import { Caption, VideoCard } from '@pages/components';
 import { Spinner, SectionTitle } from '@core/components';
 import { useVideoLecturesData } from './our-materials.hook';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders OurMaterials
  */
 const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
-  const { videoLecturessData, videoLecturesLoading } = useVideoLecturesData();
+  const { language } = useSelector((state: State) => state.localization);
+  const { videoLecturessData, videoLecturesLoading } = useVideoLecturesData(
+    language
+  );
   const { t } = useTranslation();
 
   if (videoLecturesLoading) return <Spinner />;

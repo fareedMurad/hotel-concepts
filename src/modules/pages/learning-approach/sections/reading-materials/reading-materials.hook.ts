@@ -1,12 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useReadingMaterialsData = () => {
+const useReadingMaterialsData = language => {
   /**
    * query files
    */
   const GET_READING_MATERIALS = gql`
-    {
-      readingMaterialsForLearningAproachCollection(locale: "en-US") {
+    query($locale: String!) {
+      readingMaterialsForLearningAproachCollection(locale: $locale) {
         items {
           ... on ReadingMaterialsForLearningAproach {
             file {
@@ -21,7 +21,9 @@ const useReadingMaterialsData = () => {
       }
     }
   `;
-  const { data, loading, error } = useQuery(GET_READING_MATERIALS);
+  const { data, loading, error } = useQuery(GET_READING_MATERIALS, {
+    variables: { locale: language }
+  });
   return {
     readingData: data?.readingMaterialsForLearningAproachCollection?.items,
     readingDataLoading: loading
