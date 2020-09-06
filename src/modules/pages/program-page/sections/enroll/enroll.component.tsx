@@ -4,13 +4,17 @@ import * as styles from './enroll.scss';
 import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components';
 import { useEnrollData } from './enroll.hook';
+import { State } from '@app/store/state';
+import { useSelector } from 'react-redux';
 
 /**
  * Renders Enroll
  */
 const Enroll: React.FC<EnrollProps> = ({ programId, title }) => {
+  const { language } = useSelector((state: State) => state.localization);
   const { whoShouldEnrollData, whoSouldEnrollLoading } = useEnrollData(
-    programId
+    programId,
+    language
   );
 
   if (whoSouldEnrollLoading) return <Spinner />;

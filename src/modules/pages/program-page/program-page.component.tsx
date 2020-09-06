@@ -25,6 +25,8 @@ import {
   useProgramPageDataTestimonials
 } from './hooks';
 import { useTranslation } from 'react-i18next';
+import { State } from '@app/store/state';
+import { useSelector } from 'react-redux';
 
 /**
  * Renders ProgramPage
@@ -34,16 +36,17 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
   const {
     mentorsForCurrentCourse,
     mentorsForCurrentCourseLoading
-  } = useProgramPageDataMentors(programId);
+  } = useProgramPageDataMentors(programId, language);
 
   const { programPageDividerImage } = useProgramPageDataDivider(programId);
   const {
     programPageTestimonials,
     programPageTestimonialsLoading
-  } = useProgramPageDataTestimonials(programId);
+  } = useProgramPageDataTestimonials(programId, language);
 
   return (
     <div className={styles.programPage}>

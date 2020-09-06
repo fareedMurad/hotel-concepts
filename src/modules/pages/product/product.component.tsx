@@ -22,9 +22,10 @@ import { ExplorePages } from './sections/explore-pages';
 import { Authors } from './sections/authors';
 import { Feedback } from './sections/feedback';
 import { ProductBanner } from './sections/product-banner';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
+import { State } from '@app/store/state';
 
 /**
  * Renders Product
@@ -42,10 +43,11 @@ const Product: React.FC<ProductProps> = ({}) => {
   const { id: productId, categorySlug } = useParams();
   const { product } = useProductData();
   const { pathname } = useLocation();
+  const { language } = useSelector((state: State) => state.localization);
   const {
     recomendedProducts,
     redomendedProductsLoading
-  } = useRecomendedProductsData(categorySlug, productId);
+  } = useRecomendedProductsData(categorySlug, productId, language);
 
   // if (productLoading) return <Spinner />;
   if (redomendedProductsLoading) return <Spinner />;

@@ -2,10 +2,10 @@ import { gql, useQuery } from '@apollo/client';
 /**
  * Query testimonials
  */
-const useProgramPageDataTestimonials = programId => {
+const useProgramPageDataTestimonials = (programId, language) => {
   const GET_MENTORS = gql`
-    query($id: String!) {
-      onlineCourse(id: $id, locale: "en-US") {
+    query($id: String!, $locale: String!) {
+      onlineCourse(id: $id, locale: $locale) {
         testimonialsCollection {
           items {
             name
@@ -20,7 +20,7 @@ const useProgramPageDataTestimonials = programId => {
     }
   `;
   const { data, loading, error } = useQuery(GET_MENTORS, {
-    variables: { id: programId }
+    variables: { id: programId, locale: language }
   });
 
   const programPageTestimonials =
