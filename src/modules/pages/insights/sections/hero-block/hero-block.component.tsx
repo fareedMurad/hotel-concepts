@@ -7,6 +7,8 @@ import { HeroTitle, HeroSubtitle, Spinner } from '@core/components';
 import { useMostPopularArticles } from './hero-block.hook';
 import { useMediaPoints } from '@core/shared';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 const HeroCard = ({ firstScreenArticle }) => {
   if (!firstScreenArticle) return <Spinner />;
@@ -52,11 +54,12 @@ const HeroCard = ({ firstScreenArticle }) => {
  */
 const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
   const {
     firstScreenArticles,
     firstScreenArticlesLoading,
     insightsHeroImage
-  } = useMostPopularArticles();
+  } = useMostPopularArticles(language);
   const { mobile } = useMediaPoints();
   if (firstScreenArticlesLoading) return <Spinner />;
 

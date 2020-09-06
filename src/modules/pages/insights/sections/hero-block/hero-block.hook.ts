@@ -1,12 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useMostPopularArticles = () => {
+const useMostPopularArticles = language => {
   const GET_MOST_POPULAR_ARTICLES = gql`
-    {
+    query($locale: String!) {
       articleCollection(
         where: { showOnFirstScreen: true }
         limit: 2
-        locale: "en-US"
+        locale: $locale
       ) {
         items {
           sys {
@@ -31,7 +31,9 @@ const useMostPopularArticles = () => {
     }
   `;
 
-  const { data, loading, error } = useQuery(GET_MOST_POPULAR_ARTICLES);
+  const { data, loading, error } = useQuery(GET_MOST_POPULAR_ARTICLES, {
+    variables: { locale: language }
+  });
 
   return {
     firstScreenArticles: data?.articleCollection?.items,

@@ -1,10 +1,10 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useFilteredArticles = categoryId => {
+const useFilteredArticles = (categoryId, language) => {
   if (!categoryId) return null;
   const GET_FILTERED_ARTICLES = gql`
-    query($id: String!) {
-      articleCategories(id: $id, locale: "en-US") {
+    query($id: String!, $locale: String!) {
+      articleCategories(id: $id, locale: $locale) {
         linkedFrom {
           articleCollection {
             items {
@@ -22,7 +22,7 @@ const useFilteredArticles = categoryId => {
   `;
 
   const { data, loading, error } = useQuery(GET_FILTERED_ARTICLES, {
-    variables: { id: categoryId }
+    variables: { id: categoryId, locale: language }
   });
 
   return {

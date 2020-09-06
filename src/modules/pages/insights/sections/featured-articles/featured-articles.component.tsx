@@ -25,16 +25,19 @@ import { State } from '@app/store/state';
  */
 const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
   const { t } = useTranslation();
-  const { categories, loadingArticlesCategories } = useArticlesCategoriesData();
+  const { language } = useSelector((state: State) => state.localization);
+  const { categories, loadingArticlesCategories } = useArticlesCategoriesData(
+    language
+  );
   const { amountLoading, allArticlesAmount } = useArticlesAmount();
   const history = useHistory();
   const [categoryId, setCategoryId] = React.useState('All');
   const [articlesToDisplay, setArticlesToDisplay] = React.useState([]);
   const [articlesToSkip, setArticlesToSkip] = React.useState(0);
-  const { language } = useSelector((state: State) => state.localization);
   const { articlesLoading, articles } = useArticlesData(
     categoryId,
-    articlesToSkip
+    articlesToSkip,
+    language
   );
   const { popularArticle, popularArticleLoading } = usePopularArticlesData(
     language

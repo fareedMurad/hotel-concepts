@@ -38,7 +38,7 @@ const JobsList: React.FC<JobsListProps> = ({}) => {
   const { filterCategories, filterCategoriesLoading } = useJobsFilterCategories(
     language
   );
-  const { allJobs, allJobsLoader } = useAllJobsData();
+  const { allJobs, allJobsLoader } = useAllJobsData(language);
   const {
     filteredJobs,
     filteredJobsLoader,

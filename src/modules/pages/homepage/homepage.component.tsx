@@ -17,11 +17,14 @@ import {
 } from './sections';
 import { useHomePageData } from './homepage.hook';
 import Mentors from '@pages/homepage/sections/mentors/mentors.component';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 /**
  * Renders Homepage
  */
 const Homepage: React.FC<HomepageProps> = ({}) => {
-  const { contributors, loading } = useContributorsData();
+  const { language } = useSelector((state: State) => state.localization);
+  const { contributors, loading } = useContributorsData(language);
   const {
     homePageTestimonials,
     homepageTestimonialsLoading

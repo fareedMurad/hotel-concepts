@@ -1,12 +1,12 @@
 import { useQuery, gql } from '@apollo/client';
 
-const useContributorsData = () => {
+const useContributorsData = language => {
   /**
    * Get contributors
    */
   const GET_MENTORS = gql`
-    {
-      mentorCollection(locale: "en-US") {
+    query($locale: String!) {
+      mentorCollection(locale: $locale) {
         items {
           name
           surname
@@ -36,7 +36,9 @@ const useContributorsData = () => {
     }
   `;
 
-  const { data, error, loading } = useQuery(GET_MENTORS);
+  const { data, error, loading } = useQuery(GET_MENTORS, {
+    variables: { locale: language }
+  });
 
   return {
     contributors: data?.mentorCollection?.items,

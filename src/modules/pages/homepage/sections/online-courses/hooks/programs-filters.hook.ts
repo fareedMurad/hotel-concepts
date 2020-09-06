@@ -1,12 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProgramsFiltersData = () => {
+const useProgramsFiltersData = language => {
   // get all filters
   const GET_PROGRAMS_FILTERS = gql`
-    {
+    query($locale: String!) {
       courseCategoryCollection(
         order: sys_firstPublishedAt_DESC
-        locale: "en-US"
+        locale: $locale
       ) {
         items {
           sys {
@@ -23,7 +23,9 @@ const useProgramsFiltersData = () => {
       }
     }
   `;
-  const { data, loading, error } = useQuery(GET_PROGRAMS_FILTERS);
+  const { data, loading, error } = useQuery(GET_PROGRAMS_FILTERS, {
+    variables: { locale: language }
+  });
 
   return {
     programsFiltersData: data?.courseCategoryCollection?.items,

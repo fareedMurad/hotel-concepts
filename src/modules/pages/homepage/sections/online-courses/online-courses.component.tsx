@@ -5,9 +5,10 @@ import { ButtonFilter, Button, SectionTitle } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
 import { Spinner } from '@core/components/spinner';
 import { navigate } from '@router/store';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useProgramsFiltersData, useProgramsData } from './hooks';
 import { useTranslation } from 'react-i18next';
+import { State } from '@app/store/state';
 
 /**
  * Renders OnlineCourses
@@ -15,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
   const [selectedCategory, setSelectedCategory] = React.useState({
     name: '',
     description: '',
@@ -31,9 +33,10 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
   const {
     programsFiltersData,
     programsFiltersLoading
-  } = useProgramsFiltersData();
+  } = useProgramsFiltersData(language);
   const { programsData, programsLoading } = useProgramsData(
-    selectedCategory.name
+    selectedCategory.name,
+    language
   );
 
   React.useEffect(() => {

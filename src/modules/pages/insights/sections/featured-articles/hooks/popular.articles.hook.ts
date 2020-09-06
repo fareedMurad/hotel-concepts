@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 
 const usePopularArticlesData = language => {
   const GET_POPULAR_ARTICLE = gql`
-    {
+    query($locale: String!) {
       articleCollection(where: { popular: true }, locale: $locale) {
         total
         items {

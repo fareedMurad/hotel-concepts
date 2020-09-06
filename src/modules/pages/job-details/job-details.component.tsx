@@ -17,15 +17,16 @@ import { gql, useQuery } from '@apollo/client';
 import { ScrollToTop } from '@app';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
+import { State } from '@app/store/state';
 /**
  * query job
  */
 
 const GET_JOB = gql`
-  query($id: String!) {
-    jobs(id: $id, locale: "en-US") {
+  query($id: String!, $locale: String!) {
+    jobs(id: $id, locale: $locale) {
       name
       employeeType
       location
@@ -41,6 +42,7 @@ const GET_JOB = gql`
 
 const JobDetails: React.FC<JobDetailsProps> = ({}) => {
   const history = useHistory();
+  const { language } = useSelector((state: State) => state.localization);
   const { id: jobId } = useParams();
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -50,7 +52,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
     };
   }, []);
   const { data, loading, error } = useQuery(GET_JOB, {
-    variables: { id: jobId }
+    variables: { id: jobId, locale: language }
   });
 
   if (loading) return <Spinner />;

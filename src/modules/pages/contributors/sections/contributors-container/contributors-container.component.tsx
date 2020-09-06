@@ -41,7 +41,8 @@ const responsiveBreakpoints = {
  * Renders ContributorsContainer
  */
 const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
-  const { contributors: data, loading } = useContributorsData();
+  const { language } = useSelector((state: State) => state.localization);
+  const { contributors: data, loading } = useContributorsData(language);
   const [contributors, setContributors] = React.useState([]);
   const { mobile } = useMediaPoints();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);

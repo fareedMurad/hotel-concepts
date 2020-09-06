@@ -1,13 +1,13 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useQuoteData = () => {
+const useQuoteData = language => {
   /**
    * get quote test
    */
 
   const GET_QUOTE_TEXT = gql`
-    {
-      quoteTextCollection(locale: "en-US") {
+    query($locale: String!) {
+      quoteTextCollection(locale: $locale) {
         items {
           text
         }
@@ -17,7 +17,9 @@ const useQuoteData = () => {
       }
     }
   `;
-  const { data, loading, error } = useQuery(GET_QUOTE_TEXT);
+  const { data, loading, error } = useQuery(GET_QUOTE_TEXT, {
+    variables: { locale: language }
+  });
 
   return {
     quoteData: data?.quoteTextCollection?.items[0],

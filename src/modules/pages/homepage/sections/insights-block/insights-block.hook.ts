@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useInsightsData = () => {
+const useInsightsData = language => {
   const GET_ARTICLES = gql`
-    {
-      articleCollection(locale: "en-US") {
+    query($locale: String!) {
+      articleCollection(locale: $locale) {
         items {
           sys {
             id
@@ -27,7 +27,9 @@ const useInsightsData = () => {
     }
   `;
 
-  const { data, loading: insightsDataLoading, error } = useQuery(GET_ARTICLES);
+  const { data, loading: insightsDataLoading, error } = useQuery(GET_ARTICLES, {
+    variables: { locale: language }
+  });
 
   return { articles: data?.articleCollection?.items, insightsDataLoading };
 };

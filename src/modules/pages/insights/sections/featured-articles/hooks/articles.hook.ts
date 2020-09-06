@@ -1,10 +1,10 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useArticlesData = (categoryId, articlesToSkip) => {
+const useArticlesData = (categoryId, articlesToSkip, language) => {
   if (categoryId != 'All') {
     const GET_FILTERED_ARTICLES = gql`
-      query($id: String!, $articlesToSkip: Int) {
-        articleCategories(id: $id, locale: "en-US") {
+      query($id: String!, $articlesToSkip: Int, $locale: String!) {
+        articleCategories(id: $id, locale: $locale) {
           linkedFrom {
             articleCollection(limit: 9, skip: $articlesToSkip) {
               items {
@@ -30,7 +30,11 @@ const useArticlesData = (categoryId, articlesToSkip) => {
       }
     `;
     const { data, loading, error } = useQuery(GET_FILTERED_ARTICLES, {
-      variables: { id: categoryId, articlesToSkip: articlesToSkip }
+      variables: {
+        id: categoryId,
+        articlesToSkip: articlesToSkip,
+        locale: language
+      }
     });
 
     return {
@@ -39,12 +43,12 @@ const useArticlesData = (categoryId, articlesToSkip) => {
     };
   } else {
     const GET_ALL_ARTICLES = gql`
-      query($articlesToSkip: Int) {
+      query($articlesToSkip: Int, $locale: String!) {
         articleCollection(
           where: { popular_not: true }
           limit: 7
           skip: $articlesToSkip
-          locale: "en-US"
+          locale: $locale
         ) {
           total
           items {
@@ -67,7 +71,7 @@ const useArticlesData = (categoryId, articlesToSkip) => {
     `;
 
     const { data, loading } = useQuery(GET_ALL_ARTICLES, {
-      variables: { articlesToSkip: articlesToSkip }
+      variables: { articlesToSkip: articlesToSkip, locale: language }
     });
     return {
       articles: data?.articleCollection?.items,

@@ -7,6 +7,8 @@ import { ScrollButton } from '@core/components/scroll-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useContributorsData } from './contributor.hook';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 /**
  * Renders Contributors
@@ -15,12 +17,13 @@ import { useTranslation } from 'react-i18next';
 const Contributors: React.FC<ContributorsProps> = ({}) => {
   const ScrollToEnroll = () => scrollTo('become-contributor');
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { contributorsHeroImage } = useContributorsData();
+  const { contributorsHeroImage } = useContributorsData(language);
 
   return (
     <div className={styles.contributors}>

@@ -1,12 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProgramsData = (category: string) => {
+const useProgramsData = (category: string, language: string) => {
   const GET_CATEGORIES = gql`
-    query($category: String!) {
+    query($category: String!, $locale: String!) {
       onlineCourseCollection(
         where: { category: { name: $category } }
         limit: 6
-        locale: "en-US"
+        locale: $locale
       ) {
         total
         items {
@@ -33,7 +33,7 @@ const useProgramsData = (category: string) => {
   `;
 
   const { data, loading } = useQuery(GET_CATEGORIES, {
-    variables: { category: category }
+    variables: { category: category, locale: language }
   });
   return {
     programsData: data?.onlineCourseCollection?.items,

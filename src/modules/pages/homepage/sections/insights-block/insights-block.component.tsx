@@ -9,6 +9,8 @@ import { Spinner } from '@core/components/spinner';
 import { SectionTitle } from '@core/components';
 import { useInsightsData } from './insights-block.hook';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '@app/store/state';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -39,8 +41,9 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
   const history = useHistory();
   const handleClick = () => history.push(`/insights`);
   const { t } = useTranslation();
+  const { language } = useSelector((state: State) => state.localization);
 
-  const { articles, insightsDataLoading } = useInsightsData();
+  const { articles, insightsDataLoading } = useInsightsData(language);
 
   if (insightsDataLoading) return <Spinner />;
 
