@@ -1,0 +1,6 @@
+@import 'core.scss';
+
+.register {
+  @include flex(center, stretch, column);
+  flex: 1;
+}
