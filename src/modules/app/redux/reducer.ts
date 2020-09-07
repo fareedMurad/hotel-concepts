@@ -4,8 +4,8 @@ import { router } from '@router/store';
 import { header } from '@core/components/header/store';
 import { combineReducers } from 'redux';
 import { ui } from '@ui';
-import { profile } from '@profile/store';
 import { auth } from './auth';
+import { account } from './account';
 
 /**
  * App rd
@@ -13,9 +13,9 @@ import { auth } from './auth';
 const app = combineReducers({
   router,
   auth,
+  account,
   localization,
   general,
-  profile,
   ui,
   header
 });
