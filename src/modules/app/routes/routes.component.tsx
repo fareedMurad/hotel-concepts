@@ -1,5 +1,4 @@
 import { Auth } from '@auth';
-import { Profile } from '@profile';
 import { Uikit } from '@uikit';
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
@@ -15,6 +14,7 @@ import { lazy, Fragment } from 'react';
 import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { StickyContainer, Sticky } from 'react-sticky';
+import { Account } from 'src/modules/account';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -134,7 +134,7 @@ const Routes: React.FC = () => {
           </div>
           <React.Suspense fallback={<Spinner />}>
             <Switch>
-              <Route path='/profile' component={Profile} />
+              <Route path='/account' component={Account} />
               <Route path='/uikit' component={Uikit} />
               <Route path='/testing' component={TestPage} />
               <Route path='/auth' component={Auth} />

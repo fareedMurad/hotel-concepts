@@ -2,8 +2,8 @@ import { LocalizationSaga } from '@localization/store';
 import { RouterSaga } from '@router/store';
 import { GeneralSaga } from '@general/store';
 import { ToastSaga } from '@ui/toast';
-import { ProfileSaga } from '@profile/store';
 import { AuthSaga } from './auth';
+import { AccountSaga } from './account';
 
 /**
  * App sagas
@@ -13,8 +13,8 @@ const sagas = [
   new RouterSaga(),
   new GeneralSaga(),
   new ToastSaga(),
-  new ProfileSaga(),
-  new AuthSaga()
+  new AuthSaga(),
+  new AccountSaga()
 ];
 
 export { sagas };
