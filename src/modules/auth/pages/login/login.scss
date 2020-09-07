@@ -5,11 +5,11 @@
   flex: 1;
 }
 
-.auth {
-  @include flex($direction: column);
-  width: 100%;
-  flex: 1;
-  & > button:first-child {
-    margin-bottom: 40px;
+.socials {
+  @include flex($align: center);
+  margin-top: 20px;
+
+  & > span {
+    margin-left: 40px;
   }
 }

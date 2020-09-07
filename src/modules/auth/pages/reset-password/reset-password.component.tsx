@@ -8,6 +8,7 @@ import {
   resetPasswordValidationSchema
 } from '@auth/models';
 import { resetPassword } from '@app/redux/auth';
+import { Field, Button } from '@core/components';
 
 /**
  * Default Values
@@ -32,9 +33,8 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {
     >
       {({ handleSubmit }) => (
         <div className={styles.resetPassword}>
-          {/* content */}
-          {/* content */}
-          {/* content */}
+          <Field.Text name='email' label='Email' />
+          <Button onClick={() => handleSubmit()}>Submit</Button>
         </div>
       )}
     </Formik>

@@ -8,6 +8,7 @@ import { Field, Button } from '@core/components';
 import { login, signInWithGoogle, signInWithFacebook } from '@app/redux/auth';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import { navigate } from '@router/store';
 
 /**
  * Default Values
@@ -30,7 +31,7 @@ const Login: React.FC<LoginProps> = ({}) => {
   };
 
   return (
-    <React.Fragment>
+    <div className={styles.login}>
       <Formik
         initialValues={defaultValues}
         validationSchema={loginValidationSchema}
@@ -39,14 +40,17 @@ const Login: React.FC<LoginProps> = ({}) => {
         }}
       >
         {({ handleSubmit }) => (
-          <div className={styles.login}>
+          <div className={styles.form}>
             <Field.Text name='email' label='Email' />
             <Field.Text name='password' label='Password' />
             <Button onClick={() => handleSubmit()}>Login</Button>
+            <Button onClick={() => dispatch(navigate('/auth/register'))}>
+              Sign up
+            </Button>
           </div>
         )}
       </Formik>
-      <div className={styles.auth}>
+      <div className={styles.socials}>
         <GoogleLogin
           clientId='293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com'
           buttonText='Login'
@@ -61,7 +65,7 @@ const Login: React.FC<LoginProps> = ({}) => {
           callback={responseFacebook}
         />
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
