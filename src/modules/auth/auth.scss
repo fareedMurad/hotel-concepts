@@ -1,5 +1,10 @@
-@import "core.scss";
+@import 'core.scss';
 
 .auth {
-	
+  @include flex($direction: column, $justify: center, $align: center);
+  margin-top: 200px;
+  width: 100%;
+  & > button:first-child {
+    margin-bottom: 40px;
+  }
 }

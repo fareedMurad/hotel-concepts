@@ -12,7 +12,6 @@ import { Spinner } from '@core/components/spinner';
 import { LocalizationMenu } from './components/localization-menu';
 import { State } from '@app/store/state';
 import { useTranslation } from 'react-i18next';
-import { GoogleLogin } from 'react-google-login';
 
 /**
  * Renders HeaderMain
@@ -37,9 +36,9 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   };
   const { t } = useTranslation();
 
-  const responseGoogle = response => {
-    console.log(response);
-  };
+  /**
+   * auth
+   */
 
   return (
     <div
@@ -86,13 +85,6 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
               <span className={styles.arrow}>&#x25BE;</span>
             </div>
           </div>
-          <GoogleLogin
-            clientId='293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com'
-            buttonText='Login'
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-          />
 
           {/* {navigation.map(el => {
             return (
