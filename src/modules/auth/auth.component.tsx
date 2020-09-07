@@ -3,13 +3,15 @@ import { AuthProps } from './auth.props';
 import * as styles from './auth.scss';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-
+import { useDispatch } from 'react-redux';
+import { signInWithGoogle } from './store';
 /**
  * Renders Auth
  */
 const Auth: React.FC<AuthProps> = ({}) => {
+  const dispatch = useDispatch();
   const responseGoogle = response => {
-    console.log(response);
+    dispatch(signInWithGoogle(response.profileObj));
   };
   const responseFacebook = response => {
     console.log(response);
