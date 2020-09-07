@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-results {
   // padding: $left-offset;
@@ -6,7 +6,7 @@
 }
 
 .title {
-  @include font($primary-gray, 48px, 500, 58px);
+  @include font($primary-gray, 48px, 600, 58px);
   font-family: $EBGaramond;
   margin-bottom: 40px;
 }
@@ -27,7 +27,8 @@
   border-radius: 50%;
   margin-right: 29px;
   min-width: 34px;
-  background: url('../../../../../assets/img/mark-check.svg') center center no-repeat;
+  background: url('../../../../../assets/img/mark-check.svg') center center
+    no-repeat;
   background-color: $background;
 }
 

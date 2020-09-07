@@ -5,7 +5,7 @@ import * as styles from './feedback-item.scss';
 /**
  * Renders FeedbackItem
  */
-const FeedbackItem: React.FC<FeedbackItemProps> = ({}) => {
+const FeedbackItem: React.FC<FeedbackItemProps> = () => {
   return (
     <section className={styles.feedbackItem}>
       <div

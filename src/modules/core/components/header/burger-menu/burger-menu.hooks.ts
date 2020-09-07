@@ -13,6 +13,10 @@ const useMenuData = () => {
     {
       name: 'Insights',
       path: '/insights'
+    },
+    {
+      name: 'For corporate clients',
+      path: '/for-companies'
     }
   ];
 
@@ -26,9 +30,14 @@ const useMenuData = () => {
       path: '/learning-approach'
     },
     {
+      name: t('header.header-secondary.link-five'),
+      path: '/for-companies'
+    },
+    {
       name: t('header.header-secondary.link-three'),
       path: '/insights'
     },
+
     {
       name: t('header.header-secondary.link-four'),
       path: '/contact-us'

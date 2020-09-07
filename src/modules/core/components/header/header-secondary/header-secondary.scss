@@ -8,7 +8,7 @@
   padding: 10px 34px;
 
   &--link {
-    @include font(white, 15px, 500, 20px);
+    @include font(white, 12px, 500, 20px);
     font-family: $IBMPlex;
     min-width: fit-content;
     cursor: pointer;

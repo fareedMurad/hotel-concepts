@@ -17,7 +17,11 @@ const GET_RESULTS = gql`
 /**
  * Renders ProgramResults
  */
-const ProgramResults: React.FC<ProgramResultsProps> = ({ programId }) => {
+const ProgramResults: React.FC<ProgramResultsProps> = ({
+  programId,
+  paddingTop,
+  paddingBottom
+}) => {
   const { t } = useTranslation();
   const { language } = useSelector((state: State) => state.localization);
   const { data, loading, error } = useQuery(GET_RESULTS, {
@@ -27,7 +31,14 @@ const ProgramResults: React.FC<ProgramResultsProps> = ({ programId }) => {
 
   const results = data?.onlineCourse?.results;
   return (
-    <section id='results' className={styles.programResults}>
+    <section
+      id='results'
+      className={styles.programResults}
+      style={{
+        paddingTop: paddingTop && paddingTop,
+        paddingBottom: paddingBottom && paddingBottom
+      }}
+    >
       <div className={styles.title}>{t('program-page.results')}</div>
       <div className={styles.hr} />
       {results.map(item => (

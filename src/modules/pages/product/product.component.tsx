@@ -106,13 +106,18 @@ const Product: React.FC<ProductProps> = ({}) => {
       <MaterialsIncluded productMaterials={product.productMaterials} />
       <ExplorePages />
       <Authors authors={product.authors} />
-      <ProgramResults programId='3CaXsOXeY9OWY7YxPz4sy0' />
+      <ProgramResults
+        paddingBottom={'80px'}
+        paddingTop={'80px'}
+        programId='3CaXsOXeY9OWY7YxPz4sy0'
+      />
       <Feedback />
       <ProductBanner product={product} />
 
       <H2 className={styles.recomendedBooks}>{t('product.recomended')}</H2>
-
-      <ProductsSlider data={recomendedProducts} notOrangeButtons />
+      <div className={styles.productSliderWrap}>
+        <ProductsSlider data={recomendedProducts} notOrangeButtons />
+      </div>
       <Brochure />
     </div>
   );
