@@ -4,7 +4,7 @@ import * as styles from './auth.scss';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { useDispatch } from 'react-redux';
-import { signInWithGoogle } from './store';
+import { signInWithGoogle, signInWithFacebook } from './store';
 /**
  * Renders Auth
  */
@@ -14,7 +14,7 @@ const Auth: React.FC<AuthProps> = ({}) => {
     dispatch(signInWithGoogle(response.profileObj));
   };
   const responseFacebook = response => {
-    console.log(response);
+    dispatch(signInWithFacebook(response));
   };
   return (
     <div className={styles.auth}>
@@ -28,9 +28,7 @@ const Auth: React.FC<AuthProps> = ({}) => {
 
       <FacebookLogin
         appId='978057235952932'
-        autoLoad={true}
         fields='name,email,picture'
-        onClick={() => {}}
         callback={responseFacebook}
       />
     </div>

@@ -21,7 +21,6 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   whiteBackground,
   isSticky
 }) => {
-  const dispatch = useDispatch();
   const [white, setWhite] = React.useState(false);
   const [toggleDropDown, setToggleDropDown] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
