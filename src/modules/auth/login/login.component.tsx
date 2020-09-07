@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import { loginValidationSchema, LoginValues } from '@auth/models';
 import { useDispatch } from 'react-redux';
 import { Field, Button } from '@core/components';
+import { login } from '@app/redux/auth';
 
 /**
  * Default Values
@@ -25,7 +26,7 @@ const Login: React.FC<LoginProps> = ({}) => {
       initialValues={defaultValues}
       validationSchema={loginValidationSchema}
       onSubmit={values => {
-        // dispatch(login(values));
+        dispatch(login(values));
       }}
     >
       {({ handleSubmit }) => (
