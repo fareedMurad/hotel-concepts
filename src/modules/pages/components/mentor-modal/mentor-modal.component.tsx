@@ -11,7 +11,7 @@ import { useMediaPoints } from '@core/shared';
 import { Spinner } from '@core/components/spinner';
 import { ScrollToTop } from '@app';
 import ReactMarkdown from 'react-markdown';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { isBackgroundWhite } from '@core/components/header/store';
 
 const GET_MENTOR = gql`

@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ProgramsMenu } from './components/programs-menu/programs-menu.component';
 import { Spinner } from '@core/components/spinner';
 import { LocalizationMenu } from './components/localization-menu';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { useTranslation } from 'react-i18next';
 
 /**

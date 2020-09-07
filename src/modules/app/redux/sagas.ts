@@ -3,6 +3,7 @@ import { RouterSaga } from '@router/store';
 import { GeneralSaga } from '@general/store';
 import { ToastSaga } from '@ui/toast';
 import { ProfileSaga } from '@profile/store';
+import { AuthSaga } from './auth';
 
 /**
  * App sagas
@@ -12,7 +13,8 @@ const sagas = [
   new RouterSaga(),
   new GeneralSaga(),
   new ToastSaga(),
-  new ProfileSaga()
+  new ProfileSaga(),
+  new AuthSaga()
 ];
 
 export { sagas };

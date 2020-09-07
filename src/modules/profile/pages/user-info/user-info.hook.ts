@@ -1,4 +1,4 @@
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { useSelector, useDispatch } from 'react-redux';
 import { UserInfoModel } from '@profile/models';
 import { useEffect } from 'react';

@@ -7,7 +7,7 @@ import { useReadingMaterialsData } from './reading-materials.hook';
 import { fileSize } from '@core/shared/formaters';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 /**
  * Renders ReadingMaterials
  */

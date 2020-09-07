@@ -19,7 +19,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 /**
  * Renders JobsList

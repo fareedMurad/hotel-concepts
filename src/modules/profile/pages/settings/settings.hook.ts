@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { SettingsModel } from '@profile/models';
 import { useEffect } from 'react';
 import { getSettings } from '@profile/store';

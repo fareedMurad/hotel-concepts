@@ -6,7 +6,7 @@ import { ButtonFilter, H2 } from '@core/components';
 import { FaqItem } from '@pages/homepage/components/faq-item';
 import classNames from 'classnames';
 import { Spinner } from '@core/components/spinner';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { useSelector } from 'react-redux';
 
 /**

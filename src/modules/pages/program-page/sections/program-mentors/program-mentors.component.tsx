@@ -12,7 +12,7 @@ import { navigate } from '@router/store';
 import { useMediaPoints } from '@core/shared';
 import { ContributorCard } from '@pages/components';
 import { Spinner } from '@core/components/spinner';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { SectionTitle, Hr, PreCaption } from '@core/components';
 import classNames from 'classnames';
 

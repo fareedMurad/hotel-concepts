@@ -1,0 +1,6 @@
+@import 'core.scss';
+
+.login {
+  @include flex(center, stretch, column);
+  flex: 1;
+}

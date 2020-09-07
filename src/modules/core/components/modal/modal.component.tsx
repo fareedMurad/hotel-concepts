@@ -3,7 +3,7 @@ import { ModalProps } from './modal.props';
 import * as styles from './modal.scss';
 import classNames from 'classnames';
 import { useRef } from 'react';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModal } from '@ui/modal';
 import { useMediaPoints, useClickOutside } from '@core/shared';

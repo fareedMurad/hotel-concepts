@@ -2,7 +2,7 @@ import '@app/styles/global.scss';
 import '@localization/yup';
 import { App } from '@app';
 import { Routes } from '@app/routes';
-import { createStore } from '@app/store';
+import { createStore } from '@app/redux';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';

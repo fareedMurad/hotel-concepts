@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouteMatch } from 'react-router';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 const useJobDetailsData = () => {
   const route = useRouteMatch();

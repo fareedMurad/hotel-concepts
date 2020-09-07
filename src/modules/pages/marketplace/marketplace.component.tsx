@@ -16,7 +16,7 @@ import { useProductsCategoriesData } from './hooks/marketplace-categories.hook';
 import { MarketplaceProductsCarusel } from './marketplace-products-carusel';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 /**
  * Renders Marketplace

@@ -4,7 +4,7 @@ import * as styles from './enroll.scss';
 import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components';
 import { useEnrollData } from './enroll.hook';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { useSelector } from 'react-redux';
 
 /**
