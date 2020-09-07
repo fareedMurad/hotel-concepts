@@ -1,39 +1,20 @@
+import { Field } from '@core/components';
+import { Formik } from 'formik';
 import * as React from 'react';
+import { Section } from '../../components';
 import { useProfileData } from './profile.hook';
 import * as styles from './profile.scss';
-import { ProfileValues } from '../../models';
-import { Formik } from 'formik';
-import { Field } from '@core/components';
-import { Section } from '../../components';
-
-/**
- * Default values
- */
-const defaultValues: ProfileValues = {
-  language: '',
-  email: '',
-  password: '',
-  repeatPassword: '',
-  title: '',
-  firstName: '',
-  lastName: '',
-  company: '',
-  jobTitle: '',
-  city: '',
-  country: '',
-  phone: ''
-};
 
 /**
  * Renders Profile
  */
 const Profile: React.FC = () => {
-  const {} = useProfileData();
+  const { profile } = useProfileData();
 
   return (
     <div className={styles.profile}>
       <Formik
-        initialValues={defaultValues}
+        initialValues={profile}
         onSubmit={values => {
           console.log(values);
         }}
@@ -57,6 +38,12 @@ const Profile: React.FC = () => {
               <Field.Text name='city' label='City' />
               <Field.Text name='country' label='Country' />
               <Field.Text name='phone' label='Phone' />
+            </Section>
+            <Section title='Privacy'>
+              <div className={styles.privacy}>
+                By using our service, you agree to our privacy policy. For more
+                information, contact info@kordie.com.
+              </div>
             </Section>
           </div>
         )}
