@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { useEffect } from 'react';
 import { SecurityInfoModel } from '@profile/models';
 import { getSecurityInfo } from '@profile/store';

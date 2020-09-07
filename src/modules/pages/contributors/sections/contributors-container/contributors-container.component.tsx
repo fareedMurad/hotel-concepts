@@ -11,7 +11,7 @@ import { useMediaPoints } from '@core/shared';
 import { MentorModal } from '@pages/components/mentor-modal';
 import { ContributorCard } from '@pages/components/contributor-card';
 import { Spinner } from '@core/components/spinner';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { Pagination } from '@core/components/pagination';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useTranslation } from 'react-i18next';

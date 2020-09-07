@@ -6,7 +6,7 @@ import { useProgramModulesData } from './program-modules.hook';
 import { Spinner } from '@core/components';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/client';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { useSelector } from 'react-redux';
 
 /**

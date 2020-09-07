@@ -18,7 +18,7 @@ import Moment from 'react-moment';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 /**
  * Renders FeaturedArticles

@@ -1,5 +1,6 @@
-@import "core.scss";
+@import 'core.scss';
 
 .auth {
-	
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
 }

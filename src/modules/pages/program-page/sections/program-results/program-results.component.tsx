@@ -5,7 +5,7 @@ import { gql, useQuery } from '@apollo/client';
 import { Spinner } from '@core/components';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 const GET_RESULTS = gql`
   query($id: String!, $locale: String!) {

@@ -4,7 +4,7 @@ import * as styles from './program-materials.scss';
 import { Spinner } from '@core/components';
 import { useProgramMaterialsData } from './program-materials.hook';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 /**
  * Renders ProgramMaterials

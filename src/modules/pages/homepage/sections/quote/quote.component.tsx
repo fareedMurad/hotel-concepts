@@ -4,7 +4,7 @@ import * as styles from './quote.scss';
 import { Spinner } from '@core/components/spinner';
 import { useQuoteData } from './quote.hook';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 /**
  * Renders Quote

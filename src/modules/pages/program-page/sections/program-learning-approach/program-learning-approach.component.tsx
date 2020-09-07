@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useProgramLearningApproachData } from './program-learning-approach.hook';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 /**
  * Renders ProgramLearningApproach

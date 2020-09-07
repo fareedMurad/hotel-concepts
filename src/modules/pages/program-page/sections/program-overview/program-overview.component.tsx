@@ -7,7 +7,7 @@ import { Spinner } from '@core/components';
 import { useQuery, gql } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
   const { t } = useTranslation();

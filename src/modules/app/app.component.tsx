@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { AppProps } from './app.props';
-import { State } from './store/state';
+import { State } from './redux/state';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './graphql/apollo-client';
 import { useLocation } from 'react-router-dom';

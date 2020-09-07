@@ -6,7 +6,7 @@ import { Button, H2, Spinner } from '@core/components';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 const Card = ({ card, rate }) => {
   const {

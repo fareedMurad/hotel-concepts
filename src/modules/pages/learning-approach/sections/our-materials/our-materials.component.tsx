@@ -6,7 +6,7 @@ import { Spinner, SectionTitle } from '@core/components';
 import { useVideoLecturesData } from './our-materials.hook';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 /**
  * Renders OurMaterials

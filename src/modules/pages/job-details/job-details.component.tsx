@@ -19,7 +19,7 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useDispatch, useSelector } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 /**
  * query job
  */

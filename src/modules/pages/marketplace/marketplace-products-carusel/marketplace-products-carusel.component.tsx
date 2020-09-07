@@ -4,7 +4,7 @@ import * as styles from './marketplace-products-carusel.scss';
 import { PreCaption, H2, Spinner } from '@core/components';
 import { ProductsSlider } from '@pages/components/products-slider';
 import { useProductsData } from '../hooks/marketplace-products.hook';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 import { useSelector } from 'react-redux';
 
 /**

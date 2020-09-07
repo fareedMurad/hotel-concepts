@@ -8,7 +8,7 @@ import { useMostPopularArticles } from './hero-block.hook';
 import { useMediaPoints } from '@core/shared';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 const HeroCard = ({ firstScreenArticle }) => {
   if (!firstScreenArticle) return <Spinner />;

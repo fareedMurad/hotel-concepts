@@ -11,7 +11,7 @@ import { BackButton } from '@core/components/back-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import Player from '@vimeo/player';
 import { useSelector } from 'react-redux';
-import { State } from '@app/store/state';
+import { State } from '@app/redux/state';
 
 /**
  * Renders ProgramIntro
