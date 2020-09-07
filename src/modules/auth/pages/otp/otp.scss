@@ -1,5 +1,10 @@
-@import "core.scss";
+@import 'core.scss';
 
 .otp {
-	
+  @include flex(center, stretch, column);
+  flex: 1;
+}
+
+.input {
+  font-size: 20px;
 }
