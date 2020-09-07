@@ -6,13 +6,7 @@ import * as styles from './auth.scss';
  * Renders Auth
  */
 const Auth: React.FC<AuthProps> = ({}) => {
-  return (
-    <div className={styles.auth}>
-      {/* content */}
-      {/* content */}
-      {/* content */}
-    </div>
-  );
+  return <div className={styles.auth}></div>;
 };
 
 export { Auth };

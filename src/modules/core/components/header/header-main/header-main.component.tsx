@@ -13,6 +13,7 @@ import { LocalizationMenu } from './components/localization-menu';
 import { State } from '@app/store/state';
 import { useTranslation } from 'react-i18next';
 import { GoogleLogin } from 'react-google-login';
+import { signInWithGoogle } from '@auth/store';
 
 /**
  * Renders HeaderMain
@@ -22,6 +23,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   whiteBackground,
   isSticky
 }) => {
+  const dispatch = useDispatch();
   const [white, setWhite] = React.useState(false);
   const [toggleDropDown, setToggleDropDown] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
@@ -38,7 +40,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   const { t } = useTranslation();
 
   const responseGoogle = response => {
-    console.log(response);
+    dispatch(signInWithGoogle(response.profileObj));
   };
 
   return (
