@@ -43,6 +43,9 @@ const Profile: React.FC = () => {
             <Section title='Language'>
               <Field.Text name='language' label='Language' />
             </Section>
+            <Section title='Avatar'>
+              <Field.Text name='image' type='file' />
+            </Section>
             <Section title='Email and Password'>
               <Field.Text name='email' label='Email address' />
               <Field.Text name='password' label='Password' />
