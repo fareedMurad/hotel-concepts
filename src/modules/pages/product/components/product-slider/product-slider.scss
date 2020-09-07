@@ -6,9 +6,8 @@
 .image-wrap {
   @include flex($justify: center, $align: center, $direction: column);
 
- 
   & > button {
-    margin-top: -20px;
+    margin-top: -25px;
   }
   & > img {
     object-fit: fill;

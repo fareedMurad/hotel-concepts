@@ -6,6 +6,7 @@
   padding-top: 60px;
   min-height: 465px;
   background-color: $background;
+
   @include tablet() {
     @include flex($direction: row);
   }

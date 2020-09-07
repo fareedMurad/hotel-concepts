@@ -46,32 +46,36 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
               </div>
             );
           })}
-
-        <div className={styles.aboutAuthorPosition}>
-          {authors[index].position}
-        </div>
-        <div className={styles.aboutAuthorName}>
-          <H3>{authors[index].name}</H3>
-        </div>
-        <div className={styles.aboutAuthorDescription}>
-          {authors[index].description}
-        </div>
-        <div className={styles.buttons}>
-          <button
-            className={styles.buttonsArrow}
-            // onClick={() => setIndex(index - 1)}
-          >
-            ←
-          </button>
-          <button
-            className={styles.buttonsArrow}
-            // onClick={() => setIndex(index + 1)}
-          >
-            →
-          </button>
-          <Button arrow='→' onClick={() => dispatch(navigate('/contributors'))}>
-            {t('product.authors.button-text')}
-          </Button>
+        <div className={styles.aboutAuthorWrapper}>
+          <div className={styles.aboutAuthorPosition}>
+            {authors[index].position}
+          </div>
+          <div className={styles.aboutAuthorName}>
+            <H3>{authors[index].name}</H3>
+          </div>
+          <div className={styles.aboutAuthorDescription}>
+            {authors[index].description}
+          </div>
+          <div className={styles.buttons}>
+            <button
+              className={styles.buttonsArrow}
+              // onClick={() => setIndex(index - 1)}
+            >
+              ←
+            </button>
+            <button
+              className={styles.buttonsArrow}
+              // onClick={() => setIndex(index + 1)}
+            >
+              →
+            </button>
+            <Button
+              arrow='→'
+              onClick={() => dispatch(navigate('/contributors'))}
+            >
+              {t('product.authors.button-text')}
+            </Button>
+          </div>
         </div>
       </div>
       {!mobile && (
@@ -79,8 +83,8 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
           <img
             src={authors[index].picture}
             alt={authors[index].name}
-            width='541px'
-            height='584px'
+            width='100%'
+            height='590px'
           />
         </div>
       )}
