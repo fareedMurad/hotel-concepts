@@ -4,3 +4,12 @@
   @include flex(center, stretch, column);
   flex: 1;
 }
+
+.auth {
+  @include flex($direction: column, $justify: center, $align: center);
+  margin-top: 200px;
+  width: 100%;
+  & > button:first-child {
+    margin-bottom: 40px;
+  }
+}
