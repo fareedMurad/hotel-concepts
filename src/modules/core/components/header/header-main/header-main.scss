@@ -1,9 +1,9 @@
 @import 'core.scss';
 
 .header-main {
-  @include flex($align: baseline, $justify: space-between);
+  @include flex($align: flex-end, $justify: space-between);
   width: 100%;
-  padding: 22px 20px 20px 22px;
+  padding: 10px 20px 10px 22px;
   transition: $transition;
   &_navigation {
     @include flex($justify: flex-end, $align: center);
