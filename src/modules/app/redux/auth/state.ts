@@ -1,21 +1,12 @@
+import { GoogleSignInModel, FacebookSignInModel } from '@app/models';
+
 /**
  * auth state
  */
 class AuthState {
   public authorized: boolean = false;
-  public googleSignInData: {
-    googleId?: string;
-    imageUrl?: string;
-    email?: string;
-    name?: string;
-    givenName?: string;
-    familyName?: string;
-  } = null;
-  public facebookSignInData: {
-    name?: string;
-    surname?: string;
-    email?: string;
-  } = null;
+  public googleSignInData: GoogleSignInModel = null;
+  public facebookSignInData: FacebookSignInModel = null;
 }
 
 export { AuthState };

@@ -32,7 +32,6 @@ const updatePassword = make('[auth] update password')
 /*
  * Sign-in with google
  */
-
 const signInWithGoogle = make('[auth] sign-in with google').stage(
   payload => payload
 );
@@ -40,7 +39,6 @@ const signInWithGoogle = make('[auth] sign-in with google').stage(
 /**
  * Sign in with facebook
  */
-
 const signInWithFacebook = make('[auth] sign-in with facebook').stage(
   payload => payload
 );
