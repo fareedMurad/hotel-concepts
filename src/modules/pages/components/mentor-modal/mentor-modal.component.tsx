@@ -12,6 +12,7 @@ import { Spinner } from '@core/components/spinner';
 import { ScrollToTop } from '@app';
 import ReactMarkdown from 'react-markdown';
 import { State } from '@app/store/state';
+import { isBackgroundWhite } from '@core/components/header/store';
 
 const GET_MENTOR = gql`
   query($id: String!, $locale: String!) {
@@ -35,6 +36,7 @@ const GET_MENTOR = gql`
 const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
   const { mobile } = useMediaPoints();
   const { language } = useSelector((state: State) => state.localization);
+
   const dispatch = useDispatch();
   const history = useHistory();
   const searchParams = new URLSearchParams(history.location.search);
@@ -57,6 +59,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     if (data) {
       setMentor(data?.mentor);
     }
+    dispatch(isBackgroundWhite(true));
     return () => {
       setMentor({
         name: '',
@@ -68,6 +71,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
         linkedIn: '',
         workAt: ''
       });
+      dispatch(isBackgroundWhite(false));
     };
   }, [data]);
   if (loading) return <div>{mobile && <Spinner />}</div>;
