@@ -13,34 +13,87 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "ES2015",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "paths": {
-      "@app": ["./src/modules/app/index"],
-      "@app/*": ["./src/modules/app/*"],
-      "@core/*": ["./src/modules/core/*"],
-      "@localization": ["./src/modules/localization/index"],
-      "@localization/*": ["./src/modules/localization/*"],
-      "@env": ["./src/enviroment.ts"],
-      "@general/*": ["./src/modules/general/*"],
-      "@router/*": ["./src/modules/router/*"],
-      "@uikit": ["./src/modules/uikit/index"],
-      "@uikit/*": ["./src/modules/uikit/*"],
-      "@auth": ["./src/modules/auth/index"],
-      "@auth/*": ["./src/modules/auth/*"],
-      "@ui": ["./src/modules/ui/index"],
-      "@ui/*": ["./src/modules/ui/*"],
-      "@profile": ["./src/modules/profile/index"],
-      "@profile/*": ["./src/modules/profile/*"],
-      "@home": ["./src/modules/home/index"],
-      "@home/*": ["./src/modules/home/*"],
-      "@pages/*": ["./src/modules/pages/*"],
-      "@pages": ["./src/modules/pages/index"],
-      "@test-page": ["./src/modules/test-page/index"],
-      "@test-page/*": ["./src/modules/test-page/*"],
-      "@account/*": ["./src/modules/account/*"]
+      "@app": [
+        "./src/modules/app/index"
+      ],
+      "@app/*": [
+        "./src/modules/app/*"
+      ],
+      "@core/*": [
+        "./src/modules/core/*"
+      ],
+      "@localization": [
+        "./src/modules/localization/index"
+      ],
+      "@localization/*": [
+        "./src/modules/localization/*"
+      ],
+      "@env": [
+        "./src/enviroment.ts"
+      ],
+      "@general/*": [
+        "./src/modules/general/*"
+      ],
+      "@router/*": [
+        "./src/modules/router/*"
+      ],
+      "@uikit": [
+        "./src/modules/uikit/index"
+      ],
+      "@uikit/*": [
+        "./src/modules/uikit/*"
+      ],
+      "@auth": [
+        "./src/modules/auth/index"
+      ],
+      "@auth/*": [
+        "./src/modules/auth/*"
+      ],
+      "@ui": [
+        "./src/modules/ui/index"
+      ],
+      "@ui/*": [
+        "./src/modules/ui/*"
+      ],
+      "@home": [
+        "./src/modules/home/index"
+      ],
+      "@home/*": [
+        "./src/modules/home/*"
+      ],
+      "@pages/*": [
+        "./src/modules/pages/*"
+      ],
+      "@pages": [
+        "./src/modules/pages/index"
+      ],
+      "@test-page": [
+        "./src/modules/test-page/index"
+      ],
+      "@test-page/*": [
+        "./src/modules/test-page/*"
+      ],
+      "@account": [
+        "./src/modules/account/index"
+      ],
+      "@account/*": [
+        "./src/modules/account/*"
+      ]
     }
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "@types"]
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "@types"
+  ]
 }

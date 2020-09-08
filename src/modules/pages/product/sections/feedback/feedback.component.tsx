@@ -66,7 +66,7 @@ const Feedback: React.FC<FeedbackProps> = ({}) => {
   ];
   return (
     <section className={styles.feedback}>
-      <div className={styles.title}>
+      <div className={styles.feedbackWrap}>
         <PreCaption className={styles.preCaption}>Feedback</PreCaption>
         <SectionTitle>Cordie Impact</SectionTitle>
         <Slider

@@ -4,7 +4,7 @@
   @include font($primary-gray, 15px, 500, 20px);
   @include flex(space-between);
   position: absolute;
-  top: 120px;
+  top: 105px;
   left: 22px;
   width: 92px;
   padding: 8px 13px;
@@ -15,8 +15,8 @@
 
 .product-review {
   display: grid;
-  min-height: calc(100vh - 155px);
-  margin-top: 120px;
+  // min-height: calc(100vh - 155px);
+  margin-top: 105px;
   @include desktop() {
     // margin-top: 15px;
     padding-right: 0;
@@ -26,7 +26,7 @@
 
 .recomendedBooks {
   @include container();
-  margin-top: 60px;
+  margin-top: 80px;
   @include tablet() {
     width: 100%;
   }
@@ -65,4 +65,8 @@
 
 .hr {
   margin: 80px 26px 0 26px;
+}
+
+.product-slider-wrap {
+  margin-bottom: 75px;
 }
