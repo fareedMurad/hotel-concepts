@@ -37,7 +37,8 @@
       "@pages/*": ["./src/modules/pages/*"],
       "@pages": ["./src/modules/pages/index"],
       "@test-page": ["./src/modules/test-page/index"],
-      "@test-page/*": ["./src/modules/test-page/*"]
+      "@test-page/*": ["./src/modules/test-page/*"],
+      "@account/*": ["./src/modules/account/*"]
     }
   },
   "include": ["./src/**/*"],
