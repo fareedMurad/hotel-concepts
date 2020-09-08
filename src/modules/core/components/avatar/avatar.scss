@@ -1,0 +1,16 @@
+@import 'core.scss';
+
+.default-avatar {
+  @include flex($align: center, $justify: center);
+  text-transform: uppercase;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #ff6634;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.avatar {
+  background-size: cover !important;
+  background-position: center !important;
+}

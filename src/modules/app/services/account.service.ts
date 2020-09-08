@@ -15,6 +15,17 @@ class AccountService {
       url: '',
       data
     });
+
+  /**
+   * Upload avatar
+   */
+  public uploadAvatar = file => {
+    this.http.request({
+      method: 'POST',
+      url: '',
+      data: file
+    });
+  };
 }
 
 export { AccountService };

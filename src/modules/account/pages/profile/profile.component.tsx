@@ -1,20 +1,43 @@
-import { Field } from '@core/components';
-import { Formik } from 'formik';
 import * as React from 'react';
-import { Section } from '../../components';
 import { useProfileData } from './profile.hook';
 import * as styles from './profile.scss';
+import { ProfileValues } from '../../models';
+import { Formik } from 'formik';
+import { Field } from '@core/components';
+import { Section } from '../../components';
+import { useDispatch } from 'react-redux';
+import { uploadAvatar } from '@app/redux/account';
+import { Avatar } from '@core/components/avatar';
+
+/**
+ * Default values
+ */
+const defaultValues: ProfileValues = {
+  language: '',
+  email: '',
+  password: '',
+  repeatPassword: '',
+  title: '',
+  firstName: '',
+  lastName: '',
+  company: '',
+  jobTitle: '',
+  city: '',
+  country: '',
+  phone: ''
+};
 
 /**
  * Renders Profile
  */
 const Profile: React.FC = () => {
-  const { profile } = useProfileData();
+  const {} = useProfileData();
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.profile}>
       <Formik
-        initialValues={profile}
+        initialValues={defaultValues}
         onSubmit={values => {
           console.log(values);
         }}
@@ -25,7 +48,23 @@ const Profile: React.FC = () => {
               <Field.Text name='language' label='Language' />
             </Section>
             <Section title='Avatar'>
-              <Field.Text name='image' type='file' />
+              <Avatar width={100} height={100}>
+                <input
+                  className={styles.uploadAvatar}
+                  id='avatar'
+                  name='image'
+                  type='file'
+                  onChange={event => {
+                    const {
+                      target: { files }
+                    } = event;
+                    dispatch(uploadAvatar(files[0]));
+                  }}
+                />
+                <label htmlFor='avatar'>
+                  <span>upload</span>{' '}
+                </label>
+              </Avatar>
             </Section>
             <Section title='Email and Password'>
               <Field.Text name='email' label='Email address' />
@@ -41,12 +80,6 @@ const Profile: React.FC = () => {
               <Field.Text name='city' label='City' />
               <Field.Text name='country' label='Country' />
               <Field.Text name='phone' label='Phone' />
-            </Section>
-            <Section title='Privacy'>
-              <div className={styles.privacy}>
-                By using our service, you agree to our privacy policy. For more
-                information, contact info@kordie.com.
-              </div>
             </Section>
           </div>
         )}

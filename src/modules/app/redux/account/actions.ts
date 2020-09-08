@@ -9,4 +9,11 @@ const fetchProfile = make('[account] fetch profile').stage(
   (payload: ProfileValues) => payload
 );
 
-export { fetchProfile };
+/**
+ * Upload avatar
+ */
+const uploadAvatar = make('[account] upload avatar')
+  .stage((file: File) => file)
+  .stage('success');
+
+export { fetchProfile, uploadAvatar };
