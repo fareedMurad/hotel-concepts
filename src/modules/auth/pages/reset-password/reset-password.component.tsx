@@ -8,13 +8,14 @@ import {
   resetPasswordValidationSchema
 } from '@auth/models';
 import { resetPassword } from '@app/redux/auth';
-import { Field, Button } from '@core/components';
+import { Field, Button, Preloader } from '@core/components';
+import { Preloaders } from '@ui/models';
 
 /**
  * Default Values
  */
 const defaultValues: ResetPasswordValues = {
-  email: ''
+  password: ''
 };
 
 /**
@@ -24,20 +25,24 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {
   const dispatch = useDispatch();
 
   return (
-    <Formik
-      initialValues={defaultValues}
-      validationSchema={resetPasswordValidationSchema}
-      onSubmit={values => {
-        dispatch(resetPassword(values));
-      }}
-    >
-      {({ handleSubmit }) => (
-        <div className={styles.resetPassword}>
-          <Field.Text name='email' label='Email' />
-          <Button onClick={() => handleSubmit()}>Submit</Button>
-        </div>
-      )}
-    </Formik>
+    <div className={styles.resetPassword}>
+      <Preloader id={Preloaders.resetPassword}>
+        <Formik
+          initialValues={defaultValues}
+          validationSchema={resetPasswordValidationSchema}
+          onSubmit={values => {
+            dispatch(resetPassword(values));
+          }}
+        >
+          {({ handleSubmit }) => (
+            <div className={styles.form}>
+              <Field.Text name='password' label='New password' />
+              <Button onClick={() => handleSubmit()}>Submit</Button>
+            </div>
+          )}
+        </Formik>
+      </Preloader>
+    </div>
   );
 };
 

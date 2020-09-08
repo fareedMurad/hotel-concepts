@@ -8,10 +8,10 @@
 .preloader {
   position: relative;
   text-indent: -9999rem;
-  border-top: 10px solid $primary;
-  border-right: 10px solid $primary;
-  border-bottom: 10px solid $primary;
-  border-left: 10px solid rgba($primary, $alpha: 0.5);
+  border-top: 10px solid $primary-orange;
+  border-right: 10px solid $primary-orange;
+  border-bottom: 10px solid $primary-orange;
+  border-left: 10px solid rgba($primary-orange, $alpha: 0.5);
   transform: translateZ(0);
   animation: spin 1.3s infinite linear;
   &,

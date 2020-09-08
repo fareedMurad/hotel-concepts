@@ -1,5 +1,11 @@
 import { make } from 'redux-chill';
-import { LoginValues } from '@auth/models';
+import {
+  LoginValues,
+  RegisterValues,
+  UpdatePasswordValues,
+  ResetPasswordValues,
+  ForgotPasswordValues
+} from '@auth/models';
 
 /**
  * Login
@@ -12,21 +18,28 @@ const login = make('[auth] login')
  * Register
  */
 const register = make('[auth] register')
-  .stage(payload => payload)
+  .stage((payload: RegisterValues) => payload)
+  .stage('success');
+
+/**
+ * Forgot password
+ */
+const forgotPassword = make('[auth] forgot password')
+  .stage((payload: ForgotPasswordValues) => payload)
   .stage('success');
 
 /**
  * Reset password
  */
 const resetPassword = make('[auth] reset password')
-  .stage(payload => payload)
+  .stage((payload: ResetPasswordValues) => payload)
   .stage('success');
 
 /**
  * Update password
  */
 const updatePassword = make('[auth] update password')
-  .stage(payload => payload)
+  .stage((payload: UpdatePasswordValues) => payload)
   .stage('success');
 
 /*
@@ -47,6 +60,7 @@ export {
   login,
   register,
   resetPassword,
+  forgotPassword,
   updatePassword,
   signInWithGoogle,
   signInWithFacebook

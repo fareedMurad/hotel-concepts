@@ -1,7 +1,15 @@
-import { Saga } from 'redux-chill';
-import { login, register, resetPassword, updatePassword } from './actions';
+import { Saga, Payload } from 'redux-chill';
+import {
+  login,
+  register,
+  resetPassword,
+  updatePassword,
+  forgotPassword
+} from './actions';
 import { Context } from '../context';
-import { call } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
+import { preloaderStop, preloaderStart } from '@ui/preloader';
+import { Preloaders } from '@ui/models';
 
 /**
  * auth saga
@@ -11,12 +19,17 @@ class AuthSaga {
    * Login
    */
   @Saga(login)
-  public *login(payload, { api }: Context) {
+  public *login(payload: Payload<typeof login>, { api }: Context) {
+    yield put(preloaderStart(Preloaders.login));
+
     try {
-      console.log(payload);
-      //   const response = yield call(api.auth.login, payload);
+      const response = yield call(api.auth.login, payload);
+
+      console.log(response);
     } catch (error) {
       console.log(error);
+    } finally {
+      yield put(preloaderStop(Preloaders.login));
     }
   }
 
@@ -24,12 +37,37 @@ class AuthSaga {
    * Register
    */
   @Saga(register)
-  public *register(payload, { api }: Context) {
+  public *register(payload: Payload<typeof register>, { api }: Context) {
+    yield put(preloaderStart(Preloaders.register));
+
     try {
-      console.log(payload);
-      //   const response = yield call(api.auth.register, payload);
+      const response = yield call(api.auth.register, payload);
+
+      console.log(response);
     } catch (error) {
       console.log(error);
+    } finally {
+      yield put(preloaderStop(Preloaders.register));
+    }
+  }
+
+  /**
+   * Forgot password
+   */
+  @Saga(forgotPassword)
+  public *forgotPassword(
+    payload: Payload<typeof forgotPassword>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.forgotPassword));
+    try {
+      const response = yield call(api.auth.forgotPassword, payload);
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      yield put(preloaderStop(Preloaders.forgotPassword));
     }
   }
 
@@ -37,12 +75,19 @@ class AuthSaga {
    * Reset password
    */
   @Saga(resetPassword)
-  public *resetPassword(payload, { api }: Context) {
+  public *resetPassword(
+    payload: Payload<typeof resetPassword>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.resetPassword));
     try {
-      console.log(payload);
-      // const response = yield call(api.auth.resetPassword, payload);
+      const response = yield call(api.auth.resetPassword, payload);
+
+      console.log(response);
     } catch (error) {
       console.log(error);
+    } finally {
+      yield put(preloaderStop(Preloaders.resetPassword));
     }
   }
 
@@ -50,12 +95,19 @@ class AuthSaga {
    * Update password
    */
   @Saga(updatePassword)
-  public *updatePassword(payload, { api }: Context) {
+  public *updatePassword(
+    payload: Payload<typeof updatePassword>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.updatePassword));
     try {
-      console.log(payload);
-      //   const response = yield call(api.auth.updatePassword, payload);
+      const response = yield call(api.auth.updatePassword, payload);
+
+      console.log(response);
     } catch (error) {
       console.log(error);
+    } finally {
+      yield put(preloaderStop(Preloaders.updatePassword));
     }
   }
 }

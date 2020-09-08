@@ -1,4 +1,11 @@
 import { HttpService } from './config';
+import {
+  RegisterValues,
+  LoginValues,
+  UpdatePasswordValues,
+  ResetPasswordValues,
+  ForgotPasswordValues
+} from '@auth/models';
 
 class AuthService {
   /**
@@ -9,40 +16,50 @@ class AuthService {
   /**
    * Login
    */
-  public login = data =>
+  public login = (data: LoginValues) =>
     this.http.request({
       method: 'POST',
-      url: '',
+      url: '/auth/login',
       data
     });
 
   /**
    * Register
    */
-  public register = data =>
+  public register = (data: RegisterValues) =>
     this.http.request({
       method: 'POST',
-      url: '',
+      url: '/auth/register',
       data
     });
 
   /**
    * Reset password
    */
-  public resetPassword = data =>
+  public forgotPassword = (data: ForgotPasswordValues) =>
     this.http.request({
       method: 'POST',
-      url: '',
+      url: '/auth/password/forgot',
+      data
+    });
+
+  /**
+   * Reset password
+   */
+  public resetPassword = (data: ResetPasswordValues) =>
+    this.http.request({
+      method: 'PATCH',
+      url: '/auth/password/reset',
       data
     });
 
   /**
    * Update password
    */
-  public updatePassword = data =>
+  public updatePassword = (data: UpdatePasswordValues) =>
     this.http.request({
-      method: 'POST',
-      url: '',
+      method: 'PATCH',
+      url: '/auth/password/update',
       data
     });
 }

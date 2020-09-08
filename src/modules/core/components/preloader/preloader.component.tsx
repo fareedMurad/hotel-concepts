@@ -1,16 +1,20 @@
-import * as React from 'react';
-import { PreloaderProps } from './preloader.props';
-import * as styles from './preloader.scss';
-import classNames from 'classnames';
-import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
 import { exclude } from '@core/shared/utils';
-import { Preloaders } from '@ui/models';
+import classNames from 'classnames';
+import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { PreloaderProps } from './preloader.props';
+import * as styles from './preloader.scss';
 
 /**
  * Renders Preloader
  */
-const Preloader: React.FC<PreloaderProps> = ({ id, children, ...props }) => {
+const Preloader: React.FC<PreloaderProps> = ({
+  id,
+  children,
+  className,
+  ...props
+}) => {
   const { active } = useSelector((state: State) => state.ui.preloader);
   const isActive =
     'isActive' in props ? props.isActive : active.some(one => one == id);
@@ -19,7 +23,7 @@ const Preloader: React.FC<PreloaderProps> = ({ id, children, ...props }) => {
     return (
       <React.Fragment>
         <div
-          className={classNames(styles.overlay)}
+          className={classNames(styles.overlay, className)}
           {...exclude(props, 'isActive')}
         >
           <div className={styles.preloader} />
