@@ -54,6 +54,7 @@ const Profile: React.FC = () => {
                   id='avatar'
                   name='image'
                   type='file'
+                  accept='.jpg, .jpeg, .png'
                   onChange={event => {
                     const {
                       target: { files }
