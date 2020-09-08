@@ -45,6 +45,15 @@ class AuthService {
       url: '',
       data
     });
+  /*
+   * Sign in with google
+   */
+  public signInWithGoogle = data =>
+    this.http.request({
+      method: 'POST',
+      url: '/auth/google',
+      data: data
+    });
 }
 
 export { AuthService };
