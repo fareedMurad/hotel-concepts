@@ -18,7 +18,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
   const [index, setIndex] = React.useState(0);
   const { dispatch } = useDispatch();
 
-  const transitions = useTransition(authors[index], item => item.key, {
+  const transitions = useTransition(authors[index], item => item.sys.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 }
@@ -38,7 +38,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
               <div key={key} style={props} className={styles.authorImageMobile}>
                 <animated.img
                   style={props}
-                  src={item.picture}
+                  src={item.mentorPicture.url}
                   alt={item.name}
                   width='300px'
                   height='300px'
@@ -54,7 +54,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
             <H3>{authors[index].name}</H3>
           </div>
           <div className={styles.aboutAuthorDescription}>
-            {authors[index].description}
+            {authors[index].experience}
           </div>
           <div className={styles.buttons}>
             <button
@@ -81,10 +81,11 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
       {!mobile && (
         <div className={styles.authorImage}>
           <img
-            src={authors[index].picture}
+            src={authors[index].mentorPicture.url}
             alt={authors[index].name}
+            style={{ objectFit: 'cover' }}
             width='100%'
-            height='590px'
+            height='100%'
           />
         </div>
       )}

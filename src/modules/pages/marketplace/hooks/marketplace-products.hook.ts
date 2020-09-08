@@ -9,10 +9,8 @@ const useProductsData = (category, language) => {
       ) {
         items {
           name
-          productImagesCollection {
-            items {
-              url
-            }
+          productImage {
+            url
           }
           price
           sys {

@@ -2,7 +2,7 @@
  * Props
  */
 type ProductSliderProps = {
-  images: any;
+  url: string;
 };
 
 export { ProductSliderProps };

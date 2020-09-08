@@ -10,7 +10,7 @@ import classNames from 'classnames';
 /**
  * Renders ExplorePages
  */
-const ExplorePages: React.FC<ExplorePagesProps> = ({}) => {
+const ExplorePages: React.FC<ExplorePagesProps> = ({ data }) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -28,6 +28,7 @@ const ExplorePages: React.FC<ExplorePagesProps> = ({}) => {
       slidesToSlide: 1
     }
   };
+  console.log(data);
   return (
     <div className={styles.explorePages}>
       <H2 className={styles.explorePagesTitle}>Explore Pages</H2>
@@ -41,16 +42,14 @@ const ExplorePages: React.FC<ExplorePagesProps> = ({}) => {
           }
           responsive={responsive}
         >
-          <div className={styles.squer}>
-            <Icon name='zoom' />
-          </div>
-          <div className={styles.squer} />
-          <div className={styles.squer} />
-          <div className={styles.squer} />
-          <div className={styles.squer} />
-          <div className={styles.squer} />
-          <div className={styles.squer} />
-          <div className={styles.squer} />
+          {data.items.map((el, idx) => {
+            return (
+              <div
+                className={styles.squer}
+                style={{ backgroundImage: `url(${el.url})` }}
+              />
+            );
+          })}
         </Slider>
       </div>
     </div>

@@ -11,8 +11,7 @@
   @include flex($align: center, $justify: center);
   height: 416px;
   width: 316px;
-  background-color: #f5f1f0;
-  border: 1px solid #707070;
+  background-size: cover;
 }
 
 .slider {

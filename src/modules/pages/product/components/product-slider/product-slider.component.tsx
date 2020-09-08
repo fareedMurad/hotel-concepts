@@ -99,20 +99,12 @@ const CustomRightArrow: React.FC<any> = ({ onClick, ...rest }) => {
   );
 };
 
-const ProductSlider: React.FC<ProductSliderProps> = ({ images }) => {
+const ProductSlider: React.FC<ProductSliderProps> = ({ url }) => {
   const { t } = useTranslation();
-  const { url } = images[0];
   return (
     <div className={styles.productImage}>
       <div className={styles.imageWrap}>
-        <img
-          className={styles.image}
-          src={
-            'https://images.ctfassets.net/qgx3dmmccd7u/M9DtD304X9Qi36JV8R32B/1635006a72c5ad51d3000fe230a89dbd/book-large.png'
-          }
-          alt=''
-          width=''
-        />
+        <img className={styles.image} src={url} alt='' width='' />
         <Button theme='secondary'>{t('product.slider.button-text')}</Button>
       </div>
     </div>

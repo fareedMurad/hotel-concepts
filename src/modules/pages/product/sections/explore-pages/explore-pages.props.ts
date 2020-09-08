@@ -1,6 +1,12 @@
 /**
  * Props
  */
-type ExplorePagesProps = {};
+type ExplorePagesProps = {
+  data: {
+    items: {
+      url;
+    }[];
+  };
+};
 
 export { ExplorePagesProps };

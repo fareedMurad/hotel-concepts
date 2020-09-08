@@ -52,7 +52,7 @@ class AuthService {
     this.http.request({
       method: 'POST',
       url: '/auth/google',
-      data: data
+      data
     });
 }
 

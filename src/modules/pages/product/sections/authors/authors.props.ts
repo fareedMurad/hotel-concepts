@@ -5,9 +5,13 @@ type AuthorsProps = {
   authors: {
     name: string;
     position: string;
-    picture: string;
-    description: string;
-    key: number;
+    experience: string;
+    mentorPicture: {
+      url: string;
+    };
+    sys: {
+      id: string;
+    };
   }[];
 };
 

@@ -41,7 +41,8 @@ const Product: React.FC<ProductProps> = ({}) => {
     };
   }, []);
   const { id: productId, categorySlug } = useParams();
-  const { product } = useProductData();
+  const { product, productLoading } = useProductData('2hNjDgD6t62ClEuLRO8VCu');
+
   const { pathname } = useLocation();
   const { language } = useSelector((state: State) => state.localization);
   const {
@@ -49,8 +50,10 @@ const Product: React.FC<ProductProps> = ({}) => {
     redomendedProductsLoading
   } = useRecomendedProductsData(categorySlug, productId, language);
 
-  // if (productLoading) return <Spinner />;
+  if (productLoading) return <Spinner />;
   if (redomendedProductsLoading) return <Spinner />;
+
+  console.log(product);
 
   const convertToFileType = file =>
     file
@@ -77,21 +80,20 @@ const Product: React.FC<ProductProps> = ({}) => {
       </div>
       <div className={styles.productReview}>
         <div className={styles.slider}>
-          <ProductSlider images={product.productImage} />
+          <ProductSlider url={product.productImage.url} />
           <div className={styles.links}>
             <ShareSocial link={''} />
             <div className={styles.linksDownload}>
-              {/* {previewPages &&
-                previewPages.map(el => ( */}
-              <button
-                // key={el.sys.id}
-                className={styles.downloadBtn}
-                // onClick={() => window.open(el.url, '_blank')}
-              >
-                {/* {convertToFileType(el.contentType)} */}
-                PDF
-              </button>
-              {/* ))} */}
+              {product.previewPagesCollection.items &&
+                product.previewPagesCollection.items.map(el => (
+                  <button
+                    key={el.sys.id}
+                    className={styles.downloadBtn}
+                    onClick={() => window.open(el.url, '_blank')}
+                  >
+                    {convertToFileType(el.contentType)}
+                  </button>
+                ))}
             </div>
           </div>
         </div>
@@ -103,22 +105,22 @@ const Product: React.FC<ProductProps> = ({}) => {
       </div>
 
       <Enroll programId={'1fHQgCpPPwnmhdVZFR4WEW'} title={'For whom'} />
-      <MaterialsIncluded productMaterials={product.productMaterials} />
-      <ExplorePages />
-      <Authors authors={product.authors} />
+      <MaterialsIncluded productMaterials={product.materialsIncluded} />
+      <ExplorePages data={product.coverPhotosCollection} />
+      <Authors authors={product.authorsCollection.items} />
       <ProgramResults
         paddingBottom={'80px'}
         paddingTop={'80px'}
         programId='3CaXsOXeY9OWY7YxPz4sy0'
       />
-      <Feedback />
-      <ProductBanner product={product} />
+      <Feedback data={product.commentsCollection.items} />
+      {/* <ProductBanner product={product} />
 
       <H2 className={styles.recomendedBooks}>{t('product.recomended')}</H2>
       <div className={styles.productSliderWrap}>
         <ProductsSlider data={recomendedProducts} notOrangeButtons />
       </div>
-      <Brochure />
+      <Brochure /> */}
     </div>
   );
 };

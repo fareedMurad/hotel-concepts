@@ -7,13 +7,13 @@
   @include flex($justify: center, $align: center, $direction: column);
 
   & > button {
-    margin-top: -25px;
+    margin-top: 25px;
   }
   & > img {
     object-fit: fill;
     max-width: 320px;
     @include desktop() {
-      max-width: 100%;
+      max-width: 314px;
     }
   }
 }
