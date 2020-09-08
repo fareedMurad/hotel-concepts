@@ -5,7 +5,9 @@ import {
   resetPassword,
   updatePassword,
   forgotPassword,
-  signInWithGoogle
+  googleSignIn,
+  authorize,
+  getUser
 } from './actions';
 import { call, put } from 'redux-saga/effects';
 import { preloaderStop, preloaderStart } from '@ui/preloader';
@@ -17,6 +19,20 @@ import { GoogleSignInModel } from '@app/models';
  * auth saga
  */
 class AuthSaga {
+  /**
+   * Get user
+   */
+  @Saga(getUser)
+  public *getUser(_, { api }: Context) {
+    try {
+      const response = yield call(api.auth.getUser);
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   /**
    * Login
    */
@@ -112,23 +128,31 @@ class AuthSaga {
       yield put(preloaderStop(Preloaders.updatePassword));
     }
   }
+
   /*
    * Sign in with google
    */
-  @Saga(signInWithGoogle)
-  public *signInwithGoogle(payload: GoogleSignInModel, { api }: Context) {
-    const { familyName, givenName, email } = payload;
-    console.log(payload);
+  @Saga(googleSignIn)
+  public *googleSignIn(
+    { familyName, givenName, email }: GoogleSignInModel,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.login));
+
     const data = {
       name: givenName,
       surname: familyName,
       email: email
     };
+
     try {
-      const response = api.auth.signInWithGoogle(data);
-      console.log(response);
-    } catch (err) {
-      console.log(err);
+      const response = yield call(api.auth.googleSignIn, data);
+
+      yield put(authorize());
+    } catch (error) {
+      console.log(error);
+    } finally {
+      yield put(preloaderStop(Preloaders.login));
     }
   }
 }

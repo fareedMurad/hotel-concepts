@@ -1,17 +1,26 @@
-import { AuthState } from './state';
 import { reducer } from 'redux-chill';
-import { signInWithGoogle, signInWithFacebook } from './actions';
+import {
+  authorize,
+  facebookSignIn,
+  googleSignIn,
+  unauthorize
+} from './actions';
+import { AuthState } from './state';
 
 /**
  * auth state
  */
 const auth = reducer(new AuthState())
-  .on(signInWithGoogle, (state, payload) => {
+  .on(authorize, state => {
     state.authorized = true;
+  })
+  .on(unauthorize, state => {
+    state.authorized = false;
+  })
+  .on(googleSignIn, (state, payload) => {
     state.googleSignInData = payload;
   })
-  .on(signInWithFacebook, (state, payload) => {
-    state.authorized = true;
+  .on(facebookSignIn, (state, payload) => {
     state.facebookSignInData = payload;
   });
 

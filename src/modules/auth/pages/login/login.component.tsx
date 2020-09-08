@@ -5,11 +5,12 @@ import { Formik } from 'formik';
 import { loginValidationSchema, LoginValues } from '@auth/models';
 import { useDispatch } from 'react-redux';
 import { Field, Button, Preloader } from '@core/components';
-import { login, signInWithGoogle, signInWithFacebook } from '@app/redux/auth';
+import { login, googleSignIn, facebookSignIn, getUser } from '@app/redux/auth';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
+import { enviroment } from 'src/environment';
 
 /**
  * Default Values
@@ -24,11 +25,12 @@ const defaultValues: LoginValues = {
  */
 const Login: React.FC<LoginProps> = ({}) => {
   const dispatch = useDispatch();
+  const { googleClientId, facebookAppId } = enviroment || {};
   const responseGoogle = response => {
-    dispatch(signInWithGoogle(response.profileObj));
+    dispatch(googleSignIn(response.profileObj));
   };
   const responseFacebook = response => {
-    dispatch(signInWithFacebook(response));
+    dispatch(facebookSignIn(response));
   };
 
   return (
@@ -54,7 +56,7 @@ const Login: React.FC<LoginProps> = ({}) => {
         </Formik>
         <div className={styles.socials}>
           <GoogleLogin
-            clientId='293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com'
+            clientId={googleClientId}
             buttonText='Login'
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
@@ -62,7 +64,7 @@ const Login: React.FC<LoginProps> = ({}) => {
           />
 
           <FacebookLogin
-            appId='978057235952932'
+            appId={facebookAppId}
             fields='name,email,picture'
             callback={responseFacebook}
           />

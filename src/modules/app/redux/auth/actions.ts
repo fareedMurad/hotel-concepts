@@ -4,8 +4,25 @@ import {
   RegisterValues,
   UpdatePasswordValues,
   ResetPasswordValues,
-  ForgotPasswordValues
+  ForgotPasswordValues,
+  GoogleSignInValues,
+  FacebookSignInValues
 } from '@auth/models';
+
+/**
+ * Authorize
+ */
+const authorize = make('[auth] authorize user');
+
+/**
+ * Unauthorize
+ */
+const unauthorize = make('[auth] unauthorize user');
+
+/**
+ * Get user
+ */
+const getUser = make('[auth] get user').stage('success', payload => payload);
 
 /**
  * Login
@@ -45,23 +62,26 @@ const updatePassword = make('[auth] update password')
 /*
  * Sign-in with google
  */
-const signInWithGoogle = make('[auth] sign-in with google').stage(
-  payload => payload
-);
+const googleSignIn = make('[auth] sign-in with google')
+  .stage((payload: GoogleSignInValues) => payload)
+  .stage('success');
 
 /**
  * Sign in with facebook
  */
-const signInWithFacebook = make('[auth] sign-in with facebook').stage(
-  payload => payload
-);
+const facebookSignIn = make('[auth] sign-in with facebook')
+  .stage((payload: FacebookSignInValues) => payload)
+  .stage('success');
 
 export {
   login,
+  getUser,
   register,
+  authorize,
+  unauthorize,
+  googleSignIn,
   resetPassword,
   forgotPassword,
   updatePassword,
-  signInWithGoogle,
-  signInWithFacebook
+  facebookSignIn
 };

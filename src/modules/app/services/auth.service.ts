@@ -4,7 +4,9 @@ import {
   LoginValues,
   UpdatePasswordValues,
   ResetPasswordValues,
-  ForgotPasswordValues
+  ForgotPasswordValues,
+  GoogleSignInValues,
+  FacebookSignInValues
 } from '@auth/models';
 
 class AuthService {
@@ -12,6 +14,14 @@ class AuthService {
    * Init
    */
   public constructor(private http: HttpService) {}
+
+  /**
+   * Get user
+   */
+  public getUser = () =>
+    this.http.request({
+      url: '/user'
+    });
 
   /**
    * Login
@@ -62,14 +72,25 @@ class AuthService {
       url: '/auth/password/update',
       data
     });
+
   /*
    * Sign in with google
    */
-  public signInWithGoogle = data =>
+  public googleSignIn = (data: GoogleSignInValues) =>
     this.http.request({
       method: 'POST',
       url: '/auth/google',
-      data: data
+      data
+    });
+
+  /**
+   * Sign in with facebook
+   */
+  public facebookSignIn = (data: FacebookSignInValues) =>
+    this.http.request({
+      method: 'POST',
+      url: '/auth/fb',
+      data
     });
 }
 
