@@ -48,7 +48,7 @@ const Profile: React.FC = () => {
               <Field.Text name='language' label='Language' />
             </Section>
             <Section title='Avatar'>
-              <Avatar width={100} height={100}>
+              <Avatar width={100} height={100} >
                 <input
                   className={styles.uploadAvatar}
                   id='avatar'
