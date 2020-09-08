@@ -4,12 +4,14 @@ import {
   register,
   resetPassword,
   updatePassword,
-  forgotPassword
+  forgotPassword,
+  signInWithGoogle
 } from './actions';
-import { Context } from '../context';
 import { call, put } from 'redux-saga/effects';
 import { preloaderStop, preloaderStart } from '@ui/preloader';
 import { Preloaders } from '@ui/models';
+import { Context } from '../context';
+import { GoogleSignInModel } from '@app/models';
 
 /**
  * auth saga
@@ -108,6 +110,25 @@ class AuthSaga {
       console.log(error);
     } finally {
       yield put(preloaderStop(Preloaders.updatePassword));
+    }
+  }
+  /*
+   * Sign in with google
+   */
+  @Saga(signInWithGoogle)
+  public *signInwithGoogle(payload: GoogleSignInModel, { api }: Context) {
+    const { familyName, givenName, email } = payload;
+    console.log(payload);
+    const data = {
+      name: givenName,
+      surname: familyName,
+      email: email
+    };
+    try {
+      const response = api.auth.signInWithGoogle(data);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
     }
   }
 }
