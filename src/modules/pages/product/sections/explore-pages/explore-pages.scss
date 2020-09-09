@@ -12,6 +12,29 @@
   height: 416px;
   width: 316px;
   background-size: cover;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0000003f;
+    }
+    &:after {
+      content: 'Click to zoom in';
+      width: fit-content;
+      color: white;
+      height: 30px;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+    }
+  }
 }
 
 .slider {

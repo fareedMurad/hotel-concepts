@@ -6,11 +6,19 @@ import Carousel from 'react-multi-carousel';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { showModal, toggleBookOverviewModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import { url } from 'inspector';
+import { useHistory } from 'react-router';
 
 /**
  * Renders ExplorePages
  */
-const ExplorePages: React.FC<ExplorePagesProps> = ({ data }) => {
+const ExplorePages: React.FC<ExplorePagesProps> = ({
+  data,
+  setSelectedImage
+}) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -28,7 +36,8 @@ const ExplorePages: React.FC<ExplorePagesProps> = ({ data }) => {
       slidesToSlide: 1
     }
   };
-  console.log(data);
+  const history = useHistory();
+  const dispatch = useDispatch();
   return (
     <div className={styles.explorePages}>
       <H2 className={styles.explorePagesTitle}>Explore Pages</H2>
@@ -45,8 +54,14 @@ const ExplorePages: React.FC<ExplorePagesProps> = ({ data }) => {
           {data.items.map((el, idx) => {
             return (
               <div
+                key={el.url}
                 className={styles.squer}
                 style={{ backgroundImage: `url(${el.url})` }}
+                onClick={() => {
+                  setSelectedImage(el.url);
+                  dispatch(toggleBookOverviewModal(true));
+                  dispatch(showModal(Modals.bookOverview));
+                }}
               />
             );
           })}

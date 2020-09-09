@@ -28,12 +28,15 @@ import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
 import { ProductResult } from './sections/product-result';
 import { ForWhom } from './sections/for-whom';
+import { BookOverviewModal } from './sections/explore-pages/bookOverviewModal';
+import { toggleBookOverviewModal } from '@ui/modal';
 
 /**
  * Renders Product
  */
 const Product: React.FC<ProductProps> = ({}) => {
   const { t } = useTranslation();
+  const [selectedImage, setSelectedImage] = React.useState('');
   const history = useHistory();
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -47,6 +50,7 @@ const Product: React.FC<ProductProps> = ({}) => {
 
   const { pathname } = useLocation();
   const { language } = useSelector((state: State) => state.localization);
+  const { bookOverviewModal } = useSelector((state: State) => state.ui.modal);
   const {
     recomendedProducts,
     redomendedProductsLoading
@@ -55,13 +59,15 @@ const Product: React.FC<ProductProps> = ({}) => {
   if (productLoading) return <Spinner />;
   if (redomendedProductsLoading) return <Spinner />;
 
-  console.log(product);
-
   const convertToFileType = file =>
     file
       .split('/')
       .pop()
       .toUpperCase();
+  const getBookFormat = book => {
+    const words = book.split('.');
+    return words[words.length - 1];
+  };
 
   // const link =
   //   'https://www.facebook.com/sharer/sharer.php?app_id=978057235952932&sdk=joey&u=https://chillyfacts.com/create-facebook-share-button-for-website-webpages/&display=popup&ref=plugin&src=share_button';
@@ -96,7 +102,9 @@ const Product: React.FC<ProductProps> = ({}) => {
                     className={styles.downloadBtn}
                     onClick={() => window.open(el.url, '_blank')}
                   >
-                    {convertToFileType(el.contentType)}
+                    <span style={{ textTransform: 'uppercase' }}>
+                      {getBookFormat(el.url)}
+                    </span>
                   </button>
                 ))}
             </div>
@@ -111,7 +119,10 @@ const Product: React.FC<ProductProps> = ({}) => {
 
       <ForWhom productId={productId} />
       <MaterialsIncluded productMaterials={product.materialsIncluded} />
-      <ExplorePages data={product.coverPhotosCollection} />
+      <ExplorePages
+        setSelectedImage={setSelectedImage}
+        data={product.coverPhotosCollection}
+      />
       <Authors authors={product.authorsCollection.items} />
       <ProductResult productId={productId} />
       <Feedback data={product.commentsCollection.items} />
@@ -130,6 +141,12 @@ const Product: React.FC<ProductProps> = ({}) => {
       )}
 
       <Brochure />
+      {bookOverviewModal && (
+        <BookOverviewModal
+          hideComponent={() => dispatch(toggleBookOverviewModal(false))}
+          url={selectedImage}
+        />
+      )}
     </div>
   );
 };

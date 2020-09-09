@@ -7,6 +7,7 @@ type ExplorePagesProps = {
       url;
     }[];
   };
+  setSelectedImage: (url) => void;
 };
 
 export { ExplorePagesProps };

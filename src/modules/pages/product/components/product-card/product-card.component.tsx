@@ -36,7 +36,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       <div className={styles.productCardAdditional}>
         <div className={styles.productCardAdditionalLanguages}>
-          <h1>Langueges</h1>
+          <h1>Languages</h1>
           <Paragraph>{languages}</Paragraph>
         </div>
         <div className={styles.productCardAdditionalPublished}>

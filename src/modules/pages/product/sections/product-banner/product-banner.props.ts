@@ -15,7 +15,7 @@ type ProductBannerProps = {
     languages: string[];
     price: string;
     publishDate: string;
-    description: string;
+    previewDescription: string;
   };
 };
 

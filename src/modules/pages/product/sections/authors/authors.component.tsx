@@ -16,7 +16,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
   const { t } = useTranslation();
   const { mobile } = useMediaPoints();
   const [index, setIndex] = React.useState(0);
-  const { dispatch } = useDispatch();
+  const dispatch = useDispatch();
 
   const transitions = useTransition(authors[index], item => item.sys.id, {
     from: { opacity: 0 },
@@ -57,18 +57,23 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
             {authors[index].experience}
           </div>
           <div className={styles.buttons}>
-            <button
-              className={styles.buttonsArrow}
-              // onClick={() => setIndex(index - 1)}
-            >
-              ←
-            </button>
-            <button
-              className={styles.buttonsArrow}
-              // onClick={() => setIndex(index + 1)}
-            >
-              →
-            </button>
+            {authors.length !== 1 && (
+              <>
+                {' '}
+                <button
+                  className={styles.buttonsArrow}
+                  // onClick={() => setIndex(index - 1)}
+                >
+                  ←
+                </button>
+                <button
+                  className={styles.buttonsArrow}
+                  // onClick={() => setIndex(index + 1)}
+                >
+                  →
+                </button>
+              </>
+            )}
             <Button
               arrow='→'
               onClick={() => dispatch(navigate('/contributors'))}
@@ -84,7 +89,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
             src={authors[index].mentorPicture.url}
             alt={authors[index].name}
             style={{ objectFit: 'cover' }}
-            width='500px'
+            width='540px'
           />
         </div>
       )}

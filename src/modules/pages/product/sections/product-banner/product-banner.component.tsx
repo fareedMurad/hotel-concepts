@@ -15,11 +15,10 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
     price,
     publishDate,
     languages,
-    productImage
+    productImage,
+    previewDescription
   } = product;
   const { t } = useTranslation();
-
-  console.log(authors);
 
   return (
     <div className={styles.productBanner}>
@@ -29,9 +28,7 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
       <div className={styles.productDescription}>
         <H2 className={styles.productCardTitle}>{name}</H2>
         <Paragraph className={styles.productCardDescription}>
-          Lorem Ipsum has been the industry’s standard dummy text ever since the
-          1500s, when an unknown printer took book Lorem Ipsum has been the
-          Lorem .
+          {previewDescription}
         </Paragraph>
         <div className={styles.authors}>
           by{' '}
@@ -42,7 +39,7 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
 
         <div className={styles.productCardAdditional}>
           <div className={styles.productCardAdditionalLanguages}>
-            <h1>Langueges</h1>
+            <h1>Languages</h1>
             <Paragraph>{languages}</Paragraph>
           </div>
           <div className={styles.productCardAdditionalPublished}>

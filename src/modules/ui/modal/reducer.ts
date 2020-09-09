@@ -1,6 +1,11 @@
 import { ModalState } from './state';
 import { reducer } from 'redux-chill';
-import { showModal, closeModal, toogleContributorModal } from './actions';
+import {
+  showModal,
+  closeModal,
+  toogleContributorModal,
+  toggleBookOverviewModal
+} from './actions';
 
 /**
  * modal state
@@ -19,6 +24,10 @@ const modal = reducer(new ModalState())
   .on(
     toogleContributorModal,
     (state, payload) => (state.contributorModal = payload)
+  )
+  .on(
+    toggleBookOverviewModal,
+    (state, payload) => (state.bookOverviewModal = payload)
   );
 
 export { modal };

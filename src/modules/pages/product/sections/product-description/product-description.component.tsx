@@ -30,14 +30,6 @@ const ProductDescription: React.FC<ProductDescriptionProps> = ({ product }) => {
         <div className={styles.productDescriptionBlockText}>
           <p>{parsedRichText}</p>
         </div>
-        <div className={styles.productDescriptionAdditional}>
-          <h1>Product:</h1>
-          <Paragraph>{id}</Paragraph>
-        </div>
-        <div className={styles.productDescriptionAdditional}>
-          <h1>Page:</h1>
-          <Paragraph>{pagesCount}</Paragraph>
-        </div>
       </div>
       <div className={styles.skillCovered}>
         <div className={styles.skills}>

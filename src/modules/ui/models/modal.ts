@@ -1,6 +1,7 @@
 enum Modals {
   uikit = 'uikit',
-  contributor = 'contributor'
+  contributor = 'contributor',
+  bookOverview = 'product'
 }
 
 export { Modals };
