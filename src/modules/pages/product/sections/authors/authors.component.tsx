@@ -84,8 +84,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
             src={authors[index].mentorPicture.url}
             alt={authors[index].name}
             style={{ objectFit: 'cover' }}
-            width='100%'
-            height='100%'
+            width='500px'
           />
         </div>
       )}
