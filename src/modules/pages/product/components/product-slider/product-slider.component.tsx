@@ -18,94 +18,102 @@ interface CarouselButtonGroupProps extends ButtonGroupProps {
 /**
  * Renders ProductSlider
  */
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
-};
+// const responsive = {
+//   superLargeDesktop: {
+//     the naming can be any, depends on you.
+//     breakpoint: { max: 4000, min: 3000 },
+//     items: 1
+//   },
+//   desktop: {
+//     breakpoint: { max: 3000, min: 1024 },
+//     items: 1
+//   },
+//   tablet: {
+//     breakpoint: { max: 1024, min: 464 },
+//     items: 1
+//   },
+//   mobile: {
+//     breakpoint: { max: 464, min: 0 },
+//     items: 1
+//   }
+// };
 
 /**
  * Custom Dots
  */
 
-const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
-  const {
-    onMove,
-    index,
-    active,
-    carouselState: { currentSlide, deviceType },
-    images
-  } = rest;
-  const carouselItems = images.map(el => {
-    return <div />;
-  });
-  // onMove means if dragging or swiping in progress.
-  // active is provided by this lib for checking if the item is active or not.
-  return (
-    <div
-      className={active ? styles.activeDot : styles.inactiveDot}
-      onClick={() => onClick()}
-    >
-      {React.Children.toArray(carouselItems)[index]}
-    </div>
-  );
-};
+// const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
+//   const {
+//     onMove,
+//     index,
+//     active,
+//     carouselState: { currentSlide, deviceType },
+//     images
+//   } = rest;
+//   const carouselItems = images.map(el => {
+//     return <div />;
+//   });
+//   onMove means if dragging or swiping in progress.
+//   active is provided by this lib for checking if the item is active or not.
+//   return (
+//     <div
+//       className={active ? styles.activeDot : styles.inactiveDot}
+//       onClick={() => onClick()}
+//     >
+//       {React.Children.toArray(carouselItems)[index]}
+//     </div>
+//   );
+// };
 
 /**
  * Custom Arrows
  */
 
-const CustomLefttArrow: React.FC<any> = ({ onClick, ...rest }) => {
-  const {
-    onMove,
-    carouselState: { currentSlide, deviceType }
-  } = rest;
+// const CustomLefttArrow: React.FC<any> = ({ onClick, ...rest }) => {
+//   const {
+//     onMove,
+//     carouselState: { currentSlide, deviceType }
+//   } = rest;
 
-  return (
-    <Icon
-      name='arrow-slider'
-      className={classNames(styles.arrowLeft, styles.arrow)}
-      onClick={() => onClick()}
-    />
-  );
-};
+//   return (
+//     <Icon
+//       name='arrow-slider'
+//       className={classNames(styles.arrowLeft, styles.arrow)}
+//       onClick={() => onClick()}
+//     />
+//   );
+// };
 
-const CustomRightArrow: React.FC<any> = ({ onClick, ...rest }) => {
-  const {
-    onMove,
-    carouselState: { currentSlide, deviceType }
-  } = rest;
+// const CustomRightArrow: React.FC<any> = ({ onClick, ...rest }) => {
+//   const {
+//     onMove,
+//     carouselState: { currentSlide, deviceType }
+//   } = rest;
 
-  return (
-    <Icon
-      name='arrow-slider'
-      className={classNames(styles.arrowRight, styles.arrow)}
-      onClick={() => onClick()}
-    />
-  );
-};
+//   return (
+//     <Icon
+//       name='arrow-slider'
+//       className={classNames(styles.arrowRight, styles.arrow)}
+//       onClick={() => onClick()}
+//     />
+//   );
+// };
 
-const ProductSlider: React.FC<ProductSliderProps> = ({ url }) => {
+const ProductSlider: React.FC<ProductSliderProps> = ({
+  url,
+  productPreview
+}) => {
   const { t } = useTranslation();
   return (
     <div className={styles.productImage}>
       <div className={styles.imageWrap}>
         <img className={styles.image} src={url} alt='' width='' />
-        <Button theme='secondary'>{t('product.slider.button-text')}</Button>
+        <Button
+          theme='secondary'
+          onClick={() => window.open(productPreview.url, '_blank')}
+        >
+          {t('product.slider.button-text')}
+        </Button>
       </div>
     </div>
   );

@@ -82,7 +82,10 @@ const Product: React.FC<ProductProps> = ({}) => {
       </div>
       <div className={styles.productReview}>
         <div className={styles.slider}>
-          <ProductSlider url={product.productImage.url} />
+          <ProductSlider
+            url={product.productImage.url}
+            productPreview={product.previewPagesCollection.items[0]}
+          />
           <div className={styles.links}>
             <ShareSocial link={''} />
             <div className={styles.linksDownload}>
