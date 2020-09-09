@@ -17,8 +17,9 @@ const BookOverviewModal: React.FC<BookOverviewModalProps> = ({
         className={styles.image}
         style={{
           backgroundImage: `url(${url})`,
-          backgroundRepeat: 'none',
-          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'fill',
+          backgroundPosition: 'center',
           width: '40vw',
           height: '80vh'
         }}
