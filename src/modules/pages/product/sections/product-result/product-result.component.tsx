@@ -1,34 +1,36 @@
 import * as React from 'react';
-import { ProgramResultsProps } from './program-results.props';
-import * as styles from './program-results.scss';
+import { ProductResultProps } from './product-result.props';
+import * as styles from './product-result.scss';
 import { gql, useQuery } from '@apollo/client';
-import { Spinner } from '@core/components';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { Spinner } from '@core/components';
 
-const GET_PROGRAM_RESULTS = gql`
+/**
+ * Query program result
+ */
+const GET_PRODUCT_RESULTS = gql`
   query($id: String!, $locale: String!) {
-    onlineCourse(id: $id, locale: $locale) {
+    product(id: $id, locale: $locale) {
       results
     }
   }
 `;
 /**
- * Renders ProgramResults
+ * Renders ProductResult
  */
-const ProgramResults: React.FC<ProgramResultsProps> = ({ programId }) => {
-  const { t } = useTranslation();
+const ProductResult: React.FC<ProductResultProps> = ({ productId }) => {
   const { language } = useSelector((state: State) => state.localization);
-  const { data, loading, error } = useQuery(GET_PROGRAM_RESULTS, {
-    variables: { id: programId, locale: language }
+  const { t } = useTranslation();
+  const { data, loading, error } = useQuery(GET_PRODUCT_RESULTS, {
+    variables: { id: productId, locale: language }
   });
-
   if (loading) return <Spinner />;
 
-  const results = data?.onlineCourse?.results;
+  const results = data?.product?.results;
   return (
-    <section id='results' className={styles.programResults}>
+    <section id='results' className={styles.productResults}>
       <div className={styles.title}>{t('program-page.results')}</div>
       <div className={styles.hr} />
       {results.map(item => (
@@ -44,4 +46,4 @@ const ProgramResults: React.FC<ProgramResultsProps> = ({ programId }) => {
   );
 };
 
-export { ProgramResults };
+export { ProductResult };

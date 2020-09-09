@@ -5,14 +5,13 @@ type ProductBannerProps = {
   product: {
     name: string;
     details: string;
-    authors: {
-      name: string;
-      position: string;
-      picture: string;
-      description: string;
-    }[];
+    authorsCollection: {
+      items: { name }[];
+    };
     bookCategory: string;
-    productImage: string;
+    productImage: {
+      url: string;
+    };
     languages: string[];
     price: string;
     publishDate: string;

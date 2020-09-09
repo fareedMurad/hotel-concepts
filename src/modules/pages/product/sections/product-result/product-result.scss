@@ -1,0 +1,46 @@
+@import 'core.scss';
+
+.product-results {
+  // padding: $left-offset;
+  padding: 80px 134px 80px 134px;
+}
+
+.title {
+  @include font($primary-gray, 48px, 600, 58px);
+  font-family: $EBGaramond;
+  margin-bottom: 40px;
+}
+
+.hr {
+  height: 2px;
+  background-color: $hr;
+  width: 100%;
+}
+
+.container {
+  @include flex($align: center);
+}
+
+.icon {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  margin-right: 29px;
+  min-width: 34px;
+  background: url('../../../../../assets/img/mark-check.svg') center center
+    no-repeat;
+  background-color: $background;
+}
+
+.result {
+  height: 98px;
+  @include flex($align: center);
+  @include font($primary-gray, 18px, 400, 28px);
+  font-family: $IBMPlex;
+}
+
+@media screen and (max-width: 768px) {
+  .program-results {
+    padding: $default-offset;
+  }
+}

@@ -26,6 +26,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
+import { ProductResult } from './sections/product-result';
+import { ForWhom } from './sections/for-whom';
 
 /**
  * Renders Product
@@ -41,7 +43,7 @@ const Product: React.FC<ProductProps> = ({}) => {
     };
   }, []);
   const { id: productId, categorySlug } = useParams();
-  const { product, productLoading } = useProductData('2hNjDgD6t62ClEuLRO8VCu');
+  const { product, productLoading } = useProductData(productId);
 
   const { pathname } = useLocation();
   const { language } = useSelector((state: State) => state.localization);
@@ -104,23 +106,27 @@ const Product: React.FC<ProductProps> = ({}) => {
         <Hr />
       </div>
 
-      <Enroll programId={'1fHQgCpPPwnmhdVZFR4WEW'} title={'For whom'} />
+      <ForWhom productId={productId} />
       <MaterialsIncluded productMaterials={product.materialsIncluded} />
       <ExplorePages data={product.coverPhotosCollection} />
       <Authors authors={product.authorsCollection.items} />
-      <ProgramResults
-        paddingBottom={'80px'}
-        paddingTop={'80px'}
-        programId='3CaXsOXeY9OWY7YxPz4sy0'
-      />
+      <ProductResult productId={productId} />
       <Feedback data={product.commentsCollection.items} />
-      {/* <ProductBanner product={product} />
+      <ProductBanner product={product} />
 
       <H2 className={styles.recomendedBooks}>{t('product.recomended')}</H2>
-      <div className={styles.productSliderWrap}>
-        <ProductsSlider data={recomendedProducts} notOrangeButtons />
-      </div>
-      <Brochure /> */}
+
+      {recomendedProducts ? (
+        <div className={styles.productSliderWrap}>
+          <ProductsSlider data={recomendedProducts} notOrangeButtons />
+        </div>
+      ) : (
+        <div style={{ padding: 30 }}>
+          Unfortunately, there is no recomended books for you yet
+        </div>
+      )}
+
+      <Brochure />
     </div>
   );
 };

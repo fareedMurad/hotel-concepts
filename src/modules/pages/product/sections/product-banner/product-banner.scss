@@ -36,6 +36,11 @@
 
   & > span {
     text-decoration: underline;
+    &:not(:last-child) {
+      &:after {
+        content: ',';
+      }
+    }
   }
 }
 

@@ -10,24 +10,21 @@ import { useTranslation } from 'react-i18next';
  */
 const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
   const {
-    authors,
+    authorsCollection: { items: authors },
     name,
     price,
     publishDate,
-    bookCategory,
     languages,
-    details
+    productImage
   } = product;
   const { t } = useTranslation();
+
+  console.log(authors);
 
   return (
     <div className={styles.productBanner}>
       <div className={styles.productImage}>
-        <img
-          src='https://images.ctfassets.net/qgx3dmmccd7u/M9DtD304X9Qi36JV8R32B/1635006a72c5ad51d3000fe230a89dbd/book-large.png'
-          alt='book'
-          width='280px'
-        />
+        <img src={productImage.url} alt={name} width='250px' />
       </div>
       <div className={styles.productDescription}>
         <H2 className={styles.productCardTitle}>{name}</H2>
@@ -37,7 +34,10 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
           Lorem .
         </Paragraph>
         <div className={styles.authors}>
-          by <span>{authors[0].name}</span>
+          by{' '}
+          {authors.map(author => (
+            <span> {author.name}</span>
+          ))}
         </div>
 
         <div className={styles.productCardAdditional}>

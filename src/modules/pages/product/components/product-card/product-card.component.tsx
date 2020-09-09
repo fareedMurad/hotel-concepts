@@ -30,7 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className={styles.authors}>
         by{' '}
         {authors.map(author => (
-          <span>{author.name}; </span>
+          <span> {author.name}</span>
         ))}
       </div>
 
