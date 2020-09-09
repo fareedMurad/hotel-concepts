@@ -42,6 +42,7 @@ const useProductData = productId => {
             name
             position
             experience
+            shortDescription
             mentorPicture {
               url
             }

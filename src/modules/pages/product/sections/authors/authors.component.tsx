@@ -54,7 +54,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
             <H3>{authors[index].name}</H3>
           </div>
           <div className={styles.aboutAuthorDescription}>
-            {authors[index].experience}
+            {authors[index].shortDescription && authors[index].shortDescription}
           </div>
           <div className={styles.buttons}>
             {authors.length !== 1 && (
