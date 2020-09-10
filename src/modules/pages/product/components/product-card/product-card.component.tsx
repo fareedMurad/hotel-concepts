@@ -52,7 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className={styles.circlesWrapperCircle}>{highlightsText[1]}</div>
         <div className={styles.circlesWrapperCircle}>{highlightsText[2]}</div>
       </div>
-      <div>
+      <div className={styles.footer}>
         <H3 className={styles.price}>{`$${price}`}</H3>
         <Button
           className={styles.confirmButton}
