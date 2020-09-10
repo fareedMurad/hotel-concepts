@@ -1,15 +1,16 @@
-import * as React from 'react';
-import { ForgotPasswordProps } from './forgot-password.props';
-import * as styles from './forgot-password.scss';
-import { Formik } from 'formik';
-import { Preloader, Button, Field } from '@core/components';
-import { Preloaders } from '@ui/models';
-import { useDispatch } from 'react-redux';
+import { forgotPassword } from '@app/redux/auth';
+import { State } from '@app/redux/state';
 import {
   forgotPasswordValidationSchema,
   ForgotPasswordValues
 } from '@auth/models';
-import { forgotPassword } from '@app/redux/auth';
+import { Button, Field, Preloader } from '@core/components';
+import { Preloaders } from '@ui/models';
+import { Formik } from 'formik';
+import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ForgotPasswordProps } from './forgot-password.props';
+import * as styles from './forgot-password.scss';
 
 /**
  * Default Values
@@ -23,24 +24,33 @@ const defaultValues: ForgotPasswordValues = {
  */
 const ForgotPassword: React.FC<ForgotPasswordProps> = ({}) => {
   const dispatch = useDispatch();
+  const { passwordRecoverySent } = useSelector((state: State) => state.auth);
 
   return (
     <div className={styles.forgotPassword}>
       <Preloader id={Preloaders.forgotPassword}>
-        <Formik
-          initialValues={defaultValues}
-          validationSchema={forgotPasswordValidationSchema}
-          onSubmit={values => {
-            dispatch(forgotPassword(values));
-          }}
-        >
-          {({ handleSubmit }) => (
-            <div className={styles.form}>
-              <Field.Text name='email' label='Email' />
-              <Button onClick={() => handleSubmit()}>Submit</Button>
+        {!passwordRecoverySent ? (
+          <Formik
+            initialValues={defaultValues}
+            validationSchema={forgotPasswordValidationSchema}
+            onSubmit={values => {
+              dispatch(forgotPassword(values));
+            }}
+          >
+            {({ handleSubmit }) => (
+              <div className={styles.form}>
+                <Field.Text name='email' label='Email' />
+                <Button onClick={() => handleSubmit()}>Submit</Button>
+              </div>
+            )}
+          </Formik>
+        ) : (
+          <div className={styles.success}>
+            <div className={styles.successCaption}>
+              We have sent you an email to update your password
             </div>
-          )}
-        </Formik>
+          </div>
+        )}
       </Preloader>
     </div>
   );

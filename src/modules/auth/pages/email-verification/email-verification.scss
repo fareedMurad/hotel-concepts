@@ -1,0 +1,6 @@
+@import 'core.scss';
+
+.email-verification {
+  @include flex(center, stretch, column);
+  flex: 1;
+}

@@ -6,6 +6,11 @@ import * as yup from 'yup';
 type RegisterValues = {
   name: string;
   surname: string;
+  company: string;
+  job: string;
+  country: string;
+  city: string;
+  phone: string;
   email: string;
   password: string;
 };
@@ -22,6 +27,26 @@ const registerValidationSchema = yup.object().shape<RegisterValues>({
     .string()
     .label('Surname')
     .required('Surname is a required field'),
+  company: yup
+    .string()
+    .label('Company')
+    .required('Company is a required field'),
+  job: yup
+    .string()
+    .label('Job')
+    .required('Job is a required field'),
+  country: yup
+    .string()
+    .label('Country')
+    .required('Country is a required field'),
+  city: yup
+    .string()
+    .label('City')
+    .required('City is a required field'),
+  phone: yup
+    .string()
+    .label('Phone')
+    .required('Phone is a required field'),
   email: yup
     .string()
     .email('Email is not valid')

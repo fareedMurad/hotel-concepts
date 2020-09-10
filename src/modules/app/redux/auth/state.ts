@@ -9,6 +9,18 @@ class AuthState {
    */
   public authorized: boolean = false;
   /**
+   * Registration status
+   */
+  public registered: boolean = false;
+  /**
+   * Email verification status
+   */
+  public emailVerified: boolean = false;
+  /**
+   * Password recovery status
+   */
+  public passwordRecoverySent: boolean = false;
+  /**
    *
    */
   public googleSignInData: GoogleSignInModel = null;

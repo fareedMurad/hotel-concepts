@@ -1,16 +1,14 @@
-import * as React from 'react';
-import { LoginProps } from './login.props';
-import * as styles from './login.scss';
-import { Formik } from 'formik';
+import { login } from '@app/redux/auth';
+import { Sso } from '@auth/components';
 import { loginValidationSchema, LoginValues } from '@auth/models';
-import { useDispatch } from 'react-redux';
-import { Field, Button, Preloader } from '@core/components';
-import { login, googleSignIn, facebookSignIn, getUser } from '@app/redux/auth';
-import { GoogleLogin } from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
+import { Button, Field, Preloader } from '@core/components';
 import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
-import { enviroment } from 'src/environment';
+import { Formik } from 'formik';
+import * as React from 'react';
+import { useDispatch } from 'react-redux';
+import { LoginProps } from './login.props';
+import * as styles from './login.scss';
 
 /**
  * Default Values
@@ -25,13 +23,6 @@ const defaultValues: LoginValues = {
  */
 const Login: React.FC<LoginProps> = ({}) => {
   const dispatch = useDispatch();
-  const { googleClientId, facebookAppId } = enviroment || {};
-  const responseGoogle = response => {
-    dispatch(googleSignIn(response.profileObj));
-  };
-  const responseFacebook = response => {
-    dispatch(facebookSignIn(response));
-  };
 
   return (
     <div className={styles.login}>
@@ -51,24 +42,15 @@ const Login: React.FC<LoginProps> = ({}) => {
               <Button onClick={() => dispatch(navigate('/auth/register'))}>
                 Sign up
               </Button>
+              <Button
+                onClick={() => dispatch(navigate('/auth/forgot-password'))}
+              >
+                Forgot password?
+              </Button>
             </div>
           )}
         </Formik>
-        <div className={styles.socials}>
-          <GoogleLogin
-            clientId={googleClientId}
-            buttonText='Login'
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-          />
-
-          <FacebookLogin
-            appId={facebookAppId}
-            fields='name,email,picture'
-            callback={responseFacebook}
-          />
-        </div>
+        <Sso className={styles.socials} />
       </Preloader>
     </div>
   );

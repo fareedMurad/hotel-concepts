@@ -9,23 +9,16 @@ import { capitalize } from '@core/shared';
  * Renders Toast
  */
 const Toast: React.FC = () => {
-  const { status, title, description } = useToastData();
+  const { status, description } = useToastData();
+
+  const success = status == 'success';
 
   return (
-    <div className={styles.toast}>
-      <div className={styles.container}>
-        {title && <div className={styles.title}>{title}</div>}
-        {description && <div className={styles.description}>{description}</div>}
-        {/* {controls && <div className={styles.controls}>controls</div>} */}
-      </div>
-      <div
-        className={classNames(
-          styles.status,
-          styles['status' + capitalize(status)]
-        )}
-      >
-        <Icon name={status} />
-      </div>
+    <div
+      className={classNames(styles.toast, styles['toast' + capitalize(status)])}
+    >
+      <Icon className={styles.icon} name={success ? 'success' : 'fail'} />
+      <div className={styles.description}>{description}</div>
     </div>
   );
 };

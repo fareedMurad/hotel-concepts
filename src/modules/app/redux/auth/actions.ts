@@ -39,6 +39,20 @@ const register = make('[auth] register')
   .stage('success');
 
 /**
+ * Verify email
+ */
+const verifyEmail = make('[auth] verify email')
+  .stage((payload: string) => payload)
+  .stage('success');
+
+/**
+ * Email verification resend
+ */
+const verifyEmailResend = make('[auth] verify email resend')
+  .stage((payload: string) => payload)
+  .stage('success');
+
+/**
  * Forgot password
  */
 const forgotPassword = make('[auth] forgot password')
@@ -49,7 +63,7 @@ const forgotPassword = make('[auth] forgot password')
  * Reset password
  */
 const resetPassword = make('[auth] reset password')
-  .stage((payload: ResetPasswordValues) => payload)
+  .stage((payload: { values: ResetPasswordValues; token: string }) => payload)
   .stage('success');
 
 /**
@@ -78,10 +92,12 @@ export {
   getUser,
   register,
   authorize,
+  verifyEmail,
   unauthorize,
   googleSignIn,
   resetPassword,
   forgotPassword,
   updatePassword,
-  facebookSignIn
+  facebookSignIn,
+  verifyEmailResend
 };

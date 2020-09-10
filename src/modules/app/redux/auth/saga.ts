@@ -1,19 +1,24 @@
-import { Saga, Payload } from 'redux-chill';
+import { GoogleSignInModel } from '@app/models';
+import { handleError } from '@general/store';
+import { Preloaders } from '@ui/models';
+import { preloaderStart, preloaderStop } from '@ui/preloader';
+import { Payload, Saga } from 'redux-chill';
+import { call, put } from 'redux-saga/effects';
+import { Context } from '../context';
 import {
+  authorize,
+  forgotPassword,
+  getUser,
+  googleSignIn,
   login,
   register,
   resetPassword,
   updatePassword,
-  forgotPassword,
-  googleSignIn,
-  authorize,
-  getUser
+  verifyEmail,
+  verifyEmailResend
 } from './actions';
-import { call, put } from 'redux-saga/effects';
-import { preloaderStop, preloaderStart } from '@ui/preloader';
-import { Preloaders } from '@ui/models';
-import { Context } from '../context';
-import { GoogleSignInModel } from '@app/models';
+import { toggleToast } from '@ui/toast';
+import { navigate } from '@router/store';
 
 /**
  * auth saga
@@ -29,7 +34,7 @@ class AuthSaga {
 
       console.log(response);
     } catch (error) {
-      console.log(error);
+      yield put(handleError(error.response.data.message));
     }
   }
 
@@ -43,9 +48,16 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.login, payload);
 
-      console.log(response);
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Logged in'
+        })
+      );
+      // yield put(navigate('/'));
+      yield put(getUser());
     } catch (error) {
-      console.log(error);
+      yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.login));
     }
@@ -61,11 +73,55 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.register, payload);
 
-      console.log(response);
+      yield put(register.success());
     } catch (error) {
-      console.log(error);
+      yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.register));
+    }
+  }
+
+  /**
+   * Verify email
+   */
+  @Saga(verifyEmail)
+  public *verifyEmail(token: Payload<typeof verifyEmail>, { api }: Context) {
+    yield put(preloaderStart(Preloaders.emailVerification));
+
+    try {
+      const response = yield call(api.auth.verifyEmail, token);
+
+      yield put(verifyEmail.success());
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.emailVerification));
+    }
+  }
+
+  /**
+   * Verify email resend
+   */
+  @Saga(verifyEmailResend)
+  public *verifyEmailResend(
+    token: Payload<typeof verifyEmailResend>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.emailVerification));
+
+    try {
+      const response = yield call(api.auth.verifyEmailResend, token);
+
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Email verification was resent'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.emailVerification));
     }
   }
 
@@ -81,9 +137,9 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.forgotPassword, payload);
 
-      console.log(response);
+      yield put(forgotPassword.success());
     } catch (error) {
-      console.log(error);
+      yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.forgotPassword));
     }
@@ -94,16 +150,21 @@ class AuthSaga {
    */
   @Saga(resetPassword)
   public *resetPassword(
-    payload: Payload<typeof resetPassword>,
+    { token, values }: Payload<typeof resetPassword>,
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.resetPassword));
     try {
-      const response = yield call(api.auth.resetPassword, payload);
+      const response = yield call(api.auth.resetPassword, values, token);
 
-      console.log(response);
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Your password was successfully changed'
+        })
+      );
     } catch (error) {
-      console.log(error);
+      yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.resetPassword));
     }
@@ -123,7 +184,7 @@ class AuthSaga {
 
       console.log(response);
     } catch (error) {
-      console.log(error);
+      yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.updatePassword));
     }
@@ -150,7 +211,7 @@ class AuthSaga {
 
       yield put(authorize());
     } catch (error) {
-      console.log(error);
+      yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.login));
     }

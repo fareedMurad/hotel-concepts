@@ -7,6 +7,7 @@ enum Preloaders {
   forgotPassword = 'forgot password',
   resetPassword = 'reset password',
   updatePassword = 'update password',
+  emailVerification = 'email verification',
   otp = 'otp',
 
   // Uikit

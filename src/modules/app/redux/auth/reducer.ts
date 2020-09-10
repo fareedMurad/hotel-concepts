@@ -3,7 +3,10 @@ import {
   authorize,
   facebookSignIn,
   googleSignIn,
-  unauthorize
+  unauthorize,
+  verifyEmail,
+  register,
+  forgotPassword
 } from './actions';
 import { AuthState } from './state';
 
@@ -16,6 +19,15 @@ const auth = reducer(new AuthState())
   })
   .on(unauthorize, state => {
     state.authorized = false;
+  })
+  .on(register.success, state => {
+    state.registered = true;
+  })
+  .on(verifyEmail.success, state => {
+    state.emailVerified = true;
+  })
+  .on(forgotPassword.success, state => {
+    state.passwordRecoverySent = true;
   })
   .on(googleSignIn, (state, payload) => {
     state.googleSignInData = payload;

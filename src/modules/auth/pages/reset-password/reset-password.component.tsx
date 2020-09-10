@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { ResetPasswordProps } from './reset-password.props';
-import * as styles from './reset-password.scss';
-import { useDispatch } from 'react-redux';
-import { Formik } from 'formik';
-import {
-  ResetPasswordValues,
-  resetPasswordValidationSchema
-} from '@auth/models';
 import { resetPassword } from '@app/redux/auth';
-import { Field, Button, Preloader } from '@core/components';
+import {
+  resetPasswordValidationSchema,
+  ResetPasswordValues
+} from '@auth/models';
+import { Button, Field, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
+import { Formik } from 'formik';
+import * as React from 'react';
+import { useDispatch } from 'react-redux';
+import { useResetPasswordData } from './reset-password.hook';
+import * as styles from './reset-password.scss';
 
 /**
  * Default Values
@@ -21,8 +21,9 @@ const defaultValues: ResetPasswordValues = {
 /**
  * Renders ResetPassword
  */
-const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {
+const ResetPassword: React.FC = () => {
   const dispatch = useDispatch();
+  const { token } = useResetPasswordData();
 
   return (
     <div className={styles.resetPassword}>
@@ -31,7 +32,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {
           initialValues={defaultValues}
           validationSchema={resetPasswordValidationSchema}
           onSubmit={values => {
-            dispatch(resetPassword(values));
+            dispatch(resetPassword({ values, token }));
           }}
         >
           {({ handleSubmit }) => (

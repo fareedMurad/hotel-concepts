@@ -44,6 +44,30 @@ class AuthService {
     });
 
   /**
+   * Verify email
+   */
+  public verifyEmail = (token: string) =>
+    this.http.request({
+      method: 'PATCH',
+      url: '/auth/email/verification',
+      headers: {
+        token
+      }
+    });
+
+  /**
+   * Email verification resend
+   */
+  public verifyEmailResend = (token: string) =>
+    this.http.request({
+      method: 'POST',
+      url: '/auth/email/verification/resend',
+      headers: {
+        token
+      }
+    });
+
+  /**
    * Reset password
    */
   public forgotPassword = (data: ForgotPasswordValues) =>
@@ -56,10 +80,13 @@ class AuthService {
   /**
    * Reset password
    */
-  public resetPassword = (data: ResetPasswordValues) =>
+  public resetPassword = (data: ResetPasswordValues, token: string) =>
     this.http.request({
       method: 'PATCH',
       url: '/auth/password/reset',
+      headers: {
+        token
+      },
       data
     });
 

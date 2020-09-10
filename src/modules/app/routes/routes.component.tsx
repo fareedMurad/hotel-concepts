@@ -10,11 +10,12 @@ import { useMediaPoints } from '@core/shared';
 import { toogleContributorModal } from '@ui/modal';
 import { NotFound } from '@app/components';
 import { TestPage } from 'src/modules/test-page';
-import { lazy, Fragment } from 'react';
+import { lazy, Fragment, useEffect } from 'react';
 import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Account } from 'src/modules/account';
+import { getUser } from '@app/redux/auth';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({

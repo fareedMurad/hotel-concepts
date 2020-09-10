@@ -8,7 +8,8 @@ import {
   Otp,
   Register,
   ResetPassword,
-  UpdatePassword
+  UpdatePassword,
+  EmailVerification
 } from './pages';
 
 /**
@@ -21,6 +22,7 @@ const Auth: React.FC = () => {
     forgotPassword,
     resetPassword,
     updatePassword,
+    emailVerification,
     otp
   ] = usePrefixedRoutes([
     'login',
@@ -28,6 +30,7 @@ const Auth: React.FC = () => {
     'forgot-password',
     'reset-password',
     'update-password',
+    'email-verification',
     'otp'
   ]);
 
@@ -38,6 +41,7 @@ const Auth: React.FC = () => {
       <Route path={forgotPassword} component={ForgotPassword} />
       <Route path={resetPassword} component={ResetPassword} />
       <Route path={updatePassword} component={UpdatePassword} />
+      <Route path={emailVerification} component={EmailVerification} />
       <Route path={otp} component={Otp} />
     </div>
   );

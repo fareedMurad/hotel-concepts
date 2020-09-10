@@ -5,7 +5,7 @@ const useToastData = () => {
   const { toastData } = useSelector((state: State) => state.ui.toast);
   const { status, title, description } = toastData;
 
-  return { status, title, description };
+  return { status, description };
 };
 
 export { useToastData };
