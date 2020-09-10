@@ -21,7 +21,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
   const transitions = useTransition(authors[index], item => item.sys.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 }
+    leave: { opacity: 0, position: 'absolute' }
   });
 
   React.useEffect(() => {}, [index]);
@@ -34,25 +34,34 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
         </div>
         {mobile && (
           <div className={styles.authorImageMobile}>
-            <img
-              src={authors[index].mentorPicture.url}
-              alt={authors[index].name}
-              style={{ objectFit: 'fill' }}
-              width='300px'
-            />
+            {transitions.map(({ item, props, key }) => (
+              <animated.img
+                key={key}
+                src={item.mentorPicture.url}
+                alt={item.name}
+                style={{ ...props, objectFit: 'cover' }}
+                width='300px'
+              />
+            ))}
           </div>
         )}
 
         <div className={styles.aboutAuthorWrapper}>
-          <div className={styles.aboutAuthorPosition}>
-            {authors[index].position}
-          </div>
-          <div className={styles.aboutAuthorName}>
-            <H3>{authors[index].name}</H3>
-          </div>
-          <div className={styles.aboutAuthorDescription}>
-            {authors[index].shortDescription && authors[index].shortDescription}
-          </div>
+          {transitions.map(({ item, props, key }) => {
+            return (
+              <animated.div key={key} style={props}>
+                <div className={styles.aboutAuthorPosition}>
+                  {item.position}
+                </div>
+                <div className={styles.aboutAuthorName}>
+                  <H3>{item.name}</H3>
+                </div>
+                <div className={styles.aboutAuthorDescription}>
+                  {item.shortDescription && item.shortDescription}
+                </div>
+              </animated.div>
+            );
+          })}
           <div className={styles.buttons}>
             {authors.length !== 1 && (
               <>
@@ -90,12 +99,15 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
       </div>
       {!mobile && (
         <div className={styles.authorImage}>
-          <img
-            src={authors[index].mentorPicture.url}
-            alt={authors[index].name}
-            style={{ objectFit: 'cover' }}
-            width='540px'
-          />
+          {transitions.map(({ item, props, key }) => (
+            <animated.img
+              key={key}
+              src={item.mentorPicture.url}
+              alt={item.name}
+              style={{ ...props, objectFit: 'cover' }}
+              width='540px'
+            />
+          ))}
         </div>
       )}
     </div>
