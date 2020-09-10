@@ -8,6 +8,7 @@ type GoogleSignInModel = {
   name?: string;
   givenName?: string;
   familyName?: string;
+  tokenId?: string;
 };
 
 /**

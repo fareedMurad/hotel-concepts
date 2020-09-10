@@ -32,20 +32,17 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
           <Icon name='abstract-1' />
           <H2>{t('product.authors.title')}</H2>
         </div>
-        {mobile &&
-          transitions.map(({ item, key, props }) => {
-            return (
-              <div key={key} style={props} className={styles.authorImageMobile}>
-                <animated.img
-                  style={props}
-                  src={item.mentorPicture.url}
-                  alt={item.name}
-                  width='300px'
-                  height='300px'
-                />
-              </div>
-            );
-          })}
+        {mobile && (
+          <div className={styles.authorImageMobile}>
+            <img
+              src={authors[index].mentorPicture.url}
+              alt={authors[index].name}
+              style={{ objectFit: 'fill' }}
+              width='300px'
+            />
+          </div>
+        )}
+
         <div className={styles.aboutAuthorWrapper}>
           <div className={styles.aboutAuthorPosition}>
             {authors[index].position}
@@ -62,13 +59,21 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
                 {' '}
                 <button
                   className={styles.buttonsArrow}
-                  // onClick={() => setIndex(index - 1)}
+                  onClick={() =>
+                    index === 0
+                      ? setIndex(authors.length - 1)
+                      : setIndex(index - 1)
+                  }
                 >
                   ←
                 </button>
                 <button
                   className={styles.buttonsArrow}
-                  // onClick={() => setIndex(index + 1)}
+                  onClick={() =>
+                    index === authors.length - 1
+                      ? setIndex(0)
+                      : setIndex(index + 1)
+                  }
                 >
                   →
                 </button>

@@ -67,11 +67,11 @@
 }
 
 .author-image {
-  object-fit: fill;
-  max-width: 540px;
-  max-height: 300px;
   & > img {
     border-radius: 10px;
+    max-width: 540px;
+    min-height: 580px;
+    max-height: 580px;
   }
   &--mobile {
     max-height: 300px;

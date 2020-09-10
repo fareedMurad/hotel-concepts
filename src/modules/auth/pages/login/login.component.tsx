@@ -6,7 +6,7 @@ import { loginValidationSchema, LoginValues } from '@auth/models';
 import { useDispatch } from 'react-redux';
 import { Field, Button } from '@core/components';
 import { login, signInWithGoogle, signInWithFacebook } from '@app/redux/auth';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin, useGoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { navigate } from '@router/store';
 
@@ -24,7 +24,7 @@ const defaultValues: LoginValues = {
 const Login: React.FC<LoginProps> = ({}) => {
   const dispatch = useDispatch();
   const responseGoogle = response => {
-    dispatch(signInWithGoogle(response.profileObj));
+    dispatch(signInWithGoogle(response));
   };
   const responseFacebook = response => {
     dispatch(signInWithFacebook(response));
@@ -54,7 +54,9 @@ const Login: React.FC<LoginProps> = ({}) => {
         <GoogleLogin
           clientId='293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com'
           buttonText='Login'
-          onSuccess={responseGoogle}
+          onSuccess={response => {
+            responseGoogle(response);
+          }}
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
         />

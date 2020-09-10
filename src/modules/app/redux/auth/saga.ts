@@ -70,12 +70,12 @@ class AuthSaga {
    */
   @Saga(signInWithGoogle)
   public *signInwithGoogle(payload: GoogleSignInModel, { api }: Context) {
-    const { familyName, givenName, email } = payload;
+    const { tokenId } = payload;
     console.log(payload);
     const data = {
-      name: givenName,
-      surname: familyName,
-      email: email
+      tokenId,
+      clientId:
+        '293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com'
     };
     try {
       const response = api.auth.signInWithGoogle(data);
