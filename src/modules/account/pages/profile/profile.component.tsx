@@ -47,7 +47,7 @@ const Profile: React.FC = () => {
                 <Field.Text name='name' label='First Name' />
                 <Field.Text name='surname' label='Last Name' />
                 <Field.Text name='company' label='Company' />
-                <Field.Text name='jobTitle' label='Job Title' />
+                <Field.Text name='job' label='Job Title' />
                 <Field.Text name='city' label='City' />
                 <Field.Text name='country' label='Country' />
                 <Field.Text name='phone' label='Phone' />

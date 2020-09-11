@@ -4,7 +4,7 @@ import * as styles from './upload-avatar.scss';
 import { Avatar, Preloader } from '@core/components';
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import { uploadAvatar } from '@app/redux/account';
+import { uploadAvatar, deleteAvatar } from '@app/redux/account';
 import { useRef } from 'react';
 import { Preloaders } from '@ui/models';
 
@@ -35,6 +35,14 @@ const UploadAvatar: React.FC<UploadAvatarProps> = ({ className, user }) => {
         >
           {isAvatarSource ? 'Edit' : 'Upload'}
         </div>
+        {isAvatarSource && (
+          <div
+            className={styles.delete}
+            onClick={() => dispatch(deleteAvatar())}
+          >
+            Delete avatar
+          </div>
+        )}
         <input
           className={styles.input}
           ref={ref}

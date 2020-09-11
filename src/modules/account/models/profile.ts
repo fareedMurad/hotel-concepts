@@ -21,7 +21,7 @@ type ProfileValues = {
   name: string;
   surname: string;
   company: string;
-  jobTitle: string;
+  job: string;
   country: string;
   city: string;
   phone: string;
@@ -59,7 +59,7 @@ const profileValidationSchema = yup.object().shape<ProfileValues>({
     .string()
     .label('Company')
     .required('Company is a required field'),
-  jobTitle: yup
+  job: yup
     .string()
     .label('Job title')
     .required('Job title is a required field'),

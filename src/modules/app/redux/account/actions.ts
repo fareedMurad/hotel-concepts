@@ -15,4 +15,9 @@ const uploadAvatar = make('[account] upload avatar')
   .stage((file: File) => file)
   .stage('success');
 
-export { editProfile, uploadAvatar };
+/**
+ * Delete avatar
+ */
+const deleteAvatar = make('[account] delete avatar');
+
+export { editProfile, uploadAvatar, deleteAvatar };

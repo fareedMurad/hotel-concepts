@@ -19,7 +19,7 @@ const useProfileData = () => {
     name: '',
     surname: '',
     company: '',
-    jobTitle: '',
+    job: '',
     city: '',
     country: '',
     phone: ''

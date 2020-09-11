@@ -10,12 +10,35 @@ class AccountService {
   /**
    * Edit profile
    */
-  public editProfile = (data: ProfileValues) =>
-    this.http.request({
+  public editProfile = (data: ProfileValues) => {
+    const {
+      name,
+      surname,
+      title,
+      company,
+      job,
+      city,
+      country,
+      phone,
+      language
+    } = data;
+
+    return this.http.request({
       method: 'PUT',
       url: '/user',
-      data
+      data: {
+        name,
+        surname,
+        title,
+        company,
+        job,
+        city,
+        country,
+        phone,
+        language
+      }
     });
+  };
 
   /**
    * Upload avatar
@@ -25,6 +48,15 @@ class AccountService {
       method: 'POST',
       url: '/user/avatar',
       data: file
+    });
+
+  /**
+   * Delete avatar
+   */
+  public deleteAvatar = () =>
+    this.http.request({
+      method: 'DELETE',
+      url: '/user/avatar'
     });
 }
 

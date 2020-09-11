@@ -16,7 +16,7 @@ class AccountState {
     name: '',
     surname: '',
     company: '',
-    jobTitle: '',
+    job: '',
     city: '',
     country: '',
     phone: ''
