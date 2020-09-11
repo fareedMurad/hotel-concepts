@@ -16,7 +16,7 @@ class HttpService {
         const response = await axios({
           baseURL: enviroment.apiUrl,
           method: 'get',
-          // withCredentials: true,
+          withCredentials: true,
           headers: {
             crossDomain: true,
             ...headers

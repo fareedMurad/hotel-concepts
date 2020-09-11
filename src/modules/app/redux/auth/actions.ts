@@ -8,6 +8,7 @@ import {
   GoogleSignInValues,
   FacebookSignInValues
 } from '@auth/models';
+import { User } from '@app/models';
 
 /**
  * Authorize
@@ -22,7 +23,10 @@ const unauthorize = make('[auth] unauthorize user');
 /**
  * Get user
  */
-const getUser = make('[auth] get user').stage('success', payload => payload);
+const getUser = make('[auth] get user').stage(
+  'success',
+  (payload: User) => payload
+);
 
 /**
  * Login

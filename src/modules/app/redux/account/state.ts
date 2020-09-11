@@ -1,4 +1,4 @@
-import { ProfileValues } from 'src/modules/account/models';
+import { ProfileValues } from '@account/models';
 
 /**
  * account state
@@ -13,8 +13,8 @@ class AccountState {
     password: '',
     repeatPassword: '',
     title: '',
-    firstName: '',
-    lastName: '',
+    name: '',
+    surname: '',
     company: '',
     jobTitle: '',
     city: '',

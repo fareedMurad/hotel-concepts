@@ -6,7 +6,8 @@ import {
   unauthorize,
   verifyEmail,
   register,
-  forgotPassword
+  forgotPassword,
+  getUser
 } from './actions';
 import { AuthState } from './state';
 
@@ -19,6 +20,9 @@ const auth = reducer(new AuthState())
   })
   .on(unauthorize, state => {
     state.authorized = false;
+  })
+  .on(getUser.success, (state, payload) => {
+    state.user = payload;
   })
   .on(register.success, state => {
     state.registered = true;

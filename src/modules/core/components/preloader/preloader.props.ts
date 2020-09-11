@@ -16,6 +16,14 @@ type PreloaderProps = React.HTMLAttributes<HTMLDivElement> & {
    * Is loader active
    */
   isActive?: boolean;
+  /**
+   * Size
+   */
+  size?: number;
+  /**
+   * Border thickness
+   */
+  thickness?: number;
 };
 
 export { PreloaderProps };

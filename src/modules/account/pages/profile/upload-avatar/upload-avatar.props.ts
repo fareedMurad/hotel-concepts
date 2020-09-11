@@ -1,11 +1,7 @@
 /**
  * Props
  */
-type AvatarProps = {
-  /**
-   * Avatar size
-   */
-  size?: number;
+type UploadAvatarProps = {
   /**
    * Classname
    */
@@ -20,4 +16,4 @@ type AvatarProps = {
   };
 };
 
-export { AvatarProps };
+export { UploadAvatarProps };

@@ -119,6 +119,15 @@ class AuthService {
       url: '/auth/fb',
       data
     });
+
+  /**
+   * Unauthorize
+   */
+  public unauthorize = () =>
+    this.http.request({
+      method: 'POST',
+      url: '/auth/logout'
+    });
 }
 
 export { AuthService };

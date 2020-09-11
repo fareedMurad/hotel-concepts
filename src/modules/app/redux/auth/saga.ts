@@ -15,7 +15,8 @@ import {
   resetPassword,
   updatePassword,
   verifyEmail,
-  verifyEmailResend
+  verifyEmailResend,
+  unauthorize
 } from './actions';
 import { toggleToast } from '@ui/toast';
 import { navigate } from '@router/store';
@@ -32,8 +33,10 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.getUser);
 
-      console.log(response);
+      yield put(getUser.success(response.data));
+      yield put(authorize());
     } catch (error) {
+      yield put(unauthorize());
       yield put(handleError(error.response.data.message));
     }
   }
@@ -54,8 +57,7 @@ class AuthSaga {
           description: 'Logged in'
         })
       );
-      // yield put(navigate('/'));
-      yield put(getUser());
+      yield put(navigate('/'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -208,12 +210,24 @@ class AuthSaga {
 
     try {
       const response = yield call(api.auth.googleSignIn, data);
-
-      yield put(authorize());
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.login));
+    }
+  }
+
+  /**
+   * Unauthorize user
+   */
+  @Saga(unauthorize)
+  public *unauthorize(_, { api }: Context) {
+    try {
+      const response = yield call(api.auth.unauthorize);
+
+      yield put(getUser());
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
     }
   }
 }

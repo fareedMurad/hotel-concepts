@@ -10,6 +10,10 @@ enum Preloaders {
   emailVerification = 'email verification',
   otp = 'otp',
 
+  // Account
+  profile = 'profile',
+  profileAvatar = 'profile avatar',
+
   // Uikit
   uikit = 'uikit',
 

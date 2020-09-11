@@ -1,17 +1,36 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { ProfileValues } from '@account/models';
 import { State } from '@app/redux/state';
-import { useEffect } from 'react';
-import { fetchProfile } from '@app/redux/account';
+import { useSelector } from 'react-redux';
 
 const useProfileData = () => {
-  const dispatch = useDispatch();
-  const { profile } = useSelector((state: State) => state.account);
+  const {
+    auth: { user }
+  } = useSelector((state: State) => state);
 
-  useEffect(() => {
-    dispatch(fetchProfile());
-  }, []);
+  /**
+   * Default values
+   */
+  const defaultValues: ProfileValues = {
+    language: '',
+    email: '',
+    password: '',
+    repeatPassword: '',
+    title: '',
+    name: '',
+    surname: '',
+    company: '',
+    jobTitle: '',
+    city: '',
+    country: '',
+    phone: ''
+  };
 
-  return { profile };
+  const isUser = Object.keys(user || {}).length > 0;
+
+  return {
+    user,
+    defaultValues: isUser ? Object.assign(defaultValues, user) : defaultValues
+  };
 };
 
 export { useProfileData };

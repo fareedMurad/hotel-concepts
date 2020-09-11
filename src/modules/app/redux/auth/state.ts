@@ -1,4 +1,4 @@
-import { GoogleSignInModel, FacebookSignInModel } from '@app/models';
+import { GoogleSignInModel, FacebookSignInModel, User } from '@app/models';
 
 /**
  * auth state
@@ -12,6 +12,10 @@ class AuthState {
    * Registration status
    */
   public registered: boolean = false;
+  /**
+   * User
+   */
+  public user: User = null;
   /**
    * Email verification status
    */

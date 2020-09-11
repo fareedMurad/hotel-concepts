@@ -1,6 +1,8 @@
 @import 'core.scss';
 
 .profile {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
   margin-top: 120px;
   padding: 20px;
 }

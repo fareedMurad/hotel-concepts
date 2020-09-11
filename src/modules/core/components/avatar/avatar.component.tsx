@@ -6,28 +6,22 @@ import classNames from 'classnames';
 /**
  * Renders Avatar
  */
-const Avatar: React.FC<AvatarProps> = ({
-  width,
-  name,
-  surname,
-  height,
-  avatar,
-  className,
-  children
-}) => {
+const Avatar: React.FC<AvatarProps> = ({ size, user, className, children }) => {
+  const { name, surname, src } = user || {};
+
   return (
     <div
       className={classNames(styles.defaultAvatar, className, {
-        [styles.avatar]: avatar
+        [styles.avatar]: src
       })}
       style={{
-        width: width,
-        height: height,
-        background: !avatar ? '#ff6634' : `url(${avatar})`
+        width: size,
+        height: size,
+        background: !src ? '#ff6634' : `url(${src})`
       }}
     >
       {children}
-      {!avatar && (
+      {!src && (
         <div className={styles.initials}>
           {name && name[0]}
           {surname && surname[0]}
@@ -37,8 +31,11 @@ const Avatar: React.FC<AvatarProps> = ({
   );
 };
 
+/**
+ * Default props
+ */
 Avatar.defaultProps = {
-  width: 34,
-  height: 34
+  size: 50
 };
+
 export { Avatar };

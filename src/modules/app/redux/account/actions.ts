@@ -1,11 +1,10 @@
 import { make } from 'redux-chill';
-import { ProfileValues } from 'src/modules/account/models';
+import { ProfileValues } from '@account/models';
 
 /**
- * Fetch profile
+ * Edit profile
  */
-const fetchProfile = make('[account] fetch profile').stage(
-  'success',
+const editProfile = make('[account] edit profile').stage(
   (payload: ProfileValues) => payload
 );
 
@@ -16,4 +15,4 @@ const uploadAvatar = make('[account] upload avatar')
   .stage((file: File) => file)
   .stage('success');
 
-export { fetchProfile, uploadAvatar };
+export { editProfile, uploadAvatar };

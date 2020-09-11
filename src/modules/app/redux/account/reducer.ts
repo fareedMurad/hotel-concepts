@@ -1,15 +1,9 @@
-import { AccountState } from './state';
 import { reducer } from 'redux-chill';
-import { fetchProfile } from './actions';
+import { AccountState } from './state';
 
 /**
  * account state
  */
-const account = reducer(new AccountState()).on(
-  fetchProfile.success,
-  (state, payload) => {
-    state.profile = payload;
-  }
-);
+const account = reducer(new AccountState());
 
 export { account };

@@ -45,7 +45,7 @@ const Text: React.FC<TextProps> = ({
         mask={mask}
         id={id}
         type={type}
-        value={value}
+        value={value || ''}
         placeholder={placeholder}
         disabled={disabled}
         onChange={event => {

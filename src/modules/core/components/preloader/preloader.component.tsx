@@ -13,6 +13,8 @@ const Preloader: React.FC<PreloaderProps> = ({
   id,
   children,
   className,
+  thickness,
+  size,
   ...props
 }) => {
   const { active } = useSelector((state: State) => state.ui.preloader);
@@ -26,7 +28,10 @@ const Preloader: React.FC<PreloaderProps> = ({
           className={classNames(styles.overlay, className)}
           {...exclude(props, 'isActive')}
         >
-          <div className={styles.preloader} />
+          <div
+            className={styles.preloader}
+            style={{ width: size, height: size, borderWidth: thickness }}
+          />
         </div>
 
         {children && typeof children == 'function' ? children(isActive) : null}
@@ -38,7 +43,9 @@ const Preloader: React.FC<PreloaderProps> = ({
 
 Preloader.defaultProps = {
   id: null,
-  children: null
+  children: null,
+  size: 130,
+  thickness: 10
 };
 
 export { Preloader };
