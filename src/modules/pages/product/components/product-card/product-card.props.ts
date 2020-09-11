@@ -8,6 +8,7 @@ type ProductCardProps = {
     highlightsText: string[];
     authorsCollection: {
       items: {
+        surname: string;
         name: string;
         position: string;
         picture: string;

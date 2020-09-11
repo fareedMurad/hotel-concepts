@@ -39,6 +39,7 @@ const useProductData = productId => {
         price
         authorsCollection {
           items {
+            surname
             name
             position
             experience
