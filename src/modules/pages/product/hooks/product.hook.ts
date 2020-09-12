@@ -7,6 +7,7 @@ const useProductData = productId => {
         name
         previewDescription
         materialsIncluded
+        availableFormats
         commentsCollection {
           items {
             name
@@ -53,14 +54,12 @@ const useProductData = productId => {
           }
         }
         publishDate
-        previewPagesCollection {
-          items {
-            sys {
-              id
-            }
-            url
-            contentType
+        previewPages {
+          sys {
+            id
           }
+          url
+          contentType
         }
         sys {
           id

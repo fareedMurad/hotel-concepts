@@ -64,10 +64,8 @@ const Product: React.FC<ProductProps> = ({}) => {
       .split('/')
       .pop()
       .toUpperCase();
-  const getBookFormat = book => {
-    const words = book.split('.');
-    return words[words.length - 1];
-  };
+
+  console.log(product);
 
   // const link =
   //   'https://www.facebook.com/sharer/sharer.php?app_id=978057235952932&sdk=joey&u=https://chillyfacts.com/create-facebook-share-button-for-website-webpages/&display=popup&ref=plugin&src=share_button';
@@ -90,22 +88,19 @@ const Product: React.FC<ProductProps> = ({}) => {
         <div className={styles.slider}>
           <ProductSlider
             url={product.productImage.url}
-            productPreview={product.previewPagesCollection.items[0]}
+            productPreview={product.previewPages.url}
           />
           <div className={styles.links}>
             <ShareSocial link={''} />
-            <div className={styles.linksDownload}>
-              {product.previewPagesCollection.items &&
-                product.previewPagesCollection.items.map(el => (
-                  <button
-                    key={el.sys.id}
-                    className={styles.downloadBtn}
-                    onClick={() => window.open(el.url, '_blank')}
-                  >
+            <div className={styles.linksFormats}>
+              {product.availableFormats &&
+                product.availableFormats.map(format => (
+                  <div key={format + Math.random()} className={styles.format}>
                     <span style={{ textTransform: 'uppercase' }}>
-                      {getBookFormat(el.url)}
+                      {' '}
+                      {format}
                     </span>
-                  </button>
+                  </div>
                 ))}
             </div>
           </div>

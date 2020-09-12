@@ -49,10 +49,14 @@
   @include desktop() {
     margin-top: 26px;
   }
+  &__formats {
+    @include flex();
+  }
 }
 
-.download-btn {
+.format {
   @include font($primary-gray, 9px, 400, 12px);
+  @include flex($align: center, $justify: center);
   width: 35px;
   height: 35px;
   margin-right: 12px;
