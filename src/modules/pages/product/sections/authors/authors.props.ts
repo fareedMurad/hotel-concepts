@@ -4,6 +4,7 @@
 type AuthorsProps = {
   authors: {
     name: string;
+    surname: string;
     shortDescription: string;
     position: string;
     experience: string;

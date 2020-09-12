@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 /**
  * Renders Authors
  */
+
 const Authors: React.FC<AuthorsProps> = ({ authors }) => {
   const { t } = useTranslation();
   const { mobile } = useMediaPoints();
@@ -26,7 +27,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
 
   React.useEffect(() => {}, [index]);
   return (
-    <div className={styles.authors}>
+    <div className={styles.authors} id='authors'>
       <div className={styles.aboutAuthor}>
         <div className={styles.aboutAuthorCaption}>
           <Icon name='abstract-1' />
@@ -54,7 +55,9 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
                   {item.position}
                 </div>
                 <div className={styles.aboutAuthorName}>
-                  <H3>{item.name}</H3>
+                  <H3>
+                    {item.name} {item.surname}
+                  </H3>
                 </div>
                 <div className={styles.aboutAuthorDescription}>
                   {item.shortDescription && item.shortDescription}
@@ -105,7 +108,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
               src={item.mentorPicture.url}
               alt={item.name}
               style={{ ...props, objectFit: 'cover' }}
-              width='540px'
+              width='550px'
             />
           ))}
         </div>

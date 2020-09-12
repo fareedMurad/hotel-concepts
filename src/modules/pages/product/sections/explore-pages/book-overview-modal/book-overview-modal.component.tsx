@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { BookOverviewModalProps } from './bookOverviewModal.props';
-import * as styles from './bookOverviewModal.scss';
+import { BookOverviewModalProps } from './book-overview-modal.props';
+import * as styles from './book-overview-modal.scss';
 import { Modal } from '@core/components';
 import { Modals } from '@ui/models';
 
@@ -20,7 +20,7 @@ const BookOverviewModal: React.FC<BookOverviewModalProps> = ({
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'fill',
           backgroundPosition: 'center',
-          width: '40vw',
+          width: '90vw',
           height: '80vh'
         }}
       >

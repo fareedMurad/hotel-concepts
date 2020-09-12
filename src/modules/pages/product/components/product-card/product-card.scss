@@ -34,8 +34,11 @@
   .authors {
     @include font($primary-gray, 18px, 400, 58px);
     font-family: $EBGaramond;
-    & > span {
+    & > a {
       text-decoration: underline;
+      &:hover {
+        color: $primary-orange;
+      }
       &:not(:last-child) {
         &:after {
           content: ',';
@@ -102,11 +105,7 @@
 }
 
 .price {
-  margin-top: 40px;
   font-size: 36px;
-  @include desktop() {
-    margin-top: 20px;
-  }
 }
 
 .confirm-button {
@@ -118,6 +117,10 @@
 .circles-wrapper {
   @include flex($direction: column, $align: center);
   margin-top: 52px;
+  margin-bottom: 230px;
+  @include tablet() {
+    margin-bottom: 0;
+  }
   &--circle {
     @include flex($align: center, $justify: center);
     text-align: center;

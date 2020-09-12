@@ -28,7 +28,7 @@ import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
 import { ProductResult } from './sections/product-result';
 import { ForWhom } from './sections/for-whom';
-import { BookOverviewModal } from './sections/explore-pages/bookOverviewModal';
+import { BookOverviewModal } from './sections/explore-pages/book-overview-modal';
 import { toggleBookOverviewModal } from '@ui/modal';
 
 /**
