@@ -14,6 +14,10 @@ class ModalState {
    *  Book overview modal
    */
   public bookOverviewModal: boolean = false;
+  /*
+   *  Book preview modal
+   */
+  public bookPreviewModal: boolean = false;
 }
 
 export { ModalState };

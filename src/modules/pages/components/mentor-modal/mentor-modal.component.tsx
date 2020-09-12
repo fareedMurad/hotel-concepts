@@ -90,7 +90,11 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
   return (
     <React.Fragment>
       {mobile && <ScrollToTop />}
-      <Modal id={Modals.contributor} className={styles.modal}>
+      <Modal
+        id={Modals.contributor}
+        className={styles.modal}
+        historyGoBack={true}
+      >
         <div className={styles.modalPerson}>
           <img src={mentorPicture?.url} className={styles.modalPersonPhoto} />
           <div className={styles.modalPersonWrapper}>

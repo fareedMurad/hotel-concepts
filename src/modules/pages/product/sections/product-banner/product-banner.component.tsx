@@ -23,7 +23,7 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
   return (
     <div className={styles.productBanner}>
       <div className={styles.productImage}>
-        <img src={productImage.url} alt={name} width='250px' />
+        <img src={productImage.url} alt={name} width='224px' height='343px' />
       </div>
       <div className={styles.productDescription}>
         <H2 className={styles.productCardTitle}>{name}</H2>

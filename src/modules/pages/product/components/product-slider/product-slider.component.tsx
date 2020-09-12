@@ -11,6 +11,9 @@ import { useProductsData } from '@pages/marketplace/hooks/marketplace-products.h
 import { useParams } from 'react-router';
 import { useProductData } from '@pages/product/hooks/product.hook';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { showModal, toggleBookPreviewModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 
 interface CarouselButtonGroupProps extends ButtonGroupProps {
   className?: string;
@@ -103,6 +106,7 @@ const ProductSlider: React.FC<ProductSliderProps> = ({
   url,
   productPreview
 }) => {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   return (
     <div className={styles.productImage}>
@@ -110,7 +114,10 @@ const ProductSlider: React.FC<ProductSliderProps> = ({
         <img className={styles.image} src={url} alt='' width='' />
         <Button
           theme='secondary'
-          onClick={() => window.open(productPreview.url, '_blank')}
+          onClick={() => {
+            dispatch(toggleBookPreviewModal(true));
+            dispatch(showModal(Modals.bookPreview));
+          }}
         >
           {t('product.slider.button-text')}
         </Button>

@@ -4,7 +4,8 @@ import {
   showModal,
   closeModal,
   toogleContributorModal,
-  toggleBookOverviewModal
+  toggleBookOverviewModal,
+  toggleBookPreviewModal
 } from './actions';
 
 /**
@@ -28,6 +29,10 @@ const modal = reducer(new ModalState())
   .on(
     toggleBookOverviewModal,
     (state, payload) => (state.bookOverviewModal = payload)
+  )
+  .on(
+    toggleBookPreviewModal,
+    (state, payload) => (state.bookPreviewModal = payload)
   );
 
 export { modal };

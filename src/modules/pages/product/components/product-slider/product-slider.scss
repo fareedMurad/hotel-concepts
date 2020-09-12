@@ -14,6 +14,7 @@
     max-width: 320px;
     @include desktop() {
       max-width: 314px;
+      min-height: 482px;
     }
   }
 }

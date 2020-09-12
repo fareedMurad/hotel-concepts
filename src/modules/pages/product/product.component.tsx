@@ -29,7 +29,8 @@ import { State } from '@app/redux/state';
 import { ProductResult } from './sections/product-result';
 import { ForWhom } from './sections/for-whom';
 import { BookOverviewModal } from './sections/explore-pages/book-overview-modal';
-import { toggleBookOverviewModal } from '@ui/modal';
+import { toggleBookOverviewModal, toggleBookPreviewModal } from '@ui/modal';
+import { BookPreviewModal } from '@pages/components/book-preview-modal';
 
 /**
  * Renders Product
@@ -50,7 +51,9 @@ const Product: React.FC<ProductProps> = ({}) => {
 
   const { pathname } = useLocation();
   const { language } = useSelector((state: State) => state.localization);
-  const { bookOverviewModal } = useSelector((state: State) => state.ui.modal);
+  const { bookOverviewModal, bookPreviewModal } = useSelector(
+    (state: State) => state.ui.modal
+  );
   const {
     recomendedProducts,
     redomendedProductsLoading
@@ -140,6 +143,12 @@ const Product: React.FC<ProductProps> = ({}) => {
         <BookOverviewModal
           hideComponent={() => dispatch(toggleBookOverviewModal(false))}
           url={selectedImage}
+        />
+      )}
+      {bookPreviewModal && (
+        <BookPreviewModal
+          bookPreview={product.previewPages.url}
+          hideComponent={() => dispatch(toggleBookPreviewModal(false))}
         />
       )}
     </div>

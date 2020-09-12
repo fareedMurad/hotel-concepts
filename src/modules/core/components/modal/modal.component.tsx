@@ -12,7 +12,13 @@ import { useHistory } from 'react-router';
 /**
  * Renders Modal
  */
-const Modal: React.FC<ModalProps> = ({ id, className, children, ...props }) => {
+const Modal: React.FC<ModalProps> = ({
+  id,
+  className,
+  children,
+  historyGoBack,
+  ...props
+}) => {
   const dispatch = useDispatch();
   const { mobile } = useMediaPoints();
   const { active } = useSelector((state: State) => state.ui.modal);
@@ -23,11 +29,16 @@ const Modal: React.FC<ModalProps> = ({ id, className, children, ...props }) => {
 
   useClickOutside(modalRef, () => {
     dispatch(closeModal(id));
-    !mobile && history.goBack();
+    !mobile && historyGoBack && history.goBack();
   });
 
   const Content = () => (
-    <div className={classNames(className, styles.modal)} ref={modalRef}>
+    <div
+      className={classNames(className, styles.modal, {
+        [styles.modalMobile]: mobile
+      })}
+      ref={modalRef}
+    >
       <div className={styles.content}>{children}</div>
     </div>
   );
