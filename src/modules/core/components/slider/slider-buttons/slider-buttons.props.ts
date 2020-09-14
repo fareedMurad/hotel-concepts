@@ -9,6 +9,8 @@ interface SliderButtonsProps extends ButtonGroupProps {
   path?: string;
   btnText?: string;
   onClick?: () => void;
-};
+  count?: number;
+  setCount?: (count) => void;
+}
 
 export { SliderButtonsProps };

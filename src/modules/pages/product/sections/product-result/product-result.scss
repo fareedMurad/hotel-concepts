@@ -2,7 +2,10 @@
 
 .product-results {
   // padding: $left-offset;
-  padding: 80px 134px 80px 134px;
+  padding: $default-offset;
+  @include desktop() {
+    padding: 80px 134px 80px 134px;
+  }
 }
 
 .title {

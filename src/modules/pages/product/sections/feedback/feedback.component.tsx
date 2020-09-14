@@ -59,6 +59,14 @@ const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
  */
 
 const Feedback: React.FC<FeedbackProps> = ({ data }) => {
+  const [count, setCount] = React.useState(1);
+  React.useEffect(() => {
+    if (count >= data.length) {
+      setCount(data.length);
+    } else if (count <= 1) {
+      setCount(1);
+    }
+  }, [count]);
   return (
     <section className={styles.feedback}>
       <div className={styles.feedbackWrap}>
@@ -68,8 +76,15 @@ const Feedback: React.FC<FeedbackProps> = ({ data }) => {
           containerClass={styles.slider}
           draggable={false}
           swipeable={false}
+          keyBoardControl={false}
           responsive={responsiveBreakpoints}
-          customButtonGroup={<SliderButtons className={styles.controls} />}
+          customButtonGroup={
+            <SliderButtons
+              className={styles.controls}
+              count={count}
+              setCount={setCount}
+            />
+          }
           showDots
           customDot={<CustomDot items={data} />}
           dotListClass={styles.dots}
@@ -82,6 +97,9 @@ const Feedback: React.FC<FeedbackProps> = ({ data }) => {
             );
           })}
         </Slider>
+        <div className={styles.commentsCount}>
+          {count} of {data.length}
+        </div>
       </div>
     </section>
   );
