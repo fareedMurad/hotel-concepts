@@ -1,4 +1,8 @@
 import { GoogleSignInModel, FacebookSignInModel, User } from '@app/models';
+import {
+  ReactFacebookLoginInfo,
+  ReactFacebookFailureResponse
+} from 'react-facebook-login';
 
 /**
  * auth state
@@ -28,7 +32,9 @@ class AuthState {
    *
    */
   public googleSignInData: GoogleSignInModel = null;
-  public facebookSignInData: FacebookSignInModel = null;
+  public facebookSignInData:
+    | ReactFacebookLoginInfo
+    | ReactFacebookFailureResponse = null;
 }
 
 export { AuthState };
