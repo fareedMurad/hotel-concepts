@@ -10,6 +10,14 @@ class ModalState {
    * Contributor modal
    */
   public contributorModal: boolean = false;
+  /*
+   *  Book overview modal
+   */
+  public bookOverviewModal: boolean = false;
+  /*
+   *  Book preview modal
+   */
+  public bookPreviewModal: boolean = false;
 }
 
 export { ModalState };

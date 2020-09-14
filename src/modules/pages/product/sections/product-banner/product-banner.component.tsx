@@ -10,39 +10,36 @@ import { useTranslation } from 'react-i18next';
  */
 const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
   const {
-    authors,
+    authorsCollection: { items: authors },
     name,
     price,
     publishDate,
-    bookCategory,
     languages,
-    details
+    productImage,
+    previewDescription
   } = product;
   const { t } = useTranslation();
 
   return (
     <div className={styles.productBanner}>
       <div className={styles.productImage}>
-        <img
-          src='https://images.ctfassets.net/qgx3dmmccd7u/M9DtD304X9Qi36JV8R32B/1635006a72c5ad51d3000fe230a89dbd/book-large.png'
-          alt='book'
-          width='280px'
-        />
+        <img src={productImage.url} alt={name} width='224px' height='343px' />
       </div>
       <div className={styles.productDescription}>
         <H2 className={styles.productCardTitle}>{name}</H2>
         <Paragraph className={styles.productCardDescription}>
-          Lorem Ipsum has been the industry’s standard dummy text ever since the
-          1500s, when an unknown printer took book Lorem Ipsum has been the
-          Lorem .
+          {previewDescription}
         </Paragraph>
         <div className={styles.authors}>
-          by <span>{authors[0].name}</span>
+          by{' '}
+          {authors.map(author => (
+            <span> {author.name}</span>
+          ))}
         </div>
 
         <div className={styles.productCardAdditional}>
           <div className={styles.productCardAdditionalLanguages}>
-            <h1>Langueges</h1>
+            <h1>Languages</h1>
             <Paragraph>{languages}</Paragraph>
           </div>
           <div className={styles.productCardAdditionalPublished}>

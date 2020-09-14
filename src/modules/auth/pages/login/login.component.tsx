@@ -30,7 +30,7 @@ const Login: React.FC<LoginProps> = ({}) => {
         <Formik
           initialValues={defaultValues}
           validationSchema={loginValidationSchema}
-          onSubmit={values => {
+          onSubmit={(values) => {
             dispatch(login(values));
           }}
         >

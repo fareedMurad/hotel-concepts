@@ -20,5 +20,23 @@ const closeModal = make('[ui] close modal').stage((id: any | any[]) => ({
 const toogleContributorModal = make('[ui] open contributor').stage(
   (payload: boolean) => payload
 );
+/*
+ * Book overview modal
+ */
+const toggleBookOverviewModal = make('[ui] open book overview').stage(
+  (payload: boolean) => payload
+);
+/**
+ * Book preview modal
+ */
+const toggleBookPreviewModal = make('[ui] open book preview').stage(
+  (payload: boolean) => payload
+);
 
-export { showModal, closeModal, toogleContributorModal };
+export {
+  showModal,
+  closeModal,
+  toogleContributorModal,
+  toggleBookOverviewModal,
+  toggleBookPreviewModal
+};

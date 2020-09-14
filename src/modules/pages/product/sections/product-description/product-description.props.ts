@@ -4,7 +4,9 @@
 type ProductDescriptionProps = {
   product: {
     name: string;
-    details: string;
+    details: {
+      json: any;
+    };
     authors: {
       name: string;
       position: string;
@@ -17,7 +19,11 @@ type ProductDescriptionProps = {
     price: string;
     publishDate: string;
     description: string;
-    skills: string[];
+    listOfSkills: string[];
+    sys: {
+      id: string;
+    };
+    pagesCount: string;
   };
 };
 

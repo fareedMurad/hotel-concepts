@@ -1,39 +1,78 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProductData = () => {
-  // const GET_PRODUCT_DATA = gql`
-  //   query($id: String!) {
-  //     product(id: $id, locale: "en-US") {
-  //   name
-  //   details
-  //   bookCategory
-  //   productImagesCollection {
-  //     items {
-  //       url
-  //     }
-  //   }
-  //   languages
-  //   price
-  //   author
-  //   publishDate
-  //   previewPagesCollection {
-  //     items {
-  //       sys {
-  //         id
-  //       }
-  //       url
-  //       contentType
-  //     }
-  //   }
-  // }
-  //   }
-  // `;
+const useProductData = productId => {
+  const GET_PRODUCT_DATA = gql`
+    query($id: String!) {
+      product(id: $id) {
+        name
+        previewDescription
+        materialsIncluded
+        availableFormats
+        commentsCollection {
+          items {
+            name
+            text
+            photo {
+              url
+            }
+            companyName
+            sys {
+              id
+            }
+          }
+        }
+        coverPhotosCollection {
+          items {
+            url
+          }
+        }
+        details {
+          json
+        }
+        bookCategory
+        highlightsText
+        listOfSkills
+        pagesCount
+        productImage {
+          url
+        }
+        languages
+        price
+        authorsCollection {
+          items {
+            surname
+            name
+            position
+            experience
+            shortDescription
+            mentorPicture {
+              url
+            }
+            sys {
+              id
+            }
+          }
+        }
+        publishDate
+        previewPages {
+          sys {
+            id
+          }
+          url
+          contentType
+        }
+        sys {
+          id
+        }
+      }
+    }
+  `;
 
-  // const { data, loading, error } = useQuery(GET_PRODUCT_DATA, {
-  //   variables: { id: productId }
-  // });
+  const { data, loading, error } = useQuery(GET_PRODUCT_DATA, {
+    variables: { id: productId }
+  });
 
-  // return { product: data?.product, productLoading: loading };
+  return { product: data?.product, productLoading: loading };
   const product = {
     name: 'Architecture Competitions',
     details:

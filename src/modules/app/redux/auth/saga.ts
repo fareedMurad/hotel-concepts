@@ -202,14 +202,14 @@ class AuthSaga {
   ) {
     yield put(preloaderStart(Preloaders.login));
 
-    const data = {
-      name: givenName,
-      surname: familyName,
-      email: email
-    };
+    // const data = {
+    //   tokenId,
+    //   clientId:
+    //     '293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com'
+    // };
 
     try {
-      const response = yield call(api.auth.googleSignIn, data);
+      // const response = yield call(api.auth.googleSignIn, data);
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

@@ -11,30 +11,35 @@ import { useTranslation } from 'react-i18next';
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { t } = useTranslation();
   const {
-    authors,
+    authorsCollection: { items: authors },
     name,
     price,
     publishDate,
     bookCategory,
     languages,
-    details
+    previewDescription,
+    highlightsText
   } = product;
 
   return (
     <div className={styles.productCard}>
       <H2 className={styles.productCardTitle}>{name}</H2>
       <Paragraph className={styles.productCardDescription}>
-        Lorem Ipsum has been the industry’s standard dummy text ever since the
-        1500s, when an unknown printer took book Lorem Ipsum has been the Lorem
-        .
+        {previewDescription}
       </Paragraph>
       <div className={styles.authors}>
-        by <span>{authors[0].name}</span>
+        by{' '}
+        {authors.map(author => (
+          <a href='#authors'>
+            {' '}
+            {author.name} {author.surname}
+          </a>
+        ))}
       </div>
 
       <div className={styles.productCardAdditional}>
         <div className={styles.productCardAdditionalLanguages}>
-          <h1>Langueges</h1>
+          <h1>Languages</h1>
           <Paragraph>{languages}</Paragraph>
         </div>
         <div className={styles.productCardAdditionalPublished}>
@@ -46,17 +51,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       <div className={styles.circlesWrapper}>
-        <div className={styles.circlesWrapperCircle}>
-          Lorem Ipsum has been the industry's standard dummy text.
-        </div>
-        <div className={styles.circlesWrapperCircle}>
-          Lorem Ipsum has been the industry's standard dummy text.
-        </div>
-        <div className={styles.circlesWrapperCircle}>
-          Lorem Ipsum has been the industry's standard dummy text.
-        </div>
+        <div className={styles.circlesWrapperCircle}>{highlightsText[0]}</div>
+        <div className={styles.circlesWrapperCircle}>{highlightsText[1]}</div>
+        <div className={styles.circlesWrapperCircle}>{highlightsText[2]}</div>
       </div>
-      <div>
+      <div className={styles.footer}>
         <H3 className={styles.price}>{`$${price}`}</H3>
         <Button
           className={styles.confirmButton}

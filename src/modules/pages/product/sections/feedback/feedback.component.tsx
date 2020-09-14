@@ -58,12 +58,7 @@ const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
  * Renders Feedback
  */
 
-const Feedback: React.FC<FeedbackProps> = ({}) => {
-  const items = [
-    { item: <FeedbackItem />, key: 1 },
-    { item: <FeedbackItem />, key: 2 },
-    { item: <FeedbackItem />, key: 3 }
-  ];
+const Feedback: React.FC<FeedbackProps> = ({ data }) => {
   return (
     <section className={styles.feedback}>
       <div className={styles.feedbackWrap}>
@@ -76,10 +71,16 @@ const Feedback: React.FC<FeedbackProps> = ({}) => {
           responsive={responsiveBreakpoints}
           customButtonGroup={<SliderButtons className={styles.controls} />}
           showDots
-          customDot={<CustomDot items={items} />}
+          customDot={<CustomDot items={data} />}
           dotListClass={styles.dots}
         >
-          {items.map(el => el.item)}
+          {data.map(comment => {
+            return (
+              <div key={comment.sys.id}>
+                <FeedbackItem comment={comment} />
+              </div>
+            );
+          })}
         </Slider>
       </div>
     </section>

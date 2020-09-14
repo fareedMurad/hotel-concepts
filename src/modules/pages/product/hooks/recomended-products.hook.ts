@@ -9,10 +9,8 @@ const useRecomendedProductsData = (slug, productId, language) => {
       ) {
         items {
           name
-          productImagesCollection {
-            items {
-              url
-            }
+          productImage {
+            url
           }
           price
           sys {

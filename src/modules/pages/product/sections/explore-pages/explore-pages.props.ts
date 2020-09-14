@@ -1,6 +1,13 @@
 /**
  * Props
  */
-type ExplorePagesProps = {};
+type ExplorePagesProps = {
+  data: {
+    items: {
+      url;
+    }[];
+  };
+  setSelectedImage: (url) => void;
+};
 
 export { ExplorePagesProps };

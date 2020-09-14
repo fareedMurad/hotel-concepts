@@ -12,63 +12,85 @@ import { useTranslation } from 'react-i18next';
 /**
  * Renders Authors
  */
+
 const Authors: React.FC<AuthorsProps> = ({ authors }) => {
   const { t } = useTranslation();
   const { mobile } = useMediaPoints();
   const [index, setIndex] = React.useState(0);
-  const { dispatch } = useDispatch();
+  const dispatch = useDispatch();
 
-  const transitions = useTransition(authors[index], item => item.key, {
+  const transitions = useTransition(authors[index], item => item.sys.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 }
+    leave: { opacity: 0, position: 'absolute' }
   });
 
   React.useEffect(() => {}, [index]);
   return (
-    <div className={styles.authors}>
+    <div className={styles.authors} id='authors'>
       <div className={styles.aboutAuthor}>
         <div className={styles.aboutAuthorCaption}>
           <Icon name='abstract-1' />
           <H2>{t('product.authors.title')}</H2>
         </div>
-        {mobile &&
-          transitions.map(({ item, key, props }) => {
+        {mobile && (
+          <div className={styles.authorImageMobile}>
+            {transitions.map(({ item, props, key }) => (
+              <animated.img
+                key={key}
+                src={item.mentorPicture.url}
+                alt={item.name}
+                style={{ ...props, objectFit: 'cover' }}
+                width='300px'
+              />
+            ))}
+          </div>
+        )}
+
+        <div className={styles.aboutAuthorWrapper}>
+          {transitions.map(({ item, props, key }) => {
             return (
-              <div key={key} style={props} className={styles.authorImageMobile}>
-                <animated.img
-                  style={props}
-                  src={item.picture}
-                  alt={item.name}
-                  width='300px'
-                  height='300px'
-                />
-              </div>
+              <animated.div key={key} style={props}>
+                <div className={styles.aboutAuthorPosition}>
+                  {item.position}
+                </div>
+                <div className={styles.aboutAuthorName}>
+                  <H3>
+                    {item.name} {item.surname}
+                  </H3>
+                </div>
+                <div className={styles.aboutAuthorDescription}>
+                  {item.shortDescription && item.shortDescription}
+                </div>
+              </animated.div>
             );
           })}
-        <div className={styles.aboutAuthorWrapper}>
-          <div className={styles.aboutAuthorPosition}>
-            {authors[index].position}
-          </div>
-          <div className={styles.aboutAuthorName}>
-            <H3>{authors[index].name}</H3>
-          </div>
-          <div className={styles.aboutAuthorDescription}>
-            {authors[index].description}
-          </div>
           <div className={styles.buttons}>
-            <button
-              className={styles.buttonsArrow}
-              // onClick={() => setIndex(index - 1)}
-            >
-              ←
-            </button>
-            <button
-              className={styles.buttonsArrow}
-              // onClick={() => setIndex(index + 1)}
-            >
-              →
-            </button>
+            {authors.length !== 1 && (
+              <>
+                {' '}
+                <button
+                  className={styles.buttonsArrow}
+                  onClick={() =>
+                    index === 0
+                      ? setIndex(authors.length - 1)
+                      : setIndex(index - 1)
+                  }
+                >
+                  ←
+                </button>
+                <button
+                  className={styles.buttonsArrow}
+                  onClick={() =>
+                    index === authors.length - 1
+                      ? setIndex(0)
+                      : setIndex(index + 1)
+                  }
+                >
+                  →
+                </button>
+              </>
+            )}
             <Button
               arrow='→'
               onClick={() => dispatch(navigate('/contributors'))}
@@ -80,12 +102,15 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
       </div>
       {!mobile && (
         <div className={styles.authorImage}>
-          <img
-            src={authors[index].picture}
-            alt={authors[index].name}
-            width='100%'
-            height='590px'
-          />
+          {transitions.map(({ item, props, key }) => (
+            <animated.img
+              key={key}
+              src={item.mentorPicture.url}
+              alt={item.name}
+              style={{ ...props, objectFit: 'cover' }}
+              width='550px'
+            />
+          ))}
         </div>
       )}
     </div>

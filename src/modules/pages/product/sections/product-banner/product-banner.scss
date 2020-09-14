@@ -8,15 +8,13 @@
   background-color: $background;
 
   @include tablet() {
-    @include flex($direction: row);
+    @include flex($direction: row, $align: center);
   }
 }
 
 .product-image {
   margin: 0 auto;
   @include desktop() {
-    margin-top: 38px;
-    margin-left: 89px;
   }
 }
 .product-description {
@@ -25,8 +23,6 @@
   }
   @include tablet() {
     max-width: 652px;
-    margin-top: 58px;
-    margin-left: 66px;
   }
 }
 
@@ -36,6 +32,11 @@
 
   & > span {
     text-decoration: underline;
+    &:not(:last-child) {
+      &:after {
+        content: ',';
+      }
+    }
   }
 }
 
@@ -62,7 +63,7 @@
   margin-top: 40px;
   font-size: 36px;
   @include desktop() {
-    margin-top: 20px;
+    margin-top: 44px;
   }
 }
 

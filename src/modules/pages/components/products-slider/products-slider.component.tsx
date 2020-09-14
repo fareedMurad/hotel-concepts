@@ -39,6 +39,7 @@ const ProductsSlider: React.FC<SliderProps> = ({
   data,
   notOrangeButtons
 }) => {
+  console.log(data);
   return (
     <div className={styles.slider}>
       <Slider
@@ -56,7 +57,7 @@ const ProductsSlider: React.FC<SliderProps> = ({
       >
         {data.map(el => {
           const {
-            productImagesCollection: { items: images },
+            productImage: { url },
             name,
             price,
             sys: { id },
@@ -65,7 +66,7 @@ const ProductsSlider: React.FC<SliderProps> = ({
           return (
             <SliderCard
               key={id}
-              img={images}
+              img={url}
               name={name}
               price={price}
               id={id}

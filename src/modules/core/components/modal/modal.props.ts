@@ -16,6 +16,10 @@ type ModalProps = {
    * Is loader active
    */
   isActive?: boolean;
+  /**
+   * Go to previous route
+   */
+  historyGoBack?: boolean;
 };
 
 export { ModalProps };

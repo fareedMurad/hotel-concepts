@@ -28,6 +28,9 @@
   &--description {
     @include font($primary-gray, 16px, 400, 22px);
     margin-top: 12px;
+    max-height: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   @include tablet() {
     padding-right: 90px;
@@ -64,9 +67,15 @@
 }
 
 .author-image {
-  object-fit: fill;
+  & > img {
+    border-radius: 10px;
+    max-width: 550px;
+    min-height: 590px;
+    max-height: 590px;
+  }
   &--mobile {
     max-height: 300px;
+
     overflow: hidden;
     margin: 20px 0;
   }

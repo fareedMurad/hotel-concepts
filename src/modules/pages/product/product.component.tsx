@@ -26,12 +26,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
+import { ProductResult } from './sections/product-result';
+import { ForWhom } from './sections/for-whom';
+import { BookOverviewModal } from './sections/explore-pages/book-overview-modal';
+import { toggleBookOverviewModal, toggleBookPreviewModal } from '@ui/modal';
+import { BookPreviewModal } from '@pages/components/book-preview-modal';
 
 /**
  * Renders Product
  */
 const Product: React.FC<ProductProps> = ({}) => {
   const { t } = useTranslation();
+  const [selectedImage, setSelectedImage] = React.useState('');
   const history = useHistory();
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -41,15 +47,19 @@ const Product: React.FC<ProductProps> = ({}) => {
     };
   }, []);
   const { id: productId, categorySlug } = useParams();
-  const { product } = useProductData();
+  const { product, productLoading } = useProductData(productId);
+
   const { pathname } = useLocation();
   const { language } = useSelector((state: State) => state.localization);
+  const { bookOverviewModal, bookPreviewModal } = useSelector(
+    (state: State) => state.ui.modal
+  );
   const {
     recomendedProducts,
     redomendedProductsLoading
   } = useRecomendedProductsData(categorySlug, productId, language);
 
-  // if (productLoading) return <Spinner />;
+  if (productLoading) return <Spinner />;
   if (redomendedProductsLoading) return <Spinner />;
 
   const convertToFileType = file =>
@@ -57,6 +67,8 @@ const Product: React.FC<ProductProps> = ({}) => {
       .split('/')
       .pop()
       .toUpperCase();
+
+  console.log(product);
 
   // const link =
   //   'https://www.facebook.com/sharer/sharer.php?app_id=978057235952932&sdk=joey&u=https://chillyfacts.com/create-facebook-share-button-for-website-webpages/&display=popup&ref=plugin&src=share_button';
@@ -77,21 +89,22 @@ const Product: React.FC<ProductProps> = ({}) => {
       </div>
       <div className={styles.productReview}>
         <div className={styles.slider}>
-          <ProductSlider images={product.productImage} />
+          <ProductSlider
+            url={product.productImage.url}
+            productPreview={product.previewPages.url}
+          />
           <div className={styles.links}>
             <ShareSocial link={''} />
-            <div className={styles.linksDownload}>
-              {/* {previewPages &&
-                previewPages.map(el => ( */}
-              <button
-                // key={el.sys.id}
-                className={styles.downloadBtn}
-                // onClick={() => window.open(el.url, '_blank')}
-              >
-                {/* {convertToFileType(el.contentType)} */}
-                PDF
-              </button>
-              {/* ))} */}
+            <div className={styles.linksFormats}>
+              {product.availableFormats &&
+                product.availableFormats.map(format => (
+                  <div key={format + Math.random()} className={styles.format}>
+                    <span style={{ textTransform: 'uppercase' }}>
+                      {' '}
+                      {format}
+                    </span>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
@@ -102,23 +115,42 @@ const Product: React.FC<ProductProps> = ({}) => {
         <Hr />
       </div>
 
-      <Enroll programId={'1fHQgCpPPwnmhdVZFR4WEW'} title={'For whom'} />
-      <MaterialsIncluded productMaterials={product.productMaterials} />
-      <ExplorePages />
-      <Authors authors={product.authors} />
-      <ProgramResults
-        paddingBottom={'80px'}
-        paddingTop={'80px'}
-        programId='3CaXsOXeY9OWY7YxPz4sy0'
+      <ForWhom productId={productId} />
+      <MaterialsIncluded productMaterials={product.materialsIncluded} />
+      <ExplorePages
+        setSelectedImage={setSelectedImage}
+        data={product.coverPhotosCollection}
       />
-      <Feedback />
+      <Authors authors={product.authorsCollection.items} />
+      <ProductResult productId={productId} />
+      <Feedback data={product.commentsCollection.items} />
       <ProductBanner product={product} />
 
       <H2 className={styles.recomendedBooks}>{t('product.recomended')}</H2>
-      <div className={styles.productSliderWrap}>
-        <ProductsSlider data={recomendedProducts} notOrangeButtons />
-      </div>
+
+      {recomendedProducts ? (
+        <div className={styles.productSliderWrap}>
+          <ProductsSlider data={recomendedProducts} notOrangeButtons />
+        </div>
+      ) : (
+        <div style={{ padding: 30 }}>
+          Unfortunately, there is no recomended books for you yet
+        </div>
+      )}
+
       <Brochure />
+      {bookOverviewModal && (
+        <BookOverviewModal
+          hideComponent={() => dispatch(toggleBookOverviewModal(false))}
+          url={selectedImage}
+        />
+      )}
+      {bookPreviewModal && (
+        <BookPreviewModal
+          bookPreview={product.previewPages.url}
+          hideComponent={() => dispatch(toggleBookPreviewModal(false))}
+        />
+      )}
     </div>
   );
 };

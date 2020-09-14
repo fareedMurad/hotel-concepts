@@ -6,6 +6,7 @@
   padding: 20px;
   background-color: $background;
   border-radius: 12px;
+  min-height: calc(100vh - 100px);
   @include tablet() {
     width: auto;
     margin-right: 0;
@@ -33,8 +34,16 @@
   .authors {
     @include font($primary-gray, 18px, 400, 58px);
     font-family: $EBGaramond;
-    & > span {
+    & > a {
       text-decoration: underline;
+      &:hover {
+        color: $primary-orange;
+      }
+      &:not(:last-child) {
+        &:after {
+          content: ',';
+        }
+      }
     }
   }
 
@@ -96,11 +105,7 @@
 }
 
 .price {
-  margin-top: 40px;
   font-size: 36px;
-  @include desktop() {
-    margin-top: 20px;
-  }
 }
 
 .confirm-button {
@@ -112,6 +117,10 @@
 .circles-wrapper {
   @include flex($direction: column, $align: center);
   margin-top: 52px;
+  margin-bottom: 230px;
+  @include tablet() {
+    margin-bottom: 0;
+  }
   &--circle {
     @include flex($align: center, $justify: center);
     text-align: center;
@@ -130,7 +139,7 @@
     &:nth-child(2) {
       position: relative;
       margin-bottom: -20px;
-      z-index: 1000;
+      z-index: 1;
       @include tablet() {
         margin-right: -20px;
       }
@@ -139,4 +148,10 @@
   @include tablet() {
     @include flex($direction: row, $align: flex-start);
   }
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
