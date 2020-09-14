@@ -3,6 +3,7 @@ import { SliderButtonsProps } from './slider-buttons.props';
 import * as styles from './slider-buttons.scss';
 import classNames from 'classnames';
 import { Button } from '@core/components/button';
+import { relative } from 'path';
 
 /**
  * Renders SliderButtons
@@ -14,8 +15,11 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
   isBordered,
   path,
   btnText,
-  onClick
+  onClick,
+  setCount,
+  count
 }) => {
+  console.log(next);
   return (
     <div className={classNames(styles.sliderButtons, className)}>
       {btnText && (
@@ -33,13 +37,17 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
           [styles.bordered]: isBordered
         })}
       >
-        <div>&#8592;</div>
+        <div className={styles.arrow} onClick={() => setCount(count - 1)}>
+          &#8592;
+        </div>
       </button>
       <button
         onClick={next}
         className={classNames(styles.next, { [styles.bordered]: isBordered })}
       >
-        <div>&#8594;</div>
+        <div className={styles.arrow} onClick={() => setCount(count + 1)}>
+          &#8594;
+        </div>
       </button>
     </div>
   );

@@ -6,6 +6,7 @@
   width: 100%;
   &--wrap {
     margin-bottom: 80px;
+    position: relative;
     & > div:nth-child(2) {
       margin-top: 12px;
     }
@@ -50,4 +51,14 @@
   width: 16px;
   height: 8px;
   margin-right: 4px;
+}
+
+.comments-count {
+  position: absolute;
+  left: 110px;
+  top: 380px;
+  @include tablet() {
+    left: 110px;
+    top: 345px;
+  }
 }

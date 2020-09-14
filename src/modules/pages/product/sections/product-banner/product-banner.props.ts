@@ -6,7 +6,7 @@ type ProductBannerProps = {
     name: string;
     details: string;
     authorsCollection: {
-      items: { name }[];
+      items: { name: string; surname: string }[];
     };
     bookCategory: string;
     productImage: {

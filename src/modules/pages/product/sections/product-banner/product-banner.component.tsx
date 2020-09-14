@@ -33,7 +33,10 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
         <div className={styles.authors}>
           by{' '}
           {authors.map(author => (
-            <span> {author.name}</span>
+            <span>
+              {' '}
+              {author.name} {author.surname}
+            </span>
           ))}
         </div>
 
