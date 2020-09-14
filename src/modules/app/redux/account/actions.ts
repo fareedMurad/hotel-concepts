@@ -1,5 +1,6 @@
 import { make } from 'redux-chill';
 import { ProfileValues } from '@account/models';
+import { SubscriptionModel } from '@account/models/subscription';
 
 /**
  * Edit profile
@@ -20,4 +21,18 @@ const uploadAvatar = make('[account] upload avatar')
  */
 const deleteAvatar = make('[account] delete avatar');
 
-export { editProfile, uploadAvatar, deleteAvatar };
+/*
+ * Add to wish list
+ */
+const addToWishList = make('[account] add to wish list').stage(
+  payload => payload
+);
+
+/*
+ * Subscribe
+ */
+const subscribe = make('[account] subscribe').stage(
+  (payload: SubscriptionModel) => payload
+);
+
+export { editProfile, uploadAvatar, deleteAvatar, addToWishList, subscribe };

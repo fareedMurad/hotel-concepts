@@ -5,7 +5,13 @@ import { Payload, Saga } from 'redux-chill';
 import { call, put } from 'redux-saga/effects';
 import { getUser } from '../auth';
 import { Context } from '../context';
-import { editProfile, uploadAvatar, deleteAvatar } from './actions';
+import {
+  editProfile,
+  uploadAvatar,
+  deleteAvatar,
+  addToWishList,
+  subscribe
+} from './actions';
 
 /**
  * Account saga
@@ -68,6 +74,17 @@ class AccountSaga {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.profileAvatar));
+    }
+  }
+
+  /*
+   * Add to wish list
+   */
+  @Saga(addToWishList)
+  public *addToWishList(payload, { api }: Context) {
+    try {
+    } catch (err) {
+      console.log(err);
     }
   }
 }

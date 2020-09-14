@@ -1,5 +1,36 @@
-@import "core.scss";
+@import 'core.scss';
 
 .library {
-	
+  margin-top: 100px;
+  padding: $left-offset;
+
+  &__books {
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &--book {
+    @include flex($justify: center, $direction: column, $align: center);
+    position: relative;
+    &-name {
+      margin: 20px 0;
+    }
+    &-buttons {
+      @include flex($justify: space-between);
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  padding: 5px;
+  background-color: $background;
+  right: 0;
+  bottom: -80px;
+}
+
+.download {
+  @include flex($justify: space-between);
 }

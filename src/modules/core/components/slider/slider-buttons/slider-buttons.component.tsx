@@ -19,7 +19,6 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
   setCount,
   count
 }) => {
-  console.log(next);
   return (
     <div className={classNames(styles.sliderButtons, className)}>
       {btnText && (
