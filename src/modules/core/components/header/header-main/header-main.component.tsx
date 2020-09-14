@@ -23,8 +23,18 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
 }) => {
   const [white, setWhite] = React.useState(false);
   const [toggleDropDown, setToggleDropDown] = React.useState(false);
+  const [
+    showProfileNavigationMenu,
+    setShowProfileNavigationMenu
+  ] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
-  useClickOutside(ref, () => setToggleDropDown(false));
+  const profileMenuRef = React.useRef<HTMLDivElement>(null);
+  useClickOutside(ref, () => {
+    setToggleDropDown(false);
+  });
+  useClickOutside(profileMenuRef, () => {
+    setShowProfileNavigationMenu(false);
+  });
 
   React.useEffect(() => {
     isSticky ? setWhite(true) : setWhite(false);
@@ -117,13 +127,30 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             );
           })} */}
           <div className={styles.headerMainNavigationProfile}>
-            <Icon
-              name={
-                whiteBackground || isSticky
-                  ? 'default-avatar-b'
-                  : 'default-avatar'
-              }
-            />
+            <div className={styles.profileNavigation}>
+              <Icon
+                onClick={() => setShowProfileNavigationMenu(true)}
+                name={
+                  whiteBackground || isSticky
+                    ? 'default-avatar-b'
+                    : 'default-avatar'
+                }
+              />
+              {showProfileNavigationMenu && (
+                <div
+                  className={styles.profileNavigationMenu}
+                  ref={profileMenuRef}
+                >
+                  <NavLink to={'/account/profile'}>my Account</NavLink>
+                  <NavLink to={'/account/subscription'}>
+                    my Subscription
+                  </NavLink>
+                  <NavLink to={'/account/library'}>my Library</NavLink>
+                  <NavLink to={'/account/programs'}>my Programs</NavLink>
+                  <NavLink to={''}>Log out</NavLink>
+                </div>
+              )}
+            </div>
 
             <LocalizationMenu
               className={classNames(styles.local, {

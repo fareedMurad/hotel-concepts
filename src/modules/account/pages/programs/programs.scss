@@ -1,5 +1,55 @@
-@import "core.scss";
+@import 'core.scss';
 
 .programs {
-	
+  margin-top: 100px;
+  padding: 0 $left-offset;
+}
+
+.program {
+  @include flex();
+  position: relative;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+
+  & > img {
+    max-width: 300px;
+    border-radius: 10px;
+  }
+}
+
+.description {
+  padding: 0 20px;
+  width: 30%;
+  &--level {
+    @include font($primary-orange, 15px, 400, 24px);
+    font-family: $IBMPlex;
+  }
+}
+
+.additional-info {
+  @include flex($justify: space-between);
+  width: 100%;
+}
+
+.program-description {
+  margin-top: 40px;
+}
+
+.access-program {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $primary-orange;
+}
+
+.add-to-wish-list {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  &:hover {
+    color: $primary-orange;
+  }
 }
