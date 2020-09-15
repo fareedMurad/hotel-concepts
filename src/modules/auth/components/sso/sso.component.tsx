@@ -23,7 +23,7 @@ const Sso: React.FC<SsoProps> = ({ className }) => {
         cookiePolicy='single_host_origin'
         onFailure={err => console.log(err)}
         onSuccess={(data: any) => {
-          dispatch(googleSignIn(data.profileObj));
+          dispatch(googleSignIn(data));
         }}
       />
       <FacebookLogin

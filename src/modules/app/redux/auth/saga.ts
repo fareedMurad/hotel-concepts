@@ -16,7 +16,8 @@ import {
   updatePassword,
   verifyEmail,
   verifyEmailResend,
-  unauthorize
+  unauthorize,
+  facebookSignIn
 } from './actions';
 import { toggleToast } from '@ui/toast';
 import { navigate } from '@router/store';
@@ -196,20 +197,40 @@ class AuthSaga {
    * Sign in with google
    */
   @Saga(googleSignIn)
-  public *googleSignIn(
-    { familyName, givenName, email }: GoogleSignInModel,
+  public *googleSignIn({ tokenId }: GoogleSignInModel, { api }: Context) {
+    yield put(preloaderStart(Preloaders.login));
+
+    const data = {
+      token: tokenId
+    };
+
+    try {
+      const response = yield call(api.auth.googleSignIn, data);
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.login));
+    }
+  }
+
+  /*
+   * Sign in with facebook
+   */
+  @Saga(facebookSignIn)
+  public *facebookSignIn(
+    payload: Payload<typeof facebookSignIn>,
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.login));
 
-    // const data = {
-    //   tokenId,
-    //   clientId:
-    //     '293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com'
-    // };
+    if (payload.accessToken) {
+    }
+    const data = {
+      token: payload.accessToken
+    };
 
     try {
-      // const response = yield call(api.auth.googleSignIn, data);
+      const response = yield call(api.auth.facebookSignIn, data);
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

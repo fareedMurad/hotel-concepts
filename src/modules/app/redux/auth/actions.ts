@@ -9,6 +9,10 @@ import {
   FacebookSignInValues
 } from '@auth/models';
 import { User } from '@app/models';
+import {
+  ReactFacebookLoginInfo,
+  ReactFacebookFailureResponse
+} from 'react-facebook-login';
 
 /**
  * Authorize
@@ -88,7 +92,7 @@ const googleSignIn = make('[auth] sign-in with google')
  * Sign in with facebook
  */
 const facebookSignIn = make('[auth] sign-in with facebook')
-  .stage((payload: FacebookSignInValues) => payload)
+  .stage((payload: any) => payload)
   .stage('success');
 
 export {

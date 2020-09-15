@@ -103,7 +103,7 @@ class AuthService {
   /*
    * Sign in with google
    */
-  public googleSignIn = (data: GoogleSignInValues) =>
+  public googleSignIn = (data: { token: string }) =>
     this.http.request({
       method: 'POST',
       url: '/auth/google',
@@ -116,7 +116,7 @@ class AuthService {
   public facebookSignIn = (data: FacebookSignInValues) =>
     this.http.request({
       method: 'POST',
-      url: '/auth/fb',
+      url: '/auth/facebook',
       data
     });
 
