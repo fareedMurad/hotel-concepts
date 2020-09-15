@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ProgramsMenuProps } from './programs-menu.props';
 import * as styles from './programs-menu.scss';
 import { useProgramsMenuData } from './programs.hook';
-import { DropDown } from '../../../drop-down';
+import { DropDownPrograms } from '../../../drop-down-programs';
 import { Icon } from '@core/components';
 import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
@@ -27,7 +27,7 @@ const ProgramsMenu: React.FC<any> = ({
         {t('header.header-main.link-one')}
         <span className={styles.arrow}>&#x25BE;</span>
       </div>
-      <DropDown show={toggleDropDown} subLinks={programsData} />
+      <DropDownPrograms show={toggleDropDown} subLinks={programsData} />
     </React.Fragment>
   );
 };

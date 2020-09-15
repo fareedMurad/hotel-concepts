@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { Icon } from '@core/components';
 import classNames from 'classnames';
 import { useMediaPoints, useClickOutside } from '@core/shared';
-import { DropDown } from '../drop-down';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProgramsMenu } from './components/programs-menu/programs-menu.component';
 import { Spinner } from '@core/components/spinner';

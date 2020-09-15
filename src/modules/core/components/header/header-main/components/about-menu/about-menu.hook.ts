@@ -1,5 +1,5 @@
 const useAboutMenuData = () => {
-  const links = [
+  const aboutMenuLinks = [
     {
       name: 'Contact',
       to: '/contact-us'
@@ -17,7 +17,7 @@ const useAboutMenuData = () => {
       to: '/jobs'
     }
   ];
-  return links;
+  return { aboutMenuLinks };
 };
 
 export { useAboutMenuData };

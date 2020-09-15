@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { DropDownProps } from './drop-down.props';
-import * as styles from './drop-down.scss';
+import { DropDownProgramsProps } from './drop-down-programs.props';
+import * as styles from './drop-down-programs.scss';
 import { NavLink } from 'react-router-dom';
 import { Spinner } from '@core/components/spinner';
 import { useDispatch } from 'react-redux';
@@ -11,7 +11,10 @@ import { useAnimation } from '../header-main/animation';
 /**
  * Renders DropDown
  */
-const DropDown: React.FC<DropDownProps> = ({ subLinks, show }) => {
+const DropDownPrograms: React.FC<DropDownProgramsProps> = ({
+  subLinks,
+  show
+}) => {
   const dispatch = useDispatch();
 
   const { transitions } = useAnimation(show);
@@ -45,4 +48,4 @@ const DropDown: React.FC<DropDownProps> = ({ subLinks, show }) => {
   );
 };
 
-export { DropDown };
+export { DropDownPrograms };

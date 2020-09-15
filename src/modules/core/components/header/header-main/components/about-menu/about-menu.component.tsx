@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { useClickOutside } from '@core/shared';
 import { useAnimation } from '../../animation';
+import { DropDown } from '../drop-down';
 
 /**
  * Renders AboutMenu
@@ -16,7 +17,7 @@ import { useAnimation } from '../../animation';
 const AboutMenu: React.FC<AboutMenuProps> = ({ onClick, className }) => {
   const { t } = useTranslation();
   const ref = React.useRef(null);
-  const aboutMenuData = useAboutMenuData();
+  const { aboutMenuLinks } = useAboutMenuData();
   const [toggleDropDown, setToggleDropdown] = React.useState(false);
   useClickOutside(ref, () => {
     setToggleDropdown(false);
@@ -29,31 +30,12 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ onClick, className }) => {
       <div
         className={classNames(className, styles.aboutMenu)}
         onClick={() => setToggleDropdown(true)}
+        ref={ref}
       >
         {t('header.header-main.link-three')}
         <span className={styles.arrow}>&#x25BE;</span>
       </div>
-      {transitions.map(({ props, key, item }) => {
-        return (
-          item && (
-            <animated.div style={props} className={styles.dropDown} ref={ref}>
-              {aboutMenuData.map(el => {
-                return (
-                  <div className={styles.dropDownItem} key={el.to + el.name}>
-                    {' '}
-                    <NavLink
-                      onClick={() => setToggleDropdown(false)}
-                      to={el.to}
-                    >
-                      {el.name}
-                    </NavLink>
-                  </div>
-                );
-              })}
-            </animated.div>
-          )
-        );
-      })}
+      <DropDown links={aboutMenuLinks} show={toggleDropDown} />
     </React.Fragment>
   );
 };

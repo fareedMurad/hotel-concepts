@@ -8,6 +8,7 @@ import { animated } from 'react-spring';
 import { useStoreMenuData } from './store-menu.hook';
 import { NavLink } from 'react-router-dom';
 import { useClickOutside } from '@core/shared';
+import { DropDown } from '../drop-down';
 
 /**
  * Renders StoreMenu
@@ -15,7 +16,6 @@ import { useClickOutside } from '@core/shared';
 const StoreMenu: React.FC<StoreMenuProps> = ({ className }) => {
   const { t } = useTranslation();
   const [toggleDropDown, setToggleDropdown] = React.useState(false);
-  const { transitions } = useAnimation(toggleDropDown);
   const { storeMenuLinks } = useStoreMenuData();
   const ref = React.useRef(null);
   useClickOutside(ref, () => {
@@ -31,21 +31,7 @@ const StoreMenu: React.FC<StoreMenuProps> = ({ className }) => {
         {t('header.header-main.link-two')}
         <span>&#x25BE;</span>
       </div>
-      {transitions.map(({ item, key, props }) => {
-        return (
-          item && (
-            <animated.div style={props} className={styles.dropDown}>
-              {storeMenuLinks.map((link, idx) => {
-                return (
-                  <div key={link.name + idx} className={styles.dropDownItem}>
-                    <NavLink to={link.to}>{link.name}</NavLink>
-                  </div>
-                );
-              })}
-            </animated.div>
-          )
-        );
-      })}
+      <DropDown links={storeMenuLinks} show={toggleDropDown} />
     </React.Fragment>
   );
 };

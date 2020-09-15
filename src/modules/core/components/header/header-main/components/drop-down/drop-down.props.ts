@@ -1,16 +1,11 @@
-import { string } from 'yup';
-
 /**
  * Props
  */
 type DropDownProps = {
   show: boolean;
-  subLinks: {
+  links: {
     name: string;
-    subtitle: string;
-    sys: {
-      id: string;
-    };
+    to: string;
   }[];
 };
 
