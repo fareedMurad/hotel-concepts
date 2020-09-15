@@ -6,6 +6,7 @@ import { Spinner } from '@core/components/spinner';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
 import { animated, useTransition } from 'react-spring';
+import { useAnimation } from '../header-main/animation';
 
 /**
  * Renders DropDown
@@ -13,11 +14,7 @@ import { animated, useTransition } from 'react-spring';
 const DropDown: React.FC<DropDownProps> = ({ subLinks, show }) => {
   const dispatch = useDispatch();
 
-  const transitions = useTransition(show, null, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 }
-  });
+  const { transitions } = useAnimation(show);
   return (
     <React.Fragment>
       {transitions.map(({ item, key, props }) => {

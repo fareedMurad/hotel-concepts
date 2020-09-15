@@ -12,6 +12,8 @@ import { Spinner } from '@core/components/spinner';
 import { LocalizationMenu } from './components/localization-menu';
 import { State } from '@app/redux/state';
 import { useTranslation } from 'react-i18next';
+import { AboutMenu } from './components/about-menu';
+import { StoreMenu } from './components/store-menu';
 
 /**
  * Renders HeaderMain
@@ -76,24 +78,18 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             />
           </div>
           <div className={styles.headerMainNavigationBlock} ref={ref}>
-            <div
+            <AboutMenu
               className={classNames(styles.headerMainNavigationItem, {
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}
-            >
-              {t('header.header-main.link-three')}
-              <span className={styles.arrow}>&#x25BE;</span>
-            </div>
+            />
           </div>
           <div className={styles.headerMainNavigationBlock} ref={ref}>
-            <div
+            <StoreMenu
               className={classNames(styles.headerMainNavigationItem, {
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}
-            >
-              {t('header.header-main.link-two')}
-              <span className={styles.arrow}>&#x25BE;</span>
-            </div>
+            />
           </div>
 
           {/* {navigation.map(el => {

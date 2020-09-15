@@ -27,7 +27,6 @@ const ProgramsMenu: React.FC<any> = ({
         {t('header.header-main.link-one')}
         <span className={styles.arrow}>&#x25BE;</span>
       </div>
-
       <DropDown show={toggleDropDown} subLinks={programsData} />
     </React.Fragment>
   );
