@@ -3,5 +3,5 @@
 .account {
   @include flex($align: stretch, $direction: column);
   flex: 1;
-  background: gray;
+  // background: gray;
 }

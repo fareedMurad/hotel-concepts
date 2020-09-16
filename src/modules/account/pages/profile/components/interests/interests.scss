@@ -1,0 +1,30 @@
+@import 'core.scss';
+
+.interests {
+}
+
+.title {
+  @include font($primary-gray, 24px, 400, 24px);
+}
+
+.interests-list {
+  @include flex();
+  margin-top: 15px;
+}
+
+.single-interess {
+  padding: 10px;
+  border: 1px solid $primary-orange;
+  color: $primary-orange;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+
+.add-more-interests {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  text-decoration: underline;
+}
