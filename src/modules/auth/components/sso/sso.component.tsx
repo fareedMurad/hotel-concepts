@@ -17,22 +17,36 @@ const Sso: React.FC<SsoProps> = ({ className }) => {
 
   return (
     <div className={classNames(styles.sso, className)}>
-      <GoogleLogin
-        buttonText='Login'
-        clientId={googleClientId}
-        cookiePolicy='single_host_origin'
-        onFailure={err => console.log(err)}
-        onSuccess={(data: any) => {
-          dispatch(googleSignIn(data));
-        }}
-      />
-      <FacebookLogin
-        appId={facebookAppId}
-        fields='name,email,picture'
-        callback={data => {
-          dispatch(facebookSignIn(data));
-        }}
-      />
+      <div>
+        <GoogleLogin
+          buttonText='Login'
+          render={renderProps => (
+            <button
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+              className={styles.customLogIn}
+            >
+              Sign in with Google
+            </button>
+          )}
+          clientId={googleClientId}
+          cookiePolicy='single_host_origin'
+          onFailure={err => console.log(err)}
+          onSuccess={(data: any) => {
+            dispatch(googleSignIn(data));
+          }}
+        />
+      </div>
+      <div>
+        <FacebookLogin
+          appId={facebookAppId}
+          fields='name,email,picture'
+          cssClass={styles.customLogIn}
+          callback={data => {
+            dispatch(facebookSignIn(data));
+          }}
+        />
+      </div>
     </div>
   );
 };

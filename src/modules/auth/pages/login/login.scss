@@ -3,6 +3,103 @@
 .login {
   @include flex(center, stretch, column);
   flex: 1;
+  margin-top: 132px;
+}
+
+.form {
+  max-width: 506px;
+  margin: 0 auto;
+
+  &__titles {
+    @include flex();
+    border-bottom: 0.5px solid $light-grey;
+    padding-bottom: 27px;
+    & > a {
+      @include font($gray, 58px, 600, 58px);
+      font-family: $EBGaramond;
+      width: 50%;
+      cursor: pointer;
+    }
+    &--active {
+      color: $primary-gray !important;
+    }
+  }
+  &__description {
+    @include flex($direction: column, $align: center, $justify: center);
+    padding: 25px 75px 45px 75px;
+    text-align: center;
+    &--subtitle {
+      @include font($primary-gray, 24px, 300, 24px);
+      font-family: $EBGaramond;
+    }
+    &--text {
+      @include font($primary-gray, 18px, 400, 24px);
+      margin-top: 35px;
+      font-family: $IBMPlex;
+    }
+  }
+}
+
+.separator {
+  @include flex($align: center);
+  width: 100%;
+  margin-top: 30px;
+  & > span {
+    margin: 0 5px;
+  }
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 47%;
+    height: 0.5px;
+    background-color: $light-grey;
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 47%;
+    height: 0.5px;
+    background-color: $light-grey;
+  }
+}
+
+.form-fields {
+  margin-top: 34px;
+  &__radio-titles {
+    @include flex();
+    margin-bottom: 22px;
+  }
+  &__input {
+    &:not(:last-child) {
+      margin-bottom: 22px;
+    }
+    & > input {
+      background-color: $background;
+      border-color: $background;
+    }
+  }
+  &__radio-iam {
+    min-width: 100%;
+    background-color: $background;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 22px;
+  }
+  &__accept {
+    & > div {
+      border: 1px solid $primary-orange !important;
+    }
+  }
+  &--hint-text {
+    @include font($primary-gray, 18px, 400, 24px);
+    margin: 20px 0;
+    & > span {
+      font-weight: 600;
+    }
+  }
+  &__submit {
+    width: 100% !important;
+  }
 }
 
 .socials {
@@ -11,5 +108,15 @@
 
   & > span {
     margin-left: 40px;
+  }
+}
+
+.forgot-password {
+  cursor: pointer;
+
+  margin: 20px 0 100px 0;
+  text-decoration: underline;
+  &:hover {
+    color: $primary-orange;
   }
 }

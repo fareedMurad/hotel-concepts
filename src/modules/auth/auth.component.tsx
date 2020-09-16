@@ -11,11 +11,20 @@ import {
   UpdatePassword,
   EmailVerification
 } from './pages';
+import { useDispatch } from 'react-redux';
+import { isBackgroundWhite } from '@core/components/header/store';
 
 /**
  * Renders Auth
  */
 const Auth: React.FC = () => {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
   const [
     login,
     register,
