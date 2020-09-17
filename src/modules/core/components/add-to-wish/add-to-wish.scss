@@ -1,0 +1,10 @@
+@import 'core.scss';
+
+.add-to-wish {
+  width: 20px;
+  height: 20px;
+
+  & > div > div > svg:hover {
+    fill: $primary-orange;
+  }
+}
