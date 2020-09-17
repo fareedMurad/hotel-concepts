@@ -6,10 +6,7 @@
 
 .form {
   margin-top: 20px;
-  & > div {
-    margin-bottom: 16px;
-  }
-  &__submit-button {
+  &__submit {
     width: 150px !important;
     height: 36px;
     margin: 0 auto;

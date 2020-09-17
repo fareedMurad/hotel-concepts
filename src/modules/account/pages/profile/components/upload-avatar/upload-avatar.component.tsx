@@ -24,15 +24,16 @@ const UploadAvatar: React.FC<UploadAvatarProps> = ({ className, user }) => {
         size={100}
         thickness={5}
       >
-        <Avatar size={100} user={user} />
+        <div className={styles.title}>Avatar</div>
       </Preloader>
-      <div className={styles.upload}>
-        <div
-          className={styles.caption}
-          onClick={() => {
-            ref.current.click();
-          }}
-        >
+      <div
+        className={styles.upload}
+        onClick={() => {
+          ref.current.click();
+        }}
+      >
+        <Avatar user={user} className={styles.avatar} />
+        <div className={styles.avatarCaption}>
           {isAvatarSource ? 'Edit' : 'Upload'}
         </div>
         {isAvatarSource && (

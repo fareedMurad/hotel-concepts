@@ -1,0 +1,5 @@
+@import 'core.scss';
+
+.title {
+  @include font($primary-gray, 24px, 400, 24px);
+}

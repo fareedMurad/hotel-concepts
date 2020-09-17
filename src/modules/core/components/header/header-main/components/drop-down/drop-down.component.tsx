@@ -9,7 +9,6 @@ import { NavLink } from 'react-router-dom';
  * Renders DropDown
  */
 const DropDown: React.FC<DropDownProps> = ({ show, links }) => {
-  console.log(links);
   const { transitions } = useAnimation(show);
 
   return (
