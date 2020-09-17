@@ -1,4 +1,5 @@
 import { HttpService } from './config';
+import { ProfileValues } from '@account/models';
 
 class AccountService {
   /**
@@ -7,25 +8,56 @@ class AccountService {
   public constructor(private http: HttpService) {}
 
   /**
-   * Fetch profile
+   * Edit profile
    */
-  public fetchProfile = data =>
-    this.http.request({
-      method: 'POST',
-      url: '',
-      data
+  public editProfile = (data: ProfileValues) => {
+    const {
+      name,
+      surname,
+      title,
+      company,
+      job,
+      city,
+      country,
+      phone,
+      language
+    } = data;
+
+    return this.http.request({
+      method: 'PUT',
+      url: '/user',
+      data: {
+        name,
+        surname,
+        title,
+        company,
+        job,
+        city,
+        country,
+        phone,
+        language
+      }
     });
+  };
 
   /**
    * Upload avatar
    */
-  public uploadAvatar = file => {
+  public uploadAvatar = file =>
     this.http.request({
       method: 'POST',
-      url: '',
+      url: '/user/avatar',
       data: file
     });
-  };
+
+  /**
+   * Delete avatar
+   */
+  public deleteAvatar = () =>
+    this.http.request({
+      method: 'DELETE',
+      url: '/user/avatar'
+    });
 }
 
 export { AccountService };

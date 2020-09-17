@@ -3,7 +3,6 @@
 .default-avatar {
   @include flex($align: center, $justify: center);
   text-transform: uppercase;
-  text-transform: uppercase;
   color: #ffffff;
   background: #ff6634;
   border-radius: 50%;
@@ -13,4 +12,8 @@
 .avatar {
   background-size: cover !important;
   background-position: center !important;
+}
+
+.initials {
+  font-size: 30px;
 }

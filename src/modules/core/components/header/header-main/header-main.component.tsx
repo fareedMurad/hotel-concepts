@@ -2,16 +2,18 @@ import * as React from 'react';
 import { HeaderMainProps } from './header-main.props';
 import * as styles from './header-main.scss';
 import { NavLink } from 'react-router-dom';
-import { Icon } from '@core/components';
+import { Icon, Button } from '@core/components';
 import classNames from 'classnames';
 import { useMediaPoints, useClickOutside } from '@core/shared';
-import { DropDown } from '../drop-down';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProgramsMenu } from './components/programs-menu/programs-menu.component';
 import { Spinner } from '@core/components/spinner';
 import { LocalizationMenu } from './components/localization-menu';
 import { State } from '@app/redux/state';
 import { useTranslation } from 'react-i18next';
+import { AboutMenu } from './components/about-menu';
+import { StoreMenu } from './components/store-menu';
+import { navigate } from '@router/store';
 
 /**
  * Renders HeaderMain
@@ -22,9 +24,21 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   isSticky
 }) => {
   const [white, setWhite] = React.useState(false);
+  const { authorized } = useSelector((state: State) => state.auth);
   const [toggleDropDown, setToggleDropDown] = React.useState(false);
+  const dispatch = useDispatch();
+  const [
+    showProfileNavigationMenu,
+    setShowProfileNavigationMenu
+  ] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
-  useClickOutside(ref, () => setToggleDropDown(false));
+  const profileMenuRef = React.useRef<HTMLDivElement>(null);
+  useClickOutside(ref, () => {
+    setToggleDropDown(false);
+  });
+  useClickOutside(profileMenuRef, () => {
+    setShowProfileNavigationMenu(false);
+  });
 
   React.useEffect(() => {
     isSticky ? setWhite(true) : setWhite(false);
@@ -66,24 +80,18 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             />
           </div>
           <div className={styles.headerMainNavigationBlock} ref={ref}>
-            <div
+            <AboutMenu
               className={classNames(styles.headerMainNavigationItem, {
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}
-            >
-              {t('header.header-main.link-three')}
-              <span className={styles.arrow}>&#x25BE;</span>
-            </div>
+            />
           </div>
           <div className={styles.headerMainNavigationBlock} ref={ref}>
-            <div
+            <StoreMenu
               className={classNames(styles.headerMainNavigationItem, {
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}
-            >
-              {t('header.header-main.link-two')}
-              <span className={styles.arrow}>&#x25BE;</span>
-            </div>
+            />
           </div>
 
           {/* {navigation.map(el => {
@@ -117,13 +125,40 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             );
           })} */}
           <div className={styles.headerMainNavigationProfile}>
-            <Icon
-              name={
-                whiteBackground || isSticky
-                  ? 'default-avatar-b'
-                  : 'default-avatar'
-              }
-            />
+            <div className={styles.profileNavigation}>
+              <Icon
+                onClick={() => setShowProfileNavigationMenu(true)}
+                name={
+                  whiteBackground || isSticky
+                    ? 'default-avatar-b'
+                    : 'default-avatar'
+                }
+              />
+              {showProfileNavigationMenu &&
+                (authorized ? (
+                  <div
+                    className={styles.profileNavigationMenu}
+                    ref={profileMenuRef}
+                  >
+                    <NavLink to={'/account/profile'}>my Account</NavLink>
+                    <NavLink to={'/account/subscription'}>
+                      my Subscription
+                    </NavLink>
+                    <NavLink to={'/account/library'}>my Library</NavLink>
+                    <NavLink to={'/account/programs'}>my Programs</NavLink>
+                    <NavLink to={''}>Log out</NavLink>
+                  </div>
+                ) : (
+                  <div
+                    className={styles.profileNavigationMenu}
+                    ref={profileMenuRef}
+                  >
+                    <Button onClick={() => dispatch(navigate('/auth/login'))}>
+                      Log in
+                    </Button>
+                  </div>
+                ))}
+            </div>
 
             <LocalizationMenu
               className={classNames(styles.local, {

@@ -61,6 +61,25 @@
   border-color: $primary-gray !important;
 }
 
-.arrow {
-  margin-left: 10px;
+.profile-navigation {
+  position: relative;
+  &--menu {
+    position: absolute;
+    width: max-content;
+    top: 30px;
+    right: 0;
+    background-color: $background;
+    padding: 10px;
+    border-radius: 10px;
+    & > a {
+      display: block;
+      transition: $transition;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      &:hover {
+        color: $primary-orange;
+      }
+    }
+  }
 }

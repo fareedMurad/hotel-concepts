@@ -1,0 +1,18 @@
+@import 'core.scss';
+
+.sso {
+  & > div:first-child {
+    margin-right: 18px;
+  }
+}
+
+.custom-log-in {
+  @include font($white, 18px, 500, 24px);
+  background-color: $primary-orange;
+  min-width: 245px;
+  padding: 15px;
+  border: unset;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+}

@@ -1,4 +1,5 @@
-import { ProfileValues } from 'src/modules/account/models';
+import { ProfileValues } from '@account/models';
+import { SubscriptionModel } from '@account/models/subscription';
 
 /**
  * account state
@@ -13,13 +14,22 @@ class AccountState {
     password: '',
     repeatPassword: '',
     title: '',
-    firstName: '',
-    lastName: '',
+    name: '',
+    surname: '',
     company: '',
-    jobTitle: '',
+    job: '',
     city: '',
     country: '',
     phone: ''
+  };
+  /*
+   * subscription info
+   */
+  public subscribed = false;
+  public subscription: SubscriptionModel = {
+    name: null,
+    benefits: null,
+    expirationDate: null
   };
 }
 

@@ -1,0 +1,36 @@
+@import 'core.scss';
+
+.about-menu {
+  position: relative;
+  & > span {
+    margin-left: 10px;
+  }
+}
+
+.drop-down {
+  position: absolute;
+  right: -16px;
+  top: 28px;
+  width: max-content;
+  padding: 20px;
+  background-color: $background;
+  border-radius: 16px;
+  overflow: hidden;
+  border-bottom: 1px solid #cbd0d3;
+
+  &--item {
+    @include font($primary-gray, 28px, 400, 35px);
+    font-family: $EBGaramond;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+    & > a {
+      transition: $transition;
+      &:hover {
+        text-decoration: underline;
+        color: $primary-orange;
+      }
+    }
+  }
+}

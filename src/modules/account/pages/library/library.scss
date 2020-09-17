@@ -1,5 +1,63 @@
-@import "core.scss";
+@import 'core.scss';
 
 .library {
-	
+  margin-top: 100px;
+  background-color: $background;
+  padding: 20px 28px;
+  border-radius: 7px;
+  &__title {
+    @include font($primary-gray, 24px, 400, 24px);
+  }
+
+  &__links {
+    @include flex();
+    margin-top: 50px;
+    & > div {
+      @include font($primary-gray, 18px, 600, 24px);
+      font-family: $EBGaramond;
+      cursor: pointer;
+      &:hover {
+        color: $primary-orange;
+        text-decoration: underline;
+      }
+    }
+    & > div:first-child {
+      margin-right: 100px;
+    }
+  }
+  &__books {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  &--book {
+    @include flex($justify: center, $direction: column, $align: center);
+    position: relative;
+    &-name {
+      margin: 20px 0;
+    }
+    &-buttons {
+      @include flex($justify: space-between);
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+
+  @include desktop() {
+    min-width: 1140px;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}
+
+.menu {
+  position: absolute;
+  padding: 5px;
+  background-color: $background;
+  right: 0;
+  bottom: -80px;
+}
+
+.download {
+  @include flex($justify: space-between);
 }

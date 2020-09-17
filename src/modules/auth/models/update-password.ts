@@ -4,7 +4,7 @@ import * as yup from 'yup';
  * Update Password Form Values
  */
 type UpdatePasswordValues = {
-  currentPassword: string;
+  oldPassword: string;
   newPassword: string;
   newPasswordConfirm?: string;
 };
@@ -15,7 +15,7 @@ type UpdatePasswordValues = {
 const updatePasswordValidationSchema = yup
   .object()
   .shape<UpdatePasswordValues>({
-    currentPassword: yup
+    oldPassword: yup
       .string()
       .label('Current Password')
       .required('Current Password is a required field'),

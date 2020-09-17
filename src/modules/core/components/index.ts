@@ -16,4 +16,5 @@ export * from './button-filter';
 export * from './footer';
 export * from './tabs';
 export * from './spinner';
-export * from './rich-text-default'
+export * from './rich-text-default';
+export * from './avatar';

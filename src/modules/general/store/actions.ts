@@ -5,4 +5,11 @@ import { make } from 'redux-chill';
  */
 const startup = make('[general] startup').stage('success');
 
-export { startup };
+/**
+ * Handle error
+ */
+const handleError = make('[general] handle error').stage(
+  (message: string | string[]) => message
+);
+
+export { startup, handleError };

@@ -10,11 +10,12 @@ import { useMediaPoints } from '@core/shared';
 import { toogleContributorModal } from '@ui/modal';
 import { NotFound } from '@app/components';
 import { TestPage } from 'src/modules/test-page';
-import { lazy, Fragment } from 'react';
+import { lazy, Fragment, useEffect } from 'react';
 import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Account } from 'src/modules/account';
+import { getUser } from '@app/redux/auth';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -111,8 +112,13 @@ const ProgramPage = lazy(() =>
 const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
   const { isBackgroundWhite } = useSelector((state: State) => state.header);
+  const { authorized } = useSelector((state: State) => state.auth);
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   return (
     <Fragment>
@@ -134,7 +140,7 @@ const Routes: React.FC = () => {
           </div>
           <React.Suspense fallback={<Spinner />}>
             <Switch>
-              <Route path='/account' component={Account} />
+              {authorized && <Route path='/account' component={Account} />}
               <Route path='/uikit' component={Uikit} />
               <Route path='/testing' component={TestPage} />
               <Route path='/auth' component={Auth} />

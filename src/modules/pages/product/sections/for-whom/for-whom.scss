@@ -35,8 +35,10 @@
     width: 315px;
     background-color: $background;
     height: 84px;
-    margin-right: 21px;
     margin-bottom: 24px;
+
+    margin-right: 21px;
+    padding: 0 16px;
     @include flex($align: center);
     @include font($primary-gray, 28px, 400, 35px);
     letter-spacing: -0.48px;
@@ -44,7 +46,6 @@
     border-radius: 4px;
     &:before {
       content: '■';
-      padding-left: 16px;
       padding-right: 8px;
       color: $primary-gray;
       font-size: 10px;

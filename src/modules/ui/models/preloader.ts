@@ -2,13 +2,17 @@ enum Preloaders {
   general = 'general',
 
   // Auth
-  signIn = 'sign in',
-  signUp = 'sign up',
+  register = 'register',
+  login = 'login',
+  forgotPassword = 'forgot password',
+  resetPassword = 'reset password',
+  updatePassword = 'update password',
+  emailVerification = 'email verification',
+  otp = 'otp',
 
-  // Profile
-  userInfo = 'user info',
-  security = 'security',
-  settings = 'settings',
+  // Account
+  profile = 'profile',
+  profileAvatar = 'profile avatar',
 
   // Uikit
   uikit = 'uikit',

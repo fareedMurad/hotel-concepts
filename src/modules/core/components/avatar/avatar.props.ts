@@ -2,12 +2,22 @@
  * Props
  */
 type AvatarProps = {
-  width: number;
-  height: number;
-  avatar?: string;
+  /**
+   * Avatar size
+   */
+  size?: number;
+  /**
+   * Classname
+   */
   className?: string;
-  name?: string;
-  surname?: string;
+  /**
+   * User data
+   */
+  user: {
+    name: string;
+    surname: string;
+    src?: string;
+  };
 };
 
 export { AvatarProps };

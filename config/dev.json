@@ -1,5 +1,7 @@
 {
   "accessToken": "swkDaTwEiPt4P55HNC08DuKCEcSKKWDQcNy-xzMvs-I",
   "spaceId": "qgx3dmmccd7u",
-  "apiUrl": "http://35.158.130.31:8289/v1"
+  "apiUrl": "http://35.158.130.31:8289/v1",
+  "googleClientId": "293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com",
+  "facebookAppId": "978057235952932"
 }
