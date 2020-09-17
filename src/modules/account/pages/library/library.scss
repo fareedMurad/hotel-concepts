@@ -10,8 +10,8 @@
   }
 
   &__links {
-    margin-top: 50px;
     @include flex();
+    margin-top: 50px;
     & > div {
       @include font($primary-gray, 18px, 600, 24px);
       font-family: $EBGaramond;
@@ -28,7 +28,7 @@
   &__books {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(5, 210px);
+    grid-template-columns: repeat(5, 1fr);
   }
   &--book {
     @include flex($justify: center, $direction: column, $align: center);

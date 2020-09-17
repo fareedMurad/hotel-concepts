@@ -21,7 +21,7 @@
     margin-bottom: 20px;
   }
   @include desktop() {
-    min-width: 208px;
+    min-width: 100%;
     min-height: 400px;
   }
   & > button:not(:last-child) {

@@ -1,8 +1,39 @@
 @import 'core.scss';
 
 .programs {
-  margin-top: 100px;
-  padding: 0 $left-offset;
+  background-color: $background;
+  border-radius: 7px;
+  padding: 20px 28px;
+
+  &--title {
+    @include font($primary-gray, 24px, 400, 24px);
+  }
+
+  &--links {
+    @include flex();
+    margin-top: 50px;
+    & > div {
+      @include font($primary-gray, 18px, 600, 24px);
+      font-family: $EBGaramond;
+      cursor: pointer;
+      &:hover {
+        color: $primary-orange;
+        text-decoration: underline;
+      }
+    }
+    & > div:first-child {
+      margin-right: 100px;
+    }
+  }
+
+  &__list {
+    margin-top: 30px;
+  }
+  @include desktop() {
+    max-width: 1140px;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
 }
 
 .program {
@@ -15,15 +46,6 @@
   & > img {
     max-width: 300px;
     border-radius: 10px;
-  }
-}
-
-.description {
-  padding: 0 20px;
-  width: 30%;
-  &--level {
-    @include font($primary-orange, 15px, 400, 24px);
-    font-family: $IBMPlex;
   }
 }
 
