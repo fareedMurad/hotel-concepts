@@ -112,6 +112,7 @@ const ProgramPage = lazy(() =>
 const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
   const { isBackgroundWhite } = useSelector((state: State) => state.header);
+  const { authorized } = useSelector((state: State) => state.auth);
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
 
@@ -139,7 +140,7 @@ const Routes: React.FC = () => {
           </div>
           <React.Suspense fallback={<Spinner />}>
             <Switch>
-              <Route path='/account' component={Account} />
+              {authorized && <Route path='/account' component={Account} />}
               <Route path='/uikit' component={Uikit} />
               <Route path='/testing' component={TestPage} />
               <Route path='/auth' component={Auth} />
