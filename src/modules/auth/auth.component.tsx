@@ -4,9 +4,9 @@ import { Route } from 'react-router';
 import * as styles from './auth.scss';
 import {
   ForgotPassword,
-  Login,
+  SignUp,
   Otp,
-  Register,
+  Login,
   ResetPassword,
   UpdatePassword,
   EmailVerification
@@ -45,8 +45,8 @@ const Auth: React.FC = () => {
 
   return (
     <div className={styles.auth}>
+      <Route path={register} component={SignUp} />
       <Route path={login} component={Login} />
-      <Route path={register} component={Register} />
       <Route path={forgotPassword} component={ForgotPassword} />
       <Route path={resetPassword} component={ResetPassword} />
       <Route path={updatePassword} component={UpdatePassword} />

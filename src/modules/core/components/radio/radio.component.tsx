@@ -20,7 +20,10 @@ const Radio: React.FC<RadioProps> = ({
   error,
   direction
 }) => {
-  const [selected, setSelected] = React.useState('');
+  const [selected, setSelected] = React.useState(data[0].caption);
+  React.useEffect(() => {
+    onChange(selected);
+  }, [selected]);
   return (
     <div className={className} style={{ flexDirection: direction }}>
       <div className={styles.label}>{label && <Label>{label}</Label>}</div>

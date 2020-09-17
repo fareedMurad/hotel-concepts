@@ -4,49 +4,32 @@ import * as yup from 'yup';
  * Register Form Values
  */
 type RegisterValues = {
+  title: string;
   name: string;
   surname: string;
-  company: string;
-  job: string;
-  country: string;
-  city: string;
-  phone: string;
+  position: string;
   email: string;
   password: string;
+  newsSub: boolean;
 };
 
 /**
  * Register Validation Schema
  */
 const registerValidationSchema = yup.object().shape<RegisterValues>({
+  title: yup.string().label('Title'),
+  position: yup
+    .string()
+    .label('I AM')
+    .required('select position'),
   name: yup
     .string()
-    .label('Name')
-    .required('Name is a required field'),
+    .label('First Name')
+    .required('Type first name'),
   surname: yup
     .string()
-    .label('Surname')
-    .required('Surname is a required field'),
-  company: yup
-    .string()
-    .label('Company')
-    .required('Company is a required field'),
-  job: yup
-    .string()
-    .label('Job')
-    .required('Job is a required field'),
-  country: yup
-    .string()
-    .label('Country')
-    .required('Country is a required field'),
-  city: yup
-    .string()
-    .label('City')
-    .required('City is a required field'),
-  phone: yup
-    .string()
-    .label('Phone')
-    .required('Phone is a required field'),
+    .label('Last Name')
+    .required('Type last name'),
   email: yup
     .string()
     .email('Email is not valid')
@@ -54,9 +37,9 @@ const registerValidationSchema = yup.object().shape<RegisterValues>({
     .required('Email is a required field'),
   password: yup
     .string()
-    .min(6)
     .label('Password')
-    .required('Password is a required field')
+    .required('Password is a required field'),
+  newsSub: yup.boolean()
 });
 
 export { RegisterValues, registerValidationSchema };
