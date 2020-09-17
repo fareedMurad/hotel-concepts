@@ -25,7 +25,6 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
     leave: { opacity: 0, position: 'absolute' }
   });
 
-  React.useEffect(() => {}, [index]);
   return (
     <div className={styles.authors} id='authors'>
       <div className={styles.aboutAuthor}>

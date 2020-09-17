@@ -2,7 +2,8 @@
  * Props
  */
 type ForWhomProps = {
-  productId: string;
+  forWhom: string;
+  forWhomListOfPositions: string[];
 };
 
 export { ForWhomProps };

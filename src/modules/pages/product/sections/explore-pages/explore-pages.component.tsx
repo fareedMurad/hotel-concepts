@@ -27,8 +27,8 @@ const ExplorePages: React.FC<ExplorePagesProps> = ({
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 2
+      items: 1,
+      slidesToSlide: 1
     },
     mobile: {
       breakpoint: { max: 564, min: 0 },
@@ -52,11 +52,29 @@ const ExplorePages: React.FC<ExplorePagesProps> = ({
           responsive={responsive}
         >
           {data.items.map((el, idx) => {
-            return (
+            const format = el.url.split('.').pop();
+            return format == 'pdf' ? (
+              <iframe
+                style={{ border: 'none' }}
+                src={el.url}
+                className={styles.squer}
+                height='100%'
+                allowFullScreen={true}
+                onClick={() => {
+                  setSelectedImage(el.url);
+                  dispatch(toggleBookOverviewModal(true));
+                  dispatch(showModal(Modals.bookOverview));
+                }}
+              />
+            ) : (
               <div
                 key={el.url}
-                className={styles.squer}
-                style={{ backgroundImage: `url(${el.url})` }}
+                className={styles.square}
+                style={{
+                  backgroundImage: `url(${el.url})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'fill'
+                }}
                 onClick={() => {
                   setSelectedImage(el.url);
                   dispatch(toggleBookOverviewModal(true));

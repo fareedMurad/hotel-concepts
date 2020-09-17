@@ -20,7 +20,7 @@
   width: 100%;
 
   &--wrapper {
-    @include desktop() {
+    @include tablet() {
       position: absolute;
       bottom: 48px;
       max-width: 40%;
@@ -55,7 +55,7 @@
     width: 44px;
     height: 44px;
     color: $primary-gray;
-
+    background: none !important;
     border: 1px solid #98a2a8;
     border-radius: 4px;
     outline: none;
@@ -70,9 +70,16 @@
 .author-image {
   & > img {
     border-radius: 10px;
-    max-width: 550px;
-    min-height: 590px;
-    max-height: 590px;
+    @include tablet() {
+      max-width: 350px;
+      min-height: 390px;
+      max-height: 390px;
+    }
+    @include desktop() {
+      max-width: 550px;
+      min-height: 590px;
+      max-height: 590px;
+    }
   }
   &--mobile {
     max-height: 300px;

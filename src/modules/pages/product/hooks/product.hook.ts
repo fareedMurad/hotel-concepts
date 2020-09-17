@@ -8,6 +8,8 @@ const useProductData = productId => {
         previewDescription
         materialsIncluded
         availableFormats
+        forWhom
+        forWhomListOfPositions
         commentsCollection {
           items {
             name

@@ -72,5 +72,8 @@
 }
 
 .product-slider-wrap {
-  margin-bottom: 75px;
+  margin-bottom: 78px;
+  & > div > div {
+    padding-bottom: 66px !important;
+  }
 }

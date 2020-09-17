@@ -50,8 +50,16 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
     languages[0].name
   );
   const [showLanguges, setShowLangueges] = React.useState(false);
+  const ref = React.useRef();
+  useClickOutside(ref, () => {
+    setShowLangueges(false);
+  });
   return (
-    <div className={className} onClick={() => setShowLangueges(!showLanguges)}>
+    <div
+      ref={ref}
+      className={className}
+      onClick={() => setShowLangueges(!showLanguges)}
+    >
       {currentLanguage} <Icon name={iconName} />
       {showLanguges && (
         <LocalizationDropDown

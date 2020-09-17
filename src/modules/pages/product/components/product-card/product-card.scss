@@ -6,13 +6,15 @@
   padding: 20px;
   background-color: $background;
   border-radius: 12px;
-  min-height: calc(100vh - 100px);
+  min-height: 580px;
   @include tablet() {
     width: auto;
     margin-right: 0;
   }
   @include desktop() {
     // width: 50%;
+    max-height: calc(100vh - 100px);
+    min-height: 580px;
     margin-right: 0;
   }
 }
