@@ -2,6 +2,7 @@
 
 .authors {
   @include container();
+  margin-top: 20px;
   padding-top: 60px !important;
   padding-right: 20px !important;
   min-height: auto;
