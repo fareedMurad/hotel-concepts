@@ -23,7 +23,6 @@ const Library: React.FC<LibraryProps> = ({}) => {
   const ref = React.useRef();
   useClickOutside(ref, () => setShowMenu(0));
   const dispatch = useDispatch();
-  const { bookPreviewModal } = useSelector((state: State) => state.ui.modal);
 
   return (
     <React.Fragment>
