@@ -7,7 +7,8 @@ import {
   verifyEmail,
   register,
   forgotPassword,
-  getUser
+  getUser,
+  updatePassword
 } from './actions';
 import { AuthState } from './state';
 

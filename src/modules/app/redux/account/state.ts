@@ -9,10 +9,10 @@ class AccountState {
    * Profile
    */
   public profile: ProfileValues = {
-    language: '',
     email: '',
-    password: '',
-    repeatPassword: '',
+    // password: '',
+    // repeatPassword: '',
+    position: '',
     title: '',
     name: '',
     surname: '',
@@ -31,6 +31,10 @@ class AccountState {
     benefits: null,
     expirationDate: null
   };
+  public editProfileSuccess = false;
+  public updatePasswordSuccess = false;
+  public selectPaymentMethodsSuccess = false;
+  public newsSubscriptionSuccess = false;
 }
 
 export { AccountState };

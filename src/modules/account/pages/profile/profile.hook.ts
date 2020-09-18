@@ -11,25 +11,23 @@ const useProfileData = () => {
    * Default values
    */
   const defaultValues: ProfileValues = {
-    language: '',
-    email: '',
-    password: '',
-    repeatPassword: '',
-    title: '',
-    name: '',
-    surname: '',
-    company: '',
-    job: '',
-    city: '',
-    country: '',
-    phone: ''
+    position: user.position ? user.position : '',
+    email: user.email,
+    title: user.title,
+    name: user.name,
+    surname: user.surname,
+    company: user.company ? user.company : '',
+    job: user.job ? user.job : '',
+    city: user.city ? user.city : '',
+    country: user.country ? user.country : '',
+    phone: user.phone ? user.phone : ''
   };
 
   const isUser = Object.keys(user || {}).length > 0;
 
   return {
     user,
-    defaultValues: isUser ? Object.assign(defaultValues, user) : defaultValues
+    defaultValues: isUser ? Object.assign(defaultValues) : defaultValues
   };
 };
 

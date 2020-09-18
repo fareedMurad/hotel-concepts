@@ -1,13 +1,14 @@
 import { make } from 'redux-chill';
 import { ProfileValues } from '@account/models';
 import { SubscriptionModel } from '@account/models/subscription';
+import { PaymentMethodsModel } from '@account/models/payment';
 
 /**
  * Edit profile
  */
-const editProfile = make('[account] edit profile').stage(
-  (payload: ProfileValues) => payload
-);
+const editProfile = make('[account] edit profile')
+  .stage((payload: ProfileValues) => payload)
+  .stage('success');
 
 /**
  * Upload avatar
@@ -35,4 +36,27 @@ const subscribe = make('[account] subscribe').stage(
   (payload: SubscriptionModel) => payload
 );
 
-export { editProfile, uploadAvatar, deleteAvatar, addToWishList, subscribe };
+/*
+ * Select payment method
+ */
+
+const selectPaymentMethods = make('[account] select payment method')
+  .stage((payload: PaymentMethodsModel) => payload)
+  .stage('success');
+
+/*
+ * Set news subscription
+ */
+const setNewsSubscription = make('[account] set news subscription')
+  .stage((payload: boolean) => payload)
+  .stage('success');
+
+export {
+  editProfile,
+  uploadAvatar,
+  deleteAvatar,
+  addToWishList,
+  subscribe,
+  selectPaymentMethods,
+  setNewsSubscription
+};

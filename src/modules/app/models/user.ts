@@ -15,6 +15,9 @@ type User = {
   phone: string;
   email: string;
   source: string;
+  position: string;
+  newsSub: boolean;
+  paymentMethods: string[];
 };
 
 export { User };

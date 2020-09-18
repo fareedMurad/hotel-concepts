@@ -59,7 +59,7 @@ class AuthSaga {
         })
       );
       yield put(navigate('/account/profile'));
-      yield put(getUser());
+      yield put(authorize());
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -185,12 +185,12 @@ class AuthSaga {
     yield put(preloaderStart(Preloaders.updatePassword));
     try {
       const response = yield call(api.auth.updatePassword, payload);
-
       console.log(response);
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.updatePassword));
+      yield put(updatePassword.success());
     }
   }
 

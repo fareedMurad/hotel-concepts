@@ -130,6 +130,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
                   className={styles.formFieldsInput}
                   name='password'
                   label='Password'
+                  type='password'
                 />
                 <Field.Checkbox
                   className={styles.formFieldsAccept}

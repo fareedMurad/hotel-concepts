@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next';
 import { AboutMenu } from './components/about-menu';
 import { StoreMenu } from './components/store-menu';
 import { navigate } from '@router/store';
+import { unauthorize } from '@app/redux/auth';
 
 /**
  * Renders HeaderMain
@@ -146,7 +147,9 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                     </NavLink>
                     <NavLink to={'/account/library'}>my Library</NavLink>
                     <NavLink to={'/account/programs'}>my Programs</NavLink>
-                    <NavLink to={''}>Log out</NavLink>
+                    <Button onClick={() => dispatch(unauthorize())}>
+                      Log out
+                    </Button>
                   </div>
                 ) : (
                   <div

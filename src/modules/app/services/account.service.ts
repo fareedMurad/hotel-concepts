@@ -20,7 +20,7 @@ class AccountService {
       city,
       country,
       phone,
-      language
+      position
     } = data;
 
     return this.http.request({
@@ -35,7 +35,7 @@ class AccountService {
         city,
         country,
         phone,
-        language
+        position
       }
     });
   };
@@ -57,6 +57,16 @@ class AccountService {
     this.http.request({
       method: 'DELETE',
       url: '/user/avatar'
+    });
+
+  /*
+   * Update or set payment methods
+   */
+  public selectPaymentMethods = payload =>
+    this.http.request({
+      method: 'PUT',
+      url: 'user/payment-method',
+      data: payload
     });
 }
 

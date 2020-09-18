@@ -12,11 +12,24 @@
   }
   &--dropdown {
     @include flex($justify: space-between);
+    position: relative;
+    cursor: pointer;
     width: 110px;
     padding: 8px;
     border: 1px solid $primary-gray;
     border-radius: 4px;
   }
+}
+
+.dropDown {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  background: white;
+  padding: 8px;
+  border-radius: 4px;
+  width: 100%;
+  z-index: 2;
 }
 
 .button {

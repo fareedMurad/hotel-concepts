@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useRegisterData } from './login.hook';
 import * as styles from './login.scss';
 import { useDispatch } from 'react-redux';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import { Field, Button, Preloader } from '@core/components';
 import { LoginValues, loginValidationSchema } from '@auth/models';
 import { register, login } from '@app/redux/auth';
@@ -36,7 +36,9 @@ const Login: React.FC = () => {
           >
             Sign up
           </NavLink>
-          <NavLink to={'/auth/login'}>Sign in</NavLink>
+          <NavLink activeClassName={styles.formTitlesActive} to={'/auth/login'}>
+            Sign in
+          </NavLink>
         </div>
         <Preloader id={Preloaders.register}>
           <Fragment>
@@ -48,12 +50,23 @@ const Login: React.FC = () => {
                 dispatch(login(values));
               }}
             >
-              {({ handleSubmit }) => (
-                <div className={styles.form}>
+              {({ handleSubmit, handleReset }) => (
+                <Form className={styles.form}>
                   <Field.Text name='email' label='Email' />
-                  <Field.Text name='password' label='Password' />
-                  <Button onClick={() => handleSubmit()}>Login</Button>
-                </div>
+                  <Field.Text
+                    name='password'
+                    label='Password'
+                    type='password'
+                  />
+                  <Button
+                    onClick={() => {
+                      handleSubmit();
+                      setTimeout(() => handleReset(), 1000);
+                    }}
+                  >
+                    Login
+                  </Button>
+                </Form>
               )}
             </Formik>
           </Fragment>

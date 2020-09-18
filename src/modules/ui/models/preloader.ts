@@ -13,6 +13,7 @@ enum Preloaders {
   // Account
   profile = 'profile',
   profileAvatar = 'profile avatar',
+  paymentMethods = 'profile payment methods',
 
   // Uikit
   uikit = 'uikit',

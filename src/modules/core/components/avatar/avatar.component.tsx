@@ -7,21 +7,21 @@ import classNames from 'classnames';
  * Renders Avatar
  */
 const Avatar: React.FC<AvatarProps> = ({ size, user, className, children }) => {
-  const { name, surname, src } = user || {};
+  const { name, surname, avatar } = user || {};
 
   return (
     <div
       className={classNames(styles.defaultAvatar, className, {
-        [styles.avatar]: src
+        [styles.avatar]: avatar
       })}
       style={{
         width: size,
         height: size,
-        background: !src ? '#ff6634' : `url(${src})`
+        background: !avatar ? '#ff6634' : `url(${avatar})`
       }}
     >
       {children}
-      {!src && (
+      {!avatar && (
         <div className={styles.initials}>
           {name && name[0]}
           {surname && surname[0]}

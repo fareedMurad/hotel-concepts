@@ -1,22 +1,21 @@
 import * as yup from 'yup';
 
 /**
+ * Language
+ */
+
+// type LanguageValue = {
+//   language: string;
+// };
+
+/**
  * Profile Form Values
  */
 type ProfileValues = {
   /**
-   * Language section
-   */
-  language: string;
-  /**
-   * Email and password section
-   */
-  email: string;
-  password?: string;
-  repeatPassword?: string;
-  /**
    * Contact address section
    */
+  email: string;
   title: string;
   name: string;
   surname: string;
@@ -25,23 +24,20 @@ type ProfileValues = {
   country: string;
   city: string;
   phone: string;
+  position: string;
 };
 
 /**
  * Profile validation schema
  */
 const profileValidationSchema = yup.object().shape<ProfileValues>({
-  language: yup
-    .string()
-    .label('Language')
-    .required('Language is a required field'),
   email: yup
     .string()
     .label('Email')
-    .email()
-    .required('Email is a required field'),
-  password: yup.string().label('Password'),
-  repeatPassword: yup.string().label('Password confirmation'),
+    .email(),
+  //   .required('Email is a required field'),
+  // password: yup.string().label('Password'),
+  // repeatPassword: yup.string().label('Password confirmation'),
   title: yup
     .string()
     .label('Title')
@@ -74,7 +70,8 @@ const profileValidationSchema = yup.object().shape<ProfileValues>({
   phone: yup
     .string()
     .label('Phonenumber')
-    .required('Phonenumber is a required field')
+    .required('Phonenumber is a required field'),
+  position: yup.string().label('I Am')
 });
 
 export { ProfileValues, profileValidationSchema };
