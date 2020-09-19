@@ -17,6 +17,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   error,
   onTouch,
   disabled,
+  defaultChecked,
   ...props
 }) => (
   <div

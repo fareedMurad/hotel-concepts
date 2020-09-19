@@ -15,7 +15,7 @@ import classNames from 'classnames';
 import { Language } from './components/language';
 import { Interests } from './components/interests';
 import { ContactAddress } from './components/contact-address';
-import { EmailPassword } from './components/email-password';
+import { UpdatePassword } from './components/update-password';
 import { PaymentMethod } from './components/payment-method';
 import { Privacy } from './components/privacy';
 import { Newsletter } from './components/newsletter';
@@ -50,7 +50,7 @@ const Profile: React.FC = () => {
           <ContactAddress />
         </Card>
         <Card className={styles.profileContainerEmailPassword}>
-          <EmailPassword />
+          <UpdatePassword />
         </Card>
         <Card className={styles.profileContainerAvatar}>
           <UploadAvatar user={user} />

@@ -18,48 +18,49 @@ const UploadAvatar: React.FC<UploadAvatarProps> = ({ className, user }) => {
 
   return (
     <div className={classNames(styles.uploadAvatar, className)}>
+      <div className={styles.title}>Avatar</div>
       <Preloader
         className={styles.preloader}
         id={Preloaders.profileAvatar}
         size={100}
         thickness={5}
       >
-        <div className={styles.title}>Avatar</div>
-      </Preloader>
-      <div
-        className={styles.upload}
-        onClick={() => {
-          ref.current.click();
-        }}
-      >
-        <Avatar user={user} className={styles.avatar} />
-        <div className={styles.avatarCaption}>
-          {isAvatarSource ? 'Edit' : 'Upload'}
-        </div>
-        {isAvatarSource && (
-          <div
-            className={styles.delete}
-            onClick={() => dispatch(deleteAvatar())}
-          >
-            Delete avatar
-          </div>
-        )}
-        <input
-          className={styles.input}
-          ref={ref}
-          id='avatar'
-          name='image'
-          type='file'
-          accept='.jpg, .jpeg, .png'
-          onChange={event => {
-            const {
-              target: { files }
-            } = event;
-
-            dispatch(uploadAvatar(files[0]));
+        <div
+          className={styles.upload}
+          onClick={() => {
+            ref.current.click();
           }}
-        />
-      </div>
+        >
+          <Avatar user={user} className={styles.avatar} />
+
+          {isAvatarSource && (
+            <div
+              className={styles.delete}
+              onClick={() => dispatch(deleteAvatar())}
+            >
+              Delete avatar
+            </div>
+          )}
+          <input
+            className={styles.input}
+            ref={ref}
+            id='avatar'
+            name='image'
+            type='file'
+            accept='.jpg, .jpeg, .png'
+            onChange={event => {
+              const {
+                target: { files }
+              } = event;
+
+              dispatch(uploadAvatar(files[0]));
+            }}
+          />
+        </div>
+        {/* <div className={styles.avatarCaption}>
+          {isAvatarSource ? 'Edit' : 'Upload'}
+        </div> */}
+      </Preloader>
     </div>
   );
 };

@@ -7,7 +7,11 @@ import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
-import { showModal, toggleBookOverviewModal } from '@ui/modal';
+import {
+  showModal,
+  toggleBookOverviewModal,
+  toggleBookPreviewModal
+} from '@ui/modal';
 import { Modals } from '@ui/models';
 import { url } from 'inspector';
 import { useHistory } from 'react-router';
@@ -54,18 +58,22 @@ const ExplorePages: React.FC<ExplorePagesProps> = ({
           {data.items.map((el, idx) => {
             const format = el.url.split('.').pop();
             return format == 'pdf' ? (
-              <iframe
-                style={{ border: 'none' }}
-                src={el.url}
-                className={styles.squer}
-                height='100%'
-                allowFullScreen={true}
+              <div
+                className={styles.pdfFile}
                 onClick={() => {
                   setSelectedImage(el.url);
-                  dispatch(toggleBookOverviewModal(true));
+                  dispatch(toggleBookPreviewModal(true));
                   dispatch(showModal(Modals.bookOverview));
                 }}
-              />
+              >
+                <iframe
+                  style={{ border: 'none' }}
+                  src={el.url}
+                  className={styles.squer}
+                  height='100%'
+                  allowFullScreen={true}
+                />
+              </div>
             ) : (
               <div
                 key={el.url}

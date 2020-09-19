@@ -3,8 +3,16 @@
 .upload-avatar {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
+.preloader {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px;
+}
 .title {
   @include font($primary-gray, 24px, 400, 24px);
 }
@@ -20,17 +28,35 @@
   height: 90% !important;
   border-radius: 7px;
   margin-top: 20px;
-  &--caption {
-    position: absolute;
 
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.274);
+    transition: $transition;
+    border-radius: 7px;
+  }
+  &:after {
+    content: 'UPLOAD';
+    position: absolute;
     top: calc(50% - 9px);
+    left: calc(50% - 30px);
+    opacity: 0;
+    transition: $transition;
+  }
+  &:hover:before {
+    opacity: 1;
+  }
+  &:hover:after {
+    opacity: 1;
+  }
+  &--caption {
     font-size: 18px;
     cursor: pointer;
-  }
-  &:hover {
-    &--caption {
-      display: block;
-    }
   }
 }
 

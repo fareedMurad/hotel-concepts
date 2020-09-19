@@ -16,7 +16,7 @@ type AvatarProps = {
   user: {
     name: string;
     surname: string;
-    src?: string;
+    avatar?: string;
   };
 };
 
