@@ -15,8 +15,9 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({}) => {
   console.log(defaultValues);
   const dispatch = useDispatch();
 
-  const isMethodInclude = method => {
-    return defaultValues.paymentMethods.find(method);
+  const isMethodIncluded = method => {
+    console.log(defaultValues.paymentMethods.find(el => el === method));
+    return defaultValues.paymentMethods.find(el => el === method);
   };
   return (
     <React.Fragment>
@@ -28,13 +29,22 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({}) => {
           console.log(values);
         }}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, values }) => (
           <Form className={styles.form}>
-            <Field.Checkbox name='card' label='Credit/debit card' />
-            <Field.Checkbox name='paypal' label='PauPal' />
+            <Field.Checkbox
+              defaultChecked={isMethodIncluded('card') ? true : false}
+              name='card'
+              label='Credit/debit card'
+            />
+            <Field.Checkbox
+              name='paypal'
+              label='PauPal'
+              defaultChecked={isMethodIncluded('paypal') ? true : false}
+            />
             <Field.Checkbox
               name='transfer'
               label='Bank transfer with invoice'
+              defaultChecked={isMethodIncluded('transfer') ? true : false}
             />
             <Button
               className={styles.formSubmitButton}

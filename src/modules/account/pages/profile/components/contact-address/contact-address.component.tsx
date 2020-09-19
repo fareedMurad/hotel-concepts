@@ -83,6 +83,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({}) => {
               label='I Am'
               data={radioIAMData}
               direction='row'
+              value={user.position}
             />
             <Field.Text
               placeholder={user.company}

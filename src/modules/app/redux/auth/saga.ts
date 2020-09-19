@@ -58,6 +58,7 @@ class AuthSaga {
           description: 'Logged in'
         })
       );
+      yield getUser();
       yield put(navigate('/account/profile'));
       yield put(authorize());
     } catch (error) {

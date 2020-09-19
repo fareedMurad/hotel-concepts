@@ -58,14 +58,22 @@ const Login: React.FC = () => {
                     label='Password'
                     type='password'
                   />
-                  <Button
-                    onClick={() => {
-                      handleSubmit();
-                      setTimeout(() => handleReset(), 1000);
-                    }}
-                  >
-                    Login
-                  </Button>
+                  <div className={styles.formButton}>
+                    <Button
+                      onClick={() => {
+                        handleSubmit();
+                        setTimeout(() => handleReset(), 1000);
+                      }}
+                    >
+                      Login
+                    </Button>
+                    <Preloader
+                      className={styles.formPreloader}
+                      id={Preloaders.updatePassword}
+                      size={20}
+                      thickness={5}
+                    />
+                  </div>
                 </Form>
               )}
             </Formik>

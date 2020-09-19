@@ -32,11 +32,11 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
   const radioTitleData = [
     {
       id: '3r32323e3r',
-      caption: 'Ms'
+      caption: 'Ms.'
     },
     {
       id: '3rfdsv52',
-      caption: 'Mr'
+      caption: 'Mr.'
     }
   ];
   const radioIAMData = [
