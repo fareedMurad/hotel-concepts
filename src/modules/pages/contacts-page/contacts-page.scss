@@ -108,23 +108,15 @@
 
 .input-group {
   &__a {
-    @include flex($align: center);
+    @include flex($align: flex-end);
     & > div:first-child {
       width: 40%;
-      padding-top: 19px;
-      @include tablet() {
-        padding-top: 24px;
-      }
     }
   }
   &__b {
-    @include flex($align: center);
+    @include flex($align: flex-end);
     & > div:first-child {
       width: 20%;
-      padding-top: 19px;
-      @include tablet() {
-        padding-top: 24px;
-      }
     }
   }
 }

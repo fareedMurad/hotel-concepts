@@ -24,7 +24,8 @@ const Text: React.FC<TextProps> = ({
   mask,
   error,
   ref,
-  isError
+  isError,
+  autoComplete
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -58,6 +59,7 @@ const Text: React.FC<TextProps> = ({
         onBlur={() => {
           setFocused(false);
         }}
+        autoComplete={autoComplete}
       />
       {isError && <div className={styles.error}>{error}</div>}
     </div>
@@ -71,7 +73,8 @@ Text.defaultProps = {
   type: 'text',
   mask: '',
   onTouch: () => {},
-  onChange: () => {}
+  onChange: () => {},
+  autoComplete: 'on'
 };
 
 export { Text };

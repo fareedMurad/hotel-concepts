@@ -12,9 +12,11 @@ const Hero: React.FC<HeroProps> = ({ title }) => {
   return (
     <div
       className={styles.hero}
-      style={{ backgroundImage: `url(${marketPlaceHeroImage})` }}
+      style={{
+        backgroundImage: `url(${require('src/assets/img/my-account-hero.png')})`
+      }}
     >
-      <H1>{title}</H1>
+      <H1 className={styles.title}>{title}</H1>
     </div>
   );
 };

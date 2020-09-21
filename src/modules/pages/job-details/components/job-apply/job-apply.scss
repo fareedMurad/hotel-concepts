@@ -40,18 +40,21 @@
 .input {
   margin-bottom: 25px;
   label {
-    @include font($primary-gray, 16px, 400, 14px);
+    @include font($primary-gray, 16px, 400, 22px);
   }
   input {
     // width: 360px;
     background: #f5f1f0;
     border-radius: 4px;
-    border: unset;
+    border: 1px solid $background;
   }
 }
 
 .select {
   margin-bottom: 25px;
+  & > div > div > div {
+    background-color: $background;
+  }
 }
 
 .hint {
@@ -59,7 +62,7 @@
   z-index: 10;
   bottom: 0;
   left: 0;
-  padding: 13px 16px;
+  padding: 12.5px 16px;
   transition: 0.3;
   cursor: pointer;
   background: #f5f1f0;
@@ -75,21 +78,17 @@
 }
 
 .label-upload {
-  @include font($primary-gray, 16px, 400, 14px);
+  @include font($primary-gray, 16px, 400, 22px);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   &__resume {
-    @include font($primary-gray, 16px, 400, 14px);
+    @include font($primary-gray, 16px, 400, 22px);
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
   }
 }
 
 .input-bottom {
-  label {
-    @include font($primary-gray, 16px, 400, 14px);
-  }
-
   input {
     width: 100%;
     background: #f5f1f0;

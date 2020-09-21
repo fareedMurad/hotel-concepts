@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updatePassword } from '@app/redux/auth';
 import { Preloaders } from '@ui/models';
 import { State } from '@app/redux/state';
+import { ScrollToTop } from '@app';
 
 const defaultValues: UpdatePasswordValues = {
   oldPassword: '',
@@ -27,6 +28,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({}) => {
   const dispatch = useDispatch();
   return (
     <React.Fragment>
+      <ScrollToTop />
       <div className={styles.title}>Email & Password</div>
       <div className={styles.hint}>
         Change your email address and password here. Please remember to use your
@@ -42,6 +44,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({}) => {
         {({ handleSubmit, isSubmitting }) => (
           <div className={styles.form}>
             <Field.Text
+              autoComplete='new-password'
               name='oldPassword'
               label='Old password'
               type='password'

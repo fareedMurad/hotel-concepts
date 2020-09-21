@@ -100,6 +100,7 @@ const Select: React.FC<SelectProps> = ({
           onChange(option?.value);
         }}
         components={components}
+        className={className}
       />
     </div>
   );
