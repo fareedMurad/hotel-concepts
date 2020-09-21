@@ -38,6 +38,7 @@
     font-family: $EBGaramond;
     & > a {
       text-decoration: underline;
+      cursor: pointer;
       &:hover {
         color: $primary-orange;
       }
