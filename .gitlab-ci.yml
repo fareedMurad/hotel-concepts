@@ -15,6 +15,7 @@ development:
     - apt-get update -qy
     - apt-get -y install zip unzip
     - npm i -G prettier
+    - npm i =G cross-env
   script:
     - npm i --production
     - npm run build:dev
