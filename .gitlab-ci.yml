@@ -18,6 +18,7 @@ development:
     - npm i -G cross-env
     - npm i -G webpack
     - npm i -G webpack-cli
+    - npm i -G tsconfig-paths-webpack-plugin
   script:
     - npm i --production
     - npm run build:dev
