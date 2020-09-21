@@ -20,7 +20,7 @@ const ForWhom: React.FC<ForWhomProps> = ({
   return (
     <section id='content' className={styles.forWhom}>
       <div className={styles.title}>
-        <div>For Whom</div>
+        <div>For whom</div>
         <div>{forWhom}</div>
       </div>
       <div className={styles.roles}>

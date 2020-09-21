@@ -86,7 +86,7 @@ const Product: React.FC<ProductProps> = ({}) => {
         <div>{t('product.back')}</div>
       </div>
       <div className={styles.productReview}>
-        <div className={styles.slider} style={{ paddingBottom: '80px' }}>
+        <div className={styles.slider}>
           <ProductSlider
             url={product.productImage.url}
             productPreview={product.previewPages.url}
