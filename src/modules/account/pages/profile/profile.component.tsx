@@ -56,7 +56,7 @@ const Profile: React.FC = () => {
           <UploadAvatar user={user} />
         </Card>
         <Card className={styles.profileContainerPayment}>
-          <PaymentMethod />
+          {/* <PaymentMethod /> */}
         </Card>
         <Card className={styles.profileContainerPrivacy}>
           <Privacy />

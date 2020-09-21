@@ -20,7 +20,7 @@ const registerValidationSchema = yup.object().shape<RegisterValues>({
   title: yup.string().label('Title'),
   position: yup
     .string()
-    .label('I AM')
+    .label('I am')
     .required('select position'),
   name: yup
     .string()

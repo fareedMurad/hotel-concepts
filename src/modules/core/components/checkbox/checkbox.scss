@@ -24,8 +24,7 @@
   transition: $transition;
   border: none;
   &--checked {
-    border-color: $primary-orange;
-    background: $primary-orange;
+    border-color: $primary-orange !important;
   }
 }
 

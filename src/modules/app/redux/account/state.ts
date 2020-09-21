@@ -31,9 +31,23 @@ class AccountState {
     benefits: null,
     expirationDate: null
   };
+  /*
+   * Eddit profile success
+   */
   public editProfileSuccess = false;
+  /*
+   * Update password success
+   */
+
   public updatePasswordSuccess = false;
+  /*
+   * Select payment success
+   */
   public selectPaymentMethodsSuccess = false;
+
+  /*
+   *  New subscription success
+   */
   public newsSubscriptionSuccess = false;
 }
 

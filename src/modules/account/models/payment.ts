@@ -5,8 +5,8 @@
 type PaymentMethodsModel = {
   paymentMethods: {
     card: boolean;
-    paypal: boolean;
     transfer: boolean;
+    paypal: boolean;
   };
 };
 

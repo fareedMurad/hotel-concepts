@@ -59,8 +59,8 @@ class AuthSaga {
         })
       );
       yield getUser();
-      yield put(navigate('/account/profile'));
       yield put(authorize());
+      yield put(navigate('/account/profile'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -208,6 +208,9 @@ class AuthSaga {
 
     try {
       const response = yield call(api.auth.googleSignIn, data);
+      yield put(getUser());
+      yield put(authorize());
+      yield put(navigate('/account/profile'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -233,6 +236,9 @@ class AuthSaga {
 
     try {
       const response = yield call(api.auth.facebookSignIn, data);
+      yield put(getUser());
+      yield put(authorize());
+      yield put(navigate('/account/profile'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

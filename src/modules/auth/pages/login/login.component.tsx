@@ -74,6 +74,12 @@ const Login: React.FC = () => {
                       thickness={5}
                     />
                   </div>
+                  <div
+                    className={styles.forgotPassword}
+                    onClick={() => dispatch(navigate('/auth/forgot-password'))}
+                  >
+                    Forgot password?
+                  </div>
                 </Form>
               )}
             </Formik>

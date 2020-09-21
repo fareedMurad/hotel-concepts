@@ -1,40 +1,34 @@
 @import 'core.scss';
 
-.label {
-  margin-right: 30px;
-}
-
 .container {
-  @include flex();
-  &:not(:last-child) {
-    margin-right: 20px;
-    margin-bottom: 20px;
-  }
+  @include flex($align: center);
 }
 .radio {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: 1px solid $light-grey;
+  border: 2px solid $light-grey;
   margin-right: 5px;
+  cursor: pointer;
+  transition: $transition;
 
   &:hover {
-    border: 1px solid $primary-orange;
+    border: 2px solid $primary-orange;
   }
   &:before {
     content: '';
     display: none;
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     position: absolute;
-    top: calc(50% - 6px);
-    left: calc(50% - 6px);
+    top: calc(50% - 4px);
+    left: calc(50% - 4px);
     background-color: $primary-orange;
     border-radius: 50%;
   }
   &--selected {
-    border: 1px solid $primary-orange;
+    border: 2px solid $primary-orange;
     &:before {
       display: block;
     }

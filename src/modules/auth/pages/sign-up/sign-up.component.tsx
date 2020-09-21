@@ -76,8 +76,8 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
               Create your account
             </div>
             <div className={styles.formDescriptionText}>
-              Build skills for today, tomorrow, anf beyond.Education to
-              future-proof your career
+              Build skills for today, tomorrow, and beyond. Education to
+              future-proof your career.
             </div>
           </div>
           <Sso className={styles.socials} />
@@ -88,7 +88,10 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
           <Formik
             initialValues={defaultValues}
             validationSchema={registerValidationSchema}
-            onSubmit={values => {
+            validateOnChange={false}
+            validateOnBlur={false}
+            onSubmit={(values, actions) => {
+              actions.validateForm(values);
               dispatch(register(values));
               console.log(values);
             }}
@@ -116,7 +119,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
                 <Field.Radio
                   name='position'
                   data={radioIAMData}
-                  label='I AM'
+                  label='I am'
                   className={styles.formFieldsRadioIam}
                   direction='column'
                 />
@@ -148,13 +151,6 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
                 >
                   Sign Up
                 </Button>
-
-                <div
-                  className={styles.forgotPassword}
-                  onClick={() => dispatch(navigate('/auth/forgot-password'))}
-                >
-                  Forgot password?
-                </div>
               </div>
             )}
           </Formik>

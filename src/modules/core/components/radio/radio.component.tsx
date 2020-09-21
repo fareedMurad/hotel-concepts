@@ -26,7 +26,7 @@ const Radio: React.FC<RadioProps> = ({
   }, [selected]);
   return (
     <div className={className} style={{ flexDirection: direction }}>
-      <div className={styles.label}>{label && <Label>{label}</Label>}</div>
+      {label && <label>{label}</label>}
 
       {data.map(({ id, caption }, index) => (
         <div key={index} className={styles.container}>
