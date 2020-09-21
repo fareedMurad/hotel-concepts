@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useProductData = productId => {
+const useProductData = (productId, language) => {
   const GET_PRODUCT_DATA = gql`
-    query($id: String!) {
-      product(id: $id) {
+    query($id: String!, $locale: String!) {
+      product(id: $id, locale: $locale) {
         name
         previewDescription
         materialsIncluded
@@ -71,7 +71,7 @@ const useProductData = productId => {
   `;
 
   const { data, loading, error } = useQuery(GET_PRODUCT_DATA, {
-    variables: { id: productId }
+    variables: { id: productId, locale: language }
   });
 
   return { product: data?.product, productLoading: loading };

@@ -38,6 +38,8 @@ import { BookPreviewModal } from '@pages/components/book-preview-modal';
 const Product: React.FC<ProductProps> = ({}) => {
   const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = React.useState('');
+  const { language } = useSelector((state: State) => state.localization);
+
   const history = useHistory();
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -47,10 +49,10 @@ const Product: React.FC<ProductProps> = ({}) => {
     };
   }, []);
   const { id: productId, categorySlug } = useParams();
-  const { product, productLoading } = useProductData(productId);
+  const { product, productLoading } = useProductData(productId, language);
 
   const { pathname } = useLocation();
-  const { language } = useSelector((state: State) => state.localization);
+
   const { bookOverviewModal, bookPreviewModal } = useSelector(
     (state: State) => state.ui.modal
   );
