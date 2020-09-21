@@ -156,7 +156,10 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                     className={styles.profileNavigationMenu}
                     ref={profileMenuRef}
                   >
-                    <Button onClick={() => dispatch(navigate('/auth/login'))}>
+                    <Button
+                      width='100%'
+                      onClick={() => dispatch(navigate('/auth/login'))}
+                    >
                       Log in
                     </Button>
                   </div>

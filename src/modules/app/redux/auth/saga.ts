@@ -205,6 +205,7 @@ class AuthSaga {
     const data = {
       token: tokenId
     };
+    console.log(tokenId);
 
     try {
       const response = yield call(api.auth.googleSignIn, data);
