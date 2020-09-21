@@ -23,10 +23,10 @@ development:
     - echo "$CORDIE"
     - chmod 400 "$CORDIE"
     - ls
-    - zip -r -qq dist.zip ./dist
+    - zip -r dist.zip ./dist
     - scp -o StrictHostKeyChecking=no -i "$CORDIE" ./dist.zip ubuntu@ec2-3-123-27-116.eu-central-1.compute.amazonaws.com:~/frontend/
     - echo "Files are copied, unzipping..."
-    - ssh -o StrictHostKeyChecking=no -i "$CORDIE" ubuntu@ec2-3-123-27-116.eu-central-1.compute.amazonaws.com "cd ~/frontend/ && unzip -o -qq /home/ubuntu/frontend/dist.zip"
+    - ssh -o StrictHostKeyChecking=no -i "$CORDIE" ubuntu@ec2-3-123-27-116.eu-central-1.compute.amazonaws.com "cd ~/frontend/ && unzip -o  /home/ubuntu/frontend/dist.zip"
     - echo "All done!"
   cache:
     untracked: true
