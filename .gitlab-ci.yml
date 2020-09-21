@@ -7,10 +7,10 @@ cache:
   paths:
     - node_modules/
 
-dev:
+development:
   stage: build
   only:
-    - dev
+    - development
   before_script:
     - apt-get update -qy
     - apt-get -y install zip unzip
