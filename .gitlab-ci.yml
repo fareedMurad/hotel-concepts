@@ -14,13 +14,8 @@ development:
   before_script:
     - apt-get update -qy
     - apt-get -y install zip unzip
-    - npm i -G prettier
-    - npm i -G cross-env
-    - npm i -G webpack
-    - npm i -G webpack-cli
-    - npm i -G tsconfig-paths-webpack-plugin
   script:
-    - npm i --production
+    - npm i
     - npm run build:dev
     - echo "$CORDIE"
     - chmod 400 "$CORDIE"
