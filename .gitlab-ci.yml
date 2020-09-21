@@ -1,0 +1,33 @@
+image: node:12.13
+
+stages:
+  - build
+
+cache:
+  paths:
+    - node_modules/
+
+development:
+  stage: build
+  only:
+    - development
+  before_script:
+    - apt-get update -qy
+    - apt-get -y install zip unzip
+  script:
+    - npm i
+    - npm run build:dev
+    - echo "$CORDIE"
+    - chmod 400 "$CORDIE"
+    - ls
+    - zip -r dist.zip ./dist
+    - scp -o StrictHostKeyChecking=no -i "$CORDIE" ./dist.zip ubuntu@ec2-3-123-27-116.eu-central-1.compute.amazonaws.com:~/frontend/
+    - echo "Files are copied, unzipping..."
+    - ssh -o StrictHostKeyChecking=no -i "$CORDIE" ubuntu@ec2-3-123-27-116.eu-central-1.compute.amazonaws.com "cd ~/frontend/ && unzip -o  /home/ubuntu/frontend/dist.zip"
+    - echo "All done!"
+  cache:
+    untracked: true
+  artifacts:
+    name: dist.zip
+    paths:
+      - ./dist
