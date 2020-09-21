@@ -17,10 +17,10 @@ development:
     - npm i -G prettier
     - npm i -G cross-env
     - npm i -G webpack
+    - npm i -G webpack-cli
   script:
     - npm i --production
     - npm run build:dev
-    - no
     - echo "$CORDIE"
     - chmod 400 "$CORDIE"
     - ls
