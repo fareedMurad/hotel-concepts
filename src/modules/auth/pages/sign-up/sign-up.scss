@@ -4,6 +4,7 @@
   @include flex(center, stretch, column);
   flex: 1;
   margin-top: 132px;
+  margin-bottom: 115px;
 }
 
 .form {
@@ -119,8 +120,8 @@
     }
   }
   &--hint-text {
-    @include font($primary-gray, 18px, 400, 24px);
-    margin: 20px 0;
+    @include font($primary-gray, 18px, 400, 28px);
+    margin: 16px 0;
     & > span {
       font-weight: 600;
     }
@@ -135,15 +136,5 @@
 
   & > span {
     margin-left: 40px;
-  }
-}
-
-.forgot-password {
-  cursor: pointer;
-
-  margin: 20px 0 100px 0;
-  text-decoration: underline;
-  &:hover {
-    color: $primary-orange;
   }
 }
