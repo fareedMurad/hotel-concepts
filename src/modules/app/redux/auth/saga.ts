@@ -3,7 +3,7 @@ import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { Payload, Saga } from 'redux-chill';
-import { call, put } from 'redux-saga/effects';
+import { call, put, delay } from 'redux-saga/effects';
 import { Context } from '../context';
 import {
   authorize,
@@ -51,14 +51,15 @@ class AuthSaga {
 
     try {
       const response = yield call(api.auth.login, payload);
-
+      console.log(response);
+      yield put(getUser());
       yield put(
         toggleToast({
           status: 'success',
           description: 'Logged in'
         })
       );
-      yield getUser();
+
       yield put(authorize());
       yield put(navigate('/account/profile'));
     } catch (error) {
