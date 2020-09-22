@@ -14,11 +14,11 @@ const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
   return (
     <Modal id={Modals.bookPreview} className={styles.bookPreviewModal}>
       <div className={styles.close} onClick={hideComponent}>
-        X
+        x
       </div>
       <iframe
         width='100%'
-        height='700px'
+        height='100%'
         className={bookPreview}
         src={bookPreview}
       />

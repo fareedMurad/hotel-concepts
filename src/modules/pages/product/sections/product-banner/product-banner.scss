@@ -13,8 +13,9 @@
 }
 
 .product-image {
-  margin: 0 111px;
+  margin: 0 auto;
   @include desktop() {
+    margin: 0 111px;
   }
 }
 .product-description {

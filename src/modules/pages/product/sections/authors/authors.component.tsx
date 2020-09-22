@@ -22,10 +22,14 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
   const transitions = useTransition(authors[index], item => item.sys.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0, position: 'absolute' }
+    leave: {
+      opacity: 0,
+      position: 'absolute',
+      top: 0,
+      right: 0
+    }
   });
 
-  React.useEffect(() => {}, [index]);
   return (
     <div className={styles.authors} id='authors'>
       <div className={styles.aboutAuthor}>

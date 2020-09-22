@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
+import { duration } from 'moment';
 
 const useAnimation = show => {
   const transitions = useTransition(show, null, {

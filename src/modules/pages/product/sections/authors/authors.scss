@@ -2,6 +2,7 @@
 
 .authors {
   @include container();
+  margin-top: 20px;
   padding-top: 60px !important;
   padding-right: 20px !important;
   min-height: auto;
@@ -9,7 +10,9 @@
   position: relative;
   @include tablet() {
     @include flex($direction: row);
+    padding-bottom: 48px !important;
     min-height: 700px;
+    height: calc(100vh - 58px);
     padding-bottom: 0;
   }
 }
@@ -17,9 +20,9 @@
 .about-author {
   @include flex($align: baseline, $direction: column, $justify: space-between);
   width: 100%;
-
   &--wrapper {
-    @include desktop() {
+    position: relative;
+    @include tablet() {
       position: absolute;
       bottom: 48px;
       max-width: 40%;
@@ -54,7 +57,7 @@
     width: 44px;
     height: 44px;
     color: $primary-gray;
-
+    background: none !important;
     border: 1px solid #98a2a8;
     border-radius: 4px;
     outline: none;
@@ -67,15 +70,32 @@
 }
 
 .author-image {
+  @include flex($justify: flex-end);
+  position: relative;
+  height: 100%;
+  width: 100%;
+
   & > img {
     border-radius: 10px;
-    max-width: 550px;
-    min-height: 590px;
-    max-height: 590px;
+    @include tablet() {
+      max-width: 450px;
+
+      min-height: 100%;
+      // max-height: 390px;
+    }
+    @include desktop() {
+      max-width: 541px;
+      height: 584px;
+      max-height: 584px;
+    }
+    @include desktop-lg() {
+      min-width: 800px;
+    }
   }
   &--mobile {
+    position: relative;
     max-height: 300px;
-
+    border-radius: 10px;
     overflow: hidden;
     margin: 20px 0;
   }
