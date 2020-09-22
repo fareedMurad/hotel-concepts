@@ -1,30 +1,24 @@
 import { usePrefixedRoutes } from '@core/shared';
 import * as React from 'react';
 import { Route } from 'react-router';
+import { useAuthData } from './auth.hook';
 import * as styles from './auth.scss';
 import {
+  EmailVerification,
   ForgotPassword,
-  SignUp,
-  Otp,
+  Interests,
   Login,
+  Otp,
   ResetPassword,
-  UpdatePassword,
-  EmailVerification
+  SignUp,
+  UpdatePassword
 } from './pages';
-import { useDispatch } from 'react-redux';
-import { isBackgroundWhite } from '@core/components/header/store';
 
 /**
  * Renders Auth
  */
 const Auth: React.FC = () => {
-  const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(isBackgroundWhite(true));
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
+  const {} = useAuthData();
   const [
     login,
     register,
@@ -32,6 +26,7 @@ const Auth: React.FC = () => {
     resetPassword,
     updatePassword,
     emailVerification,
+    interests,
     otp
   ] = usePrefixedRoutes([
     'login',
@@ -40,6 +35,7 @@ const Auth: React.FC = () => {
     'reset-password',
     'update-password',
     'email-verification',
+    'interests',
     'otp'
   ]);
 
@@ -51,6 +47,7 @@ const Auth: React.FC = () => {
       <Route path={resetPassword} component={ResetPassword} />
       <Route path={updatePassword} component={UpdatePassword} />
       <Route path={emailVerification} component={EmailVerification} />
+      <Route path={interests} component={Interests} />
       <Route path={otp} component={Otp} />
     </div>
   );

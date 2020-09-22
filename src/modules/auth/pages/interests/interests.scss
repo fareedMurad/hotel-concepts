@@ -1,0 +1,66 @@
+@import 'core.scss';
+
+.interests {
+  @include flex(flex-start, stretch, column);
+  flex: 1;
+  margin-top: 148px;
+}
+
+.title {
+  @include font($primary-gray, 48px, 600, 48px);
+  font-family: $EBGaramond;
+  text-align: center;
+}
+
+.description {
+  @include font($primary-gray, 28px, 400, 28px);
+  margin-top: 46px;
+  font-family: $EBGaramond;
+  text-align: center;
+}
+
+.list {
+  @include flex(flex-start, center);
+  flex-wrap: wrap;
+  align-self: center;
+  max-width: 85%;
+  margin: 24px -10px -10px -10px;
+}
+
+.interest {
+  margin: 10px;
+  padding: 16px 12px;
+  width: fit-content;
+  border: 1px solid $primary-gray;
+  border-radius: 4px;
+  transition: $transition;
+  cursor: pointer;
+
+  &:hover:not(.interest--disabled) {
+    color: #e57649;
+    border-color: #e57649;
+  }
+
+  &--selected {
+    color: #e57649;
+    border-color: #e57649;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+}
+
+.submit {
+  align-self: center;
+  margin-top: 32px;
+}
+
+.skip {
+  align-self: center;
+  width: fit-content;
+  margin-top: 24px;
+  font-size: 18px;
+  color: $primary-gray;
+  text-decoration: underline;
+}
