@@ -41,7 +41,7 @@ uat:
     - apt-get -y install zip unzip
   script:
     - npm i
-    - npm run build:dev
+    - npm run build:uat
     - echo "$CORDIE"
     - chmod 400 "$CORDIE"
     - ls
