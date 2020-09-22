@@ -13,11 +13,6 @@
 .form {
   margin-top: 30px;
   @include font($primary-gray, 16px, 400, 22px);
-  &--button {
-    @include flex($justify: center);
-    position: relative;
-    margin: 0 auto;
-  }
   &--preloader {
     position: absolute;
     top: calc(50% - 10px);
@@ -53,9 +48,14 @@
   }
 }
 
+.submit {
+  width: 100%;
+}
+
 .need-account {
   @include font($primary-gray, 18px, 400, 28px);
   margin-top: 20px;
+
   & > span {
     cursor: pointer;
     text-decoration: underline;

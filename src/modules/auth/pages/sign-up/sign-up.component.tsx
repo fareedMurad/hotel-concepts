@@ -1,16 +1,15 @@
+import { ScrollToTop } from '@app';
 import { register } from '@app/redux/auth';
-import { RegisterValues, registerValidationSchema } from '@auth/models';
+import { State } from '@app/redux/state';
+import { AuthHeader } from '@auth/components';
+import { registerValidationSchema, RegisterValues } from '@auth/models';
 import { Button, Field, Preloader } from '@core/components';
-import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import { Formik } from 'formik';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SignUpProps } from './sign-up.props';
 import * as styles from './sign-up.scss';
-import { SignInSignUpHeader } from '../components/sign-in-sign-up-header';
-import { ScrollToTop } from '@app';
-import { State } from '@app/redux/state';
 
 /**
  * Default Values
@@ -73,7 +72,8 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
     <div className={styles.signUp}>
       <ScrollToTop />
       <Preloader id={Preloaders.register}>
-        <SignInSignUpHeader title='Create your account' />
+        <AuthHeader />
+
         <Formik
           initialValues={defaultValues}
           validationSchema={registerValidationSchema}

@@ -1,16 +1,15 @@
-import * as React from 'react';
-
-import * as styles from './login.scss';
-import { useDispatch } from 'react-redux';
-import { Formik, Form } from 'formik';
-import { Field, Button, Preloader } from '@core/components';
-import { LoginValues, loginValidationSchema } from '@auth/models';
+import { ScrollToTop } from '@app';
 import { login } from '@app/redux/auth';
+import { AuthHeader } from '@auth/components';
+import { loginValidationSchema, LoginValues } from '@auth/models';
+import { Button, Field, Preloader } from '@core/components';
 import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
+import { Form, Formik } from 'formik';
+import * as React from 'react';
 import { Fragment } from 'react';
-import { SignInSignUpHeader } from '../components/sign-in-sign-up-header';
-import { ScrollToTop } from '@app';
+import { useDispatch } from 'react-redux';
+import * as styles from './login.scss';
 
 /**
  * Default Values
@@ -30,17 +29,12 @@ const Login: React.FC = () => {
     <div className={styles.login}>
       <ScrollToTop />
       <Preloader id={Preloaders.login}>
-        <SignInSignUpHeader title='Sing in to your account' />
-
+        <AuthHeader />
         <Fragment>
           <Formik
             initialValues={defaultValues}
             validationSchema={loginValidationSchema}
-            validateOnChange={false}
-            validateOnBlur={false}
-            onSubmit={async (values, action) => {
-              console.log(values);
-              await action.validateForm(values);
+            onSubmit={values => {
               dispatch(login(values));
             }}
           >
@@ -58,28 +52,16 @@ const Login: React.FC = () => {
                   className={styles.formInput}
                 />
                 <div className={styles.formHintText}>
-                  By clicking Sign Up, you agree to our{' '}
+                  By clicking Sign In, you agree to our{' '}
                   <span>Terms of Use</span> and our <span>Privacy Policy</span>
                 </div>
-                <div className={styles.formButton}>
-                  <Button
-                    width='100%'
-                    onClick={() => {
-                      scrollTo(0, 0);
-                      handleSubmit();
-                      setTimeout(() => handleReset(), 1000);
-                    }}
-                    arrow='→'
-                  >
-                    Sign In
-                  </Button>
-                  <Preloader
-                    className={styles.formPreloader}
-                    id={Preloaders.updatePassword}
-                    size={20}
-                    thickness={5}
-                  />
-                </div>
+                <Button
+                  className={styles.submit}
+                  onClick={() => handleSubmit()}
+                  arrow='→'
+                >
+                  Sign In
+                </Button>
               </Form>
             )}
           </Formik>

@@ -1,9 +1,7 @@
 @import 'core.scss';
 
 .sso {
-  & > div:first-child {
-    margin-right: 16px;
-  }
+  @include flex(space-between, center);
 }
 
 .custom-log-in {
