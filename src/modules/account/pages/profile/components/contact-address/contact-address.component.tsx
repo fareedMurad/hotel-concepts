@@ -12,34 +12,27 @@ import { Preloaders } from '@ui/models/preloader';
 import { relative } from 'path';
 import { State } from '@app/redux/state';
 
-const radioIAMData = [
-  {
-    id: 'askocxim3',
-    caption: 'Hospitality professional'
-  },
-  {
-    id: 'asdve33',
-    caption: 'Hospitality student'
-  },
-  {
-    id: 'askoasd534cxim3',
-    caption: 'Want to switch to hospitality'
-  },
-  {
-    id: 'asd0k5g5',
-    caption: 'Other'
-  }
+/**
+ * Radio title data
+ */
+const titleData = [
+  { value: 'ms', label: 'Ms.' },
+  { value: 'mr', label: 'Mr.' }
 ];
-const titles = [
+
+/**
+ * Radio position data
+ */
+const positionData = [
+  { value: 'hospitalityProfessional', label: 'Hospitality professional' },
+  { value: 'hospitalityProfessional', label: 'Hospitality student' },
   {
-    label: 'Mr.',
-    value: 'Mr.'
+    value: 'hospitalitySwitch',
+    label: 'Want to switch to hospitality'
   },
-  {
-    label: 'Ms.',
-    value: 'Ms.'
-  }
+  { value: 'other', label: 'Other' }
 ];
+
 /**
  * Renders ContactAddress
  */
@@ -63,7 +56,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({}) => {
             <Field.Select
               placeholder={user.title}
               name='title'
-              options={titles}
+              options={titleData}
               className={styles.formTitleSelect}
               label='Title'
             />
@@ -81,7 +74,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({}) => {
               className={styles.formRadio}
               name='position'
               label='I Am'
-              data={radioIAMData}
+              data={positionData}
               direction='row'
               value={user.position}
             />

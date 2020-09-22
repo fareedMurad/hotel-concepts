@@ -8,57 +8,16 @@ import { Preloaders } from '@ui/models';
 import { Formik } from 'formik';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SignUpProps } from './sign-up.props';
+import { useSignUpData } from './sign-up.props';
 import * as styles from './sign-up.scss';
-
-/**
- * Default Values
- */
-const defaultValues: RegisterValues = {
-  title: '',
-  position: '',
-  name: '',
-  surname: '',
-  email: '',
-  password: '',
-  newsSub: false
-};
 
 /**
  * Renders Login
  */
-const SignUp: React.FC<SignUpProps> = ({}) => {
-  const { registered } = useSelector((state: State) => state.auth);
-  console.log(registered);
+const SignUp: React.FC = () => {
   const dispatch = useDispatch();
-  const radioTitleData = [
-    {
-      id: '3r32323e3r',
-      caption: 'Ms.'
-    },
-    {
-      id: '3rfdsv52',
-      caption: 'Mr.'
-    }
-  ];
-  const radioIAMData = [
-    {
-      id: 'askocxim3',
-      caption: 'Hospitality professional'
-    },
-    {
-      id: 'asdve33',
-      caption: 'Hospitality student'
-    },
-    {
-      id: 'askoasd534cxim3',
-      caption: 'Want to switch to hospitality'
-    },
-    {
-      id: 'asd0k5g5',
-      caption: 'Other'
-    }
-  ];
+  const { defaultValues, positionData, titleData } = useSignUpData();
+  const { registered } = useSelector((state: State) => state.auth);
 
   if (registered) {
     return (
@@ -77,19 +36,15 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
         <Formik
           initialValues={defaultValues}
           validationSchema={registerValidationSchema}
-          validateOnChange={false}
-          validateOnBlur={false}
-          onSubmit={(values, actions) => {
-            actions.validateForm(values);
+          onSubmit={values => {
             dispatch(register(values));
-            console.log(values);
           }}
         >
           {({ handleSubmit }) => (
             <div className={styles.formFields}>
               <Field.Radio
                 name='title'
-                data={radioTitleData}
+                data={titleData}
                 label='Title'
                 className={styles.formFieldsRadioTitles}
                 direction='row'
@@ -107,7 +62,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
 
               <Field.Radio
                 name='position'
-                data={radioIAMData}
+                data={positionData}
                 label='I am'
                 className={styles.formFieldsRadioIam}
                 direction='column'
@@ -136,10 +91,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
               <Button
                 className={styles.formFieldsSubmit}
                 arrow='→'
-                onClick={() => {
-                  handleSubmit();
-                  scrollTo(0, 0);
-                }}
+                onClick={() => handleSubmit()}
               >
                 Sign Up
               </Button>

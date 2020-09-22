@@ -20,7 +20,7 @@ const Radio: React.FC<RadioProps> = ({
   error,
   direction
 }) => {
-  const [selected, setSelected] = React.useState(data[0].caption);
+  const [selected, setSelected] = React.useState(data[0].label);
   React.useEffect(() => {
     onChange(selected);
   }, [selected]);
@@ -28,19 +28,19 @@ const Radio: React.FC<RadioProps> = ({
     <div className={className} style={{ flexDirection: direction }}>
       {label && <label>{label}</label>}
 
-      {data.map(({ id, caption }, index) => (
+      {data.map(({ value, label }, index) => (
         <div key={index} className={styles.container}>
           <div
             className={classNames(styles.radio, {
-              [styles.radioSelected]: selected === caption
+              [styles.radioSelected]: selected === label
             })}
             onClick={() => {
-              setSelected(caption);
+              setSelected(label);
               onChange(selected);
             }}
           />
 
-          {caption}
+          {label}
         </div>
       ))}
 
