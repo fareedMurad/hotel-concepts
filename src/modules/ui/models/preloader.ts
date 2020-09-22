@@ -15,6 +15,7 @@ enum Preloaders {
   profile = 'profile',
   profileAvatar = 'profile avatar',
   paymentMethods = 'profile payment methods',
+  newsSub = 'profile news subsciption',
 
   // Uikit
   uikit = 'uikit',

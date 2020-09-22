@@ -48,7 +48,14 @@ const selectPaymentMethods = make('[account] select payment method')
  * Set news subscription
  */
 const setNewsSubscription = make('[account] set news subscription')
-  .stage((payload: boolean) => payload)
+  .stage((payload: { newsSub: boolean }) => payload)
+  .stage('success');
+
+/*
+ * Select language
+ */
+const selectUserLanguage = make('[account] select language')
+  .stage((payload: string) => payload)
   .stage('success');
 
 export {
@@ -58,5 +65,6 @@ export {
   addToWishList,
   subscribe,
   selectPaymentMethods,
-  setNewsSubscription
+  setNewsSubscription,
+  selectUserLanguage
 };

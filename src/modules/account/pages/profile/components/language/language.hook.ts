@@ -1,14 +1,8 @@
 const useLanguageData = () => {
-  const languages = [
-    {
-      locale: 'en-US',
-      language: 'English'
-    },
-    {
-      locale: 'en-ES',
-      language: 'Spain'
-    }
-  ];
+  const languages = {
+    'en-US': 'English',
+    es: 'Spanish'
+  };
   return { languages };
 };
 

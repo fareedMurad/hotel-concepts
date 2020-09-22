@@ -12,4 +12,19 @@
     margin: 0 auto;
     margin-top: 26px;
   }
+  & > div {
+    & > div:first-child {
+      margin-top: 3px;
+    }
+    align-items: flex-start;
+    & > label {
+      @include font($primary-gray, 18px, 500, 28px);
+    }
+  }
+}
+
+.preloader {
+  position: absolute;
+  right: 0;
+  top: calc(50% - 10px);
 }

@@ -3,41 +3,63 @@ import { LanguageProps } from './language.props';
 import * as styles from './language.scss';
 import { Button } from '@core/components';
 import { useLanguageData } from './language.hook';
+import { useClickOutside } from '@core/shared';
+import { useDispatch } from 'react-redux';
+import { selectUserLanguage } from '@app/redux/account';
 
 /**
  * Renders Language
  */
-const Language: React.FC<LanguageProps> = ({}) => {
+const Language: React.FC<LanguageProps> = ({ userLanguage }) => {
   const { languages } = useLanguageData();
-  const [toggleDropdown, setToggleDropdown] = React.useState(false);
 
-  const [selectedLanguage, setSelectedLanguage] = React.useState('English');
+  const [toggleDropdown, setToggleDropdown] = React.useState(false);
+  const ref = React.useRef();
+  const dispatch = useDispatch();
+  useClickOutside(ref, () => setToggleDropdown(false));
+  const [selectedLanguage, setSelectedLanguage] = React.useState({
+    language: languages[userLanguage],
+    locale: userLanguage
+  });
   return (
     <React.Fragment>
       <div className={styles.title}>Language</div>
       <div className={styles.languageSelect}>
         <div className={styles.languageSelectCaption}>Preffered language</div>
         <div
+          ref={ref}
           className={styles.languageSelectDropdown}
-          onClick={() => setToggleDropdown(!toggleDropdown)}
+          onClick={() => {
+            setToggleDropdown(!toggleDropdown);
+          }}
         >
-          <span>{selectedLanguage} </span> <span>&#x25BE;</span>
+          <span>{selectedLanguage.language}</span> <span>&#x25BE;</span>
           {toggleDropdown && (
             <div className={styles.dropDown}>
-              {languages.map(el => (
+              {Object.keys(languages).map(el => (
                 <div
-                  key={el.language + el.locale}
+                  key={el}
                   className={styles.dropDownItem}
-                  onClick={() => setSelectedLanguage(el.language)}
+                  onClick={() => {
+                    setSelectedLanguage({
+                      language: languages[el],
+                      locale: el
+                    });
+                  }}
                 >
-                  {el.language}
+                  {languages[el]}
                 </div>
               ))}
             </div>
           )}
         </div>
       </div>
-      <Button className={styles.button}>Save</Button>
+      <Button
+        onClick={() => dispatch(selectUserLanguage(selectedLanguage.locale))}
+        className={styles.button}
+      >
+        Save
+      </Button>
     </React.Fragment>
   );
 };

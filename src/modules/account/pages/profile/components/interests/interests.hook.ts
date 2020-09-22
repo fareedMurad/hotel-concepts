@@ -15,6 +15,50 @@ const useInterestsData = () => {
     {
       name: 'Managemtnt',
       id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
+    },
+    {
+      name: 'Managemtnt',
+      id: '2'
     }
   ];
   return { interests };

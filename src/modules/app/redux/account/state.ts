@@ -49,6 +49,11 @@ class AccountState {
    *  New subscription success
    */
   public newsSubscriptionSuccess = false;
+
+  /*
+   * Select language success
+   */
+  public selectLanguageSuccess = false;
 }
 
 export { AccountState };

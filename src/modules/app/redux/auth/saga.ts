@@ -37,6 +37,7 @@ class AuthSaga {
 
       yield put(getUser.success(response.data));
       yield put(authorize());
+      console.log(response);
     } catch (error) {
       yield put(unauthorize());
       yield put(handleError(error.response.data.message));
@@ -214,7 +215,6 @@ class AuthSaga {
     yield put(preloaderStart(Preloaders.updatePassword));
     try {
       const response = yield call(api.auth.updatePassword, payload);
-      console.log(response);
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

@@ -1,13 +1,16 @@
 @import 'core.scss';
 
 .title {
-  @include font($primary-gray, 24px, 400, 24px);
+  @include font($primary-gray, 24px, 400, 34px);
 }
 
 .form {
   margin-top: 20px;
   & > div {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+  }
+  & > div > label {
+    @include font($primary-gray, 18px, 500, 28px);
   }
   &__submit-button {
     width: 150px !important;
@@ -15,4 +18,10 @@
     margin: 0 auto;
     margin-top: 26px;
   }
+}
+
+.preloader {
+  position: absolute;
+  right: 0;
+  top: calc(50% - 10px);
 }

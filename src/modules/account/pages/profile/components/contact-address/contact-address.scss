@@ -9,7 +9,7 @@
 .form {
   margin-top: 15px;
   & > div:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   &__title-select {
     background-color: white;
@@ -20,12 +20,22 @@
     background-color: white;
     padding: 10px;
     border-radius: 4px;
+    & > label {
+      @include font($primary-gray, 16px, 400, 22px);
+      display: block;
+      margin-bottom: 16px;
+    }
+    & > div {
+      @include font($primary-gray, 16px, 400, 22px);
+    }
+    & > div:not(:last-child) {
+      margin-bottom: 16px;
+    }
   }
   &__submit-button {
     width: 150px !important;
     height: 36px;
     margin: 0 auto;
-    margin-top: 26px;
   }
   &__title-select {
     background-color: white;

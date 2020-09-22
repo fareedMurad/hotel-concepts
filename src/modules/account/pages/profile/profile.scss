@@ -3,29 +3,70 @@
 .profile-container {
   @include accountContainer();
   display: grid;
+  grid-template-columns: 335px 765px;
   gap: 20px;
-  row-gap: 20px;
-  grid-template-columns: 335px 430px 335px;
-  grid-template-rows: min-content max-content min-content min-content;
   margin-top: 28px;
-  padding-bottom: 80px;
-  grid-template-areas:
-    'language interests interests'
-    'address email-password avatar'
-    'address payment privacy'
-    'address payment newsletter';
+  // display: grid;
+  // gap: 20px;
+  // row-gap: 20px;
+  // grid-template-columns: 335px 430px 335px;
 
-  &__language {
-    grid-area: language;
-  }
+  // margin-top: 28px;
+  // padding-bottom: 80px;
+  // grid-template-areas:
+  //   'language interests interests'
+  //   'address email-password avatar'
+  //   'address payment privacy'
+  //   'address payment newsletter';
 
-  &__interests {
-    grid-area: interests;
-  }
+  // &__language {
+  //   grid-area: language;
+  // }
 
-  &__address {
-    grid-area: address;
-  }
+  // &__interests {
+  //   grid-area: interests;
+  //   height: 400px;
+  // }
+
+  // &__address {
+  //   grid-area: address;
+  // }
+  // &__email-password {
+  //   grid-area: email-password;
+  // }
+  // &__avatar {
+  //   grid-area: avatar;
+  // }
+  // &__payment {
+  //   grid-area: payment;
+  // }
+  // &__privacy {
+  //   grid-area: privacy;
+  // }
+  // &__newsletter {
+  //   grid-area: newsletter;
+  // }
+}
+
+.mainInfo {
+  display: grid;
+  grid-template-rows: minmax(177px, 177px) min-content;
+  gap: 20px;
+}
+
+.secondary-info {
+  display: grid;
+  gap: 20px;
+  grid-template-rows: minmax(177px, auto) minmax(986px, auto);
+}
+
+.secondaryInfoGrid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 428px 335px;
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-areas: 'email-password avatar' 'payment privacy' 'payment newsletter';
+
   &__email-password {
     grid-area: email-password;
   }
@@ -47,7 +88,7 @@
   position: relative;
   background-color: $background;
   border-radius: 7px;
-  padding: 12px 20px;
+  padding: 12px 20px 16px 20px;
 }
 // .upload-avatar {
 //   width: 0.1px;

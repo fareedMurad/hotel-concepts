@@ -17,7 +17,11 @@ type User = {
   source: string;
   position: string;
   newsSub: boolean;
-  paymentMethods: string[];
+  paymentMethods: {
+    paypal: boolean;
+    card: boolean;
+    transfer: boolean;
+  };
 };
 
 export { User };
