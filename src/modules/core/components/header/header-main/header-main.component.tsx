@@ -157,8 +157,10 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                     ref={profileMenuRef}
                   >
                     <Button
-                      width='100%'
-                      onClick={() => dispatch(navigate('/auth/login'))}
+                      onClick={() => {
+                        dispatch(navigate('/auth/login'));
+                        setShowProfileNavigationMenu(false);
+                      }}
                     >
                       Log in
                     </Button>

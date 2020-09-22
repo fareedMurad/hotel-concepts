@@ -14,10 +14,15 @@
   }
 }
 
+.label {
+  @include font($black, 16px, 400, 22px);
+  margin-bottom: 2px;
+}
+
 .input {
-  @include font($black, 14px, 500, 17px);
+  @include font($black, 16px, 400, 22px);
   width: 100%;
-  padding: 14px 16px;
+  padding: 10px 8px;
   background: $white;
   border: 1px solid $white;
   border-radius: 4px;
@@ -25,7 +30,7 @@
   transition: $transition;
   -webkit-appearance: none;
   &::placeholder {
-    @include font(#969ba3, 14px, 500, 17px);
+    @include font(#969ba3, 16px, 400, 22px);
   }
 
   &--ios {

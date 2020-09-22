@@ -24,6 +24,7 @@ const auth = reducer(new AuthState())
   })
   .on(getUser.success, (state, payload) => {
     state.user = payload;
+    state.authorized = true;
   })
   .on(register.success, state => {
     state.registered = true;

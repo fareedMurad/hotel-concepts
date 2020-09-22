@@ -1,16 +1,15 @@
-import * as React from 'react';
-import { useRegisterData } from './login.hook';
-import * as styles from './login.scss';
-import { useDispatch } from 'react-redux';
-import { Formik, Form } from 'formik';
-import { Field, Button, Preloader } from '@core/components';
-import { LoginValues, loginValidationSchema } from '@auth/models';
-import { register, login } from '@app/redux/auth';
+import { ScrollToTop } from '@app';
+import { login } from '@app/redux/auth';
+import { AuthHeader } from '@auth/components';
+import { loginValidationSchema, LoginValues } from '@auth/models';
+import { Button, Field, Preloader } from '@core/components';
 import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
-import { Sso } from '@auth/components';
+import { Form, Formik } from 'formik';
+import * as React from 'react';
 import { Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import * as styles from './login.scss';
 
 /**
  * Default Values
@@ -28,64 +27,59 @@ const Login: React.FC = () => {
 
   return (
     <div className={styles.login}>
-      <div className={styles.form}>
-        <div className={styles.formTitles}>
-          <NavLink
-            activeClassName={styles.formTitlesActive}
-            to={'/auth/register'}
+      <ScrollToTop />
+      <Preloader id={Preloaders.login}>
+        <AuthHeader />
+        <Fragment>
+          <Formik
+            initialValues={defaultValues}
+            validationSchema={loginValidationSchema}
+            onSubmit={values => {
+              dispatch(login(values));
+            }}
           >
-            Sign up
-          </NavLink>
-          <NavLink activeClassName={styles.formTitlesActive} to={'/auth/login'}>
-            Sign in
-          </NavLink>
-        </div>
-        <Preloader id={Preloaders.register}>
-          <Fragment>
-            <Formik
-              initialValues={defaultValues}
-              validationSchema={loginValidationSchema}
-              onSubmit={values => {
-                console.log(values);
-                dispatch(login(values));
-              }}
-            >
-              {({ handleSubmit, handleReset }) => (
-                <Form className={styles.form}>
-                  <Field.Text name='email' label='Email' />
-                  <Field.Text
-                    name='password'
-                    label='Password'
-                    type='password'
-                  />
-                  <div className={styles.formButton}>
-                    <Button
-                      onClick={() => {
-                        handleSubmit();
-                        setTimeout(() => handleReset(), 1000);
-                      }}
-                    >
-                      Login
-                    </Button>
-                    <Preloader
-                      className={styles.formPreloader}
-                      id={Preloaders.updatePassword}
-                      size={20}
-                      thickness={5}
-                    />
-                  </div>
-                  <div
-                    className={styles.forgotPassword}
-                    onClick={() => dispatch(navigate('/auth/forgot-password'))}
-                  >
-                    Forgot password?
-                  </div>
-                </Form>
-              )}
-            </Formik>
-          </Fragment>
-        </Preloader>
-      </div>
+            {({ handleSubmit, handleReset }) => (
+              <Form className={styles.form}>
+                <Field.Text
+                  name='email'
+                  label='Email'
+                  className={styles.formInput}
+                />
+                <Field.Text
+                  name='password'
+                  label='Password'
+                  type='password'
+                  className={styles.formInput}
+                />
+                <div className={styles.formHintText}>
+                  By clicking Sign In, you agree to our{' '}
+                  <span>Terms of Use</span> and our <span>Privacy Policy</span>
+                </div>
+                <Button
+                  className={styles.submit}
+                  onClick={() => handleSubmit()}
+                  arrow='→'
+                >
+                  Sign In
+                </Button>
+              </Form>
+            )}
+          </Formik>
+
+          <div
+            className={styles.forgotPassword}
+            onClick={() => dispatch(navigate('/auth/forgot-password'))}
+          >
+            Forgot password?
+          </div>
+          <div
+            className={styles.needAccount}
+            onClick={() => dispatch(navigate('/auth/register'))}
+          >
+            Need an account? <span>Sing Up</span>
+          </div>
+        </Fragment>
+      </Preloader>
     </div>
   );
 };

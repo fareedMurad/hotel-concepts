@@ -51,16 +51,15 @@ class AuthSaga {
 
     try {
       const response = yield call(api.auth.login, payload);
-      console.log(response);
-      yield put(getUser());
+      const user = yield call(api.auth.getUser);
+
+      yield put(getUser.success(user.data));
       yield put(
         toggleToast({
           status: 'success',
           description: 'Logged in'
         })
       );
-
-      yield put(authorize());
       yield put(navigate('/account/profile'));
     } catch (error) {
       yield put(handleError(error.response.data.message));

@@ -44,8 +44,7 @@ Button.defaultProps = {
   theme: 'primary',
   size: 'md',
   className: '',
-  disabled: false,
-  width: 230
+  disabled: false
 };
 
 export { Button };
