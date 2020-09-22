@@ -50,9 +50,6 @@
     }
   }
   &__accept {
-    & > div {
-      border: 2px solid $light-grey;
-    }
     & > label {
       @include font($primary-gray, 18px, 500, 28px);
     }

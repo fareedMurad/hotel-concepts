@@ -68,6 +68,26 @@ class AccountService {
       url: 'user/payment-method',
       data: payload
     });
+  /*
+   * Update news subscription
+   */
+  public updateNewsSubscription = payload =>
+    this.http.request({
+      method: 'PUT',
+      url: 'user/news-subscription',
+      data: payload
+    });
+  /*
+   * Update user language
+   */
+  public updateUserLanguage = payload =>
+    this.http.request({
+      method: 'PUT',
+      url: 'user/language',
+      data: {
+        language: payload
+      }
+    });
 }
 
 export { AccountService };

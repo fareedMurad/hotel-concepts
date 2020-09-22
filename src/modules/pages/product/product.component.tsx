@@ -68,8 +68,6 @@ const Product: React.FC<ProductProps> = ({}) => {
       .pop()
       .toUpperCase();
 
-  console.log(product);
-
   // const link =
   //   'https://www.facebook.com/sharer/sharer.php?app_id=978057235952932&sdk=joey&u=https://chillyfacts.com/create-facebook-share-button-for-website-webpages/&display=popup&ref=plugin&src=share_button';
 

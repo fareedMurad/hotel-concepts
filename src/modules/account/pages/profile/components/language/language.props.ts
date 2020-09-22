@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type LanguageProps = {};
+type LanguageProps = {
+  userLanguage: string;
+};
 
 export { LanguageProps };

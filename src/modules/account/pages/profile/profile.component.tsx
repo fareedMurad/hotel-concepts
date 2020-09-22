@@ -31,39 +31,44 @@ const Card: React.FC<{ className: string }> = ({ className, children }) => {
  * Renders Profile
  */
 const Profile: React.FC = () => {
-  const { user, defaultValues } = useProfileData();
-  const { name, surname, avatar } = user || {};
-  const dispatch = useDispatch();
+  const { user } = useProfileData();
 
   return (
     <React.Fragment>
       <Hero title='My account' />
       <Navigation />
       <div className={styles.profileContainer}>
-        <Card className={styles.profileContainerLanguage}>
-          <Language />
-        </Card>
-        <Card className={styles.profileContainerInterests}>
-          <Interests />
-        </Card>
-        <Card className={styles.profileContainerAddress}>
-          <ContactAddress />
-        </Card>
-        <Card className={styles.profileContainerEmailPassword}>
-          <UpdatePassword />
-        </Card>
-        <Card className={styles.profileContainerAvatar}>
-          <UploadAvatar user={user} />
-        </Card>
-        <Card className={styles.profileContainerPayment}>
-          {/* <PaymentMethod /> */}
-        </Card>
-        <Card className={styles.profileContainerPrivacy}>
-          <Privacy />
-        </Card>
-        <Card className={styles.profileContainerNewsletter}>
-          <Newsletter />
-        </Card>
+        <div className={styles.mainInfo}>
+          <Card className={styles.mainInfoLanguage}>
+            <Language userLanguage={user.language} />
+          </Card>
+          <Card className={styles.mainInfoAddress}>
+            <ContactAddress />
+          </Card>
+        </div>
+
+        <div className={styles.secondaryInfo}>
+          <Card className={styles.secondaryInfoInterests}>
+            <Interests />
+          </Card>
+          <div className={styles.secondaryInfoGrid}>
+            <Card className={styles.secondaryInfoGridEmailPassword}>
+              <UpdatePassword />
+            </Card>
+            <Card className={styles.secondaryInfoGridAvatar}>
+              <UploadAvatar user={user} />
+            </Card>
+            <Card className={styles.secondaryInfoGridPayment}>
+              <PaymentMethod />
+            </Card>
+            <Card className={styles.secondaryInfoGridPrivacy}>
+              <Privacy />
+            </Card>
+            <Card className={styles.secondaryInfoGridNewsletter}>
+              <Newsletter />
+            </Card>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );

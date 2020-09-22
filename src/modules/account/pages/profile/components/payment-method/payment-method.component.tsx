@@ -2,23 +2,24 @@ import * as React from 'react';
 import { PaymentMethodProps } from './payment-method.props';
 import * as styles from './payment-method.scss';
 import { Formik, Form } from 'formik';
-import { Field, Button } from '@core/components';
-import { useDispatch } from 'react-redux';
+import { Field, Button, Preloader } from '@core/components';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectPaymentMethods } from '@app/redux/account';
 import { usePaymentmethodData } from './payment-method.hook';
+import { Preloaders } from '@ui/models';
+import { State } from '@app/redux/state';
 
 /**
  * Renders PaymentMethod
  */
 const PaymentMethod: React.FC<PaymentMethodProps> = ({}) => {
   const { defaultValues } = usePaymentmethodData();
-  console.log(defaultValues);
+  const { selectPaymentMethodsSuccess } = useSelector(
+    (state: State) => state.account
+  );
+
   const dispatch = useDispatch();
 
-  // const isMethodIncluded = method => {
-  //   console.log(defaultValues.paymentMethods.find(el => el === true));
-  //   return defaultValues.paymentMethods.find(el => el === method);
-  // };
   return (
     <React.Fragment>
       <div className={styles.title}>Prefer payment method</div>
@@ -37,12 +38,21 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({}) => {
               name='transfer'
               label='Bank transfer with invoice'
             />
-            <Button
-              className={styles.formSubmitButton}
-              onClick={() => handleSubmit()}
-            >
-              Save
-            </Button>
+            <div style={{ position: 'relative' }}>
+              <Button
+                disabled={selectPaymentMethodsSuccess}
+                className={styles.formSubmitButton}
+                onClick={() => handleSubmit()}
+              >
+                {selectPaymentMethodsSuccess ? 'Saved' : 'Save'}
+              </Button>
+              <Preloader
+                className={styles.preloader}
+                id={Preloaders.paymentMethods}
+                size={20}
+                thickness={5}
+              />
+            </div>
           </Form>
         )}
       </Formik>

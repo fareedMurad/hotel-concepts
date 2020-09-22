@@ -3,11 +3,9 @@
  */
 
 type PaymentMethodsModel = {
-  paymentMethods: {
-    card: boolean;
-    transfer: boolean;
-    paypal: boolean;
-  };
+  card: boolean;
+  transfer: boolean;
+  paypal: boolean;
 };
 
 export { PaymentMethodsModel };

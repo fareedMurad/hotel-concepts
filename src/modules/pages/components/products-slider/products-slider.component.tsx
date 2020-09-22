@@ -39,7 +39,6 @@ const ProductsSlider: React.FC<SliderProps> = ({
   data,
   notOrangeButtons
 }) => {
-  console.log(data);
   return (
     <div className={styles.slider}>
       <Slider

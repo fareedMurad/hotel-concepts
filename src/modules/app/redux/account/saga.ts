@@ -12,7 +12,8 @@ import {
   addToWishList,
   subscribe,
   selectPaymentMethods,
-  setNewsSubscription
+  setNewsSubscription,
+  selectUserLanguage
 } from './actions';
 
 /**
@@ -107,8 +108,8 @@ class AccountSaga {
         }
       }
       const object = { paymentMethods: arrOfPaymentMethods };
-      console.log(object);
       const response = yield call(api.account.selectPaymentMethods, object);
+      yield put(selectPaymentMethods.success());
     } catch (err) {
       console.log(err);
     } finally {
@@ -118,8 +119,37 @@ class AccountSaga {
   /*
    * Set news subscription
    */
-  // @Saga(setNewsSubscription)
-  // public *setNewsSubscription(payload, { api }: Context) {}
+  @Saga(setNewsSubscription)
+  public *setNewsSubscription(payload, { api }: Context) {
+    yield put(preloaderStart(Preloaders.newsSub));
+    try {
+      yield call(api.account.updateNewsSubscription, payload);
+      yield put(setNewsSubscription.success());
+    } catch (err) {
+      console.log(err);
+    } finally {
+      yield put(preloaderStop(Preloaders.newsSub));
+    }
+  }
+  /*
+   * Select language
+   */
+  @Saga(selectUserLanguage)
+  public *selectUserLanguage(
+    payload: Payload<typeof selectUserLanguage>,
+    { api }: Context
+  ) {
+    // yield put(preloaderStart(Preloaders.newsSub));
+    try {
+      yield call(api.account.updateUserLanguage, payload);
+      yield put(setNewsSubscription.success());
+    } catch (err) {
+      console.log(err);
+    }
+    // } finally {
+    //   yield put(preloaderStop(Preloaders.newsSub));
+    // }
+  }
 }
 
 export { AccountSaga };

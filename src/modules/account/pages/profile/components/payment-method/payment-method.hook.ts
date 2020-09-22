@@ -8,11 +8,9 @@ const usePaymentmethodData = () => {
   } = useSelector((state: State) => state.auth);
 
   const defaultValues: PaymentMethodsModel = {
-    paymentMethods: {
-      paypal: false,
-      transfer: false,
-      card: false
-    }
+    paypal: paymentMethods.paypal,
+    transfer: paymentMethods.transfer,
+    card: paymentMethods.card
   };
 
   return { defaultValues };

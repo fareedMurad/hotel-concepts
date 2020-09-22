@@ -11,6 +11,7 @@ import { ProfileValues } from '@account/models';
 import { Preloaders } from '@ui/models/preloader';
 import { relative } from 'path';
 import { State } from '@app/redux/state';
+import { contactAddressValidationSchema } from '@auth/models/contanct-address';
 
 /**
  * Radio title data
@@ -47,7 +48,9 @@ const ContactAddress: React.FC<ContactAddressProps> = ({}) => {
 
       <Formik
         initialValues={defaultValues}
+        validationSchema={contactAddressValidationSchema}
         onSubmit={values => {
+          console.log(values);
           dispatch(editProfile(values));
         }}
       >
