@@ -23,9 +23,9 @@ const ProductDescription: React.FC<ProductDescriptionProps> = ({ product }) => {
         <H2>Product Description</H2>
         <div className={styles.productDescriptionAdditional}>
           <h1>Publication Date:</h1>
-          <Paragraph>
+          <div>
             <Moment format={'MMM DD, YYYY'}>{publishDate}</Moment>
-          </Paragraph>
+          </div>
         </div>
         <div className={styles.productDescriptionBlockText}>
           <p>{parsedRichText}</p>

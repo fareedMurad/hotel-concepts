@@ -9,38 +9,23 @@ import { title } from 'process';
 import { gql, useQuery } from '@apollo/client';
 
 /**
- * Query for whom data
- */
-
-const GET_FORWHOM_DATA = gql`
-  query($id: String!, $locale: String!) {
-    product(id: $id, locale: $locale) {
-      forWhom
-      forWhomListOfPositions
-    }
-  }
-`;
-/**
  * Renders ForWhom
  */
-const ForWhom: React.FC<ForWhomProps> = ({ productId }) => {
+const ForWhom: React.FC<ForWhomProps> = ({
+  forWhom,
+  forWhomListOfPositions
+}) => {
   const { language } = useSelector((state: State) => state.localization);
-  const { data, loading } = useQuery(GET_FORWHOM_DATA, {
-    variables: { id: productId, locale: language }
-  });
-
-  if (loading) return <Spinner />;
-  const { product } = data;
 
   return (
     <section id='content' className={styles.forWhom}>
       <div className={styles.title}>
-        <div>For Whom</div>
-        <div>{product.forWhom}</div>
+        <div>For whom</div>
+        <div>{forWhom}</div>
       </div>
       <div className={styles.roles}>
-        {product.forWhomListOfPositions.map(role => (
-          <div key={role} className={styles.role}>
+        {forWhomListOfPositions.map((role, idx) => (
+          <div key={idx} className={styles.role}>
             {role}
           </div>
         ))}

@@ -4,12 +4,16 @@ import * as styles from './product-card.scss';
 import { Paragraph, H2, H4, H3, Button } from '@core/components';
 import Moment from 'react-moment';
 import { useTranslation } from 'react-i18next';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 
 /**
  * Renders ProductCard
  */
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { t } = useTranslation();
+  const ScrollToAuthors = () => {
+    scrollTo('authors');
+  };
   const {
     authorsCollection: { items: authors },
     name,
@@ -30,7 +34,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className={styles.authors}>
         by{' '}
         {authors.map(author => (
-          <a href='#authors'>
+          <a onClick={() => ScrollToAuthors()}>
             {' '}
             {author.name} {author.surname}
           </a>

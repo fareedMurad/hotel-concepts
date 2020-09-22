@@ -16,21 +16,21 @@
 .slider {
   @include flex($justify: space-between, $align: center);
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 104px;
   overflow: hidden;
   margin-top: 48px;
 }
 
 .controls {
   position: absolute;
-  bottom: 0;
+  bottom: -3;
   left: -4px;
 }
 
 .dots {
   @include flex();
   position: absolute;
-  bottom: 100px;
+  bottom: 97px;
   width: 100%;
   & > div:last-child {
     margin-right: 0;
@@ -59,6 +59,6 @@
   top: 380px;
   @include tablet() {
     left: 110px;
-    top: 345px;
+    top: 355px;
   }
 }

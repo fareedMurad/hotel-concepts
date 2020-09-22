@@ -15,7 +15,7 @@
 
 .product-review {
   display: grid;
-  // min-height: calc(100vh - 155px);
+  min-height: 100vh;
   margin-top: 105px;
   @include desktop() {
     // margin-top: 15px;
@@ -72,5 +72,8 @@
 }
 
 .product-slider-wrap {
-  margin-bottom: 75px;
+  margin-bottom: 78px;
+  & > div > div {
+    padding-bottom: 66px !important;
+  }
 }

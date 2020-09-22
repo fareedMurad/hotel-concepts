@@ -5,8 +5,8 @@
 .for-whom {
   margin: 60px 0;
   padding: 0 22px;
-  @include tablet() {
-    padding: $left-offset;
+  @include desktop() {
+    padding: 0 $left-offset;
   }
 }
 

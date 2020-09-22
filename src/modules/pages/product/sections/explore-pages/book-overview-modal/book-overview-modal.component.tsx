@@ -20,7 +20,7 @@ const BookOverviewModal: React.FC<BookOverviewModalProps> = ({
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'fill',
           backgroundPosition: 'center',
-          width: '90vw',
+          width: '40vw',
           height: '80vh'
         }}
       >

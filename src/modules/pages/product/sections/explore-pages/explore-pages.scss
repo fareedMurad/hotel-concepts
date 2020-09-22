@@ -7,7 +7,7 @@
   }
 }
 
-.squer {
+.square {
   @include flex($align: center, $justify: center);
   height: 416px;
   width: 316px;
@@ -60,4 +60,9 @@
     color: $primary-gray;
     border: 1px solid #98a2a8;
   }
+}
+
+.pdf-file {
+  height: 100%;
+  cursor: pointer;
 }
