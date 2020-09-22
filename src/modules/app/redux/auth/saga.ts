@@ -17,7 +17,8 @@ import {
   verifyEmail,
   verifyEmailResend,
   unauthorize,
-  facebookSignIn
+  facebookSignIn,
+  chooseInterests
 } from './actions';
 import { toggleToast } from '@ui/toast';
 import { navigate } from '@router/store';
@@ -52,6 +53,9 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.login, payload);
       const user = yield call(api.auth.getUser);
+      const {
+        data: { newUser }
+      } = response;
 
       yield put(getUser.success(user.data));
       yield put(
@@ -60,7 +64,10 @@ class AuthSaga {
           description: 'Logged in'
         })
       );
-      yield put(navigate('/account/profile'));
+
+      newUser
+        ? yield put(navigate('/interests'))
+        : yield put(navigate('/account/profile'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -83,6 +90,27 @@ class AuthSaga {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.register));
+    }
+  }
+
+  /**
+   * Choose interests
+   */
+  @Saga(chooseInterests)
+  public *chooseInterests(
+    payload: Payload<typeof chooseInterests>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.interests));
+
+    try {
+      const response = yield call(api.auth.chooseInterests, payload);
+
+      yield put(navigate('/account/profile'));
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.interests));
     }
   }
 

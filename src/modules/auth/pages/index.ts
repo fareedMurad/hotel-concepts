@@ -5,4 +5,3 @@ export * from './update-password';
 export * from './otp';
 export * from './forgot-password';
 export * from './email-verification';
-export * from './interests';

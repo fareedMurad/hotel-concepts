@@ -8,6 +8,7 @@ enum Preloaders {
   resetPassword = 'reset password',
   updatePassword = 'update password',
   emailVerification = 'email verification',
+  interests = 'interests',
   otp = 'otp',
 
   // Account

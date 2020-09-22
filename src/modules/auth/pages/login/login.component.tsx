@@ -28,6 +28,7 @@ const Login: React.FC = () => {
   return (
     <div className={styles.login}>
       <ScrollToTop />
+      {/* <ForgotPasswordModal/> */}
       <Preloader id={Preloaders.login}>
         <AuthHeader />
         <Fragment>

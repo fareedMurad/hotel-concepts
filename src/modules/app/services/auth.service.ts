@@ -44,6 +44,18 @@ class AuthService {
     });
 
   /**
+   * Choose interests
+   */
+  public chooseInterests = (data: string[]) =>
+    this.http.request({
+      method: 'PUT',
+      url: '/user/interests',
+      data: {
+        interests: data
+      }
+    });
+
+  /**
    * Verify email
    */
   public verifyEmail = (token: string) =>

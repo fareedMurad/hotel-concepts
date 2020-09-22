@@ -6,7 +6,6 @@ import * as styles from './auth.scss';
 import {
   EmailVerification,
   ForgotPassword,
-  Interests,
   Login,
   Otp,
   ResetPassword,
@@ -26,7 +25,6 @@ const Auth: React.FC = () => {
     resetPassword,
     updatePassword,
     emailVerification,
-    interests,
     otp
   ] = usePrefixedRoutes([
     'login',
@@ -35,7 +33,6 @@ const Auth: React.FC = () => {
     'reset-password',
     'update-password',
     'email-verification',
-    'interests',
     'otp'
   ]);
 
@@ -47,7 +44,6 @@ const Auth: React.FC = () => {
       <Route path={resetPassword} component={ResetPassword} />
       <Route path={updatePassword} component={UpdatePassword} />
       <Route path={emailVerification} component={EmailVerification} />
-      <Route path={interests} component={Interests} />
       <Route path={otp} component={Otp} />
     </div>
   );

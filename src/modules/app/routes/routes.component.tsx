@@ -16,6 +16,7 @@ import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Account } from 'src/modules/account';
 import { getUser } from '@app/redux/auth';
+import { Interests } from '@pages';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -146,6 +147,7 @@ const Routes: React.FC = () => {
               <Route path='/auth' component={Auth} />
 
               {/* ROUTES */}
+              <Route path='/interests' component={Interests} />
               <Route
                 path='/insights/article/:articleId'
                 component={ArticlePage}

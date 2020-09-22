@@ -1,18 +1,13 @@
-import { make } from 'redux-chill';
-import {
-  LoginValues,
-  RegisterValues,
-  UpdatePasswordValues,
-  ResetPasswordValues,
-  ForgotPasswordValues,
-  GoogleSignInValues,
-  FacebookSignInValues
-} from '@auth/models';
 import { User } from '@app/models';
 import {
-  ReactFacebookLoginInfo,
-  ReactFacebookFailureResponse
-} from 'react-facebook-login';
+  ForgotPasswordValues,
+  GoogleSignInValues,
+  LoginValues,
+  RegisterValues,
+  ResetPasswordValues,
+  UpdatePasswordValues
+} from '@auth/models';
+import { make } from 'redux-chill';
 
 /**
  * Authorize
@@ -44,6 +39,13 @@ const login = make('[auth] login')
  */
 const register = make('[auth] register')
   .stage((payload: RegisterValues) => payload)
+  .stage('success');
+
+/**
+ * Choose interests
+ */
+const chooseInterests = make('[auth] choose interests')
+  .stage((payload: string[]) => payload)
   .stage('success');
 
 /**
@@ -107,5 +109,6 @@ export {
   forgotPassword,
   updatePassword,
   facebookSignIn,
+  chooseInterests,
   verifyEmailResend
 };
