@@ -11,7 +11,7 @@ const useProfileData = () => {
    * Default values
    */
   const defaultValues: ProfileValues = {
-    position: user.position ? user.position : '',
+    position: user.position ? user.position : 'Hospitality professional',
     email: user.email,
     title: user.title,
     name: user.name,

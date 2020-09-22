@@ -3,7 +3,7 @@ import { ControlProps } from '@core/models';
  * Props
  */
 type RadioProps = ControlProps & {
-  data: { id: string; caption: string }[];
+  data: { value: string; label: string }[];
   direction: 'row' | 'column';
 };
 

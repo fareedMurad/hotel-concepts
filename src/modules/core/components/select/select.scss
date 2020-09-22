@@ -52,14 +52,15 @@
 
 .control {
   @include flex(flex-start, center);
-  height: 50px;
-  padding: 22.5px 18px;
+  height: 44px;
+  padding: 12px 8px;
   background: white;
   border: unset;
   border-radius: 4px;
   transition: $transition;
-  @include tablet() {
-    height: 45px;
+
+  & div > div {
+    @include font($primary-gray, 16px, 400, 22px);
   }
 }
 
@@ -92,6 +93,7 @@
 
 .controls {
   @include flex(center, center);
+
   width: 20px;
   height: 100%;
 }
@@ -141,9 +143,9 @@
       opacity: 0.3;
     }
   }
-  .label {
-    @include font($primary-gray, 16px, 400);
-  }
+}
+.label {
+  @include font($primary-gray, 16px, 400, 22px);
 }
 
 .error {

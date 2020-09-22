@@ -20,6 +20,10 @@ type TextProps = ControlProps & {
    * Ref
    */
   ref?: any;
+  /*
+   *Auto complete
+   */
+  autoComplete?: 'on' | 'off' | 'new-password';
 };
 
 export { TextProps };

@@ -1,8 +1,8 @@
 @import 'core.scss';
 
 .label {
-  @include font($primary-gray, 16px, 400);
+  @include font($primary-gray, 16px, 400, 22px);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   transition: $transition;
 }

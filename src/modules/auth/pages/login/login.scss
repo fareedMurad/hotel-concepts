@@ -1,41 +1,67 @@
 @import 'core.scss';
 
 .login {
-  @include flex(center, stretch, column);
+  @include flex(flex-start, stretch, column);
   flex: 1;
-  margin-top: 132px;
   max-width: 506px;
   min-width: 506px;
   margin: 0 auto;
+  margin-top: 132px;
+  margin-bottom: 77px;
 }
 
 .form {
-  &__titles {
-    @include flex();
-    border-bottom: 0.5px solid $light-grey;
-    padding-bottom: 27px;
-    margin-bottom: 20px;
-    & > a {
-      @include font($gray, 58px, 600, 58px);
-      font-family: $EBGaramond;
-      width: 50%;
-      cursor: pointer;
-    }
-    &--active {
-      color: $primary-gray !important;
-    }
-  }
-  & > div {
-    margin-bottom: 20px;
-  }
-  &--button {
-    @include flex($justify: center);
-    position: relative;
-    margin: 0 auto;
-  }
+  margin-top: 30px;
+  @include font($primary-gray, 16px, 400, 22px);
   &--preloader {
     position: absolute;
     top: calc(50% - 10px);
     right: 0;
+  }
+
+  &__input {
+    & > input {
+      background-color: $background;
+      border-color: $background;
+    }
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+  &--hint-text {
+    @include font($primary-gray, 18px, 400, 28px);
+    margin: 56px 0 16px 0;
+    & > span {
+      font-weight: 600;
+    }
+  }
+}
+
+.forgot-password {
+  @include font($primary-gray, 18px, 400, 28px);
+  margin-top: 16px;
+  text-decoration: underline;
+  transition: $transition;
+  cursor: pointer;
+  &:hover {
+    color: $primary-orange;
+  }
+}
+
+.submit {
+  width: 100%;
+}
+
+.need-account {
+  @include font($primary-gray, 18px, 400, 28px);
+  margin-top: 20px;
+
+  & > span {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: $transition;
+    &:hover {
+      color: $primary-orange;
+    }
   }
 }
