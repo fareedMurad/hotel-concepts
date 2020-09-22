@@ -17,8 +17,6 @@ const Text: React.FC<TextProps> = ({
   className,
   disabled,
   onChange,
-  onTouch,
-  touched,
   label,
   tabIndex,
   mask,
@@ -51,7 +49,6 @@ const Text: React.FC<TextProps> = ({
         disabled={disabled}
         onChange={event => {
           onChange(event.target.value);
-          // onTouch();
         }}
         onFocus={() => {
           setFocused(true);
@@ -72,7 +69,6 @@ const Text: React.FC<TextProps> = ({
 Text.defaultProps = {
   type: 'text',
   mask: '',
-  onTouch: () => {},
   onChange: () => {},
   autoComplete: 'on'
 };

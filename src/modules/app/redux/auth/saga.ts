@@ -31,16 +31,31 @@ class AuthSaga {
    * Get user
    */
   @Saga(getUser)
-  public *getUser(_, { api }: Context) {
+  public *getUser(
+    _,
+    {
+      api,
+      history: {
+        location: { pathname }
+      }
+    }: Context
+  ) {
+    const isProfile = pathname == '/account/profile';
+
+    if (isProfile) {
+      yield put(preloaderStart(Preloaders.profile));
+    }
+
     try {
       const response = yield call(api.auth.getUser);
 
       yield put(getUser.success(response.data));
       yield put(authorize());
-      console.log(response);
     } catch (error) {
       yield put(unauthorize());
       yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profile));
     }
   }
 

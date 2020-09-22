@@ -59,6 +59,5 @@ Radio.defaultProps = {
   value: '',
   onChange: () => {},
   className: '',
-  onTouch: () => {},
   disabled: false
 };

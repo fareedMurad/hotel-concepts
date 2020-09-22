@@ -1,15 +1,13 @@
+import { setNewsSubscription } from '@app/redux/account';
+import { State } from '@app/redux/state';
+import { Button, Field, Preloader } from '@core/components';
+import { Preloaders } from '@ui/models';
+import { Form, Formik } from 'formik';
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useProfileData } from '../../profile.hook';
 import { NewsletterProps } from './newsletter.props';
 import * as styles from './newsletter.scss';
-import { Formik } from 'formik';
-import { Field, Button, Preloader } from '@core/components';
-import { Form } from 'formik';
-import { useProfileData } from '../../profile.hook';
-import { useDispatch, useSelector } from 'react-redux';
-import { setNewsSubscription } from '@app/redux/account';
-import { relative } from 'path';
-import { Preloaders } from '@ui/models';
-import { State } from '@app/redux/state';
 
 /**
  * Renders Newsletter
@@ -21,7 +19,7 @@ const Newsletter: React.FC<NewsletterProps> = ({}) => {
   );
   const dispatch = useDispatch();
   const defaultValues = {
-    newsSub: user.newsSub
+    newsSub: user?.newsSub
   };
   return (
     <React.Fragment>
@@ -38,7 +36,6 @@ const Newsletter: React.FC<NewsletterProps> = ({}) => {
             <Field.Checkbox
               name='newsSub'
               label='I agree to service Newsletter and Special Offers.'
-              touched={defaultValues.newsSub}
             />
             <div style={{ position: 'relative' }}>
               <Button

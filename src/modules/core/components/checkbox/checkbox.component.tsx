@@ -15,9 +15,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   className,
   isError,
   error,
-  onTouch,
   disabled,
-  defaultChecked,
   ...props
 }) => (
   <div
@@ -26,7 +24,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
     })}
     onClick={() => {
       if (disabled) return;
-      onTouch();
       onChange(!value);
     }}
     {...props}
@@ -52,7 +49,6 @@ Checkbox.defaultProps = {
   value: false,
   onChange: () => {},
   className: '',
-  onTouch: () => {},
   disabled: false
 };
 

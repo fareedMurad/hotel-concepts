@@ -29,10 +29,6 @@ type ControlProps<V = string> = {
    */
   error?: ReactNode;
   /**
-   * Is control touched
-   */
-  touched?: boolean;
-  /**
    * Is has error
    */
   isError?: boolean;
@@ -48,10 +44,6 @@ type ControlProps<V = string> = {
    * Change handler
    */
   onChange?: (value: V) => void;
-  /**
-   * Handle touch
-   */
-  onTouch?: () => void;
   /**
    * Control tabindex
    */

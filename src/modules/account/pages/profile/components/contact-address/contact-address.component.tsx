@@ -1,17 +1,14 @@
-import * as React from 'react';
-import { ContactAddressProps } from './contact-address.props';
-import * as styles from './contact-address.scss';
-import { useProfileData } from '../../profile.hook';
-import { Formik } from 'formik';
-import { Select, Field, Button, Form, Preloader } from '@core/components';
-import { useDispatch, useSelector } from 'react-redux';
-import { userInfo } from 'os';
 import { editProfile } from '@app/redux/account';
-import { ProfileValues } from '@account/models';
-import { Preloaders } from '@ui/models/preloader';
-import { relative } from 'path';
 import { State } from '@app/redux/state';
 import { contactAddressValidationSchema } from '@auth/models/contanct-address';
+import { Button, Field, Preloader } from '@core/components';
+import { Preloaders } from '@ui/models/preloader';
+import { Formik } from 'formik';
+import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useProfileData } from '../../profile.hook';
+import { ContactAddressProps } from './contact-address.props';
+import * as styles from './contact-address.scss';
 
 /**
  * Radio title data
@@ -50,50 +47,31 @@ const ContactAddress: React.FC<ContactAddressProps> = ({}) => {
         initialValues={defaultValues}
         validationSchema={contactAddressValidationSchema}
         onSubmit={values => {
-          console.log(values);
           dispatch(editProfile(values));
         }}
       >
         {({ handleSubmit, isSubmitting }) => (
           <div className={styles.form}>
             <Field.Select
-              placeholder={user.title}
               name='title'
               options={titleData}
               className={styles.formTitleSelect}
               label='Title'
             />
-            <Field.Text
-              placeholder={user.name}
-              name='name'
-              label='First Name'
-            />
-            <Field.Text
-              placeholder={user.surname}
-              name='surname'
-              label='Last Name'
-            />
+            <Field.Text name='name' label='First Name' />
+            <Field.Text name='surname' label='Last Name' />
             <Field.Radio
               className={styles.formRadio}
               name='position'
               label='I Am'
               data={positionData}
               direction='row'
-              value={user.position}
             />
-            <Field.Text
-              placeholder={user.company}
-              name='company'
-              label='Company'
-            />
-            <Field.Text placeholder={user.job} name='job' label='Job Title' />
-            <Field.Text placeholder={user.city} name='city' label='City' />
-            <Field.Text
-              placeholder={user.country}
-              name='country'
-              label='Country'
-            />
-            <Field.Text placeholder={user.phone} name='phone' label='Phone' />
+            <Field.Text name='company' label='Company' />
+            <Field.Text name='job' label='Job Title' />
+            <Field.Text name='city' label='City' />
+            <Field.Text name='country' label='Country' />
+            <Field.Text name='phone' label='Phone' />
             <div style={{ position: 'relative' }}>
               <Button
                 disabled={isSubmitting}

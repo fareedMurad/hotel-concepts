@@ -23,9 +23,9 @@ import { Newsletter } from './components/newsletter';
 /**
  * Card component
  */
-const Card: React.FC<{ className: string }> = ({ className, children }) => {
-  return <div className={classNames(styles.card, className)}>{children}</div>;
-};
+const Card: React.FC<{ className: string }> = ({ className, children }) => (
+  <div className={classNames(styles.card, className)}>{children}</div>
+);
 
 /**
  * Renders Profile
@@ -34,43 +34,45 @@ const Profile: React.FC = () => {
   const { user } = useProfileData();
 
   return (
-    <React.Fragment>
-      <Hero title='My account' />
-      <Navigation />
-      <div className={styles.profileContainer}>
-        <div className={styles.mainInfo}>
-          <Card className={styles.mainInfoLanguage}>
-            <Language userLanguage={user.language} />
-          </Card>
-          <Card className={styles.mainInfoAddress}>
-            <ContactAddress />
-          </Card>
-        </div>
-
-        <div className={styles.secondaryInfo}>
-          <Card className={styles.secondaryInfoInterests}>
-            <Interests />
-          </Card>
-          <div className={styles.secondaryInfoGrid}>
-            <Card className={styles.secondaryInfoGridEmailPassword}>
-              <UpdatePassword />
+    <div className={styles.profile}>
+      <Preloader id={Preloaders.profile}>
+        <Hero title='My account' />
+        <Navigation />
+        <div className={styles.profileContainer}>
+          <div className={styles.mainInfo}>
+            <Card className={styles.mainInfoLanguage}>
+              <Language userLanguage={user?.language} />
             </Card>
-            <Card className={styles.secondaryInfoGridAvatar}>
-              <UploadAvatar user={user} />
-            </Card>
-            <Card className={styles.secondaryInfoGridPayment}>
-              <PaymentMethod />
-            </Card>
-            <Card className={styles.secondaryInfoGridPrivacy}>
-              <Privacy />
-            </Card>
-            <Card className={styles.secondaryInfoGridNewsletter}>
-              <Newsletter />
+            <Card className={styles.mainInfoAddress}>
+              <ContactAddress />
             </Card>
           </div>
+
+          <div className={styles.secondaryInfo}>
+            <Card className={styles.secondaryInfoInterests}>
+              <Interests />
+            </Card>
+            <div className={styles.secondaryInfoGrid}>
+              <Card className={styles.secondaryInfoGridEmailPassword}>
+                <UpdatePassword />
+              </Card>
+              <Card className={styles.secondaryInfoGridAvatar}>
+                <UploadAvatar user={user} />
+              </Card>
+              <Card className={styles.secondaryInfoGridPayment}>
+                <PaymentMethod />
+              </Card>
+              <Card className={styles.secondaryInfoGridPrivacy}>
+                <Privacy />
+              </Card>
+              <Card className={styles.secondaryInfoGridNewsletter}>
+                <Newsletter />
+              </Card>
+            </div>
+          </div>
         </div>
-      </div>
-    </React.Fragment>
+      </Preloader>
+    </div>
   );
 };
 

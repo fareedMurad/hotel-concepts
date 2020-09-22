@@ -11,16 +11,16 @@ const useProfileData = () => {
    * Default values
    */
   const defaultValues: ProfileValues = {
-    position: user.position || 'Hospitality professional',
-    email: user.email,
-    title: user.title,
-    name: user.name,
-    surname: user.surname,
-    company: user.company ? user.company : '',
-    job: user.job ? user.job : '',
-    city: user.city ? user.city : '',
-    country: user.country ? user.country : '',
-    phone: user.phone ? user.phone : ''
+    position: '',
+    email: '',
+    title: '',
+    name: '',
+    surname: '',
+    company: '',
+    job: '',
+    city: '',
+    country: '',
+    phone: ''
   };
 
   const isUser = Object.keys(user || {}).length > 0;

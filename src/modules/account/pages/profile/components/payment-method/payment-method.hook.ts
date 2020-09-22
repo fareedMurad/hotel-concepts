@@ -4,13 +4,13 @@ import { PaymentMethodsModel } from '@account/models/payment';
 
 const usePaymentmethodData = () => {
   const {
-    user: { paymentMethods }
+    // user: { paymentMethods }
   } = useSelector((state: State) => state.auth);
 
   const defaultValues: PaymentMethodsModel = {
-    paypal: paymentMethods.paypal,
-    transfer: paymentMethods.transfer,
-    card: paymentMethods.card
+    paypal: false,
+    transfer: false,
+    card: false
   };
 
   return { defaultValues };
