@@ -117,9 +117,9 @@ const Routes: React.FC = () => {
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getUser());
-  // }, []);
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   return (
     <Fragment>
