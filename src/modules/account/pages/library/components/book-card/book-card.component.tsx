@@ -22,7 +22,8 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
         className={styles.cookCardDescription}
         src={book.picture}
         alt={book.name}
-        width={133}
+        width={124}
+        height={191}
       />
       <AddToWish
         selected={book.wishSelected}

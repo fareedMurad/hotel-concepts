@@ -1,7 +1,8 @@
 @import 'core.scss';
 
 .container {
-  @include accountContainer();
+  width: 880px;
+  margin: 0 auto;
 }
 .navigation {
   display: grid;
