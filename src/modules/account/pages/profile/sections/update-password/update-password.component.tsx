@@ -10,6 +10,7 @@ import { useUpdatePasswordData } from './update-password.hook';
 import { UpdatePasswordProps } from './update-password.props';
 import * as styles from './update-password.scss';
 import { updatePasswordValidationSchema } from '../../models';
+import { updatePassword } from '@app/redux/account';
 
 /**
  * Renders UpdatePassword
@@ -26,10 +27,11 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
     >
       <Preloader id={Preloaders.profileUpdatePassword}>
         <Formik
+          enableReinitialize
           initialValues={defaultValues}
           validationSchema={updatePasswordValidationSchema}
           onSubmit={values => {
-            console.log(values);
+            dispatch(updatePassword(values.newPassword));
           }}
         >
           {({ handleSubmit }) => (
@@ -40,8 +42,16 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
               </div>
               <div className={styles.form}>
                 <Field.Text name='email' label='E-mail' />
-                <Field.Text name='email' label='New password' />
-                <Field.Text name='email' label='Retype new password' />
+                <Field.Text
+                  name='newPassword'
+                  label='New password'
+                  type='password'
+                />
+                <Field.Text
+                  name='newPasswordConfirm'
+                  label='Retype new password'
+                  type='password'
+                />
                 <Button
                   className={styles.submit}
                   onClick={() => handleSubmit()}

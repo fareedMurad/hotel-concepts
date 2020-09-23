@@ -13,7 +13,8 @@ import {
   subscribe,
   selectPaymentMethods,
   setNewsSubscription,
-  editPrefferedLanguage
+  editPrefferedLanguage,
+  updatePassword
 } from './actions';
 
 /**
@@ -136,6 +137,26 @@ class AccountSaga {
       console.log(err);
     } finally {
       yield put(preloaderStop(Preloaders.profilePaymentMethods));
+    }
+  }
+
+  /**
+   * Update password
+   */
+  @Saga(updatePassword)
+  public *updatePassword(
+    payload: Payload<typeof updatePassword>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileUpdatePassword));
+
+    try {
+      yield call(api.account.updatePassword, payload);
+      yield put(getUser());
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profileUpdatePassword));
     }
   }
 

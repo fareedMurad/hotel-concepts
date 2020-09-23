@@ -64,6 +64,16 @@ class AccountService {
     });
 
   /**
+   * Update password
+   */
+  public updatePassword = (newPassword: string) =>
+    this.http.request({
+      method: 'POST',
+      url: '/auth/password/update',
+      data: { newPassword }
+    });
+
+  /**
    * Delete avatar
    */
   public deleteAvatar = () =>
@@ -81,6 +91,7 @@ class AccountService {
       url: 'user/payment-method',
       data: payload
     });
+
   /*
    * Update news subscription
    */

@@ -57,6 +57,13 @@ const setNewsSubscription = make('[account] set news subscription')
   .stage((payload: { newsSub: boolean }) => payload)
   .stage('success');
 
+/**
+ * Update password
+ */
+const updatePassword = make('[account] update password').stage(
+  (payload: string) => payload
+);
+
 export {
   editContactAddress,
   uploadAvatar,
@@ -65,5 +72,6 @@ export {
   subscribe,
   selectPaymentMethods,
   setNewsSubscription,
-  editPrefferedLanguage
+  editPrefferedLanguage,
+  updatePassword
 };

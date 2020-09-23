@@ -66,7 +66,7 @@ const Interests: React.FC<InterestsProps> = ({ interests: userInterests }) => {
       <div className={styles.interests}>
         {showInterests.map(interest => {
           const { value, title } = interest;
-          const match = selectedInterests.some(one => one == value);
+          const match = selectedInterests?.some(one => one == value);
 
           return (
             <div

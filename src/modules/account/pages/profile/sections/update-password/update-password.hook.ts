@@ -9,7 +9,7 @@ const useUpdatePasswordData = () => {
    * Default values
    */
   const defaultValues: UpdatePasswordModel = {
-    email: '',
+    email: user?.email || '',
     newPassword: '',
     newPasswordConfirm: ''
   };
