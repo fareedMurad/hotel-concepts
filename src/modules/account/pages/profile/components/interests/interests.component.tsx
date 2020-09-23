@@ -35,7 +35,9 @@ const Interests: React.FC<InterestsProps> = ({ interests: userInterests }) => {
   let { interests } = useInterestsData();
 
   useEffect(() => {
-    selectInterest(userInterests);
+    if (userInterests) {
+      selectInterest(userInterests);
+    }
     // interests = sortInterests(interests, userInterests);
     // setInterests(interests);
   }, [userInterests]);
