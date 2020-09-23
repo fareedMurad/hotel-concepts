@@ -145,8 +145,12 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                     <NavLink to={'/account/subscription'}>
                       my Subscription
                     </NavLink>
-                    <NavLink to={'/account/library'}>my Library</NavLink>
-                    <NavLink to={'/account/programs'}>my Programs</NavLink>
+                    <NavLink to={'/account/library/purchased'}>
+                      my Library
+                    </NavLink>
+                    <NavLink to={'/account/programs/purchased'}>
+                      my Programs
+                    </NavLink>
                     <Button onClick={() => dispatch(unauthorize())}>
                       Log out
                     </Button>
