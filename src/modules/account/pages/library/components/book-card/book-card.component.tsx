@@ -13,7 +13,7 @@ import { Modals } from '@ui/models';
 /**
  * Renders BookCard
  */
-const BookCard: React.FC<BookCardProps> = ({ book }) => {
+const BookCard: React.FC<BookCardProps> = ({ book, type }) => {
   const { bookPreviewModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
   return (
@@ -25,26 +25,38 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
         width={124}
         height={191}
       />
-      <AddToWish
-        selected={book.wishSelected}
-        onClick={() => dispatch(addToWishList('id'))}
-        className={styles.bookCardHeart}
-      />
+      {type === 'wishlist' && (
+        <AddToWish
+          selected={book.wishSelected}
+          onClick={() => dispatch(addToWishList('id'))}
+          className={styles.bookCardHeart}
+        />
+      )}
       <div className={styles.bookCardUnderline} />
       <div className={styles.bookCardName}>{book.name}</div>
-      <Button
-        width='100%'
-        arrow='→'
-        onClick={() => {
-          dispatch(showModal(Modals.bookPreview));
-          dispatch(toggleBookPreviewModal(true));
-        }}
-      >
-        Read
-      </Button>
-      <Button width='100%' theme='secondary' arrow='→'>
-        Download
-      </Button>
+      {type === 'wishlist' ? (
+        <Button width='100%' arrow='→'>
+          Add to cart
+        </Button>
+      ) : (
+        <React.Fragment>
+          {' '}
+          <Button
+            width='100%'
+            arrow='→'
+            onClick={() => {
+              dispatch(showModal(Modals.bookPreview));
+              dispatch(toggleBookPreviewModal(true));
+            }}
+          >
+            Read
+          </Button>
+          <Button width='100%' theme='secondary' arrow='→'>
+            Download
+          </Button>
+        </React.Fragment>
+      )}
+
       {/* Check why lag while opening */}
       {bookPreviewModal && (
         <BookPreviewModal

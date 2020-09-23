@@ -1,0 +1,7 @@
+@import 'core.scss';
+
+.books {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+}

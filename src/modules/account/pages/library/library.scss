@@ -12,7 +12,7 @@
   &__links {
     @include flex();
     margin-top: 42px;
-    & > div {
+    &_link {
       @include font($primary-gray, 18px, 600, 58px);
       font-family: $EBGaramond;
       cursor: pointer;
@@ -24,6 +24,13 @@
         }
       }
     }
+    &--active {
+      color: $primary-orange;
+      & > div > div > svg {
+        fill: $primary-orange;
+      }
+    }
+
     &__wish {
       @include flex($align: center);
       &-icon {
@@ -37,15 +44,11 @@
       }
     }
 
-    & > div:first-child {
+    & > a:first-child {
       margin-right: 100px;
     }
   }
-  &__books {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(5, 1fr);
-  }
+
   &--book {
     @include flex($justify: center, $direction: column, $align: center);
     position: relative;
