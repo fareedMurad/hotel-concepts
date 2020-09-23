@@ -15,7 +15,7 @@
 
 .product-review {
   display: grid;
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   margin-top: 105px;
   @include desktop() {
     // margin-top: 15px;
