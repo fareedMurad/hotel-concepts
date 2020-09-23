@@ -50,7 +50,7 @@ const Profile: React.FC = () => {
 
           <div className={styles.secondaryInfo}>
             <Card className={styles.secondaryInfoInterests}>
-              <Interests />
+              <Interests interests={user?.interests} />
             </Card>
             <div className={styles.secondaryInfoGrid}>
               <Card className={styles.secondaryInfoGridEmailPassword}>

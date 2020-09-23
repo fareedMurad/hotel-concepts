@@ -3,37 +3,93 @@ import { InterestsProps } from './interests.props';
 import * as styles from './interests.scss';
 import { useInterestsData } from './interests.hook';
 import { Button } from '@core/components';
+import classNames from 'classnames';
+import { useEffect } from 'react';
+import { chooseInterests } from '@app/redux/auth';
+import { Interest } from '@account/models';
+
+const sortInterests = (interests: Interest[], selected) => {
+  const result = [];
+  interests.forEach(interest => {
+    if (selected.includes(interest.value)) {
+      result.push(interest);
+      interests = interests.filter(one => one !== interest);
+    }
+  });
+  return [...result, ...interests];
+};
 
 /**
  * Renders Interests
  */
-const Interests: React.FC<InterestsProps> = ({}) => {
-  const { interests } = useInterestsData();
-  const [toggleMoreInterests, setToggleMoreInterests] = React.useState(false);
+const Interests: React.FC<InterestsProps> = ({ interests: userInterests }) => {
+  const {
+    selectedInterests,
+    selectInterest,
+    toggleMoreInterests,
+    setToggleMoreInterests,
+    // setInterests,
+    dispatch
+  } = useInterestsData();
+
+  let { interests } = useInterestsData();
+
+  useEffect(() => {
+    selectInterest(userInterests);
+    // interests = sortInterests(interests, userInterests);
+    // setInterests(interests);
+  }, [userInterests]);
+
+  /**
+   * Handle click
+   */
+  const handleSelect = (value: string) => {
+    const exists = selectedInterests.some(one => one == value);
+
+    exists
+      ? selectInterest(selectedInterests.filter(one => one != value))
+      : selectInterest([...selectedInterests, value]);
+  };
+
+  /**
+   * If Add more interests is not toggled, show only 6 interests
+   */
+  if (!toggleMoreInterests) {
+    interests.length = 6;
+  }
+
   return (
     <React.Fragment>
       <div className={styles.title}>My interests</div>
-      <div className={styles.interestsList}>
-        {toggleMoreInterests
-          ? interests.map(el => (
-              <div className={styles.singleInteress} key={el.id}>
-                {el.name}
-              </div>
-            ))
-          : interests
-              .filter((el, idx) => idx < 6)
-              .map(el => (
-                <div className={styles.singleInteress} key={el.id}>
-                  {el.name}
-                </div>
-              ))}
+      <div className={styles.interests}>
+        {interests.map(interest => {
+          const { value, title } = interest;
+          const match = selectedInterests.some(one => one == value);
+
+          return (
+            <div
+              className={classNames(styles.interest, {
+                [styles.interestSelected]: match
+              })}
+              onClick={() => handleSelect(value)}
+              key={value}
+            >
+              {title}
+            </div>
+          );
+        })}
       </div>
       {toggleMoreInterests && (
-        <Button className={styles.saveButton}>Save</Button>
+        <Button
+          className={styles.save}
+          onClick={() => dispatch(chooseInterests(selectedInterests))}
+        >
+          Save
+        </Button>
       )}
       <div
         onClick={() => setToggleMoreInterests(!toggleMoreInterests)}
-        className={styles.addMoreInterests}
+        className={styles.moreInterests}
       >
         {toggleMoreInterests ? 'Hide it' : 'Add more interests'}
       </div>
