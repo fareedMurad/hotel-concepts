@@ -25,7 +25,7 @@
 .secondaryInfoGrid {
   display: grid;
   gap: 20px;
-  grid-template-columns: 428px 335px;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr 1fr;
   grid-template-areas: 'email-password avatar' 'payment privacy' 'payment newsletter';
 
@@ -33,6 +33,7 @@
     grid-area: email-password;
   }
   &__avatar {
+    grid-area: avatar;
   }
   &__payment {
     grid-area: payment;
