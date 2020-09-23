@@ -51,18 +51,20 @@ const Interests: React.FC<InterestsProps> = ({ interests: userInterests }) => {
       : selectInterest([...selectedInterests, value]);
   };
 
+  // REFACTOR THIS . KOSTIL
   /**
    * If Add more interests is not toggled, show only 6 interests
    */
+  let showInterests = interests;
   if (!toggleMoreInterests) {
-    interests.length = 6;
+    showInterests = interests.filter((_, idx) => idx < 5);
   }
 
   return (
     <React.Fragment>
       <div className={styles.title}>My interests</div>
       <div className={styles.interests}>
-        {interests.map(interest => {
+        {showInterests.map(interest => {
           const { value, title } = interest;
           const match = selectedInterests.some(one => one == value);
 
