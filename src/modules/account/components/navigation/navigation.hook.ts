@@ -18,7 +18,7 @@ const useNavigationData = () => {
     {
       number: '4.0',
       link: 'My Programs',
-      to: '/account/programs'
+      to: '/account/programs/purchased'
     }
   ];
   return { navLinks };
