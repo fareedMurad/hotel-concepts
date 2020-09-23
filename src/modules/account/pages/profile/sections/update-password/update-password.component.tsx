@@ -41,7 +41,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
                 use your new login details when next visiting Kordie.
               </div>
               <div className={styles.form}>
-                <Field.Text name='email' label='E-mail' />
+                <Field.Text name='email' label='E-mail' disabled />
                 <Field.Text
                   name='newPassword'
                   label='New password'
