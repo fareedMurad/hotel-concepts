@@ -2,7 +2,6 @@ import { reducer } from 'redux-chill';
 import { AccountState } from './state';
 import {
   subscribe,
-  editProfile,
   selectPaymentMethods,
   setNewsSubscription
 } from './actions';
@@ -16,10 +15,10 @@ const account = reducer(new AccountState())
     state.subscribed = true;
     state.subscription = payload;
   })
-  .on(
-    editProfile.success,
-    (state, payload) => (state.editProfileSuccess = true)
-  )
+  // .on(
+  //   editProfile.success,
+  //   (state, payload) => (state.editProfileSuccess = true)
+  // )
   .on(updatePassword.success, state => (state.updatePasswordSuccess = true))
   .on(
     selectPaymentMethods.success,

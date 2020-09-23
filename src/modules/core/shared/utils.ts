@@ -23,4 +23,15 @@ const exclude = <T, R = string, K extends keyof T = keyof T>(
   ...fields: K[]
 ): Partial<T> => createFilter(key => !fields.includes(key as K))(source);
 
-export { downloadBlob, exclude };
+/**
+ * Assign existing properties only
+ */
+const assign = (target, source) =>
+  Object.keys(source).forEach(function(key) {
+    if (key in target) {
+      // or target.hasOwnProperty(key)
+      target[key] = source[key];
+    }
+  });
+
+export { downloadBlob, exclude, assign };

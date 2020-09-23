@@ -1,0 +1,17 @@
+@import 'core.scss';
+
+.upload-avatar {
+}
+
+.upload {
+  flex: 1;
+}
+
+.avatar {
+  @include size(100%);
+  border-radius: 8px;
+}
+
+.input {
+  display: none;
+}

@@ -1,4 +1,4 @@
-import { editProfile } from '@app/redux/account';
+import { editContactAddress } from '@app/redux/account';
 import { State } from '@app/redux/state';
 import { contactAddressValidationSchema } from '@auth/models/contanct-address';
 import { Button, Field, Preloader } from '@core/components';
@@ -47,7 +47,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({}) => {
         initialValues={defaultValues}
         validationSchema={contactAddressValidationSchema}
         onSubmit={values => {
-          dispatch(editProfile(values));
+          dispatch(editContactAddress(values));
         }}
       >
         {({ handleSubmit, isSubmitting }) => (

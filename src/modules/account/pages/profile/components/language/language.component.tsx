@@ -5,7 +5,7 @@ import { Button } from '@core/components';
 import { useLanguageData } from './language.hook';
 import { useClickOutside } from '@core/shared';
 import { useDispatch } from 'react-redux';
-import { selectUserLanguage } from '@app/redux/account';
+import { editPrefferedLanguage } from '@app/redux/account';
 
 /**
  * Renders Language
@@ -55,7 +55,7 @@ const Language: React.FC<LanguageProps> = ({ userLanguage }) => {
         </div>
       </div>
       <Button
-        onClick={() => dispatch(selectUserLanguage(selectedLanguage.locale))}
+        onClick={() => dispatch(editPrefferedLanguage(selectedLanguage.locale))}
         className={styles.button}
       >
         Save

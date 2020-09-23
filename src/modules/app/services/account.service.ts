@@ -1,5 +1,6 @@
 import { HttpService } from './config';
 import { ProfileValues } from '@account/models';
+import { ContactAddressModel } from '@account/pages/profile/models';
 
 class AccountService {
   /**
@@ -7,10 +8,22 @@ class AccountService {
    */
   public constructor(private http: HttpService) {}
 
-  /**
-   * Edit profile
+  /*
+   * Edit preferred language
    */
-  public editProfile = (data: ProfileValues) => {
+  public editPreferredLanguage = (language: string) =>
+    this.http.request({
+      method: 'PUT',
+      url: '/user/language',
+      data: {
+        language
+      }
+    });
+
+  /**
+   * Edit contact address
+   */
+  public editContactAddress = (data: ContactAddressModel) => {
     const {
       name,
       surname,
@@ -76,17 +89,6 @@ class AccountService {
       method: 'PUT',
       url: 'user/news-subscription',
       data: payload
-    });
-  /*
-   * Update user language
-   */
-  public updateUserLanguage = payload =>
-    this.http.request({
-      method: 'PUT',
-      url: 'user/language',
-      data: {
-        language: payload
-      }
     });
 }
 

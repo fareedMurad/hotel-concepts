@@ -1,13 +1,20 @@
-import { make } from 'redux-chill';
-import { ProfileValues } from '@account/models';
-import { SubscriptionModel } from '@account/models/subscription';
 import { PaymentMethodsModel } from '@account/models/payment';
+import { SubscriptionModel } from '@account/models/subscription';
+import { ContactAddressModel } from '@account/pages/profile/models';
+import { make } from 'redux-chill';
+
+/*
+ * Edit preferred language
+ */
+const editPrefferedLanguage = make('[account] select language')
+  .stage((payload: string) => payload)
+  .stage('success');
 
 /**
- * Edit profile
+ * Edit contact address
  */
-const editProfile = make('[account] edit profile')
-  .stage((payload: ProfileValues) => payload)
+const editContactAddress = make('[account] edit profile')
+  .stage((payload: ContactAddressModel) => payload)
   .stage('success');
 
 /**
@@ -39,7 +46,6 @@ const subscribe = make('[account] subscribe').stage(
 /*
  * Select payment method
  */
-
 const selectPaymentMethods = make('[account] select payment method')
   .stage((payload: PaymentMethodsModel) => payload)
   .stage('success');
@@ -51,20 +57,13 @@ const setNewsSubscription = make('[account] set news subscription')
   .stage((payload: { newsSub: boolean }) => payload)
   .stage('success');
 
-/*
- * Select language
- */
-const selectUserLanguage = make('[account] select language')
-  .stage((payload: string) => payload)
-  .stage('success');
-
 export {
-  editProfile,
+  editContactAddress,
   uploadAvatar,
   deleteAvatar,
   addToWishList,
   subscribe,
   selectPaymentMethods,
   setNewsSubscription,
-  selectUserLanguage
+  editPrefferedLanguage
 };

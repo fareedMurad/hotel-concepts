@@ -75,7 +75,7 @@ const Select: React.FC<SelectProps> = ({
 
   return (
     <div
-      className={classNames(styles.select, {
+      className={classNames(styles.select, className, {
         [styles.selectWhite]: whiteBackground
       })}
     >

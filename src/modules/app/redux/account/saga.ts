@@ -6,36 +6,58 @@ import { call, put, delay } from 'redux-saga/effects';
 import { getUser } from '../auth';
 import { Context } from '../context';
 import {
-  editProfile,
+  editContactAddress,
   uploadAvatar,
   deleteAvatar,
   addToWishList,
   subscribe,
   selectPaymentMethods,
   setNewsSubscription,
-  selectUserLanguage
+  editPrefferedLanguage
 } from './actions';
 
 /**
  * Account saga
  */
 class AccountSaga {
-  /**
-   * Edit profile
+  /*
+   * Edit preferred language
    */
-  @Saga(editProfile)
-  public *editProfile(payload: Payload<typeof editProfile>, { api }: Context) {
-    yield put(preloaderStart(Preloaders.profile));
-    yield console.log(payload);
+  @Saga(editPrefferedLanguage)
+  public *editPrefferedLanguage(
+    payload: Payload<typeof editPrefferedLanguage>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileLanguage));
+
     try {
-      const response = yield call(api.account.editProfile, payload);
+      yield call(api.account.editPreferredLanguage, payload);
+      yield put(setNewsSubscription.success());
+      yield put(getUser());
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profileLanguage));
+    }
+  }
+  /**
+   * Edit contact address
+   */
+  @Saga(editContactAddress)
+  public *editProfile(
+    payload: Payload<typeof editContactAddress>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileContactAddress));
+
+    try {
+      const response = yield call(api.account.editContactAddress, payload);
 
       yield put(getUser());
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.profile));
-      yield put(editProfile.success());
+      yield put(preloaderStop(Preloaders.profileContactAddress));
     }
   }
 
@@ -95,7 +117,6 @@ class AccountSaga {
   /*
    * Select payment methods
    */
-
   @Saga(selectPaymentMethods)
   public *selectPaymentMethods(payload, { api }: Context) {
     yield put(preloaderStart(Preloaders.paymentMethods));
@@ -116,39 +137,21 @@ class AccountSaga {
       yield put(preloaderStop(Preloaders.paymentMethods));
     }
   }
+
   /*
    * Set news subscription
    */
   @Saga(setNewsSubscription)
   public *setNewsSubscription(payload, { api }: Context) {
-    yield put(preloaderStart(Preloaders.newsSub));
+    yield put(preloaderStart(Preloaders.profileNewsletter));
+
     try {
       yield call(api.account.updateNewsSubscription, payload);
-      yield put(setNewsSubscription.success());
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.newsSub));
+      yield put(preloaderStop(Preloaders.profileNewsletter));
     }
-  }
-  /*
-   * Select language
-   */
-  @Saga(selectUserLanguage)
-  public *selectUserLanguage(
-    payload: Payload<typeof selectUserLanguage>,
-    { api }: Context
-  ) {
-    // yield put(preloaderStart(Preloaders.newsSub));
-    try {
-      yield call(api.account.updateUserLanguage, payload);
-      yield put(setNewsSubscription.success());
-    } catch (err) {
-      console.log(err);
-    }
-    // } finally {
-    //   yield put(preloaderStop(Preloaders.newsSub));
-    // }
   }
 }
 

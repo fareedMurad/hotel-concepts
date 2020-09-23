@@ -3,6 +3,62 @@
 .account {
   @include flex($align: stretch, $direction: column);
   flex: 1;
-  // background: gray;
-  margin-bottom: 60px;
+}
+
+.hero {
+  height: 85vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.navigation {
+  @include flex($align: stretch, $direction: column);
+  margin-top: -200px;
+}
+
+.title {
+  @include font($white, 60px, 600);
+  text-align: center;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 20px;
+  max-width: 65%;
+  align-self: center;
+  margin-top: 77px;
+}
+
+.link {
+  @include flex($align: center);
+  padding: 10px 20px 20px 20px;
+  border-radius: 4px;
+  background: #f5f1f0;
+  transition: $transition;
+
+  &__index {
+    @include font(#ff6634, 18px, 600);
+  }
+
+  &__caption {
+    @include font(#3e3e3e, 16px, 500);
+    flex: 1;
+    margin-left: 7px;
+  }
+
+  &--active {
+    background: #ff6634;
+
+    .link__index,
+    .link__caption {
+      color: $white;
+    }
+  }
+}
+
+.content {
+  max-width: 1140px;
+  margin: 28px auto 80px auto;
 }

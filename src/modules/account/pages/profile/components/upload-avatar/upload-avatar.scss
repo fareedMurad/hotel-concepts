@@ -13,6 +13,7 @@
   width: 100px;
   height: 100px;
 }
+
 .title {
   @include font($primary-gray, 24px, 400, 24px);
 }

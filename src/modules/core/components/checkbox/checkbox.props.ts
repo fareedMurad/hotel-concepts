@@ -4,6 +4,29 @@ import { ControlProps } from '@core/models';
  * Props
  */
 type CheckboxProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> &
-  ControlProps<boolean>;
+  ControlProps<boolean> & {
+    /**
+     * Checkbox theme
+     */
+    theme?: 'sm' | 'md' | 'lg';
+  };
 
-export { CheckboxProps };
+/**
+ * CheckboxGroup props
+ */
+type CheckboxGroupProps = ControlProps & {
+  /**
+   * Group data
+   */
+  data: { value: string; label: string }[];
+  /**
+   * Checkbox theme
+   */
+  theme?: 'sm' | 'md' | 'lg';
+  /**
+   * Value
+   */
+  value: string[];
+};
+
+export { CheckboxProps, CheckboxGroupProps };

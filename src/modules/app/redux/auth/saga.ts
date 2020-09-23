@@ -42,9 +42,9 @@ class AuthSaga {
   ) {
     const isProfile = pathname == '/account/profile';
 
-    if (isProfile) {
-      yield put(preloaderStart(Preloaders.profile));
-    }
+    // if (isProfile) {
+    //   yield put(preloaderStart(Preloaders.profile));
+    // }
 
     try {
       const response = yield call(api.auth.getUser);
@@ -55,7 +55,7 @@ class AuthSaga {
       yield put(unauthorize());
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.profile));
+      // yield put(preloaderStop(Preloaders.profile));
     }
   }
 

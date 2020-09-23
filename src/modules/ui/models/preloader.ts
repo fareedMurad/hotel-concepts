@@ -12,8 +12,16 @@ enum Preloaders {
   otp = 'otp',
 
   // Account
+
+  //Profile
   profile = 'profile',
   profileAvatar = 'profile avatar',
+  profileLanguage = 'profile language',
+  profileContactAddress = 'profile contact address',
+  profileUpdatePassword = 'profile update password',
+  profileNewsletter = 'profile newsletter',
+  profilePaymentMethods = 'profile payment methods',
+
   paymentMethods = 'profile payment methods',
   newsSub = 'profile news subsciption',
 

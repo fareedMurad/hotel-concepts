@@ -1,0 +1,25 @@
+@import 'core.scss';
+
+.language {
+}
+
+.form {
+}
+
+.container {
+  @include flex($align: center);
+}
+
+.label {
+  @include font(#3e3e3e, 18px, 400);
+}
+
+.select {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.submit {
+  width: 50%;
+  margin: 25px auto 0 auto;
+}
