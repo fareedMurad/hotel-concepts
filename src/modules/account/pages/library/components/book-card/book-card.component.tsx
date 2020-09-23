@@ -45,6 +45,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
       <Button width='100%' theme='secondary' arrow='→'>
         Download
       </Button>
+      {/* Check why lag while opening */}
       {bookPreviewModal && (
         <BookPreviewModal
           bookPreview={book.pdf}
