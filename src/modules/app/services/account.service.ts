@@ -68,7 +68,7 @@ class AccountService {
    */
   public updatePassword = (newPassword: string) =>
     this.http.request({
-      method: 'POST',
+      method: 'PATCH',
       url: '/auth/password/update',
       data: { newPassword }
     });

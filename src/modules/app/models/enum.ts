@@ -1,4 +1,13 @@
 /**
+ * User source enum
+ */
+enum UserSource {
+  internal = 'internal',
+  google = 'google',
+  facebook = 'facebook'
+}
+
+/**
  * Position enum
  */
 enum Position {
@@ -46,4 +55,4 @@ enum Interest {
   reputationmanagement = 'Reputation Management'
 }
 
-export { Position, Title, Language, PaymentMethod, Interest };
+export { UserSource, Position, Title, Language, PaymentMethod, Interest };

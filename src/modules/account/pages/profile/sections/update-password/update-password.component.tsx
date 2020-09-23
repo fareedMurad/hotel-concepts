@@ -1,4 +1,5 @@
 import { Card } from '@account/components';
+import { updatePassword } from '@app/redux/account';
 import { Button, Field, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
@@ -6,18 +7,17 @@ import { Formik } from 'formik';
 import * as React from 'react';
 import { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
+import { updatePasswordValidationSchema } from '../../models';
 import { useUpdatePasswordData } from './update-password.hook';
 import { UpdatePasswordProps } from './update-password.props';
 import * as styles from './update-password.scss';
-import { updatePasswordValidationSchema } from '../../models';
-import { updatePassword } from '@app/redux/account';
 
 /**
  * Renders UpdatePassword
  */
 const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
   const dispatch = useDispatch();
-  const { defaultValues } = useUpdatePasswordData();
+  const { isInternalSource, defaultValues } = useUpdatePasswordData();
 
   return (
     <Card
@@ -25,7 +25,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
       title='Email & Password'
       offsetTop={30}
     >
-      <Preloader id={Preloaders.profileUpdatePassword}>
+      <Preloader id={Preloaders.profileUpdatePassword} size={75} thickness={4}>
         <Formik
           enableReinitialize
           initialValues={defaultValues}
@@ -46,11 +46,13 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
                   name='newPassword'
                   label='New password'
                   type='password'
+                  disabled={!isInternalSource}
                 />
                 <Field.Text
                   name='newPasswordConfirm'
                   label='Retype new password'
                   type='password'
+                  disabled={!isInternalSource}
                 />
                 <Button
                   className={styles.submit}

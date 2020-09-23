@@ -29,7 +29,7 @@ const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
       title='Preffered payment metod'
       offsetTop={22}
     >
-      <Preloader id={Preloaders.profilePaymentMethods}>
+      <Preloader id={Preloaders.profilePaymentMethods} size={75} thickness={4}>
         <Formik
           enableReinitialize
           initialValues={defaultValues}

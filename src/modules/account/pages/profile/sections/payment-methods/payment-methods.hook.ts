@@ -10,7 +10,7 @@ const usePaymentMethodsData = () => {
     transfer: false
   };
 
-  return { user, defaultValues: user.paymentMethods || defaultValues };
+  return { user, defaultValues: user?.paymentMethods || defaultValues };
 };
 
 export { usePaymentMethodsData };

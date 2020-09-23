@@ -1,6 +1,7 @@
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
+import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
 import { call, put, delay } from 'redux-saga/effects';
 import { getUser } from '../auth';
@@ -153,6 +154,12 @@ class AccountSaga {
     try {
       yield call(api.account.updatePassword, payload);
       yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Password updated successfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
