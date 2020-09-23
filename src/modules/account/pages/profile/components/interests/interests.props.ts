@@ -1,6 +1,8 @@
 /**
- * Props
+ * Interests Props
  */
-type InterestsProps = {};
+type InterestsProps = {
+  interests: string[] | null;
+};
 
 export { InterestsProps };

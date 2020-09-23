@@ -4,35 +4,41 @@
   @include font($primary-gray, 24px, 400, 24px);
 }
 
-.interests-list {
+.interests {
   @include flex();
+  margin-top: 5px;
   flex-wrap: wrap;
   padding-bottom: 16px;
-  margin-top: 5px;
 }
 
-.single-interess {
-  padding: 10px;
-  border: 1px solid $primary-orange;
-  color: $primary-orange;
-  border-radius: 4px;
+.interest {
   margin-top: 12px;
   margin-right: 20px;
+  padding: 10px;
+  color: $primary-orange;
+  border: 1px solid $primary-orange;
+  border-radius: 4px;
   transition: $transition;
   cursor: pointer;
+
   &:hover {
+    background-color: $primary-orange;
+    color: $white;
+  }
+
+  &--selected {
     background-color: $primary-orange;
     color: $white;
   }
 }
 
-.add-more-interests {
+.moreInterests {
   position: absolute;
   bottom: 20px;
   left: 0;
   right: 0;
-  text-align: center;
   text-decoration: underline;
+  text-align: center;
   cursor: pointer;
   transition: $transition;
   &:hover {
@@ -40,7 +46,7 @@
   }
 }
 
-.save-button {
+.save {
   width: 150px !important;
   height: 36px;
   margin: 0 auto;
