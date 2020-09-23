@@ -1,6 +1,6 @@
 import { Card } from '@account/components';
 import { deleteAvatar, uploadAvatar } from '@app/redux/account';
-import { Avatar, Preloader } from '@core/components';
+import { Avatar, Button, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -15,7 +15,9 @@ import * as styles from './upload-avatar.scss';
 const UploadAvatar: React.FC<UploadAvatarProps> = ({ className, user }) => {
   const dispatch = useDispatch();
   const ref = useRef<HTMLInputElement>(null);
-  const isAvatarSource = user?.src?.length > 0;
+  const isAvatarSource = user?.avatar?.length > 0;
+
+  console.log(isAvatarSource);
 
   return (
     <Card
@@ -29,22 +31,27 @@ const UploadAvatar: React.FC<UploadAvatarProps> = ({ className, user }) => {
         size={100}
         thickness={5}
       >
-        <div
-          className={styles.upload}
-          onClick={() => {
-            ref.current.click();
-          }}
-        >
+        <div className={styles.upload}>
+          <div className={styles.controls}>
+            <Button
+              onClick={() => {
+                ref.current.click();
+              }}
+            >
+              {isAvatarSource ? 'Upload new' : 'Upload'}
+            </Button>
+            {isAvatarSource && (
+              <Button
+                onClick={() => {
+                  dispatch(deleteAvatar());
+                }}
+              >
+                Delete
+              </Button>
+            )}
+          </div>
           <Avatar className={styles.avatar} user={user} />
 
-          {isAvatarSource && (
-            <div
-              className={styles.delete}
-              onClick={() => dispatch(deleteAvatar())}
-            >
-              Delete avatar
-            </div>
-          )}
           <input
             className={styles.input}
             ref={ref}

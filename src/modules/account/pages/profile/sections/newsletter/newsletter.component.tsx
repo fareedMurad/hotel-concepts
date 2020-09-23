@@ -25,6 +25,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
     >
       <Preloader id={Preloaders.profileNewsletter} size={75} thickness={4}>
         <Formik
+          enableReinitialize
           initialValues={{ newsSub: user?.newsSub }}
           onSubmit={values => {
             dispatch(setNewsSubscription(values));

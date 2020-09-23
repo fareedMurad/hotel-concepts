@@ -4,9 +4,22 @@
 }
 
 .form {
-//   & > div.text:not(:first-child) {
-//     margin-top: 20px;
-//   }
+  //   & > div.text:not(:first-child) {
+  //     margin-top: 20px;
+  //   }
+  & > div:not(:first-child) {
+    margin-top: 20px;
+  }
+}
+
+.radio-group {
+  margin-top: 16px;
+  padding: 12px 6px 8px 6px;
+  border-radius: 4px;
+  background: $white;
+  & > div {
+    margin-top: 16px;
+  }
 }
 
 .submit {

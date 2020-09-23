@@ -147,6 +147,7 @@ class AccountSaga {
 
     try {
       yield call(api.account.updateNewsSubscription, payload);
+      yield put(getUser());
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
