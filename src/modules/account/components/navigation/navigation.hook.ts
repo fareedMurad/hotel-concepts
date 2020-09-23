@@ -13,7 +13,7 @@ const useNavigationData = () => {
     {
       number: '3.0',
       link: 'My Library',
-      to: '/account/library'
+      to: '/account/library/purchased'
     },
     {
       number: '4.0',

@@ -10,7 +10,8 @@ const useMyProgramsData = () => {
         'Nor hence hoped her after other known defer his. For county now sister engage had season better had waited.',
       picture:
         'https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/istock-151597880.jpg?itok=rB2itzVq',
-      id: 1143132
+      id: 1143132,
+      purchased: false
     },
     {
       name: 'Program Name',
@@ -22,7 +23,8 @@ const useMyProgramsData = () => {
         'Nor hence hoped her after other known defer his. For county now sister engage had season better had waited.',
       picture:
         'https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/istock-151597880.jpg?itok=rB2itzVq',
-      id: 5234
+      id: 5234,
+      purchased: true
     },
     {
       name: 'Program Name',
@@ -34,7 +36,8 @@ const useMyProgramsData = () => {
         'Nor hence hoped her after other known defer his. For county now sister engage had season better had waited.',
       picture:
         'https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/istock-151597880.jpg?itok=rB2itzVq',
-      id: 234
+      id: 234,
+      purchased: false
     }
   ];
   return programs;

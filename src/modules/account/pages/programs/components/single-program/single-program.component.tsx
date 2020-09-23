@@ -6,10 +6,10 @@ import { H3, Button } from '@core/components';
 /**
  * Renders SingleProgram
  */
-const SingleProgram: React.FC<SingleProgramProps> = ({ program }) => {
+const SingleProgram: React.FC<SingleProgramProps> = ({ program, type }) => {
   return (
     <div className={styles.singleProgram}>
-      <img src={program.picture} alt={program.name} width={316} height={220} />
+      <img src={program.picture} alt={program.name} width={317} height={221} />
       <div className={styles.description}>
         <div className={styles.descriptionLevel}>{program.level}</div>
         <H3>{program.name}</H3>
@@ -20,7 +20,15 @@ const SingleProgram: React.FC<SingleProgramProps> = ({ program }) => {
         </div>
         <div className={styles.descriptionText}>{program.description}</div>
         <div className={styles.descriptionButton}>
-          <Button arrow='→'>Access program</Button>
+          {type === 'purchased' ? (
+            <Button width={224} arrow='→'>
+              Access program
+            </Button>
+          ) : (
+            <Button width={224} arrow='→'>
+              Add to card
+            </Button>
+          )}
         </div>
       </div>
     </div>

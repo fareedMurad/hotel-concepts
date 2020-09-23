@@ -11,18 +11,21 @@
     margin-bottom: 20px;
   }
   & > img {
+    object-fit: cover;
     border-radius: 7px;
   }
 }
 
 .description {
-  padding: 0 20px;
+  padding: 0 21px;
   width: 30%;
   &--level {
-    @include font($primary-orange, 18px, 500, 24px);
+    @include font($primary-orange, 18px, 500, 28px);
+    margin-bottom: 8px;
     font-family: $IBMPlex;
   }
   &__additional-info {
+    @include font($primary-gray, 16px, 400, 22px);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
@@ -35,8 +38,9 @@
     }
   }
   &--text {
+    @include font($primary-gray, 16px, 400, 22px);
     width: 100%;
-    margin-top: 40px;
+    margin-top: 23px;
   }
   &--button {
     position: absolute;

@@ -1,0 +1,56 @@
+@import 'core.scss';
+
+.my-products {
+  margin-top: 100px;
+  background-color: $background;
+  padding: 7px 21px 95px 21px;
+  border-radius: 7px;
+  &__title {
+    @include font($primary-gray, 24px, 400, 34px);
+  }
+
+  &__links {
+    @include flex();
+    margin-top: 42px;
+    &_link {
+      @include font($primary-gray, 18px, 600, 58px);
+      font-family: $EBGaramond;
+      cursor: pointer;
+      &:hover {
+        color: $primary-orange;
+        text-decoration: underline;
+        & > div > div > svg {
+          fill: $primary-orange;
+        }
+      }
+    }
+    &--active {
+      color: $primary-orange;
+      & > div > div > svg {
+        fill: $primary-orange;
+      }
+    }
+
+    &__wish {
+      @include flex($align: center);
+      &-icon {
+        & > div {
+          @include flex($align: center);
+          margin-left: 10px;
+          & > svg {
+            width: 24px;
+          }
+        }
+      }
+    }
+
+    & > a:first-child {
+      margin-right: 100px;
+    }
+  }
+
+  @include desktop() {
+    @include accountContainer();
+    margin-top: 33px;
+  }
+}

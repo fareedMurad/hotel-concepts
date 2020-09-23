@@ -11,10 +11,11 @@ import { BookPreviewModal } from '@pages/components/book-preview-modal';
 import { State } from '@app/redux/state';
 import { Hero } from '@account/components/hero';
 import { Navigation } from '@account/components/navigation';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, useHistory } from 'react-router-dom';
 import { BookCard } from './components/book-card';
 import { Books } from './components/books';
 import classNames from 'classnames';
+import { MyProducts } from '../components/my-products';
 
 /**
  * Renders Library
@@ -32,32 +33,11 @@ const Library: React.FC<LibraryProps> = ({}) => {
     <React.Fragment>
       <Hero title='My library' />
       <Navigation />
-      <div className={styles.library}>
-        <div className={styles.libraryTitle}>My bookshelf</div>
-        <div className={styles.libraryLinks}>
-          <NavLink
-            className={styles.libraryLinksLink}
-            activeClassName={styles.libraryLinksActive}
-            to={'purchased'}
-          >
-            Purchased Books
-          </NavLink>
-          <NavLink
-            className={classNames(
-              styles.libraryLinksLink,
-              styles.libraryLinksWish
-            )}
-            activeClassName={styles.libraryLinksActive}
-            to={'/account/library/wishlist'}
-          >
-            Wish list{' '}
-            <Icon name='like' className={styles.libraryLinksWishIcon} />
-          </NavLink>
-        </div>
 
+      <MyProducts title={'My bookshelf'} products={'books'} navigate='library'>
         <Route path={wishlist} component={() => <Books type='wishlist' />} />
         <Route path={purchased} component={() => <Books type='purchased' />} />
-      </div>
+      </MyProducts>
     </React.Fragment>
   );
 };
