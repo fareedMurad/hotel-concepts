@@ -32,26 +32,14 @@ const Profile: React.FC = () => {
 
         <div className={styles.columnRight}>
           <Card className={styles.secondaryInfoInterests}>
-            <Interests />
+            <Interests interests={[]} />
           </Card>
           <div className={styles.secondaryInfoGrid}>
-            {/* <Card className={styles.secondaryInfoGridEmailPassword}>
-              <UpdatePassword />
-            </Card> */}
             <UpdatePassword />
             <UploadAvatar user={user} />
-            {/* <Card className={styles.secondaryInfoGridPayment}>
-              <PaymentMethod />
-            </Card> */}
-            {/* <Card className={styles.secondaryInfoGridPrivacy}>
-              <Privacy />
-            </Card> */}
             <PaymentMethods />
             <Privacy />
             <Newsletter />
-            {/* <Card className={styles.secondaryInfoGridNewsletter}>
-              <Newsletter />
-            </Card> */}
           </div>
         </div>
       </Preloader>
