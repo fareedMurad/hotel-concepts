@@ -17,8 +17,6 @@ const UploadAvatar: React.FC<UploadAvatarProps> = ({ className, user }) => {
   const ref = useRef<HTMLInputElement>(null);
   const isAvatarSource = user?.avatar?.length > 0;
 
-  console.log(isAvatarSource);
-
   return (
     <Card
       className={classNames(styles.uploadAvatar, className)}

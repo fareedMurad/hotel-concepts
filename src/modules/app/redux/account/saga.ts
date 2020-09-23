@@ -119,7 +119,7 @@ class AccountSaga {
    */
   @Saga(selectPaymentMethods)
   public *selectPaymentMethods(payload, { api }: Context) {
-    yield put(preloaderStart(Preloaders.paymentMethods));
+    yield put(preloaderStart(Preloaders.profilePaymentMethods));
     try {
       const arrOfPaymentMethods = [];
 
@@ -129,12 +129,13 @@ class AccountSaga {
         }
       }
       const object = { paymentMethods: arrOfPaymentMethods };
-      const response = yield call(api.account.selectPaymentMethods, object);
-      yield put(selectPaymentMethods.success());
+
+      yield call(api.account.selectPaymentMethods, object);
+      yield put(getUser());
     } catch (err) {
       console.log(err);
     } finally {
-      yield put(preloaderStop(Preloaders.paymentMethods));
+      yield put(preloaderStop(Preloaders.profilePaymentMethods));
     }
   }
 

@@ -11,16 +11,16 @@ import { PaymentMethodsProps } from './payment-methods.props';
 import * as styles from './payment-methods.scss';
 
 const paymentMethods = [
-  { value: 'card', label: 'Credit/Debit Card' },
-  { value: 'paypal', label: 'PayPal' },
-  { value: 'transfer', label: 'Bank transfer with invoice' }
+  { value: 'card', label: '' },
+  { value: 'paypal', label: '' },
+  { value: 'transfer', label: '' }
 ];
 
 /**
  * Renders PaymentMethods
  */
 const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
-  const { user } = usePaymentMethodsData();
+  const { user, defaultValues } = usePaymentMethodsData();
   const dispatch = useDispatch();
 
   return (
@@ -31,20 +31,26 @@ const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
     >
       <Preloader id={Preloaders.profilePaymentMethods}>
         <Formik
-          // initialValues={{ paymentMethods: user?.paymentMethods || [] }}
-          initialValues={{ paymentMethods: [] }}
+          enableReinitialize
+          initialValues={defaultValues}
           onSubmit={values => {
-            // dispatch(selectPaymentMethods(values));
+            dispatch(selectPaymentMethods(values));
             console.log(values);
           }}
         >
           {({ handleSubmit }) => (
             <div className={styles.form}>
-              <Field.CheckboxGroup
+              <Field.Checkbox name='card' label='Credit/debit card' />
+              <Field.Checkbox name='paypal' label='PayPal' />
+              <Field.Checkbox
+                name='transfer'
+                label='Bank transfer with invoice'
+              />
+              {/* <Field.CheckboxGroup
                 name='paymentMethods'
                 data={paymentMethods}
                 className={styles.checkboxGroup}
-              />
+              /> */}
               <Button className={styles.submit} onClick={() => handleSubmit()}>
                 Save
               </Button>

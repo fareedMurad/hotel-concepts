@@ -4,7 +4,13 @@ import { useSelector } from 'react-redux';
 const usePaymentMethodsData = () => {
   const { user } = useSelector((state: State) => state.auth);
 
-  return { user };
+  const defaultValues = {
+    card: false,
+    paypal: false,
+    transfer: false
+  };
+
+  return { user, defaultValues: user.paymentMethods || defaultValues };
 };
 
 export { usePaymentMethodsData };
