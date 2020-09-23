@@ -26,7 +26,7 @@ const Profile: React.FC = () => {
     <div className={styles.profile}>
       <Preloader id={Preloaders.profile}>
         <div className={styles.columnLeft}>
-          <Language preferredLanguage={user?.language} />
+          <Language />
           <ContactAddress />
         </div>
 

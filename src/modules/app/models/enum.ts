@@ -1,4 +1,30 @@
 /**
+ * Position enum
+ */
+enum Position {
+  professional = 'Hospitality professional',
+  student = 'Hospitality student',
+  switch = 'Want to switch to hospitality',
+  other = 'Other'
+}
+
+/**
+ * Title enum
+ */
+enum Title {
+  mr = 'Mr.',
+  ms = 'Ms.'
+}
+
+/**
+ * Language enum
+ */
+enum Language {
+  en = 'en-US',
+  es = 'es'
+}
+
+/**
  * Payment Methods enum
  */
 enum PaymentMethod {
@@ -7,4 +33,17 @@ enum PaymentMethod {
   transfer = 'transfer'
 }
 
-export { PaymentMethod };
+/**
+ * Interests enum
+ */
+enum Interest {
+  socialmedia = 'Social Media',
+  trends = 'Trends',
+  crm = 'CRM',
+  management = 'Management',
+  luxurymarketing = 'Luxury Marketing',
+  guestloyalty = 'Guest Loyalty',
+  reputationmanagement = 'Reputation Management'
+}
+
+export { Position, Title, Language, PaymentMethod, Interest };

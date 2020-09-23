@@ -1,3 +1,4 @@
+import { Title } from '@app/models/enum';
 import { State } from '@app/redux/state';
 import { useSelector } from 'react-redux';
 import { ContactAddressModel } from '../../models';
@@ -26,8 +27,8 @@ const useContactAdressData = () => {
    * Radio title data
    */
   const titleData = [
-    { value: 'ms', label: 'Ms.' },
-    { value: 'mr', label: 'Mr.' }
+    { value: Title.ms, label: Title.ms },
+    { value: Title.mr, label: Title.mr }
   ];
 
   /**

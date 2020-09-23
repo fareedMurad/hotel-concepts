@@ -6,7 +6,8 @@ import classNames from 'classnames';
 import { Formik } from 'formik';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { languageValidationSchema, LanguageModel } from '../../models';
+import { LanguageModel, languageValidationSchema } from '../../models';
+import { useLanguageData } from './language.hook';
 import { LanguageProps } from './language.props';
 import * as styles from './language.scss';
 
@@ -21,12 +22,10 @@ const languages = [
 /**
  * Renders Language
  */
-const Language: React.FC<LanguageProps> = ({
-  className,
-  preferredLanguage
-}) => {
+const Language: React.FC<LanguageProps> = ({ className }) => {
   const dispatch = useDispatch();
-  const language = languages.find(one => one.value == preferredLanguage);
+  const { user } = useLanguageData();
+  const preferedLanguage = languages.find(one => one.value == user?.language);
 
   return (
     <Card
@@ -40,7 +39,7 @@ const Language: React.FC<LanguageProps> = ({
           validationSchema={languageValidationSchema}
           initialValues={
             {
-              language: preferredLanguage ? language.value : languages[0].value
+              language: preferedLanguage ? user.language : null
             } as LanguageModel
           }
           onSubmit={values => {
