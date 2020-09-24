@@ -1,7 +1,7 @@
 {
   "accessToken": "swkDaTwEiPt4P55HNC08DuKCEcSKKWDQcNy-xzMvs-I",
   "spaceId": "qgx3dmmccd7u",
-  "apiUrl": "http://ec2-54-93-190-217.eu-central-1.compute.amazonaws.com/v1",
+  "apiUrl": "https://uat.kordie.com/v1",
   "googleClientId": "293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com",
   "facebookAppId": "642241606397486"
 }
