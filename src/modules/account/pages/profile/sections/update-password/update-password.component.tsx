@@ -1,5 +1,5 @@
 import { Card } from '@account/components';
-import { updatePassword } from '@app/redux/account';
+import { editPassword } from '@app/redux/account';
 import { Button, Field, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
@@ -31,7 +31,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
           initialValues={defaultValues}
           validationSchema={updatePasswordValidationSchema}
           onSubmit={values => {
-            dispatch(updatePassword(values.newPassword));
+            dispatch(editPassword(values.newPassword));
           }}
         >
           {({ handleSubmit }) => (

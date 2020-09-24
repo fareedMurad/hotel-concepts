@@ -1,5 +1,5 @@
 import { Card } from '@account/components';
-import { selectPaymentMethods } from '@app/redux/account';
+import { editPaymentMethods } from '@app/redux/account';
 import { Button, Field, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
@@ -34,7 +34,7 @@ const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
           enableReinitialize
           initialValues={defaultValues}
           onSubmit={values => {
-            dispatch(selectPaymentMethods(values));
+            dispatch(editPaymentMethods(values));
             console.log(values);
           }}
         >

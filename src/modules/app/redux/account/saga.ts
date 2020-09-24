@@ -3,19 +3,19 @@ import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
-import { call, put, delay } from 'redux-saga/effects';
+import { call, delay, put } from 'redux-saga/effects';
 import { getUser } from '../auth';
 import { Context } from '../context';
 import {
-  editContactAddress,
-  uploadAvatar,
-  deleteAvatar,
   addToWishList,
-  subscribe,
-  selectPaymentMethods,
-  setNewsSubscription,
+  deleteAvatar,
+  editContactAddress,
+  editInterests,
+  editNewsletterSubscription,
+  editPassword,
+  editPaymentMethods,
   editPrefferedLanguage,
-  updatePassword
+  uploadAvatar
 } from './actions';
 
 /**
@@ -75,6 +75,92 @@ class AccountSaga {
   }
 
   /**
+   * Edit interests
+   */
+  @Saga(editInterests)
+  public *editInterests(
+    payload: Payload<typeof editInterests>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileInterests));
+
+    try {
+      yield call(api.account.editInterests, payload);
+      yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Interests updated succcessfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profileInterests));
+    }
+  }
+
+  /**
+   * Edit password
+   */
+  @Saga(editPassword)
+  public *updatePassword(
+    payload: Payload<typeof editPassword>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileUpdatePassword));
+
+    try {
+      yield call(api.account.editPassword, payload);
+      yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Password updated successfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profileUpdatePassword));
+    }
+  }
+
+  /**
+   * Edit payment methods
+   */
+  @Saga(editPaymentMethods)
+  public *editPaymentMethods(
+    payload: Payload<typeof editPaymentMethods>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profilePaymentMethods));
+
+    try {
+      const arrOfPaymentMethods = [] as string[];
+
+      for (const key in payload) {
+        if (payload[key] === true) {
+          arrOfPaymentMethods.push(key);
+        }
+      }
+
+      yield call(api.account.editPaymentMethods, arrOfPaymentMethods);
+      yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Payment methods updated succcessfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profilePaymentMethods));
+    }
+  }
+
+  /**
    * Upload avatar
    */
   @Saga(uploadAvatar)
@@ -127,82 +213,17 @@ class AccountSaga {
   }
 
   /*
-   * Add to wish list
+   * Edit newsletter subscription
    */
-  @Saga(addToWishList)
-  public *addToWishList(payload, { api }: Context) {
-    try {
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  /**
-   * Select payment methods
-   */
-  @Saga(selectPaymentMethods)
-  public *selectPaymentMethods(payload, { api }: Context) {
-    yield put(preloaderStart(Preloaders.profilePaymentMethods));
-    try {
-      const arrOfPaymentMethods = [];
-
-      for (const key in payload) {
-        if (payload[key] === true) {
-          arrOfPaymentMethods.push(key);
-        }
-      }
-      const object = { paymentMethods: arrOfPaymentMethods };
-
-      yield call(api.account.selectPaymentMethods, object);
-      yield put(getUser());
-      yield put(
-        toggleToast({
-          status: 'success',
-          description: 'Payment methods updated succcessfully'
-        })
-      );
-    } catch (error) {
-      yield put(handleError(error.response.data.message));
-    } finally {
-      yield put(preloaderStop(Preloaders.profilePaymentMethods));
-    }
-  }
-
-  /**
-   * Update password
-   */
-  @Saga(updatePassword)
-  public *updatePassword(
-    payload: Payload<typeof updatePassword>,
+  @Saga(editNewsletterSubscription)
+  public *editNewsletterSubscription(
+    { newsSub }: Payload<typeof editNewsletterSubscription>,
     { api }: Context
   ) {
-    yield put(preloaderStart(Preloaders.profileUpdatePassword));
-
-    try {
-      yield call(api.account.updatePassword, payload);
-      yield put(getUser());
-      yield put(
-        toggleToast({
-          status: 'success',
-          description: 'Password updated successfully'
-        })
-      );
-    } catch (error) {
-      yield put(handleError(error.response.data.message));
-    } finally {
-      yield put(preloaderStop(Preloaders.profileUpdatePassword));
-    }
-  }
-
-  /*
-   * Set news subscription
-   */
-  @Saga(setNewsSubscription)
-  public *setNewsSubscription(payload, { api }: Context) {
     yield put(preloaderStart(Preloaders.profileNewsletter));
 
     try {
-      yield call(api.account.updateNewsSubscription, payload);
+      yield call(api.account.editNewsletterSubscription, newsSub);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -214,6 +235,17 @@ class AccountSaga {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.profileNewsletter));
+    }
+  }
+
+  /**
+   * Add to wish list
+   */
+  @Saga(addToWishList)
+  public *addToWishList(payload, { api }: Context) {
+    try {
+    } catch (err) {
+      console.log(err);
     }
   }
 }

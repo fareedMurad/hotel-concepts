@@ -8,7 +8,7 @@
 
 .column-left {
   display: grid;
-  grid-template-rows: minmax(177px, 177px) min-content;
+  grid-template-rows: minmax(177px, 177px) initial;
   gap: 20px;
 }
 
