@@ -39,7 +39,7 @@ const Login: React.FC = () => {
               dispatch(login(values));
             }}
           >
-            {({ handleSubmit, handleReset }) => (
+            {({ handleSubmit }) => (
               <Form className={styles.form}>
                 <Field.Text
                   name='email'
@@ -77,7 +77,7 @@ const Login: React.FC = () => {
             className={styles.needAccount}
             onClick={() => dispatch(navigate('/auth/register'))}
           >
-            Need an account? <span>Sing Up</span>
+            Need an account? <span>Sign Up</span>
           </div>
         </Fragment>
       </Preloader>

@@ -20,12 +20,12 @@ const updatePasswordValidationSchema = yup.object().shape<UpdatePasswordModel>({
     .required('Email is a required field'),
   newPassword: yup
     .string()
-    .min(6)
+    .min(6, 'Password should be at least 6 charachters long')
     .label('New password')
     .required('New password is a required field'),
   newPasswordConfirm: yup
     .string()
-    .min(6)
+    .min(6, 'Password should be at least 6 charachters long')
     .label('Password confirmation')
     .required('Password confirmation is a required field')
     .test(

@@ -21,43 +21,37 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
  * Contact address validation schema
  */
 const contactAddressValidationSchema = yup.object().shape<ContactAddressModel>({
-  title: yup
-    .string()
-    .label('Title')
-    .nullable(),
+  title: yup.string().label('Title'),
   name: yup
     .string()
     .label('First Name')
-    .nullable(),
+    .trim(),
   surname: yup
     .string()
     .label('Last Name')
-    .nullable(),
-  position: yup
-    .string()
-    .label('I Am')
-    .nullable(),
+    .trim(),
+  position: yup.string().label('I Am'),
   company: yup
     .string()
     .label('Company')
-    .nullable(),
+    .trim(),
   job: yup
     .string()
     .label('Job Title')
-    .nullable(),
+    .trim(),
   city: yup
     .string()
     .label('City')
-    .nullable(),
+    .trim(),
   country: yup
     .string()
     .label('Country')
-    .nullable(),
+    .trim(),
   phone: yup
     .string()
     .label('Phone')
     .matches(phoneRegExp, 'Phone number is not valid')
-    .nullable()
+    .trim()
 });
 
 export { ContactAddressModel, contactAddressValidationSchema };

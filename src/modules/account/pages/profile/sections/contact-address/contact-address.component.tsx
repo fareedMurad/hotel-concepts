@@ -27,7 +27,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
       <Preloader id={Preloaders.profileContactAddress} size={75} thickness={4}>
         <Formik
           enableReinitialize
-          initialValues={defaultValues as any}
+          initialValues={defaultValues}
           validationSchema={contactAddressValidationSchema}
           onSubmit={values => {
             dispatch(editContactAddress(values));
