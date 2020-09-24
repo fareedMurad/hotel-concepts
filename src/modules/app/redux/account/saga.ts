@@ -34,28 +34,39 @@ class AccountSaga {
 
     try {
       yield call(api.account.editPreferredLanguage, payload);
-      yield put(setNewsSubscription.success());
       yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Preffered language updated succcessfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.profileLanguage));
     }
   }
+
   /**
    * Edit contact address
    */
   @Saga(editContactAddress)
-  public *editProfile(
+  public *editContactAddress(
     payload: Payload<typeof editContactAddress>,
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.profileContactAddress));
 
     try {
-      const response = yield call(api.account.editContactAddress, payload);
-
+      yield call(api.account.editContactAddress, payload);
       yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Contact address updated succcessfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -76,10 +87,15 @@ class AccountSaga {
     try {
       const fileData = new FormData();
       fileData.append('file', payload);
-      const response = yield call(api.account.uploadAvatar, fileData);
 
+      yield call(api.account.uploadAvatar, fileData);
       yield put(getUser());
-      yield delay(500);
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Avatar updated succcessfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -95,9 +111,14 @@ class AccountSaga {
     yield put(preloaderStart(Preloaders.profileAvatar));
 
     try {
-      const response = yield call(api.account.deleteAvatar);
-
+      yield call(api.account.deleteAvatar);
       yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Avatar deleted succcessfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -116,7 +137,7 @@ class AccountSaga {
     }
   }
 
-  /*
+  /**
    * Select payment methods
    */
   @Saga(selectPaymentMethods)
@@ -134,8 +155,14 @@ class AccountSaga {
 
       yield call(api.account.selectPaymentMethods, object);
       yield put(getUser());
-    } catch (err) {
-      console.log(err);
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Payment methods updated succcessfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.profilePaymentMethods));
     }
@@ -177,6 +204,12 @@ class AccountSaga {
     try {
       yield call(api.account.updateNewsSubscription, payload);
       yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Newsletter subscription updated succcessfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
