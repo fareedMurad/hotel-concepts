@@ -20,6 +20,10 @@ type ModalProps = {
    * Go to previous route
    */
   historyGoBack?: boolean;
+  /**
+   * With overlay
+   */
+  withOverlay?: boolean;
 };
 
 export { ModalProps };
