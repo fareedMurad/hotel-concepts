@@ -1,8 +1,7 @@
-import { HttpService } from './config';
-import { ProfileValues } from '@account/models';
 import { ContactAddressModel } from '@account/pages/profile/models';
+import { HttpService } from './config';
 
-class AccountService {
+class ProfileService {
   /**
    * Init
    */
@@ -116,4 +115,4 @@ class AccountService {
     });
 }
 
-export { AccountService };
+export { ProfileService };

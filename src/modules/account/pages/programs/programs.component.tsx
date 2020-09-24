@@ -4,7 +4,7 @@ import * as styles from './programs.scss';
 import { H3 } from '@core/components';
 import { useMyProgramsData } from './programs.hook';
 import { useDispatch } from 'react-redux';
-import { addToWishList } from '@app/redux/account';
+// import { addToWishList } from '@app/redux/account';
 import { SingleProgram } from './components/single-program';
 
 /**

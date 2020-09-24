@@ -1,13 +1,12 @@
+import { getUser } from '@app/redux/auth';
+import { Context } from '@app/redux/context';
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
-import { call, delay, put } from 'redux-saga/effects';
-import { getUser } from '../auth';
-import { Context } from '../context';
+import { call, put } from 'redux-saga/effects';
 import {
-  addToWishList,
   deleteAvatar,
   editContactAddress,
   editInterests,
@@ -19,9 +18,9 @@ import {
 } from './actions';
 
 /**
- * Account saga
+ * Profile saga
  */
-class AccountSaga {
+class ProfileSaga {
   /*
    * Edit preferred language
    */
@@ -33,7 +32,7 @@ class AccountSaga {
     yield put(preloaderStart(Preloaders.profileLanguage));
 
     try {
-      yield call(api.account.editPreferredLanguage, payload);
+      yield call(api.profile.editPreferredLanguage, payload);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -59,7 +58,7 @@ class AccountSaga {
     yield put(preloaderStart(Preloaders.profileContactAddress));
 
     try {
-      yield call(api.account.editContactAddress, payload);
+      yield call(api.profile.editContactAddress, payload);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -85,7 +84,7 @@ class AccountSaga {
     yield put(preloaderStart(Preloaders.profileInterests));
 
     try {
-      yield call(api.account.editInterests, payload);
+      yield call(api.profile.editInterests, payload);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -111,7 +110,7 @@ class AccountSaga {
     yield put(preloaderStart(Preloaders.profileUpdatePassword));
 
     try {
-      yield call(api.account.editPassword, payload);
+      yield call(api.profile.editPassword, payload);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -145,7 +144,7 @@ class AccountSaga {
         }
       }
 
-      yield call(api.account.editPaymentMethods, arrOfPaymentMethods);
+      yield call(api.profile.editPaymentMethods, arrOfPaymentMethods);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -174,7 +173,7 @@ class AccountSaga {
       const fileData = new FormData();
       fileData.append('file', payload);
 
-      yield call(api.account.uploadAvatar, fileData);
+      yield call(api.profile.uploadAvatar, fileData);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -197,7 +196,7 @@ class AccountSaga {
     yield put(preloaderStart(Preloaders.profileAvatar));
 
     try {
-      yield call(api.account.deleteAvatar);
+      yield call(api.profile.deleteAvatar);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -212,7 +211,7 @@ class AccountSaga {
     }
   }
 
-  /*
+  /**
    * Edit newsletter subscription
    */
   @Saga(editNewsletterSubscription)
@@ -223,7 +222,7 @@ class AccountSaga {
     yield put(preloaderStart(Preloaders.profileNewsletter));
 
     try {
-      yield call(api.account.editNewsletterSubscription, newsSub);
+      yield call(api.profile.editNewsletterSubscription, newsSub);
       yield put(getUser());
       yield put(
         toggleToast({
@@ -237,17 +236,6 @@ class AccountSaga {
       yield put(preloaderStop(Preloaders.profileNewsletter));
     }
   }
-
-  /**
-   * Add to wish list
-   */
-  @Saga(addToWishList)
-  public *addToWishList(payload, { api }: Context) {
-    try {
-    } catch (err) {
-      console.log(err);
-    }
-  }
 }
 
-export { AccountSaga };
+export { ProfileSaga };

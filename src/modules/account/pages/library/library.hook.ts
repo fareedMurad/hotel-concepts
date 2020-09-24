@@ -67,7 +67,16 @@ const useLibraryData = () => {
       purchased: false
     }
   ];
-  return books;
+
+  /**
+   * Navigation
+   */
+  const navigation = [
+    { label: 'Purchased Books', to: '/purchased' },
+    { label: 'Wishlist', to: '/wishlist', withIcon: true }
+  ];
+
+  return { books, navigation };
 };
 
 export { useLibraryData };

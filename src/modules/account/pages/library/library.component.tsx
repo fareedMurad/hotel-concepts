@@ -1,62 +1,41 @@
+import { Icon } from '@core/components';
+import { usePrefixedRoutes } from '@core/shared';
 import * as React from 'react';
-import { LibraryProps } from './library.props';
-import * as styles from './library.scss';
-import { H2, Icon } from '@core/components';
-import { useLibraryData } from './library.hook';
-import { useClickOutside, usePrefixedRoutes } from '@core/shared';
-import { useDispatch, useSelector } from 'react-redux';
-import { showModal, toggleBookPreviewModal } from '@ui/modal';
-import { Modals } from '@ui/models';
-import { BookPreviewModal } from '@pages/components/book-preview-modal';
-import { State } from '@app/redux/state';
-import { Hero } from '@account/components/hero';
-import { Navigation } from '@account/components/navigation';
 import { NavLink, Route } from 'react-router-dom';
-import { BookCard } from './components/book-card';
-import { Books } from './components/books';
-import classNames from 'classnames';
+import { useLibraryData } from './library.hook';
+import * as styles from './library.scss';
+import { Purchased } from './purchased';
+import { Whishlist } from './whishlist';
 
 /**
  * Renders Library
  */
-const Library: React.FC<LibraryProps> = ({}) => {
+const Library: React.FC = () => {
   const [wishlist, purchased] = usePrefixedRoutes(['wishlist', 'purchased']);
-  const [showMenu, setShowMenu] = React.useState(0);
-  const books = useLibraryData();
-  const ref = React.useRef();
-
-  useClickOutside(ref, () => setShowMenu(0));
-  const dispatch = useDispatch();
+  const { navigation } = useLibraryData();
 
   return (
-    <React.Fragment>
-      <div className={styles.library}>
-        <div className={styles.libraryTitle}>My bookshelf</div>
-        <div className={styles.libraryLinks}>
+    <div className={styles.library}>
+      <div className={styles.title}>My bookshelf</div>
+      <div className={styles.navigation}>
+        {navigation.map(({ label, to, withIcon }, index) => (
           <NavLink
-            className={styles.libraryLinksLink}
-            activeClassName={styles.libraryLinksActive}
-            to={'purchased'}
+            className={styles.link}
+            activeClassName={styles.linkActive}
+            to={`/account/library${to}`}
+            key={index}
           >
-            Purchased Books
+            {label}
+            {withIcon && <Icon name='like' className={styles.linkIcon} />}
           </NavLink>
-          <NavLink
-            className={classNames(
-              styles.libraryLinksLink,
-              styles.libraryLinksWish
-            )}
-            activeClassName={styles.libraryLinksActive}
-            to={'/account/library/wishlist'}
-          >
-            Wish list{' '}
-            <Icon name='like' className={styles.libraryLinksWishIcon} />
-          </NavLink>
-        </div>
-
-        <Route path={wishlist} component={() => <Books type='wishlist' />} />
-        <Route path={purchased} component={() => <Books type='purchased' />} />
+        ))}
       </div>
-    </React.Fragment>
+
+      <div className={styles.content}>
+        <Route path={purchased} component={Purchased} />
+        <Route path={wishlist} component={Whishlist} />
+      </div>
+    </div>
   );
 };
 

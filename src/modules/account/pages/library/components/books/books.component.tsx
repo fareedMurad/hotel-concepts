@@ -1,33 +1,42 @@
+import classNames from 'classnames';
 import * as React from 'react';
-import { BooksProps } from './books.props';
+import { BookProps, BooksProps } from './books.props';
 import * as styles from './books.scss';
-import { useLibraryData } from '../../library.hook';
-import { BookCard } from '../book-card';
+
+/**
+ * Renders single book
+ */
+const Book: React.FC<BookProps> = ({ type }) => {
+  const fromWhishlist = type == 'wishlist';
+
+  return (
+    <div className={styles.book}>
+      {fromWhishlist && <div className={styles.icon}>Like icon</div>}
+      <div className={styles.image}>image</div>
+      <div className={styles.divider} />
+      <div className={styles.description}>description</div>
+      <div className={styles.controls}>Button</div>
+    </div>
+  );
+};
 
 /**
  * Renders Books
  */
-const Books: React.FC<BooksProps> = ({ type }) => {
-  const books = useLibraryData();
+const Books: React.FC<BooksProps> = ({ className, type, data }) => {
+  const fromWishlist = type == 'wishlist';
+  const { items, total } = data || {};
 
-  if (type === 'purchased')
-    return (
-      <div className={styles.books}>
-        {books
-          .filter(el => el.purchased === true)
-          .map(book => {
-            return <BookCard key={book.id} book={book} type={type} />;
-          })}
-      </div>
-    );
-
-  return (
-    <div className={styles.books}>
-      {books
-        .filter(el => el.purchased === false)
-        .map(book => {
-          return <BookCard key={book.id} book={book} type={type} />;
-        })}
+  return total > 0 ? (
+    <div className={classNames(styles.books, className)}>
+      {items.map(index => (
+        <Book type={type} key={index} />
+      ))}
+    </div>
+  ) : (
+    <div className={styles.placeholder}>
+      Your {fromWishlist ? 'Wishlist' : 'Purchased list'} is empty. Start adding
+      some.
     </div>
   );
 };

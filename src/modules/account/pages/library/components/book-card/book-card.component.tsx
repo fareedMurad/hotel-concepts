@@ -4,7 +4,7 @@ import * as styles from './book-card.scss';
 import { Hr, Button } from '@core/components';
 import { AddToWish } from '@core/components/add-to-wish';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToWishList } from '@app/redux/account';
+// import { addToWishList } from '@app/redux/account';
 import { State } from '@app/redux/state';
 import { BookPreviewModal } from '@pages/components/book-preview-modal';
 import { toggleBookPreviewModal, showModal } from '@ui/modal';
@@ -28,7 +28,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, type }) => {
       {type === 'wishlist' && (
         <AddToWish
           selected={book.wishSelected}
-          onClick={() => dispatch(addToWishList('id'))}
+          // onClick={() => dispatch(addToWishList('id'))}
           className={styles.bookCardHeart}
         />
       )}

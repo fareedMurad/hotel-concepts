@@ -1,5 +1,4 @@
 import { PaymentMethodsModel } from '@account/models/payment';
-import { SubscriptionModel } from '@account/models/subscription';
 import { ContactAddressModel } from '@account/pages/profile/models';
 import { make } from 'redux-chill';
 
@@ -57,20 +56,6 @@ const editNewsletterSubscription = make(
   '[account] edit newsletter subscription'
 ).stage((payload: { newsSub: boolean }) => payload);
 
-/*
- * Add to wish list
- */
-const addToWishList = make('[account] add to wish list').stage(
-  payload => payload
-);
-
-/*
- * Subscribe
- */
-const subscribe = make('[account] subscribe').stage(
-  (payload: SubscriptionModel) => payload
-);
-
 export {
   editPrefferedLanguage,
   editContactAddress,
@@ -79,7 +64,5 @@ export {
   editPaymentMethods,
   uploadAvatar,
   deleteAvatar,
-  editNewsletterSubscription,
-  addToWishList,
-  subscribe
+  editNewsletterSubscription
 };
