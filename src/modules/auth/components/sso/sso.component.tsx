@@ -53,8 +53,6 @@ const Sso: React.FC<SsoProps> = ({ className }) => {
           icon={<FacebookIcon />}
           scope='public_profile,email'
           callback={data => {
-            debugger;
-            console.log('facebook', data);
             dispatch(facebookSignIn(data));
           }}
         />
