@@ -6,6 +6,7 @@ import { combineReducers } from 'redux';
 import { ui } from '@ui';
 import { auth } from './auth';
 import { account } from './account';
+import { programs } from './programs';
 
 /**
  * App rd
@@ -17,7 +18,8 @@ const app = combineReducers({
   localization,
   general,
   ui,
-  header
+  header,
+  programs
 });
 
 export { app };

@@ -25,6 +25,9 @@ enum Preloaders {
   paymentMethods = 'profile payment methods',
   newsSub = 'profile news subsciption',
 
+  //Programs
+  categories = 'programs categories',
+
   // Uikit
   uikit = 'uikit',
 

@@ -4,6 +4,7 @@ import { GeneralSaga } from '@general/store';
 import { ToastSaga } from '@ui/toast';
 import { AuthSaga } from './auth';
 import { AccountSaga } from './account';
+import { ProgramsSaga } from './programs/saga';
 
 /**
  * App sagas
@@ -14,7 +15,8 @@ const sagas = [
   new GeneralSaga(),
   new ToastSaga(),
   new AuthSaga(),
-  new AccountSaga()
+  new AccountSaga(),
+  new ProgramsSaga()
 ];
 
 export { sagas };
