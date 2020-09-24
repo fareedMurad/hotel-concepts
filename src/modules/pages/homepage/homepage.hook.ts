@@ -1,9 +1,9 @@
 import { useQuery, gql } from '@apollo/client';
 
-const useHomePageData = () => {
+const useHomePageData = language => {
   const GET_TESTEMONIALS = gql`
-    {
-      homePagetestimonials(id: "4ZHZc4KfxTj1X5xEDgP9jl") {
+    query($locale: String!) {
+      homePagetestimonials(id: "4ZHZc4KfxTj1X5xEDgP9jl", locale: $locale) {
         testimonialCollection {
           items {
             name
@@ -19,7 +19,10 @@ const useHomePageData = () => {
   `;
 
   const { data, loading: homepageTestimonialsLoading, error } = useQuery(
-    GET_TESTEMONIALS
+    GET_TESTEMONIALS,
+    {
+      variables: { locale: language }
+    }
   );
 
   return {
