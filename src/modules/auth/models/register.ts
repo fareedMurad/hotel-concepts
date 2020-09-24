@@ -18,27 +18,32 @@ type RegisterValues = {
  */
 const registerValidationSchema = yup.object().shape<RegisterValues>({
   title: yup.string().label('Title'),
-  position: yup
-    .string()
-    .label('I am')
-    .required('select position'),
   name: yup
     .string()
     .label('First Name')
-    .required('Type first name'),
+    .trim()
+    .required('First Name is required'),
   surname: yup
     .string()
     .label('Last Name')
-    .required('Type last name'),
+    .trim()
+    .required('Last name is required'),
+  position: yup
+    .string()
+    .label('I am')
+    .trim()
+    .required('Position is required'),
   email: yup
     .string()
     .email('Email is not valid')
     .label('Email')
-    .required('Email is a required field'),
+    .trim()
+    .required('Email is required'),
   password: yup
     .string()
     .label('Password')
-    .required('Password is a required field'),
+    .trim()
+    .required('Password is required '),
   newsSub: yup.boolean()
 });
 

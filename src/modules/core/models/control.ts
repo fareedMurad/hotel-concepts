@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 /**
  * Formik
  */
-type ControlProps<V = string> = {
+type ControlProps<V = string | string[]> = {
   /**
    * Html id
    */

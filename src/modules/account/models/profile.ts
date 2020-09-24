@@ -74,4 +74,9 @@ const profileValidationSchema = yup.object().shape<ProfileValues>({
   position: yup.string().label('I Am')
 });
 
-export { ProfileValues, profileValidationSchema };
+type Interest = {
+  value: string;
+  title: string;
+};
+
+export { ProfileValues, profileValidationSchema, Interest };

@@ -1,0 +1,40 @@
+@import 'core.scss';
+
+.upload-avatar {
+}
+
+.upload {
+  position: relative;
+  flex: 1;
+  &:hover {
+    .controls {
+      @include flex(center, center, column);
+    }
+  }
+}
+
+.controls {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 20px;
+  background: rgba(55, 55, 55, 0.5);
+  & > button {
+    width: 100%;
+    &:last-child {
+      margin-top: 10px;
+    }
+  }
+}
+
+.avatar {
+  @include size(100%);
+  border-radius: 8px;
+}
+
+.input {
+  display: none;
+}

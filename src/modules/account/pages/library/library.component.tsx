@@ -30,8 +30,6 @@ const Library: React.FC<LibraryProps> = ({}) => {
 
   return (
     <React.Fragment>
-      <Hero title='My library' />
-      <Navigation />
       <div className={styles.library}>
         <div className={styles.libraryTitle}>My bookshelf</div>
         <div className={styles.libraryLinks}>

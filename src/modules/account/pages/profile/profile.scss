@@ -1,69 +1,27 @@
 @import 'core.scss';
 
-.profile-container {
-  @include accountContainer();
+.profile {
   display: grid;
   grid-template-columns: 335px 765px;
   gap: 20px;
-  margin-top: 28px;
-  // display: grid;
-  // gap: 20px;
-  // row-gap: 20px;
-  // grid-template-columns: 335px 430px 335px;
-
-  // margin-top: 28px;
-  // padding-bottom: 80px;
-  // grid-template-areas:
-  //   'language interests interests'
-  //   'address email-password avatar'
-  //   'address payment privacy'
-  //   'address payment newsletter';
-
-  // &__language {
-  //   grid-area: language;
-  // }
-
-  // &__interests {
-  //   grid-area: interests;
-  //   height: 400px;
-  // }
-
-  // &__address {
-  //   grid-area: address;
-  // }
-  // &__email-password {
-  //   grid-area: email-password;
-  // }
-  // &__avatar {
-  //   grid-area: avatar;
-  // }
-  // &__payment {
-  //   grid-area: payment;
-  // }
-  // &__privacy {
-  //   grid-area: privacy;
-  // }
-  // &__newsletter {
-  //   grid-area: newsletter;
-  // }
 }
 
-.mainInfo {
+.column-left {
   display: grid;
-  grid-template-rows: minmax(177px, 177px) min-content;
+  grid-template-rows: minmax(177px, 177px) initial;
   gap: 20px;
 }
 
-.secondary-info {
+.column-right {
   display: grid;
   gap: 20px;
   grid-template-rows: minmax(177px, auto) minmax(986px, auto);
 }
 
-.secondaryInfoGrid {
+.column-bottom {
   display: grid;
   gap: 20px;
-  grid-template-columns: 428px 335px;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr 1fr;
   grid-template-areas: 'email-password avatar' 'payment privacy' 'payment newsletter';
 
@@ -83,40 +41,3 @@
     grid-area: newsletter;
   }
 }
-
-.card {
-  position: relative;
-  background-color: $background;
-  border-radius: 7px;
-  padding: 12px 20px 16px 20px;
-}
-// .upload-avatar {
-//   width: 0.1px;
-//   height: 0.1px;
-//   opacity: 0;
-//   overflow: hidden;
-//   position: absolute;
-//   z-index: -1;
-// }
-
-// .upload-avatar + label {
-//   @include flex($justify: center);
-//   color: white;
-//   background-color: black;
-//   display: inline-block;
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 100%;
-//   opacity: 0;
-//   cursor: pointer;
-//   transition: $transition;
-//   text-align: center;
-//   align-self: center;
-//   &:hover {
-//     opacity: 0.3;
-//   }
-//   & > span {
-//     display: block;
-//     margin-top: 10px;
-//   }
-// }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CheckboxProps } from './checkbox.props';
+import { CheckboxGroupProps, CheckboxProps } from './checkbox.props';
 import * as styles from './checkbox.scss';
 import { Icon } from '../icon';
 import classNames from 'classnames';
@@ -42,6 +42,55 @@ const Checkbox: React.FC<CheckboxProps> = ({
 );
 
 /**
+ * Renders checkbox group
+ */
+const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
+  data,
+  theme,
+  value,
+  label,
+  className,
+  error,
+  isError,
+  onChange
+}) => {
+  const handleClick = (val: string) => {
+    if (!val) return;
+
+    const match = value.some(one => one == val);
+
+    onChange(match ? value.filter(one => one != val) : [...value, val]);
+  };
+
+  return (
+    <div className={classNames(styles.checkboxGroup, className)}>
+      {label && <Label className={styles.checkboxGroupLabel}>{label}</Label>}
+      <div className={styles.checkboxGroupContainer}>
+        {data?.map(({ label, value: val }, index) => (
+          <Checkbox
+            value={value.some(one => one == val)}
+            label={label}
+            onClick={() => handleClick(val)}
+            key={index}
+          />
+        ))}
+      </div>
+      {isError && <div className={styles.error}>{error}</div>}
+    </div>
+  );
+};
+
+/**
+ * Default Checkbox group props
+ */
+CheckboxGroup.defaultProps = {
+  data: [],
+  theme: 'md',
+  value: [],
+  onChange: () => {}
+};
+
+/**
  * Default props
  */
 Checkbox.defaultProps = {
@@ -52,4 +101,4 @@ Checkbox.defaultProps = {
   disabled: false
 };
 
-export { Checkbox };
+export { Checkbox, CheckboxGroup };

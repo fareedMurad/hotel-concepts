@@ -42,9 +42,9 @@ class AuthSaga {
   ) {
     const isProfile = pathname == '/account/profile';
 
-    if (isProfile) {
-      yield put(preloaderStart(Preloaders.profile));
-    }
+    // if (isProfile) {
+    //   yield put(preloaderStart(Preloaders.profile));
+    // }
 
     try {
       const response = yield call(api.auth.getUser);
@@ -55,7 +55,7 @@ class AuthSaga {
       yield put(unauthorize());
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.profile));
+      // yield put(preloaderStop(Preloaders.profile));
     }
   }
 
@@ -248,13 +248,26 @@ class AuthSaga {
     const data = {
       token: tokenId
     };
-    console.log(tokenId);
 
     try {
       const response = yield call(api.auth.googleSignIn, data);
       yield put(getUser());
       yield put(authorize());
-      yield put(navigate('/account/profile'));
+
+      const {
+        data: { newUser }
+      } = response;
+
+      newUser
+        ? yield put(navigate('/interests'))
+        : yield put(navigate('/account/profile'));
+
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Logged in'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -272,8 +285,15 @@ class AuthSaga {
   ) {
     yield put(preloaderStart(Preloaders.login));
 
-    if (payload.accessToken) {
+    if (!payload?.accessToken) {
+      yield put(
+        handleError(
+          'Unable to sign in with Facebook. Please try another authorisation method'
+        )
+      );
+      return;
     }
+
     const data = {
       token: payload.accessToken
     };
@@ -282,7 +302,21 @@ class AuthSaga {
       const response = yield call(api.auth.facebookSignIn, data);
       yield put(getUser());
       yield put(authorize());
-      yield put(navigate('/account/profile'));
+
+      const {
+        data: { newUser }
+      } = response;
+
+      newUser
+        ? yield put(navigate('/interests'))
+        : yield put(navigate('/account/profile'));
+
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Logged in'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

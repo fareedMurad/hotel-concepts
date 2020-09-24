@@ -1,41 +1,162 @@
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
+import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
-import { call, put, delay } from 'redux-saga/effects';
+import { call, delay, put } from 'redux-saga/effects';
 import { getUser } from '../auth';
 import { Context } from '../context';
 import {
-  editProfile,
-  uploadAvatar,
-  deleteAvatar,
   addToWishList,
-  subscribe,
-  selectPaymentMethods,
-  setNewsSubscription,
-  selectUserLanguage
+  deleteAvatar,
+  editContactAddress,
+  editInterests,
+  editNewsletterSubscription,
+  editPassword,
+  editPaymentMethods,
+  editPrefferedLanguage,
+  uploadAvatar
 } from './actions';
 
 /**
  * Account saga
  */
 class AccountSaga {
-  /**
-   * Edit profile
+  /*
+   * Edit preferred language
    */
-  @Saga(editProfile)
-  public *editProfile(payload: Payload<typeof editProfile>, { api }: Context) {
-    yield put(preloaderStart(Preloaders.profile));
-    yield console.log(payload);
-    try {
-      const response = yield call(api.account.editProfile, payload);
+  @Saga(editPrefferedLanguage)
+  public *editPrefferedLanguage(
+    payload: Payload<typeof editPrefferedLanguage>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileLanguage));
 
+    try {
+      yield call(api.account.editPreferredLanguage, payload);
       yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Preffered language updated succcessfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.profile));
-      yield put(editProfile.success());
+      yield put(preloaderStop(Preloaders.profileLanguage));
+    }
+  }
+
+  /**
+   * Edit contact address
+   */
+  @Saga(editContactAddress)
+  public *editContactAddress(
+    payload: Payload<typeof editContactAddress>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileContactAddress));
+
+    try {
+      yield call(api.account.editContactAddress, payload);
+      yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Contact address updated succcessfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profileContactAddress));
+    }
+  }
+
+  /**
+   * Edit interests
+   */
+  @Saga(editInterests)
+  public *editInterests(
+    payload: Payload<typeof editInterests>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileInterests));
+
+    try {
+      yield call(api.account.editInterests, payload);
+      yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Interests updated succcessfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profileInterests));
+    }
+  }
+
+  /**
+   * Edit password
+   */
+  @Saga(editPassword)
+  public *updatePassword(
+    payload: Payload<typeof editPassword>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileUpdatePassword));
+
+    try {
+      yield call(api.account.editPassword, payload);
+      yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Password updated successfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profileUpdatePassword));
+    }
+  }
+
+  /**
+   * Edit payment methods
+   */
+  @Saga(editPaymentMethods)
+  public *editPaymentMethods(
+    payload: Payload<typeof editPaymentMethods>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profilePaymentMethods));
+
+    try {
+      const arrOfPaymentMethods = [] as string[];
+
+      for (const key in payload) {
+        if (payload[key] === true) {
+          arrOfPaymentMethods.push(key);
+        }
+      }
+
+      yield call(api.account.editPaymentMethods, arrOfPaymentMethods);
+      yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Payment methods updated succcessfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profilePaymentMethods));
     }
   }
 
@@ -52,10 +173,15 @@ class AccountSaga {
     try {
       const fileData = new FormData();
       fileData.append('file', payload);
-      const response = yield call(api.account.uploadAvatar, fileData);
 
+      yield call(api.account.uploadAvatar, fileData);
       yield put(getUser());
-      yield delay(500);
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Avatar updated succcessfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -71,9 +197,14 @@ class AccountSaga {
     yield put(preloaderStart(Preloaders.profileAvatar));
 
     try {
-      const response = yield call(api.account.deleteAvatar);
-
+      yield call(api.account.deleteAvatar);
       yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Avatar deleted succcessfully'
+        })
+      );
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -82,6 +213,32 @@ class AccountSaga {
   }
 
   /*
+   * Edit newsletter subscription
+   */
+  @Saga(editNewsletterSubscription)
+  public *editNewsletterSubscription(
+    { newsSub }: Payload<typeof editNewsletterSubscription>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.profileNewsletter));
+
+    try {
+      yield call(api.account.editNewsletterSubscription, newsSub);
+      yield put(getUser());
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Newsletter subscription updated succcessfully'
+        })
+      );
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.profileNewsletter));
+    }
+  }
+
+  /**
    * Add to wish list
    */
   @Saga(addToWishList)
@@ -90,65 +247,6 @@ class AccountSaga {
     } catch (err) {
       console.log(err);
     }
-  }
-
-  /*
-   * Select payment methods
-   */
-
-  @Saga(selectPaymentMethods)
-  public *selectPaymentMethods(payload, { api }: Context) {
-    yield put(preloaderStart(Preloaders.paymentMethods));
-    try {
-      const arrOfPaymentMethods = [];
-
-      for (const key in payload) {
-        if (payload[key] === true) {
-          arrOfPaymentMethods.push(key);
-        }
-      }
-      const object = { paymentMethods: arrOfPaymentMethods };
-      const response = yield call(api.account.selectPaymentMethods, object);
-      yield put(selectPaymentMethods.success());
-    } catch (err) {
-      console.log(err);
-    } finally {
-      yield put(preloaderStop(Preloaders.paymentMethods));
-    }
-  }
-  /*
-   * Set news subscription
-   */
-  @Saga(setNewsSubscription)
-  public *setNewsSubscription(payload, { api }: Context) {
-    yield put(preloaderStart(Preloaders.newsSub));
-    try {
-      yield call(api.account.updateNewsSubscription, payload);
-      yield put(setNewsSubscription.success());
-    } catch (err) {
-      console.log(err);
-    } finally {
-      yield put(preloaderStop(Preloaders.newsSub));
-    }
-  }
-  /*
-   * Select language
-   */
-  @Saga(selectUserLanguage)
-  public *selectUserLanguage(
-    payload: Payload<typeof selectUserLanguage>,
-    { api }: Context
-  ) {
-    // yield put(preloaderStart(Preloaders.newsSub));
-    try {
-      yield call(api.account.updateUserLanguage, payload);
-      yield put(setNewsSubscription.success());
-    } catch (err) {
-      console.log(err);
-    }
-    // } finally {
-    //   yield put(preloaderStop(Preloaders.newsSub));
-    // }
   }
 }
 

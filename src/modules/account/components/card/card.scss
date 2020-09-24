@@ -1,0 +1,17 @@
+@import 'core.scss';
+
+.card {
+  @include flex($align: stretch, $direction: column);
+  background-color: #f5f1f0;
+  border-radius: 8px;
+  padding: 20px 20px 18px 20px;
+}
+
+.title {
+  @include font(#3e3e3e, 24px, 400);
+}
+
+.content {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+}

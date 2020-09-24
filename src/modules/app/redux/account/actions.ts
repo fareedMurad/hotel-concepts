@@ -1,13 +1,41 @@
-import { make } from 'redux-chill';
-import { ProfileValues } from '@account/models';
-import { SubscriptionModel } from '@account/models/subscription';
 import { PaymentMethodsModel } from '@account/models/payment';
+import { SubscriptionModel } from '@account/models/subscription';
+import { ContactAddressModel } from '@account/pages/profile/models';
+import { make } from 'redux-chill';
+
+/*
+ * Edit preferred language
+ */
+const editPrefferedLanguage = make('[account] select language')
+  .stage((payload: string) => payload)
+  .stage('success');
 
 /**
- * Edit profile
+ * Edit contact address
  */
-const editProfile = make('[account] edit profile')
-  .stage((payload: ProfileValues) => payload)
+const editContactAddress = make('[account] edit profile')
+  .stage((payload: ContactAddressModel) => payload)
+  .stage('success');
+
+/**
+ * Edit interests
+ */
+const editInterests = make('[account] edit interests').stage(
+  (payload: string[]) => payload
+);
+
+/**
+ * Edit password
+ */
+const editPassword = make('[account] edit password').stage(
+  (payload: string) => payload
+);
+
+/*
+ * Edit payment method
+ */
+const editPaymentMethods = make('[account] edit payment method')
+  .stage((payload: PaymentMethodsModel) => payload)
   .stage('success');
 
 /**
@@ -21,6 +49,13 @@ const uploadAvatar = make('[account] upload avatar')
  * Delete avatar
  */
 const deleteAvatar = make('[account] delete avatar');
+
+/**
+ * Edit newsletter subscription
+ */
+const editNewsletterSubscription = make(
+  '[account] edit newsletter subscription'
+).stage((payload: { newsSub: boolean }) => payload);
 
 /*
  * Add to wish list
@@ -36,35 +71,15 @@ const subscribe = make('[account] subscribe').stage(
   (payload: SubscriptionModel) => payload
 );
 
-/*
- * Select payment method
- */
-
-const selectPaymentMethods = make('[account] select payment method')
-  .stage((payload: PaymentMethodsModel) => payload)
-  .stage('success');
-
-/*
- * Set news subscription
- */
-const setNewsSubscription = make('[account] set news subscription')
-  .stage((payload: { newsSub: boolean }) => payload)
-  .stage('success');
-
-/*
- * Select language
- */
-const selectUserLanguage = make('[account] select language')
-  .stage((payload: string) => payload)
-  .stage('success');
-
 export {
-  editProfile,
+  editPrefferedLanguage,
+  editContactAddress,
+  editInterests,
+  editPassword,
+  editPaymentMethods,
   uploadAvatar,
   deleteAvatar,
+  editNewsletterSubscription,
   addToWishList,
-  subscribe,
-  selectPaymentMethods,
-  setNewsSubscription,
-  selectUserLanguage
+  subscribe
 };
