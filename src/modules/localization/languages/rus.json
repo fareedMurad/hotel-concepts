@@ -4,7 +4,8 @@
       "link-one": "Mentors&Co-authors",
       "link-two": "Learning Approach",
       "link-three": "Insights",
-      "link-four": "Contacts"
+      "link-four": "Contacts",
+      "link-five": "For corporated clients"
     },
     "header-main": {
       "link-one": "Programs",
@@ -634,6 +635,10 @@
     },
     "product-banner": {
       "button-text": "Go to Checkout"
+    },
+    "feedback": {
+      "caption": "Feedback",
+      "title": "Cordie Impact"
     }
   },
   "program-page": {

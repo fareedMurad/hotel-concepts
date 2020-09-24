@@ -1,5 +1,53 @@
-@import "core.scss";
+@import 'core.scss';
 
 .my-interests {
-	
+  @include flex($align: stretch, $direction: column);
+}
+
+.expandable {
+  @include flex($align: stretch, $direction: column);
+}
+
+.interests {
+  @include flex(flex-start, center);
+  flex-wrap: wrap;
+  margin: 6px -10px;
+}
+
+.interest {
+  margin: 6px 10px;
+  padding: 16px 12px;
+  width: fit-content;
+  border: 1px solid $primary-gray;
+  border-radius: 4px;
+  transition: $transition;
+  cursor: pointer;
+
+  &:hover:not(.interest--disabled) {
+    color: #e57649;
+    border-color: #e57649;
+  }
+
+  &--selected {
+    color: #e57649;
+    border-color: #e57649;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+}
+
+.submit {
+  width: 20%;
+  margin: 10px auto 0 auto;
+}
+
+.toggle {
+  @include font(#3e3e3e, 18px, 400);
+  align-self: center;
+  width: fit-content;
+  margin-top: 20px;
+  text-decoration: underline;
+  cursor: pointer;
 }

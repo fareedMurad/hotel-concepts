@@ -51,6 +51,7 @@ const Sso: React.FC<SsoProps> = ({ className }) => {
           textButton='Sing up with Facebook'
           cssClass={styles.customLogIn}
           icon={<FacebookIcon />}
+          scope='public_profile,email'
           callback={data => {
             dispatch(facebookSignIn(data));
           }}

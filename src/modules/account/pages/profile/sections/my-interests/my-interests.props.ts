@@ -1,6 +1,11 @@
 /**
  * Props
  */
-type MyInterestsProps = {};
+type MyInterestsProps = {
+  /**
+   * Classname
+   */
+  className?: string;
+};
 
 export { MyInterestsProps };

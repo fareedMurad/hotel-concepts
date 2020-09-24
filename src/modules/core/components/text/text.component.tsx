@@ -27,6 +27,15 @@ const Text: React.FC<TextProps> = ({
 }) => {
   const [focused, setFocused] = useState(false);
 
+  /**
+   * Removing leading white spaces (expand in the future)
+   */
+  const processValue = (value: string) => {
+    const result: string = value.replace(/^ +/gm, '');
+
+    return result;
+  };
+
   return (
     <div
       className={classNames(styles.text, className, {
@@ -44,11 +53,13 @@ const Text: React.FC<TextProps> = ({
         mask={mask}
         id={id}
         type={type}
-        value={value || ''}
+        value={value ? value : ''}
         placeholder={placeholder}
         disabled={disabled}
         onChange={event => {
-          onChange(event.target.value);
+          const { value } = event.target;
+          const result = processValue(value);
+          onChange(result);
         }}
         onFocus={() => {
           setFocused(true);

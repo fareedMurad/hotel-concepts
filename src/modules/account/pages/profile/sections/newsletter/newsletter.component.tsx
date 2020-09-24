@@ -1,5 +1,5 @@
 import { Card } from '@account/components';
-import { setNewsSubscription } from '@app/redux/account';
+import { editNewsletterSubscription } from '@app/redux/account';
 import { State } from '@app/redux/state';
 import { Button, Field, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
@@ -28,7 +28,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
           enableReinitialize
           initialValues={{ newsSub: user?.newsSub }}
           onSubmit={values => {
-            dispatch(setNewsSubscription(values));
+            dispatch(editNewsletterSubscription(values));
           }}
         >
           {({ handleSubmit }) => (

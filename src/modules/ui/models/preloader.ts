@@ -15,12 +15,13 @@ enum Preloaders {
 
   //Profile
   profile = 'profile',
-  profileAvatar = 'profile avatar',
   profileLanguage = 'profile language',
   profileContactAddress = 'profile contact address',
+  profileInterests = 'profile interests',
   profileUpdatePassword = 'profile update password',
-  profileNewsletter = 'profile newsletter',
   profilePaymentMethods = 'profile payment methods',
+  profileAvatar = 'profile avatar',
+  profileNewsletter = 'profile newsletter',
 
   paymentMethods = 'profile payment methods',
   newsSub = 'profile news subsciption',

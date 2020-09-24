@@ -25,10 +25,9 @@ import { State } from '@app/redux/state';
 const Homepage: React.FC<HomepageProps> = ({}) => {
   const { language } = useSelector((state: State) => state.localization);
   const { contributors, loading } = useContributorsData(language);
-  const {
-    homePageTestimonials,
-    homepageTestimonialsLoading
-  } = useHomePageData();
+  const { homePageTestimonials, homepageTestimonialsLoading } = useHomePageData(
+    language
+  );
 
   return (
     <React.Suspense fallback={<Spinner />}>

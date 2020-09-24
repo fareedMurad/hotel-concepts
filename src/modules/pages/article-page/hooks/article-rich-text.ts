@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 
-const useArticleRichTextData = (articleId: string) => {
+const useArticleRichTextData = (articleId: string, language: string) => {
   const GET_FIRST_RICH_TEXT = gql`
-    query($id: String!) {
-      article(id: $id) {
+    query($id: String!, $locale: String!) {
+      article(id: $id, locale: $locale) {
         backgroundImageQuote {
           quoteText
           author
@@ -60,7 +60,7 @@ const useArticleRichTextData = (articleId: string) => {
     }
   `;
   const { data, error, loading } = useQuery(GET_FIRST_RICH_TEXT, {
-    variables: { id: articleId }
+    variables: { id: articleId, locale: language }
   });
 
   return {

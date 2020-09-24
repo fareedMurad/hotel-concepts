@@ -54,6 +54,39 @@ class AccountService {
   };
 
   /**
+   * Edit interests
+   */
+  public editInterests = (interests: string[]) => {
+    this.http.request({
+      method: 'PUT',
+      url: '/user/interests',
+      data: {
+        interests
+      }
+    });
+  };
+
+  /**
+   * Edit password
+   */
+  public editPassword = (newPassword: string) =>
+    this.http.request({
+      method: 'PATCH',
+      url: '/auth/password/update',
+      data: { newPassword }
+    });
+
+  /**
+   * Edit payment methods
+   */
+  public editPaymentMethods = (paymentMethods: string[]) =>
+    this.http.request({
+      method: 'PUT',
+      url: '/user/payment-method',
+      data: { paymentMethods }
+    });
+
+  /**
    * Upload avatar
    */
   public uploadAvatar = file =>
@@ -61,16 +94,6 @@ class AccountService {
       method: 'POST',
       url: '/user/avatar',
       data: file
-    });
-
-  /**
-   * Update password
-   */
-  public updatePassword = (newPassword: string) =>
-    this.http.request({
-      method: 'PATCH',
-      url: '/auth/password/update',
-      data: { newPassword }
     });
 
   /**
@@ -83,23 +106,13 @@ class AccountService {
     });
 
   /*
-   * Update or set payment methods
+   * Edit newsletter subscription
    */
-  public selectPaymentMethods = payload =>
+  public editNewsletterSubscription = (newsSub: boolean) =>
     this.http.request({
       method: 'PUT',
-      url: 'user/payment-method',
-      data: payload
-    });
-
-  /*
-   * Update news subscription
-   */
-  public updateNewsSubscription = payload =>
-    this.http.request({
-      method: 'PUT',
-      url: 'user/news-subscription',
-      data: payload
+      url: '/user/news-subscription',
+      data: { newsSub }
     });
 }
 

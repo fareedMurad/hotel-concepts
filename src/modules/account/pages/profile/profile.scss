@@ -8,7 +8,7 @@
 
 .column-left {
   display: grid;
-  grid-template-rows: minmax(177px, 177px) min-content;
+  grid-template-rows: minmax(177px, 177px) initial;
   gap: 20px;
 }
 
@@ -16,13 +16,9 @@
   display: grid;
   gap: 20px;
   grid-template-rows: minmax(177px, auto) minmax(986px, auto);
-
-  &__avatar {
-    grid-area: avatar;
-  }
 }
 
-.secondaryInfoGrid {
+.column-bottom {
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr 1fr;

@@ -27,7 +27,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
       <Preloader id={Preloaders.profileContactAddress} size={75} thickness={4}>
         <Formik
           enableReinitialize
-          initialValues={defaultValues as any}
+          initialValues={defaultValues}
           validationSchema={contactAddressValidationSchema}
           onSubmit={values => {
             dispatch(editContactAddress(values));
@@ -40,7 +40,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
               <Field.Text name='surname' label='Last Name' />
               <Field.Radio
                 className={styles.radioGroup}
-                name='title'
+                name='position'
                 label='I am'
                 data={positionData}
                 direction='column'
