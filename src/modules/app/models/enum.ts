@@ -54,5 +54,39 @@ enum Interest {
   guestloyalty = 'Guest Loyalty',
   reputationmanagement = 'Reputation Management'
 }
+/**
+ * Content type enum
+ */
+enum ContentType {
+  product = 'product',
+  onlineCourse = 'onlineCourse',
+  courseCategory = 'courseCategory'
+}
 
-export { UserSource, Position, Title, Language, PaymentMethod, Interest };
+/**
+ * Online course subfilter enum
+ */
+
+enum OnlineCourseSubfilter {
+  all = 'all',
+  familybusiness = 'familyBusiness',
+  strategy = 'strategy',
+  marketing = 'marketing',
+  governance = 'governance',
+  innovation = 'innovation',
+  negotiation = 'negotiation',
+  organizationallearning = 'organizationalLearning',
+  sustainability = 'sustainability',
+  finance = 'finance'
+}
+
+export {
+  UserSource,
+  Position,
+  Title,
+  Language,
+  PaymentMethod,
+  Interest,
+  ContentType,
+  OnlineCourseSubfilter
+};

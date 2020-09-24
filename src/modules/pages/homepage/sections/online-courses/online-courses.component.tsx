@@ -21,7 +21,8 @@ import { Preloaders } from '@ui/models';
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
-  const { categories } = useSelector((state: State) => state.programs);
+  const { categories } = useSelector((state: State) => state.programsData);
+  console.log(categories);
   React.useEffect(() => {
     if (categories.length === 0) {
       dispatch(getCategories(language));
@@ -67,19 +68,14 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
         </div>
         <div className={styles.content}>
           <div className={styles.filters}>
-            {categories.map(category => {
-              const {
-                name
-                // linkedFrom: {
-                //   onlineCourseCollection: { total }
-                // }
-              } = category;
+            {categories.map(item => {
+              const { category, total } = item;
 
               return (
                 <ButtonFilter
                   key={name}
-                  title={name}
-                  count={12}
+                  title={category.name}
+                  count={total}
                   onClick={() => {
                     setSelectedCategory(category);
                   }}
@@ -92,8 +88,8 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
           <div className={styles.info}>{selectedCategory.description}</div>
         </div>
       </Preloader>
-
-      {/* {selectedCategory.linkedFrom.onlineCourseCollection.total === 0 ? (
+      {/* 
+      {selectedCategory.linkedFrom.onlineCourseCollection.total === 0 ? (
   <div>{t('home.online-courses.no-corses-caprion')}</div>
 ) : (
   <React.Fragment>

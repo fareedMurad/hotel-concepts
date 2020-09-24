@@ -26,6 +26,7 @@ enum Preloaders {
   newsSub = 'profile news subsciption',
 
   //Programs
+  programs = 'programs',
   categories = 'programs categories',
 
   // Uikit
