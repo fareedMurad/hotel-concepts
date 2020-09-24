@@ -57,6 +57,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
                 <Button
                   className={styles.submit}
                   onClick={() => handleSubmit()}
+                  disabled={!isInternalSource}
                 >
                   Save
                 </Button>
