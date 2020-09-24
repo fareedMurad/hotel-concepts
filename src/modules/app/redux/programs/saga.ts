@@ -54,6 +54,8 @@ class ProgramsSaga {
       yield put(getPrograms.success(result));
     } catch (err) {
       console.log(err);
+    } finally {
+      yield put(preloaderStop(Preloaders.programs));
     }
   }
 }

@@ -21,8 +21,10 @@ import { Preloaders } from '@ui/models';
  * Renders OnlineCourses
  */
 const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
-  const { categories } = useSelector((state: State) => state.programsData);
-  console.log(categories);
+  const { categories, programs } = useSelector(
+    (state: State) => state.programsData
+  );
+  console.log(programs);
   React.useEffect(() => {
     if (categories.length === 0) {
       dispatch(getCategories(language));
@@ -87,6 +89,11 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
           </div>
           <div className={styles.info}>{selectedCategory.description}</div>
         </div>
+      </Preloader>
+      <Preloader id={Preloaders.programs}>
+        {programs.map(program => (
+          <CourseItem key={program.id} course={program} />
+        ))}
       </Preloader>
       {/* 
       {selectedCategory.linkedFrom.onlineCourseCollection.total === 0 ? (
