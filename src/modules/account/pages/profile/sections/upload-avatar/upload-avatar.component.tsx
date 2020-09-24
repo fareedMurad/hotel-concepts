@@ -6,16 +6,17 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { useUploadAvatarData } from './upload-avatar.hook';
 import { UploadAvatarProps } from './upload-avatar.props';
 import * as styles from './upload-avatar.scss';
 
 /**
  * Renders UploadAvatar
  */
-const UploadAvatar: React.FC<UploadAvatarProps> = ({ className, user }) => {
+const UploadAvatar: React.FC<UploadAvatarProps> = ({ className }) => {
   const dispatch = useDispatch();
+  const { avatarData, isAvatarSource } = useUploadAvatarData();
   const ref = useRef<HTMLInputElement>(null);
-  const isAvatarSource = user?.avatar?.length > 0;
 
   return (
     <Card
@@ -48,7 +49,7 @@ const UploadAvatar: React.FC<UploadAvatarProps> = ({ className, user }) => {
               </Button>
             )}
           </div>
-          <Avatar className={styles.avatar} user={user} />
+          <Avatar className={styles.avatar} user={avatarData} />
 
           <input
             className={styles.input}

@@ -1,14 +1,12 @@
-import { Card } from '@account/components';
 import { Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
-import { Interests } from './components/interests';
-// import { UpdatePassword } from './components/update-password';
 import { useProfileData } from './profile.hook';
 import * as styles from './profile.scss';
 import {
   ContactAddress,
   Language,
+  MyInterests,
   Newsletter,
   PaymentMethods,
   Privacy,
@@ -31,18 +29,13 @@ const Profile: React.FC = () => {
         </div>
 
         <div className={styles.columnRight}>
-          <Card className={styles.secondaryInfoInterests}>
-            <Interests interests={user?.interests} />
-          </Card>
-          <div className={styles.secondaryInfoGrid}>
-            <UpdatePassword className={styles.secondaryInfoGridEmailPassword} />
-            <UploadAvatar
-              user={user}
-              className={styles.secondaryInfoGridAvatar}
-            />
-            <PaymentMethods className={styles.secondaryInfoGridPayment} />
-            <Privacy className={styles.secondaryInfoGridPrivacy} />
-            <Newsletter className={styles.secondaryInfoInterestsNewsletter} />
+          <MyInterests className={styles.columnRightInterests} />
+          <div className={styles.columnBottom}>
+            <UpdatePassword className={styles.columnBottomEmailPassword} />
+            <UploadAvatar className={styles.columnBottomAvatar} />
+            <PaymentMethods className={styles.columnBottomPayment} />
+            <Privacy className={styles.columnBottomPrivacy} />
+            <Newsletter className={styles.columnBottomNewsletter} />
           </div>
         </div>
       </Preloader>
