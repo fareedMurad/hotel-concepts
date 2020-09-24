@@ -286,8 +286,15 @@ class AuthSaga {
   ) {
     yield put(preloaderStart(Preloaders.login));
 
-    if (payload.accessToken) {
+    if (!payload?.accessToken) {
+      yield put(
+        handleError(
+          'Unable to sign in with Facebook. Please try another authorisation method'
+        )
+      );
+      return;
     }
+
     const data = {
       token: payload.accessToken
     };
