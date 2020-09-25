@@ -8,16 +8,14 @@ import FacebookLogin from 'react-facebook-login';
 import { useDispatch } from 'react-redux';
 import { facebookSignIn, googleSignIn } from '@app/redux/auth';
 
-// import { ReactComponent as FaceBookIcon } from '../../../../assets/img/facebook-icon.svg';
-
-const FacebookIcon: React.FC<any> = () => {
-  return <img src={require(`img/facebook-icon.svg`)} alt='facebook' />;
-};
+const FacebookIcon: React.FC = () => (
+  <img src={require(`img/facebook-icon.svg`)} alt='facebook' />
+);
 
 /**
  * Renders Sso
  */
-const Sso: React.FC<SsoProps> = ({ className }) => {
+const Sso: React.FC<SsoProps> = ({ className, isLogin }) => {
   const dispatch = useDispatch();
   const { googleClientId, facebookAppId } = enviroment || {};
 
@@ -32,7 +30,7 @@ const Sso: React.FC<SsoProps> = ({ className }) => {
               disabled={renderProps.disabled}
               className={styles.customLogIn}
             >
-              Sing up with Google
+              {isLogin ? 'Sign in' : 'Sign up'} with Google
               <img src={require(`img/google-icon.svg`)} />
             </button>
           )}
@@ -48,7 +46,7 @@ const Sso: React.FC<SsoProps> = ({ className }) => {
         <FacebookLogin
           appId={facebookAppId}
           fields='name,email,picture'
-          textButton='Sing up with Facebook'
+          textButton={`${isLogin ? 'Sign in' : 'Sign up'} with Facebook`}
           cssClass={styles.customLogIn}
           icon={<FacebookIcon />}
           scope='public_profile,email'

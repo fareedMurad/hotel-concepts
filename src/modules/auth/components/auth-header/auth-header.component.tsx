@@ -37,7 +37,7 @@ const AuthHeader: React.FC<AuthHeaderProps> = ({ className }) => {
         Build skills for today, tomorrow, and beyond. Education to future-proof
         your career.
       </div>
-      <Sso className={styles.socials} />
+      <Sso className={styles.socials} isLogin={isLogin} />
       <div className={styles.separator}>
         <span className={styles.separatorLine} />
         <span className={styles.separatorCaption}>Or</span>
