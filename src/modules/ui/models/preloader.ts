@@ -30,12 +30,12 @@ enum Preloaders {
   // Library
   library = 'library',
   libraryPurchased = 'library purchased',
-  libraryWhishlist = 'library whislist',
+  libraryWishlist = 'library wishlist',
 
   // Programs
   programs = 'programs',
   programsPurchased = 'programs purchased',
-  programsWhishlist = 'programs whislist',
+  programsWishlist = 'programs wishlist',
 
   // Uikit
   uikit = 'uikit',

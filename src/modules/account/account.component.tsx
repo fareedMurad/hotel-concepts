@@ -1,10 +1,10 @@
-import * as React from 'react';
-import * as styles from './account.scss';
-import { Route } from 'react-router';
 import { usePrefixedRoutes } from '@core/shared';
-import { Profile, Subscription, Library, Programs } from './pages';
-import { useAccountData } from './account.hook';
+import * as React from 'react';
+import { Route } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import { useAccountData } from './account.hook';
+import * as styles from './account.scss';
+import { Library, MyPrograms, Profile, Subscription } from './pages';
 
 /**
  * Renders Account
@@ -46,7 +46,7 @@ const Account: React.FC = () => {
         <Route path={profile} component={Profile} />
         <Route path={subscription} component={Subscription} />
         <Route path={library} component={Library} />
-        <Route path={programs} component={Programs} />
+        <Route path={programs} component={MyPrograms} />
       </div>
     </div>
   );

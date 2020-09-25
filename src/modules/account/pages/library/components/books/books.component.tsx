@@ -35,8 +35,8 @@ const Books: React.FC<BooksProps> = ({ className, type, data }) => {
     </div>
   ) : (
     <div className={styles.placeholder}>
-      Your {fromWishlist ? 'Wishlist' : 'Purchased list'} is empty. Start adding
-      some.
+      Your Library {fromWishlist ? 'Wishlist' : 'Purchased list'} is empty.
+      Start adding some.
     </div>
   );
 };

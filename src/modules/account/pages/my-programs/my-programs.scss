@@ -1,18 +1,20 @@
 @import 'core.scss';
 
-.library {
-  padding: 13px 20px 100px 20px;
+.my-programs {
+  padding: 19px 11px 71px 11px;
   border-radius: 10px;
   background-color: $background;
 }
 
 .title {
   @include font(#3e3e3e, 24px, 400);
+  margin-left: 11px;
 }
 
 .navigation {
   @include flex($align: center);
-  margin-top: 44px;
+  margin-top: 38px;
+  margin-left: 10px;
 }
 
 .link {

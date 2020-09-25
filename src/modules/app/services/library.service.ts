@@ -18,7 +18,7 @@ class LibraryService {
   /**
    * Fetch library wishlist
    */
-  public fetchLibraryWhishlist = (locale: string) =>
+  public fetchLibraryWishlist = (locale: string) =>
     this.http.request({
       url: `/wishlist?locale=${locale}&type=${ContentType.product}`
     });

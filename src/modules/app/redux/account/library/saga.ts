@@ -41,16 +41,16 @@ class LibrarySaga {
    */
   @Saga(fetchLibraryWishlist)
   public *fetchLibraryWishlist(_, { api }: Context) {
-    yield put(preloaderStart(Preloaders.libraryWhishlist));
+    yield put(preloaderStart(Preloaders.libraryWishlist));
 
     try {
-      const response = yield call(api.library.fetchLibraryWhishlist, 'en-US');
+      const response = yield call(api.library.fetchLibraryWishlist, 'en-US');
 
       yield put(fetchLibraryWishlist.success(response.data));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.libraryWhishlist));
+      yield put(preloaderStop(Preloaders.libraryWishlist));
     }
   }
 
@@ -88,7 +88,7 @@ class LibrarySaga {
     payload: Payload<typeof removeBookFromWishlist>,
     { api }: Context
   ) {
-    yield put(preloaderStart(Preloaders.libraryWhishlist));
+    yield put(preloaderStart(Preloaders.libraryWishlist));
 
     try {
       yield call(api.library.removeBookFromWishlist, payload);
@@ -102,7 +102,7 @@ class LibrarySaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.libraryWhishlist));
+      yield put(preloaderStop(Preloaders.libraryWishlist));
     }
   }
 }

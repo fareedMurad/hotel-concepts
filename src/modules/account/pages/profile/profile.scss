@@ -32,6 +32,7 @@
   display: grid;
   gap: 20px;
   grid-template-areas: 'email-password avatar' 'payment container';
+  grid-template-columns: auto 43%;
   height: 100%;
   margin-top: 20px;
 

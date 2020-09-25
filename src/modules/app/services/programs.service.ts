@@ -1,3 +1,4 @@
+import { ContentType } from '@account/pages/library/models';
 import { HttpService } from './config';
 
 class ProgramsService {
@@ -7,13 +8,43 @@ class ProgramsService {
   public constructor(private http: HttpService) {}
 
   /**
-   * Example
+   * Fetch purchased programs
    */
-  public exampleRequest = (data: string) =>
+  public fetchProgramsPurchased = (locale: string) =>
+    this.http.request({
+      url: `/library?locale=${locale}&type=${ContentType.onlineCourse}`
+    });
+
+  /**
+   * Fetch programs wishlist
+   */
+  public fetchProgramsWishlist = (locale: string) =>
+    this.http.request({
+      url: `/wishlist?locale=${locale}&type=${ContentType.onlineCourse}`
+    });
+
+  /**
+   * Add program to wishlist
+   */
+  public addProgramToWishlist = (id: string) =>
     this.http.request({
       method: 'POST',
-      url: '/expample',
-      data
+      url: '/wishlist/add',
+      data: {
+        id
+      }
+    });
+
+  /**
+   * Remove program from wishlist
+   */
+  public removeProgramFromWishlist = (id: string) =>
+    this.http.request({
+      method: 'DELETE',
+      url: '/wishlist/delete',
+      data: {
+        id
+      }
     });
 }
 

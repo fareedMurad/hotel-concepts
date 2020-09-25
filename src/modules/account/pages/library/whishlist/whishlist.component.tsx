@@ -13,7 +13,7 @@ const Whishlist: React.FC = () => {
 
   return (
     <div className={styles.wishlist}>
-      <Preloader id={Preloaders.libraryWhishlist}>
+      <Preloader id={Preloaders.libraryWishlist}>
         <Books data={wishlist} type='wishlist' />
       </Preloader>
     </div>
