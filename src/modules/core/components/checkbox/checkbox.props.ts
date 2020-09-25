@@ -9,6 +9,10 @@ type CheckboxProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> &
      * Checkbox theme
      */
     theme?: 'sm' | 'md' | 'lg';
+    /**
+     * Label classname
+     */
+    labelClassname?: string;
   };
 
 /**
