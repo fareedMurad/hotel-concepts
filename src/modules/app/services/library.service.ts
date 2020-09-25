@@ -22,6 +22,30 @@ class LibraryService {
     this.http.request({
       url: `/wishlist?locale=${locale}&type=${ContentType.product}`
     });
+
+  /**
+   * Add book to wishlist
+   */
+  public addBookToWishlist = (id: string) =>
+    this.http.request({
+      method: 'POST',
+      url: '/wishlist/add',
+      data: {
+        id
+      }
+    });
+
+  /**
+   * Remove book from wishlist
+   */
+  public removeBookFromWishlist = (id: string) =>
+    this.http.request({
+      method: 'DELETE',
+      url: '/wishlist/delete',
+      data: {
+        id
+      }
+    });
 }
 
 export { LibraryService };

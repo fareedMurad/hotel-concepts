@@ -16,4 +16,23 @@ const fetchLibraryWishlist = make('[library] fetch library wishlist').stage(
   (payload: { items: []; total: number }) => payload
 );
 
-export { fetchLibraryPurchased, fetchLibraryWishlist };
+/**
+ * Add book to wishlist
+ */
+const addBookToWishlist = make('[library] add book to wishlist')
+  .stage((payload: string) => payload)
+  .stage('success');
+
+/**
+ * Remove book from wishlist
+ */
+const removeBookFromWishlist = make('[library] remove book from wishlist')
+  .stage((payload: string) => payload)
+  .stage('success');
+
+export {
+  fetchLibraryPurchased,
+  fetchLibraryWishlist,
+  addBookToWishlist,
+  removeBookFromWishlist
+};
