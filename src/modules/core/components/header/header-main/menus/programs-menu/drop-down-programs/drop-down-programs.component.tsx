@@ -6,7 +6,7 @@ import { Spinner } from '@core/components/spinner';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
 import { animated, useTransition } from 'react-spring';
-import { useAnimation } from '../header-main/animation';
+import { useAnimation } from '../../../animation';
 
 /**
  * Renders DropDown
@@ -16,6 +16,7 @@ const DropDownPrograms: React.FC<DropDownProgramsProps> = ({
   show
 }) => {
   const dispatch = useDispatch();
+  const ref = React.useRef();
 
   const { transitions } = useAnimation(show);
   return (
@@ -40,6 +41,20 @@ const DropDownPrograms: React.FC<DropDownProgramsProps> = ({
                   </div>
                 );
               })}
+              <div
+                className={styles.dropDownFooter}
+                onClick={() => dispatch(navigate('/learning-approach'))}
+              >
+                <div className={styles.dropDownFooterTitle}>
+                  Learning Approach <span>&#8594;</span>
+                </div>
+                <div
+                  className={styles.dropDownFooterImage}
+                  style={{
+                    backgroundImage: `url(${require('img/header-image.png')})`
+                  }}
+                />
+              </div>
             </animated.div>
           )
         );

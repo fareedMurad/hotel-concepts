@@ -13,7 +13,7 @@ const DropDown: React.FC<DropDownProps> = ({ show, links }) => {
 
   return (
     <React.Fragment>
-      {transitions.map(({ item, props, key }) => {
+      {/* {transitions.map(({ item, props, key }) => {
         return (
           item && (
             <animated.div style={props} className={styles.dropDown}>
@@ -27,7 +27,18 @@ const DropDown: React.FC<DropDownProps> = ({ show, links }) => {
             </animated.div>
           )
         );
-      })}
+      })} */}
+      {show && (
+        <div className={styles.dropDown}>
+          {links.map((link, idx) => {
+            return (
+              <div key={link.name + idx} className={styles.dropDownItem}>
+                <NavLink to={link.to}>{link.name}</NavLink>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </React.Fragment>
   );
 };

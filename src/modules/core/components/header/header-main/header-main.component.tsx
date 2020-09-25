@@ -6,15 +6,15 @@ import { Icon, Button } from '@core/components';
 import classNames from 'classnames';
 import { useMediaPoints, useClickOutside } from '@core/shared';
 import { useDispatch, useSelector } from 'react-redux';
-import { ProgramsMenu } from './components/programs-menu/programs-menu.component';
-import { Spinner } from '@core/components/spinner';
-import { LocalizationMenu } from './components/localization-menu';
+import { ProgramsMenu } from './menus/programs-menu/programs-menu.component';
+import { LocalizationMenu } from './menus/localization-menu';
 import { State } from '@app/redux/state';
 import { useTranslation } from 'react-i18next';
-import { AboutMenu } from './components/about-menu';
-import { StoreMenu } from './components/store-menu';
+import { AboutMenu } from './menus/about-menu';
+import { LibraryMenu } from './menus/library-menu';
 import { navigate } from '@router/store';
 import { unauthorize } from '@app/redux/auth';
+import { ProfileMenu } from './menus/profile-menu';
 
 /**
  * Renders HeaderMain
@@ -25,20 +25,15 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   isSticky
 }) => {
   const [white, setWhite] = React.useState(false);
-  const { authorized } = useSelector((state: State) => state.auth);
   const [toggleDropDown, setToggleDropDown] = React.useState(false);
-  const dispatch = useDispatch();
   const [
     showProfileNavigationMenu,
     setShowProfileNavigationMenu
   ] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
-  const profileMenuRef = React.useRef<HTMLDivElement>(null);
+
   useClickOutside(ref, () => {
     setToggleDropDown(false);
-  });
-  useClickOutside(profileMenuRef, () => {
-    setShowProfileNavigationMenu(false);
   });
 
   React.useEffect(() => {
@@ -49,11 +44,6 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   const handleMenuClick = () => {
     setToggleDropDown(!toggleDropDown);
   };
-  const { t } = useTranslation();
-
-  /**
-   * auth
-   */
 
   return (
     <div
@@ -69,17 +59,24 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
         </div>
       ) : (
         <div className={styles.headerMainNavigation}>
+          <ProgramsMenu
+            ref={ref}
+            className={classNames(styles.headerMainNavigationItem, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+            onClick={() => {
+              handleMenuClick();
+            }}
+            toggleDropDown={toggleDropDown}
+          />
           <div className={styles.headerMainNavigationBlock} ref={ref}>
-            <ProgramsMenu
+            <LibraryMenu
               className={classNames(styles.headerMainNavigationItem, {
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}
-              onClick={() => {
-                handleMenuClick();
-              }}
-              toggleDropDown={toggleDropDown}
             />
           </div>
+
           <div className={styles.headerMainNavigationBlock} ref={ref}>
             <AboutMenu
               className={classNames(styles.headerMainNavigationItem, {
@@ -87,44 +84,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
               })}
             />
           </div>
-          <div className={styles.headerMainNavigationBlock} ref={ref}>
-            <StoreMenu
-              className={classNames(styles.headerMainNavigationItem, {
-                [styles.invertedHeader]: whiteBackground || isSticky
-              })}
-            />
-          </div>
 
-          {/* {navigation.map(el => {
-            return (
-              <div
-                key={el.id}
-                className={styles.headerMainNavigationBlock}
-                ref={ref}
-              >
-                <div
-                  className={classNames(styles.headerMainNavigationItem, {
-                    [styles.invertedHeader]: whiteBackground || isSticky
-                  })}
-                  onClick={() => {
-                    handleMenuClick(el);
-                  }}
-                >
-                  {el.title}{' '}
-                  <Icon
-                    name={
-                      whiteBackground || isSticky
-                        ? 'triangle-arr-b'
-                        : 'triangle-arr'
-                    }
-                  />
-                </div>
-                {toggleDropDown && dropDownId === el.id && (
-                  <DropDown sublinks={el.subLinks} />
-                )}
-              </div>
-            );
-          })} */}
           <div className={styles.headerMainNavigationProfile}>
             <div className={styles.profileNavigation}>
               <Icon
@@ -135,42 +95,11 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                     : 'default-avatar'
                 }
               />
-              {showProfileNavigationMenu &&
-                (authorized ? (
-                  <div
-                    className={styles.profileNavigationMenu}
-                    ref={profileMenuRef}
-                  >
-                    <NavLink to={'/account/profile'}>my Account</NavLink>
-                    <NavLink to={'/account/subscription'}>
-                      my Subscription
-                    </NavLink>
-                    <NavLink to={'/account/library/purchased'}>
-                      my Library
-                    </NavLink>
-                    <NavLink to={'/account/programs/purchased'}>
-                      my Programs
-                    </NavLink>
-                    <Button onClick={() => dispatch(unauthorize())}>
-                      Log out
-                    </Button>
-                  </div>
-                ) : (
-                  <div
-                    className={styles.profileNavigationMenu}
-                    ref={profileMenuRef}
-                  >
-                    <Button
-                      width={'100%'}
-                      onClick={() => {
-                        dispatch(navigate('/auth/login'));
-                        setShowProfileNavigationMenu(false);
-                      }}
-                    >
-                      Log in
-                    </Button>
-                  </div>
-                ))}
+              {showProfileNavigationMenu && (
+                <ProfileMenu
+                  setShowProfileNavigationMenu={setShowProfileNavigationMenu}
+                />
+              )}
             </div>
 
             <LocalizationMenu

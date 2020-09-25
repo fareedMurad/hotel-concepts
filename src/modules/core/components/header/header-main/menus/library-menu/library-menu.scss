@@ -1,6 +1,7 @@
 @import 'core.scss';
 
 .store-menu {
+  position: relative;
   & > span {
     margin-left: 10px;
   }

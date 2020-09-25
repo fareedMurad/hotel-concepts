@@ -4,7 +4,7 @@ import * as styles from './header-secondary.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { useMediaPoints } from '@core/shared';
-import { useMenuData } from '../burger-menu/burger-menu.hooks';
+import { useMenuData } from './header-secondary.hooks';
 
 /**
  * Renders HeaderSecondary
