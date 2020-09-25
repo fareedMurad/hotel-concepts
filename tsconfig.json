@@ -21,7 +21,7 @@
       "@core/*": ["./src/modules/core/*"],
       "@localization": ["./src/modules/localization/index"],
       "@localization/*": ["./src/modules/localization/*"],
-      "@env": ["./src/enviroment.ts"],
+      "@env": ["./src/environment.ts"],
       "@general/*": ["./src/modules/general/*"],
       "@router/*": ["./src/modules/router/*"],
       "@uikit": ["./src/modules/uikit/index"],

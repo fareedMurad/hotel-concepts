@@ -5,6 +5,7 @@ import { header } from '@core/components/header/store';
 import { combineReducers } from 'redux';
 import { ui } from '@ui';
 import { auth } from './auth';
+import { checkouts } from './checkout';
 import { library, profile, programs, subscription } from './account';
 
 /**
@@ -17,6 +18,7 @@ const app = combineReducers({
   general,
   ui,
   header,
+  checkouts,
   profile,
   subscription,
   library,
