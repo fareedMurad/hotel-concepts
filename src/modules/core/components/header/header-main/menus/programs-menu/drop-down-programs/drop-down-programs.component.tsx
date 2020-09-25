@@ -13,12 +13,18 @@ import { useAnimation } from '../../../animation';
  */
 const DropDownPrograms: React.FC<DropDownProgramsProps> = ({
   subLinks,
+  setToggleDropdown,
   show
 }) => {
   const dispatch = useDispatch();
   const ref = React.useRef();
 
   const { transitions } = useAnimation(show);
+
+  const handleClick = link => {
+    dispatch(navigate(link));
+    setToggleDropdown(false);
+  };
   return (
     <React.Fragment>
       {transitions.map(({ item, key, props }) => {
@@ -31,7 +37,7 @@ const DropDownPrograms: React.FC<DropDownProgramsProps> = ({
                     className={styles.dropDownItem}
                     key={el.sys.id}
                     onClick={() =>
-                      dispatch(navigate(`/programs-catalogue/${el.sys.id}`))
+                      handleClick(`/programs-catalogue/${el.sys.id}`)
                     }
                   >
                     <div className={styles.dropDownItemName}> {el.name}</div>
@@ -43,7 +49,7 @@ const DropDownPrograms: React.FC<DropDownProgramsProps> = ({
               })}
               <div
                 className={styles.dropDownFooter}
-                onClick={() => dispatch(navigate('/learning-approach'))}
+                onClick={() => handleClick('/learning-approach')}
               >
                 <div className={styles.dropDownFooterTitle}>
                   Learning Approach <span>&#8594;</span>

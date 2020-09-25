@@ -7,6 +7,8 @@ type DropDownProps = {
     name: string;
     to: string;
   }[];
+
+  setToggleDropdown: (toggle: boolean) => void;
 };
 
 export { DropDownProps };

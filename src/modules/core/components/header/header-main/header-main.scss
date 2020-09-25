@@ -19,10 +19,6 @@
       padding-bottom: 4px;
       cursor: pointer;
       transition: $transition;
-      & > div > div {
-        @include flex();
-        margin-left: 8px;
-      }
       &:hover {
         color: $primary-orange;
         border-color: $primary-orange;

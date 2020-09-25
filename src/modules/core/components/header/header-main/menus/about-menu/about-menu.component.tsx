@@ -1,15 +1,12 @@
 import * as React from 'react';
 import { AboutMenuProps } from './about-menu.props';
 import * as styles from './about-menu.scss';
-
 import { useAboutMenuData } from './about-menu.hook';
-import { animated } from 'react-spring';
-import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { useClickOutside } from '@core/shared';
 import { useAnimation } from '../../animation';
-import { DropDown } from '../drop-down';
+import { DropDown } from './drop-down';
 
 /**
  * Renders AboutMenu
@@ -34,8 +31,12 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ onClick, className }) => {
       >
         {t('header.header-main.link-three')}
         <span className={styles.arrow}>&#x25BE;</span>
+        <DropDown
+          setToggleDropdown={setToggleDropdown}
+          links={aboutMenuLinks}
+          show={toggleDropDown}
+        />
       </div>
-      <DropDown links={aboutMenuLinks} show={toggleDropDown} />
     </React.Fragment>
   );
 };

@@ -1,16 +1,8 @@
 const useAboutMenuData = () => {
   const aboutMenuLinks = [
     {
-      name: 'Contact',
-      to: '/contact-us'
-    },
-    {
-      name: 'Our story',
+      name: 'About us',
       to: '/about-us'
-    },
-    {
-      name: 'Program-partnership',
-      to: '/course-partnership'
     },
     {
       name: 'Jobs',

@@ -12,24 +12,31 @@ import { useClickOutside } from '@core/shared';
 /**
  * Renders ProgramsMenu
  */
-const ProgramsMenu: React.FC<any> = ({
-  className,
-  toggleDropDown,
-  onClick
-}) => {
+const ProgramsMenu: React.FC<any> = ({ className }) => {
+  const ref = React.useRef();
+  const [toggleDropDown, setToggleDropDown] = React.useState(false);
+  useClickOutside(ref, () => {
+    setToggleDropDown(false);
+  });
   const { language } = useSelector((state: State) => state.localization);
   const { programsData, programsLoading } = useProgramsMenuData(language);
   const { t } = useTranslation();
   if (programsLoading) return <div />;
 
   return (
-    <React.Fragment>
-      <div onClick={onClick} className={className}>
+    <div className={styles.programsMenu} ref={ref}>
+      <div onClick={() => setToggleDropDown(true)} className={className}>
         {t('header.header-main.link-one')}
         <span className={styles.arrow}>&#x25BE;</span>
       </div>
-      <DropDownPrograms show={toggleDropDown} subLinks={programsData} />
-    </React.Fragment>
+      {toggleDropDown && (
+        <DropDownPrograms
+          setToggleDropdown={setToggleDropDown}
+          subLinks={programsData}
+          show={toggleDropDown}
+        />
+      )}
+    </div>
   );
 };
 

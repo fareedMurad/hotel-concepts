@@ -13,18 +13,26 @@ const LibraryDropdown: React.FC<LibraryDropdownProps> = ({}) => {
       </div>
       <div className={styles.libraryDropdownLinks}>
         <div className={styles.libraryDropdownLinksLink}>
-          <div>Indicidual Subscription</div>
+          <div>
+            Individual Subscription <span>&#8594;</span>
+          </div>
           <div
             className={styles.image}
             style={{
-              backgroundImage: `src(${require('img/header-image.png')})`
+              backgroundImage: `url(${require('img/header-image.png')})`,
+              marginRight: 28
             }}
           />
         </div>
         <div className={styles.libraryDropdownLinksLink}>
-          Corporated Subscription
+          Corporated Subscription <span>&#8594;</span>
+          <div
+            className={styles.image}
+            style={{
+              backgroundImage: `url(${require('img/header-image.png')})`
+            }}
+          />
         </div>
-        <div className={styles.image} style={{ backgroundImage: '' }} />
       </div>
     </div>
   );

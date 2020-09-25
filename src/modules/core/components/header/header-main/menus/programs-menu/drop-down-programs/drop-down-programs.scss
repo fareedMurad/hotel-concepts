@@ -2,8 +2,8 @@
 
 .drop-down {
   position: absolute;
-  top: 28px;
-  left: calc(50% - 300px);
+  top: 40px;
+  right: calc(50% - 300px);
   width: max-content;
   padding: 20px;
   background-color: $background;
@@ -12,7 +12,7 @@
   border-bottom: 1px solid #cbd0d3;
 
   & > div:not(:last-child) {
-    margin-bottom: 16px;
+    margin-bottom: 11px;
   }
   &__item {
     cursor: pointer;
@@ -27,7 +27,7 @@
       }
     }
     &--name {
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       font-size: 20px;
       font-weight: 500;
       line-height: 28px;
@@ -37,6 +37,7 @@
     cursor: pointer;
     color: $primary-gray;
     transition: $transition;
+    margin-top: 27px;
     &:hover {
       color: $primary-orange !important;
     }

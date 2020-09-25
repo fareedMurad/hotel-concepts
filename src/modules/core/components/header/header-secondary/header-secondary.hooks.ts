@@ -1,37 +1,11 @@
 import { useTranslation } from 'react-i18next';
 const useMenuData = () => {
   const { t } = useTranslation();
-  const mainLinks = [
-    {
-      name: 'Home',
-      path: '/'
-    },
-    {
-      name: 'Online Programs',
-      path: '/'
-    },
-    {
-      name: 'Insights',
-      path: '/insights'
-    },
-    {
-      name: 'For corporate clients',
-      path: '/for-companies'
-    }
-  ];
 
   const pagesLinks = [
     {
       name: t('header.header-secondary.link-one'),
       path: '/contributors'
-    },
-    {
-      name: t('header.header-secondary.link-two'),
-      path: '/learning-approach'
-    },
-    {
-      name: t('header.header-secondary.link-five'),
-      path: '/for-companies'
     },
     {
       name: t('header.header-secondary.link-three'),
@@ -43,7 +17,7 @@ const useMenuData = () => {
       path: '/contact-us'
     }
   ];
-  return { mainLinks, pagesLinks };
+  return { pagesLinks };
 };
 
 export { useMenuData };

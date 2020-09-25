@@ -12,6 +12,10 @@ type DropDownProgramsProps = {
       id: string;
     };
   }[];
+  /*
+   * Toggle dropdown
+   */
+  setToggleDropdown: (toggle: boolean) => void;
 };
 
 export { DropDownProgramsProps };

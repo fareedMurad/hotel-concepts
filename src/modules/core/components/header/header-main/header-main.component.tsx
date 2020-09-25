@@ -15,6 +15,7 @@ import { LibraryMenu } from './menus/library-menu';
 import { navigate } from '@router/store';
 import { unauthorize } from '@app/redux/auth';
 import { ProfileMenu } from './menus/profile-menu';
+import { CorporateMenu } from './menus/corporate-menu';
 
 /**
  * Renders HeaderMain
@@ -25,25 +26,16 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   isSticky
 }) => {
   const [white, setWhite] = React.useState(false);
-  const [toggleDropDown, setToggleDropDown] = React.useState(false);
   const [
     showProfileNavigationMenu,
     setShowProfileNavigationMenu
   ] = React.useState(false);
-  const ref = React.useRef<HTMLDivElement>(null);
-
-  useClickOutside(ref, () => {
-    setToggleDropDown(false);
-  });
 
   React.useEffect(() => {
     isSticky ? setWhite(true) : setWhite(false);
   }, [isSticky]);
 
   const { mobile } = useMediaPoints();
-  const handleMenuClick = () => {
-    setToggleDropDown(!toggleDropDown);
-  };
 
   return (
     <div
@@ -60,31 +52,25 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
       ) : (
         <div className={styles.headerMainNavigation}>
           <ProgramsMenu
-            ref={ref}
             className={classNames(styles.headerMainNavigationItem, {
               [styles.invertedHeader]: whiteBackground || isSticky
             })}
-            onClick={() => {
-              handleMenuClick();
-            }}
-            toggleDropDown={toggleDropDown}
           />
-          <div className={styles.headerMainNavigationBlock} ref={ref}>
-            <LibraryMenu
-              className={classNames(styles.headerMainNavigationItem, {
-                [styles.invertedHeader]: whiteBackground || isSticky
-              })}
-            />
-          </div>
-
-          <div className={styles.headerMainNavigationBlock} ref={ref}>
-            <AboutMenu
-              className={classNames(styles.headerMainNavigationItem, {
-                [styles.invertedHeader]: whiteBackground || isSticky
-              })}
-            />
-          </div>
-
+          <LibraryMenu
+            className={classNames(styles.headerMainNavigationItem, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+          />
+          <CorporateMenu
+            className={classNames(styles.headerMainNavigationItem, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+          />
+          <AboutMenu
+            className={classNames(styles.headerMainNavigationItem, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+          />
           <div className={styles.headerMainNavigationProfile}>
             <div className={styles.profileNavigation}>
               <Icon
