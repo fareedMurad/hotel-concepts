@@ -71,7 +71,7 @@ const Login: React.FC = () => {
             className={styles.forgotPassword}
             onClick={() => dispatch(showModal(Modals.forgotPassword))}
           >
-            Forgot password?
+            Forgot your password?
           </div>
           <div
             className={styles.needAccount}
