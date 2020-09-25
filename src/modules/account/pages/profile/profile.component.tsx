@@ -24,8 +24,8 @@ const Profile: React.FC = () => {
     <div className={styles.profile}>
       <Preloader id={Preloaders.profile}>
         <div className={styles.columnLeft}>
-          <Language />
-          <ContactAddress />
+          <Language className={styles.columnLeftLanguage} />
+          <ContactAddress className={styles.columnLeftContact} />
         </div>
 
         <div className={styles.columnRight}>
@@ -34,8 +34,10 @@ const Profile: React.FC = () => {
             <UpdatePassword className={styles.columnBottomEmailPassword} />
             <UploadAvatar className={styles.columnBottomAvatar} />
             <PaymentMethods className={styles.columnBottomPayment} />
-            <Privacy className={styles.columnBottomPrivacy} />
-            <Newsletter className={styles.columnBottomNewsletter} />
+            <div className={styles.columnBottomContainer}>
+              <Privacy className={styles.columnBottomPrivacy} />
+              <Newsletter className={styles.columnBottomNewsletter} />
+            </div>
           </div>
         </div>
       </Preloader>

@@ -1,43 +1,62 @@
 @import 'core.scss';
 
 .profile {
-  display: grid;
-  grid-template-columns: 335px 765px;
-  gap: 20px;
+  @include flex(space-between, stretch);
 }
 
 .column-left {
-  display: grid;
-  grid-template-rows: minmax(177px, 177px) initial;
-  gap: 20px;
+  @include flex($align: stretch, $direction: column);
+  width: 30%;
+
+  &__language {
+    padding: 19px 20px 17px 20px;
+  }
+
+  &__contact {
+    margin-top: 20px;
+    padding: 23px 20px 16px 20px;
+  }
 }
 
 .column-right {
-  display: grid;
-  gap: 20px;
-  grid-template-rows: minmax(177px, auto) minmax(986px, auto);
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+  margin-left: 20px;
+
+  &__interests {
+    padding: 19px 20px 33px 20px;
+  }
 }
 
 .column-bottom {
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr 1fr;
-  grid-template-areas: 'email-password avatar' 'payment privacy' 'payment newsletter';
+  grid-template-areas: 'email-password avatar' 'payment container';
+  height: 100%;
+  margin-top: 20px;
 
   &__email-password {
     grid-area: email-password;
+    padding: 19px 20px 41px 20px;
   }
   &__avatar {
     grid-area: avatar;
+    padding: 19px 20px;
   }
   &__payment {
     grid-area: payment;
+    padding: 18px 20px;
+  }
+  &__container {
+    @include flex($align: stretch, $direction: column);
+    grid-area: container;
   }
   &__privacy {
-    grid-area: privacy;
+    padding: 19px 20px 17px 20px;
   }
   &__newsletter {
-    grid-area: newsletter;
+    flex: 1;
+    margin-top: 20px;
+    padding: 19px 20px;
   }
 }
