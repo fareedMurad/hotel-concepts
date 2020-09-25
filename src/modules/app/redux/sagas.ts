@@ -3,6 +3,7 @@ import { RouterSaga } from '@router/store';
 import { GeneralSaga } from '@general/store';
 import { ToastSaga } from '@ui/toast';
 import { AuthSaga } from './auth';
+import { CheckoutSaga } from './checkout';
 import {
   LibrarySaga,
   ProfileSaga,
@@ -19,6 +20,7 @@ const sagas = [
   new GeneralSaga(),
   new ToastSaga(),
   new AuthSaga(),
+  new CheckoutSaga(),
   new ProfileSaga(),
   new SubscriptionSaga(),
   new LibrarySaga(),
