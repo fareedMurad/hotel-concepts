@@ -77,7 +77,6 @@ const MyInterests: React.FC<MyInterestsProps> = ({ className }) => {
     <Card
       className={classNames(styles.myInterests, className)}
       title='My interests'
-      offsetTop={14}
     >
       <Preloader id={Preloaders.profileInterests} size={75} thickness={4}>
         <div className={styles.expandable}>

@@ -44,17 +44,18 @@ const Login: React.FC = () => {
                 <Field.Text
                   name='email'
                   label='Email'
-                  className={styles.formInput}
+                  className={styles.input}
                 />
                 <Field.Text
                   name='password'
                   label='Password'
                   type='password'
-                  className={styles.formInput}
+                  className={styles.input}
                 />
-                <div className={styles.formHintText}>
+                <div className={styles.hint}>
                   By clicking Sign In, you agree to our{' '}
-                  <span>Terms of Use</span> and our <span>Privacy Policy</span>
+                  <span className={styles.hintBold}>Terms of Use</span> and our{' '}
+                  <span className={styles.hintBold}>Privacy Policy</span>
                 </div>
                 <Button
                   className={styles.submit}
@@ -73,11 +74,14 @@ const Login: React.FC = () => {
           >
             Forgot your password?
           </div>
-          <div
-            className={styles.needAccount}
-            onClick={() => dispatch(navigate('/auth/register'))}
-          >
-            Need an account? <span>Sign Up</span>
+          <div className={styles.signUp}>
+            Need an account?
+            <span
+              className={styles.signUpLink}
+              onClick={() => dispatch(navigate('/auth/register'))}
+            >
+              Sign Up
+            </span>
           </div>
         </Fragment>
       </Preloader>

@@ -28,11 +28,7 @@ const Language: React.FC<LanguageProps> = ({ className }) => {
   const preferedLanguage = languages.find(one => one.value == user?.language);
 
   return (
-    <Card
-      className={classNames(styles.language, className)}
-      title='Language'
-      offsetTop={20}
-    >
+    <Card className={classNames(styles.language, className)} title='Language'>
       <Preloader id={Preloaders.profileLanguage} size={75} thickness={4}>
         <Formik
           enableReinitialize

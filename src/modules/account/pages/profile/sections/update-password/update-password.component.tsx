@@ -23,7 +23,6 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
     <Card
       className={classNames(styles.updatePassword, className)}
       title='Email & Password'
-      offsetTop={29}
     >
       <Preloader id={Preloaders.profileUpdatePassword} size={75} thickness={4}>
         <Formik

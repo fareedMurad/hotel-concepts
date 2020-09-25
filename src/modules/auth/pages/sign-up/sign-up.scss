@@ -2,73 +2,76 @@
 
 .sign-up {
   @include flex(center, stretch, column);
-  max-width: 506px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 502px;
   flex: 1;
-  margin-top: 132px;
-  margin-bottom: 115px;
+  margin: 132px auto 115px auto;
 }
 
-.form-fields {
-  margin-top: 30px;
-  &__radio-titles {
-    @include flex();
-    @include font($primary-gray, 16px, 400, 22px);
-    text-align: center;
-    margin-bottom: 16px;
-    & > label {
-      @include font($primary-gray, 16px, 400, 22px);
-      margin-right: 32px;
-    }
-    & > div:not(:last-child) {
-      margin-right: 20px;
-    }
+.form {
+  margin-top: 40px;
+}
+
+.title-radio-group {
+  @include flex($align: stretch);
+  @include font($primary-gray, 16px, 400, 22px);
+
+  & > div:first-child {
+    margin-left: 32px;
   }
-  &__input {
-    & > input {
-      background-color: $background;
-      border-color: $background;
-    }
-    &:not(:last-child) {
-      margin-bottom: 16px;
-    }
+  & > div:not(:first-child) {
+    margin-left: 18px;
   }
-  &__radio-iam {
-    min-width: 100%;
+}
+
+.field {
+  margin-top: 16px;
+
+  & > input {
     background-color: $background;
-    margin-bottom: 12px;
-    padding: 8px 5px;
-    border-radius: 4px;
-    & > label {
-      @include font($primary-gray, 16px, 400, 22px);
-      display: block;
-      margin-bottom: 11px;
-    }
-    & > div:not(:last-child) {
-      @include font($primary-gray, 16px, 400, 22px);
-      margin-bottom: 16px;
-    }
+    border-color: $background;
   }
-  &__accept {
-    & > label {
-      @include font($primary-gray, 18px, 500, 28px);
-    }
+}
+
+.iam-radio-group {
+  @include font($primary-gray, 16px, 400, 22px);
+  margin-top: 12px;
+  padding: 8px 5px;
+  border-radius: 4px;
+  background-color: $background;
+
+  & > div:not(:first-child) {
+    margin-top: 18px;
   }
-  &--hint-text {
-    @include font($primary-gray, 18px, 400, 28px);
-    margin: 16px 0;
-    & > span {
-      font-weight: 600;
-    }
+  & > div:first-child {
+    margin-top: 16px;
   }
-  &__submit {
-    width: 100% !important;
+}
+
+.accept {
+  margin-top: 16px;
+
+  &__label {
+    @include font($primary-gray, 18px, 500, 28px);
   }
+}
+
+.hint {
+  @include font($primary-gray, 18px, 400, 28px);
+  margin-top: 16px;
+
+  &--bold {
+    font-weight: 500;
+  }
+}
+
+.submit {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 16px;
 }
 
 .success-hint {
   @include font($primary-gray, 24px, 400, 24px);
-
-  margin: 0 auto;
-  margin-top: 160px;
+  margin: 160px auto 0 auto;
 }

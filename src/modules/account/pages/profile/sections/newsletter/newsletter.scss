@@ -3,11 +3,16 @@
 .newsletter {
 }
 
-.submit {
-  width: 50%;
-  margin: 24px auto 0 auto;
+.form {
+  margin-top: 12px;
 }
 
 .checkboxLabel {
-  font-weight: 500;
+  @include font(#3e3e3e, 18px, 500, 28px);
+}
+
+.submit {
+  height: 36px;
+  width: 50%;
+  margin: 16px auto 0 auto;
 }

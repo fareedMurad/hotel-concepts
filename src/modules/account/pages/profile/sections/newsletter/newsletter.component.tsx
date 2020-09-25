@@ -21,7 +21,6 @@ const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
     <Card
       className={classNames(styles.newsletter, className)}
       title='Newsletter'
-      offsetTop={18}
     >
       <Preloader id={Preloaders.profileNewsletter} size={75} thickness={4}>
         <Formik

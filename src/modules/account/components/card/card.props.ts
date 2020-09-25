@@ -10,10 +10,6 @@ type CardProps = {
    * Title
    */
   title?: string;
-  /**
-   * Offset top
-   */
-  offsetTop?: number;
 };
 
 export { CardProps };

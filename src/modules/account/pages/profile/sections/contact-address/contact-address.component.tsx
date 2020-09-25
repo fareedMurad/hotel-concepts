@@ -22,7 +22,6 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
     <Card
       className={classNames(styles.contactAddress, className)}
       title='Contact address'
-      offsetTop={25}
     >
       <Preloader id={Preloaders.profileContactAddress} size={75} thickness={4}>
         <Formik
