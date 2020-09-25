@@ -38,11 +38,14 @@ const ResetPassword: React.FC = () => {
           {({ handleSubmit }) => (
             <div className={styles.form}>
               <Field.Text
+                className={styles.input}
                 name='password'
                 label='New password'
                 type='password'
               />
-              <Button onClick={() => handleSubmit()}>Submit</Button>
+              <Button className={styles.submit} onClick={() => handleSubmit()}>
+                Submit
+              </Button>
             </div>
           )}
         </Formik>

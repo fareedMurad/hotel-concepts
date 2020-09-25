@@ -46,7 +46,17 @@ const useContactAdressData = () => {
 
   return {
     defaultValues: isUser
-      ? (Object.assign(defaultValues, user) as ContactAddressModel)
+      ? {
+          title: user?.title || '',
+          name: user?.name || '',
+          surname: user?.surname || '',
+          position: user?.position,
+          company: user?.company || '',
+          job: user?.job || '',
+          city: user?.city || '',
+          country: user?.country || '',
+          phone: user?.phone || ''
+        }
       : defaultValues,
     titleData,
     positionData
