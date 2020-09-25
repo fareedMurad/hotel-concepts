@@ -6,6 +6,7 @@ import * as yup from 'yup';
 type LoginValues = {
   email: string;
   password: string;
+  agreement: boolean;
 };
 
 /**
@@ -22,7 +23,11 @@ const loginValidationSchema = yup.object().shape<LoginValues>({
     .string()
     .label('Password')
     .trim()
-    .required('Password is a required field')
+    .required('Password is a required field'),
+  agreement: yup
+    .bool()
+    .label('Agreement')
+    .oneOf([true], 'Agreement is a required field')
 });
 
 export { LoginValues, loginValidationSchema };

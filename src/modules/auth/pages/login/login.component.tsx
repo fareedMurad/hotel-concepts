@@ -17,7 +17,8 @@ import * as styles from './login.scss';
  */
 const defaultValues: LoginValues = {
   email: '',
-  password: ''
+  password: '',
+  agreement: false
 };
 
 /**
@@ -52,11 +53,22 @@ const Login: React.FC = () => {
                   type='password'
                   className={styles.input}
                 />
-                <div className={styles.hint}>
-                  By clicking Sign In, you agree to our{' '}
-                  <span className={styles.hintBold}>Terms of Use</span> and our{' '}
-                  <span className={styles.hintBold}>Privacy Policy</span>
-                </div>
+                <Field.Checkbox
+                  name='agreement'
+                  className={styles.agreement}
+                  label={() => (
+                    <div className={styles.agreementLabel}>
+                      By clicking Sign In, you agree to our{' '}
+                      <span className={styles.agreementLabelBold}>
+                        Terms of Use
+                      </span>{' '}
+                      and our{' '}
+                      <span className={styles.agreementLabelBold}>
+                        Privacy Policy
+                      </span>
+                    </div>
+                  )}
+                />
                 <Button
                   className={styles.submit}
                   onClick={() => handleSubmit()}

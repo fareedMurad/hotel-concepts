@@ -29,12 +29,18 @@
   }
 }
 
-.hint {
-  @include font($primary-gray, 18px, 400, 28px);
+.agreement {
+  align-items: flex-start;
   margin-top: 56px;
 
-  &--bold {
-    font-weight: 500;
+  &__label {
+    @include font($primary-gray, 18px, 400, 28px);
+    margin-top: -6px;
+    margin-left: 10px;
+
+    &--bold {
+      font-weight: 500;
+    }
   }
 }
 
