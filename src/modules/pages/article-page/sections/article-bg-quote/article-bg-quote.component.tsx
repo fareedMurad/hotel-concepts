@@ -3,16 +3,19 @@ import * as styles from './article-bg-quote.scss';
 import { Spinner } from '@core/components';
 import { useArticleRichTextData } from '@pages/article-page/hooks/article-rich-text';
 import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
+import { State } from '@app/redux/state';
 
 /**
  * Renders ArticleBgQuote
  */
 const ArticleBgQuote: React.FC = ({}) => {
   const { articleId } = useParams();
+  const { language } = useSelector((state: State) => state.localization);
   const {
     backgroundImageQuoteData,
     articleRichTextLoading
-  } = useArticleRichTextData(articleId);
+  } = useArticleRichTextData(articleId, language);
 
   if (articleRichTextLoading) return <Spinner />;
   const { quoteText, backgroundImg, author } = backgroundImageQuoteData;

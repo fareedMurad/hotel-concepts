@@ -5,6 +5,7 @@ import { PreCaption, SectionTitle } from '@core/components';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { FeedbackItem } from './feedback-item';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Responsive for slider
@@ -60,6 +61,7 @@ const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
 
 const Feedback: React.FC<FeedbackProps> = ({ data }) => {
   const [count, setCount] = React.useState(1);
+  const { t } = useTranslation();
   React.useEffect(() => {
     if (count >= data.length) {
       setCount(data.length);
@@ -70,8 +72,10 @@ const Feedback: React.FC<FeedbackProps> = ({ data }) => {
   return (
     <section className={styles.feedback}>
       <div className={styles.feedbackWrap}>
-        <PreCaption className={styles.preCaption}>Feedback</PreCaption>
-        <SectionTitle>Cordie Impact</SectionTitle>
+        <PreCaption className={styles.preCaption}>
+          {t('product.feedback.caption')}
+        </PreCaption>
+        <SectionTitle>{t('product.feedback.title')}</SectionTitle>
         <Slider
           containerClass={styles.slider}
           draggable={false}
