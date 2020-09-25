@@ -7,14 +7,14 @@
 }
 
 .title {
-  @include font($primary-gray, 48px, 600, 48px);
+  @include font($primary-gray, 48px, 600, 58px);
   font-family: $EBGaramond;
   text-align: center;
 }
 
 .description {
-  @include font($primary-gray, 28px, 400, 28px);
-  margin-top: 46px;
+  @include font($primary-gray, 28px, 400, 35px);
+  margin-top: 35px;
   font-family: $EBGaramond;
   text-align: center;
 }
@@ -53,14 +53,15 @@
 
 .submit {
   align-self: center;
+  width: 18%;
   margin-top: 32px;
 }
 
 .skip {
+  @include font($primary-gray, 18px, 400, 28px);
   align-self: center;
   width: fit-content;
-  margin-top: 24px;
-  font-size: 18px;
+  margin-top: 20px;
   color: $primary-gray;
   text-decoration: underline;
   cursor: pointer;
