@@ -3,10 +3,14 @@
 .payment-methods {
 }
 
-.form{
+.form {
   div:not(:first-child) {
     margin-top: 20px;
   }
+}
+
+.checkboxLabel {
+  font-weight: 500;
 }
 
 .submit {

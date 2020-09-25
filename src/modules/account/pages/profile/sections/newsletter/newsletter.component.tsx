@@ -34,6 +34,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
           {({ handleSubmit }) => (
             <div className={styles.form}>
               <Field.Checkbox
+                labelClassname={styles.checkboxLabel}
                 name='newsSub'
                 label='I agree to service Newsletter and Special Offers.'
               />

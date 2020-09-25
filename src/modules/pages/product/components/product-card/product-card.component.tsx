@@ -14,6 +14,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const ScrollToAuthors = () => {
     scrollTo('authors');
   };
+
   const {
     authorsCollection: { items: authors },
     name,

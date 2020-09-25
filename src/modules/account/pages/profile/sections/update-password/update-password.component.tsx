@@ -38,7 +38,8 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
             <Fragment>
               <div className={styles.hint}>
                 Change your email address and password here.Please remember to
-                use your new login details when next visiting Kordie.
+                use your new login details when next visiting{' '}
+                <span className={styles.hintBold}>Kordie.</span>
               </div>
               <div className={styles.form}>
                 <Field.Text name='email' label='E-mail' disabled />

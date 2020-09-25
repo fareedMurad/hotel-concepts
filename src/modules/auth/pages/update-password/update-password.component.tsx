@@ -38,13 +38,27 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({}) => {
         >
           {({ handleSubmit }) => (
             <div className={styles.form}>
-              <Field.Text name='oldPassword' label='Current password' />
-              <Field.Text name='newPassword' label='New password' />
               <Field.Text
+                className={styles.input}
+                name='oldPassword'
+                label='Current password'
+                type='password'
+              />
+              <Field.Text
+                className={styles.input}
+                name='newPassword'
+                type='password'
+                label='New password'
+              />
+              <Field.Text
+                className={styles.input}
                 name='newPasswordConfirm'
                 label='Repeat new password'
+                type='password'
               />
-              <Button onClick={() => handleSubmit()}>Update</Button>
+              <Button className={styles.submit} onClick={() => handleSubmit()}>
+                Update
+              </Button>
             </div>
           )}
         </Formik>

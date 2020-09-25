@@ -40,9 +40,18 @@ const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
         >
           {({ handleSubmit }) => (
             <div className={styles.form}>
-              <Field.Checkbox name='card' label='Credit/debit card' />
-              <Field.Checkbox name='paypal' label='PayPal' />
               <Field.Checkbox
+                labelClassname={styles.checkboxLabel}
+                name='card'
+                label='Credit/debit card'
+              />
+              <Field.Checkbox
+                labelClassname={styles.checkboxLabel}
+                name='paypal'
+                label='PayPal'
+              />
+              <Field.Checkbox
+                labelClassname={styles.checkboxLabel}
                 name='transfer'
                 label='Bank transfer with invoice'
               />

@@ -1,50 +1,59 @@
 import { GoogleSignInModel } from '@app/models';
 import { handleError } from '@general/store';
+import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
+import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
-import { call, put, delay } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import { Context } from '../context';
 import {
   authorize,
+  chooseInterests,
+  facebookSignIn,
   forgotPassword,
   getUser,
   googleSignIn,
   login,
   register,
   resetPassword,
+  unauthorize,
   updatePassword,
   verifyEmail,
-  verifyEmailResend,
-  unauthorize,
-  facebookSignIn,
-  chooseInterests
+  verifyEmailResend
 } from './actions';
-import { toggleToast } from '@ui/toast';
-import { navigate } from '@router/store';
 
 /**
  * auth saga
  */
 class AuthSaga {
   /**
+   * Authorize user
+   */
+  @Saga(authorize)
+  public *authorize() {
+    localStorage.setItem('isAuthorized', 'true');
+  }
+
+  /**
+   * Unauthorize user
+   */
+  @Saga(unauthorize)
+  public *unauthorize(_, { api }: Context) {
+    try {
+      localStorage.setItem('isAuthorized', 'false');
+      yield call(api.auth.unauthorize);
+    } catch (error) {
+      yield put(handleError('Your session has expired'));
+    }
+  }
+
+  /**
    * Get user
    */
   @Saga(getUser)
-  public *getUser(
-    _,
-    {
-      api,
-      history: {
-        location: { pathname }
-      }
-    }: Context
-  ) {
-    const isProfile = pathname == '/account/profile';
-
-    // if (isProfile) {
-    //   yield put(preloaderStart(Preloaders.profile));
-    // }
+  public *getUser(_, { api }: Context) {
+    const isAuthorized = localStorage.getItem('isAuthorized') == 'true';
 
     try {
       const response = yield call(api.auth.getUser);
@@ -52,10 +61,10 @@ class AuthSaga {
       yield put(getUser.success(response.data));
       yield put(authorize());
     } catch (error) {
-      yield put(unauthorize());
-      yield put(handleError(error.response.data.message));
-    } finally {
-      // yield put(preloaderStop(Preloaders.profile));
+      if (Boolean(isAuthorized)) {
+        yield put(unauthorize());
+        yield put(handleError(error.response.data.message));
+      }
     }
   }
 
@@ -72,6 +81,7 @@ class AuthSaga {
       const {
         data: { newUser }
       } = response;
+      localStorage.setItem('isAuthorized', 'true');
 
       yield put(getUser.success(user.data));
       yield put(
@@ -321,20 +331,6 @@ class AuthSaga {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.login));
-    }
-  }
-
-  /**
-   * Unauthorize user
-   */
-  @Saga(unauthorize)
-  public *unauthorize(_, { api }: Context) {
-    try {
-      const response = yield call(api.auth.unauthorize);
-
-      yield put(getUser());
-    } catch (error) {
-      yield put(handleError(error.response.data.message));
     }
   }
 }

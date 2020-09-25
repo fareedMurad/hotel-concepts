@@ -37,7 +37,11 @@ const ResetPassword: React.FC = () => {
         >
           {({ handleSubmit }) => (
             <div className={styles.form}>
-              <Field.Text name='password' label='New password' />
+              <Field.Text
+                name='password'
+                label='New password'
+                type='password'
+              />
               <Button onClick={() => handleSubmit()}>Submit</Button>
             </div>
           )}
