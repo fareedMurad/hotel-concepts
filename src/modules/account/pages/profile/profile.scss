@@ -1,122 +1,62 @@
 @import 'core.scss';
 
-.profile-container {
-  @include accountContainer();
-  display: grid;
-  grid-template-columns: 335px 765px;
-  gap: 20px;
-  margin-top: 28px;
-  // display: grid;
-  // gap: 20px;
-  // row-gap: 20px;
-  // grid-template-columns: 335px 430px 335px;
-
-  // margin-top: 28px;
-  // padding-bottom: 80px;
-  // grid-template-areas:
-  //   'language interests interests'
-  //   'address email-password avatar'
-  //   'address payment privacy'
-  //   'address payment newsletter';
-
-  // &__language {
-  //   grid-area: language;
-  // }
-
-  // &__interests {
-  //   grid-area: interests;
-  //   height: 400px;
-  // }
-
-  // &__address {
-  //   grid-area: address;
-  // }
-  // &__email-password {
-  //   grid-area: email-password;
-  // }
-  // &__avatar {
-  //   grid-area: avatar;
-  // }
-  // &__payment {
-  //   grid-area: payment;
-  // }
-  // &__privacy {
-  //   grid-area: privacy;
-  // }
-  // &__newsletter {
-  //   grid-area: newsletter;
-  // }
+.profile {
+  @include flex(space-between, stretch);
 }
 
-.mainInfo {
-  display: grid;
-  grid-template-rows: minmax(177px, 177px) min-content;
-  gap: 20px;
+.column-left {
+  @include flex($align: stretch, $direction: column);
+  width: 30%;
+
+  &__language {
+    padding: 19px 20px 17px 20px;
+  }
+
+  &__contact {
+    margin-top: 20px;
+    padding: 23px 20px 16px 20px;
+  }
 }
 
-.secondary-info {
-  display: grid;
-  gap: 20px;
-  grid-template-rows: minmax(177px, auto) minmax(986px, auto);
+.column-right {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+  margin-left: 20px;
+
+  &__interests {
+    padding: 19px 20px 33px 20px;
+  }
 }
 
-.secondaryInfoGrid {
+.column-bottom {
   display: grid;
   gap: 20px;
-  grid-template-columns: 428px 335px;
-  grid-template-rows: auto 1fr 1fr;
-  grid-template-areas: 'email-password avatar' 'payment privacy' 'payment newsletter';
+  grid-template-areas: 'email-password avatar' 'payment container';
+  height: 100%;
+  margin-top: 20px;
 
   &__email-password {
     grid-area: email-password;
+    padding: 19px 20px 41px 20px;
   }
   &__avatar {
     grid-area: avatar;
+    padding: 19px 20px;
   }
   &__payment {
     grid-area: payment;
+    padding: 18px 20px;
+  }
+  &__container {
+    @include flex($align: stretch, $direction: column);
+    grid-area: container;
   }
   &__privacy {
-    grid-area: privacy;
+    padding: 19px 20px 17px 20px;
   }
   &__newsletter {
-    grid-area: newsletter;
+    flex: 1;
+    margin-top: 20px;
+    padding: 19px 20px;
   }
 }
-
-.card {
-  position: relative;
-  background-color: $background;
-  border-radius: 7px;
-  padding: 12px 20px 16px 20px;
-}
-// .upload-avatar {
-//   width: 0.1px;
-//   height: 0.1px;
-//   opacity: 0;
-//   overflow: hidden;
-//   position: absolute;
-//   z-index: -1;
-// }
-
-// .upload-avatar + label {
-//   @include flex($justify: center);
-//   color: white;
-//   background-color: black;
-//   display: inline-block;
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 100%;
-//   opacity: 0;
-//   cursor: pointer;
-//   transition: $transition;
-//   text-align: center;
-//   align-self: center;
-//   &:hover {
-//     opacity: 0.3;
-//   }
-//   & > span {
-//     display: block;
-//     margin-top: 10px;
-//   }
-// }

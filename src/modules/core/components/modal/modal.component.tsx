@@ -22,6 +22,7 @@ const Modal: React.FC<ModalProps> = ({
   id,
   className,
   children,
+  withOverlay,
   historyGoBack,
   ...props
 }) => {
@@ -63,13 +64,25 @@ const Modal: React.FC<ModalProps> = ({
 
   if (isActive) {
     return (
-      <animated.div style={overlayAnimation} className={styles.overlay}>
+      <animated.div
+        style={overlayAnimation}
+        className={classNames(styles.overlay, {
+          [styles.overlayVisible]: withOverlay
+        })}
+      >
         <Content />
       </animated.div>
     );
   }
 
   return mobile ? <Content /> : null;
+};
+
+/**
+ * Default props
+ */
+Modal.defaultProps = {
+  withOverlay: false
 };
 
 export { Modal };

@@ -1,4 +1,9 @@
+import { navigate } from '@router/store';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 const useLibraryData = () => {
+  const dispatch = useDispatch();
   const books = [
     {
       name: 'book name',
@@ -67,7 +72,23 @@ const useLibraryData = () => {
       purchased: false
     }
   ];
-  return books;
+
+  /**
+   * Navigation
+   */
+  const navigation = [
+    { label: 'Purchased Books', to: '/purchased' },
+    { label: 'Wishlist', to: '/wishlist', withIcon: true }
+  ];
+
+  /**
+   * TODO possible can be done better
+   */
+  useEffect(() => {
+    dispatch(navigate('/account/library/purchased'));
+  }, []);
+
+  return { books, navigation };
 };
 
 export { useLibraryData };

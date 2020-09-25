@@ -35,7 +35,7 @@ const Avatar: React.FC<AvatarProps> = ({ size, user, className, children }) => {
  * Default props
  */
 Avatar.defaultProps = {
-  size: 50
+  // size: 50
 };
 
 export { Avatar };

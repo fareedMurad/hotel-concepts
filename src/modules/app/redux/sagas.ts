@@ -3,7 +3,12 @@ import { RouterSaga } from '@router/store';
 import { GeneralSaga } from '@general/store';
 import { ToastSaga } from '@ui/toast';
 import { AuthSaga } from './auth';
-import { AccountSaga } from './account';
+import {
+  LibrarySaga,
+  ProfileSaga,
+  ProgramsSaga,
+  SubscriptionSaga
+} from './account';
 
 /**
  * App sagas
@@ -14,7 +19,10 @@ const sagas = [
   new GeneralSaga(),
   new ToastSaga(),
   new AuthSaga(),
-  new AccountSaga()
+  new ProfileSaga(),
+  new SubscriptionSaga(),
+  new LibrarySaga(),
+  new ProgramsSaga()
 ];
 
 export { sagas };

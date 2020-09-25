@@ -1,5 +1,5 @@
 import { withField } from '@core/shared/formik';
-import { Checkbox } from '../checkbox';
+import { Checkbox, CheckboxGroup } from '../checkbox';
 import { Text } from '../text';
 import { Switch } from '../switch';
 import { Select } from '../select';
@@ -12,6 +12,7 @@ import { Radio } from '../radio';
 const Field = {
   Text: withField(Text),
   Checkbox: withField(Checkbox),
+  CheckboxGroup: withField(CheckboxGroup),
   Switch: withField(Switch),
   Select: withField(Select),
   Tabs: withField(Tabs),

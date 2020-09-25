@@ -2,7 +2,7 @@ import { ScrollToTop } from '@app';
 import { register } from '@app/redux/auth';
 import { State } from '@app/redux/state';
 import { AuthHeader } from '@auth/components';
-import { registerValidationSchema, RegisterValues } from '@auth/models';
+import { registerValidationSchema } from '@auth/models';
 import { Button, Field, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import { Formik } from 'formik';
@@ -32,7 +32,6 @@ const SignUp: React.FC = () => {
       <ScrollToTop />
       <Preloader id={Preloaders.register}>
         <AuthHeader />
-
         <Formik
           initialValues={defaultValues}
           validationSchema={registerValidationSchema}
@@ -59,7 +58,6 @@ const SignUp: React.FC = () => {
                 name='surname'
                 label='Last Name'
               />
-
               <Field.Radio
                 name='position'
                 data={positionData}
@@ -67,7 +65,6 @@ const SignUp: React.FC = () => {
                 className={styles.formFieldsRadioIam}
                 direction='column'
               />
-
               <Field.Text
                 className={styles.formFieldsInput}
                 name='email'

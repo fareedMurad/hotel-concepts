@@ -635,6 +635,10 @@
     },
     "product-banner": {
       "button-text": "Go to Checkout"
+    },
+    "feedback": {
+      "caption": "Feedback",
+      "title": "Cordie Impact"
     }
   },
   "program-page": {

@@ -1,5 +1,5 @@
 import { State } from '@app/redux/state';
-import { exclude } from '@core/shared/utils';
+import { omit } from '@core/shared';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useSelector } from 'react-redux';
@@ -26,7 +26,7 @@ const Preloader: React.FC<PreloaderProps> = ({
       <React.Fragment>
         <div
           className={classNames(styles.overlay, className)}
-          {...exclude(props, 'isActive')}
+          {...omit(props, 'isActive')}
         >
           <div
             className={styles.preloader}

@@ -4,7 +4,8 @@ import { AuthHeader } from '@auth/components';
 import { loginValidationSchema, LoginValues } from '@auth/models';
 import { Button, Field, Preloader } from '@core/components';
 import { navigate } from '@router/store';
-import { Preloaders } from '@ui/models';
+import { showModal } from '@ui/modal';
+import { Modals, Preloaders } from '@ui/models';
 import { Form, Formik } from 'formik';
 import * as React from 'react';
 import { Fragment } from 'react';
@@ -28,7 +29,6 @@ const Login: React.FC = () => {
   return (
     <div className={styles.login}>
       <ScrollToTop />
-      {/* <ForgotPasswordModal/> */}
       <Preloader id={Preloaders.login}>
         <AuthHeader />
         <Fragment>
@@ -39,7 +39,7 @@ const Login: React.FC = () => {
               dispatch(login(values));
             }}
           >
-            {({ handleSubmit, handleReset }) => (
+            {({ handleSubmit }) => (
               <Form className={styles.form}>
                 <Field.Text
                   name='email'
@@ -69,7 +69,7 @@ const Login: React.FC = () => {
 
           <div
             className={styles.forgotPassword}
-            onClick={() => dispatch(navigate('/auth/forgot-password'))}
+            onClick={() => dispatch(showModal(Modals.forgotPassword))}
           >
             Forgot password?
           </div>
@@ -77,7 +77,7 @@ const Login: React.FC = () => {
             className={styles.needAccount}
             onClick={() => dispatch(navigate('/auth/register'))}
           >
-            Need an account? <span>Sing Up</span>
+            Need an account? <span>Sign Up</span>
           </div>
         </Fragment>
       </Preloader>

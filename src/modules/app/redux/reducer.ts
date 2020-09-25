@@ -5,7 +5,7 @@ import { header } from '@core/components/header/store';
 import { combineReducers } from 'redux';
 import { ui } from '@ui';
 import { auth } from './auth';
-import { account } from './account';
+import { library, profile, programs, subscription } from './account';
 
 /**
  * App rd
@@ -13,11 +13,14 @@ import { account } from './account';
 const app = combineReducers({
   router,
   auth,
-  account,
   localization,
   general,
   ui,
-  header
+  header,
+  profile,
+  subscription,
+  library,
+  programs
 });
 
 export { app };

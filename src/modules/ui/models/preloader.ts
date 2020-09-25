@@ -11,11 +11,31 @@ enum Preloaders {
   interests = 'interests',
   otp = 'otp',
 
-  // Account
+  /**
+   * Account preloaders
+   */
+  // Profile
   profile = 'profile',
+  profileLanguage = 'profile language',
+  profileContactAddress = 'profile contact address',
+  profileInterests = 'profile interests',
+  profileUpdatePassword = 'profile update password',
+  profilePaymentMethods = 'profile payment methods',
   profileAvatar = 'profile avatar',
-  paymentMethods = 'profile payment methods',
-  newsSub = 'profile news subsciption',
+  profileNewsletter = 'profile newsletter',
+
+  // Subscription
+  subscription = 'subscription',
+
+  // Library
+  library = 'library',
+  libraryPurchased = 'library purchased',
+  libraryWhishlist = 'library whislist',
+
+  // Programs
+  programs = 'programs',
+  programsPurchased = 'programs purchased',
+  programsWhishlist = 'programs whislist',
 
   // Uikit
   uikit = 'uikit',

@@ -1,81 +1,48 @@
 @import 'core.scss';
 
 .library {
-  margin-top: 100px;
+  padding: 13px 20px 100px 20px;
+  border-radius: 10px;
   background-color: $background;
-  padding: 7px 21px 95px 21px;
-  border-radius: 7px;
-  &__title {
-    @include font($primary-gray, 24px, 400, 34px);
+}
+
+.title {
+  @include font(#3e3e3e, 24px, 400);
+}
+
+.navigation {
+  @include flex($align: center);
+  margin-top: 44px;
+}
+
+.link {
+  @include flex($align: center);
+  @include font(#3e3e3e, 18px, 600);
+  transition: $transition;
+
+  &:not(:first-child) {
+    margin-left: 87px;
   }
 
-  &__links {
-    @include flex();
-    margin-top: 42px;
-    &_link {
-      @include font($primary-gray, 18px, 600, 58px);
-      font-family: $EBGaramond;
-      cursor: pointer;
-      &:hover {
-        color: $primary-orange;
-        text-decoration: underline;
-        & > div > div > svg {
-          fill: $primary-orange;
-        }
-      }
-    }
-    &--active {
-      color: $primary-orange;
-      & > div > div > svg {
-        fill: $primary-orange;
-      }
-    }
+  &__icon {
+    margin-left: 6px;
+    transition: $transition;
 
-    &__wish {
-      @include flex($align: center);
-      &-icon {
-        & > div {
-          @include flex($align: center);
-          margin-left: 10px;
-          & > svg {
-            width: 24px;
-          }
-        }
-      }
-    }
-
-    & > a:first-child {
-      margin-right: 100px;
+    & > div {
+      width: 24px;
     }
   }
 
-  &--book {
-    @include flex($justify: center, $direction: column, $align: center);
-    position: relative;
-    &-name {
-      margin: 20px 0;
-    }
-    &-buttons {
-      @include flex($justify: space-between);
-      width: 100%;
-      padding: 0 20px;
-    }
-  }
+  &--active {
+    color: #ff6634;
+    text-decoration: underline;
 
-  @include desktop() {
-    @include accountContainer();
-    margin-top: 33px;
+    .link__icon {
+      @include fill(#ff6634);
+    }
   }
 }
 
-.menu {
-  position: absolute;
-  padding: 5px;
-  background-color: $background;
-  right: 0;
-  bottom: -80px;
-}
-
-.download {
-  @include flex($justify: space-between);
+.content {
+  margin-top: 20px;
 }

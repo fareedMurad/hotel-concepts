@@ -10,6 +10,8 @@ import { InsightsForm } from '@pages/article-page/components';
 import { useMediaPoints } from '@core/shared';
 import { ArticleBgQuote } from '../article-bg-quote/article-bg-quote.component';
 import { ArticleImageSlider } from '../article-image-slider';
+import { State } from '@app/redux/state';
+import { useSelector } from 'react-redux';
 /**
  * Hr
  */
@@ -19,6 +21,7 @@ const Hr = () => <div className={styles.hr} />;
  */
 const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
   const { articleId } = useParams();
+  const { language } = useSelector((state: State) => state.localization);
   const {
     firstRichTextData,
     articleRichTextLoading,
@@ -26,7 +29,7 @@ const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
     thirdRichTextData,
     fourthRichTextData,
     imagesForSliderData
-  } = useArticleRichTextData(articleId);
+  } = useArticleRichTextData(articleId, language);
   const { desktop } = useMediaPoints();
 
   if (articleRichTextLoading) return <Spinner />;

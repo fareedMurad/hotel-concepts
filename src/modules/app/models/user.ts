@@ -7,6 +7,7 @@ type User = {
   name: string;
   surname: string;
   language: string;
+  interests: { label: string; value: string }[];
   title: string;
   country: string;
   city: string;
