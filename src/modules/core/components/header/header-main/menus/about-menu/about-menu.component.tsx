@@ -19,9 +19,9 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ onClick, className }) => {
   useClickOutside(ref, () => {
     setToggleDropdown(false);
   });
-
-  const { transitions } = useAnimation(toggleDropDown);
-
+  React.useEffect(() => {
+    return () => setToggleDropdown(false);
+  }, [location.pathname]);
   return (
     <React.Fragment>
       <div
@@ -31,11 +31,7 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ onClick, className }) => {
       >
         {t('header.header-main.link-three')}
         <span className={styles.arrow}>&#x25BE;</span>
-        <DropDown
-          setToggleDropdown={setToggleDropdown}
-          links={aboutMenuLinks}
-          show={toggleDropDown}
-        />
+        <DropDown links={aboutMenuLinks} show={toggleDropDown} />
       </div>
     </React.Fragment>
   );

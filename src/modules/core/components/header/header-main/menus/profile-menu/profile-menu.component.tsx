@@ -18,6 +18,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
 }) => {
   const { authorized } = useSelector((state: State) => state.auth);
   const { links } = useProfileMenuData();
+
   const ref = React.useRef();
   const dispatch = useDispatch();
   useClickOutside(ref, () => {
@@ -26,7 +27,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
 
   if (!authorized)
     return (
-      <div className={styles.profileNavigationMenu} ref={ref}>
+      <div className={styles.profileMenu} ref={ref}>
         <Button
           width={'100%'}
           onClick={() => {

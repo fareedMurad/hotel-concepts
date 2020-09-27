@@ -1,21 +1,15 @@
 import * as React from 'react';
 import { HeaderMainProps } from './header-main.props';
 import * as styles from './header-main.scss';
-import { NavLink } from 'react-router-dom';
-import { Icon, Button } from '@core/components';
+import { NavLink, useLocation } from 'react-router-dom';
+import { Icon } from '@core/components';
 import classNames from 'classnames';
-import { useMediaPoints, useClickOutside } from '@core/shared';
-import { useDispatch, useSelector } from 'react-redux';
-import { ProgramsMenu } from './menus/programs-menu/programs-menu.component';
+import { useMediaPoints } from '@core/shared';
 import { LocalizationMenu } from './menus/localization-menu';
-import { State } from '@app/redux/state';
-import { useTranslation } from 'react-i18next';
-import { AboutMenu } from './menus/about-menu';
-import { LibraryMenu } from './menus/library-menu';
-import { navigate } from '@router/store';
-import { unauthorize } from '@app/redux/auth';
 import { ProfileMenu } from './menus/profile-menu';
-import { CorporateMenu } from './menus/corporate-menu';
+import { useHeaderMainData } from './hooks/header-main.hook';
+import { Dropdown } from './components/dropdown';
+import { AboutMenu } from './menus/about-menu';
 
 /**
  * Renders HeaderMain
@@ -25,15 +19,23 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   whiteBackground,
   isSticky
 }) => {
+  const { menus } = useHeaderMainData();
+  const location = useLocation();
+  const [selectedMenu, setSelectedMenu] = React.useState('');
   const [white, setWhite] = React.useState(false);
   const [
     showProfileNavigationMenu,
     setShowProfileNavigationMenu
   ] = React.useState(false);
-
   React.useEffect(() => {
     isSticky ? setWhite(true) : setWhite(false);
-  }, [isSticky]);
+    return () => setSelectedMenu('');
+  }, [isSticky, location.pathname]);
+
+  const selectMenu = menu => {
+    setSelectedMenu('');
+    setSelectedMenu(menu);
+  };
 
   const { mobile } = useMediaPoints();
 
@@ -51,21 +53,34 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
         </div>
       ) : (
         <div className={styles.headerMainNavigation}>
-          <ProgramsMenu
-            className={classNames(styles.headerMainNavigationItem, {
-              [styles.invertedHeader]: whiteBackground || isSticky
-            })}
-          />
-          <LibraryMenu
-            className={classNames(styles.headerMainNavigationItem, {
-              [styles.invertedHeader]: whiteBackground || isSticky
-            })}
-          />
-          <CorporateMenu
-            className={classNames(styles.headerMainNavigationItem, {
-              [styles.invertedHeader]: whiteBackground || isSticky
-            })}
-          />
+          {menus.map(menu => {
+            const {
+              content: { links, title, flexDirection },
+              programs
+            } = menu;
+            return (
+              <div
+                className={classNames(styles.headerMainNavigationItem, {
+                  [styles.invertedHeader]: whiteBackground || isSticky
+                })}
+                key={menu.name}
+                onClick={() => selectMenu(menu.name)}
+              >
+                {menu.name}
+                <span className={styles.arrow}>&#x25BE;</span>
+                {selectedMenu === menu.name && (
+                  <Dropdown
+                    setSelectedMenu={setSelectedMenu}
+                    programs={programs}
+                    links={links}
+                    title={title}
+                    flexDirection={flexDirection}
+                  />
+                )}
+              </div>
+            );
+          })}
+
           <AboutMenu
             className={classNames(styles.headerMainNavigationItem, {
               [styles.invertedHeader]: whiteBackground || isSticky

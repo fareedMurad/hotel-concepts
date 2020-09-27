@@ -1,3 +1,3 @@
-// export * from './about-menu';
-export * from './programs-menu';
-// export * from './store-menu';
+export * from './about-menu';
+export * from './profile-menu';
+export * from './localization-menu';
