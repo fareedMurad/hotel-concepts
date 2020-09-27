@@ -4,7 +4,7 @@ import { Text } from '../text';
 import { Switch } from '../switch';
 import { Select } from '../select';
 import { Tabs } from '../tabs';
-import { Radio } from '../radio';
+import { Radio, RadioGroup } from '../radio';
 
 /**
  * Group of wrapped components, with props provided according formik context
@@ -16,7 +16,8 @@ const Field = {
   Switch: withField(Switch),
   Select: withField(Select),
   Tabs: withField(Tabs),
-  Radio: withField(Radio)
+  Radio: withField(Radio),
+  RadioGroup: withField(RadioGroup)
 };
 
 export { Field };

@@ -27,7 +27,7 @@ const useSignUpData = () => {
    */
   const positionData = [
     { value: 'hospitalityProfessional', label: 'Hospitality professional' },
-    { value: 'hospitalityProfessional', label: 'Hospitality student' },
+    { value: 'hospitalityStudent', label: 'Hospitality student' },
     {
       value: 'hospitalitySwitch',
       label: 'Want to switch to hospitality'

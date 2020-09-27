@@ -12,15 +12,34 @@
   margin-top: 40px;
 }
 
-.title-radio-group {
+.title {
   @include flex($align: stretch);
-  @include font($primary-gray, 16px, 400, 22px);
 
-  & > div:first-child {
+  &__list {
     margin-left: 32px;
   }
-  & > div:not(:first-child) {
-    margin-left: 18px;
+
+  &__radio {
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+}
+
+.position {
+  margin-top: 12px;
+  padding: 8px 5px;
+  border-radius: 4px;
+  background-color: $background;
+
+  &__list {
+    margin-top: 16px;
+  }
+
+  &__radio {
+    &:not(:first-child) {
+      margin-top: 18px;
+    }
   }
 }
 
@@ -30,21 +49,6 @@
   & > input {
     background-color: $background;
     border-color: $background;
-  }
-}
-
-.iam-radio-group {
-  @include font($primary-gray, 16px, 400, 22px);
-  margin-top: 12px;
-  padding: 8px 5px;
-  border-radius: 4px;
-  background-color: $background;
-
-  & > div:not(:first-child) {
-    margin-top: 18px;
-  }
-  & > div:first-child {
-    margin-top: 16px;
   }
 }
 

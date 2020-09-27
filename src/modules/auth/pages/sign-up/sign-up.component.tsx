@@ -41,12 +41,13 @@ const SignUp: React.FC = () => {
         >
           {({ handleSubmit }) => (
             <div className={styles.form}>
-              <Field.Radio
+              <Field.RadioGroup
+                className={styles.title}
+                listClassname={styles.titleList}
+                radioClassname={styles.titleRadio}
                 name='title'
-                data={titleData}
                 label='Title'
-                className={styles.titleRadioGroup}
-                direction='row'
+                data={titleData}
               />
               <Field.Text
                 className={styles.field}
@@ -58,12 +59,14 @@ const SignUp: React.FC = () => {
                 name='surname'
                 label='Last Name'
               />
-              <Field.Radio
+              <Field.RadioGroup
+                className={styles.position}
+                listClassname={styles.positionList}
+                radioClassname={styles.positionRadio}
                 name='position'
-                data={positionData}
                 label='I am'
-                className={styles.iamRadioGroup}
                 direction='column'
+                data={positionData}
               />
               <Field.Text className={styles.field} name='email' label='Email' />
               <Field.Text

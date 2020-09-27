@@ -5,22 +5,25 @@
 
 .form {
   margin-top: 16px;
-  //   & > div.text:not(:first-child) {
-  //     margin-top: 20px;
-  //   }
+
   & > div:not(:first-child) {
     margin-top: 16px;
   }
 }
 
-.radio-group {
+.radiogroup {
   padding: 8px 4px 8px 4px;
   border-radius: 4px;
   background: $white;
 
-  & > div {
-    @include font(#3e3e3e, 16px, 400, 22px);
+  &__list {
     margin-top: 16px;
+  }
+
+  &__radio {
+    &:not(:first-child) {
+      margin-top: 18px;
+    }
   }
 }
 

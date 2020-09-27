@@ -37,12 +37,14 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
               <Field.Select name='title' label='Title' options={titleData} />
               <Field.Text name='name' label='First Name' />
               <Field.Text name='surname' label='Last Name' />
-              <Field.Radio
-                className={styles.radioGroup}
+              <Field.RadioGroup
+                className={styles.radiogroup}
+                listClassname={styles.radiogroupList}
+                radioClassname={styles.radiogroupRadio}
                 name='position'
                 label='I am'
-                data={positionData}
                 direction='column'
+                data={positionData}
               />
               <Field.Text name='company' label='Company' />
               <Field.Text name='job' label='Job Title' />

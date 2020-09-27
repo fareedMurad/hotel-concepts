@@ -5,6 +5,10 @@ import { ControlProps } from '../../models';
  */
 type TextProps = ControlProps & {
   /**
+   * Value
+   */
+  value: string;
+  /**
    * Input placeholder
    */
   placeholder?: string;
