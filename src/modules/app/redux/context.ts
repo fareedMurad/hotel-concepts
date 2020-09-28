@@ -1,6 +1,10 @@
 import { History } from 'history';
-import { HttpService, ApiService } from '@app/services';
-import { FastSpringService } from '@app/services/config/fastspring.service';
+import {
+  HttpService,
+  ApiService,
+  SocketService,
+  FastSpringService
+} from '@app/services';
 
 /**
  * Sagas context
@@ -22,6 +26,10 @@ class Context {
    * FastSpring service
    */
   public fs: FastSpringService;
+  /**
+   * Socket service
+   */
+  public socket: SocketService;
 }
 
 export { Context };
