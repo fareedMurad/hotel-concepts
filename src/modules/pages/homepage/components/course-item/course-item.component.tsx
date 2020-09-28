@@ -15,8 +15,10 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
     sprints,
     slug,
     description,
-    courseImage: { url },
-    sys: { id }
+    id,
+    courseImage: {
+      file: { url }
+    }
   } = course;
 
   const history = useHistory();

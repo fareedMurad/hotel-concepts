@@ -1,5 +1,10 @@
 import { Saga, Payload } from 'redux-chill';
-import { getCategories, getPrograms } from './actions';
+import {
+  getCategories,
+  getPrograms,
+  selectCategory,
+  getSingleCategory
+} from './actions';
 import { Context } from '../context';
 import { put, call, select } from 'redux-saga/effects';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
@@ -24,7 +29,7 @@ class ProgramsSaga {
     try {
       const response = yield call(api.programs.getCategories, payload);
       const { id } = response.data[0].category;
-      console.log(id);
+
       const params = {
         skip: 0,
         limit: 6,
@@ -32,7 +37,8 @@ class ProgramsSaga {
         locale: language,
         subfilters: OnlineCourseSubfilter.all
       };
-      yield put(getPrograms(params));
+      //  yield put(getPrograms(params));
+      yield put(selectCategory(response.data[0]));
       yield put(getCategories.success(response.data));
     } catch (err) {
       console.log(err);
@@ -40,6 +46,27 @@ class ProgramsSaga {
       yield put(preloaderStop(Preloaders.categories));
     }
   }
+
+  /**
+   * Saga get single category
+   */
+  @Saga(getSingleCategory)
+  public *getSingleCategory(
+    payload: Payload<typeof getSingleCategory>,
+    { api }: Context
+  ) {
+    const { locale, id } = payload;
+    yield put(preloaderStart(Preloaders.categories));
+    try {
+      const response = yield call(api.programs.getSingleCategory, id, locale);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      yield put(preloaderStop(Preloaders.categories));
+    }
+  }
+
   /*
    * Saga get programs
    */

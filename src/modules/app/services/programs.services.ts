@@ -10,7 +10,17 @@ class ProgramsService {
   public getCategories = locale => {
     return this.http.request({
       method: 'GET',
-      url: `/contentful/categories?locale=${locale}`
+      url: `/contentful/courses/categories?locale=${locale}`
+    });
+  };
+
+  /**
+   *  Get single category
+   */
+  public getSingleCategory = (id, locale) => {
+    return this.http.request({
+      method: 'GET',
+      url: `/contentful/courses/categories/${id}?locale=${locale}`
     });
   };
 
@@ -21,7 +31,7 @@ class ProgramsService {
     const { skip, limit, category, locale, subfilters } = params;
     return this.http.request({
       method: 'GET',
-      url: `/contentful/list?skip=${skip}&limit=${limit}&type=${ContentType.onlineCourse}&category=${category}&locale=${locale}&subfilters=${subfilters}`
+      url: `/contentful/courses/list?skip=${skip}&limit=${limit}&type=${ContentType.onlineCourse}&category=${category}&locale=${locale}&subfilters=${subfilters}`
     });
   };
 }
