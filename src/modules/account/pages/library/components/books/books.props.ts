@@ -1,3 +1,5 @@
+import { Book } from '../../models';
+
 /**
  * Single Book props
  */
@@ -6,6 +8,10 @@ type BookProps = {
    * Book type
    */
   type: 'wishlist' | 'purchased';
+  /**
+   * Book
+   */
+  book: Book;
 };
 
 /**
@@ -23,7 +29,7 @@ type BooksProps = {
   /**
    * Data
    */
-  data: { items: []; total: number };
+  data: { items: Book[]; total: number };
 };
 
 export { BooksProps, BookProps };
