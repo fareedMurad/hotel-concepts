@@ -23,7 +23,6 @@ const createScript = (
     });
   }
   script.addEventListener('load', () => {
-    document.body.appendChild(script);
     callback();
   });
   document.body.appendChild(script);

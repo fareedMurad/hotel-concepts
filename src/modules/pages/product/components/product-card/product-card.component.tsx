@@ -5,6 +5,9 @@ import { Paragraph, H2, H4, H3, Button } from '@core/components';
 import Moment from 'react-moment';
 import { useTranslation } from 'react-i18next';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { useDispatch } from 'react-redux';
+import { checkout } from '@app/redux/checkout';
+import { Session } from '@app/models/fastspring';
 
 /**
  * Renders ProductCard
@@ -14,7 +17,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const ScrollToAuthors = () => {
     scrollTo('authors');
   };
-
+  const dispatch = useDispatch();
   const {
     authorsCollection: { items: authors },
     name,
@@ -66,6 +69,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className={styles.confirmButton}
           children={t('product.card.button-text')}
           arrow='&rarr;'
+          onClick={() => {
+            // Example. Refactor this !
+            const session: Session = {
+              products: [
+                {
+                  path: '2geEtN0sCVVlQZuHtRAwu9',
+                  quantity: 1
+                }
+              ],
+              checkout: true
+            };
+            dispatch(checkout(session));
+          }}
         />
       </div>
     </div>
