@@ -6,4 +6,3 @@ coverage
 stats.json
 .DS_Store
 coverage
-/config/local.json

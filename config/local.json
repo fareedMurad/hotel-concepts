@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "port": 8289,
+  "apiUrl": "http://localhost:8288/v1",
+  "googleClientId": "293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com",
+  "facebookAppId": "978057235952932"
+}
