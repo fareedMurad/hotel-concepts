@@ -9,11 +9,7 @@ import * as styles from './privacy.scss';
  * Renders Privacy
  */
 const Privacy: React.FC<PrivacyProps> = ({ className }) => (
-  <Card
-    className={classNames(styles.privacy, className)}
-    title='Privacy'
-    offsetTop={21}
-  >
+  <Card className={classNames(styles.privacy, className)} title='Privacy'>
     <div className={styles.description}>
       <div>By using our service, you agree to our privacy policy.</div>
       <div>For more information contact us.</div>

@@ -20,24 +20,24 @@ const AuthHeader: React.FC<AuthHeaderProps> = ({ className }) => {
           className={styles.link}
           activeClassName={styles.linkActive}
         >
-          Sign up
+          Register
         </NavLink>
         <NavLink
           to='/auth/login'
           className={styles.link}
           activeClassName={styles.linkActive}
         >
-          Sign in
+          Log in
         </NavLink>
       </div>
       <div className={styles.title}>
-        {isLogin ? 'Sing in to your account' : 'Create your account'}
+        {isLogin ? 'Log in to your account' : 'Create your account'}
       </div>
       <div className={styles.description}>
         Build skills for today, tomorrow, and beyond. Education to future-proof
         your career.
       </div>
-      <Sso className={styles.socials} />
+      <Sso className={styles.socials} isLogin={isLogin} />
       <div className={styles.separator}>
         <span className={styles.separatorLine} />
         <span className={styles.separatorCaption}>Or</span>

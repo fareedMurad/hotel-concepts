@@ -37,10 +37,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
     >
       {value && <Icon className={styles.checkIcon} name='check-sm' />}
     </div>
-    {label && (
+    {typeof label == 'string' ? (
       <Label className={classNames(styles.label, labelClassname)}>
         {label}
       </Label>
+    ) : (
+      label()
     )}
     {isError && <div className={styles.error}>{error}</div>}
   </div>

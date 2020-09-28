@@ -1,10 +1,43 @@
 import { ControlProps } from '@core/models';
+
 /**
  * Props
  */
 type RadioProps = ControlProps & {
-  data: { value: string; label: string }[];
-  direction: 'row' | 'column';
+  /**
+   * Value
+   */
+  value: boolean;
+  /**
+   * Label classname
+   */
+  labelClassname?: string;
 };
 
-export { RadioProps };
+/**
+ * Radio group props
+ */
+type RadioGroupProps = ControlProps & {
+  /**
+   * Label classname
+   */
+  labelClassname?: string;
+  /**
+   * List className
+   */
+  listClassname?: string;
+  /**
+   * Radio className
+   */
+  radioClassname?: string;
+  /**
+   * Direction
+   */
+  direction?: 'row' | 'column';
+  /**
+   * Data
+   */
+  data: { value: string; label: string }[];
+};
+
+export { RadioProps, RadioGroupProps };

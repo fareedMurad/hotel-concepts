@@ -27,7 +27,6 @@ const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
     <Card
       className={classNames(styles.paymentMethods, className)}
       title='Preffered payment metod'
-      offsetTop={22}
     >
       <Preloader id={Preloaders.profilePaymentMethods} size={75} thickness={4}>
         <Formik

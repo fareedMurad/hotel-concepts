@@ -4,25 +4,31 @@
 }
 
 .form {
-  //   & > div.text:not(:first-child) {
-  //     margin-top: 20px;
-  //   }
-  & > div:not(:first-child) {
-    margin-top: 20px;
-  }
-}
-
-.radio-group {
   margin-top: 16px;
-  padding: 12px 6px 8px 6px;
-  border-radius: 4px;
-  background: $white;
-  & > div {
+
+  & > div:not(:first-child) {
     margin-top: 16px;
   }
 }
 
+.radiogroup {
+  padding: 8px 4px 8px 4px;
+  border-radius: 4px;
+  background: $white;
+
+  &__list {
+    margin-top: 16px;
+  }
+
+  &__radio {
+    &:not(:first-child) {
+      margin-top: 18px;
+    }
+  }
+}
+
 .submit {
+  height: 36px;
   width: 50%;
   margin: 16px auto 0 auto;
 }

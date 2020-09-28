@@ -3,5 +3,6 @@
   "googleClientId": "870514345083-s3coqcsaqbib789m3bq9ffc12r4ke4qj.apps.googleusercontent.com",
   "facebookAppId": "1659761480855161",
   "fastspringAccessKey": "UYRDMO5URL65MXWKXA9ZKA",
-  "fastspringStoreFront": "zadeagency.test.onfastspring.com/popup-zadeagency"
+  "fastspringStoreFront": "zadeagency.test.onfastspring.com/popup-zadeagency",
+  "socketUrl": "wss://dev.kordie.com"
 }

@@ -18,7 +18,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     scrollTo('authors');
   };
   const dispatch = useDispatch();
-
   const {
     authorsCollection: { items: authors },
     name,

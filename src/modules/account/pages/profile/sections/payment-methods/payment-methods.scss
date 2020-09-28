@@ -4,16 +4,19 @@
 }
 
 .form {
+  margin-top: 20px;
+
   div:not(:first-child) {
     margin-top: 20px;
   }
 }
 
 .checkboxLabel {
-  font-weight: 500;
+  @include font(#3e3e3e, 18px, 500, 28px);
 }
 
 .submit {
+  height: 36px;
   width: 50%;
   margin: 26px auto 0 auto;
 }

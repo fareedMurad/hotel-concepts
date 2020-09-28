@@ -17,7 +17,8 @@ import * as styles from './login.scss';
  */
 const defaultValues: LoginValues = {
   email: '',
-  password: ''
+  password: '',
+  agreement: false
 };
 
 /**
@@ -44,18 +45,30 @@ const Login: React.FC = () => {
                 <Field.Text
                   name='email'
                   label='Email'
-                  className={styles.formInput}
+                  className={styles.input}
                 />
                 <Field.Text
                   name='password'
                   label='Password'
                   type='password'
-                  className={styles.formInput}
+                  className={styles.input}
                 />
-                <div className={styles.formHintText}>
-                  By clicking Sign In, you agree to our{' '}
-                  <span>Terms of Use</span> and our <span>Privacy Policy</span>
-                </div>
+                <Field.Checkbox
+                  name='agreement'
+                  className={styles.agreement}
+                  label={() => (
+                    <div className={styles.agreementLabel}>
+                      By clicking Sign In, you agree to our{' '}
+                      <span className={styles.agreementLabelBold}>
+                        Terms of Use
+                      </span>{' '}
+                      and our{' '}
+                      <span className={styles.agreementLabelBold}>
+                        Privacy Policy
+                      </span>
+                    </div>
+                  )}
+                />
                 <Button
                   className={styles.submit}
                   onClick={() => handleSubmit()}
@@ -73,11 +86,14 @@ const Login: React.FC = () => {
           >
             Forgot your password?
           </div>
-          <div
-            className={styles.needAccount}
-            onClick={() => dispatch(navigate('/auth/register'))}
-          >
-            Need an account? <span>Sign Up</span>
+          <div className={styles.signUp}>
+            Need an account?
+            <span
+              className={styles.signUpLink}
+              onClick={() => dispatch(navigate('/auth/register'))}
+            >
+              Sign Up
+            </span>
           </div>
         </Fragment>
       </Preloader>

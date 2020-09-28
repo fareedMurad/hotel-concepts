@@ -19,11 +19,7 @@ const UploadAvatar: React.FC<UploadAvatarProps> = ({ className }) => {
   const ref = useRef<HTMLInputElement>(null);
 
   return (
-    <Card
-      className={classNames(styles.uploadAvatar, className)}
-      title='Avatar'
-      offsetTop={26}
-    >
+    <Card className={classNames(styles.uploadAvatar, className)} title='Avatar'>
       <Preloader
         className={styles.preloader}
         id={Preloaders.profileAvatar}

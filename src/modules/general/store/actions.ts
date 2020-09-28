@@ -12,4 +12,9 @@ const handleError = make('[general] handle error').stage(
   (message: string | string[]) => message
 );
 
-export { startup, handleError };
+/**
+ * Connect socket
+ */
+const connectSocket = make('[general] connect socket');
+
+export { startup, handleError, connectSocket };

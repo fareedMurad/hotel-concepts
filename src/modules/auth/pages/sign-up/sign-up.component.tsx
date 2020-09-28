@@ -40,53 +40,54 @@ const SignUp: React.FC = () => {
           }}
         >
           {({ handleSubmit }) => (
-            <div className={styles.formFields}>
-              <Field.Radio
+            <div className={styles.form}>
+              <Field.RadioGroup
+                className={styles.title}
+                listClassname={styles.titleList}
+                radioClassname={styles.titleRadio}
                 name='title'
-                data={titleData}
                 label='Title'
-                className={styles.formFieldsRadioTitles}
-                direction='row'
+                data={titleData}
               />
               <Field.Text
-                className={styles.formFieldsInput}
+                className={styles.field}
                 name='name'
                 label='First Name'
               />
               <Field.Text
-                className={styles.formFieldsInput}
+                className={styles.field}
                 name='surname'
                 label='Last Name'
               />
-              <Field.Radio
+              <Field.RadioGroup
+                className={styles.position}
+                listClassname={styles.positionList}
+                radioClassname={styles.positionRadio}
                 name='position'
-                data={positionData}
                 label='I am'
-                className={styles.formFieldsRadioIam}
                 direction='column'
+                data={positionData}
               />
+              <Field.Text className={styles.field} name='email' label='Email' />
               <Field.Text
-                className={styles.formFieldsInput}
-                name='email'
-                label='Email'
-              />
-              <Field.Text
-                className={styles.formFieldsInput}
+                className={styles.field}
                 name='password'
                 label='Password'
                 type='password'
               />
               <Field.Checkbox
-                className={styles.formFieldsAccept}
+                className={styles.accept}
+                labelClassname={styles.acceptLabel}
                 name='newsSub'
                 label='Keep me up to date on class event and new releases'
               />
-              <div className={styles.formFieldsHintText}>
-                By clicking Sign Up, you agree to our <span>Terms of Use</span>{' '}
-                and our <span>Privacy Policy</span>
+              <div className={styles.hint}>
+                By clicking Sign Up, you agree to our{' '}
+                <span className={styles.hintBold}>Terms of Use</span> and our{' '}
+                <span className={styles.hintBold}>Privacy Policy</span>
               </div>
               <Button
-                className={styles.formFieldsSubmit}
+                className={styles.submit}
                 arrow='→'
                 onClick={() => handleSubmit()}
               >
