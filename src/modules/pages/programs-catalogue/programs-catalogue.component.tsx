@@ -12,8 +12,6 @@ import { ScrollToTop } from '@app';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useCatalogueInfoData, useCatalogueProgramsData } from './hooks';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { State } from '@app/redux/state';
 import { Preloaders } from '@ui/models';
 import { usePaginationCalculation } from './pagination.hook';
 
@@ -24,25 +22,18 @@ import { usePaginationCalculation } from './pagination.hook';
 const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
   const { t } = useTranslation();
   const { id } = useParams();
-  const {
-    catalogueInfoData,
-    catalogueInfoLoading,
-    selectedCategory
-  } = useCatalogueInfoData(id);
-  const [skipItems, setSkipItems] = React.useState(0);
+  const { selectedCategory } = useCatalogueInfoData(id);
 
-  const {
-    catalogueProgramsData,
-    catalogueProgramsLoading,
-    programs
-  } = useCatalogueProgramsData(id, skipItems);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(6);
+  const skipCourses = itemsPerPage * (currentPage - 1);
+
+  const { programs, programsTotal } = useCatalogueProgramsData(id, skipCourses);
 
   const [currentFilters, setCurrentFilters] = React.useState(['All']);
 
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [itemsPerPage, setItemsPerPage] = React.useState(1);
-  const { skip, pages } = usePaginationCalculation({
-    total: 10,
+  const { pages } = usePaginationCalculation({
+    total: programsTotal,
     itemsPerPage: itemsPerPage,
     currentPagination: currentPage
   });
@@ -68,11 +59,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
     }
   }, [currentFilters]);
 
-  if (catalogueInfoLoading) return <Spinner />;
-  if (catalogueProgramsLoading) return <Spinner />;
-
   const lastItemIndex = currentPage * itemsPerPage;
-  const firstItemIndex = lastItemIndex - itemsPerPage;
 
   const changePage = page => () => {
     setCurrentPage(page);
@@ -90,12 +77,9 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
     return program.subfilters?.some(item => currentFilters.includes(item));
   });
 
-  const isFilterable = catalogueInfoData.isSubfiltersAllowed
+  const isFilterable = selectedCategory?.category.isSubfiltersAllowed
     ? filteredPrograms
     : programs;
-
-  const currentPrograms = isFilterable.slice(firstItemIndex, lastItemIndex);
-
   const reduceMargin = isFilterable.length >= itemsPerPage || currentPage > 1;
 
   return (
@@ -104,19 +88,20 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
       <Preloader id={Preloaders.categories}>
         <div className={styles.programsCatalogue}>
           <CatalogueHeader
-            title={selectedCategory.name}
-            description={selectedCategory.description}
+            title={selectedCategory?.category.name}
+            description={selectedCategory?.category.description}
           />
           <div className={styles.title}>
             <SectionTitle>{t('programs-catalogue.title')}</SectionTitle>
             <div>{t('programs-catalogue.sub-title')}</div>
           </div>
-          {catalogueInfoData.isSubfiltersAllowed && (
+          {selectedCategory?.category.isSubfiltersAllowed && (
             <CatalogueFilters
               currentFilters={currentFilters}
               updateFilters={updateFilters}
             />
           )}
+
           <div className={styles.content} id='programs'>
             {programs.length > 0 ? (
               programs.map((program, index) => {
@@ -128,6 +113,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
               </div>
             )}
           </div>
+
           {(filteredPrograms.length >= itemsPerPage || currentPage > 1) && (
             <div className={styles.pagination}>
               <Pagination

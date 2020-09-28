@@ -39,6 +39,7 @@ class ProgramsSaga {
       };
       //  yield put(getPrograms(params));
       yield put(selectCategory(response.data[0]));
+      console.log(response);
       yield put(getCategories.success(response.data));
     } catch (err) {
       console.log(err);
@@ -55,11 +56,17 @@ class ProgramsSaga {
     payload: Payload<typeof getSingleCategory>,
     { api }: Context
   ) {
-    const { locale, id } = payload;
     yield put(preloaderStart(Preloaders.categories));
+    const { locale, id } = payload;
+
     try {
       const response = yield call(api.programs.getSingleCategory, id, locale);
-      console.log(response);
+
+      const payload = {
+        category: response.data,
+        total: 0
+      };
+      yield put(getSingleCategory.success(payload));
     } catch (err) {
       console.log(err);
     } finally {
@@ -77,8 +84,9 @@ class ProgramsSaga {
     try {
       const response = yield call(api.programs.getPrograms, payload);
 
-      const { result } = response.data;
-      yield put(getPrograms.success(result));
+      const { result, total } = response.data;
+
+      yield put(getPrograms.success(result, total));
     } catch (err) {
       console.log(err);
     } finally {

@@ -83,6 +83,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
           className={styles.button}
           children={t('home.online-courses.button-text')}
           arrow='&#8594;'
+          width={224}
         />
       </div>
     </section>

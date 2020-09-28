@@ -14,7 +14,11 @@ import {
 const programsData = reducer(new ProgramsState())
   .on(getCategories.success, (state, payload) => (state.categories = payload))
 
-  .on(getPrograms.success, (state, payload) => (state.programs = payload))
+  .on(getPrograms.success, (state, payload) => {
+    const { total, data } = payload;
+    state.programs = data;
+    state.programsTotal = total;
+  })
   .on(selectCategory, (state, payload) => (state.selectedCategory = payload))
   .on(
     getSingleCategory.success,

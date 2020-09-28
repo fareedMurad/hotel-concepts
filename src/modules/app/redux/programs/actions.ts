@@ -31,7 +31,10 @@ const getPrograms = make('[programs] get programs')
       subfilters: string;
     }) => payload
   )
-  .stage('success', (payload: SingleProgramModel[]) => payload);
+  .stage('success', (payload: SingleProgramModel[], total: number) => ({
+    data: payload,
+    total
+  }));
 
 /*
  * Select Category
