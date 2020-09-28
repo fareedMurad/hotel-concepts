@@ -8,6 +8,7 @@ import * as styles from './books.scss';
  */
 const Book: React.FC<BookProps> = ({ type, book }) => {
   const fromWhishlist = type == 'wishlist';
+  const {} = book || {};
 
   return (
     <div className={styles.book}>
@@ -30,7 +31,7 @@ const Books: React.FC<BooksProps> = ({ className, type, data }) => {
   return total > 0 ? (
     <div className={classNames(styles.books, className)}>
       {items.map((book, index) => (
-        <Book type={type} book={book} key={index} />
+        <Book type={type} book={book} key={book?.id} />
       ))}
     </div>
   ) : (

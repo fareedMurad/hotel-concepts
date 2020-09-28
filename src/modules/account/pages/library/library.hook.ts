@@ -17,7 +17,7 @@ const useLibraryData = () => {
    * TODO possible can be done better
    */
   useEffect(() => {
-    dispatch(navigate('/account/library/purchased'));
+    // dispatch(navigate('/account/library/purchased'));
   }, []);
 
   return { navigation };
