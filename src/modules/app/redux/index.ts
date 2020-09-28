@@ -1,5 +1,9 @@
-import { ApiService, HttpService } from '@app/services';
-import { FastSpringService } from '@app/services/config/fastspring.service';
+import {
+  ApiService,
+  HttpService,
+  SocketService,
+  FastSpringService
+} from '@app/services';
 import { init } from '@router/store';
 import { History } from 'history';
 import { applyMiddleware, createStore as reduxCreateStore } from 'redux';
@@ -30,7 +34,8 @@ const createStore = (history: History) => {
     history,
     http,
     api: new ApiService(http),
-    fs: new FastSpringService(enviroment.fsStoreFront)
+    fs: new FastSpringService(enviroment.fsStoreFront),
+    socket: null as SocketService
   };
 
   run(sagaMiddleware, sagas, context);

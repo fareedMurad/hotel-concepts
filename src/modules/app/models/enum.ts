@@ -55,4 +55,16 @@ enum Interest {
   reputationmanagement = 'Reputation Management'
 }
 
-export { UserSource, Position, Title, Language, PaymentMethod, Interest };
+enum SocketResponseType {
+  checkout = 'checkout'
+}
+
+export {
+  UserSource,
+  Position,
+  Title,
+  Language,
+  PaymentMethod,
+  Interest,
+  SocketResponseType
+};

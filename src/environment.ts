@@ -6,7 +6,8 @@ const enviroment = {
   googleClientId: process.env.googleClientId,
   facebookAppId: process.env.facebookAppId,
   fsAccessKey: process.env.fastspringAccessKey,
-  fsStoreFront: process.env.fastspringStoreFront
+  fsStoreFront: process.env.fastspringStoreFront,
+  socketUrl: process.env.socketUrl
 };
 
 export { enviroment };
