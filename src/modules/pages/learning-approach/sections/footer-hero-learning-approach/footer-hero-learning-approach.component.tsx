@@ -31,7 +31,7 @@ const FooterHeroLearningApproach: React.FC<HeroBottomProps> = ({}) => {
           <Button
             className={styles.heroContentButton}
             children={t('learning-approach.footer-hero.button-text')}
-            arrow='&rarr;'
+            arrow
             onClick={() => dispatch(navigate('/insights'))}
             width={204}
           />

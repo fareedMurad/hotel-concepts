@@ -57,7 +57,6 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
             history.push(`/insights/article/${id}`);
           }}
           children='Read more'
-          arrow='&#8594;'
           width='100%'
         />
       </div>

@@ -50,7 +50,7 @@ const ProgramModuleItem: React.FC<ProgramModuleItemProps> = ({
             theme='secondary'
             className={styles.button}
             children='Module overview'
-            arrow='&#8594;'
+            arrow
           />
         </div>
       </div>

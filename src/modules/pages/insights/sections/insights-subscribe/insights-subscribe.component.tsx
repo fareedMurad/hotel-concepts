@@ -69,7 +69,7 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
                   className={styles.buttonSubmit}
                   type='submit'
                   children={t('insights.insights-subscribe.button-text')}
-                  arrow='&#8594;'
+                  arrow
                   width={tablet ? '35%' : '40%'}
                 />
               </div>

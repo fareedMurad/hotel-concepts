@@ -72,7 +72,7 @@ const Login: React.FC = () => {
                 <Button
                   className={styles.submit}
                   onClick={() => handleSubmit()}
-                  arrow='→'
+                  arrow
                 >
                   Sign In
                 </Button>

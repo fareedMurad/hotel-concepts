@@ -58,11 +58,11 @@ const Books: React.FC<BooksProps> = ({ className, type, data }) => {
 
   return total > 0 ? (
     <div className={classNames(styles.books, className)}>
-      {/* <div
+      <div
         onClick={() => dispatch(addBookToWishlist('2geEtN0sCVVlQZuHtRAwu9'))}
       >
         add
-      </div> */}
+      </div>
       {items.map(book => (
         <Book type={type} book={book} key={book?.id} />
       ))}

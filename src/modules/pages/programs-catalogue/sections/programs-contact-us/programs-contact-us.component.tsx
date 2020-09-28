@@ -134,7 +134,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
             type='submit'
             className={styles.button}
             children={t('programs-catalogue.form.lable.button-text')}
-            arrow='&#8594;'
+            arrow
           />
         </form>
       </div>

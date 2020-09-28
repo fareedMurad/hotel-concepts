@@ -89,7 +89,7 @@ const SignUp: React.FC = () => {
               </div>
               <Button
                 className={styles.submit}
-                arrow='→'
+                arrow
                 onClick={() => handleSubmit()}
               >
                 Sign Up

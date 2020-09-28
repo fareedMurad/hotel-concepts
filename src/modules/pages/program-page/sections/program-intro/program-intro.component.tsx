@@ -133,7 +133,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
           onClick={scrollToEnroll}
           className={styles.button}
           children='Enroll now'
-          arrow='→'
+          arrow
           width='inherit'
         />
       </div>

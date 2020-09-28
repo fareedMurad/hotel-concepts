@@ -74,7 +74,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
             theme='secondary'
             className={styles.button}
             children={t('article-page.button-text')}
-            arrow='&#8594;'
+            arrow
             width={204}
             onClick={() => {
               history.push(`/insights/article/${id}`);

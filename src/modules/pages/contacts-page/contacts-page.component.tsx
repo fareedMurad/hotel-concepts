@@ -20,17 +20,15 @@ import { useDispatch } from 'react-redux';
 import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
 
-const Card = ({ title, description, href, link }) => {
-  return (
-    <div className={styles.card}>
-      <div className={styles.cardTitle}>{title}</div>
-      <div className={styles.cardDescription}>{description}</div>
-      <a href={href} className={styles.cardLink}>
-        {link}
-      </a>
-    </div>
-  );
-};
+const Card = ({ title, description, href, link }) => (
+  <div className={styles.card}>
+    <div className={styles.cardTitle}>{title}</div>
+    <div className={styles.cardDescription}>{description}</div>
+    <a href={href} className={styles.cardLink}>
+      {link}
+    </a>
+  </div>
+);
 /**
  * default values
  */
@@ -146,7 +144,6 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                   <Button
                     className={styles.buttonSend}
                     children={t('contacts.form.button-text')}
-                    arrow='&#8594;'
                     width={204}
                   />
                 </Form>

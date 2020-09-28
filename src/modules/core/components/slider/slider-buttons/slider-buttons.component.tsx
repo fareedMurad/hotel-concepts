@@ -18,38 +18,36 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
   onClick,
   setCount,
   count
-}) => {
-  return (
-    <div className={classNames(styles.sliderButtons, className)}>
-      {btnText && (
-        <Button
-          onClick={onClick}
-          className={styles.button}
-          children={btnText}
-          arrow='&#8594;'
-          width={204}
-        />
-      )}
-      <button
-        onClick={previous}
-        className={classNames(styles.previous, {
-          [styles.bordered]: isBordered
-        })}
-      >
-        <div className={styles.arrow} onClick={() => setCount(count - 1)}>
-          &#8592;
-        </div>
-      </button>
-      <button
-        onClick={next}
-        className={classNames(styles.next, { [styles.bordered]: isBordered })}
-      >
-        <div className={styles.arrow} onClick={() => setCount(count + 1)}>
-          &#8594;
-        </div>
-      </button>
-    </div>
-  );
-};
+}) => (
+  <div className={classNames(styles.sliderButtons, className)}>
+    {btnText && (
+      <Button
+        onClick={onClick}
+        className={styles.button}
+        children={btnText}
+        arrow
+        width={204}
+      />
+    )}
+    <button
+      onClick={previous}
+      className={classNames(styles.previous, {
+        [styles.bordered]: isBordered
+      })}
+    >
+      <div className={styles.arrow} onClick={() => setCount(count - 1)}>
+        &#8592;
+      </div>
+    </button>
+    <button
+      onClick={next}
+      className={classNames(styles.next, { [styles.bordered]: isBordered })}
+    >
+      <div className={styles.arrow} onClick={() => setCount(count + 1)}>
+        &#8594;
+      </div>
+    </button>
+  </div>
+);
 
 export { SliderButtons };

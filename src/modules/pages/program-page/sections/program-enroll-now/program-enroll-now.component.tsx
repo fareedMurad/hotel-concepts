@@ -57,7 +57,7 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
                 <Button
                   className={styles.button}
                   children={t('program-page.program-enroll-now.button-text')}
-                  arrow='&#8594;'
+                  arrow
                   width='100%'
                 />
               </div>

@@ -49,7 +49,6 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
               className={styles.button}
               children='Explore Program'
               width='100%'
-              arrow='→'
             />
           </div>
         </div>

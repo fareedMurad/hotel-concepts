@@ -24,7 +24,7 @@ const Card = ({ card, rate }) => {
         <Button
           className={styles.cardButton}
           children='Explore programs'
-          arrow='&rarr;'
+          arrow
           width={301}
         />
       </Link>

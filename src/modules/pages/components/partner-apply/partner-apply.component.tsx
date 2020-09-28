@@ -93,7 +93,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                     className={styles.buttonSubmit}
                     type='submit'
                     children={t('program-page.partner-apply.button-text')}
-                    arrow='&#8594;'
+                    arrow
                     width={204}
                   />
                 </div>

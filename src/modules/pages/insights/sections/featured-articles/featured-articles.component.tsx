@@ -121,7 +121,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
                 <Button
                   className={styles.articleButton}
                   children='Read article'
-                  arrow='&#8594;'
+                  arrow
                   width={204}
                   theme='primary'
                   onClick={() =>
@@ -136,7 +136,7 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
       <Button
         className={styles.showMore}
         children={t('insights.featured-articles.button-text')}
-        arrow='&#8595;'
+        arrow
         onClick={() => setArticlesToSkip(categoryId === 'All' ? 7 : 9)}
         width={204}
       />

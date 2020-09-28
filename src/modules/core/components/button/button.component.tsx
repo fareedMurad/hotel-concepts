@@ -29,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
     )}
     disabled={disabled}
     {...props}
+    style={{ width, justifyContent: arrow && 'space-between' }}
   >
     <div>{children}</div> {arrow && <div className={styles.arrow}>→</div>}
   </button>

@@ -69,7 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <Button
           className={styles.confirmButton}
           children={t('product.card.button-text')}
-          arrow='&rarr;'
+          arrow
           onClick={() => {
             const session: Session = {
               products: [

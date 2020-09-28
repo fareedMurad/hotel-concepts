@@ -41,7 +41,7 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
               className={styles.headerBtn}
               onClick={ScrollToEnroll}
               children={t('contributors.hero.button-text')}
-              arrow='&#8594;'
+              arrow
               width={230}
             />
           </div>

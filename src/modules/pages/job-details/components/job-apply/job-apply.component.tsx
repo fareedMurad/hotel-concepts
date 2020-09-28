@@ -197,7 +197,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
               className={styles.buttonSubmit}
               type='submit'
               children='Send'
-              arrow='&#8594;'
+              arrow
             />
           </Form>
         )}
