@@ -29,11 +29,11 @@ const Programs: React.FC<ProgramsProps> = ({ className, type, data }) => {
 
   return total > 0 ? (
     <div className={classNames(styles.programs, className)}>
-      <div
-        onClick={() => dispatch(addProgramToWishlist('1Jun0IWPECLM4lVEMo4d5m'))}
+      {/* <div
+        onClick={() => dispatch(addProgramToWishlist('2t3zkLkhDJp5sM72ZvzBku'))}
       >
         add
-      </div>
+      </div> */}
       {items.map(index => (
         <Program type={type} key={index} />
       ))}
