@@ -1,31 +1,32 @@
 @import 'core.scss';
 
 .library {
-  padding: 13px 20px 100px 20px;
-  border-radius: 10px;
+  padding: 8px 20px 100px 20px;
+  border-radius: 8px;
   background-color: $background;
 }
 
 .title {
-  @include font(#3e3e3e, 24px, 400);
+  @include font(#3e3e3e, 24px, 400, 34px);
 }
 
 .navigation {
   @include flex($align: center);
-  margin-top: 44px;
+  margin-top: 42px;
 }
 
 .link {
   @include flex($align: center);
   @include font(#3e3e3e, 18px, 600);
+  font-family: $EBGaramond;
   transition: $transition;
 
   &:not(:first-child) {
-    margin-left: 87px;
+    margin-left: 104px;
   }
 
   &__icon {
-    margin-left: 6px;
+    margin-left: 8px;
     transition: $transition;
 
     & > div {
@@ -44,5 +45,5 @@
 }
 
 .content {
-  margin-top: 33px;
+  margin-top: 32px;
 }

@@ -1,5 +1,7 @@
+import { addProgramToWishlist } from '@app/redux/account';
 import classNames from 'classnames';
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { ProgramProps, ProgramsProps } from './programs.props';
 import * as styles from './programs.scss';
 
@@ -23,9 +25,15 @@ const Program: React.FC<ProgramProps> = ({ type }) => {
 const Programs: React.FC<ProgramsProps> = ({ className, type, data }) => {
   const fromWishlist = type == 'wishlist';
   const { items, total } = data || {};
+  const dispatch = useDispatch();
 
   return total > 0 ? (
     <div className={classNames(styles.programs, className)}>
+      {/* <div
+        onClick={() => dispatch(addProgramToWishlist('1Jun0IWPECLM4lVEMo4d5m'))}
+      >
+        add
+      </div> */}
       {items.map(index => (
         <Program type={type} key={index} />
       ))}

@@ -2,10 +2,55 @@
 
 .books {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(5, 1fr);
+  gap: 42px 20px;
+  grid-template-columns: repeat(5, 204px);
 }
 
 .placeholder {
   text-align: center;
+}
+
+.book {
+  @include flex($align: stretch, $direction: column);
+  position: relative;
+}
+
+.like {
+  @include size(24px);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.image {
+  width: 100%;
+  max-height: 240px;
+  padding: 26px 0;
+  align-self: center;
+  object-fit: contain;
+}
+
+.divider {
+  height: 2px;
+  background: #cbd0d3;
+}
+
+.name {
+  @include font(#3e3e3e, 15px, 400, 21px);
+  flex: 1;
+  margin-top: 7px;
+}
+
+.controls {
+  @include flex($align: stretch, $direction: column);
+  margin-top: 15px;
+
+  & > button {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  & > button:not(:first-child) {
+    margin-top: 5px;
+  }
 }
