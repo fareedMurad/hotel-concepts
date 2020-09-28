@@ -2,8 +2,7 @@
 
 .sign-up {
   @include flex(center, stretch, column);
-  width: 100%;
-  max-width: 502px;
+  width: 505px;
   flex: 1;
   margin: 132px auto 115px auto;
 }
@@ -33,7 +32,7 @@
   background-color: $background;
 
   &__list {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 
   &__radio {

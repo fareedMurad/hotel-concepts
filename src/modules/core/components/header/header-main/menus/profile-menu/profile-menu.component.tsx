@@ -45,7 +45,15 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
       {links.map(link => {
         <NavLink to={link.to}>{link.title}</NavLink>;
       })}
-      <Button onClick={() => dispatch(unauthorize())}>Log out</Button>
+      <Button
+        className={styles.logout}
+        onClick={() => {
+          setShowProfileNavigationMenu(false);
+          dispatch(unauthorize());
+        }}
+      >
+        Log out
+      </Button>
     </div>
   );
 };
