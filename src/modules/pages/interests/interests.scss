@@ -28,8 +28,9 @@
 }
 
 .interest {
+  @include font($primary-gray, 18px, 400, 28px);
   margin: 10px;
-  padding: 16px 12px;
+  padding: 12px;
   width: fit-content;
   border: 1px solid $primary-gray;
   border-radius: 4px;
@@ -53,6 +54,7 @@
 
 .submit {
   align-self: center;
+  height: 44px;
   width: 18%;
   margin-top: 32px;
 }
