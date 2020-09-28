@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { DropDownProps } from './drop-down.props';
 import * as styles from './drop-down.scss';
-import { useAnimation } from '../../../animation';
-import { animated } from 'react-spring';
 import { NavLink } from 'react-router-dom';
 
 /**

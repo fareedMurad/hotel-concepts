@@ -5,7 +5,6 @@ import { useAboutMenuData } from './about-menu.hook';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { useClickOutside } from '@core/shared';
-import { useAnimation } from '../../animation';
 import { DropDown } from './drop-down';
 
 /**
