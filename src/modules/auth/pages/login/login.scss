@@ -3,8 +3,7 @@
 .login {
   @include flex(flex-start, stretch, column);
   flex: 1;
-  width: 100%;
-  max-width: 502px;
+  width: 505px;
   margin: 132px auto 77px auto;
 }
 

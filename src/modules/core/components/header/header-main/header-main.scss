@@ -8,13 +8,10 @@
   &_navigation {
     @include flex($justify: flex-end, $align: center);
     width: 100%;
-    &_block {
-      position: relative;
-      &:not(:last-child) {
-        margin-right: 60px;
-      }
-    }
+
     &-item {
+      position: relative;
+      margin-right: 60px;
       @include flex($align: center, $justify: center);
       @include font(white, 16px, 500, 24px);
 
@@ -22,10 +19,6 @@
       padding-bottom: 4px;
       cursor: pointer;
       transition: $transition;
-      & > div > div {
-        @include flex();
-        margin-left: 8px;
-      }
       &:hover {
         color: $primary-orange;
         border-color: $primary-orange;
@@ -34,6 +27,7 @@
     &-profile {
       @include flex($align: center);
       cursor: pointer;
+      position: relative;
       & > div:first-child {
         margin-right: 16px;
       }
@@ -61,25 +55,6 @@
   border-color: $primary-gray !important;
 }
 
-.profile-navigation {
-  position: relative;
-  &--menu {
-    position: absolute;
-    width: 230px;
-    top: 30px;
-    right: 0;
-    background-color: $background;
-    padding: 10px;
-    border-radius: 10px;
-    & > a {
-      display: block;
-      transition: $transition;
-      &:not(:last-child) {
-        margin-bottom: 10px;
-      }
-      &:hover {
-        color: $primary-orange;
-      }
-    }
-  }
+.arrow {
+  margin-left: 8px;
 }
