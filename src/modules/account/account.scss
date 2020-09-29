@@ -27,13 +27,15 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0 20px;
-  max-width: 65%;
+  width: 100%;
+  max-width: 52%;
   align-self: center;
   margin-top: 72px;
 }
 
 .link {
   @include flex($align: center);
+  width: 204px;
   padding: 12px 20px;
   border-radius: 4px;
   background: #f5f1f0;
