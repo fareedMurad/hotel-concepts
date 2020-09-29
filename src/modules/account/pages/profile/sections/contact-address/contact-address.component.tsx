@@ -40,6 +40,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
               <Field.RadioGroup
                 className={styles.radiogroup}
                 listClassname={styles.radiogroupList}
+                labelClassname={styles.radiogroupLabel}
                 radioClassname={styles.radiogroupRadio}
                 name='position'
                 label='I am'

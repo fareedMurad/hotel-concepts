@@ -17,12 +17,12 @@
   background: $white;
 
   &__list {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 
   &__radio {
     &:not(:first-child) {
-      margin-top: 18px;
+      margin-top: 16px;
     }
   }
 }
