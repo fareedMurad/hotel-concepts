@@ -1,3 +1,4 @@
+import { ContentType } from '@account/pages/library/models';
 import { Context } from '@app/redux/context';
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
@@ -65,7 +66,7 @@ class LibrarySaga {
     // TODO Preloader start
 
     try {
-      yield call(api.library.addBookToWishlist, payload);
+      yield call(api.library.addBookToWishlist, payload, ContentType.product);
 
       yield put(
         toggleToast({
@@ -91,7 +92,11 @@ class LibrarySaga {
     yield put(preloaderStart(Preloaders.libraryWishlist));
 
     try {
-      yield call(api.library.removeBookFromWishlist, payload);
+      yield call(
+        api.library.removeBookFromWishlist,
+        payload,
+        ContentType.product
+      );
 
       yield put(
         toggleToast({

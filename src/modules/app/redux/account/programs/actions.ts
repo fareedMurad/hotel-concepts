@@ -28,7 +28,7 @@ const addProgramToWishlist = make('[program] add program to wishlist')
  */
 const removeProgramFromWishlist = make('[program] remove program from wishlist')
   .stage((payload: string) => payload)
-  .stage('success');
+  .stage('success', (payload: { items: Program[]; total: number }) => payload);
 
 export {
   fetchProgramsPurchased,

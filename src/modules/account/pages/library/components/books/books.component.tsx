@@ -11,7 +11,7 @@ import * as styles from './books.scss';
  */
 const Book: React.FC<BookProps> = ({ type, book }) => {
   const dispatch = useDispatch();
-  const fromWhishlist = type == 'wishlist';
+  const fromWishlist = type == 'wishlist';
   const {
     id,
     name,
@@ -22,7 +22,7 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
 
   return (
     <div className={styles.book}>
-      {fromWhishlist && (
+      {fromWishlist && (
         <Icon
           className={styles.like}
           name='like'
@@ -33,7 +33,7 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
       <div className={styles.divider} />
       <div className={styles.name}>{name}</div>
       <div className={styles.controls}>
-        {!fromWhishlist ? (
+        {!fromWishlist ? (
           <Button arrow>Add to cart</Button>
         ) : (
           <React.Fragment>

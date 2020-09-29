@@ -11,7 +11,7 @@ type Program = {
   languages: string;
   results: string[];
   slug: string;
-  sprint: number;
+  sprints: number;
   videoVimeoUrl: string;
   weeks: number;
   __typename: string;

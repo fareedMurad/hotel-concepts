@@ -1,5 +1,5 @@
-import { addProgramToWishlist } from '@app/redux/account';
-import { Button } from '@core/components';
+import { removeProgramFromWishlist } from '@app/redux/account';
+import { Button, Icon } from '@core/components';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,30 +10,41 @@ import * as styles from './programs.scss';
  * Renders single Program
  */
 const Program: React.FC<ProgramProps> = ({ type, program }) => {
+  const dispatch = useDispatch();
   const fromWishlist = type == 'wishlist';
   const {
+    id,
     name,
+    description,
     complexityLevel,
+    price,
+    weeks,
+    sprints,
     heroImage: {
       file: { url }
     }
   } = program || {};
 
-  console.log(program);
-
   return (
     <div className={styles.program}>
+      {fromWishlist && (
+        <Icon
+          className={styles.like}
+          name='like'
+          onClick={() => dispatch(removeProgramFromWishlist(id))}
+        />
+      )}
       <img className={styles.image} src={url} alt={url} />
       <div className={styles.container}>
         <div className={styles.complexity}>{complexityLevel}</div>
         <div className={styles.title}>{name}</div>
         <div className={styles.meta}>
-          <div>weeks</div>
-          <div className={styles.metaSprints}>sprints</div>
-          <div>price$</div>
+          <div>{weeks} weeks</div>
+          <div className={styles.metaSprints}>{sprints} sprints</div>
+          <div>{price}$</div>
         </div>
         <div className={styles.box}>
-          <div className={styles.description}>{'description'}</div>
+          <div className={styles.description}>{description}</div>
           <Button className={styles.add} arrow>
             Add to cart
           </Button>
@@ -53,11 +64,6 @@ const Programs: React.FC<ProgramsProps> = ({ className, type, data }) => {
 
   return total > 0 ? (
     <div className={classNames(styles.programs, className)}>
-      {/* <div
-        onClick={() => dispatch(addProgramToWishlist('2t3zkLkhDJp5sM72ZvzBku'))}
-      >
-        add
-      </div> */}
       {items.map(program => (
         <Program type={type} program={program} key={program?.id} />
       ))}

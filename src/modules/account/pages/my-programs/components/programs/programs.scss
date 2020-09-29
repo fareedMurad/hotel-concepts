@@ -10,10 +10,28 @@
 
 .program {
   @include flex($align: stretch);
+  position: relative;
+  max-height: 278px;
+  padding-bottom: 26px;
+  border-bottom: 2px solid #cbd0d3;
+
+  &:not(:first-child) {
+    margin-top: 32px;
+  }
+}
+
+.like {
+  @include size(24px);
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .image {
-  max-width: 200px;
+  width: 100%;
+  max-width: 317px;
+  max-height: 240px;
+  border-radius: 8px;
 }
 
 .container {
@@ -46,10 +64,16 @@
 }
 
 .box {
+  @include flex(space-between, flex-end);
+  margin-top: 24px;
 }
 
 .description {
+  width: 100%;
+  max-width: 41%;
 }
 
 .add {
+  width: 100%;
+  max-width: 224px;
 }

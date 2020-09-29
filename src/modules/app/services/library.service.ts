@@ -12,7 +12,7 @@ class LibraryService {
    */
   public fetchLibraryPurchased = (locale: string) =>
     this.http.request({
-      url: `/library?locale=${locale}&type=${ContentType.product}`
+      url: `/library?locale=${locale}&type=${ContentType}`
     });
 
   /**
@@ -20,30 +20,32 @@ class LibraryService {
    */
   public fetchLibraryWishlist = (locale: string) =>
     this.http.request({
-      url: `/wishlist?locale=${locale}&type=${ContentType.product}`
+      url: `/wishlist?locale=${locale}&type=${ContentType}`
     });
 
   /**
    * Add book to wishlist
    */
-  public addBookToWishlist = (id: string) =>
+  public addBookToWishlist = (id: string, type: ContentType) =>
     this.http.request({
       method: 'POST',
       url: '/wishlist/add',
       data: {
-        id
+        id,
+        type
       }
     });
 
   /**
    * Remove book from wishlist
    */
-  public removeBookFromWishlist = (id: string) =>
+  public removeBookFromWishlist = (id: string, type: ContentType) =>
     this.http.request({
       method: 'DELETE',
       url: '/wishlist/delete',
       data: {
-        id
+        id,
+        type
       }
     });
 }

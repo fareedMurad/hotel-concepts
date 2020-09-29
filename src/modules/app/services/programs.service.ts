@@ -26,24 +26,26 @@ class ProgramsService {
   /**
    * Add program to wishlist
    */
-  public addProgramToWishlist = (id: string) =>
+  public addProgramToWishlist = (id: string, type: ContentType) =>
     this.http.request({
       method: 'POST',
       url: '/wishlist/add',
       data: {
-        id
+        id,
+        type
       }
     });
 
   /**
    * Remove program from wishlist
    */
-  public removeProgramFromWishlist = (id: string) =>
+  public removeProgramFromWishlist = (id: string, type: ContentType) =>
     this.http.request({
       method: 'DELETE',
       url: '/wishlist/delete',
       data: {
-        id
+        id,
+        type
       }
     });
 }
