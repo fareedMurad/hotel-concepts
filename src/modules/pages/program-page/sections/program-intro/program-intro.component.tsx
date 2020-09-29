@@ -4,7 +4,7 @@ import * as styles from './program-intro.scss';
 import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
-import { Button, Spinner } from '@core/components';
+import { Button, Spinner, Preloader } from '@core/components';
 import { useProgramIntroData } from './program-intro.hook';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { BackButton } from '@core/components/back-button';
@@ -12,16 +12,15 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
 import Player from '@vimeo/player';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { Preloaders } from '@ui/models';
+import { preloader } from '@ui/preloader';
 
 /**
  * Renders ProgramIntro
  */
-const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
+const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
   const { language } = useSelector((state: State) => state.localization);
-  const { programData, programDataLoading, navButtons } = useProgramIntroData(
-    programId,
-    language
-  );
+  const { navButtons } = useProgramIntroData();
 
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [previewVideo, setPreviewVideo] = React.useState('');
@@ -36,12 +35,12 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
     if (videoRef.current) {
       setVideo(videoRef.current);
     }
-    if (!programDataLoading) {
+    if (data) {
       const player = new Player(videoPlayer.current);
       player.getDuration().then(el => setDuration(el));
       setPreviewVideo(previewUrl);
     }
-  }, [programDataLoading, videoRef, programData]);
+  }, [videoRef, data]);
 
   const playVideo = () => {
     if (video) {
@@ -63,7 +62,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
     }
   };
 
-  const getVideoId = url => url.split('/').pop();
+  const getVideoId = url => url?.split('/').pop();
   /**
    * convert duration
    */
@@ -71,75 +70,75 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ programId }) => {
   const minutes = Math.floor(duration / 60);
   const seconds = duration - minutes * 60;
 
-  if (programDataLoading) return <Spinner />;
-
-  const { videoVimeoUrl } = programData;
-
-  const previewUrl = programData.previewVideo?.video?.url;
+  const previewUrl = data?.previewVideo.video.file.url;
 
   return (
-    <section
-      className={styles.programIntro}
-      style={{ backgroundImage: `url(${programData?.heroImage?.url})` }}
-    >
-      <BackButton className={styles.backButton} />
-      <div className={styles.title}>
-        <div>{programData?.name}</div>
-        <div>{programData?.description}</div>
-      </div>
-      <iframe
-        ref={videoPlayer}
-        src={`https://player.vimeo.com/video/${getVideoId(videoVimeoUrl)}`}
-        allowFullScreen
-        hidden
-      />
-      <Popup
-        contentStyle={{
-          border: 'none',
-          background: 'transparent',
-          width: '100%'
-        }}
-        trigger={
-          <div className={styles.watchButton}>
-            <WatchButton
-              onEnter={playVideo}
-              onLeave={stopVideo}
-              time={`${minutes}: ${seconds}`}
-              titleText='Watch Trailer'
-            />
-          </div>
-        }
-        position='top center'
-        modal
-        lockScroll
+    <Preloader id={Preloaders.programs}>
+      <section
+        className={styles.programIntro}
+        style={{ backgroundImage: `url(${data?.heroImage.file.url})` }}
       >
-        <ReactPlayer
-          url={`${programData?.videoVimeoUrl}`}
-          controls
-          style={{ margin: 'auto', maxWidth: '100%' }}
+        <BackButton className={styles.backButton} />
+        <div className={styles.title}>
+          <div>{data?.name}</div>
+          <div>{data?.description}</div>
+        </div>
+        <iframe
+          ref={videoPlayer}
+          src={`https://player.vimeo.com/video/${getVideoId(
+            data?.videoVimeoUrl
+          )}`}
+          allowFullScreen
+          hidden
         />
-      </Popup>
-
-      <div className={styles.pageNavigator}>
-        {navButtons.map((button, index) => (
-          <ProgramNavButton
-            anchor={button.anchor}
-            name={button.name}
-            index={index}
-            key={index}
+        <Popup
+          contentStyle={{
+            border: 'none',
+            background: 'transparent',
+            width: '100%'
+          }}
+          trigger={
+            <div className={styles.watchButton}>
+              <WatchButton
+                onEnter={playVideo}
+                onLeave={stopVideo}
+                time={`${minutes}: ${seconds}`}
+                titleText='Watch Trailer'
+              />
+            </div>
+          }
+          position='top center'
+          modal
+          lockScroll
+        >
+          <ReactPlayer
+            url={`${data?.videoVimeoUrl}`}
+            controls
+            style={{ margin: 'auto', maxWidth: '100%' }}
           />
-        ))}
-        <Button
-          onClick={scrollToEnroll}
-          className={styles.button}
-          children='Enroll now'
-          arrow='→'
-          width='inherit'
-        />
-      </div>
+        </Popup>
 
-      <video ref={videoRef} className={styles.video} src={previewUrl} muted />
-    </section>
+        <div className={styles.pageNavigator}>
+          {navButtons.map((button, index) => (
+            <ProgramNavButton
+              anchor={button.anchor}
+              name={button.name}
+              index={index}
+              key={index}
+            />
+          ))}
+          <Button
+            onClick={scrollToEnroll}
+            className={styles.button}
+            children='Enroll now'
+            arrow='→'
+            width='inherit'
+          />
+        </div>
+
+        <video ref={videoRef} className={styles.video} src={previewUrl} muted />
+      </section>
+    </Preloader>
   );
 };
 

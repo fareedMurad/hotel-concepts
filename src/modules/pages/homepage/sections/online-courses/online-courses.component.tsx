@@ -44,7 +44,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
 
               return (
                 <ButtonFilter
-                  key={name}
+                  key={category.id}
                   title={category.name}
                   count={total}
                   onClick={() => {

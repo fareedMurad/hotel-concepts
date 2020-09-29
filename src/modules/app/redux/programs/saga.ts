@@ -3,7 +3,8 @@ import {
   getCategories,
   getPrograms,
   selectCategory,
-  getSingleCategory
+  getSingleCategory,
+  getSingleProgram
 } from './actions';
 import { Context } from '../context';
 import { put, call, select } from 'redux-saga/effects';
@@ -21,14 +22,16 @@ class ProgramsSaga {
    */
   @Saga(getCategories)
   public *getCategories(
-    payload: Payload<typeof getCategories>,
+    language: Payload<typeof getCategories>,
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.categories));
-    const { language } = yield select((state: State) => state.localization);
     try {
-      const response = yield call(api.programs.getCategories, payload);
-      const { id } = response.data[0].category;
+      const response = yield call(api.programs.getCategories, language);
+
+      if (response.data.length === 0) return;
+
+      const { id } = response.data[0]?.category;
 
       const params = {
         skip: 0,
@@ -37,9 +40,8 @@ class ProgramsSaga {
         locale: language,
         subfilters: OnlineCourseSubfilter.all
       };
-      //  yield put(getPrograms(params));
+      yield put(getPrograms(params));
       yield put(selectCategory(response.data[0]));
-      console.log(response);
       yield put(getCategories.success(response.data));
     } catch (err) {
       console.log(err);
@@ -87,6 +89,26 @@ class ProgramsSaga {
       const { result, total } = response.data;
 
       yield put(getPrograms.success(result, total));
+    } catch (err) {
+      console.log(err);
+    } finally {
+      yield put(preloaderStop(Preloaders.programs));
+    }
+  }
+  /*
+   * Get single program
+   */
+  @Saga(getSingleProgram)
+  public *getSingleProgram(
+    payload: Payload<typeof getSingleProgram>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.programs));
+
+    try {
+      const response = yield call(api.programs.getSingleProgram, payload);
+      console.log(response);
+      yield put(getSingleProgram.success(response.data));
     } catch (err) {
       console.log(err);
     } finally {

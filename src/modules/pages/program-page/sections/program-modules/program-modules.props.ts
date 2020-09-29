@@ -1,3 +1,4 @@
+import { SingleProgramModel } from '@app/models/single-program';
 type ModuleItem = {
   name: string;
   description: string;
@@ -12,7 +13,7 @@ type ModuleItem = {
  * Props
  */
 type ProgramModulesProps = {
-  programId: string;
+  data: SingleProgramModel;
 };
 
 export { ProgramModulesProps };

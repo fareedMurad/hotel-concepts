@@ -7,7 +7,7 @@ type SingleProgramModel = {
   about: {
     aboutText: string;
     id: string;
-    skils: string[];
+    skills: string[];
   };
   category: {
     description: string;
@@ -34,6 +34,7 @@ type SingleProgramModel = {
     name: string;
     price: number;
     id: string;
+    isMostPopular: boolean;
     description: string;
     features: string[];
   }[];
@@ -132,13 +133,22 @@ type SingleProgramModel = {
       };
     };
     text: string;
-  };
+  }[];
   videoVimeoUrl: string;
   weeks: number;
   whoShouldEnrol: {
     description: string;
     id: string;
     positions: string[];
+  };
+  additionalMaterials: {
+    id: string;
+    materials: {
+      title: string;
+      file: {
+        url: string;
+      };
+    }[];
   };
 };
 

@@ -12,18 +12,13 @@ import { State } from '@app/redux/state';
  * Renders ProgramEnrollNow
  */
 
-const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ programId }) => {
+const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ data }) => {
   const { t } = useTranslation();
   const { language } = useSelector((state: State) => state.localization);
-  const { programEnrollData, programEnrollLoading } = useProgramEnrollData(
-    programId,
-    language
-  );
 
-  if (programEnrollLoading) return <Spinner />;
-
+  if (!data) return null;
   // put popular in the middle of array;
-  const copy = [...programEnrollData?.items];
+  const copy = [...data?.enrollNow];
   for (const [index, object] of copy.entries()) {
     if (object.isMostPopular) {
       [copy[index], copy[1]] = [copy[1], copy[index]];

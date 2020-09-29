@@ -1,7 +1,6 @@
-import { gql, useQuery } from '@apollo/client';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategories, getSingleCategory } from '@app/redux/programs';
+import { getSingleCategory } from '@app/redux/programs';
 import { State } from '@app/redux/state';
 
 const useCatalogueInfoData = (categoryId?: string) => {
@@ -18,8 +17,6 @@ const useCatalogueInfoData = (categoryId?: string) => {
   useEffect(() => {
     dispatch(getSingleCategory(payload));
   }, []);
-
-  console.log(selectedCategory);
   return {
     selectedCategory
   };

@@ -34,6 +34,16 @@ class ProgramsService {
       url: `/contentful/courses/list?skip=${skip}&limit=${limit}&type=${ContentType.onlineCourse}&category=${category}&locale=${locale}&subfilters=${subfilters}`
     });
   };
+  /*
+   * Get single program
+   */
+  public getSingleProgram = params => {
+    const { id, locale } = params;
+    return this.http.request({
+      method: 'GET',
+      url: `/contentful/${id}?type=${ContentType.onlineCourse}&locale=${locale}`
+    });
+  };
 }
 
 export { ProgramsService };

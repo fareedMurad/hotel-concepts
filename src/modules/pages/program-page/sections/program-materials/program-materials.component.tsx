@@ -5,37 +5,33 @@ import { Spinner } from '@core/components';
 import { useProgramMaterialsData } from './program-materials.hook';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ProgramMaterials
  */
-const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({ programId }) => {
-  const { language } = useSelector((state: State) => state.localization);
-  const {
-    additionalMaterialsData,
-    additionalMaterialsLoading
-  } = useProgramMaterialsData(programId, language);
-
-  if (additionalMaterialsLoading) return <Spinner />;
+const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({ data }) => {
+  const { t } = useTranslation();
   return (
     <section className={styles.programMaterials}>
-      {!additionalMaterialsData ? (
-        <div>
-          We haven't added additional materials yet. Please come back later!
-        </div>
+      {!data?.additionalMaterials ? (
+        <div>{t('program-page.additional-materials.no-materials')}</div>
       ) : (
         <React.Fragment>
-          <div className={styles.title}>Additional materials</div>
+          <div className={styles.title}>
+            {' '}
+            {t('program-page.additional-materials.title')}
+          </div>
 
-          {additionalMaterialsData.map((item, index) => (
+          {data?.additionalMaterials?.materials?.map((item, index) => (
             <div
               className={styles.item}
               key={index}
               onClick={() => {
-                window.open(item.url, '_blank');
+                window.open(item.file.url, '_blank');
               }}
             >
-              {item.description}
+              {item.title}
             </div>
           ))}
         </React.Fragment>

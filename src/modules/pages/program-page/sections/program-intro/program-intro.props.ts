@@ -1,8 +1,9 @@
+import { SingleProgramModel } from '@app/models/single-program';
 /**
  * Props
  */
 type ProgramIntroProps = {
-  programId: string;
+  data: SingleProgramModel;
 };
 
 export { ProgramIntroProps };

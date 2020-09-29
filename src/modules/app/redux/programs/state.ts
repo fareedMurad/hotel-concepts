@@ -13,6 +13,10 @@ class ProgramsState {
    */
   public programs: SingleProgramModel[] = [];
   /*
+   * Single program
+   */
+  public singleProgram: SingleProgramModel = null;
+  /*
    * Amount of programs
    */
   public programsTotal: number = 0;

@@ -1,4 +1,3 @@
-import { ContentType, Language, OnlineCourseSubfilter } from '@app/models/enum';
 import { make } from 'redux-chill';
 import { SingleProgramModel } from '@app/models/single-program';
 import { ProgramCategoryModel } from '@app/models/program-category';
@@ -19,6 +18,13 @@ const getSingleCategory = make('[programs] get single category')
   .stage('success', (payload: ProgramCategoryModel) => payload);
 
 /*
+ * Select Category
+ */
+const selectCategory = make('[programs] select category').stage(
+  (payload: ProgramCategoryModel) => payload
+);
+
+/*
  * Get programs
  */
 const getPrograms = make('[programs] get programs')
@@ -37,10 +43,16 @@ const getPrograms = make('[programs] get programs')
   }));
 
 /*
- * Select Category
+ * Get single program
  */
-const selectCategory = make('[programs] select category').stage(
-  (payload: ProgramCategoryModel) => payload
-);
+const getSingleProgram = make('[programs] get single program')
+  .stage((payload: { locale: string; id: string }) => payload)
+  .stage('success', (payload: SingleProgramModel) => payload);
 
-export { getCategories, getPrograms, selectCategory, getSingleCategory };
+export {
+  getCategories,
+  getPrograms,
+  selectCategory,
+  getSingleCategory,
+  getSingleProgram
+};

@@ -5,7 +5,8 @@ import {
   getCategories,
   getPrograms,
   selectCategory,
-  getSingleCategory
+  getSingleCategory,
+  getSingleProgram
 } from './actions';
 
 /**
@@ -23,6 +24,10 @@ const programsData = reducer(new ProgramsState())
   .on(
     getSingleCategory.success,
     (state, payload) => (state.selectedCategory = payload)
+  )
+  .on(
+    getSingleProgram.success,
+    (state, payload) => (state.singleProgram = payload)
   );
 
 export { programsData };

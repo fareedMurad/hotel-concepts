@@ -12,17 +12,11 @@ import { State } from '@app/redux/state';
  * Renders ProgramQuote
  */
 //
-const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
+const ProgramQuote: React.FC<ProgramQuoteProps> = ({ data }) => {
   const { language } = useSelector((state: State) => state.localization);
-  const { programQuoteData, programQuoteDataLoading } = useProgramQuoteData(
-    programId,
-    language
-  );
+
   const { t } = useTranslation();
 
-  if (programQuoteDataLoading) return <Spinner />;
-
-  if (!programQuoteData) return <div></div>;
   const scrollToEnroll = () => {
     scrollTo('enroll');
   };
@@ -31,10 +25,10 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
     <section
       className={styles.programQuote}
       style={{
-        backgroundImage: `url("${programQuoteData?.backgroundImg?.url}")`
+        backgroundImage: `url("${data?.imageQuote?.backgroundImg?.file.url}")`
       }}
     >
-      <div className={styles.text}>{`"${programQuoteData?.quoteText}"`}</div>
+      <div className={styles.text}>{`"${data?.imageQuote?.quoteText}"`}</div>
       <Button
         onClick={scrollToEnroll}
         className={styles.button}

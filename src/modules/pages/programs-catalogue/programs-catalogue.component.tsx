@@ -48,6 +48,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
 
   const updateFilters = filter => {
     setCurrentFilter(filter);
+    setCurrentPage(1);
   };
 
   return (
