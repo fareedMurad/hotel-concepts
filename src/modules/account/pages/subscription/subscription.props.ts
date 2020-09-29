@@ -1,6 +1,6 @@
 /**
- * Props
+ * Subscription time props
  */
-type SubscriptionProps = {};
+type SubscriptionTimeProps = {};
 
-export { SubscriptionProps };
+export { SubscriptionTimeProps };

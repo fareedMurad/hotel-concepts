@@ -1,10 +1,22 @@
-const useSabscriptionData = () => {
-  const subscription = {
-    name: 'Cool subscription',
-    benefits: 'benefits',
-    expirationDate: Date.UTC(2023, 0, 0, 0, 0, 0)
-  };
-  return subscription;
+import { fetchSubscription } from '@app/redux/account';
+import { State } from '@app/redux/state';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+const useSubscriptionData = () => {
+  const dispatch = useDispatch();
+  const {
+    subscription: { subscription },
+    auth: {
+      user: { subscriptionStatus }
+    }
+  } = useSelector((state: State) => state);
+
+  useEffect(() => {
+    dispatch(fetchSubscription());
+  }, []);
+
+  return { subscription, subscriptionStatus };
 };
 
-export { useSabscriptionData };
+export { useSubscriptionData };

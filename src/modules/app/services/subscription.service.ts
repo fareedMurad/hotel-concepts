@@ -7,12 +7,20 @@ class SubscriptionService {
   public constructor(private http: HttpService) {}
 
   /**
-   * Example
+   * Fetch subscription
    */
-  public exampleRequest = (data: string) =>
+  public fetchSubscription = () =>
+    this.http.request({
+      url: '/example'
+    });
+
+  /**
+   * Buy subscription
+   */
+  public buySubscription = data =>
     this.http.request({
       method: 'POST',
-      url: '/expample',
+      url: '/example',
       data
     });
 }

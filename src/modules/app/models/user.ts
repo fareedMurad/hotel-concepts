@@ -7,6 +7,7 @@ type User = {
   name: string;
   surname: string;
   language: string;
+  fsId: string;
   interests: { label: string; value: string }[];
   title: string;
   country: string;
@@ -18,6 +19,8 @@ type User = {
   source: string;
   position: string;
   newsSub: boolean;
+  subscriptionId: string;
+  subscriptionStatus: boolean;
   paymentMethods: {
     paypal: boolean;
     card: boolean;

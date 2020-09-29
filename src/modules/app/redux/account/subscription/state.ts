@@ -1,6 +1,13 @@
-/**
-* subscription state
-*/
-class SubscriptionState { }
+import { SubscriptionModel } from '@account/pages/subscription/models';
 
-export { SubscriptionState }
+/**
+ * subscription state
+ */
+class SubscriptionState {
+  /**
+   * Subscription
+   */
+  public subscription: SubscriptionModel = null;
+}
+
+export { SubscriptionState };
