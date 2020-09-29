@@ -41,6 +41,10 @@
       font-weight: 500;
     }
   }
+
+  &__error {
+    transform: translateY(calc(100% - 16px)) !important;
+  }
 }
 
 .submit {

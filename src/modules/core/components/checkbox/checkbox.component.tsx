@@ -13,6 +13,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   value,
   onChange,
   className,
+  errorClassname,
   labelClassname,
   isError,
   error,
@@ -44,7 +45,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
     ) : (
       label()
     )}
-    {isError && <div className={styles.error}>{error}</div>}
+    {isError && (
+      <div className={classNames(styles.error, errorClassname)}>{error}</div>
+    )}
   </div>
 );
 

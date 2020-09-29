@@ -56,6 +56,7 @@ const Login: React.FC = () => {
                 <Field.Checkbox
                   name='agreement'
                   className={styles.agreement}
+                  errorClassname={styles.agreementError}
                   label={() => (
                     <div className={styles.agreementLabel}>
                       By clicking Sign In, you agree to our{' '}

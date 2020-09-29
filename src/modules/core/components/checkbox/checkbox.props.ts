@@ -17,6 +17,10 @@ type CheckboxProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> &
      * Label classname
      */
     labelClassname?: string;
+    /**
+     * Error classname
+     */
+    errorClassname?: string;
   };
 
 /**
