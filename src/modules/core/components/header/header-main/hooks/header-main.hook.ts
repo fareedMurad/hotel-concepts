@@ -25,7 +25,11 @@ const useHeaderMainData = () => {
       name: 'E-library',
       content: {
         flexDirection: 'row',
-        title: 'Explore',
+        title: {
+          name: 'Explore',
+          to: '/marketplace'
+        },
+
         links: [
           {
             name: 'Individual Subscription',
@@ -53,7 +57,7 @@ const useHeaderMainData = () => {
           {
             name: 'E-library Acess',
             image: 'src/assets/img/header-image.png',
-            to: '/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'
+            to: '/marketplace'
           }
         ]
       }

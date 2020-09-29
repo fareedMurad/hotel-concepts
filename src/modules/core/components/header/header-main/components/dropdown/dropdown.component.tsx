@@ -25,8 +25,11 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div className={styles.dropdown} ref={ref}>
       {title && (
-        <div className={styles.dropdownTitle}>
-          {title}
+        <div
+          className={styles.dropdownTitle}
+          onClick={() => dispatch(navigate(title.to))}
+        >
+          {title.name}
           <span>&#8594;</span>
         </div>
       )}
