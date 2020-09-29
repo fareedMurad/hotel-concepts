@@ -2,6 +2,9 @@
   "host": "localhost",
   "port": 8289,
   "apiUrl": "http://localhost:8288/v1",
-  "googleClientId": "293038701913-22g38t0rpep02thga71qsonelnlinqrf.apps.googleusercontent.com",
-  "facebookAppId": "978057235952932"
+  "googleClientId": "870514345083-s3coqcsaqbib789m3bq9ffc12r4ke4qj.apps.googleusercontent.com",
+  "facebookAppId": "1659761480855161",
+  "fastspringAccessKey": "UYRDMO5URL65MXWKXA9ZKA",
+  "fastspringStoreFront": "zadeagency.test.onfastspring.com/popup-zadeagency",
+  "socketUrl": "wss://dev.kordie.com"
 }
