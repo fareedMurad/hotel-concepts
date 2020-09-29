@@ -5,11 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const useMarketplaceData = () => {
   const dispatch = useDispatch();
-  const {} = useSelector((state: State) => state.marketplace);
+  const { categories, products } = useSelector(
+    (state: State) => state.marketplace
+  );
 
   useEffect(() => {
     dispatch(fetchMarketplaceCategories());
   }, []);
+
+  return { categories, products };
 };
 
 export { useMarketplaceData };

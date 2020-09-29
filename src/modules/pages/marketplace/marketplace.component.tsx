@@ -1,18 +1,12 @@
 import {
-  fetchMarketplaceByCategory,
-  fetchMarketplaceCategories,
   fetchMarketplaceList,
   fetchMarketplaceProduct
 } from '@app/redux/marketplace';
-import { State } from '@app/redux/state';
-import { H2, PreCaption, Spinner } from '@core/components';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { useProductsCategoriesData } from './hooks/marketplace-categories.hook';
-import { useMarketplaceData } from './hooks/marketplace.hook';
-import { MarketplaceHero } from './marketplace-hero';
-import { MarketplaceProductsCarusel } from './marketplace-products-carusel';
+import { useDispatch } from 'react-redux';
+import { Hero, Section } from './components';
+import { useMarketplaceData } from './marketplace.hook';
 import * as styles from './marketplace.scss';
 
 /**
@@ -20,47 +14,46 @@ import * as styles from './marketplace.scss';
  */
 const Marketplace: React.FC = () => {
   const { t } = useTranslation();
-  const {} = useMarketplaceData();
-  const { language } = useSelector((state: State) => state.localization);
-  // const {
-  //   productCategories,
-  //   productCategoriesLoading
-  // } = useProductsCategoriesData(language);
+  const { categories, products } = useMarketplaceData();
   const dispatch = useDispatch();
 
-  // if (productCategoriesLoading) return <Spinner />;
+  console.log(products);
 
   return (
     <div className={styles.marketplace}>
-      <MarketplaceHero />
+      <Hero categories={categories} />
 
-      <div onClick={() => dispatch(fetchMarketplaceList())}>
-        FETCH marketplace list
-      </div>
+      <div className={styles.content}>
+        <div onClick={() => dispatch(fetchMarketplaceList())}>
+          FETCH marketplace list
+        </div>
 
-      <div
-        onClick={() =>
-          dispatch(
-            fetchMarketplaceProduct({
-              id: '5Dsy1yu5LxX2iwM9PB5AeL',
-              category: '2DY13tWbxfrsFsOvTUyBfa'
-            })
-          )
-        }
-      >
-        FETCH product
-      </div>
+        <div
+          onClick={() =>
+            dispatch(
+              fetchMarketplaceProduct({
+                id: '5Dsy1yu5LxX2iwM9PB5AeL',
+                category: '2DY13tWbxfrsFsOvTUyBfa'
+              })
+            )
+          }
+        >
+          FETCH product
+        </div>
 
-      <div onClick={() => dispatch(fetchMarketplaceCategories())}>
-        FETCH Categories
-      </div>
+        <Section
+          className={styles.section}
+          caption='Web templates'
+          description='Popular items in'
+          data={[]}
+        />
 
-      <div
-        onClick={() =>
-          dispatch(fetchMarketplaceByCategory('2DY13tWbxfrsFsOvTUyBfa'))
-        }
-      >
-        FETCH By Category
+        <Section
+          className={styles.section}
+          caption='Books'
+          description='New items in'
+          data={[]}
+        />
       </div>
 
       {/* {productCategories.map(el => (

@@ -23,7 +23,7 @@ const fetchMarketplaceCategories = make('[marketplace] fetch categories').stage(
  */
 const fetchMarketplaceByCategory = make('[marketplace] fetch by category')
   .stage((payload: string) => payload)
-  .stage('success', (payload: MarketplaceCategory) => payload);
+  .stage('success', (payload: MarketplaceCategory['category']) => payload);
 
 /**
  * Fetch marketplace product

@@ -1,0 +1,22 @@
+@import 'core.scss';
+
+.section {
+}
+
+.container {
+  margin-left: 112px;
+}
+
+.description {
+  @include font($primary-orange, 18px, 500, 28px);
+}
+
+.caption {
+  @include font($primary-gray, 48px, 600, 58px);
+  margin-top: 12px;
+  font-family: $EBGaramond;
+}
+
+.content {
+  margin-top: 48px;
+}

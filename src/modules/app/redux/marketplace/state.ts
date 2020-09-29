@@ -12,11 +12,11 @@ class MarketplaceState {
   /**
    * Selected category
    */
-  public selectedCategory: MarketplaceCategory = null;
+  public selectedCategory: MarketplaceCategory['category'] = null;
   /**
-   * Selected list
+   * Products
    */
-  public selectedList: { result: Book[]; total: number } = null;
+  public products: { result: Book[]; total: number } = null;
 }
 
 export { MarketplaceState };

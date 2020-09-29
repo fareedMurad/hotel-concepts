@@ -1,0 +1,71 @@
+@import 'core.scss';
+
+.hero {
+  @include flex($align: stretch, $direction: column);
+  position: relative;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.info {
+  position: absolute;
+  top: 50%;
+  left: 134px;
+  transform: translateY(-50%);
+}
+
+.title {
+  @include font($white, 60px, 600, 70px);
+  font-family: $EBGaramond;
+}
+
+.description {
+  @include font($white, 24px, 400, 34px);
+  width: 100%;
+  max-width: 570px;
+  margin-top: 16px;
+}
+
+.categories {
+  @include flex($align: center);
+  margin: auto 20px 56px 20px;
+  padding: 20px;
+  border-radius: 4px;
+  background: $white;
+}
+
+.category {
+  @include flex($align: center);
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #cbd0d3;
+  border-radius: 4px;
+  transition: $transition;
+  cursor: pointer;
+
+  &:not(:first-child) {
+    margin-left: 20px;
+  }
+
+  &--selected {
+    border-color: $primary-orange;
+
+    .category__caption {
+      font-weight: 500;
+    }
+
+    .category__amount {
+      color: $primary-gray;
+    }
+  }
+
+  &__caption {
+    @include font($primary-gray, 18px, 400, 28px);
+  }
+
+  &__amount {
+    @include font(#cbd0d3, 16px, 400, 22px);
+    margin-left: 12px;
+  }
+}

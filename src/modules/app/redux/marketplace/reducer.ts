@@ -12,7 +12,7 @@ import {
 const marketplace = reducer(new MarketplaceState())
   .on(
     fetchMarketplaceList.success,
-    (state, payload) => (state.selectedList = payload)
+    (state, payload) => (state.products = payload)
   )
   .on(fetchMarketplaceCategories.success, (state, payload) => {
     state.categories = payload;

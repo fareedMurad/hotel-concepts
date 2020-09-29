@@ -1,13 +1,12 @@
 @import 'core.scss';
 
-.items-container {
-  margin-top: 20px;
-  margin-bottom: 24px;
-  @include container();
-  & > div:first-child {
-    margin-top: 60px;
-  }
+.content {
+  @include flex($align: stretch, $direction: column);
+  padding: 60px 22px 120px 20px;
 }
-.title {
-  font-weight: 500;
+
+.section {
+  &:not(:first-child) {
+    margin-top: 80px;
+  }
 }
