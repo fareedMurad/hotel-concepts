@@ -11,6 +11,16 @@ type Session = {
   paymentContact?: PaymentContact;
 };
 
+type CreateSession = {
+  coupon?: string;
+  products: CreateSessionItem[];
+};
+
+type CreateSessionItem = {
+  product: string;
+  quantity: number;
+};
+
 type Product = {
   path: string;
   quantity: number;
@@ -127,4 +137,12 @@ type Builder = {
   labguage: (language: string) => void;
 };
 
-export { Session, PaymentContact, StoreBuilder, Recipient, Product };
+export {
+  Session,
+  PaymentContact,
+  StoreBuilder,
+  Recipient,
+  Product,
+  CreateSession,
+  CreateSessionItem
+};
