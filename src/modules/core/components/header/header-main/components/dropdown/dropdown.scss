@@ -4,15 +4,17 @@
   position: absolute;
   top: 40px;
   background-color: $background;
+  height: auto;
   padding: 16px;
   border-radius: 7px;
   min-width: max-content;
-  height: auto;
   &__title {
-    @include font($primary-gray, 20px, 500, 28px);
+    @include font($primary-gray, 20px, 600, 28px);
     position: relative;
-    padding-bottom: 9px;
     margin-bottom: 30px;
+    padding-bottom: 9px;
+    cursor: pointer;
+    transition: $transition;
     &:before {
       content: '';
       position: absolute;
@@ -21,6 +23,13 @@
       width: 24px;
       height: 2px;
       background-color: $primary-orange;
+    }
+    &:hover {
+      color: $primary-orange;
+    }
+    & > span {
+      margin-left: 8px;
+      color: $primary-orange;
     }
   }
   &__programs {
@@ -50,13 +59,13 @@
   &__links {
     @include flex($direction: column, $justify: space-between);
     width: 100%;
-    gap: 27px;
     &--link {
       width: 100%;
       min-width: 275px;
       cursor: pointer;
       color: $primary-gray;
       transition: $transition;
+
       &:hover {
         color: $primary-orange !important;
       }
@@ -74,6 +83,10 @@
         margin-top: 7px;
         min-height: 200px;
         border-radius: 10px;
+      }
+      &:not(:last-child) {
+        margin-right: 28px;
+        margin-bottom: 15px;
       }
     }
   }

@@ -6,7 +6,7 @@
 
 .column-left {
   @include flex($align: stretch, $direction: column);
-  width: 30%;
+  width: 29.5%;
 
   &__language {
     padding: 12px 20px 18px 20px;
@@ -32,13 +32,13 @@
   display: grid;
   gap: 20px;
   grid-template-areas: 'email-password avatar' 'payment container';
-  grid-template-columns: auto 42%;
+  grid-template-columns: auto 42.5%;
   height: 100%;
   margin-top: 20px;
 
   &__email-password {
     grid-area: email-password;
-    padding: 12px 20px 41px 20px;
+    padding: 12px 20px 5px 20px;
   }
   &__avatar {
     grid-area: avatar;
