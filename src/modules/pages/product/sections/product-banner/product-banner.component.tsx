@@ -57,7 +57,7 @@ const ProductBanner: React.FC<ProductBannerProps> = ({ product }) => {
           <Button
             className={styles.confirmButton}
             children={t('product.product-banner.button-text')}
-            arrow='&rarr;'
+            arrow
           />
         </div>
       </div>

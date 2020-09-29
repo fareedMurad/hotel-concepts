@@ -53,7 +53,7 @@ const Interests: React.FC = () => {
         </div>
         <Button
           className={styles.submit}
-          arrow='→'
+          arrow
           onClick={() => dispatch(chooseInterests(selectedInterests))}
         >
           Confirm

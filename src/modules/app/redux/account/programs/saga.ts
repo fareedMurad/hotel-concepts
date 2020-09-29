@@ -1,3 +1,4 @@
+import { ContentType } from '@account/pages/library/models';
 import { Context } from '@app/redux/context';
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
@@ -65,7 +66,11 @@ class ProgramsSaga {
     // TODO Preloader start
 
     try {
-      yield call(api.programs.addProgramToWishlist, payload);
+      yield call(
+        api.programs.addProgramToWishlist,
+        payload,
+        ContentType.onlineCourse
+      );
 
       yield put(
         toggleToast({
@@ -91,7 +96,13 @@ class ProgramsSaga {
     yield put(preloaderStart(Preloaders.programsWishlist));
 
     try {
-      yield call(api.programs.removeProgramFromWishlist, payload);
+      const response = yield call(
+        api.programs.removeProgramFromWishlist,
+        payload,
+        ContentType.onlineCourse
+      );
+
+      yield put(removeProgramFromWishlist.success(response.data));
 
       yield put(
         toggleToast({

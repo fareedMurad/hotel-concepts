@@ -62,6 +62,7 @@ const SignUp: React.FC = () => {
               <Field.RadioGroup
                 className={styles.position}
                 listClassname={styles.positionList}
+                labelClassname={styles.positionLabel}
                 radioClassname={styles.positionRadio}
                 name='position'
                 label='I am'
@@ -88,7 +89,7 @@ const SignUp: React.FC = () => {
               </div>
               <Button
                 className={styles.submit}
-                arrow='→'
+                arrow
                 onClick={() => handleSubmit()}
               >
                 Sign Up

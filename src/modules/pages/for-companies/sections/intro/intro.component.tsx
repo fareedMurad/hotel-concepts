@@ -33,7 +33,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
           className={styles.button}
           onClick={ScrollToEnroll}
           children={t('for-companies.intro.button-text')}
-          arrow='&rarr;'
+          arrow
         />
       </main>
       <ScrollButton

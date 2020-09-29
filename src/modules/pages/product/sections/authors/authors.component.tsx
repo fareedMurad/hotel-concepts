@@ -52,23 +52,19 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
         )}
 
         <div className={styles.aboutAuthorWrapper}>
-          {transitions.map(({ item, props, key }) => {
-            return (
-              <animated.div key={key} style={props}>
-                <div className={styles.aboutAuthorPosition}>
-                  {item.position}
-                </div>
-                <div className={styles.aboutAuthorName}>
-                  <H3>
-                    {item.name} {item.surname}
-                  </H3>
-                </div>
-                <div className={styles.aboutAuthorDescription}>
-                  {item.shortDescription && item.shortDescription}
-                </div>
-              </animated.div>
-            );
-          })}
+          {transitions.map(({ item, props, key }) => (
+            <animated.div key={key} style={props}>
+              <div className={styles.aboutAuthorPosition}>{item.position}</div>
+              <div className={styles.aboutAuthorName}>
+                <H3>
+                  {item.name} {item.surname}
+                </H3>
+              </div>
+              <div className={styles.aboutAuthorDescription}>
+                {item.shortDescription && item.shortDescription}
+              </div>
+            </animated.div>
+          ))}
           <div className={styles.buttons}>
             {authors.length !== 1 && (
               <>
@@ -95,10 +91,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
                 </button>
               </>
             )}
-            <Button
-              arrow='→'
-              onClick={() => dispatch(navigate('/contributors'))}
-            >
+            <Button arrow onClick={() => dispatch(navigate('/contributors'))}>
               {t('product.authors.button-text')}
             </Button>
           </div>

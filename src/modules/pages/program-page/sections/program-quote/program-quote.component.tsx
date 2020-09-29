@@ -22,7 +22,7 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
 
   if (programQuoteDataLoading) return <Spinner />;
 
-  if (!programQuoteData) return <div></div>;
+  if (!programQuoteData) return <div />;
   const scrollToEnroll = () => {
     scrollTo('enroll');
   };
@@ -39,7 +39,7 @@ const ProgramQuote: React.FC<ProgramQuoteProps> = ({ programId }) => {
         onClick={scrollToEnroll}
         className={styles.button}
         children={t('program-page.program-quote.button-text')}
-        arrow='→'
+        arrow
       />
     </section>
   );

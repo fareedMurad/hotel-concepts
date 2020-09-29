@@ -48,7 +48,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
           theme='secondary'
           className={styles.readMore}
           children='Read more'
-          arrow='&#8594;'
+          arrow
           onClick={() => history.push(`/insights/article/${id}`)}
           width='100%'
         />

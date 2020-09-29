@@ -26,7 +26,7 @@ const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
           <Button
             className={styles.button}
             children={t('home.training-info.button-text')}
-            arrow='&#8594;'
+            arrow
             width={224}
             onClick={() => dispatch(navigate('/learning-approach'))}
           />

@@ -24,7 +24,7 @@ type ButtonProps = React.DetailedHTMLProps<
   /**
    * Arrow
    */
-  arrow?: any;
+  arrow?: boolean;
   /**
    * Button width
    */

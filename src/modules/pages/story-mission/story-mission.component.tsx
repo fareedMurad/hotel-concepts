@@ -20,9 +20,7 @@ import { ScrollToTop } from '@app';
 import { useTransition } from 'react-spring';
 import { useTranslation } from 'react-i18next';
 
-const Hr = () => {
-  return <div className={styles.hr} />;
-};
+const Hr = () => <div className={styles.hr} />;
 /**
  * Renders anchors
  */
@@ -80,7 +78,7 @@ const StoryMission: React.FC<StoryMissionProps> = ({}) => {
                 className={styles.headerBtn}
                 onClick={() => scrollTo('get-involved')}
                 children={t('story-mission.button-text')}
-                arrow='&#8594;'
+                arrow
                 width='inherit'
               />
             </div>

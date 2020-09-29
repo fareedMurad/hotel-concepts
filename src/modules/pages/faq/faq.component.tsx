@@ -74,7 +74,7 @@ const Faq: React.FC<FaqProps> = ({}) => {
                       onClick={() => handleSubmit()}
                       className={styles.submitButton}
                       children={t('faq.form.lable.button-text')}
-                      arrow='&#8594;'
+                      arrow
                     />
                   </div>
                 </Form>

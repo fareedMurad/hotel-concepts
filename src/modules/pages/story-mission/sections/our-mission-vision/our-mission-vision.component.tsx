@@ -29,7 +29,7 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
           theme='secondary'
           width={224}
           children={t('story-mission.our-mission.button-text')}
-          arrow='&#8594;'
+          arrow
         />
       </Link>
     </div>

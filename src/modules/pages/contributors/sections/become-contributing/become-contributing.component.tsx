@@ -104,7 +104,7 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                 className={styles.buttonSubmit}
                 type='submit'
                 children={t('contributors.form.lable.button-text')}
-                arrow='&#8594;'
+                arrow
                 width={230}
               />
               {sent && <div>{t('contributors.form.send-successful')}</div>}

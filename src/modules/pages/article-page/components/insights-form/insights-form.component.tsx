@@ -47,7 +47,7 @@ const InsightsForm: React.FC<InsightsFormProps> = ({}) => {
                   className={styles.button}
                   onClick={() => handleSubmit()}
                   children={t('insights-form.button-text')}
-                  arrow='&#8594;'
+                  arrow
                   width={284}
                 />
               </Form>

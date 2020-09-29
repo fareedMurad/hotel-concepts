@@ -56,7 +56,7 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({}) => {
                     <Button
                       className={styles.submit}
                       onClick={() => handleSubmit()}
-                      arrow='→'
+                      arrow
                     >
                       Send e-mail
                     </Button>

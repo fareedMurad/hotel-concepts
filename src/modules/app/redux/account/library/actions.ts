@@ -1,3 +1,4 @@
+import { Book } from '@account/pages/library/models';
 import { make } from 'redux-chill';
 
 /**
@@ -5,7 +6,7 @@ import { make } from 'redux-chill';
  */
 const fetchLibraryPurchased = make('[library] fetch library purchased').stage(
   'success',
-  (payload: { items: []; total: number }) => payload
+  (payload: { items: Book[]; total: number }) => payload
 );
 
 /**
@@ -13,7 +14,7 @@ const fetchLibraryPurchased = make('[library] fetch library purchased').stage(
  */
 const fetchLibraryWishlist = make('[library] fetch library wishlist').stage(
   'success',
-  (payload: { items: []; total: number }) => payload
+  (payload: { items: Book[]; total: number }) => payload
 );
 
 /**
@@ -28,7 +29,7 @@ const addBookToWishlist = make('[library] add book to wishlist')
  */
 const removeBookFromWishlist = make('[library] remove book from wishlist')
   .stage((payload: string) => payload)
-  .stage('success');
+  .stage('success', (payload: { items: Book[]; total: number }) => payload);
 
 export {
   fetchLibraryPurchased,

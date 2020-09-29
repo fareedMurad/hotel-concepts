@@ -1,0 +1,29 @@
+@import 'core.scss';
+
+.drop-down {
+  position: absolute;
+  top: 40px;
+  right: calc(50% - 150px);
+  padding: 20px;
+  background-color: $background;
+  border-radius: 16px;
+  overflow: hidden;
+  border-bottom: 1px solid #cbd0d3;
+  min-width: 300px;
+  &--item {
+    @include font($primary-gray, 20px, 400, 28px);
+    transition: $transition;
+    &:not(:last-child) {
+      margin-bottom: 12px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid #cbd0d3;
+    }
+    & > a {
+      transition: $transition;
+      &:hover {
+        text-decoration: underline;
+        color: $primary-orange;
+      }
+    }
+  }
+}

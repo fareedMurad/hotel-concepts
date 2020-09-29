@@ -1,3 +1,4 @@
+import { ContentType } from '@account/pages/library/models';
 import { Context } from '@app/redux/context';
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
@@ -24,7 +25,11 @@ class LibrarySaga {
     yield put(preloaderStart(Preloaders.libraryPurchased));
 
     try {
-      const response = yield call(api.library.fetchLibraryPurchased, 'en-US');
+      const response = yield call(
+        api.library.fetchLibraryPurchased,
+        'en-US',
+        ContentType.product
+      );
 
       yield put(fetchLibraryPurchased.success(response.data));
     } catch (error) {
@@ -44,7 +49,11 @@ class LibrarySaga {
     yield put(preloaderStart(Preloaders.libraryWishlist));
 
     try {
-      const response = yield call(api.library.fetchLibraryWishlist, 'en-US');
+      const response = yield call(
+        api.library.fetchLibraryWishlist,
+        'en-US',
+        ContentType.product
+      );
 
       yield put(fetchLibraryWishlist.success(response.data));
     } catch (error) {
@@ -65,8 +74,7 @@ class LibrarySaga {
     // TODO Preloader start
 
     try {
-      yield call(api.library.addBookToWishlist, payload);
-
+      yield call(api.library.addBookToWishlist, payload, ContentType.product);
       yield put(
         toggleToast({
           status: 'success',
@@ -91,8 +99,13 @@ class LibrarySaga {
     yield put(preloaderStart(Preloaders.libraryWishlist));
 
     try {
-      yield call(api.library.removeBookFromWishlist, payload);
+      const response = yield call(
+        api.library.removeBookFromWishlist,
+        payload,
+        ContentType.product
+      );
 
+      yield put(removeBookFromWishlist.success(response.data));
       yield put(
         toggleToast({
           status: 'success',

@@ -23,7 +23,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
   const history = useHistory();
   const handleClick = id => () =>
     history.push(`/program/${slug}?programId=${id}`);
-    
+
   return (
     <React.Fragment>
       <div className={styles.programItem}>
@@ -47,7 +47,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
             onClick={handleClick(id)}
             className={styles.button}
             children='Find out more'
-            arrow='&#8594;'
+            arrow
           />
         </div>
       </div>

@@ -29,7 +29,7 @@ const CoursePartnershipHero: React.FC<HeroProps> = ({}) => {
           <Button
             className={styles.button}
             children={t('course-partnership.hero.button-text')}
-            arrow='&rarr;'
+            arrow
           />
         </a>
       </main>

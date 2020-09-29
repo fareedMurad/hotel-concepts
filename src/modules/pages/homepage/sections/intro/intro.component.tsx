@@ -88,7 +88,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         className={styles.findButton}
         onClick={scrollToEnroll}
         children={t('home.hero.button-text')}
-        arrow='→'
+        arrow
         width={230}
       />
       <Popup

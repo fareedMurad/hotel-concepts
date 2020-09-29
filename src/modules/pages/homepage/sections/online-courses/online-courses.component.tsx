@@ -110,7 +110,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = ({}) => {
                   }
                   className={styles.button}
                   children={t('home.online-courses.button-text')}
-                  arrow='&#8594;'
+                  arrow
                 />
               </div>
             </React.Fragment>

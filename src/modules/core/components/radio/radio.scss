@@ -15,27 +15,10 @@
     }
   }
 
-  // &:before {
-  //   content: '';
-  //   display: none;
-  //   width: 8px;
-  //   height: 8px;
-  //   position: absolute;
-  //   top: calc(50% - 4px);
-  //   left: calc(50% - 4px);
-  //   background-color: $primary-orange;
-  //   border-radius: 50%;
-  // }
-
-  // &--selected {
-  //   border: 2px solid $primary-orange;
-  //   &:before {
-  //     display: block;
-  //   }
-  // }
-
   &__label {
+    margin-bottom: 0;
     margin-left: 6px;
+    line-height: normal;
     cursor: pointer;
   }
 }
@@ -75,7 +58,8 @@
   @include flex($align: stretch, $direction: column);
 
   &__label {
-    @include font(#3e3e3e, 16px, 400, 22px);
+    @include font(#3e3e3e, 16px, 400, normal);
+    margin-bottom: 0;
   }
 
   &__list {

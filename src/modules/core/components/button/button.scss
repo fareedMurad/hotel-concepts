@@ -1,7 +1,7 @@
 @import 'core.scss';
 
 .button {
-  @include flex($align: center, $justify: space-between);
+  @include flex(center, center);
   position: relative;
   width: fit-content;
   border: 0;

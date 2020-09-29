@@ -40,7 +40,7 @@ const ProgramLearningApproach: React.FC<ProgramLearningApproachProps> = ({
         <Button
           className={styles.button}
           children={t('program-page.learning-approach.button-text')}
-          arrow='→'
+          arrow
         />
       </Link>
     </section>

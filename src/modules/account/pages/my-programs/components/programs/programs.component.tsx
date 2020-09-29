@@ -1,18 +1,55 @@
+import { removeProgramFromWishlist } from '@app/redux/account';
+import { Button, Icon } from '@core/components';
 import classNames from 'classnames';
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { ProgramProps, ProgramsProps } from './programs.props';
 import * as styles from './programs.scss';
 
 /**
  * Renders single Program
  */
-const Program: React.FC<ProgramProps> = ({ type }) => {
+const Program: React.FC<ProgramProps> = ({ type, program }) => {
+  const dispatch = useDispatch();
   const fromWishlist = type == 'wishlist';
+  const {
+    id,
+    name,
+    description,
+    complexityLevel,
+    price,
+    weeks,
+    sprints,
+    heroImage: {
+      file: { url }
+    }
+  } = program || {};
 
   return (
     <div className={styles.program}>
-      <div>Program image</div>
-      <div>Program title</div>
+      {fromWishlist && (
+        <Icon
+          className={styles.like}
+          name='like'
+          onClick={() => dispatch(removeProgramFromWishlist(id))}
+        />
+      )}
+      <img className={styles.image} src={url} alt={url} />
+      <div className={styles.container}>
+        <div className={styles.complexity}>{complexityLevel}</div>
+        <div className={styles.title}>{name}</div>
+        <div className={styles.meta}>
+          <div>{weeks} weeks</div>
+          <div className={styles.metaSprints}>{sprints} sprints</div>
+          <div>{price}$</div>
+        </div>
+        <div className={styles.box}>
+          <div className={styles.description}>{description}</div>
+          <Button className={styles.add} arrow>
+            Add to cart
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -23,11 +60,12 @@ const Program: React.FC<ProgramProps> = ({ type }) => {
 const Programs: React.FC<ProgramsProps> = ({ className, type, data }) => {
   const fromWishlist = type == 'wishlist';
   const { items, total } = data || {};
+  const dispatch = useDispatch();
 
   return total > 0 ? (
     <div className={classNames(styles.programs, className)}>
-      {items.map(index => (
-        <Program type={type} key={index} />
+      {items.map(program => (
+        <Program type={type} program={program} key={program?.id} />
       ))}
     </div>
   ) : (

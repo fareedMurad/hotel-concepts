@@ -50,33 +50,31 @@ const Navigation: React.FC<{
   caption: string;
   navigation: any[];
   socials?: any[];
-}> = ({ caption, navigation, socials }) => {
-  return (
-    <div className={styles.navigationItem}>
-      <div className={styles.navigationCaption}>{caption}</div>
-      <div className={styles.navigationLinks}>
-        {navigation.map((link, idx) => {
-          const { caption, to, ...rest } = link;
+}> = ({ caption, navigation, socials }) => (
+  <div className={styles.navigationItem}>
+    <div className={styles.navigationCaption}>{caption}</div>
+    <div className={styles.navigationLinks}>
+      {navigation.map((link, idx) => {
+        const { caption, to, ...rest } = link;
 
-          return (
-            <NavLink
-              key={idx}
-              to={rest.sys ? `/programs-catalogue/${rest.sys.id}` : to}
-            >
-              {rest.name ? rest.name : caption}
-            </NavLink>
-          );
-        })}
-      </div>
-      {socials &&
-        socials.map(item => (
-          <a href={item.to} className={styles.social} key={item.id}>
-            <img src={require(`img/socials/${item.img}.svg`)} alt='' />
-          </a>
-        ))}
+        return (
+          <NavLink
+            key={idx}
+            to={rest.sys ? `/programs-catalogue/${rest.sys.id}` : to}
+          >
+            {rest.name ? rest.name : caption}
+          </NavLink>
+        );
+      })}
     </div>
-  );
-};
+    {socials &&
+      socials.map(item => (
+        <a href={item.to} className={styles.social} key={item.id}>
+          <img src={require(`img/socials/${item.img}.svg`)} alt='' />
+        </a>
+      ))}
+  </div>
+);
 /**
  * Renders Footer
  */
@@ -139,7 +137,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
                       className={styles.buttonSubmit}
                       type='submit'
                       children={t('footer.form.button-text')}
-                      arrow='&#8594;'
+                      arrow
                       width={176}
                     />
                   </div>
