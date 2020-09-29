@@ -1,3 +1,5 @@
+import { Program } from '../../models';
+
 /**
  * Single program props
  */
@@ -6,6 +8,10 @@ type ProgramProps = {
    * Book type
    */
   type: 'wishlist' | 'purchased';
+  /**
+   * Program
+   */
+  program: Program;
 };
 
 /**
@@ -23,7 +29,7 @@ type ProgramsProps = {
   /**
    * Data
    */
-  data: { items: []; total: number };
+  data: { items: Program[]; total: number };
 };
 
 export { ProgramsProps, ProgramProps };

@@ -1,8 +1,55 @@
 @import 'core.scss';
 
 .programs {
+  @include flex($align: stretch, $direction: column);
 }
 
 .placeholder {
   text-align: center;
+}
+
+.program {
+  @include flex($align: stretch);
+}
+
+.image {
+  max-width: 200px;
+}
+
+.container {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+  margin-left: 20px;
+}
+
+.complexity {
+  @include font($primary-orange, 18px, 500, normal);
+}
+
+.title {
+  @include font(#3e3e3e, 36px, 600, 46px);
+  margin-top: 8px;
+  font-family: $EBGaramond;
+}
+
+.meta {
+  @include flex($align: center);
+  @include font($primary-orange, 18px, 500, normal);
+  margin-top: 16px;
+
+  &__sprints {
+    margin: 0 26px;
+    padding: 0 26px 0 34px;
+    border-right: 2px solid #98a2a8;
+    border-left: 2px solid #98a2a8;
+  }
+}
+
+.box {
+}
+
+.description {
+}
+
+.add {
 }

@@ -1,4 +1,5 @@
 import { addProgramToWishlist } from '@app/redux/account';
+import { Button } from '@core/components';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
@@ -8,13 +9,36 @@ import * as styles from './programs.scss';
 /**
  * Renders single Program
  */
-const Program: React.FC<ProgramProps> = ({ type }) => {
+const Program: React.FC<ProgramProps> = ({ type, program }) => {
   const fromWishlist = type == 'wishlist';
+  const {
+    name,
+    complexityLevel,
+    heroImage: {
+      file: { url }
+    }
+  } = program || {};
+
+  console.log(program);
 
   return (
     <div className={styles.program}>
-      <div>Program image</div>
-      <div>Program title</div>
+      <img className={styles.image} src={url} alt={url} />
+      <div className={styles.container}>
+        <div className={styles.complexity}>{complexityLevel}</div>
+        <div className={styles.title}>{name}</div>
+        <div className={styles.meta}>
+          <div>weeks</div>
+          <div className={styles.metaSprints}>sprints</div>
+          <div>price$</div>
+        </div>
+        <div className={styles.box}>
+          <div className={styles.description}>{'description'}</div>
+          <Button className={styles.add} arrow>
+            Add to cart
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -34,8 +58,8 @@ const Programs: React.FC<ProgramsProps> = ({ className, type, data }) => {
       >
         add
       </div> */}
-      {items.map(index => (
-        <Program type={type} key={index} />
+      {items.map(program => (
+        <Program type={type} program={program} key={program?.id} />
       ))}
     </div>
   ) : (

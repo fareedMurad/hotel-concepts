@@ -1,3 +1,4 @@
+import { Program } from '@account/pages/my-programs/models';
 import { make } from 'redux-chill';
 
 /**
@@ -5,14 +6,14 @@ import { make } from 'redux-chill';
  */
 const fetchProgramsPurchased = make(
   '[programs] fetch programs purchased'
-).stage('success', (payload: { items: []; total: number }) => payload);
+).stage('success', (payload: { items: Program[]; total: number }) => payload);
 
 /**
  * Fetch programs wishlist
  */
 const fetchProgramsWishlist = make('[programs] fetch programs wishlist').stage(
   'success',
-  (payload: { items: []; total: number }) => payload
+  (payload: { items: Program[]; total: number }) => payload
 );
 
 /**
