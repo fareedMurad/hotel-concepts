@@ -37,6 +37,9 @@ enum Preloaders {
   programsPurchased = 'programs purchased',
   programsWishlist = 'programs wishlist',
 
+  // Marketplace
+  marketplace = 'marketplace',
+
   // Uikit
   uikit = 'uikit',
 

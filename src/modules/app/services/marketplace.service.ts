@@ -1,0 +1,54 @@
+import { ContentType } from '@account/pages/library/models';
+import { HttpService } from './config';
+
+class MarketplaceService {
+  /**
+   * Init
+   */
+  public constructor(private http: HttpService) {}
+
+  /**
+   * Fetch marketplace list
+   */
+  public fetchMarketplaceList = (data: {
+    skip: number;
+    limit: number;
+    category: string;
+    locale: string;
+  }) => {
+    const { skip, limit, category, locale } = data;
+
+    return this.http.request({
+      url: `/contentful/products/list?skip=${skip}&limit=${limit}&category=${category}&locale=${locale}`
+    });
+  };
+
+  /**
+   * Fetch marketplace categories
+   */
+  public fetchMarketplaceCategories = (locale: string) =>
+    this.http.request({
+      url: `/contentful/products/categories?locale=${locale}`
+    });
+
+  /**
+   * Fetch marketplace products by category id
+   */
+  public fetchMarketplaceByCategory = (id: string, locale: string) =>
+    this.http.request({
+      url: `/contentful/products/categories/${id}?locale=${locale}`
+    });
+
+  /**
+   * Fetch marketplace product
+   */
+  public fetchMarketplaceProduct = data => {
+    const { id, type, category, locale } = data;
+
+    return this.http.request({
+      url: `/contentful/${id}?type=${type}&category=${category}&locale=${locale}`
+    });
+  };
+}
+
+export { MarketplaceService };

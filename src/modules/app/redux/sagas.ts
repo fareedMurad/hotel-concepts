@@ -10,6 +10,7 @@ import {
   ProgramsSaga,
   SubscriptionSaga
 } from './account';
+import { MarketplaceSaga } from './marketplace';
 
 /**
  * App sagas
@@ -24,7 +25,8 @@ const sagas = [
   new ProfileSaga(),
   new SubscriptionSaga(),
   new LibrarySaga(),
-  new ProgramsSaga()
+  new ProgramsSaga(),
+  new MarketplaceSaga()
 ];
 
 export { sagas };
