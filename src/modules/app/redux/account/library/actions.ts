@@ -29,7 +29,7 @@ const addBookToWishlist = make('[library] add book to wishlist')
  */
 const removeBookFromWishlist = make('[library] remove book from wishlist')
   .stage((payload: string) => payload)
-  .stage('success');
+  .stage('success', (payload: { items: Book[]; total: number }) => payload);
 
 export {
   fetchLibraryPurchased,

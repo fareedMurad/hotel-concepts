@@ -10,17 +10,17 @@ class LibraryService {
   /**
    * Fetch library purchased
    */
-  public fetchLibraryPurchased = (locale: string) =>
+  public fetchLibraryPurchased = (locale: string, type: ContentType) =>
     this.http.request({
-      url: `/library?locale=${locale}&type=${ContentType}`
+      url: `/library?locale=${locale}&type=${type}`
     });
 
   /**
    * Fetch library wishlist
    */
-  public fetchLibraryWishlist = (locale: string) =>
+  public fetchLibraryWishlist = (locale: string, type: ContentType) =>
     this.http.request({
-      url: `/wishlist?locale=${locale}&type=${ContentType}`
+      url: `/wishlist?locale=${locale}&type=${type}`
     });
 
   /**

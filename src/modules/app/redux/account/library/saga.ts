@@ -25,7 +25,11 @@ class LibrarySaga {
     yield put(preloaderStart(Preloaders.libraryPurchased));
 
     try {
-      const response = yield call(api.library.fetchLibraryPurchased, 'en-US');
+      const response = yield call(
+        api.library.fetchLibraryPurchased,
+        'en-US',
+        ContentType.product
+      );
 
       yield put(fetchLibraryPurchased.success(response.data));
     } catch (error) {
@@ -45,7 +49,11 @@ class LibrarySaga {
     yield put(preloaderStart(Preloaders.libraryWishlist));
 
     try {
-      const response = yield call(api.library.fetchLibraryWishlist, 'en-US');
+      const response = yield call(
+        api.library.fetchLibraryWishlist,
+        'en-US',
+        ContentType.product
+      );
 
       yield put(fetchLibraryWishlist.success(response.data));
     } catch (error) {
@@ -67,7 +75,6 @@ class LibrarySaga {
 
     try {
       yield call(api.library.addBookToWishlist, payload, ContentType.product);
-
       yield put(
         toggleToast({
           status: 'success',
@@ -92,12 +99,13 @@ class LibrarySaga {
     yield put(preloaderStart(Preloaders.libraryWishlist));
 
     try {
-      yield call(
+      const response = yield call(
         api.library.removeBookFromWishlist,
         payload,
         ContentType.product
       );
 
+      yield put(removeBookFromWishlist.success(response.data));
       yield put(
         toggleToast({
           status: 'success',

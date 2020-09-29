@@ -1,6 +1,10 @@
 import { LibraryState } from './state';
 import { reducer } from 'redux-chill';
-import { fetchLibraryPurchased, fetchLibraryWishlist } from './actions';
+import {
+  fetchLibraryPurchased,
+  fetchLibraryWishlist,
+  removeBookFromWishlist
+} from './actions';
 
 /**
  * library state
@@ -10,6 +14,9 @@ const library = reducer(new LibraryState())
     state.purchased = payload;
   })
   .on(fetchLibraryWishlist.success, (state, payload) => {
+    state.wishlist = payload;
+  })
+  .on(removeBookFromWishlist.success, (state, payload) => {
     state.wishlist = payload;
   });
 

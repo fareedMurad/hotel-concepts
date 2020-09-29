@@ -1,4 +1,4 @@
-import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
+import { removeBookFromWishlist } from '@app/redux/account';
 import { Button, Icon } from '@core/components';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -54,15 +54,9 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
 const Books: React.FC<BooksProps> = ({ className, type, data }) => {
   const fromWishlist = type == 'wishlist';
   const { items, total } = data || {};
-  const dispatch = useDispatch();
 
   return total > 0 ? (
     <div className={classNames(styles.books, className)}>
-      {/* <div
-        onClick={() => dispatch(addBookToWishlist('2geEtN0sCVVlQZuHtRAwu9'))}
-      >
-        add
-      </div> */}
       {items.map(book => (
         <Book type={type} book={book} key={book?.id} />
       ))}
