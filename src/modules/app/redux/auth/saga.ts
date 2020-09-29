@@ -132,6 +132,7 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.chooseInterests, payload);
 
+      yield put(getUser());
       yield put(navigate('/account/profile'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
