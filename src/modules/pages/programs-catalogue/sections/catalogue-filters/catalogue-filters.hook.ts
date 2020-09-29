@@ -1,5 +1,5 @@
 const useCatalogueFiltersData = () => {
-  const data = [
+  const filters = [
     'All',
     'Family business',
     'Strategy',
@@ -12,7 +12,7 @@ const useCatalogueFiltersData = () => {
     'Finance'
   ];
 
-  return { data };
+  return { filters };
 };
 
 export { useCatalogueFiltersData };
