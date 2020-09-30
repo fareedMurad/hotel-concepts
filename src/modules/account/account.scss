@@ -25,17 +25,22 @@
 
 .links {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0 20px;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+
   width: 100%;
   max-width: 52%;
   align-self: center;
   margin-top: 72px;
+  @include desktop() {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+  }
 }
 
 .link {
   @include flex($align: center);
-  width: 204px;
+  width: 100%;
   padding: 11px 20px;
   border-radius: 4px;
   background: #f5f1f0;
@@ -59,6 +64,9 @@
     .link__caption {
       color: $white;
     }
+  }
+  @include desktop() {
+    width: 204px;
   }
 }
 
