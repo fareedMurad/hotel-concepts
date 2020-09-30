@@ -30,12 +30,14 @@
   @include flex($align: stretch, $direction: column);
   flex: 1;
   margin-top: 20px;
+  width: 100%;
   &__interests {
     padding: 12px 20px 20px 20px;
   }
   @include desktop() {
     margin-top: 0px;
     margin-left: 20px;
+    width: auto;
   }
 }
 

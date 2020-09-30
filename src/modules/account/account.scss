@@ -27,11 +27,9 @@
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 20px;
-
-  width: 100%;
-  max-width: 52%;
   align-self: center;
-  margin-top: 72px;
+  margin: 72px auto 0 auto;
+
   @include desktop() {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
