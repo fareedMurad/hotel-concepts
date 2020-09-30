@@ -42,9 +42,9 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
 
   return (
     <div className={styles.profileMenu} ref={ref}>
-      {links.map(link => {
-        <NavLink to={link.to}>{link.title}</NavLink>;
-      })}
+      {links.map(link => (
+        <NavLink to={link.to}>{link.title}</NavLink>
+      ))}
       <Button
         className={styles.logout}
         onClick={() => {
