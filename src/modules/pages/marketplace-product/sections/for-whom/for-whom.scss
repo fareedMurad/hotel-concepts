@@ -1,0 +1,42 @@
+@import 'core.scss';
+
+.for-whom {
+  padding: 0 134px 80px 134px;
+}
+
+.caption {
+  @include font($primary-gray, 48px, 600, 58px);
+  font-family: $EBGaramond;
+}
+
+.description {
+  @include font($primary-gray, 18px, 400, 28px);
+  margin-top: 24px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 315px);
+  gap: 24px 20px;
+  margin-top: 38px;
+}
+
+.card {
+  @include flex($align: center);
+  padding: 24px 16px;
+  border-radius: 4px;
+  background: #f5f1f0;
+
+  &__indicator {
+    @include size(4px);
+    @include min-size(4px);
+    background: $primary-gray;
+  }
+
+  &__caption {
+    @include font($primary-gray, 28px, 400, 35px);
+    flex: 1;
+    margin-left: 8px;
+    font-family: $EBGaramond;
+  }
+}

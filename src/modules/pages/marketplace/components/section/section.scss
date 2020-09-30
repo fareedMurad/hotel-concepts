@@ -3,6 +3,15 @@
 .section {
 }
 
+.slider-item {
+  flex: 0 0 auto !important;
+  max-width: 316px;
+
+  &:not(:first-child) {
+    margin-left: 20px;
+  }
+}
+
 .container {
   margin-left: 112px;
 }
@@ -19,4 +28,52 @@
 
 .content {
   margin-top: 48px;
+}
+
+.book {
+  @include flex($align: stretch, $direction: column);
+  position: relative;
+  padding: 20px 18px 18px 18px;
+  background: #f5f1f0;
+  border-radius: 6px;
+}
+
+.like {
+  @include size(24px);
+  position: absolute;
+  top: 20px;
+  right: 18px;
+}
+
+.image {
+  width: 100%;
+  max-height: 240px;
+  padding-bottom: 20px;
+  align-self: center;
+  object-fit: contain;
+}
+
+.divider {
+  height: 2px;
+  background: #cbd0d3;
+}
+
+.name {
+  @include font(#3e3e3e, 36px, 600, 46px);
+  flex: 1;
+  margin-top: 20px;
+  font-family: $EBGaramond;
+}
+
+.controls {
+  @include flex($align: center);
+  margin-top: 10px;
+
+  & > button {
+    width: 100%;
+  }
+
+  & > button:not(:first-child) {
+    margin-left: 20px;
+  }
 }

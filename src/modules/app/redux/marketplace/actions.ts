@@ -5,17 +5,22 @@ import { make } from 'redux-chill';
 /**
  * Fetch marketplace list
  */
-const fetchMarketplaceList = make('[marketplace] fetch list').stage(
-  'success',
-  (payload: { result: Book[]; total: number }) => payload
-);
+const fetchMarketplaceList = make('[marketplace] fetch list')
+  .stage((payload: string) => payload)
+  .stage('success', (payload: { result: Book[]; total: number }) => payload);
 
 /**
  * Fetch marketplace categories
  */
 const fetchMarketplaceCategories = make('[marketplace] fetch categories').stage(
   'success',
-  (payload: MarketplaceCategory[]) => payload
+  (
+    payload: {
+      category: MarketplaceCategory['category'];
+      items: Book[];
+      total: number;
+    }[]
+  ) => payload
 );
 
 /**
@@ -29,8 +34,8 @@ const fetchMarketplaceByCategory = make('[marketplace] fetch by category')
  * Fetch marketplace product
  */
 const fetchMarketplaceProduct = make('[marketplace] fetch product')
-  .stage((payload: { id: string; category: string }) => payload)
-  .stage('success');
+  .stage((payload: string) => payload)
+  .stage('success', (payload: Book) => payload);
 
 export {
   fetchMarketplaceList,

@@ -18,6 +18,8 @@ type User = {
   source: string;
   position: string;
   newsSub: boolean;
+  subscriptionId: string;
+  subscriptionStatus: boolean;
   paymentMethods: {
     paypal: boolean;
     card: boolean;

@@ -20,14 +20,17 @@ class MarketplaceSaga {
    * Fetch marketplace list
    */
   @Saga(fetchMarketplaceList)
-  public *fetchMarketplaceList(_, { api }: Context) {
+  public *fetchMarketplaceList(
+    payload: Payload<typeof fetchMarketplaceList>,
+    { api }: Context
+  ) {
     yield put(preloaderStart(Preloaders.marketplace));
 
     try {
       const response = yield call(api.marketplace.fetchMarketplaceList, {
         skip: 0,
         limit: 1,
-        category: '2DY13tWbxfrsFsOvTUyBfa',
+        category: payload,
         locale: 'en-US'
       });
 
@@ -68,7 +71,7 @@ class MarketplaceSaga {
     payload: Payload<typeof fetchMarketplaceByCategory>,
     { api }: Context
   ) {
-    yield put(preloaderStart(Preloaders.marketplace));
+    // yield put(preloaderStart(Preloaders.marketplace));
 
     try {
       const response = yield call(
@@ -81,7 +84,7 @@ class MarketplaceSaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.marketplace));
+      // yield put(preloaderStop(Preloaders.marketplace));
     }
   }
 
@@ -90,24 +93,23 @@ class MarketplaceSaga {
    */
   @Saga(fetchMarketplaceProduct)
   public *fetchMarketplaceProduct(
-    { id, category }: Payload<typeof fetchMarketplaceProduct>,
+    id: Payload<typeof fetchMarketplaceProduct>,
     { api }: Context
   ) {
-    yield put(preloaderStart(Preloaders.marketplace));
+    yield put(preloaderStart(Preloaders.marketplaceProduct));
 
     try {
       const response = yield call(api.marketplace.fetchMarketplaceProduct, {
         id,
-        category,
         locale: 'en-US',
         type: ContentType.product
       });
 
-      console.log(response);
+      yield put(fetchMarketplaceProduct.success(response.data));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.marketplace));
+      yield put(preloaderStop(Preloaders.marketplaceProduct));
     }
   }
 }

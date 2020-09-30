@@ -8,15 +8,19 @@ class MarketplaceState {
   /**
    * Categories
    */
-  public categories: MarketplaceCategory[] = [];
+  public categories: {
+    category: MarketplaceCategory['category'];
+    items: Book[];
+    total: number;
+  }[] = [];
   /**
    * Selected category
    */
   public selectedCategory: MarketplaceCategory['category'] = null;
   /**
-   * Products
+   * Selected product
    */
-  public products: { result: Book[]; total: number } = null;
+  public selectedProduct: Book = null;
 }
 
 export { MarketplaceState };

@@ -8,6 +8,15 @@ import { HeroProps } from './hero.props';
 import * as styles from './hero.scss';
 
 /**
+ * Scroll into section
+ */
+const scrollInto = (id: string) => {
+  const element = document.getElementById(id);
+
+  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+/**
  * Renders Hero
  */
 const Hero: React.FC<HeroProps> = ({ className, categories }) => {
@@ -27,18 +36,24 @@ const Hero: React.FC<HeroProps> = ({ className, categories }) => {
       <div className={styles.categories}>
         {categories.map(({ category: { category, id }, total }) => {
           const match = selectedCategory?.id == id;
+          const isNotEmpty = total > 0;
 
           return (
-            <div
-              className={classNames(styles.category, {
-                [styles.categorySelected]: match
-              })}
-              onClick={() => dispatch(fetchMarketplaceByCategory(id))}
-              key={id}
-            >
-              <div className={styles.categoryCaption}>{category}</div>
-              <div className={styles.categoryAmount}>({total})</div>
-            </div>
+            isNotEmpty && (
+              <div
+                className={classNames(styles.category, {
+                  [styles.categorySelected]: match
+                })}
+                onClick={() => {
+                  scrollInto(id);
+                  dispatch(fetchMarketplaceByCategory(id));
+                }}
+                key={id}
+              >
+                <div className={styles.categoryCaption}>{category}</div>
+                <div className={styles.categoryAmount}>({total})</div>
+              </div>
+            )
           );
         })}
       </div>

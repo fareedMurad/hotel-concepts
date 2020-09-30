@@ -1,0 +1,185 @@
+@import 'core.scss';
+
+.preview {
+  @include flex();
+  padding-left: 22px;
+}
+
+.back {
+  @include flex($align: center);
+  @include font($primary-gray, 15px, 500, 20px);
+  padding: 8px 12px;
+  background-color: #f5f1f0;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &__caption {
+    margin-left: 18px;
+  }
+}
+
+.container {
+  @include flex($align: stretch);
+  flex: 1;
+  max-height: 666px;
+  margin-left: 20px;
+}
+
+.showcase {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+  padding: 36px 16px 25px 0;
+
+  &__info {
+    @include flex(space-between, center);
+    margin-top: 25px;
+  }
+}
+
+.image {
+  align-self: center;
+  width: 100%;
+  max-width: 60%;
+  max-height: 482px;
+  object-fit: contain;
+}
+
+.show {
+  align-self: center;
+  width: 204px;
+}
+
+.share {
+  @include flex($align: center);
+
+  &__caption {
+    @include font($primary-gray, 16px, 400, 22px);
+  }
+
+  &__icon {
+    @include flex(center, center);
+    @include size(34px);
+    @include min-size(34px);
+    margin-left: 12px;
+    border-radius: 50%;
+    background: #f5f1f0;
+  }
+}
+
+.formats {
+  @include flex($align: center);
+}
+
+.format {
+  @include flex(center, center);
+  @include font($primary-gray, 9px, 400, 12px);
+  @include size(34px);
+  @include min-size(34px);
+  border-radius: 50%;
+  background: #f5f1f0;
+
+  &:not(:first-child) {
+    margin-left: 8px;
+  }
+}
+
+.info {
+  position: relative;
+  width: 100%;
+  max-width: 692px;
+  padding: 20px;
+  background-color: $background;
+  border-radius: 12px 0 0 12px;
+}
+
+.caption {
+  @include font($primary-gray, 48px, 600, 58px);
+  font-family: $EBGaramond;
+}
+
+.description {
+  @include font($primary-gray, 18px, 400, 28px);
+  margin-top: 12px;
+}
+
+.authors {
+  @include font($primary-gray, 18px, 400, 58px);
+  margin-top: 20px;
+  font-family: $EBGaramond;
+}
+
+.author {
+  margin-left: 4px;
+  text-decoration: underline;
+  transition: $transition;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-orange;
+  }
+
+  &:not(:last-child) {
+    &:after {
+      content: ',';
+    }
+  }
+}
+
+.meta {
+  @include flex($align: center);
+  margin-top: 24px;
+}
+
+.languages {
+  @include font($primary-gray, 12px, 400, 16px);
+
+  &__bold {
+    font-weight: 500;
+  }
+
+  &__list {
+    margin-left: 8px;
+  }
+}
+
+.published {
+  @include font($primary-gray, 12px, 400, 16px);
+  margin-left: 74px;
+
+  &__bold {
+    font-weight: 500;
+  }
+  &__date {
+    margin-left: 8px;
+  }
+}
+
+.highlights {
+  @include flex($align: center);
+  margin-top: 52px;
+}
+
+.highlight {
+  @include flex(center, center);
+  @include size(204px);
+  @include min-size(204px);
+  @include font($primary-gray, 18px, 500, 18px);
+  border: 1px solid $primary-orange;
+  border-radius: 50%;
+  background: $white;
+
+  &:nth-child(2) {
+    z-index: 3;
+    margin: 0 -10px;
+  }
+}
+
+.price {
+  @include font($primary-gray, 36px, 600, 46px);
+  margin-top: 50px;
+  font-family: $EBGaramond;
+}
+
+.checkout {
+  margin-top: 16px;
+}

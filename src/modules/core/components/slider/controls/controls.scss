@@ -1,0 +1,22 @@
+@import 'core.scss';
+
+.controls {
+  @include flex($align: center);
+  position: absolute;
+  margin-left: 112px;
+}
+
+.button {
+  @include flex(center, center);
+  @include size(44px);
+  @include min-size(44px);
+  font-size: 18px;
+  color: $white;
+  border-radius: 4px;
+  background: $primary-orange;
+  cursor: pointer;
+
+  &:last-child {
+    margin-left: 12px;
+  }
+}

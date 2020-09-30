@@ -1,7 +1,27 @@
+import { Book } from '@account/pages/library/models';
+
+/**
+ * Book props
+ */
+type BookProps = {
+  /**
+   * Book
+   */
+  book: Book;
+  /**
+   * Handle click
+   */
+  onClick?: () => void;
+};
+
 /**
  * Props
  */
 type SectionProps = {
+  /**
+   * Section id
+   */
+  id?: string;
   /**
    * Classname
    */
@@ -17,7 +37,7 @@ type SectionProps = {
   /**
    * Data
    */
-  data: any;
+  data: Book[];
 };
 
-export { SectionProps };
+export { SectionProps, BookProps };

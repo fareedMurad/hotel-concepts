@@ -15,8 +15,8 @@ import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Account } from 'src/modules/account';
-import { getUser } from '@app/redux/auth';
 import { Interests } from '@pages';
+import { MarketplaceProduct } from '@pages/marketplace-product';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -117,10 +117,6 @@ const Routes: React.FC = () => {
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getUser());
-  }, []);
-
   return (
     <Fragment>
       <StickyContainer>
@@ -193,6 +189,7 @@ const Routes: React.FC = () => {
               <Route path='/jobs/job-details/:id' component={JobDetails} />
               <Route path='/jobs' component={JobsList} />
               <Route path='/for-companies' component={ForCompanies} />
+              <Route path='/marketplace/:id' component={MarketplaceProduct} />
               <Route path='/marketplace' component={Marketplace} />
               <Route
                 path='/category/:categorySlug/product/:id'

@@ -18,3 +18,4 @@ export * from './tabs';
 export * from './spinner';
 export * from './rich-text-default';
 export * from './avatar';
+export * from './slider';

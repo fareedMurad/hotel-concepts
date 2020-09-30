@@ -125,4 +125,4 @@ type FileModel = {
   };
 };
 
-export { Book };
+export { Book, BookAuthor };

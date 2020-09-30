@@ -43,10 +43,10 @@ class MarketplaceService {
    * Fetch marketplace product
    */
   public fetchMarketplaceProduct = data => {
-    const { id, type, category, locale } = data;
+    const { id, type, locale } = data;
 
     return this.http.request({
-      url: `/contentful/${id}?type=${type}&category=${category}&locale=${locale}`
+      url: `/contentful/${id}?type=${type}&locale=${locale}`
     });
   };
 }
