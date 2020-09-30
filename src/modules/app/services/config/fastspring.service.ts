@@ -1,4 +1,4 @@
-checkoutimport { OrderSuccess, StoreBuilder } from '@app/models/fastspring';
+import { OrderSuccess, StoreBuilder } from '@app/models/fastspring';
 import { enviroment } from '@env';
 import { HttpService } from '.';
 import { CheckoutService } from '../checkout.service';
