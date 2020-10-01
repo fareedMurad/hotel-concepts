@@ -42,7 +42,6 @@ enum Preloaders {
   marketplaceProduct = 'marketplace product',
 
   //Programs
-  programs = 'programs',
   categories = 'programs categories',
 
   // Uikit
