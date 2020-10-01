@@ -1,5 +1,35 @@
-@import "core.scss";
+@import 'core.scss';
 
 .results {
-	
+  @include flex($align: stretch, $direction: column);
+  padding: 80px 133px;
+}
+
+.list {
+  @include flex($align: stretch, $direction: column);
+  margin-top: 40px;
+}
+
+.result {
+  @include flex($align: center);
+  padding: 32px 0;
+  border-top: 2px solid #cbd0d3;
+
+  &:last-child {
+    border-bottom: 2px solid #cbd0d3;
+  }
+
+  &__check {
+    @include flex(center, center);
+    @include size(34px);
+    @include min-size(34px);
+    background: #f5f1f0;
+    border-radius: 50%;
+  }
+
+  &__caption {
+    @include font($primary-gray, 18px, 400, 28px);
+    flex: 1;
+    margin-left: 30px;
+  }
 }

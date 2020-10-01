@@ -1,0 +1,59 @@
+@import 'core.scss';
+
+.brochure {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 505px;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 448px;
+  padding: 0 35px 0 56px;
+}
+
+.header {
+  @include font($white, 36px, 400, 46px);
+  font-family: $EBGaramond;
+  text-align: center;
+}
+
+.description {
+  @include font($white, 24px, 400, 34px);
+  margin-top: 16px;
+  text-align: center;
+}
+
+.download {
+  @include flex($align: center);
+  margin-top: 24px;
+  padding: 16px 16px 23px 16px;
+  border-radius: 8px;
+  background: #f5f1f0;
+  cursor: pointer;
+
+  &__caption {
+    @include font($primary-gray, 16px, 500, 28px);
+  }
+
+  &__size {
+    @include font($primary-gray, 16px, 500, 22px);
+  }
+}
+
+.info {
+  @include flex($align: center);
+  flex: 1;
+  margin-right: 16px;
+
+  &__icon {
+  }
+  &__caption {
+    @include font($primary-gray, 16px, 400, 22px);
+    margin-left: 18px;
+  }
+}

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { DescriptionProps } from './description.props';
 import * as styles from './description.scss';
 import moment from 'moment';
+import { Title } from '@pages/marketplace-product/components';
 
 /**
  * Renders Description
@@ -12,7 +13,7 @@ const Description: React.FC<DescriptionProps> = ({ data }) => {
   return (
     <div className={styles.description}>
       <div className={styles.container}>
-        <div className={styles.caption}>Product description</div>
+        <Title>About</Title>
         <div className={styles.publication}>
           <div className={styles.publicationCaption}>Publication Date:</div>
           <div className={styles.publicationDate}>

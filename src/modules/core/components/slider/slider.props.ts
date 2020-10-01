@@ -1,7 +1,9 @@
+import { CarouselProps } from 'react-multi-carousel';
+
 /**
  * Slider props
  */
-type SliderProps = {
+type SliderProps = CarouselProps & {
   /**
    * Classname
    */
@@ -25,7 +27,23 @@ type SliderProps = {
   /**
    * Responsive
    */
-  responsive?: any;
+  responsive?: {
+    desktop?: {
+      breakpoint: { max: number; min: number };
+      items: number;
+      slidesToSlide: number;
+    };
+    tablet?: {
+      breakpoint: { max: number; min: number };
+      items: number;
+      slidesToSlide: number;
+    };
+    mobile?: {
+      breakpoint: { max: number; min: number };
+      items: number;
+      slidesToSlide: number;
+    };
+  };
   /**
    * Autoplay
    */
@@ -62,6 +80,18 @@ type SliderProps = {
    * (temporary)
    */
   controls?: boolean;
+  /**
+   * Custom controls classname
+   */
+  controlsClassname?: string;
+  /**
+   * Controls theme
+   */
+  controlsTheme?: 'primary' | 'secondary' | 'tertiary';
+  /**
+   * Control classname
+   */
+  controlClassname?: string;
 };
 
 export { SliderProps };

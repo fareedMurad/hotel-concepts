@@ -1,6 +1,15 @@
+import { BookComment } from '@account/pages/library/models';
+
 /**
  * Props
  */
-type FeedbackProps = {};
+type FeedbackProps = {
+  /**
+   * Data
+   */
+  data: {
+    comments: BookComment[];
+  };
+};
 
 export { FeedbackProps };
