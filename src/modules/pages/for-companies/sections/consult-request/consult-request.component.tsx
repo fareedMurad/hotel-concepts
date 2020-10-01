@@ -74,7 +74,7 @@ const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => (
                   whiteBackground
                 />
               </div>
-              <Button children='Contact me' arrow />
+              <Button children='Contact me' arrow width={230} />
             </div>
           </Form>
         )}
