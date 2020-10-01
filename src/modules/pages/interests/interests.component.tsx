@@ -1,12 +1,13 @@
 import { chooseInterests } from '@app/redux/auth';
 import { Button, Preloader } from '@core/components';
+import { isBackgroundWhite } from '@core/components/header/store';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useInterestsData } from './interests.hook';
 import * as styles from './interests.scss';
-import { isBackgroundWhite } from '@core/components/header/store';
 
 /**
  * Renders Interests
@@ -14,11 +15,12 @@ import { isBackgroundWhite } from '@core/components/header/store';
 const Interests: React.FC = () => {
   const { interests, selectedInterests, selectInterest } = useInterestsData();
   const dispatch = useDispatch();
+  const isEmpty = selectedInterests?.length <= 0;
 
   /**
    * Change header theme
    */
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(isBackgroundWhite(true));
     return () => {
       dispatch(isBackgroundWhite(false));
@@ -65,8 +67,8 @@ const Interests: React.FC = () => {
         <Button
           className={styles.submit}
           arrow
+          disabled={isEmpty}
           onClick={() => dispatch(chooseInterests(selectedInterests))}
-          width={224}
         >
           Confirm
         </Button>
