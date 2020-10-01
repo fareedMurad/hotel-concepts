@@ -37,7 +37,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
     setSelectedMenu(menu);
   };
 
-  const { mobile } = useMediaPoints();
+  const { mobile, tablet } = useMediaPoints(true);
 
   return (
     <div
@@ -47,7 +47,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
       <NavLink className={styles.logo} to={'/'}>
         <Icon name={whiteBackground || isSticky ? 'logo-b' : 'logo'} />
       </NavLink>
-      {mobile ? (
+      {mobile || tablet ? (
         <div className={styles.mobileMenu}>
           <Icon name='burger' />
         </div>

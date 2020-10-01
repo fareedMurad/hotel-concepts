@@ -12,12 +12,17 @@ import {
   SignUp,
   UpdatePassword
 } from './pages';
+import { State } from '@app/redux/state';
+import { useSelector } from 'react-redux';
+import { Modals } from '@ui/models';
 
 /**
  * Renders Auth
  */
 const Auth: React.FC = () => {
   const {} = useAuthData();
+  const { active: activeModal } = useSelector((state: State) => state.ui.modal);
+  console.log(activeModal);
   const [
     login,
     register,
@@ -36,7 +41,10 @@ const Auth: React.FC = () => {
 
   return (
     <div className={styles.auth}>
-      <ForgotPasswordModal />
+      {/* modal olvays shows in mobile fix */}
+      {activeModal.find(el => el === Modals.forgotPassword) && (
+        <ForgotPasswordModal />
+      )}
       <Route path={register} component={SignUp} />
       <Route path={login} component={Login} />
       <Route path={resetPassword} component={ResetPassword} />
