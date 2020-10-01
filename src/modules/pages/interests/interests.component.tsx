@@ -68,7 +68,9 @@ const Interests: React.FC = () => {
           className={styles.submit}
           arrow
           disabled={isEmpty}
-          onClick={() => dispatch(chooseInterests(selectedInterests))}
+          onClick={() =>
+            !isEmpty && dispatch(chooseInterests(selectedInterests))
+          }
         >
           Confirm
         </Button>
