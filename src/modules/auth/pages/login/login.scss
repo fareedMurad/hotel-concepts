@@ -3,8 +3,14 @@
 .login {
   @include flex(flex-start, stretch, column);
   flex: 1;
-  width: 505px;
+  width: 85%;
   margin: 132px auto 77px auto;
+  @include tablet() {
+    width: 50%;
+  }
+  @include desktop() {
+    width: 505px;
+  }
 }
 
 .form {

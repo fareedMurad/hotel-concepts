@@ -36,8 +36,13 @@
 }
 
 .watch-button {
+  position: absolute;
   z-index: 2;
-  margin-top: 30px;
+  bottom: 20px;
+  margin-top: 76px;
+  @include desktop() {
+    bottom: 150px;
+  }
 }
 
 .title {
@@ -95,7 +100,7 @@
   }
   .back-button {
     position: absolute;
-    top: 50px;
+    top: 120px;
     left: $default-offset;
   }
   .title {
