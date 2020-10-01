@@ -30,6 +30,7 @@ const CoursePartnershipHero: React.FC<HeroProps> = ({}) => {
             className={styles.button}
             children={t('course-partnership.hero.button-text')}
             arrow
+            width={230}
           />
         </a>
       </main>
