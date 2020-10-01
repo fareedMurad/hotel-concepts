@@ -62,8 +62,7 @@
 .footer {
   margin: 35px 20px 0 20px;
   @include desktop() {
-    padding-left: 110px;
-    margin: 0;
+    margin: 40px 0 0 $left-offset;
   }
 }
 
