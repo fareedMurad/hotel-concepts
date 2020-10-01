@@ -1,10 +1,10 @@
 import { Saga, Payload } from 'redux-chill';
 import {
-  getCategories,
   getPrograms,
   selectCategory,
   getSingleCategory,
-  getSingleProgram
+  getSingleProgram,
+  getCategories
 } from './actions';
 import { Context } from '../context';
 import { put, call, select } from 'redux-saga/effects';
