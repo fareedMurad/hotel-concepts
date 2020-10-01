@@ -1,5 +1,6 @@
 import { reducer } from 'redux-chill';
 import { setupLocalization, changeLanguage } from './actions';
+import { Language } from '@app/models/enum';
 
 /**
  * Defaults

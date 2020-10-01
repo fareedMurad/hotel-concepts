@@ -7,10 +7,11 @@ import { CheckoutSaga } from './checkout';
 import {
   LibrarySaga,
   ProfileSaga,
-  ProgramsSaga,
+  ProgramsSaga as AccountProgramsSaga,
   SubscriptionSaga
 } from './account';
 import { MarketplaceSaga } from './marketplace';
+import { ProgramsSaga } from './programs/saga';
 
 /**
  * App sagas
@@ -25,8 +26,9 @@ const sagas = [
   new ProfileSaga(),
   new SubscriptionSaga(),
   new LibrarySaga(),
-  new ProgramsSaga(),
-  new MarketplaceSaga()
+  new MarketplaceSaga(),
+  new AccountProgramsSaga(),
+  new ProgramsSaga()
 ];
 
 export { sagas };

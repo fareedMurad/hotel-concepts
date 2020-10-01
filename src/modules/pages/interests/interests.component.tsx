@@ -6,6 +6,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { useInterestsData } from './interests.hook';
 import * as styles from './interests.scss';
+import { isBackgroundWhite } from '@core/components/header/store';
 
 /**
  * Renders Interests
@@ -13,6 +14,16 @@ import * as styles from './interests.scss';
 const Interests: React.FC = () => {
   const { interests, selectedInterests, selectInterest } = useInterestsData();
   const dispatch = useDispatch();
+
+  /**
+   * Change header theme
+   */
+  React.useEffect(() => {
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
 
   /**
    * Handle click
@@ -55,6 +66,7 @@ const Interests: React.FC = () => {
           className={styles.submit}
           arrow
           onClick={() => dispatch(chooseInterests(selectedInterests))}
+          width={224}
         >
           Confirm
         </Button>

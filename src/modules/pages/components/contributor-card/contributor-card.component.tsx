@@ -7,7 +7,8 @@ import Img from 'react-cool-img';
  */
 const ContributorCard: React.FC<ContributorCardProps> = ({
   contributor,
-  onClick
+  onClick,
+  contributorPicture
 }) => {
   const {
     name,
@@ -23,7 +24,8 @@ const ContributorCard: React.FC<ContributorCardProps> = ({
       <div className={styles.imgContainer}>
         {/* <img src={url} alt={name} className={styles.img} /> */}
         <Img
-          src={url}
+          //костиль з картинкою через різницю в респонсіі
+          src={contributorPicture ? contributorPicture : url}
           alt='Person'
           placeholder={require('img/person-placeholder')}
           className={styles.img}

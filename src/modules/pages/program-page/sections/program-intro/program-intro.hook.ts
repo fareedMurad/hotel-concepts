@@ -1,34 +1,4 @@
-import { gql, useQuery } from '@apollo/client';
-
-const useProgramIntroData = (programId: string, language: string) => {
-  const GET_PROGRAM_DATA = gql`
-    query($id: String!, $locale: String!) {
-      onlineCourse(id: $id, locale: $locale) {
-        name
-        description
-        videoVimeoUrl
-        heroImage {
-          url(
-            transform: {
-              format: JPG_PROGRESSIVE
-              quality: 70
-              width: 1300
-              height: 860
-            }
-          )
-        }
-        previewVideo {
-          video {
-            url
-          }
-        }
-      }
-    }
-  `;
-
-  const { data, loading, error } = useQuery(GET_PROGRAM_DATA, {
-    variables: { id: programId, locale: language }
-  });
+const useProgramIntroData = () => {
   const navButtons = [
     {
       name: 'About',
@@ -53,9 +23,7 @@ const useProgramIntroData = (programId: string, language: string) => {
   ];
 
   return {
-    navButtons,
-    programData: data?.onlineCourse,
-    programDataLoading: loading
+    navButtons
   };
 };
 

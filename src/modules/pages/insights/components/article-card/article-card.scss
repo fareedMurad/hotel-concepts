@@ -9,7 +9,7 @@
   display: grid;
   grid-template-rows: 270px 1fr;
   padding-top: 4px;
-  @include tablet(){
+  @include tablet() {
     padding-top: 0;
   }
 }

@@ -31,7 +31,7 @@ const responsiveBreakpoints = {
 /**
  * Renders Impact
  */
-const Impact: React.FC<ImpactProps> = ({ testimonials, loading }) => {
+const Impact: React.FC<ImpactProps> = ({ testimonials, loading, data }) => {
   const { t } = useTranslation();
   if (loading) return <Spinner />;
 
@@ -52,19 +52,39 @@ const Impact: React.FC<ImpactProps> = ({ testimonials, loading }) => {
         responsive={responsiveBreakpoints}
         customButtonGroup={<SliderButtons className={styles.controls} />}
       >
-        {testimonials.map((item, index) => {
-          const { name, text, companyName, photo } = item;
+        {data
+          ? //reusable component -> different data in response
+            data?.testimonials?.map((item, index) => {
+              const {
+                name,
+                text,
+                companyName,
+                photo: { file }
+              } = item;
 
-          return (
-            <OpinionItem
-              name={name}
-              text={text}
-              img={photo.url}
-              from={companyName}
-              key={`${item.name}+${index}`}
-            />
-          );
-        })}
+              return (
+                <OpinionItem
+                  name={name}
+                  text={text}
+                  img={file.url}
+                  from={companyName}
+                  key={`${item.name}+${index}`}
+                />
+              );
+            })
+          : testimonials?.map((item, index) => {
+              const { name, text, companyName, photo } = item;
+
+              return (
+                <OpinionItem
+                  name={name}
+                  text={text}
+                  img={photo.url}
+                  from={companyName}
+                  key={`${item.name}+${index}`}
+                />
+              );
+            })}
       </Slider>
     </section>
   );

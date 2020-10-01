@@ -676,6 +676,10 @@
       "title": "Learning approach",
       "button-text": "Learn more"
     },
+    "additional-materials": {
+      "no-materials": "We haven't added additional materials yet. Please come back later!",
+      "title": "Additional materials"
+    },
     "program-enroll-now": {
       "title": "Enroll now",
       "button-text": "Enroll now",

@@ -1,5 +1,5 @@
 export * from './about';
-export * from './impact';
+export * from '../../components/impact';
 export * from './insights-block';
 export * from './intro';
 export * from './mentors';
