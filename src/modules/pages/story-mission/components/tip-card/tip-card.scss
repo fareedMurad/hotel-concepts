@@ -5,7 +5,7 @@
   background-color: #f5f1f0;
   border-radius: 4px;
   @include desktop() {
-    padding: 50px 100px;
+    padding: 43px 95px;
   }
 }
 
@@ -16,19 +16,19 @@
     font-family: $EBGaramond;
   }
   &--subtitle {
-    @include font($primary-gray, 18px, 400, 35px);
+    @include font($primary-gray, 18px, 400, 21px);
     margin: 0;
     font-family: $EBGaramond;
   }
   &--description {
-    margin-top: 12px;
-    font-size: 16px;
+    @include font($primary-gray, 16px, 400, 22px);
+    margin-top: 16px;
   }
 }
 
 .hr {
   width: 2vw;
   height: 2px;
-  margin-top: 10px;
+  margin-top: 16px;
   background: $hr;
 }
