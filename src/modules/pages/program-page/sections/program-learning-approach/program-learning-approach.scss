@@ -22,6 +22,7 @@
   @include flex($justify: center);
   flex-wrap: wrap;
   padding: 0 12px;
+
   .item {
     padding: 16px;
     min-height: 208px;
