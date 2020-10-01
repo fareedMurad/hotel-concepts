@@ -1,5 +1,5 @@
 import { State } from '@app/redux/state';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const useMyInterestsData = () => {
@@ -8,6 +8,9 @@ const useMyInterestsData = () => {
     user?.interests || ([] as { label: string; value: string }[])
   );
 
+  useEffect(() => {
+    setSelectedInterests(user?.interests);
+  }, user?.interests);
   /**
    * List of available interests
    */

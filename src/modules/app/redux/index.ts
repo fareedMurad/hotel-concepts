@@ -34,7 +34,7 @@ const createStore = (history: History) => {
     history,
     http,
     api: new ApiService(http),
-    fs: new FastSpringService(enviroment.fsStoreFront),
+    fs: new FastSpringService(enviroment.fsStoreFront, http),
     socket: null as SocketService
   };
 

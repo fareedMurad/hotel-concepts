@@ -137,6 +137,11 @@ type Builder = {
   labguage: (language: string) => void;
 };
 
+type OrderSuccess = {
+  id: string;
+  reference: string;
+};
+
 export {
   Session,
   PaymentContact,
@@ -144,5 +149,6 @@ export {
   Recipient,
   Product,
   CreateSession,
-  CreateSessionItem
+  CreateSessionItem,
+  OrderSuccess
 };

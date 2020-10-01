@@ -1,4 +1,4 @@
-import { CreateSession } from '@app/models/fastspring';
+import { CreateSession, OrderSuccess } from '@app/models/fastspring';
 import { HttpService } from './config';
 
 class CheckoutService {
@@ -14,6 +14,16 @@ class CheckoutService {
     this.http.request({
       method: 'POST',
       url: '/fastspring/session',
+      data
+    });
+
+  /**
+   * Acknowledge that session is successfull
+   */
+  public acknowledgeSessionSuccess = (data: OrderSuccess) =>
+    this.http.request({
+      method: 'POST',
+      url: '/fastspring/session/success',
       data
     });
 }
