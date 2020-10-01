@@ -1,6 +1,13 @@
 /**
  * Props
  */
-type MaterialsIncludedProps = {};
+type MaterialsIncludedProps = {
+  /**
+   * Data
+   */
+  data: {
+    materialsIncluded: string[];
+  };
+};
 
 export { MaterialsIncludedProps };

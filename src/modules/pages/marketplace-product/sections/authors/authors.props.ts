@@ -1,6 +1,15 @@
+import { BookAuthor } from '@account/pages/library/models';
+
 /**
  * Props
  */
-type AuthorsProps = {};
+type AuthorsProps = {
+  /**
+   * Data
+   */
+  data: {
+    authors: BookAuthor[];
+  };
+};
 
 export { AuthorsProps };

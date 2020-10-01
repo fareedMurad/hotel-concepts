@@ -8,3 +8,4 @@ export * from './preview';
 export * from './recommended';
 export * from './results';
 export * from './banner';
+export * from './brochure';

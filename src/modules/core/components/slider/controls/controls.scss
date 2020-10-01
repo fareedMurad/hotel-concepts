@@ -3,7 +3,31 @@
 .controls {
   @include flex($align: center);
   position: absolute;
+  bottom: 0;
   margin-left: 112px;
+
+  &--primary {
+    .button {
+      color: $white;
+      border-color: $primary-orange;
+      background: $primary-orange;
+    }
+  }
+
+  &--secondary {
+    .button {
+      color: $primary-gray;
+      background: #f5f1f0;
+    }
+  }
+
+  &--tertiary {
+    .button {
+      color: $primary-gray;
+      border-color: $primary-gray;
+      background: transparent;
+    }
+  }
 }
 
 .button {
@@ -11,9 +35,8 @@
   @include size(44px);
   @include min-size(44px);
   font-size: 18px;
-  color: $white;
+  border: 1px solid;
   border-radius: 4px;
-  background: $primary-orange;
   cursor: pointer;
 
   &:last-child {

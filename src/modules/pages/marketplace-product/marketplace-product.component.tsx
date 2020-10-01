@@ -6,6 +6,8 @@ import { useMarketplaceProductData } from './marketplace-product.hook';
 import * as styles from './marketplace-product.scss';
 import {
   Authors,
+  Banner,
+  Brochure,
   Description,
   Explore,
   Feedback,
@@ -24,7 +26,13 @@ const MarketplaceProduct: React.FC = () => {
     selectedProduct,
     previewData,
     descriptionData,
-    forWhomData
+    forWhomData,
+    materialsData,
+    explorePagesData,
+    authorsData,
+    resultsData,
+    feedbackData,
+    bannerData
   } = useMarketplaceProductData();
   const dispatch = useDispatch();
 
@@ -37,13 +45,14 @@ const MarketplaceProduct: React.FC = () => {
         <Description data={descriptionData} />
         <div className={styles.divider} />
         <ForWhom data={forWhomData} />
-        <MaterialsIncluded />
-        <Explore />
-        <Authors />
-        <Results />
-        <Feedback />
+        <MaterialsIncluded data={materialsData} />
+        <Explore data={explorePagesData} />
+        <Authors data={authorsData} />
+        <Results data={resultsData} />
+        <Feedback data={feedbackData} />
+        <Banner data={bannerData} />
         <Recommended />
-        pdf
+        <Brochure />
       </Preloader>
     </div>
   );

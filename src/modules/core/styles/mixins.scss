@@ -75,7 +75,7 @@
     border-radius: inherit;
   }
 
-  &:hover {
+  &:hover:not([disabled]) {
     border: none;
     outline: none;
     &::before {

@@ -17,6 +17,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import { Account } from 'src/modules/account';
 import { Interests } from '@pages';
 import { MarketplaceProduct } from '@pages/marketplace-product';
+import { getUser } from '@app/redux/auth';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -117,6 +118,10 @@ const Routes: React.FC = () => {
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
+
   return (
     <Fragment>
       <StickyContainer>
@@ -137,10 +142,10 @@ const Routes: React.FC = () => {
           </div>
           <React.Suspense fallback={<Spinner />}>
             <Switch>
-              {authorized && <Route path='/account' component={Account} />}
               <Route path='/uikit' component={Uikit} />
               <Route path='/testing' component={TestPage} />
               <Route path='/auth' component={Auth} />
+              {authorized && <Route path='/account' component={Account} />}
 
               {/* ROUTES */}
               <Route path='/interests' component={Interests} />
@@ -169,16 +174,8 @@ const Routes: React.FC = () => {
                   )}
                 />
               )}
-              <Route
-                exact={mobile}
-                path='/program/:slug'
-                component={ProgramPage}
-              />
-              <Route
-                exact={mobile}
-                path='/contributors'
-                component={Contributors}
-              />
+              <Route path='/program/:slug' component={ProgramPage} />
+              <Route path='/contributors' component={Contributors} />
               <Route path='/faq' component={Faq} />
               <Route
                 path='/programs-catalogue/:id'
@@ -197,9 +194,7 @@ const Routes: React.FC = () => {
               />
               <Route path='/course-partnership' component={CoursePartnership} />
               <Route exact={mobile} path='/' component={Homepage} />
-              <Route path='*'>
-                <NotFound />
-              </Route>
+              <Route path='*' component={NotFound} />
             </Switch>
           </React.Suspense>
           <Footer />

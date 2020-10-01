@@ -2,19 +2,6 @@ import { RegisterValues } from '@auth/models';
 
 const useSignUpData = () => {
   /**
-   * Default Values
-   */
-  const defaultValues: RegisterValues = {
-    title: '',
-    position: '',
-    name: '',
-    surname: '',
-    email: '',
-    password: '',
-    newsSub: false
-  };
-
-  /**
    * Radio title data
    */
   const titleData = [
@@ -34,6 +21,19 @@ const useSignUpData = () => {
     },
     { value: 'other', label: 'Other' }
   ];
+
+  /**
+   * Default Values
+   */
+  const defaultValues: RegisterValues = {
+    title: titleData[0].label || '',
+    position: positionData[0].label || '',
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    newsSub: false
+  };
 
   return { defaultValues, titleData, positionData };
 };

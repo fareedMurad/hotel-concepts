@@ -1,5 +1,22 @@
-@import "core.scss";
+@import 'core.scss';
 
 .explore {
-	
+  padding: 80px 20px;
+}
+
+.title {
+  margin-left: 114px;
+}
+
+.slider {
+  margin-top: 48px;
+  margin-bottom: 0;
+
+  & > ul {
+    margin-bottom: 92px;
+  }
+}
+
+.image {
+  @include size(100%);
 }
