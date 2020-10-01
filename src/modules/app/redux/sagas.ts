@@ -25,8 +25,8 @@ const sagas = [
   new ProfileSaga(),
   new SubscriptionSaga(),
   new LibrarySaga(),
-  new ProgramsSaga(),
-  new MarketplaceSaga()
+  new MarketplaceSaga(),
+  new ProgramsSaga()
 ];
 
 export { sagas };

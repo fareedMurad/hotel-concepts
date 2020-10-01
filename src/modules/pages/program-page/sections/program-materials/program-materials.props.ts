@@ -1,8 +1,9 @@
+import { SingleProgramModel } from '@app/models/single-program';
 /**
  * Props
  */
 type ProgramMaterialsProps = {
-  programId: string;
+  data: SingleProgramModel;
 };
 
 export { ProgramMaterialsProps };

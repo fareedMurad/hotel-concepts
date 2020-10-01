@@ -43,17 +43,16 @@ const responsiveBreakpoints = {
  */
 const ProgramMentors: React.FC<ProgramMentorsProps> = ({
   contributors,
-  loading,
   url,
   modifiedCaption
 }) => {
+  console.log(contributors);
   const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
   const handleClick = () => history.push(`/contributors`);
 
-  if (loading) return <Spinner />;
   if (!contributors)
     return <div className={styles.noMentors}>No mentors yet</div>;
 
@@ -100,18 +99,19 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
         >
           {contributors.map((contributor, index) => (
             <ContributorCard
+              contributorPicture={contributor.mentorPicture.file.url}
               contributor={contributor}
               key={index}
               onClick={() => {
                 mobile
                   ? dispatch(
                       navigate(
-                        `contributors/mentor/${contributor.slug}/?&mentorId=${contributor.sys.id}`
+                        `contributors/mentor/${contributor.slug}/?&mentorId=${contributor.id}`
                       )
                     )
                   : dispatch(
                       navigate(
-                        `${url}/${contributor.slug}/?&mentorId=${contributor.sys.id}`
+                        `${url}/${contributor.slug}/?&mentorId=${contributor.id}`
                       )
                     );
                 !mobile &&

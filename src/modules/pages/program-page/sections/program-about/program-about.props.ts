@@ -1,8 +1,9 @@
+import { SingleProgramModel } from '@app/models/single-program';
 /**
  * Props
  */
 type ProgramAboutProps = {
-  programId: string;
+  data: SingleProgramModel;
 };
 
 export { ProgramAboutProps };

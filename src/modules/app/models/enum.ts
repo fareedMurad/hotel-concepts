@@ -54,6 +54,31 @@ enum Interest {
   guestloyalty = 'Guest Loyalty',
   reputationmanagement = 'Reputation Management'
 }
+/**
+ * Content type enum
+ */
+enum ContentType {
+  product = 'product',
+  onlineCourse = 'onlineCourse',
+  courseCategory = 'courseCategory'
+}
+
+/**
+ * Online course subfilter enum
+ */
+
+enum OnlineCourseSubfilter {
+  all = 'all',
+  familybusiness = 'familyBusiness',
+  strategy = 'strategy',
+  marketing = 'marketing',
+  governance = 'governance',
+  innovation = 'innovation',
+  negotiation = 'negotiation',
+  organizationallearning = 'organizationalLearning',
+  sustainability = 'sustainability',
+  finance = 'finance'
+}
 
 enum SocketResponseType {
   checkout = 'checkout'
@@ -66,5 +91,7 @@ export {
   Language,
   PaymentMethod,
   Interest,
-  SocketResponseType
+  SocketResponseType,
+  ContentType,
+  OnlineCourseSubfilter
 };

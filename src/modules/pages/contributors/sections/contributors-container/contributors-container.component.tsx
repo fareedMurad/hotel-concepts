@@ -57,6 +57,8 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(12);
 
+  console.log(currentPage);
+
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
   const currentContributors = contributors.slice(firstItemIndex, lastItemIndex);

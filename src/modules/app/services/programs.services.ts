@@ -1,0 +1,51 @@
+import { HttpService } from './config';
+import { ContentType } from '@app/models/enum';
+
+class ProgramsService {
+  public constructor(private http: HttpService) {}
+
+  /**
+   * Get categories
+   */
+  public getCategories = locale => {
+    return this.http.request({
+      method: 'GET',
+      url: `/contentful/courses/categories?locale=${locale}`
+    });
+  };
+
+  /**
+   *  Get single category
+   */
+  public getSingleCategory = (id, locale) => {
+    return this.http.request({
+      method: 'GET',
+      url: `/contentful/courses/categories/${id}?locale=${locale}`
+    });
+  };
+
+  /*
+   *  Get programs
+   */
+  public getPrograms = params => {
+    const { skip, limit, category, locale, subfilters } = params;
+    return this.http.request({
+      method: 'GET',
+      url: `/contentful/courses/list?skip=${skip}&limit=${limit}&type=${ContentType.onlineCourse}&category=${category}&locale=${locale}&subfilters=${subfilters}`
+    });
+  };
+  /*
+   * Get single program
+   */
+  public getSingleProgram = params => {
+    const { id, locale } = params;
+    return this.http.request({
+      method: 'GET',
+      url: `/contentful/${id}?type=${ContentType.onlineCourse}&locale=${locale}`
+    });
+  };
+}
+
+export { ProgramsService };
+
+//add to congig services

@@ -11,7 +11,7 @@ import { State } from '@app/redux/state';
 
 const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
   const { t } = useTranslation();
-  const { months, day, year } = enrollBy;
+
   return (
     <section className={styles.item}>
       <div className={styles.block}>
@@ -25,7 +25,7 @@ const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
       <div className={styles.block}>
         <div className={styles.name}>{t('program-page.overview.enroll')}</div>
         <div className={styles.info}>{`
-  ${months} ${day}, ${year}`}</div>
+  ${enrollBy?.months} ${enrollBy?.day}, ${enrollBy?.year}`}</div>
       </div>
       <div className={styles.hr} />
       <div className={styles.block}>
@@ -40,40 +40,19 @@ const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
 /**
  * Renders ProgramOverview
  */
-const GET_PROGRAM_OVERVIEW_DATA = gql`
-  query($id: String!, $locale: String!) {
-    onlineCourse(id: $id, locale: $locale) {
-      weeks
-      sprints
-      enroll {
-        day
-        year
-        months
-      }
-      languages
-    }
-  }
-`;
 
-const ProgramOverview: React.FC<ProgramOverviewProps> = ({ programId }) => {
+const ProgramOverview: React.FC<ProgramOverviewProps> = ({ data }) => {
   const { t } = useTranslation();
   const { language } = useSelector((state: State) => state.localization);
-  // const { GET_PROGRAM_OVERVIEW_DATA } = useProgramOverviewData(programId);
-  const { data, loading, error } = useQuery(GET_PROGRAM_OVERVIEW_DATA, {
-    variables: { id: programId, locale: language }
-  });
-
-  if (loading) return <Spinner />;
-  const { weeks, sprints, enroll, languages } = data?.onlineCourse;
 
   return (
     <section className={styles.programOverview}>
       <div className={styles.title}>{t('program-page.overview.title')}</div>
       <OverviewItem
-        weeks={weeks}
-        sprints={sprints}
-        enrollBy={enroll}
-        languages={languages}
+        weeks={data?.weeks}
+        sprints={data?.sprints}
+        enrollBy={data?.enroll}
+        languages={data?.languages}
       />
     </section>
   );

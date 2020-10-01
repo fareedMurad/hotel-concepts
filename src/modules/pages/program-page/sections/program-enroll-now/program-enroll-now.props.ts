@@ -1,3 +1,4 @@
+import { SingleProgramModel } from '@app/models/single-program';
 type EnrollItem = {
   name: string;
   description: string;
@@ -11,7 +12,7 @@ type EnrollItem = {
  * Props
  */
 type ProgramEnrollNowProps = {
-  programId: string;
+  data: SingleProgramModel;
 };
 
 export { ProgramEnrollNowProps };
