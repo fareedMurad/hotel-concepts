@@ -1,0 +1,24 @@
+@import 'core.scss';
+
+.cart {
+  width: 505px;
+
+  margin: 200px auto 0 auto;
+  &__header {
+    @include flex($justify: space-between, $align: baseline);
+    padding-bottom: 30px;
+    border-bottom: 1px solid $light-grey;
+
+    &--title {
+      @include font($primary-gray, 48px, 600, 58px);
+      font-family: $EBGaramond;
+    }
+    &--counter {
+      @include font($primary-gray, 18px, 400, 28px);
+      font-family: $EBGaramond;
+    }
+  }
+  &__items-list {
+    margin-top: 30px;
+  }
+}

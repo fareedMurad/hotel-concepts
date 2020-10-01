@@ -86,6 +86,14 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
               [styles.invertedHeader]: whiteBackground || isSticky
             })}
           />
+
+          <div className={styles.cart}>
+            <Icon
+              name='shopping-cart'
+              fill={whiteBackground || isSticky ? 'black' : 'white'}
+            />
+          </div>
+
           <div className={styles.headerMainNavigationProfile}>
             <div className={styles.profileNavigation}>
               <Icon
@@ -96,6 +104,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                     : 'default-avatar'
                 }
               />
+
               {showProfileNavigationMenu && (
                 <ProfileMenu
                   setShowProfileNavigationMenu={setShowProfileNavigationMenu}

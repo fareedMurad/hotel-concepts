@@ -58,3 +58,10 @@
 .arrow {
   margin-left: 8px;
 }
+
+.cart {
+  margin-right: 20px;
+  & > div > div {
+    @include flex();
+  }
+}
