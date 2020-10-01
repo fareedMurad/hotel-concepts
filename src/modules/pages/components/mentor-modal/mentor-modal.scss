@@ -30,55 +30,55 @@
 .modal-person {
   width: 50%;
 }
-.contributor {
-  &__photo {
-    display: block;
-    width: 316px;
-    height: 316px;
-    transition: 0.5s ease;
-    backface-visibility: hidden;
-  }
-  &__overlay {
-    position: relative;
-    width: 316px;
-    height: 316px;
-    border-radius: 8px;
-    &:hover {
-      & > div:first-child {
-        opacity: 1;
-        @include imageOverlay();
-      }
-    }
-  }
-  &__content {
-    @include flex($align: flex-end, $justify: center);
-    @include size(inherit);
-    position: absolute;
-    top: 0;
-    color: #ffffff00;
-    background-color: rgba(0, 0, 0, 0);
-    transition: background-color 100ms linear;
-    opacity: 0;
+// .contributor {
+//   &__photo {
+//     display: block;
+//     width: 316px;
+//     height: 316px;
+//     transition: 0.5s ease;
+//     backface-visibility: hidden;
+//   }
+//   &__overlay {
+//     position: relative;
+//     width: 316px;
+//     height: 316px;
+//     border-radius: 8px;
+//     &:hover {
+//       & > div:first-child {
+//         opacity: 1;
+//         @include imageOverlay();
+//       }
+//     }
+//   }
+//   &__content {
+//     @include flex($align: flex-end, $justify: center);
+//     @include size(inherit);
+//     position: absolute;
+//     top: 0;
+//     color: #ffffff00;
+//     background-color: rgba(0, 0, 0, 0);
+//     transition: background-color 100ms linear;
+//     opacity: 0;
 
-    &--title {
-      @include font($white, 16px, 400, 22px);
-      margin-bottom: 22px;
-      font-family: $IBMPlex;
-      border-bottom: 1px solid $white;
-      cursor: pointer;
-    }
-  }
-  &--info {
-    @include font($primary-gray, 24px, 500, 34px);
-    margin-top: 7px;
-    font-family: $IBMPlex;
-  }
-  &--details {
-    @include font($primary-gray, 16px, 400, 22px);
-    margin-top: 4px;
-    font-family: $IBMPlex;
-  }
-}
+//     &--title {
+//       @include font($white, 16px, 400, 22px);
+//       margin-bottom: 22px;
+//       font-family: $IBMPlex;
+//       border-bottom: 1px solid $white;
+//       cursor: pointer;
+//     }
+//   }
+//   &--info {
+//     @include font($primary-gray, 24px, 500, 34px);
+//     margin-top: 7px;
+//     font-family: $IBMPlex;
+//   }
+//   &--details {
+//     @include font($primary-gray, 16px, 400, 22px);
+//     margin-top: 4px;
+//     font-family: $IBMPlex;
+//   }
+// }
 
 .modal {
   width: 100%;
@@ -98,16 +98,16 @@
     }
   }
   &__person {
-    // width: 100%;
     @include desktop() {
-      // width: 47%;
+      width: max-content;
     }
     &--photo {
       height: auto;
       height: 316px;
       object-fit: cover;
-      max-width: 316px;
+      width: 100%;
       @include tablet() {
+        max-width: 316px;
         width: 100%;
       }
     }
@@ -118,7 +118,8 @@
   }
   &__content {
     position: relative;
-    width: 100%;
+    flex: 1;
+    min-width: 200px;
     max-height: 100%;
     margin: 0;
     @include tablet() {
@@ -154,10 +155,12 @@
     }
   }
   &__icon {
+    display: none;
     position: absolute;
     top: 100px;
     right: 15px;
     @include tablet() {
+      display: block;
       top: 0;
       right: -40px;
     }
