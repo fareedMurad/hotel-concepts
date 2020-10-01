@@ -4,21 +4,24 @@
 }
 
 .header {
-  @include flex($align: center);
+  @include flex($align: center, $direction: column);
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(#707070, 0.4);
+  @include desktop() {
+    @include flex($align: center);
+  }
 }
 
 .link {
   @include font(#70707080, 48px, 600, 58px);
   font-family: $EBGaramond;
-
-  &:not(:first-child) {
-    margin-left: 115px;
-  }
-
   &__active {
     color: $primary-gray;
+  }
+  @include desktop() {
+    &:not(:first-child) {
+      margin-left: 115px;
+    }
   }
 }
 

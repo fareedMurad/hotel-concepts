@@ -8,19 +8,22 @@ const useOurMissionVisionData = () => {
       id: 1,
       rate: '1.0',
       caption: t('story-mission.kordie-impact.list.item1.caption'),
-      description: t('story-mission.kordie-impact.list.item1.description')
+      description: t('story-mission.kordie-impact.list.item1.description'),
+      link: '/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'
     },
     {
       id: 2,
       rate: '2.0',
       caption: t('story-mission.kordie-impact.list.item2.caption'),
-      description: t('story-mission.kordie-impact.list.item2.description')
+      description: t('story-mission.kordie-impact.list.item2.description'),
+      link: '/contributors'
     },
     {
       id: 3,
       rate: '3.0',
       caption: t('story-mission.kordie-impact.list.item3.caption'),
-      description: t('story-mission.kordie-impact.list.item3.description')
+      description: t('story-mission.kordie-impact.list.item3.description'),
+      link: '/for-companies'
     }
   ];
 

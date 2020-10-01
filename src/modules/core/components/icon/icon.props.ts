@@ -13,7 +13,7 @@ type IconProps = React.HTMLAttributes<HTMLSpanElement> & {
   /**
    * Handle click
    */
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 };
 
 export { IconProps };

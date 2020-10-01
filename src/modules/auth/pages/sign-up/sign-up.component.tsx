@@ -8,7 +8,7 @@ import { Preloaders } from '@ui/models';
 import { Formik } from 'formik';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSignUpData } from './sign-up.props';
+import { useSignUpData } from './sign-up.hook';
 import * as styles from './sign-up.scss';
 
 /**

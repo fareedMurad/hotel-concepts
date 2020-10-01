@@ -57,6 +57,7 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
           </div>
         </div>
         <div className={styles.info}>
+          <Icon className={styles.like} name='like' />
           <div className={styles.caption}>{name}</div>
           <div className={styles.description}>{previewDescription}</div>
           <div className={styles.authors}>
@@ -87,15 +88,21 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
             ))}
           </div>
           <div className={styles.price}>${price}</div>
-          <Button
-            className={styles.checkout}
-            arrow
-            onClick={() => {
-              dispatch(checkout([{ path: id, quantity: 1 }]));
-            }}
-          >
-            Go to checkout
-          </Button>
+          <div className={styles.controls}>
+            <Button
+              className={styles.checkout}
+              arrow
+              onClick={() => {
+                dispatch(checkout([{ path: id, quantity: 1 }]));
+              }}
+            >
+              Go to checkout
+            </Button>
+            <div className={styles.subscriptionHint}>
+              <div>This book is free with subscription</div>
+              <div>Starting from 10$/month</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

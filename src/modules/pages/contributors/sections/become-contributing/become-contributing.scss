@@ -39,6 +39,9 @@
   outline: none;
   resize: none;
   border-radius: 4px;
+  &--label {
+    @include font($primary-gray, 16px, 400, 22px);
+  }
 }
 
 .form-group {

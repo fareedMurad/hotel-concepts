@@ -65,7 +65,10 @@ type BookComment = {
   name: string;
   text: string;
   companyName: string;
-  photo: FileModel;
+  photo: {
+    title: string;
+    file: FileModel;
+  };
 };
 
 /**
@@ -126,4 +129,4 @@ type FileModel = {
   };
 };
 
-export { Book, BookAuthor };
+export { Book, BookAuthor, FileModel, BookComment };

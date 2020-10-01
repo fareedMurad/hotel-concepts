@@ -78,7 +78,11 @@ const ShareSocial: React.FC<ShareProps> = ({ link }) => {
             opacity: showSocial && '1.0'
           }}
         >
-          {el => props => <li style={props}>{el.component}</li>}
+          {el => props => (
+            <li style={{ ...props, display: showSocial ? 'flex' : 'none' }}>
+              {el.component}
+            </li>
+          )}
         </Trail>
       </ul>
     </div>

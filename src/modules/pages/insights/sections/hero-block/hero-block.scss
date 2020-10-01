@@ -3,7 +3,6 @@
 .hero-block {
   // grid-template-columns: 1fr;
   // grid-template-rows: 1fr;
-  max-height: calc(100vh - 120px);
   margin: 0 22px;
   gap: 20px;
   @include tablet() {
@@ -36,7 +35,11 @@
     &--pic {
       @include heroImage();
       @include size(100%);
+
       border-radius: 8px;
+      @include desktop() {
+        height: calc(100vh - 120px);
+      }
     }
     &__content {
       @include flex($justify: center, $direction: column);

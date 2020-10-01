@@ -2,6 +2,7 @@
 
 .article-intro {
   padding: 22px 0px 0px 22px;
+
   @include tablet() {
     padding: 22px 0px 0px 22px;
   }
@@ -9,8 +10,8 @@
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 40% 60%;
+    grid-template-rows: 1fr;
     padding: 0px 0px 0px 134px;
-    min-height: calc(100vh - 94px);
   }
 }
 
@@ -88,8 +89,8 @@
   border-radius: 8px;
   height: -webkit-fill-available;
   &__wrapper {
-    height: calc(100vh - 104px);
-    min-height: calc(100% - 94px);
+    height: calc(100vh - 142px);
+    min-height: calc(100% - 142px);
     padding-right: 22px;
   }
 }

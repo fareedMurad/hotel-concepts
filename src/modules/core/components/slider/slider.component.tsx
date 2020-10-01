@@ -39,6 +39,9 @@ const Slider: React.FC<SliderProps> = ({
   responsive,
   itemClass,
   customButtonGroup,
+  controlsClassname,
+  controlsTheme,
+  controlClassname,
   ...props
 }) => (
   <Carousel
@@ -48,7 +51,17 @@ const Slider: React.FC<SliderProps> = ({
     swipeable={swipeable}
     infinite={infinite}
     keyBoardControl={keyBoardControl}
-    customButtonGroup={controls ? <Controls /> : customButtonGroup}
+    customButtonGroup={
+      controls ? (
+        <Controls
+          className={controlsClassname}
+          theme={controlsTheme}
+          controlClassname={controlClassname}
+        />
+      ) : (
+        customButtonGroup
+      )
+    }
     arrows={false}
     itemClass={itemClass}
     sliderClass={styles.slider}

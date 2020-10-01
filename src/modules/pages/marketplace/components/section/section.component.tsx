@@ -9,11 +9,32 @@ import { BookProps, SectionProps } from './section.props';
 import * as styles from './section.scss';
 
 /**
+ * Responsive slider breakpoints
+ */
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+    slidesToSlide: 1
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    slidesToSlide: 1
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1
+  }
+};
+
+/**
  * Renders single book
  */
 const Book: React.FC<BookProps> = ({ book, onClick }) => {
-  const { authorized } = useSelector((state: State) => state.auth);
   const dispatch = useDispatch();
+  const { authorized } = useSelector((state: State) => state.auth);
   const {
     id,
     name,
@@ -24,16 +45,17 @@ const Book: React.FC<BookProps> = ({ book, onClick }) => {
   } = book || {};
 
   return (
-    <div className={styles.book}>
+    <div className={styles.book} onClick={onClick}>
       {authorized && (
         <Icon
           className={styles.like}
           name={inWishlist ? 'heart' : 'like'}
-          onClick={() =>
+          onClick={event => {
+            event.stopPropagation();
             dispatch(
               inWishlist ? removeBookFromWishlist(id) : addBookToWishlist(id)
-            )
-          }
+            );
+          }}
         />
       )}
       <img className={styles.image} src={url} alt={url} />
@@ -47,24 +69,6 @@ const Book: React.FC<BookProps> = ({ book, onClick }) => {
       </div>
     </div>
   );
-};
-
-const responsiveBreakpoints = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 1
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 1
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1
-  }
 };
 
 /**
@@ -87,10 +91,11 @@ const Section: React.FC<SectionProps> = ({
       </div>
       {data?.length > 0 && (
         <Slider
-          containerClass={styles.content}
+          className={styles.slider}
           itemClass={styles.sliderItem}
           controls
-          responsive={responsiveBreakpoints}
+          controlsTheme='primary'
+          responsive={responsive}
         >
           {data.map(book => {
             const { id } = book || {};

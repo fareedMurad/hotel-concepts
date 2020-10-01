@@ -1,5 +1,73 @@
-@import "core.scss";
+@import 'core.scss';
 
 .feedback {
-	
+  @include flex($align: stretch, $direction: column);
+  padding: 30px 229px 120px 134px;
+}
+
+.label {
+  @include font($primary-orange, 18px, 500, 28px);
+}
+
+.title {
+  margin-top: 12px;
+}
+
+.slider {
+  margin-top: 48px;
+  margin-bottom: 0;
+
+  & > ul {
+    justify-content: space-between;
+    margin-bottom: 108px;
+  }
+
+  &__item {
+    max-width: 43%;
+  }
+}
+
+.container {
+  @include flex($align: stretch, $direction: column);
+  //   width: 100%;
+  //   max-width: 421px;
+}
+
+.description {
+  @include font($primary-gray, 28px, 400, 35px);
+  font-family: $EBGaramond;
+}
+
+.meta {
+  @include flex($align: center);
+  margin-top: 16px;
+
+  &__image {
+    @include size(90px);
+    @include min-size(90px);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__container {
+    @include flex($align: stretch, $direction: column);
+    flex: 1;
+    margin-left: 20px;
+  }
+}
+
+.name {
+  @include font($primary-gray, 20px, 600, 28px);
+}
+
+.company {
+  @include font($primary-gray, 16px, 400, 22px);
+}
+
+.controls {
+  margin-left: 0;
+}
+
+.control {
+  border-color: #f5f1f0;
 }

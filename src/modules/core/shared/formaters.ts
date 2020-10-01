@@ -3,7 +3,7 @@
  */
 const capitalize = (source: string) =>
   source
-    .split(' ')
+    ?.split(' ')
     .map(item => item.charAt(0).toUpperCase() + item.substring(1))
     .join(' ');
 

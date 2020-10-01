@@ -1,5 +1,66 @@
-@import "core.scss";
+@import 'core.scss';
 
 .authors {
-	
+  position: relative;
+  padding: 48px 20px 48px 134px;
+  background: #f5f1f0;
+}
+
+.title {
+  position: absolute;
+}
+
+.slider {
+  margin-bottom: 0;
+
+  & > ul {
+    margin-bottom: 0;
+  }
+}
+
+.author {
+  @include flex(space-between, flex-end);
+}
+
+.info {
+  @include flex($align: stretch, $direction: column);
+  width: 100%;
+  max-width: 44.5%;
+  margin-bottom: 76px;
+}
+
+.work {
+  @include font($primary-gray, 18px, 500, 28px);
+}
+
+.name {
+  @include font($primary-gray, 36px, 600, 46px);
+  font-family: $EBGaramond;
+}
+
+.description {
+  @include font($primary-gray, 16px, 400, 22px);
+  margin-top: 12px;
+}
+
+.image {
+  width: 541px;
+  height: 584px;
+  border-radius: 6px;
+}
+
+.controls {
+  bottom: 0;
+  margin-left: 0;
+}
+
+.control {
+  border-color: $primary-gray;
+}
+
+.see-all {
+  position: absolute;
+  left: 253px;
+  bottom: 48px;
+  height: 44px;
 }

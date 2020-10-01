@@ -1,5 +1,36 @@
-@import "core.scss";
+@import 'core.scss';
 
 .materials-included {
-	
+  padding: 60px 135px;
+  background: #f5f1f0;
+}
+
+.materials {
+  @include flex($align: stretch, $direction: column);
+  width: 100%;
+  max-width: 540px;
+  margin-top: 32px;
+}
+
+.material {
+  @include flex($align: center);
+  padding: 12px;
+  border-radius: 8px;
+  background: $white;
+
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  &__indicator {
+    @include size(6px);
+    @include min-size(6px);
+    background: $primary-orange;
+  }
+
+  &__caption {
+    @include font($primary-gray, 18px, 400, 28px);
+    flex: 1;
+    margin-left: 12px;
+  }
 }
