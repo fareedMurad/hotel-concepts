@@ -70,18 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className={styles.confirmButton}
           children={t('product.card.button-text')}
           arrow
-          onClick={() => {
-            const session: Session = {
-              products: [
-                {
-                  path: '2geEtN0sCVVlQZuHtRAwu9',
-                  quantity: 1
-                }
-              ],
-              checkout: true
-            };
-            dispatch(checkout(session));
-          }}
+          onClick={() => {}}
         />
       </div>
     </div>

@@ -17,6 +17,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import { Account } from 'src/modules/account';
 import { Interests } from '@pages';
 import { MarketplaceProduct } from '@pages/marketplace-product';
+import { getUser } from '@app/redux/auth';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -116,6 +117,10 @@ const Routes: React.FC = () => {
   const { authorized } = useSelector((state: State) => state.auth);
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   return (
     <Fragment>

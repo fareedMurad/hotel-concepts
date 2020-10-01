@@ -5,6 +5,8 @@ import { useHistory } from 'react-router';
 import { PreviewProps } from './preview.props';
 import * as styles from './preview.scss';
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { checkout } from '@app/redux/checkout';
 
 /**
  * Renders Preview
@@ -12,6 +14,8 @@ import moment from 'moment';
 const Preview: React.FC<PreviewProps> = ({ data }) => {
   const history = useHistory();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
   const {
     id,
     img,
@@ -83,7 +87,13 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
             ))}
           </div>
           <div className={styles.price}>${price}</div>
-          <Button className={styles.checkout} arrow>
+          <Button
+            className={styles.checkout}
+            arrow
+            onClick={() => {
+              dispatch(checkout([{ path: id, quantity: 1 }]));
+            }}
+          >
             Go to checkout
           </Button>
         </div>

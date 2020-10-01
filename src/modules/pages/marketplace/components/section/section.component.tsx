@@ -1,9 +1,10 @@
-import { addBookToWishlist } from '@app/redux/account';
+import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
+import { State } from '@app/redux/state';
 import { Button, Icon, Slider } from '@core/components';
 import { navigate } from '@router/store';
 import classNames from 'classnames';
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BookProps, SectionProps } from './section.props';
 import * as styles from './section.scss';
 
@@ -11,22 +12,30 @@ import * as styles from './section.scss';
  * Renders single book
  */
 const Book: React.FC<BookProps> = ({ book, onClick }) => {
+  const { authorized } = useSelector((state: State) => state.auth);
   const dispatch = useDispatch();
   const {
     id,
     name,
     productImage: {
       file: { url }
-    }
+    },
+    inWishlist
   } = book || {};
 
   return (
-    <div className={styles.book} onClick={onClick}>
-      <Icon
-        className={styles.like}
-        name='like'
-        onClick={() => dispatch(addBookToWishlist(id))}
-      />
+    <div className={styles.book}>
+      {authorized && (
+        <Icon
+          className={styles.like}
+          name={inWishlist ? 'heart' : 'like'}
+          onClick={() =>
+            dispatch(
+              inWishlist ? removeBookFromWishlist(id) : addBookToWishlist(id)
+            )
+          }
+        />
+      )}
       <img className={styles.image} src={url} alt={url} />
       <div className={styles.divider} />
       <div className={styles.name}>{name}</div>

@@ -1,11 +1,13 @@
 import { ContentType } from '@account/pages/library/models';
 import { Context } from '@app/redux/context';
+import { fetchMarketplaceCategories } from '@app/redux/marketplace';
+import { State } from '@app/redux/state';
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
-import { call, put } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 import {
   addBookToWishlist,
   fetchLibraryPurchased,
@@ -75,6 +77,13 @@ class LibrarySaga {
 
     try {
       yield call(api.library.addBookToWishlist, payload, ContentType.product);
+
+      const { location } = yield select((state: State) => state.router);
+
+      if (location.pathname === '/marketplace') {
+        yield put(addBookToWishlist.success(payload));
+      }
+
       yield put(
         toggleToast({
           status: 'success',
@@ -104,6 +113,21 @@ class LibrarySaga {
         payload,
         ContentType.product
       );
+
+      const { location } = yield select((state: State) => state.router);
+
+      if (location.pathname === '/marketplace') {
+        const {
+          data: { items }
+        } = response;
+        if (Array.isArray(items)) {
+          yield put(
+            removeBookFromWishlist.removeHeart(
+              items.map(item => item.id) as string[]
+            )
+          );
+        }
+      }
 
       yield put(removeBookFromWishlist.success(response.data));
       yield put(

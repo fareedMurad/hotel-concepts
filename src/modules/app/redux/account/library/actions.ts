@@ -22,14 +22,15 @@ const fetchLibraryWishlist = make('[library] fetch library wishlist').stage(
  */
 const addBookToWishlist = make('[library] add book to wishlist')
   .stage((payload: string) => payload)
-  .stage('success');
+  .stage('success', (id: string) => id);
 
 /**
  * Remove book from wishlist
  */
 const removeBookFromWishlist = make('[library] remove book from wishlist')
   .stage((payload: string) => payload)
-  .stage('success', (payload: { items: Book[]; total: number }) => payload);
+  .stage('success', (payload: { items: Book[]; total: number }) => payload)
+  .stage('removeHeart', (ids: string[]) => ids);
 
 export {
   fetchLibraryPurchased,

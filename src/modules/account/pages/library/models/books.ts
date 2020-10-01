@@ -20,6 +20,7 @@ type Book = {
   publishDate: string;
   results: string[];
   authors: BookAuthor[];
+  inWishlist: boolean;
   availableFormats: string[];
   bookCategory: string;
   comments: BookComment[];
