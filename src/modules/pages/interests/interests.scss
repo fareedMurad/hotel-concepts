@@ -37,9 +37,11 @@
   transition: $transition;
   cursor: pointer;
 
-  &:hover:not(.interest--disabled) {
-    color: #e57649;
-    border-color: #e57649;
+  @include desktop() {
+    &:hover:not(.interest--disabled) {
+      color: #e57649;
+      border-color: #e57649;
+    }
   }
 
   &--selected {
