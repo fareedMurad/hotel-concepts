@@ -3,7 +3,7 @@ import {
   resetPasswordValidationSchema,
   ResetPasswordValues
 } from '@auth/models';
-import { Button, Field, Preloader } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import { Formik } from 'formik';
 import * as React from 'react';
@@ -36,7 +36,7 @@ const ResetPassword: React.FC = () => {
           }}
         >
           {({ handleSubmit }) => (
-            <div className={styles.form}>
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
               <Field.Text
                 className={styles.input}
                 name='password'
@@ -46,7 +46,7 @@ const ResetPassword: React.FC = () => {
               <Button className={styles.submit} onClick={() => handleSubmit()}>
                 Submit
               </Button>
-            </div>
+            </FormNew>
           )}
         </Formik>
       </Preloader>

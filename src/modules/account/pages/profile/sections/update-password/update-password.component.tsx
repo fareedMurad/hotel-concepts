@@ -1,6 +1,6 @@
 import { Card } from '@account/components';
 import { editPassword } from '@app/redux/account';
-import { Button, Field, Preloader } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import { Formik } from 'formik';
@@ -40,7 +40,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
                 use your new login details when next visiting{' '}
                 <span className={styles.hintBold}>Kordie.</span>
               </div>
-              <div className={styles.form}>
+              <FormNew className={styles.form} handleSubmit={handleSubmit}>
                 <Field.Text name='email' label='E-mail' disabled />
                 <Field.Text
                   name='newPassword'
@@ -61,7 +61,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
                 >
                   Save
                 </Button>
-              </div>
+              </FormNew>
             </Fragment>
           )}
         </Formik>

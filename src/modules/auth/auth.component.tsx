@@ -7,7 +7,6 @@ import { ForgotPasswordModal } from './modals';
 import {
   EmailVerification,
   Login,
-  Otp,
   ResetPassword,
   SignUp,
   UpdatePassword
@@ -28,15 +27,13 @@ const Auth: React.FC = () => {
     register,
     resetPassword,
     updatePassword,
-    emailVerification,
-    otp
+    emailVerification
   ] = usePrefixedRoutes([
     'login',
     'register',
     'reset-password',
     'update-password',
-    'email-verification',
-    'otp'
+    'email-verification'
   ]);
 
   return (
@@ -50,7 +47,6 @@ const Auth: React.FC = () => {
       <Route path={resetPassword} component={ResetPassword} />
       <Route path={updatePassword} component={UpdatePassword} />
       <Route path={emailVerification} component={EmailVerification} />
-      <Route path={otp} component={Otp} />
     </div>
   );
 };

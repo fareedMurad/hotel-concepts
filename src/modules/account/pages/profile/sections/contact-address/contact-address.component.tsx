@@ -1,6 +1,6 @@
 import { Card } from '@account/components';
 import { editContactAddress } from '@app/redux/account';
-import { Button, Field, Preloader } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import { Formik } from 'formik';
@@ -33,7 +33,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
           }}
         >
           {({ handleSubmit }) => (
-            <div className={styles.form}>
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
               <Field.Select name='title' label='Title' options={titleData} />
               <Field.Text name='name' label='First Name' />
               <Field.Text name='surname' label='Last Name' />
@@ -55,7 +55,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
               <Button className={styles.submit} onClick={() => handleSubmit()}>
                 Save
               </Button>
-            </div>
+            </FormNew>
           )}
         </Formik>
       </Preloader>
