@@ -22,7 +22,7 @@ const Library: React.FC = () => {
           <NavLink
             className={styles.link}
             activeClassName={styles.linkActive}
-            to={`/account/library${to}`}
+            to={to}
             key={index}
           >
             {label}

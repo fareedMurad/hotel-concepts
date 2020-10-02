@@ -10,8 +10,8 @@ const useLibraryData = () => {
    * Navigation
    */
   const navigation = [
-    { label: 'Purchased Books', to: '/purchased' },
-    { label: 'Wishlist', to: '/wishlist', withIcon: true }
+    { label: 'Purchased Books', to: 'purchased' },
+    { label: 'Wishlist', to: 'wishlist', withIcon: true }
   ];
 
   return { navigation, matchWishlist };
