@@ -33,4 +33,9 @@ function fileSize(bytes, dp = 1) {
   return bytes.toFixed(dp) + ' ' + units[u];
 }
 
-export { capitalize, fileSize };
+/**
+ * Parse String to Object
+ */
+const parseString = (source: string) => JSON.parse(JSON.stringify(source));
+
+export { capitalize, fileSize, parseString };

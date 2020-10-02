@@ -49,6 +49,19 @@ class MarketplaceService {
       url: `/contentful/${id}?type=${type}&locale=${locale}`
     });
   };
+
+  /**
+   * Fetch any products by id
+   */
+  public fetchAnyProductsListByIds = (data: {
+    ids: string[];
+    locale: string;
+  }) => {
+    const { ids, locale } = data;
+    return this.http.request({
+      url: `/contentful/list?ids=${ids.join(',')}&locale=${locale}`
+    });
+  };
 }
 
 export { MarketplaceService };

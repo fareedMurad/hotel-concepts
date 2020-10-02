@@ -1,6 +1,10 @@
 /**
  * Props
  */
-type SummaryProps = {};
+type SummaryProps = {
+  total: string;
+  estimatedShipping: string;
+  estimatedTax: string;
+};
 
 export { SummaryProps };

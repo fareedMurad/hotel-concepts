@@ -84,6 +84,10 @@ enum SocketResponseType {
   checkout = 'checkout'
 }
 
+enum LocalStorageKeys {
+  cart = 'cart'
+}
+
 export {
   UserSource,
   Position,
@@ -93,5 +97,6 @@ export {
   Interest,
   SocketResponseType,
   ContentType,
-  OnlineCourseSubfilter
+  OnlineCourseSubfilter,
+  LocalStorageKeys
 };

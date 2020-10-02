@@ -55,6 +55,7 @@
   @include font($primary-orange, 14px, 500, 28px);
   margin-top: 5px;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,

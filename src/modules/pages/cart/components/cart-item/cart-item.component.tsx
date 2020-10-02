@@ -1,21 +1,21 @@
+import { ContentType } from '@app/models/enum';
+import { cart } from '@app/redux/cart';
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { CartItemProps } from './cart-item.props';
 import * as styles from './cart-item.scss';
 
 /**
  * Renders CartItem
  */
-const CartItem: React.FC<CartItemProps> = ({ item }) => {
-  const {
-    name,
-    price,
-    amount: currentAmount,
-    author,
-    preordered,
-    img,
-    discount
-  } = item;
-  const [amount, setAmount] = React.useState('');
+const CartItem: React.FC<CartItemProps> = ({
+  name,
+  author,
+  quantity,
+  price,
+  id
+}) => {
+  const dispatch = useDispatch();
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>
@@ -25,7 +25,12 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           height='180px'
           width='130px'
         />
-        <div className={styles.remove}>Remove</div>
+        <div
+          className={styles.remove}
+          onClick={() => dispatch(cart.remove({ path: id, quantity }))}
+        >
+          Remove
+        </div>
       </div>
       <div className={styles.cartItemInfo}>
         <div className={styles.cartItemInfoTitle}>{name}</div>
@@ -34,13 +39,17 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           <div className={styles.descriptionAmount}>
             Amount:{' '}
             <input
-              onChange={e => setAmount(e.target.value)}
+              onChange={e =>
+                dispatch(
+                  cart.update({ path: id, quantity: Number(e.target.value) })
+                )
+              }
               type='number'
-              placeholder={currentAmount.toString()}
+              placeholder={quantity?.toString()}
             />
           </div>
           <div className={styles.descriptionPrice}>
-            {discount && <span>{discount}</span>}
+            {/* {discount && <span>{discount}</span>} */}
             {price}
           </div>
         </div>
