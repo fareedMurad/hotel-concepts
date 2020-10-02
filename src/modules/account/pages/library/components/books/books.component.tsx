@@ -1,5 +1,6 @@
 import { removeBookFromWishlist } from '@app/redux/account';
 import { Button, Icon } from '@core/components';
+import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
@@ -26,7 +27,14 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
         <Icon
           className={styles.like}
           name='heart'
-          onClick={() => dispatch(removeBookFromWishlist(id))}
+          onClick={() =>
+            dispatch(
+              removeBookFromWishlist({
+                id,
+                preloader: Preloaders.libraryWishlist
+              })
+            )
+          }
         />
       )}
       <img className={styles.image} src={url} alt={url} />

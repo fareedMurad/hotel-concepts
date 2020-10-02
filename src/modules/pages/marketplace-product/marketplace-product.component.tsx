@@ -36,8 +36,6 @@ const MarketplaceProduct: React.FC = () => {
   } = useMarketplaceProductData();
   const dispatch = useDispatch();
 
-  // console.log(selectedProduct);
-
   return (
     <div className={styles.marketplaceProduct}>
       <Preloader id={Preloaders.marketplaceProduct}>

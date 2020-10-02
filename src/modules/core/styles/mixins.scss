@@ -76,8 +76,8 @@
   }
 
   &:hover:not([disabled]) {
-    border: none;
     outline: none;
+
     &::before {
       top: unset;
       bottom: 0;

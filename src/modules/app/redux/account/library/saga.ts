@@ -70,18 +70,18 @@ class LibrarySaga {
    */
   @Saga(addBookToWishlist)
   public *addBookToWishlist(
-    payload: Payload<typeof addBookToWishlist>,
+    { id, preloader }: Payload<typeof addBookToWishlist>,
     { api }: Context
   ) {
-    // TODO Preloader start
+    yield put(preloaderStart(preloader));
 
     try {
-      yield call(api.library.addBookToWishlist, payload, ContentType.product);
+      yield call(api.library.addBookToWishlist, id, ContentType.product);
 
       const { location } = yield select((state: State) => state.router);
 
       if (location.pathname === '/marketplace') {
-        yield put(addBookToWishlist.success(payload));
+        yield put(addBookToWishlist.success(id));
       }
 
       yield put(
@@ -93,7 +93,7 @@ class LibrarySaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      // TODO Preloader stop
+      yield put(preloaderStop(preloader));
     }
   }
 
@@ -102,15 +102,15 @@ class LibrarySaga {
    */
   @Saga(removeBookFromWishlist)
   public *removeBookFromWishlist(
-    payload: Payload<typeof removeBookFromWishlist>,
+    { id, preloader }: Payload<typeof removeBookFromWishlist>,
     { api }: Context
   ) {
-    yield put(preloaderStart(Preloaders.libraryWishlist));
+    yield put(preloaderStart(preloader));
 
     try {
       const response = yield call(
         api.library.removeBookFromWishlist,
-        payload,
+        id,
         ContentType.product
       );
 
@@ -139,7 +139,7 @@ class LibrarySaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.libraryWishlist));
+      yield put(preloaderStop(preloader));
     }
   }
 }

@@ -7,6 +7,8 @@ import * as styles from './preview.scss';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { checkout } from '@app/redux/checkout';
+import { Preloaders } from '@ui/models';
+import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 
 /**
  * Renders Preview
@@ -20,13 +22,15 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
     id,
     img,
     name,
-    previewDescription,
+    price,
     authors,
     languages,
+    authorized,
+    inWishlist,
     publishDate,
     highlightsText,
-    price,
-    availableFormats
+    availableFormats,
+    previewDescription
   } = data;
 
   return (
@@ -45,7 +49,6 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
             <div className={styles.share}>
               <div className={styles.shareCaption}>Share</div>
               <Icon className={styles.shareIcon} name='share' />
-              {/* <div className={styles.share}> </div> */}
             </div>
             <div className={styles.formats}>
               {availableFormats?.map((format, index) => (
@@ -57,7 +60,21 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
           </div>
         </div>
         <div className={styles.info}>
-          <Icon className={styles.like} name='like' />
+          {authorized && (
+            <Icon
+              className={styles.like}
+              name={inWishlist ? 'heart' : 'like'}
+              onClick={() => {
+                const data = { id, preloader: Preloaders.marketplaceProduct };
+
+                dispatch(
+                  inWishlist
+                    ? removeBookFromWishlist(data)
+                    : addBookToWishlist(data)
+                );
+              }}
+            />
+          )}
           <div className={styles.caption}>{name}</div>
           <div className={styles.description}>{previewDescription}</div>
           <div className={styles.authors}>

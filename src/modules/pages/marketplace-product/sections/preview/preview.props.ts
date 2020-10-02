@@ -11,13 +11,15 @@ type PreviewProps = {
     id: string;
     img: string;
     name: string;
-    previewDescription: string;
-    authors: BookAuthor[];
-    languages: string;
-    publishDate: string;
-    highlightsText: string[];
     price: number;
+    languages: string;
+    authorized: boolean;
+    publishDate: string;
+    inWishlist: boolean;
+    authors: BookAuthor[];
+    highlightsText: string[];
     availableFormats: string[];
+    previewDescription: string;
   };
 };
 

@@ -2,6 +2,7 @@ import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 import { State } from '@app/redux/state';
 import { Button, Icon, Slider } from '@core/components';
 import { navigate } from '@router/store';
+import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -57,8 +58,12 @@ const Book: React.FC<BookProps> = ({ book, onClick }) => {
           name={inWishlist ? 'heart' : 'like'}
           onClick={event => {
             event.stopPropagation();
+            const data = { id, preloader: Preloaders.marketplace };
+
             dispatch(
-              inWishlist ? removeBookFromWishlist(id) : addBookToWishlist(id)
+              inWishlist
+                ? removeBookFromWishlist(data)
+                : addBookToWishlist(data)
             );
           }}
         />
