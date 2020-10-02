@@ -119,7 +119,7 @@
         "name": "Name*",
         "specialization": "Specialization*",
         "linkedin": "LinkedIn profile*",
-        "email": "contact e-mail*",
+        "email": "Contact e-mail*",
         "message": "Message",
         "button-text": "Sentd Request"
       },

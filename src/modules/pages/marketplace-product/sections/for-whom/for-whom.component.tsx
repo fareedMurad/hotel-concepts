@@ -1,3 +1,4 @@
+import { Title } from '@pages/marketplace-product/components';
 import * as React from 'react';
 import { ForWhomProps } from './for-whom.props';
 import * as styles from './for-whom.scss';
@@ -10,7 +11,7 @@ const ForWhom: React.FC<ForWhomProps> = ({ data }) => {
 
   return (
     <div className={styles.forWhom}>
-      <div className={styles.caption}>For whom</div>
+      <Title>For whom</Title>
       <div className={styles.description}>{forWhom}</div>
       <div className={styles.content}>
         {forWhomListOfPositions?.map((item, index) => (

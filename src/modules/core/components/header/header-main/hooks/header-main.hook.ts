@@ -1,10 +1,14 @@
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
 import { useProgramsMenuData } from './programs.hook';
+import { useHistory } from 'react-router';
 
 const useHeaderMainData = () => {
   const { language } = useSelector((state: State) => state.localization);
   const { programsData, programsLoading } = useProgramsMenuData(language);
+  const {
+    location: { pathname }
+  } = useHistory();
 
   const menus = [
     {
@@ -63,6 +67,21 @@ const useHeaderMainData = () => {
       }
     }
   ];
+  const darkThemes = [
+    '/marketplace/:id',
+    '/auth',
+    '/insights',
+    '/contact-us',
+    '/faq',
+    '/interests',
+    '/jobs',
+    '/privacy-policy',
+    '/category/:categorySlug/product/:id'
+  ];
+
+  // const blackTheme = ;
+  // const theme =
+
   return { menus };
 };
 export { useHeaderMainData };

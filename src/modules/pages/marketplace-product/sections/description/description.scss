@@ -13,11 +13,6 @@
   max-width: 61.5%;
 }
 
-.caption {
-  @include font($primary-gray, 48px, 600, 58px);
-  font-family: $EBGaramond;
-}
-
 .publication {
   @include flex($align: center);
   @include font($primary-gray, 16px, 400, normal);
@@ -79,6 +74,7 @@
 
 .skill {
   @include flex($align: center);
+  width: 205px;
   padding: 12px;
   border-radius: 12px;
   background: #f5f1f0;

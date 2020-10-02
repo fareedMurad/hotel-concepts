@@ -75,6 +75,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
           />
         );
       })}
+      {isError && <div className={styles.error}>{error}</div>}
     </div>
   </div>
 );

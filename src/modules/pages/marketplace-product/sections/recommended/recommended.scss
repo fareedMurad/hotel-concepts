@@ -1,5 +1,65 @@
-@import "core.scss";
+@import 'core.scss';
 
 .recommended {
-	
+  @include flex($align: stretch, $direction: column);
+  padding: 120px 20px;
+}
+
+.title {
+  margin-left: 114px;
+}
+
+.slider {
+  margin-top: 48px;
+  margin-bottom: 0;
+
+  & > ul {
+    justify-content: space-between;
+    margin-bottom: 92px;
+  }
+
+  &__item {
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+}
+
+.control {
+  border-color: #f5f1f0;
+}
+
+.book {
+  @include flex($align: stretch, $direction: column);
+  padding: 20px 20px 70px 20px;
+  border-radius: 6px;
+  background: #f5f1f0;
+}
+
+.image {
+  align-self: center;
+  width: 132px;
+  height: 203px;
+  object-fit: cover;
+}
+
+.divider {
+  margin: 20px 0 16px 0;
+  height: 2px;
+  background: #cbd0d3;
+}
+
+.price {
+  @include font($primary-gray, 18px, 600, normal);
+  width: fit-content;
+  padding: 8px 12px;
+  font-family: $EBGaramond;
+  border-radius: 4px;
+  background: $white;
+}
+
+.name {
+  @include font($primary-gray, 36px, 600, 46px);
+  margin-top: 16px;
+  font-family: $EBGaramond;
 }

@@ -5,6 +5,8 @@ import { useHistory } from 'react-router';
 import { PreviewProps } from './preview.props';
 import * as styles from './preview.scss';
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { checkout } from '@app/redux/checkout';
 
 /**
  * Renders Preview
@@ -12,6 +14,8 @@ import moment from 'moment';
 const Preview: React.FC<PreviewProps> = ({ data }) => {
   const history = useHistory();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
   const {
     id,
     img,
@@ -53,6 +57,7 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
           </div>
         </div>
         <div className={styles.info}>
+          <Icon className={styles.like} name='like' />
           <div className={styles.caption}>{name}</div>
           <div className={styles.description}>{previewDescription}</div>
           <div className={styles.authors}>
@@ -83,9 +88,21 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
             ))}
           </div>
           <div className={styles.price}>${price}</div>
-          <Button className={styles.checkout} arrow>
-            Go to checkout
-          </Button>
+          <div className={styles.controls}>
+            <Button
+              className={styles.checkout}
+              arrow
+              onClick={() => {
+                dispatch(checkout([{ path: id, quantity: 1 }]));
+              }}
+            >
+              Go to checkout
+            </Button>
+            <div className={styles.subscriptionHint}>
+              <div>This book is free with subscription</div>
+              <div>Starting from 10$/month</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

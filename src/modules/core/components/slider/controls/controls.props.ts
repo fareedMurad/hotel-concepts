@@ -12,6 +12,14 @@ type ControlsProps = CarouselButtonGroupProps & {
    * Classname
    */
   className?: string;
+  /**
+   * Theme
+   */
+  theme?: 'primary' | 'secondary' | 'tertiary';
+  /**
+   * Control classname
+   */
+  controlClassname?: string;
 };
 
 export { ControlsProps };

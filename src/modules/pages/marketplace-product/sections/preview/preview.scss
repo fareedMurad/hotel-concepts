@@ -21,7 +21,6 @@
 .container {
   @include flex($align: stretch);
   flex: 1;
-  max-height: 666px;
   margin-left: 20px;
 }
 
@@ -39,14 +38,16 @@
 .image {
   align-self: center;
   width: 100%;
+  height: 100%;
   max-width: 60%;
-  max-height: 482px;
+  // max-height: 482px;
   object-fit: contain;
 }
 
 .show {
   align-self: center;
   width: 204px;
+  margin-top: 20px;
 }
 
 .share {
@@ -86,10 +87,18 @@
 .info {
   position: relative;
   width: 100%;
-  max-width: 692px;
+  max-width: 55.5%;
   padding: 20px;
   background-color: $background;
   border-radius: 12px 0 0 12px;
+}
+
+.like {
+  @include size(24px);
+  @include min-size(24px);
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .caption {
@@ -164,6 +173,8 @@
   @include size(204px);
   @include min-size(204px);
   @include font($primary-gray, 18px, 500, 18px);
+  text-align: center;
+  padding: 20px;
   border: 1px solid $primary-orange;
   border-radius: 50%;
   background: $white;
@@ -180,6 +191,20 @@
   font-family: $EBGaramond;
 }
 
-.checkout {
+.controls {
+  @include flex($align: stretch);
   margin-top: 16px;
+  height: 48px;
+}
+
+.checkout {
+  width: 224px;
+}
+
+.subscription-hint {
+  @include font($primary-orange, 12px, 400, 16px);
+  margin-left: 20px;
+  padding: 8px 12px;
+  border: 1px solid $primary-orange;
+  border-radius: 8px;
 }

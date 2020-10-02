@@ -3,7 +3,7 @@ import { UpdatePasswordProps } from './update-password.props';
 import * as styles from './update-password.scss';
 import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
-import { Field, Button, Preloader } from '@core/components';
+import { Field, Button, Preloader, FormNew } from '@core/components';
 import {
   UpdatePasswordValues,
   updatePasswordValidationSchema
@@ -37,7 +37,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({}) => {
           }}
         >
           {({ handleSubmit }) => (
-            <div className={styles.form}>
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
               <Field.Text
                 className={styles.input}
                 name='oldPassword'
@@ -59,7 +59,7 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({}) => {
               <Button className={styles.submit} onClick={() => handleSubmit()}>
                 Update
               </Button>
-            </div>
+            </FormNew>
           )}
         </Formik>
       </Preloader>

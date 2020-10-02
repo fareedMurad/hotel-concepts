@@ -23,7 +23,11 @@ const useMarketplaceProductData = () => {
     listOfSkills,
     pagesCount,
     forWhom,
-    forWhomListOfPositions
+    materialsIncluded,
+    forWhomListOfPositions,
+    previewPages,
+    results,
+    comments
   } = selectedProduct || {};
 
   /**
@@ -60,11 +64,73 @@ const useMarketplaceProductData = () => {
     forWhomListOfPositions
   };
 
+  /**
+   * Materials section data
+   */
+  const materialsData = {
+    materialsIncluded
+  };
+
+  /**
+   * Explore pages data
+   */
+  const explorePagesData = {
+    previewPages
+  };
+
+  /**
+   * Authors section data
+   */
+  const authorsData = {
+    authors
+  };
+
+  /**
+   * Results section data
+   */
+  const resultsData = {
+    results
+  };
+
+  /**
+   * Feedback section data
+   */
+  const feedbackData = {
+    comments
+  };
+
+  /**
+   * Banner section data
+   */
+  const bannerData = {
+    id,
+    img: productImage?.file?.url,
+    name,
+    previewDescription,
+    authors,
+    languages,
+    publishDate,
+    highlightsText,
+    price,
+    availableFormats
+  };
+
   useEffect(() => {
     dispatch(fetchMarketplaceProduct(id));
   }, [id]);
 
-  return { selectedProduct, previewData, descriptionData, forWhomData };
+  return {
+    selectedProduct,
+    previewData,
+    descriptionData,
+    forWhomData,
+    materialsData,
+    explorePagesData,
+    authorsData,
+    resultsData,
+    feedbackData,
+    bannerData
+  };
 };
 
 export { useMarketplaceProductData };

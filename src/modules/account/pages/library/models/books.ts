@@ -20,6 +20,7 @@ type Book = {
   publishDate: string;
   results: string[];
   authors: BookAuthor[];
+  inWishlist: boolean;
   availableFormats: string[];
   bookCategory: string;
   comments: BookComment[];
@@ -64,7 +65,10 @@ type BookComment = {
   name: string;
   text: string;
   companyName: string;
-  photo: FileModel;
+  photo: {
+    title: string;
+    file: FileModel;
+  };
 };
 
 /**
@@ -125,4 +129,4 @@ type FileModel = {
   };
 };
 
-export { Book, BookAuthor };
+export { Book, BookAuthor, FileModel, BookComment };

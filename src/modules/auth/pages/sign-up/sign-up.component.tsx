@@ -3,12 +3,12 @@ import { register } from '@app/redux/auth';
 import { State } from '@app/redux/state';
 import { AuthHeader } from '@auth/components';
 import { registerValidationSchema } from '@auth/models';
-import { Button, Field, Preloader } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import { Formik } from 'formik';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSignUpData } from './sign-up.props';
+import { useSignUpData } from './sign-up.hook';
 import * as styles from './sign-up.scss';
 
 /**
@@ -40,7 +40,7 @@ const SignUp: React.FC = () => {
           }}
         >
           {({ handleSubmit }) => (
-            <div className={styles.form}>
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
               <Field.RadioGroup
                 className={styles.title}
                 listClassname={styles.titleList}
@@ -89,12 +89,13 @@ const SignUp: React.FC = () => {
               </div>
               <Button
                 className={styles.submit}
+                type='submit'
                 arrow
                 onClick={() => handleSubmit()}
               >
                 Sign Up
               </Button>
-            </div>
+            </FormNew>
           )}
         </Formik>
       </Preloader>
