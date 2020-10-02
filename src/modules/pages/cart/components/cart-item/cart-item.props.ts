@@ -7,7 +7,7 @@ type CartItemProps = {
   item: {
     name: string;
     author: string;
-    amount: number;
+    amount: number | string;
     price: number;
     preordered: boolean;
     img: string;

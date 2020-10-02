@@ -6,7 +6,16 @@ import * as styles from './cart-item.scss';
  * Renders CartItem
  */
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
-  const { name, price, amount, author, preordered, img, discount } = item;
+  const {
+    name,
+    price,
+    amount: currentAmount,
+    author,
+    preordered,
+    img,
+    discount
+  } = item;
+  const [amount, setAmount] = React.useState('');
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>
@@ -24,9 +33,11 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           <div className={styles.descriptionAuthor}>{author}</div>
           <div className={styles.descriptionAmount}>
             Amount:{' '}
-            <div>
-              <div>{amount}</div>
-            </div>
+            <input
+              onChange={e => setAmount(e.target.value)}
+              type='number'
+              placeholder={currentAmount.toString()}
+            />
           </div>
           <div className={styles.descriptionPrice}>
             {discount && <span>{discount}</span>}
