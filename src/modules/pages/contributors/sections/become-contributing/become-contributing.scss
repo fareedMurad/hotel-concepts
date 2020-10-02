@@ -3,7 +3,10 @@
 .become-contributing {
   background-color: #f5f1f0;
   &--text {
-    width: 30%;
+    width: 100%;
+    @include desktop() {
+      width: 30%;
+    }
   }
 }
 
