@@ -84,9 +84,8 @@ class ProfileSaga {
     yield put(preloaderStart(Preloaders.profileInterests));
 
     try {
-      const response = yield call(api.profile.editInterests, payload);
-      // yield put(getUser());
-      console.log(response);
+      yield call(api.profile.editInterests, payload);
+      yield put(getUser());
       yield put(
         toggleToast({
           status: 'success',
