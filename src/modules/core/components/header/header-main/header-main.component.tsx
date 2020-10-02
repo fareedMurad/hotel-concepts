@@ -8,8 +8,8 @@ import { useMediaPoints } from '@core/shared';
 import { LocalizationMenu } from './menus/localization-menu';
 import { ProfileMenu } from './menus/profile-menu';
 import { useHeaderMainData } from './hooks/header-main.hook';
-import { Dropdown } from './components/dropdown';
 import { AboutMenu } from './menus/about-menu';
+import { Dropdown } from './components';
 
 /**
  * Renders HeaderMain

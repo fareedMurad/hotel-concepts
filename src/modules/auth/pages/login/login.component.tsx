@@ -2,7 +2,7 @@ import { ScrollToTop } from '@app';
 import { login } from '@app/redux/auth';
 import { AuthHeader } from '@auth/components';
 import { loginValidationSchema, LoginValues } from '@auth/models';
-import { Button, Field, Preloader } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
 import { Modals, Preloaders } from '@ui/models';
@@ -41,7 +41,7 @@ const Login: React.FC = () => {
             }}
           >
             {({ handleSubmit }) => (
-              <Form className={styles.form}>
+              <FormNew className={styles.form} handleSubmit={handleSubmit}>
                 <Field.Text
                   name='email'
                   label='Email'
@@ -77,7 +77,7 @@ const Login: React.FC = () => {
                 >
                   Sign In
                 </Button>
-              </Form>
+              </FormNew>
             )}
           </Formik>
 

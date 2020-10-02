@@ -1,7 +1,7 @@
 import { Card } from '@account/components';
 import { editNewsletterSubscription } from '@app/redux/account';
 import { State } from '@app/redux/state';
-import { Button, Field, Preloader } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import { Formik } from 'formik';
@@ -31,7 +31,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
           }}
         >
           {({ handleSubmit }) => (
-            <div className={styles.form}>
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
               <Field.Checkbox
                 className={styles.agreement}
                 labelClassname={styles.agreementLabel}
@@ -41,7 +41,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
               <Button className={styles.submit} onClick={() => handleSubmit()}>
                 Save
               </Button>
-            </div>
+            </FormNew>
           )}
         </Formik>
       </Preloader>
