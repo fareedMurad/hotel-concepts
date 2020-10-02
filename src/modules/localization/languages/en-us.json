@@ -121,7 +121,7 @@
         "linkedin": "LinkedIn profile*",
         "email": "Contact e-mail*",
         "message": "Message",
-        "button-text": "Sentd Request"
+        "button-text": "Send Request"
       },
       "sent-successful": "Your apply successfuly sent"
     }
