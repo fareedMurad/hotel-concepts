@@ -4,33 +4,50 @@
 }
 
 .slider-item {
-  flex: 0 0 auto !important;
-  max-width: 316px;
-
-  &:not(:first-child) {
-    margin-left: 20px;
-  }
+  padding: 0 10px;
 }
 
 .container {
-  margin-left: 112px;
+  @include tablet() {
+    margin-left: 60px;
+  }
+
+  @include desktop() {
+    margin-left: 112px;
+  }
 }
 
 .description {
-  @include font($primary-orange, 18px, 500, 28px);
+  @include font($primary-orange, 16px, 500, 24px);
+
+  @include tablet() {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 .caption {
-  @include font($primary-gray, 48px, 600, 58px);
-  margin-top: 12px;
+  @include font($primary-gray, 40px, 600, normal);
+  margin-top: 10px;
   font-family: $EBGaramond;
+
+  @include tablet() {
+    margin-top: 12px;
+    font-size: 48px;
+    line-height: 58px;
+  }
 }
 
 .slider {
-  margin-top: 48px;
+  margin-top: 24px;
   margin-bottom: 0;
 
+  @include tablet() {
+    margin-top: 48px;
+  }
+
   & > ul {
+    align-items: stretch;
     margin-bottom: 76px;
   }
 }
@@ -38,6 +55,7 @@
 .book {
   @include flex($align: stretch, $direction: column);
   position: relative;
+  height: 100%;
   padding: 20px 18px 18px 18px;
   background: #f5f1f0;
   border-radius: 6px;
@@ -65,10 +83,16 @@
 }
 
 .name {
-  @include font(#3e3e3e, 36px, 600, 46px);
+  @include font(#3e3e3e, 24px, 600, 36px);
   flex: 1;
-  margin-top: 20px;
+  margin-top: 12px;
   font-family: $EBGaramond;
+
+  @include tablet() {
+    margin-top: 20px;
+    font-size: 36px;
+    line-height: 46px;
+  }
 }
 
 .controls {
@@ -77,6 +101,11 @@
 
   & > button {
     width: 100%;
+    font-size: 14px;
+
+    @include tablet() {
+      font-size: 16px;
+    }
   }
 
   & > button:not(:first-child) {
