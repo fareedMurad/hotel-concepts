@@ -25,7 +25,7 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
       {fromWishlist && (
         <Icon
           className={styles.like}
-          name='like'
+          name='heart'
           onClick={() => dispatch(removeBookFromWishlist(id))}
         />
       )}

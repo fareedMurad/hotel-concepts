@@ -1,9 +1,10 @@
-import { navigate } from '@router/store';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 
 const useLibraryData = () => {
-  const dispatch = useDispatch();
+  const {
+    location: { pathname }
+  } = useHistory();
+  const matchWishlist = pathname == '/account/library/wishlist';
 
   /**
    * Navigation
@@ -13,14 +14,7 @@ const useLibraryData = () => {
     { label: 'Wishlist', to: '/wishlist', withIcon: true }
   ];
 
-  /**
-   * TODO possible can be done better
-   */
-  useEffect(() => {
-    // dispatch(navigate('/account/library/purchased'));
-  }, []);
-
-  return { navigation };
+  return { navigation, matchWishlist };
 };
 
 export { useLibraryData };
