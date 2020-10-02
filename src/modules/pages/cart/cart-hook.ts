@@ -4,7 +4,8 @@ const useCartData = () => {
       name: 'Tactics of Increasing Revenue',
       author: 'Chris Confer',
       amount: 1,
-      price: 29.99,
+      price: 39.99,
+      discount: 29.99,
       preordered: true,
       img: '/src/assets/marketplace/marketplace-4.png'
     },
@@ -12,7 +13,7 @@ const useCartData = () => {
       name: 'Tactics of Increasing Revenue2',
       author: 'Chris Confer',
       amount: 1,
-      price: 29.99,
+      price: 89.99,
       preordered: false,
       img: '/src/assets/marketplace/marketplace-4.png'
     }

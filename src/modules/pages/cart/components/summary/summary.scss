@@ -1,0 +1,32 @@
+@import 'core.scss';
+
+.summary {
+  margin-top: 20px;
+  &--title {
+    @include font($primary-gray, 28px, 400, 28px);
+    font-family: $EBGaramond;
+  }
+  &__info {
+    &--field {
+      @include flex($justify: space-between);
+      @include font($primary-gray, 12px, 500, 28px);
+    }
+  }
+}
+
+.hr {
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background-color: $primary-orange;
+}
+
+.total {
+  @include flex($justify: space-between);
+  @include font($primary-gray, 28px, 400, 28px);
+  font-family: $EBGaramond;
+}
+
+.button {
+  margin: 20px 0;
+}

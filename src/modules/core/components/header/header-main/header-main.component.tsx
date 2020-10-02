@@ -10,6 +10,8 @@ import { ProfileMenu } from './menus/profile-menu';
 import { useHeaderMainData } from './hooks/header-main.hook';
 import { Dropdown } from './components/dropdown';
 import { AboutMenu } from './menus/about-menu';
+import { useDispatch } from 'react-redux';
+import { navigate } from '@router/store';
 
 /**
  * Renders HeaderMain
@@ -19,6 +21,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   whiteBackground,
   isSticky
 }) => {
+  const dispatch = useDispatch();
   const { menus } = useHeaderMainData();
   const location = useLocation();
   const [selectedMenu, setSelectedMenu] = React.useState('');
@@ -87,7 +90,10 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             })}
           />
 
-          <div className={styles.cart}>
+          <div
+            className={styles.cart}
+            onClick={() => dispatch(navigate('/cart'))}
+          >
             <Icon
               name='shopping-cart'
               fill={whiteBackground || isSticky ? 'black' : 'white'}

@@ -6,7 +6,7 @@ import * as styles from './cart-item.scss';
  * Renders CartItem
  */
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
-  const { name, price, amount, author, preordered, img } = item;
+  const { name, price, amount, author, preordered, img, discount } = item;
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>
@@ -22,8 +22,16 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
         <div className={styles.cartItemInfoTitle}>{name}</div>
         <div className={styles.description}>
           <div className={styles.descriptionAuthor}>{author}</div>
-          <div className={styles.descriptionAmount}>{amount}</div>
-          <div className={styles.descriptionPrice}>{price}</div>
+          <div className={styles.descriptionAmount}>
+            Amount:{' '}
+            <div>
+              <div>{amount}</div>
+            </div>
+          </div>
+          <div className={styles.descriptionPrice}>
+            {discount && <span>{discount}</span>}
+            {price}
+          </div>
         </div>
       </div>
     </div>

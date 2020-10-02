@@ -11,6 +11,7 @@ type CartItemProps = {
     price: number;
     preordered: boolean;
     img: string;
+    discount?: number;
   };
 };
 
