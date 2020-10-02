@@ -41,7 +41,7 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
       <div className={styles.divider} />
       <div className={styles.name}>{name}</div>
       <div className={styles.controls}>
-        {!fromWishlist ? (
+        {fromWishlist ? (
           <Button arrow>Add to cart</Button>
         ) : (
           <React.Fragment>
