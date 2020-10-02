@@ -1,4 +1,4 @@
-import { removeBookFromWishlist } from '@app/redux/account';
+import { downloadBook, removeBookFromWishlist } from '@app/redux/account';
 import { Button, Icon } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
@@ -46,7 +46,11 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
         ) : (
           <React.Fragment>
             <Button arrow>Read</Button>
-            <Button theme='secondary' arrow>
+            <Button
+              theme='secondary'
+              arrow
+              // onClick={() => dispatch(downloadBook(()))}
+            >
               Download
             </Button>
           </React.Fragment>
