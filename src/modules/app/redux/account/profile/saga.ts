@@ -5,7 +5,7 @@ import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
-import { call, put } from 'redux-saga/effects';
+import { call, delay, put } from 'redux-saga/effects';
 import {
   deleteAvatar,
   editContactAddress,

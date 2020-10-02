@@ -25,12 +25,17 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ onClick, className }) => {
     <React.Fragment>
       <div
         className={classNames(className, styles.aboutMenu)}
-        onClick={() => setToggleDropdown(true)}
+        onMouseOver={() => setToggleDropdown(true)}
         ref={ref}
       >
         {t('header.header-main.link-three')}
         <span className={styles.arrow}>&#x25BE;</span>
-        <DropDown links={aboutMenuLinks} show={toggleDropDown} />
+        {toggleDropDown && (
+          <DropDown
+            links={aboutMenuLinks}
+            setToggleDropdown={setToggleDropdown}
+          />
+        )}
       </div>
     </React.Fragment>
   );

@@ -32,11 +32,6 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
     return () => setSelectedMenu('');
   }, [isSticky, location.pathname]);
 
-  const selectMenu = menu => {
-    setSelectedMenu('');
-    setSelectedMenu(menu);
-  };
-
   const { mobile, tablet } = useMediaPoints(true);
 
   return (
@@ -64,7 +59,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                   [styles.invertedHeader]: whiteBackground || isSticky
                 })}
                 key={menu.name}
-                onClick={() => selectMenu(menu.name)}
+                onMouseOver={() => setSelectedMenu(menu.name)}
               >
                 {menu.name}
                 <span className={styles.arrow}>&#x25BE;</span>
@@ -89,7 +84,9 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
           <div className={styles.headerMainNavigationProfile}>
             <div className={styles.profileNavigation}>
               <Icon
-                onClick={() => setShowProfileNavigationMenu(true)}
+                onClick={() => {
+                  setShowProfileNavigationMenu(true);
+                }}
                 name={
                   whiteBackground || isSticky
                     ? 'default-avatar-b'

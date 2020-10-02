@@ -23,7 +23,11 @@ const Dropdown: React.FC<DropdownProps> = ({
   });
 
   return (
-    <div className={styles.dropdown} ref={ref}>
+    <div
+      className={styles.dropdown}
+      ref={ref}
+      onMouseLeave={() => setSelectedMenu('')}
+    >
       {title && (
         <div
           className={styles.dropdownTitle}
