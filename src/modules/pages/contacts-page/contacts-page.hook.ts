@@ -8,7 +8,7 @@ const useContactsPageData = () => {
       id: 1,
       title: t('contacts.cards.card-one.title'),
       description: t('contacts.cards.card-one.description'),
-      href: '/help-center',
+      href: '/',
       link: 'Help Center'
     },
     {

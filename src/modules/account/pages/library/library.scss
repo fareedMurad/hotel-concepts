@@ -1,9 +1,13 @@
 @import 'core.scss';
 
 .library {
+  margin: 0 20px 0 20px;
   padding: 8px 20px 100px 20px;
   border-radius: 8px;
   background-color: $background;
+  @include desktop() {
+    margin: 0;
+  }
 }
 
 .title {
@@ -35,8 +39,8 @@
   }
 
   &--active {
-    color: #ff6634;
     text-decoration: underline;
+    color: #ff6634;
 
     .link__icon {
       @include fill(#ff6634);
@@ -45,5 +49,9 @@
 }
 
 .content {
+  @include flex($justify: center);
   margin-top: 32px;
+  @include tablet() {
+    display: block;
+  }
 }
