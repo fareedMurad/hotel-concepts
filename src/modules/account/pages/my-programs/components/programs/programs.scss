@@ -9,14 +9,18 @@
 }
 
 .program {
-  @include flex($align: stretch);
+  @include flex($align: stretch, $direction: column);
   position: relative;
-  max-height: 278px;
   padding-bottom: 26px;
   border-bottom: 2px solid #cbd0d3;
 
   &:not(:first-child) {
     margin-top: 32px;
+  }
+  @include tablet() {
+    @include flex($align: stretch, $direction: row);
+    min-height: 278px;
+    max-height: auto;
   }
 }
 
@@ -37,7 +41,10 @@
 .container {
   @include flex($align: stretch, $direction: column);
   flex: 1;
-  margin-left: 20px;
+  margin: 20px 0 0 0;
+  @include tablet() {
+    margin: 0 0 0 20px;
+  }
 }
 
 .complexity {
@@ -64,16 +71,25 @@
 }
 
 .box {
-  @include flex(space-between, flex-end);
   margin-top: 24px;
+  @include desktop() {
+    @include flex(space-between, flex-end);
+  }
 }
 
 .description {
   width: 100%;
-  max-width: 41%;
+  margin-bottom: 80px;
+  @include desktop() {
+    max-width: 41%;
+    margin-bottom: 0;
+  }
 }
 
 .add {
   width: 100%;
   max-width: 224px;
+  position: absolute;
+  bottom: 33px;
+  right: 0;
 }

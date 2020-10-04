@@ -1,9 +1,13 @@
 @import 'core.scss';
 
 .my-programs {
+  margin: 0 20px 0 20px;
   padding: 12px 20px 70px 20px;
   border-radius: 8px;
   background-color: $background;
+  @include desktop() {
+    margin: 0;
+  }
 }
 
 .title {
