@@ -52,7 +52,7 @@ const useCartData = () => {
 
     let author = '';
     let imageSource = '';
-    debugger;
+
     switch (__typename) {
       case ContentType.product: {
         author = itemCopy?.authors?.map(author => author.name).join(' ');
@@ -75,7 +75,7 @@ const useCartData = () => {
       imageSource
     };
   });
-  debugger;
+
   let totalPriceNumber = products
     .map(item => item.price)
     .reduce((accum, cur) => accum + cur);
