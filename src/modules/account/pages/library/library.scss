@@ -1,10 +1,16 @@
 @import 'core.scss';
 
 .library {
-  margin: 0 20px 0 20px;
-  padding: 8px 20px 100px 20px;
+  margin: 0 10px;
+  padding: 8px 20px 40px 20px;
   border-radius: 8px;
   background-color: $background;
+
+  @include tablet() {
+    margin: 0 20px;
+    padding-bottom: 80px;
+  }
+
   @include desktop() {
     margin: 0;
   }
@@ -15,8 +21,16 @@
 }
 
 .navigation {
-  @include flex($align: center);
-  margin-top: 42px;
+  @include flex(space-between, center);
+  margin-top: 30px;
+
+  @include tablet() {
+    justify-content: flex-start;
+  }
+
+  @include desktop() {
+    margin-top: 42px;
+  }
 }
 
 .link {
@@ -26,7 +40,9 @@
   transition: $transition;
 
   &:not(:first-child) {
-    margin-left: 104px;
+    @include tablet() {
+      margin-left: 104px;
+    }
   }
 
   &__icon {
@@ -50,8 +66,9 @@
 
 .content {
   @include flex($justify: center);
-  margin-top: 32px;
-  @include tablet() {
-    display: block;
+  margin-top: 20px;
+
+  @include desktop() {
+    margin-top: 32px;
   }
 }
