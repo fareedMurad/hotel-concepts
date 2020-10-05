@@ -1,5 +1,9 @@
-import { removeProgramFromWishlist } from '@app/redux/account';
+import {
+  addProgramToWishlist,
+  removeProgramFromWishlist
+} from '@app/redux/account';
 import { Button, Icon } from '@core/components';
+import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
@@ -30,8 +34,15 @@ const Program: React.FC<ProgramProps> = ({ type, program }) => {
       {fromWishlist && (
         <Icon
           className={styles.like}
-          name='like'
-          onClick={() => dispatch(removeProgramFromWishlist(id))}
+          name='heart'
+          onClick={() =>
+            dispatch(
+              removeProgramFromWishlist({
+                id,
+                preloader: Preloaders.programsWishlist
+              })
+            )
+          }
         />
       )}
       <img className={styles.image} src={url} alt={url} />
