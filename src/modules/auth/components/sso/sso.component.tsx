@@ -50,6 +50,8 @@ const Sso: React.FC<SsoProps> = ({ className, isLogin }) => {
           cssClass={styles.customLogIn}
           icon={<FacebookIcon />}
           scope='public_profile,email'
+          isMobile={false}
+          disableMobileRedirect
           callback={data => {
             dispatch(facebookSignIn(data));
           }}
