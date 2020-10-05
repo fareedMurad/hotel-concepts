@@ -45,6 +45,10 @@ const useBurgerData = () => {
     {
       name: 'Insights',
       link: '/insights'
+    },
+    {
+      name: 'Marketplace',
+      link: '/marketplace'
     }
   ];
   return { links, authorized, accountLinks };
