@@ -35,7 +35,10 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
         [styles.bordered]: isBordered
       })}
     >
-      <div className={styles.arrow} onClick={() => setCount(count - 1)}>
+      <div
+        className={styles.arrow}
+        onClick={() => setCount && setCount(count - 1)}
+      >
         &#8592;
       </div>
     </button>
@@ -43,7 +46,10 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
       onClick={next}
       className={classNames(styles.next, { [styles.bordered]: isBordered })}
     >
-      <div className={styles.arrow} onClick={() => setCount(count + 1)}>
+      <div
+        className={styles.arrow}
+        onClick={() => setCount && setCount(count + 1)}
+      >
         &#8594;
       </div>
     </button>

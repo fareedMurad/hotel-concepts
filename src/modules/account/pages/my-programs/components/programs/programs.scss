@@ -5,18 +5,23 @@
 }
 
 .placeholder {
+  margin-top: 40px;
   text-align: center;
 }
 
 .program {
-  @include flex($align: stretch);
+  @include flex($align: stretch, $direction: column);
   position: relative;
-  max-height: 278px;
   padding-bottom: 26px;
   border-bottom: 2px solid #cbd0d3;
 
   &:not(:first-child) {
     margin-top: 32px;
+  }
+  @include tablet() {
+    @include flex($align: stretch, $direction: row);
+    min-height: 278px;
+    max-height: auto;
   }
 }
 
@@ -37,7 +42,10 @@
 .container {
   @include flex($align: stretch, $direction: column);
   flex: 1;
-  margin-left: 20px;
+  margin: 20px 0 0 0;
+  @include tablet() {
+    margin: 0 0 0 20px;
+  }
 }
 
 .complexity {
@@ -45,35 +53,67 @@
 }
 
 .title {
-  @include font(#3e3e3e, 36px, 600, 46px);
+  @include font(#3e3e3e, 28px, 600, normal);
   margin-top: 8px;
   font-family: $EBGaramond;
+
+  @include tablet() {
+    font-size: 36px;
+    line-height: 46px;
+  }
 }
 
 .meta {
   @include flex($align: center);
-  @include font($primary-orange, 18px, 500, normal);
+  @include font($primary-orange, 16px, 500, normal);
   margin-top: 16px;
 
+  @include tablet() {
+    font-size: 18px;
+  }
+
   &__sprints {
-    margin: 0 26px;
-    padding: 0 26px 0 34px;
+    margin: 0 20px;
+    padding: 0 20px 0 30px;
     border-right: 2px solid #98a2a8;
     border-left: 2px solid #98a2a8;
+
+    @include tablet() {
+      margin: 0 26px;
+      padding: 0 26px 0 34px;
+    }
   }
 }
 
 .box {
-  @include flex(space-between, flex-end);
-  margin-top: 24px;
+  margin-top: 16px;
+
+  @include tablet() {
+    margin-top: 24px;
+  }
+
+  @include desktop() {
+    @include flex(space-between, flex-end);
+  }
 }
 
 .description {
   width: 100%;
-  max-width: 41%;
+  margin-bottom: 80px;
+
+  @include tablet() {
+    max-width: 41%;
+    margin-bottom: 0;
+  }
 }
 
 .add {
+  position: absolute;
   width: 100%;
-  max-width: 224px;
+  bottom: 33px;
+  right: 0;
+
+  @include tablet() {
+    max-width: 224px;
+  }
 }
