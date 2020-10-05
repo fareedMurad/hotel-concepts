@@ -36,17 +36,6 @@ const Content: React.FC = ({ children }) => {
   const { isReady } = useSelector((state: State) => state.general);
   useEffect(() => {
     dispatch(startup());
-    const tempCart = [
-      {
-        path: '2geEtN0sCVVlQZuHtRAwu9',
-        quantity: 2
-      },
-      {
-        path: '1bGQqRqQHAXqfKJYtBFwoX',
-        quantity: 1
-      }
-    ];
-    tempCart.map(item => dispatch(cart.add(item)));
     // window.scrollTo(0, 0);
   }, []);
 
