@@ -22,7 +22,6 @@ import { usePaginationCalculation } from './pagination.hook';
 const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = () => {
   const { t } = useTranslation();
   const { id } = useParams();
-  debugger;
   const { selectedCategory } = useCatalogueInfoData(id);
 
   const [currentPage, setCurrentPage] = React.useState(1);
