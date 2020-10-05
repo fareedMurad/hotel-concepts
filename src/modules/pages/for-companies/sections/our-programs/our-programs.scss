@@ -19,6 +19,7 @@
   @include container-sm();
   @include flex($direction: row, $align: stretch);
   flex-wrap: wrap;
+  height: auto;
 
   @include tablet() {
     display: grid;

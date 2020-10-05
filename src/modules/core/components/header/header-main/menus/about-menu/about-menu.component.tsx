@@ -19,9 +19,7 @@ const AboutMenu: React.FC<AboutMenuProps> = ({
   const { t } = useTranslation();
   const ref = React.useRef(null);
   const { aboutMenuLinks } = useAboutMenuData();
-  useClickOutside(ref, () => {
-    setSelectedMenu('');
-  });
+
   React.useEffect(() => {
     return () => setSelectedMenu('');
   }, [location.pathname]);
@@ -32,7 +30,6 @@ const AboutMenu: React.FC<AboutMenuProps> = ({
         onMouseOver={() => {
           setSelectedMenu('About');
         }}
-        ref={ref}
       >
         {t('header.header-main.link-three')}
         <span className={styles.arrow}>&#x25BE;</span>

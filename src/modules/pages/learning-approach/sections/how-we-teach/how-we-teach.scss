@@ -5,7 +5,7 @@
 }
 
 .title {
-  @include container();
+  @include font($primary-gray, 60px, 600, 70px);
   font-family: $EBGaramond;
   letter-spacing: -0.6px;
 }
