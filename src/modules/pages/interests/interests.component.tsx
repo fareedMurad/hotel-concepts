@@ -2,6 +2,7 @@ import { chooseInterests } from '@app/redux/auth';
 import { Button, Preloader } from '@core/components';
 import { isBackgroundWhite } from '@core/components/header/store';
 import { Preloaders } from '@ui/models';
+import { toggleToast } from '@ui/toast';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useEffect } from 'react';
@@ -16,6 +17,7 @@ const Interests: React.FC = () => {
   const { interests, selectedInterests, selectInterest } = useInterestsData();
   const dispatch = useDispatch();
   const isEmpty = selectedInterests?.length <= 0;
+  // const disableSkip = selectInterest?.length <=
 
   /**
    * Change header theme
@@ -68,18 +70,18 @@ const Interests: React.FC = () => {
           className={styles.submit}
           arrow
           disabled={isEmpty}
-          onClick={() =>
-            !isEmpty && dispatch(chooseInterests(selectedInterests))
-          }
+          onClick={() => {
+            !isEmpty && dispatch(chooseInterests(selectedInterests));
+          }}
         >
           Confirm
         </Button>
-        <div
+        {/* <div
           className={styles.skip}
           onClick={() => dispatch(chooseInterests([]))}
         >
           Skip
-        </div>
+        </div> */}
       </Preloader>
     </div>
   );
