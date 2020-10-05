@@ -24,7 +24,6 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
     (state: State) => state.programsData
   );
   const { fetchPrograms } = useProgramsData();
-
   const dispatch = useDispatch();
   const { t } = useTranslation();
 

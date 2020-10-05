@@ -1,5 +1,6 @@
-import { removeBookFromWishlist } from '@app/redux/account';
+import { downloadBook, removeBookFromWishlist } from '@app/redux/account';
 import { Button, Icon } from '@core/components';
+import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
@@ -25,20 +26,31 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
       {fromWishlist && (
         <Icon
           className={styles.like}
-          name='like'
-          onClick={() => dispatch(removeBookFromWishlist(id))}
+          name='heart'
+          onClick={() =>
+            dispatch(
+              removeBookFromWishlist({
+                id,
+                preloader: Preloaders.libraryWishlist
+              })
+            )
+          }
         />
       )}
       <img className={styles.image} src={url} alt={url} />
       <div className={styles.divider} />
       <div className={styles.name}>{name}</div>
       <div className={styles.controls}>
-        {!fromWishlist ? (
+        {fromWishlist ? (
           <Button arrow>Add to cart</Button>
         ) : (
           <React.Fragment>
             <Button arrow>Read</Button>
-            <Button theme='secondary' arrow>
+            <Button
+              theme='secondary'
+              arrow
+              // onClick={() => dispatch(downloadBook(()))}
+            >
               Download
             </Button>
           </React.Fragment>

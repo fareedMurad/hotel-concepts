@@ -6,43 +6,49 @@ import { useRouteMatch } from 'react-router';
 
 const useMarketplaceProductData = () => {
   const dispatch = useDispatch();
-  const { selectedProduct } = useSelector((state: State) => state.marketplace);
+  const {
+    auth: { authorized },
+    marketplace: { selectedProduct }
+  } = useSelector((state: State) => state);
   const {
     params: { id }
   } = useRouteMatch<{ id: string }>();
   const {
     name,
-    previewDescription,
-    authors,
-    languages,
-    publishDate,
-    highlightsText,
     price,
-    availableFormats,
-    productImage,
-    listOfSkills,
-    pagesCount,
-    forWhom,
-    materialsIncluded,
-    forWhomListOfPositions,
-    previewPages,
     results,
-    comments
+    authors,
+    forWhom,
+    comments,
+    languages,
+    pagesCount,
+    inWishlist,
+    publishDate,
+    listOfSkills,
+    productImage,
+    previewPages,
+    highlightsText,
+    availableFormats,
+    materialsIncluded,
+    previewDescription,
+    forWhomListOfPositions
   } = selectedProduct || {};
 
   /**
-   * Preview section dataF
+   * Preview section data
    */
   const previewData = {
     id,
     name,
-    previewDescription,
+    price,
     authors,
     languages,
+    authorized,
+    inWishlist,
     publishDate,
     highlightsText,
-    price,
     availableFormats,
+    previewDescription,
     img: productImage?.file?.url
   };
 
@@ -51,9 +57,9 @@ const useMarketplaceProductData = () => {
    */
   const descriptionData = {
     id,
+    pagesCount,
     publishDate,
-    listOfSkills,
-    pagesCount
+    listOfSkills
   };
 
   /**
@@ -104,15 +110,15 @@ const useMarketplaceProductData = () => {
    */
   const bannerData = {
     id,
-    img: productImage?.file?.url,
     name,
-    previewDescription,
+    price,
     authors,
     languages,
     publishDate,
     highlightsText,
-    price,
-    availableFormats
+    availableFormats,
+    previewDescription,
+    img: productImage?.file?.url
   };
 
   useEffect(() => {

@@ -12,7 +12,7 @@ import { Whishlist } from './whishlist';
  */
 const Library: React.FC = () => {
   const [wishlist, purchased] = usePrefixedRoutes(['wishlist', 'purchased']);
-  const { navigation } = useLibraryData();
+  const { navigation, matchWishlist } = useLibraryData();
 
   return (
     <div className={styles.library}>
@@ -22,11 +22,16 @@ const Library: React.FC = () => {
           <NavLink
             className={styles.link}
             activeClassName={styles.linkActive}
-            to={`/account/library${to}`}
+            to={to}
             key={index}
           >
             {label}
-            {withIcon && <Icon name='like' className={styles.linkIcon} />}
+            {withIcon && (
+              <Icon
+                className={styles.linkIcon}
+                name={`${matchWishlist ? 'heart' : 'like'}`}
+              />
+            )}
           </NavLink>
         ))}
       </div>

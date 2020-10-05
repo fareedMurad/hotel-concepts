@@ -86,7 +86,7 @@ const Mentors: React.FC<MentorsProps> = ({
         <Slider
           containerClass={styles.slider}
           draggable={false}
-          swipeable={false}
+          swipeable={true}
           responsive={responsiveBreakpoints}
           customButtonGroup={
             <SliderButtons

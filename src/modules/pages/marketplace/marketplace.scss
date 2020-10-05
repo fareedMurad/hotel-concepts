@@ -2,11 +2,19 @@
 
 .content {
   @include flex($align: stretch, $direction: column);
-  padding: 60px 22px 120px 20px;
+  padding: 40px 20px 40px 20px;
+
+  @include tablet() {
+    padding: 60px 20px 120px 20px;
+  }
 }
 
 .section {
   &:not(:first-child) {
-    margin-top: 80px;
+    margin-top: 60px;
+
+    @include tablet() {
+      margin-top: 80px;
+    }
   }
 }

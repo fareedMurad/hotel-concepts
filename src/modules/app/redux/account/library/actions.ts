@@ -1,4 +1,5 @@
 import { Book } from '@account/pages/library/models';
+import { Preloaders } from '@ui/models';
 import { make } from 'redux-chill';
 
 /**
@@ -21,20 +22,28 @@ const fetchLibraryWishlist = make('[library] fetch library wishlist').stage(
  * Add book to wishlist
  */
 const addBookToWishlist = make('[library] add book to wishlist')
-  .stage((payload: string) => payload)
+  .stage((payload: { id: string; preloader: Preloaders }) => payload)
   .stage('success', (id: string) => id);
 
 /**
  * Remove book from wishlist
  */
 const removeBookFromWishlist = make('[library] remove book from wishlist')
-  .stage((payload: string) => payload)
+  .stage((payload: { id: string; preloader: Preloaders }) => payload)
   .stage('success', (payload: { items: Book[]; total: number }) => payload)
   .stage('removeHeart', (ids: string[]) => ids);
+
+/**
+ * Download book
+ */
+const downloadBook = make('[library] download book').stage(
+  (url: string) => url
+);
 
 export {
   fetchLibraryPurchased,
   fetchLibraryWishlist,
   addBookToWishlist,
-  removeBookFromWishlist
+  removeBookFromWishlist,
+  downloadBook
 };

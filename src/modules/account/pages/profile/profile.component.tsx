@@ -13,6 +13,7 @@ import {
   UpdatePassword,
   UploadAvatar
 } from './sections';
+import { ScrollToTop } from '@app';
 
 /**
  * Renders Profile

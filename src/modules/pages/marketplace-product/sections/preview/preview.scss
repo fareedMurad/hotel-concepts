@@ -103,6 +103,7 @@
 
 .caption {
   @include font($primary-gray, 48px, 600, 58px);
+  margin-right: 34px;
   font-family: $EBGaramond;
 }
 

@@ -17,6 +17,7 @@
 
 .like {
   @include size(24px);
+  @include fill($primary-gray);
   position: absolute;
   top: 8px;
   right: 8px;

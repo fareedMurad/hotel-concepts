@@ -1,6 +1,7 @@
 @import 'core.scss';
 
 .title {
+  @include font($primary-gray, 60px, 600, 70px);
   @include container();
   letter-spacing: -0.6px;
   font-family: $EBGaramond;

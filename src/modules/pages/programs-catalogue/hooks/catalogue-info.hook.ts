@@ -16,7 +16,7 @@ const useCatalogueInfoData = (categoryId?: string) => {
   };
   useEffect(() => {
     dispatch(getSingleCategory(payload));
-  }, []);
+  }, [categoryId]);
   return {
     selectedCategory
   };

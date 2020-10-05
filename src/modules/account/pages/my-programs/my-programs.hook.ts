@@ -1,26 +1,20 @@
-import { navigate } from '@router/store';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 
 const useMyProgramsData = () => {
-  const dispatch = useDispatch();
+  const {
+    location: { pathname }
+  } = useHistory();
+  const matchWishlist = pathname == '/account/programs/wishlist';
 
   /**
    * Navigation
    */
   const navigation = [
-    { label: 'Purchased Programs', to: '/purchased' },
-    { label: 'Wishlist', to: '/wishlist', withIcon: true }
+    { label: 'Purchased Programs', to: 'purchased' },
+    { label: 'Wishlist', to: 'wishlist', withIcon: true }
   ];
 
-  /**
-   * TODO possible can be done better
-   */
-  useEffect(() => {
-    // dispatch(navigate('/account/programs/purchased'));
-  }, []);
-
-  return { navigation };
+  return { navigation, matchWishlist };
 };
 
 export { useMyProgramsData };

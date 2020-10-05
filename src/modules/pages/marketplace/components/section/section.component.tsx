@@ -2,6 +2,7 @@ import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 import { State } from '@app/redux/state';
 import { Button, Icon, Slider } from '@core/components';
 import { navigate } from '@router/store';
+import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,18 +13,23 @@ import * as styles from './section.scss';
  * Responsive slider breakpoints
  */
 const responsive = {
+  xl: {
+    breakpoint: { max: 2000, min: 1681 },
+    items: 5,
+    slidesToSlide: 1
+  },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 1680, min: 1025 },
     items: 4,
     slidesToSlide: 1
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1024, min: 601 },
     items: 2,
     slidesToSlide: 1
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 600, min: 0 },
     items: 1,
     slidesToSlide: 1
   }
@@ -52,8 +58,12 @@ const Book: React.FC<BookProps> = ({ book, onClick }) => {
           name={inWishlist ? 'heart' : 'like'}
           onClick={event => {
             event.stopPropagation();
+            const data = { id, preloader: Preloaders.marketplace };
+
             dispatch(
-              inWishlist ? removeBookFromWishlist(id) : addBookToWishlist(id)
+              inWishlist
+                ? removeBookFromWishlist(data)
+                : addBookToWishlist(data)
             );
           }}
         />

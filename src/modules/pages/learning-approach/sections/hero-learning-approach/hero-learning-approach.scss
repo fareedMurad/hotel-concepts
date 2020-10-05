@@ -10,14 +10,12 @@
   &-caption {
     width: 100%;
     font-family: $EBGaramond;
-    font-size: 60px;
     color: $white;
     @include desktop() {
       width: 50%;
     }
   }
   &-description {
-    @include font($white, 24px, 400, 34px);
     width: 100%;
     margin-top: 25px;
   }

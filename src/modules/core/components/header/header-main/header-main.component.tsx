@@ -12,6 +12,8 @@ import { AboutMenu } from './menus/about-menu';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
 import { Dropdown } from './components';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 /**
  * Renders HeaderMain
@@ -24,21 +26,13 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   const dispatch = useDispatch();
   const { menus } = useHeaderMainData();
   const location = useLocation();
-  const [selectedMenu, setSelectedMenu] = React.useState('');
-  const [white, setWhite] = React.useState(false);
-  const [
-    showProfileNavigationMenu,
-    setShowProfileNavigationMenu
-  ] = React.useState(false);
-  React.useEffect(() => {
+  const [selectedMenu, setSelectedMenu] = useState('');
+  const [white, setWhite] = useState(false);
+
+  useEffect(() => {
     isSticky ? setWhite(true) : setWhite(false);
     return () => setSelectedMenu('');
   }, [isSticky, location.pathname]);
-
-  const selectMenu = menu => {
-    setSelectedMenu('');
-    setSelectedMenu(menu);
-  };
 
   const { mobile, tablet } = useMediaPoints(true);
 
@@ -67,7 +61,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                   [styles.invertedHeader]: whiteBackground || isSticky
                 })}
                 key={menu.name}
-                onClick={() => selectMenu(menu.name)}
+                onMouseOver={() => setSelectedMenu(menu.name)}
               >
                 {menu.name}
                 <span className={styles.arrow}>&#x25BE;</span>
@@ -85,6 +79,8 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
           })}
 
           <AboutMenu
+            selectedMenu={selectedMenu}
+            setSelectedMenu={setSelectedMenu}
             className={classNames(styles.headerMainNavigationItem, {
               [styles.invertedHeader]: whiteBackground || isSticky
             })}
@@ -101,24 +97,27 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
           </div>
 
           <div className={styles.headerMainNavigationProfile}>
-            <div className={styles.profileNavigation}>
+            <div
+              className={styles.profileNavigation}
+              onMouseEnter={() => {
+                setSelectedMenu('Profile');
+              }}
+            >
               <Icon
-                onClick={() => setShowProfileNavigationMenu(true)}
                 name={
                   whiteBackground || isSticky
                     ? 'default-avatar-b'
                     : 'default-avatar'
                 }
               />
-
-              {showProfileNavigationMenu && (
-                <ProfileMenu
-                  setShowProfileNavigationMenu={setShowProfileNavigationMenu}
-                />
+              {selectedMenu === 'Profile' && (
+                <ProfileMenu setSelectedMenu={setSelectedMenu} />
               )}
             </div>
 
             <LocalizationMenu
+              setSelectedMenu={setSelectedMenu}
+              selectedMenu={selectedMenu}
               className={classNames(styles.local, {
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}

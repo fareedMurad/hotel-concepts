@@ -2,7 +2,7 @@
  * Props
  */
 type DropDownProps = {
-  show: boolean;
+  setSelectedMenu: (isShow: string) => void;
   links: {
     name: string;
     to: string;

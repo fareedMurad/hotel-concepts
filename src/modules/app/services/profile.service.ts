@@ -55,7 +55,7 @@ class ProfileService {
   /**
    * Edit interests
    */
-  public editInterests = (interests: string[]) => {
+  public editInterests = (interests: string[]) =>
     this.http.request({
       method: 'PUT',
       url: '/user/interests',
@@ -63,7 +63,6 @@ class ProfileService {
         interests
       }
     });
-  };
 
   /**
    * Edit password
