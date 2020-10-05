@@ -1,4 +1,5 @@
 import { downloadBook, removeBookFromWishlist } from '@app/redux/account';
+import { addToCart, cart } from '@app/redux/cart';
 import { Button, Icon } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
@@ -42,7 +43,9 @@ const Book: React.FC<BookProps> = ({ type, book }) => {
       <div className={styles.name}>{name}</div>
       <div className={styles.controls}>
         {fromWishlist ? (
-          <Button arrow>Add to cart</Button>
+          <Button arrow onClick={() => dispatch(addToCart({ id }))}>
+            Add to cart
+          </Button>
         ) : (
           <React.Fragment>
             <Button arrow>Read</Button>

@@ -3,6 +3,7 @@
 .cart-item {
   @include flex();
   margin-bottom: 15px;
+
   &__image {
     @include flex($direction: column, $align: center);
     & > img {
@@ -11,9 +12,11 @@
       object-fit: contain;
     }
   }
+
   &__info {
     @include flex($direction: column);
     padding: 0 15px 0 15px;
+
     &--title {
       @include font($primary-gray, 24px, 400, 28px);
     }

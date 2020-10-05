@@ -1,35 +1,56 @@
+import { Preloader } from '@core/components';
+import { Preloaders } from '@ui/models';
 import * as React from 'react';
-import { CartProps } from './cart.props';
-import * as styles from './cart.scss';
+import { Fragment } from 'react';
 import { useCartData } from './cart-hook';
-import { CartItem } from './components/cart-item';
-import { Summary } from './components/summary';
+import * as styles from './cart.scss';
+import { Product, Summary } from './components';
 
 /**
  * Renders Cart
  */
-const Cart: React.FC<CartProps> = ({}) => {
-  const { cartData, summaryData } = useCartData();
+const Cart: React.FC = () => {
+  const { products, summaryData } = useCartData();
+  const cartQuantity = products?.length;
 
   return (
     <div className={styles.cart}>
-      <div className={styles.cartHeader}>
-        <div className={styles.cartHeaderTitle}>My cart</div>
-        {cartData && (
-          <div className={styles.cartHeaderCounter}>
-            {cartData?.length} items
-          </div>
-        )}
+      <div className={styles.header}>
+        <div className={styles.headerCaption}>My cart</div>
+        <div className={styles.headerQuantity}>{cartQuantity} items</div>
       </div>
-      <div className={styles.cartItemsList}>
-        {cartData?.map((item, index) => (
-          <CartItem key={index} {...item} />
-        ))}
-      </div>
-      <div className={styles.hr} />
-      <Summary {...summaryData} />
-      <div className={styles.hrText}>
-        <span /> <div>Or checkout with</div> <span />
+
+      <div className={styles.container}>
+        <Preloader id={Preloaders.cart}>
+          {cartQuantity > 0 ? (
+            <Fragment>
+              <div className={styles.content}>
+                <div className={styles.products}>
+                  {products?.map(product => (
+                    <Product
+                      className={styles.product}
+                      product={product}
+                      key={product?.id}
+                    />
+                  ))}
+                </div>
+                <div className={styles.hr} />
+                <Summary summaryData={summaryData} />
+              </div>
+              <div className={styles.alternatives}>
+                <div className={styles.divider}>
+                  <span className={styles.dividerLine} />
+                  <div className={styles.dividerCaption}>Or checkout with</div>
+                  <span className={styles.dividerLine} />
+                </div>
+                <div>Paypal</div>
+                <div>Visa checkout</div>
+              </div>
+            </Fragment>
+          ) : (
+            <div className={styles.placeholder}>Your cart is empty</div>
+          )}
+        </Preloader>
       </div>
     </div>
   );

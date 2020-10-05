@@ -1,47 +1,80 @@
 @import 'core.scss';
 
 .cart {
-  width: 505px;
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+  width: 100%;
+  margin: 132px auto 0 auto;
+  padding: 20px 20px 40px 20px;
 
-  margin: 200px auto 0 auto;
-  &__header {
-    @include flex($justify: space-between, $align: baseline);
-    padding-bottom: 30px;
-    border-bottom: 1px solid $light-grey;
+  @include tablet() {
+    max-width: 505px;
+  }
+}
 
-    &--title {
-      @include font($primary-gray, 48px, 600, 58px);
-      font-family: $EBGaramond;
-    }
-    &--counter {
-      @include font($primary-gray, 18px, 400, 28px);
-      font-family: $EBGaramond;
+.header {
+  @include flex(space-between, flex-end);
+  padding-bottom: 16px;
+  border-bottom: 1px solid $light-grey;
+
+  &__caption {
+    @include font($primary-gray, 36px, 600, normal);
+    font-family: $EBGaramond;
+
+    @include tablet() {
+      font-size: 48px;
+      line-height: 58px;
     }
   }
-  &__items-list {
-    margin-top: 30px;
+
+  &__quantity {
+    @include font($primary-gray, 18px, 400, 24px);
+    font-family: $EBGaramond;
+  }
+}
+
+.placeholder {
+  @include font($primary-gray, 18px, 400, 24px);
+  margin-top: 30px;
+  text-align: center;
+}
+
+.container {
+  margin: 30px 0;
+}
+
+.products {
+  @include flex($align: stretch, $direction: column);
+  padding-bottom: 20px;
+}
+
+.product {
+  &:not(:first-child) {
+    margin-top: 16px;
   }
 }
 
 .hr {
   width: 100%;
-  height: 2px;
+  height: 1px;
   background-color: $light-grey;
 }
 
-.hr-text {
+.alternatives {
+  @include flex($align: stretch, $direction: column);
+}
+
+.divider {
   @include flex($align: center);
-  @include font($primary-gray, 18px, 400, 28px);
-  width: 100%;
-  text-align: center;
-  & > span {
-    display: flex;
+
+  &__line {
     flex: 1;
     height: 1px;
-    width: 20px;
     background-color: $light-grey;
   }
-  & > div {
+
+  &__caption {
+    @include font($primary-gray, 18px, 400, 28px);
     margin: 0 10px;
   }
 }

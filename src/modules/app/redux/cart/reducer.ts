@@ -1,21 +1,30 @@
-import { Book } from '@account/pages/library/models';
-import { Program } from '@account/pages/my-programs/models';
-import { Product } from '@app/models/fastspring';
 import { reducer } from 'redux-chill';
-import { cart, getProducts } from './actions';
-
-/**
- * Defaults
- */
-const defaultState = {
-  cart: [] as Product[],
-  products: [] as (Program | Book)[]
-};
+import {
+  addToCart,
+  cart,
+  getProducts,
+  checkCart,
+  removeFromCart
+} from './actions';
+import { CartState } from './state';
 
 /**
  * Cart Reducer
  */
-const cartReducer = reducer(defaultState)
+const cartReducer = reducer(new CartState())
+  .on(checkCart.success, (state, payload) => {
+    state.selectedProducts = payload;
+  })
+  .on(addToCart.success, (state, { id }) => {
+    const match = state.selectedProducts.some(one => one == id);
+
+    match
+      ? state.selectedProducts.filter(one => one != id)
+      : state.selectedProducts.push(id);
+  })
+  .on(removeFromCart.success, (state, { id }) => {
+    state.selectedProducts.filter(item => item != id);
+  })
   .on(cart.saveToState, (state, payload) => {
     state.cart = payload;
   })

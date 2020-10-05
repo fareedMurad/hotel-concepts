@@ -4,6 +4,28 @@ import { Product } from '@app/models/fastspring';
 import { make } from 'redux-chill';
 
 /**
+ * Check cart
+ */
+const checkCart = make('[cart] check').stage(
+  'success',
+  (payload: string[]) => payload
+);
+
+/**
+ * Add to cart
+ */
+const addToCart = make('[cart] add product')
+  .stage((payload: { id: string }) => payload)
+  .stage('success', (payload: { id: string }) => payload);
+
+/**
+ * Remove from cart
+ */
+const removeFromCart = make('[cart] remove product')
+  .stage((payload: { id: string }) => payload)
+  .stage('success', (payload: { id: string }) => payload);
+
+/**
  * Cart add, get, remove, update
  */
 const cart = make('[cart]')
@@ -13,9 +35,12 @@ const cart = make('[cart]')
   .stage('update', (payload: Product) => payload)
   .stage('saveToState', (product: Product[]) => product);
 
+/**
+ * Get cart products
+ */
 const getProducts = make('[cart] get products').stage(
   'success',
   (products: (Program | Book)[]) => products
 );
 
-export { cart, getProducts };
+export { cart, getProducts, checkCart, addToCart, removeFromCart };

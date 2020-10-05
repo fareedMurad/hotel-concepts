@@ -60,8 +60,23 @@
 }
 
 .cart {
+  position: relative;
   margin-right: 20px;
+
   & > div > div {
     @include flex();
   }
+}
+
+.indicator {
+  @include flex(center, center);
+  @include size(16px);
+  @include min-size(16px);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 12px;
+  color: $white;
+  background: $primary-orange;
+  border-radius: 50%;
 }

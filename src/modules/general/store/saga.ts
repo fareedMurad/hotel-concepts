@@ -1,4 +1,5 @@
 import { SocketResponseType } from '@app/models/enum';
+// import { checkCart } from '@app/redux/cart';
 import { Context } from '@app/redux/context';
 import { SocketService } from '@app/services';
 import { enviroment } from '@env';
@@ -19,6 +20,7 @@ class GeneralSaga {
    */
   @Saga(startup)
   public *startup() {
+    // yield put(checkCart());
     yield spawn(this.run);
 
     // yield put(getUser());
@@ -46,7 +48,10 @@ class GeneralSaga {
   public *run() {
     // const { authorized } = yield select((state: State) => state.auth);
 
-    yield all([take(setupLocalization.success)]);
+    yield all([
+      take(setupLocalization.success)
+      // take(checkCart.success)
+    ]);
 
     yield put(startup.success());
     // yield put(connectSocket());

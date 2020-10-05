@@ -14,9 +14,13 @@ const CartItem: React.FC<CartItemProps> = ({
   quantity,
   price,
   imageSource,
-  id
+  id,
+  product
 }) => {
   const dispatch = useDispatch();
+
+  console.log(product);
+
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>

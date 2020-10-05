@@ -19,6 +19,7 @@ import { Interests } from '@pages';
 import { MarketplaceProduct } from '@pages/marketplace-product';
 import { Cart } from '@pages/cart';
 import { getUser } from '@app/redux/auth';
+import { checkCart } from '@app/redux/cart';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -121,6 +122,7 @@ const Routes: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUser());
+    dispatch(checkCart());
   }, []);
 
   return (

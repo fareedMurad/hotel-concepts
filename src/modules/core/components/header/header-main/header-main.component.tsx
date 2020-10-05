@@ -24,7 +24,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   isSticky
 }) => {
   const dispatch = useDispatch();
-  const { menus } = useHeaderMainData();
+  const { menus, cartQuantity } = useHeaderMainData();
   const location = useLocation();
   const [selectedMenu, setSelectedMenu] = useState('');
   const [white, setWhite] = useState(false);
@@ -94,6 +94,9 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
               name='shopping-cart'
               fill={whiteBackground || isSticky ? 'black' : 'white'}
             />
+            {cartQuantity > 0 && (
+              <div className={styles.indicator}>{cartQuantity}</div>
+            )}
           </div>
 
           <div className={styles.headerMainNavigationProfile}>

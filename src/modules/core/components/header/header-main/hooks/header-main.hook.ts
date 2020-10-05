@@ -4,11 +4,15 @@ import { useProgramsMenuData } from './programs.hook';
 import { useHistory } from 'react-router';
 
 const useHeaderMainData = () => {
-  const { language } = useSelector((state: State) => state.localization);
+  const {
+    localization: { language },
+    cart: { selectedProducts }
+  } = useSelector((state: State) => state);
   const { programsData, programsLoading } = useProgramsMenuData(language);
   const {
     location: { pathname }
   } = useHistory();
+  const cartQuantity = selectedProducts?.length;
 
   const menus = [
     {
@@ -82,6 +86,6 @@ const useHeaderMainData = () => {
   // const blackTheme = ;
   // const theme =
 
-  return { menus };
+  return { menus, cartQuantity };
 };
 export { useHeaderMainData };

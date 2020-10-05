@@ -8,97 +8,102 @@ import { isBackgroundWhite } from '@core/components/header/store';
 
 const useCartData = () => {
   const dispatch = useDispatch();
+  const { cart, products } = useSelector((state: State) => state.cart);
 
   /**
-   * change header theme
+   * Mount
    */
   useEffect(() => {
+    dispatch(getProducts());
     dispatch(isBackgroundWhite(true));
+
     return () => {
       dispatch(isBackgroundWhite(false));
     };
   }, []);
 
-  const { cart, products } = useSelector((state: State) => state.cart);
+  // if (cart.length !== products.length || cart.length === 0)
+  //   return { cartData: null, summaryData: null };
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
+  // /**
+  //  * REFACTOR THIS SHIT IN FUTURE
+  //  */
+  // const cartData = products.map(item => {
+  //   const itemCopy = JSON.parse(JSON.stringify(item));
+  //   const {
+  //     __typename,
+  //     name,
+  //     pricing: { price },
+  //     price: priceWithoutCurrency,
+  //     id
+  //   } = itemCopy;
 
-  if (cart.length !== products.length || cart.length === 0)
-    return { cartData: null, summaryData: null };
+  //   const itemFromLocalStorage = cart.find(el => el.path === item.id);
+  //   const { quantity } = itemFromLocalStorage || {};
 
-  /**
-   * REFACTOR THIS SHIT IN FUTURE
-   */
-  const cartData = products.map(item => {
-    const itemCopy = JSON.parse(JSON.stringify(item));
-    const {
-      __typename,
-      name,
-      pricing: { price },
-      price: priceWithoutCurrency,
-      id
-    } = itemCopy;
+  //   //hack for price
+  //   const hasPrice = Object.keys(price).length > 0;
+  //   const priceResult = `${hasPrice ? Object.values(price)[0] : 0} ${
+  //     hasPrice ? CurrenciesesCharacters[Object.keys(price)[0]] : null
+  //   } `;
 
-    const itemFromLocalStorage = cart.find(el => el.path === item.id);
-    const { quantity } = itemFromLocalStorage || {};
+  //   let author = '';
+  //   let imageSource = '';
 
-    //hack for price
-    const hasPrice = Object.keys(price).length > 0;
-    const priceResult = `${hasPrice ? Object.values(price)[0] : 0} ${
-      hasPrice ? CurrenciesesCharacters[Object.keys(price)[0]] : null
-    } `;
+  //   switch (__typename) {
+  //     case ContentType.product: {
+  //       author = itemCopy?.authors?.map(author => author.name).join(' ');
+  //       imageSource = itemCopy?.productImage?.file?.url;
+  //       break;
+  //     }
+  //     case ContentType.onlineCourse: {
+  //       author = ' ';
+  //       imageSource = itemCopy?.courseImage?.file?.url;
+  //       break;
+  //     }
+  //   }
 
-    let author = '';
-    let imageSource = '';
+  //   return {
+  //     name,
+  //     author,
+  //     quantity,
+  //     price: priceResult,
+  //     id,
+  //     imageSource
+  //   };
+  // });
 
-    switch (__typename) {
-      case ContentType.product: {
-        author = itemCopy?.authors?.map(author => author.name).join(' ');
-        imageSource = itemCopy?.productImage?.file?.url;
-        break;
-      }
-      case ContentType.onlineCourse: {
-        author = ' ';
-        imageSource = itemCopy?.courseImage?.file?.url;
-        break;
-      }
-    }
+  // let totalPriceNumber = products
+  //   .map(item => item.price)
+  //   .reduce((accum, cur) => accum + cur);
 
-    return {
-      name,
-      author,
-      quantity,
-      price: priceResult,
-      id,
-      imageSource
-    };
-  });
+  // // refactor in future
+  // const total = `${totalPriceNumber} ${
+  //   CurrenciesesCharacters[Object.keys(products[0].pricing.price)[0]]
+  // }`;
 
-  let totalPriceNumber = products
-    .map(item => item.price)
-    .reduce((accum, cur) => accum + cur);
-
-  // refactor in future
-  const total = `${totalPriceNumber} ${
-    CurrenciesesCharacters[Object.keys(products[0].pricing.price)[0]]
-  }`;
+  const summaryData = {
+    total: '',
+    estimatedShipping: '',
+    estimatedTax: ''
+  };
 
   return {
-    cartData,
-    summaryData: {
-      total,
-      estimatedShipping: '',
-      estimatedTax: '0 $',
-      onClick: () => {
-        const items = cartData.map(item => ({
-          path: item.id,
-          quantity: item.quantity
-        }));
-        dispatch(checkout(items));
-      }
-    }
+    products,
+    summaryData
+    // cartData,
+    // summaryData: {
+    //   total,
+    //   estimatedShipping: '',
+    //   estimatedTax: '0 $',
+    //   onClick: () => {
+    //     const items = cartData.map(item => ({
+    //       path: item.id,
+    //       quantity: item.quantity
+    //     }));
+    //     dispatch(checkout(items));
+    //   }
+    // }
   };
 };
 
