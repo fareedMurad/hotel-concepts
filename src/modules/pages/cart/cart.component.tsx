@@ -9,16 +9,6 @@ import { Summary } from './components/summary';
  * Renders Cart
  */
 const Cart: React.FC<CartProps> = ({}) => {
-  /**
-   * change header theme
-   */
-  // React.useEffect(() => {
-  //   dispatch(isBackgroundWhite(true));
-  //   return () => {
-  //     dispatch(isBackgroundWhite(false));
-  //   };
-  // }, []);
-
   const { cartData, summaryData } = useCartData();
 
   return (

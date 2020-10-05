@@ -4,9 +4,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cart as cartAction, getProducts } from '@app/redux/cart';
 import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
 import { checkout } from '@app/redux/checkout';
+import { isBackgroundWhite } from '@core/components/header/store';
 
 const useCartData = () => {
   const dispatch = useDispatch();
+
+  /**
+   * change header theme
+   */
+  useEffect(() => {
+    dispatch(isBackgroundWhite(true));
+    return () => {
+      dispatch(isBackgroundWhite(false));
+    };
+  }, []);
 
   const { cart, products } = useSelector((state: State) => state.cart);
 
