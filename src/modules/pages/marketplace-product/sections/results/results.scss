@@ -2,18 +2,30 @@
 
 .results {
   @include flex($align: stretch, $direction: column);
-  padding: 80px 133px;
+  padding: 40px 20px;
+
+  @include desktop() {
+    padding: 80px 133px;
+  }
 }
 
 .list {
   @include flex($align: stretch, $direction: column);
-  margin-top: 40px;
+  margin-top: 20px;
+
+  @include tablet() {
+    margin-top: 40px;
+  }
 }
 
 .result {
   @include flex($align: center);
-  padding: 32px 0;
+  padding: 16px 0;
   border-top: 2px solid #cbd0d3;
+
+  @include tablet() {
+    padding: 32px 0;
+  }
 
   &:last-child {
     border-bottom: 2px solid #cbd0d3;
@@ -21,15 +33,26 @@
 
   &__check {
     @include flex(center, center);
-    @include size(34px);
-    @include min-size(34px);
+    @include size(28px);
+    @include min-size(28px);
     background: #f5f1f0;
     border-radius: 50%;
+
+    @include tablet() {
+      @include size(34px);
+      @include min-size(34px);
+    }
   }
 
   &__caption {
-    @include font($primary-gray, 18px, 400, 28px);
+    @include font($primary-gray, 16px, 400, 24px);
     flex: 1;
-    margin-left: 30px;
+    margin-left: 16px;
+
+    @include tablet() {
+      margin-left: 30px;
+      font-size: 18px;
+      line-height: 28px;
+    }
   }
 }

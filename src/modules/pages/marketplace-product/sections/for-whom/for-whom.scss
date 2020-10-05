@@ -1,7 +1,11 @@
 @import 'core.scss';
 
 .for-whom {
-  padding: 0 134px 80px 134px;
+  padding: 20px;
+
+  @include desktop() {
+    padding: 0 134px 80px 134px;
+  }
 }
 
 .description {
@@ -11,16 +15,29 @@
 
 .content {
   display: grid;
-  grid-template-columns: repeat(2, 315px);
-  gap: 24px 20px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px 0;
   margin-top: 38px;
+
+  @include tablet() {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 20px;
+  }
+
+  @include desktop() {
+    grid-template-columns: repeat(2, 315px);
+  }
 }
 
 .card {
   @include flex($align: center);
-  padding: 24px 16px;
+  padding: 16px;
   border-radius: 4px;
   background: #f5f1f0;
+
+  @include desktop() {
+    padding: 24px 16px;
+  }
 
   &__indicator {
     @include size(4px);
@@ -29,9 +46,14 @@
   }
 
   &__caption {
-    @include font($primary-gray, 28px, 400, 35px);
+    @include font($primary-gray, 20px, 400, 24px);
     flex: 1;
     margin-left: 8px;
     font-family: $EBGaramond;
+
+    @include desktop() {
+      font-size: 28px;
+      line-height: 35px;
+    }
   }
 }

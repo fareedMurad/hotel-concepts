@@ -1,37 +1,80 @@
 @import 'core.scss';
 
 .banner {
-  padding: 60px 0 55px 0;
+  margin-top: 20px;
+  padding: 40px 20px;
   background: #f5f1f0;
+
+  @include desktop() {
+    margin-top: 0;
+    padding: 60px 0 55px 0;
+  }
 }
 
 .box {
-  @include flex($align: stretch);
+  @include flex($align: stretch, $direction: column);
   width: 100%;
-  max-width: 73.5%;
-  margin: 0 auto;
+
+  @include tablet() {
+    flex-direction: row;
+  }
+
+  @include desktop() {
+    max-width: 73.5%;
+    margin: 0 auto;
+  }
 }
 
 .image {
-  width: 240px;
-  height: 368px;
-  object-fit: cover;
+  width: 50%;
+  align-self: center;
+
+  @include tablet() {
+    align-self: initial;
+    width: 200px;
+    height: 275px;
+    object-fit: cover;
+  }
+
+  @include desktop() {
+    width: 240px;
+    height: 368px;
+  }
 }
 
 .container {
   flex: 1;
-  margin-left: 112px;
+  margin-top: 40px;
+
+  @include tablet() {
+    margin-top: 0;
+    margin-left: 30px;
+  }
+
+  @include desktop() {
+    margin-left: 112px;
+  }
 }
 
 .description {
-  @include font($primary-gray, 18px, 400, 28px);
+  @include font($primary-gray, 16px, 400, 24px);
   margin-top: 12px;
+
+  @include tablet() {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 .authors {
-  @include font($primary-gray, 18px, 400, 58px);
+  @include font($primary-gray, 16px, 400, normal);
   margin-top: 20px;
   font-family: $EBGaramond;
+
+  @include tablet() {
+    font-size: 18px;
+    line-height: 58px;
+  }
 }
 
 .author {
@@ -52,8 +95,12 @@
 }
 
 .meta {
-  @include flex($align: center);
+  @include flex(space-between, flex-start);
   margin-top: 24px;
+
+  @include tablet() {
+    justify-content: flex-start;
+  }
 }
 
 .languages {
@@ -70,7 +117,10 @@
 
 .published {
   @include font($primary-gray, 12px, 400, 16px);
-  margin-left: 74px;
+
+  @include tablet() {
+    margin-left: 74px;
+  }
 
   &__bold {
     font-weight: 500;
@@ -82,10 +132,19 @@
 
 .price {
   @include font($primary-gray, 36px, 600, 46px);
-  margin-top: 50px;
+  margin-top: 30px;
   font-family: $EBGaramond;
+
+  @include tablet() {
+    margin-top: 50px;
+  }
 }
 
 .checkout {
+  width: 100%;
   margin-top: 16px;
+
+  @include tablet() {
+    width: 244px;
+  }
 }
