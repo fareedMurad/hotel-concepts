@@ -8,7 +8,7 @@
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  min-height: 720px;
+
   padding-left: $left-offset;
   padding-right: $default-offset;
   @include ipad-p() {
@@ -16,6 +16,9 @@
   }
   @include ipad-l() {
     height: calc(100vh - 30px);
+  }
+  @include desktop() {
+    min-height: 720px;
   }
 }
 

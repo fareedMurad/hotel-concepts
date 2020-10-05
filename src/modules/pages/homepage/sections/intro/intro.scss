@@ -55,8 +55,14 @@
   margin-bottom: 48px;
 }
 
-@media screen and (max-width: 768px) {
-  .title {
+.title {
+  & > div:first-child {
+    @include font($white, 40px, 500, 50px);
+  }
+  & > div:nth-child(2) {
+    @include font($white, 20px, 400, 30px);
+  }
+  @include desktop() {
     & > div:first-child {
       @include font($white, 50px, 500, 52px);
     }

@@ -43,6 +43,10 @@
   }
   &-button {
     position: absolute;
+    width: auto;
     bottom: 36px;
+    @include desktop() {
+      width: 311px;
+    }
   }
 }
