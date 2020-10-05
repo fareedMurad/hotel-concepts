@@ -84,6 +84,7 @@ const MyInterests: React.FC<MyInterestsProps> = ({ className }) => {
                 );
                 setExpanded(false);
               }}
+              disabled={selectedInterests.length < 1}
             >
               Save
             </Button>

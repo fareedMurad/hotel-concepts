@@ -17,7 +17,6 @@ const Interests: React.FC = () => {
   const { interests, selectedInterests, selectInterest } = useInterestsData();
   const dispatch = useDispatch();
   const isEmpty = selectedInterests?.length <= 0;
-  // const disableSkip = selectInterest?.length <=
 
   /**
    * Change header theme
