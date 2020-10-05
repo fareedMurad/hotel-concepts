@@ -12,7 +12,8 @@ import { Language } from '@app/models/enum';
  */
 const LocalizationDropDown: React.FC<any> = ({
   langueges,
-  setCurrentLanguage
+  setCurrentLanguage,
+  setSelectedMenu
 }) => {
   const dispatch = useDispatch();
   return (
@@ -35,7 +36,9 @@ const LocalizationDropDown: React.FC<any> = ({
  */
 const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
   className,
-  iconName
+  iconName,
+  selectedMenu,
+  setSelectedMenu
 }) => {
   const languages = [
     {
@@ -55,20 +58,16 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
   const [currentLanguage, setCurrentLanguage] = React.useState(
     languages[0].name
   );
-  const [showLanguges, setShowLangueges] = React.useState(false);
-  const ref = React.useRef();
-  useClickOutside(ref, () => {
-    setShowLangueges(false);
-  });
   return (
     <div
-      ref={ref}
       className={className}
-      onClick={() => setShowLangueges(!showLanguges)}
+      onMouseEnter={() => setSelectedMenu('Languages')}
+      onMouseLeave={() => setSelectedMenu('')}
     >
       {currentLanguage} <Icon name={iconName} />
-      {showLanguges && (
+      {selectedMenu === 'Languages' && (
         <LocalizationDropDown
+          setSelectedMenu={setSelectedMenu}
           setCurrentLanguage={setCurrentLanguage}
           langueges={languages}
         />
