@@ -1,0 +1,37 @@
+@import 'core.scss';
+
+.burger {
+  @include flex($direction: column, $align: flex-end);
+  position: fixed;
+  right: 0;
+  flex: 1;
+  width: 60%;
+  height: calc(100vh - 100px);
+  background-color: $white;
+  border-radius: 7px;
+  padding: 20px;
+
+  &__account {
+    flex: 1;
+    width: 100%;
+    & > div:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__links {
+    @include flex($direction: column, $justify: flex-end, $align: flex-end);
+
+    & > div:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &--link {
+      @include font($primary-gray, 24px, 400, 24px);
+      font-family: $EBGaramond;
+      text-align: end;
+    }
+  }
+}
+
+.button {
+  width: 100%;
+}

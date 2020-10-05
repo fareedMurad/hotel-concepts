@@ -2,6 +2,7 @@
 
 .header-main {
   @include flex($align: flex-end, $justify: space-between);
+  position: relative;
   width: 100%;
   padding: 10px 20px 10px 22px;
   transition: $transition;
@@ -57,4 +58,14 @@
 
 .arrow {
   margin-left: 8px;
+}
+
+.burger-icon {
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 20px;
+}
+.activeBurger {
+  transition: $transition;
+  transform: rotate(90deg);
 }
