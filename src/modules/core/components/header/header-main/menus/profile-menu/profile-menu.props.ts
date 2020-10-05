@@ -5,7 +5,7 @@ type ProfileMenuProps = {
   /*
    * Toggle menu
    */
-  setShowProfileNavigationMenu: (toggle: boolean) => void;
+  setSelectedMenu: (toggle: string) => void;
 };
 
 export { ProfileMenuProps };
