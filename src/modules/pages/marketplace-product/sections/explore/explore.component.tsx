@@ -5,6 +5,27 @@ import { ExploreProps } from './explore.props';
 import * as styles from './explore.scss';
 
 /**
+ * Responsive slider breakpoints
+ */
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+    slidesToSlide: 1
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+    slidesToSlide: 1
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1
+  }
+};
+
+/**
  * Renders Explore
  */
 const Explore: React.FC<ExploreProps> = ({ data }) => {
@@ -15,13 +36,7 @@ const Explore: React.FC<ExploreProps> = ({ data }) => {
       <Title className={styles.title}>Explore pages</Title>
       <Slider
         className={styles.slider}
-        responsive={{
-          desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 4,
-            slidesToSlide: 1
-          }
-        }}
+        responsive={responsive}
         controls
         controlsTheme='tertiary'
       >

@@ -1,17 +1,17 @@
 @import 'core.scss';
 
 .intro {
-  position: relative;
   @include flex($justify: center, $align: stretch, $direction: column);
+  @include container();
+  @include heroImage();
+  @include imageOverlay();
+  position: relative;
   height: 100vh;
   padding-left: 22px;
   padding-right: 22px;
-  @include heroImage();
-  @include imageOverlay();
   box-sizing: border-box;
   overflow: hidden;
   min-height: 500px;
-  @include container();
   &-description {
     margin-top: 25px;
     font-family: $IBMPlex;

@@ -77,30 +77,34 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
           })}
 
           <AboutMenu
+            selectedMenu={selectedMenu}
+            setSelectedMenu={setSelectedMenu}
             className={classNames(styles.headerMainNavigationItem, {
               [styles.invertedHeader]: whiteBackground || isSticky
             })}
           />
           <div className={styles.headerMainNavigationProfile}>
-            <div className={styles.profileNavigation}>
+            <div
+              className={styles.profileNavigation}
+              onMouseEnter={() => {
+                setSelectedMenu('Profile');
+              }}
+            >
               <Icon
-                onClick={() => {
-                  setShowProfileNavigationMenu(true);
-                }}
                 name={
                   whiteBackground || isSticky
                     ? 'default-avatar-b'
                     : 'default-avatar'
                 }
               />
-              {showProfileNavigationMenu && (
-                <ProfileMenu
-                  setShowProfileNavigationMenu={setShowProfileNavigationMenu}
-                />
+              {selectedMenu === 'Profile' && (
+                <ProfileMenu setSelectedMenu={setSelectedMenu} />
               )}
             </div>
 
             <LocalizationMenu
+              setSelectedMenu={setSelectedMenu}
+              selectedMenu={selectedMenu}
               className={classNames(styles.local, {
                 [styles.invertedHeader]: whiteBackground || isSticky
               })}

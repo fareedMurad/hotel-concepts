@@ -6,12 +6,12 @@ import { NavLink } from 'react-router-dom';
 /**
  * Renders DropDown
  */
-const DropDown: React.FC<DropDownProps> = ({ links, setToggleDropdown }) => {
+const DropDown: React.FC<DropDownProps> = ({ links, setSelectedMenu }) => {
   return (
     <React.Fragment>
       <div
         className={styles.dropDown}
-        onMouseLeave={() => setToggleDropdown(false)}
+        onMouseLeave={() => setSelectedMenu(' ')}
       >
         {links.map((link, idx) => {
           return (

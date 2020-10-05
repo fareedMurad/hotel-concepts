@@ -19,7 +19,7 @@ import { usePaginationCalculation } from './pagination.hook';
  * Renders ProgramsCatalogue
  */
 
-const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = ({}) => {
+const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const { selectedCategory } = useCatalogueInfoData(id);

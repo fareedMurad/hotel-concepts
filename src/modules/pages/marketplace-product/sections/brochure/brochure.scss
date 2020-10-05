@@ -4,44 +4,94 @@
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 505px;
+  height: 300px;
+
+  @include tablet() {
+    height: 350px;
+  }
+
+  @include desktop() {
+    height: 505px;
+  }
 }
 
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 448px;
-  padding: 0 35px 0 56px;
+  padding: 20px;
+
+  @include tablet() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 448px;
+    padding: 0 35px 0 56px;
+  }
+
+  @include desktop() {
+    padding: 0 35px 0 56px;
+  }
 }
 
 .header {
-  @include font($white, 36px, 400, 46px);
+  @include font($white, 28px, 400, normal);
   font-family: $EBGaramond;
   text-align: center;
+
+  @include tablet() {
+    font-size: 32px;
+  }
+
+  @include desktop() {
+    font-size: 36px;
+    line-height: 46px;
+  }
 }
 
 .description {
-  @include font($white, 24px, 400, 34px);
+  @include font($white, 18px, 400, normal);
   margin-top: 16px;
   text-align: center;
+
+  @include tablet() {
+    font-size: 20px;
+  }
+
+  @include desktop() {
+    font-size: 24px;
+    line-height: 34px;
+  }
 }
 
 .download {
   @include flex($align: center);
-  margin-top: 24px;
-  padding: 16px 16px 23px 16px;
+  width: 100%;
+  max-width: 70%;
+  margin: 24px auto 0 auto;
+  padding: 16px;
   border-radius: 8px;
   background: #f5f1f0;
   cursor: pointer;
 
+  @include tablet() {
+    max-width: 100%;
+    padding: 16px 16px 23px 16px;
+  }
+
   &__caption {
-    @include font($primary-gray, 16px, 500, 28px);
+    @include font($primary-gray, 14px, 500, 22px);
+
+    @include tablet() {
+      font-size: 16px;
+      line-height: 28px;
+    }
   }
 
   &__size {
-    @include font($primary-gray, 16px, 500, 22px);
+    @include font($primary-gray, 14px, 500, 22px);
+
+    @include tablet() {
+      font-size: 16px;
+    }
   }
 }
 
@@ -50,10 +100,12 @@
   flex: 1;
   margin-right: 16px;
 
-  &__icon {
-  }
   &__caption {
-    @include font($primary-gray, 16px, 400, 22px);
+    @include font($primary-gray, 14px, 400, 22px);
     margin-left: 18px;
+
+    @include tablet() {
+      font-size: 16px;
+    }
   }
 }
