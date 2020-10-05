@@ -88,6 +88,11 @@ enum LocalStorageKeys {
   cart = 'cart'
 }
 
+enum CurrenciesesCharacters {
+  USD = '$',
+  EUR = '&euro'
+}
+
 export {
   UserSource,
   Position,
@@ -98,5 +103,6 @@ export {
   SocketResponseType,
   ContentType,
   OnlineCourseSubfilter,
-  LocalStorageKeys
+  LocalStorageKeys,
+  CurrenciesesCharacters
 };

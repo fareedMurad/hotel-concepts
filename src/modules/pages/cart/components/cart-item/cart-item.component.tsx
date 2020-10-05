@@ -13,18 +13,14 @@ const CartItem: React.FC<CartItemProps> = ({
   author,
   quantity,
   price,
+  imageSource,
   id
 }) => {
   const dispatch = useDispatch();
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>
-        <img
-          src={require(`img/marketplace/marketplace-4.png`)}
-          alt=''
-          height='180px'
-          width='130px'
-        />
+        <img src={imageSource} alt='image' />
         <div
           className={styles.remove}
           onClick={() => dispatch(cart.remove({ path: id, quantity }))}

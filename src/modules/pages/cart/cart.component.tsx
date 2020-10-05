@@ -20,14 +20,19 @@ const Cart: React.FC<CartProps> = ({}) => {
   // }, []);
 
   const { cartData, summaryData } = useCartData();
+
   return (
     <div className={styles.cart}>
       <div className={styles.cartHeader}>
         <div className={styles.cartHeaderTitle}>My cart</div>
-        <div className={styles.cartHeaderCounter}>2 items</div>
+        {cartData && (
+          <div className={styles.cartHeaderCounter}>
+            {cartData?.length} items
+          </div>
+        )}
       </div>
       <div className={styles.cartItemsList}>
-        {cartData.map((item, index) => (
+        {cartData?.map((item, index) => (
           <CartItem key={index} {...item} />
         ))}
       </div>

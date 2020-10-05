@@ -6,6 +6,7 @@ type CartItemProps = {
   author: string;
   quantity: number;
   price: string;
+  imageSource: string;
   id: string;
 };
 
