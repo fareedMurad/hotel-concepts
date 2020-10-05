@@ -2,26 +2,38 @@
 
 .recommended {
   @include flex($align: stretch, $direction: column);
-  padding: 120px 20px;
+  padding: 40px 20px;
+
+  @include desktop() {
+    padding: 120px 20px;
+  }
 }
 
 .title {
-  margin-left: 114px;
+  @include desktop() {
+    margin-left: 114px;
+  }
 }
 
 .slider {
-  margin-top: 48px;
+  margin-top: 24px;
   margin-bottom: 0;
+
+  @include tablet() {
+    margin-top: 48px;
+  }
 
   & > ul {
     justify-content: space-between;
-    margin-bottom: 92px;
+    margin-bottom: 80px;
+
+    @include tablet() {
+      margin-bottom: 92px;
+    }
   }
 
   &__item {
-    &:not(:first-child) {
-      margin-left: 20px;
-    }
+    padding: 0 10px;
   }
 }
 
@@ -31,16 +43,24 @@
 
 .book {
   @include flex($align: stretch, $direction: column);
-  padding: 20px 20px 70px 20px;
+  padding: 20px 20px 40px 20px;
   border-radius: 6px;
   background: #f5f1f0;
+
+  @include tablet() {
+    padding-bottom: 70px;
+  }
 }
 
 .image {
   align-self: center;
   width: 132px;
-  height: 203px;
+  height: 230px;
   object-fit: cover;
+
+  @include tablet() {
+    height: 203px;
+  }
 }
 
 .divider {
@@ -50,16 +70,25 @@
 }
 
 .price {
-  @include font($primary-gray, 18px, 600, normal);
+  @include font($primary-gray, 16px, 600, normal);
   width: fit-content;
   padding: 8px 12px;
   font-family: $EBGaramond;
   border-radius: 4px;
   background: $white;
+
+  @include tablet() {
+    font-size: 18px;
+  }
 }
 
 .name {
-  @include font($primary-gray, 36px, 600, 46px);
+  @include font($primary-gray, 30px, 600, 32px);
   margin-top: 16px;
   font-family: $EBGaramond;
+
+  @include tablet() {
+    font-size: 36px;
+    line-height: 46px;
+  }
 }

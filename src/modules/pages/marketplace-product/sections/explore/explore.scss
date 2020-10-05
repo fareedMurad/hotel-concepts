@@ -1,11 +1,17 @@
 @import 'core.scss';
 
 .explore {
-  padding: 80px 20px;
+  padding: 40px 20px;
+
+  @include desktop() {
+    padding: 80px 20px;
+  }
 }
 
 .title {
-  margin-left: 114px;
+  @include desktop() {
+    margin-left: 114px;
+  }
 }
 
 .slider {
