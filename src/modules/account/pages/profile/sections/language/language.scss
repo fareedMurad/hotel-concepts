@@ -22,6 +22,9 @@
 
 .submit {
   height: 36px;
+  @include mobile() {
+    height: auto;
+  }
   width: 151px;
   margin: 26px auto 0 auto;
 }
