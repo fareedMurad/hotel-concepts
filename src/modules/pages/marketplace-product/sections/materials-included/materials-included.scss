@@ -1,15 +1,29 @@
 @import 'core.scss';
 
 .materials-included {
-  padding: 60px 135px;
+  margin-top: 20px;
+  padding: 20px;
   background: #f5f1f0;
+
+  @include desktop() {
+    margin-top: 0;
+    padding: 60px 135px;
+  }
 }
 
 .materials {
   @include flex($align: stretch, $direction: column);
   width: 100%;
-  max-width: 540px;
-  margin-top: 32px;
+  margin-top: 20px;
+
+  @include tablet() {
+    margin-top: 24px;
+  }
+
+  @include desktop() {
+    max-width: 540px;
+    margin-top: 32px;
+  }
 }
 
 .material {
@@ -19,7 +33,11 @@
   background: $white;
 
   &:not(:first-child) {
-    margin-top: 20px;
+    margin-top: 16px;
+
+    @include tablet() {
+      margin-top: 20px;
+    }
   }
 
   &__indicator {
@@ -29,8 +47,13 @@
   }
 
   &__caption {
-    @include font($primary-gray, 18px, 400, 28px);
+    @include font($primary-gray, 16px, 400, 20px);
     flex: 1;
     margin-left: 12px;
+
+    @include tablet() {
+      font-size: 18px;
+      line-height: 28px;
+    }
   }
 }

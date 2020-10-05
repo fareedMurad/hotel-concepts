@@ -1,6 +1,11 @@
 @import 'core.scss';
 
 .title {
-  @include font($primary-gray, 48px, 600, 58px);
+  @include font($primary-gray, 42px, 600, 44px);
   font-family: $EBGaramond;
+
+  @include tablet() {
+    font-size: 48px;
+    line-height: 52px;
+  }
 }
