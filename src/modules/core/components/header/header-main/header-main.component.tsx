@@ -77,6 +77,8 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
           })}
 
           <AboutMenu
+            selectedMenu={selectedMenu}
+            setSelectedMenu={setSelectedMenu}
             className={classNames(styles.headerMainNavigationItem, {
               [styles.invertedHeader]: whiteBackground || isSticky
             })}
