@@ -1,4 +1,4 @@
-import { SocketResponseType } from '@app/models/enum';
+import { Language, SocketResponseType } from '@app/models/enum';
 import { Context } from '@app/redux/context';
 import { SocketService } from '@app/services';
 import { enviroment } from '@env';
@@ -22,7 +22,8 @@ class GeneralSaga {
     yield spawn(this.run);
 
     // yield put(getUser());
-    yield put(setupLocalization('en-US'));
+    const language = window.localStorage.getItem('language');
+    yield put(setupLocalization(language ? language : Language.en));
   }
 
   /**

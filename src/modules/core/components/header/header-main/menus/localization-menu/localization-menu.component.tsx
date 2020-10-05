@@ -2,10 +2,10 @@ import * as React from 'react';
 import { LocalizationMenuProps } from './localization-menu.props';
 import * as styles from './localization-menu.scss';
 import { Icon } from '@core/components';
-import { useClickOutside } from '@core/shared';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeLanguage } from '@localization/store';
-import { Language } from '@app/models/enum';
+import { State } from '@app/redux/state';
+import { useLocalizationData } from './localization-menu.hook';
 
 /**
  * Localization Dropdown
@@ -40,23 +40,9 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
   selectedMenu,
   setSelectedMenu
 }) => {
-  const languages = [
-    {
-      id: Language.en,
-      name: 'eng'
-    },
-    {
-      id: Language.es,
-      name: 'esp'
-    },
-    {
-      id: Language.ru,
-      name: 'rus'
-    }
-  ];
-
+  const { languages, selectedLanguage } = useLocalizationData();
   const [currentLanguage, setCurrentLanguage] = React.useState(
-    languages[0].name
+    selectedLanguage.name
   );
   return (
     <div
