@@ -4,12 +4,16 @@ import * as styles from './header-main.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Icon } from '@core/components';
 import classNames from 'classnames';
-import { useMediaPoints } from '@core/shared';
+import { useClickOutside, useMediaPoints } from '@core/shared';
 import { LocalizationMenu } from './menus/localization-menu';
 import { ProfileMenu } from './menus/profile-menu';
 import { useHeaderMainData } from './hooks/header-main.hook';
 import { AboutMenu } from './menus/about-menu';
 import { Dropdown } from './components';
+import { Burger } from './burger';
+import { useEffect, useState } from 'react';
+import { useIconAnimation } from './hooks/burger-icon-animation';
+import { animated } from 'react-spring';
 
 /**
  * Renders HeaderMain
@@ -21,14 +25,13 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
 }) => {
   const { menus } = useHeaderMainData();
   const location = useLocation();
-  const [selectedMenu, setSelectedMenu] = React.useState('');
-  const [white, setWhite] = React.useState(false);
-  const [
-    showProfileNavigationMenu,
-    setShowProfileNavigationMenu
-  ] = React.useState(false);
-  React.useEffect(() => {
+  const [selectedMenu, setSelectedMenu] = useState('');
+  const [showBurger, setShowBurger] = useState(false);
+  const [white, setWhite] = useState(false);
+  const { iconRotation } = useIconAnimation(showBurger);
+  useEffect(() => {
     isSticky ? setWhite(true) : setWhite(false);
+    setShowBurger(false);
     return () => setSelectedMenu('');
   }, [isSticky, location.pathname]);
 
@@ -44,7 +47,16 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
       </NavLink>
       {mobile || tablet ? (
         <div className={styles.mobileMenu}>
-          <Icon name='burger' />
+          <animated.div style={iconRotation} className={styles.burgerIcon}>
+            <Icon
+              name='burger'
+              className={classNames({
+                [styles.activeBurger]: showBurger
+              })}
+              onClick={() => setShowBurger(!showBurger)}
+            />
+          </animated.div>
+          <Burger showBurger={showBurger} />
         </div>
       ) : (
         <div className={styles.headerMainNavigation}>
