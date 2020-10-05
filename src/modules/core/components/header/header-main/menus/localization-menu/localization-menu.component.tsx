@@ -5,6 +5,7 @@ import { Icon } from '@core/components';
 import { useClickOutside } from '@core/shared';
 import { useDispatch } from 'react-redux';
 import { changeLanguage } from '@localization/store';
+import { Language } from '@app/models/enum';
 
 /**
  * Localization Dropdown
@@ -38,12 +39,16 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
 }) => {
   const languages = [
     {
-      id: 'en-US',
+      id: Language.en,
       name: 'eng'
     },
     {
-      id: 'es',
+      id: Language.es,
       name: 'esp'
+    },
+    {
+      id: Language.ru,
+      name: 'rus'
     }
   ];
 
