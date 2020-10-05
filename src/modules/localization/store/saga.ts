@@ -17,6 +17,7 @@ class LocalizationSaga {
    */
   @Saga(setupLocalization)
   public *setup(language: Payload<typeof setupLocalization>) {
+    i18next.changeLanguage(language);
     yield put(setupLocalization.success());
   }
 }

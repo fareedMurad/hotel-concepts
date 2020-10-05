@@ -6,14 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeLanguage } from '@localization/store';
 import { State } from '@app/redux/state';
 import { useLocalizationData } from './localization-menu.hook';
+import { useState } from 'react';
 
 /**
  * Localization Dropdown
  */
 const LocalizationDropDown: React.FC<any> = ({
   langueges,
-  setCurrentLanguage,
-  setSelectedMenu
+  setCurrentLanguage
 }) => {
   const dispatch = useDispatch();
   return (
@@ -41,20 +41,17 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
   setSelectedMenu
 }) => {
   const { languages, selectedLanguage } = useLocalizationData();
-  const [currentLanguage, setCurrentLanguage] = React.useState(
-    selectedLanguage.name
-  );
+
   return (
     <div
       className={className}
       onMouseEnter={() => setSelectedMenu('Languages')}
       onMouseLeave={() => setSelectedMenu('')}
     >
-      {currentLanguage} <Icon name={iconName} />
+      {selectedLanguage.name} <Icon name={iconName} />
       {selectedMenu === 'Languages' && (
         <LocalizationDropDown
           setSelectedMenu={setSelectedMenu}
-          setCurrentLanguage={setCurrentLanguage}
           langueges={languages}
         />
       )}
