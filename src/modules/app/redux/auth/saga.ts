@@ -43,6 +43,7 @@ class AuthSaga {
     try {
       localStorage.setItem('isAuthorized', 'false');
       yield call(api.auth.unauthorize);
+      yield put(navigate('/'));
     } catch (error) {
       yield put(handleError('Your session has expired'));
     }
