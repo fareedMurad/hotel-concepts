@@ -1,15 +1,17 @@
 import { ContentType } from '@account/pages/library/models';
 import { Context } from '@app/redux/context';
-import { fetchMarketplaceCategories } from '@app/redux/marketplace';
 import { State } from '@app/redux/state';
+import { downloadBlob } from '@core/shared';
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
+import axios from 'axios';
 import { Payload, Saga } from 'redux-chill';
 import { call, put, select } from 'redux-saga/effects';
 import {
   addBookToWishlist,
+  downloadBook,
   fetchLibraryPurchased,
   fetchLibraryWishlist,
   removeBookFromWishlist
@@ -140,6 +142,21 @@ class LibrarySaga {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(preloader));
+    }
+  }
+
+  /**
+   * Download book
+   */
+  @Saga(downloadBook)
+  public *downloadBook(url: Payload<typeof downloadBook>) {
+    try {
+      const response = yield call(axios.get, url, {
+        responseType: 'blob'
+      });
+      downloadBlob(response.data, name);
+    } catch (error) {
+      console.log(error);
     }
   }
 }

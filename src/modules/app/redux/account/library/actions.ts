@@ -33,9 +33,17 @@ const removeBookFromWishlist = make('[library] remove book from wishlist')
   .stage('success', (payload: { items: Book[]; total: number }) => payload)
   .stage('removeHeart', (ids: string[]) => ids);
 
+/**
+ * Download book
+ */
+const downloadBook = make('[library] download book').stage(
+  (url: string) => url
+);
+
 export {
   fetchLibraryPurchased,
   fetchLibraryWishlist,
   addBookToWishlist,
-  removeBookFromWishlist
+  removeBookFromWishlist,
+  downloadBook
 };
