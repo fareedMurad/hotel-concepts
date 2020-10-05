@@ -54,7 +54,7 @@ class AuthSaga {
   @Saga(getUser)
   public *getUser(_, { api }: Context) {
     const isAuthorized = localStorage.getItem('isAuthorized') == 'true';
-    // yield put(preloaderStart(Preloaders.general));
+    yield put(preloaderStart(Preloaders.profile));
 
     try {
       const response = yield call(api.auth.getUser);
@@ -67,7 +67,7 @@ class AuthSaga {
         yield put(handleError(error.response.data.message));
       }
     } finally {
-      // yield put(preloaderStop(Preloaders.general));
+      yield put(preloaderStop(Preloaders.profile));
     }
   }
 
