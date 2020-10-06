@@ -33,4 +33,12 @@ function fileSize(bytes, dp = 1) {
   return bytes.toFixed(dp) + ' ' + units[u];
 }
 
-export { capitalize, fileSize };
+enum LocaleToCurrency {
+  'en-US' = 'USD',
+  es = 'EUR'
+}
+
+const parsePrice = (locale: string, price: any) =>
+  `${price[LocaleToCurrency[locale]]} ${LocaleToCurrency[locale]}`;
+
+export { capitalize, fileSize, parsePrice };

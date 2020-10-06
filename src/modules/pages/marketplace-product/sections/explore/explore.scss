@@ -23,6 +23,11 @@
   }
 }
 
+.wrapper {
+  width: 316px;
+  height: 416px;
+}
+
 .image {
   @include size(100%);
 }

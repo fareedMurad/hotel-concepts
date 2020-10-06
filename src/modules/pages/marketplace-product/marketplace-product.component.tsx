@@ -33,7 +33,8 @@ const MarketplaceProduct: React.FC = () => {
     authorsData,
     resultsData,
     feedbackData,
-    bannerData
+    bannerData,
+    recommendedData
   } = useMarketplaceProductData();
   const dispatch = useDispatch();
 
@@ -51,7 +52,7 @@ const MarketplaceProduct: React.FC = () => {
         <Results data={resultsData} />
         <Feedback data={feedbackData} />
         <Banner data={bannerData} />
-        <Recommended />
+        <Recommended data={recommendedData} />
         <Brochure />
       </Preloader>
     </div>

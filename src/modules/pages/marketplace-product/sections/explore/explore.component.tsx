@@ -9,17 +9,27 @@ import * as styles from './explore.scss';
  */
 const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
+    breakpoint: { max: 3000, min: 1675 },
+    items: 5,
+    slidesToSlide: 1
+  },
+  desktop2: {
+    breakpoint: { max: 1675, min: 1345 },
+    items: 4,
+    slidesToSlide: 1
+  },
+  desktop3: {
+    breakpoint: { max: 1345, min: 1024 },
+    items: 3,
     slidesToSlide: 1
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
+    breakpoint: { max: 1024, min: 710 },
+    items: 2,
     slidesToSlide: 1
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 710, min: 0 },
     items: 1,
     slidesToSlide: 1
   }
@@ -29,7 +39,7 @@ const responsive = {
  * Renders Explore
  */
 const Explore: React.FC<ExploreProps> = ({ data }) => {
-  const { previewPages } = data || {};
+  const { coverPhotos } = data || {};
 
   return (
     <div className={styles.explore}>
@@ -38,15 +48,16 @@ const Explore: React.FC<ExploreProps> = ({ data }) => {
         className={styles.slider}
         responsive={responsive}
         controls
+        itemClass={styles.item}
+        draggable={false}
+        swipeable={false}
         controlsTheme='tertiary'
       >
-        <div>
-          <img
-            className={styles.image}
-            src={previewPages?.file?.url}
-            alt={previewPages?.file?.url}
-          />
-        </div>
+        {coverPhotos?.map(({ file }, index) => (
+          <div key={index} className={styles.wrapper}>
+            <img className={styles.image} src={file?.url} alt={file?.url} />
+          </div>
+        ))}
       </Slider>
     </div>
   );
