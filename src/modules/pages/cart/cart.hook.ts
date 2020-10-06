@@ -83,9 +83,11 @@ const useCartData = () => {
   // }`;
 
   const summaryData = {
-    total: '',
-    estimatedShipping: '',
-    estimatedTax: ''
+    total: products
+      ?.map(product => product.price)
+      ?.reduce((acc, cur) => acc + cur, 0),
+    estimatedShipping: 'Free',
+    estimatedTax: '0.00'
   };
 
   return {

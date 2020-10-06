@@ -2,7 +2,7 @@ import { Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
 import { Fragment } from 'react';
-import { useCartData } from './cart-hook';
+import { useCartData } from './cart.hook';
 import * as styles from './cart.scss';
 import { Product, Summary } from './components';
 

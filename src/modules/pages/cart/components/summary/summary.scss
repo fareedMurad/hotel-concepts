@@ -2,15 +2,30 @@
 
 .summary {
   margin-top: 20px;
-  &--title {
-    @include font($primary-gray, 28px, 400, 28px);
-    font-family: $EBGaramond;
+}
+
+.title {
+  @include font($primary-gray, 28px, 400, 28px);
+  font-family: $EBGaramond;
+}
+
+.container {
+  margin-top: 16px;
+}
+
+.section {
+  @include flex(space-between, center);
+
+  &:not(:first-child) {
+    margin-top: 12px;
   }
-  &__info {
-    &--field {
-      @include flex($justify: space-between);
-      @include font($primary-gray, 12px, 500, 28px);
-    }
+
+  &__value {
+    @include font($primary-gray, 14px, 500, 18px);
+  }
+
+  &__label {
+    @include font($primary-gray, 14px, 500, 18px);
   }
 }
 
@@ -29,5 +44,5 @@
 
 .submit {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 28px;
 }

@@ -4,10 +4,11 @@
   @include flex($align: stretch, $direction: column);
   flex: 1;
   width: 100%;
-  margin: 132px auto 0 auto;
+  margin: 85px auto 0 auto;
   padding: 20px 20px 40px 20px;
 
   @include tablet() {
+    margin-top: 132px;
     max-width: 505px;
   }
 }
@@ -50,7 +51,7 @@
 
 .product {
   &:not(:first-child) {
-    margin-top: 16px;
+    margin-top: 24px;
   }
 }
 
@@ -62,6 +63,7 @@
 
 .alternatives {
   @include flex($align: stretch, $direction: column);
+  margin-top: 20px;
 }
 
 .divider {

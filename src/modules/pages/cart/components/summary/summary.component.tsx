@@ -12,28 +12,28 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
 
   return (
     <div className={classNames(styles.summary, className)}>
-      <div className={styles.summaryTitle}>Order summary</div>
-      <div className={styles.summaryInfo}>
-        <div className={styles.summaryInfoField}>
-          <div>Total</div>
-          <div>{total}</div>
+      <div className={styles.title}>Order summary</div>
+      <div className={styles.container}>
+        <div className={styles.section}>
+          <div className={styles.sectionLabel}>Total</div>
+          <div className={styles.sectionValue}>$ {total}</div>
         </div>
         {estimatedShipping && (
-          <div className={styles.summaryInfoField}>
-            <div>Estimate shipping</div>
-            <div>{estimatedShipping}</div>
+          <div className={styles.section}>
+            <div className={styles.sectionLabel}>Estimated shipping</div>
+            <div className={styles.sectionValue}>{estimatedShipping}</div>
           </div>
         )}
         {estimatedTax && (
-          <div className={styles.summaryInfoField}>
-            <div>Estimate tax</div>
-            <div>{estimatedTax}</div>
+          <div className={styles.section}>
+            <div className={styles.sectionLabel}>Estimated tax</div>
+            <div className={styles.sectionValue}>$ {estimatedTax}</div>
           </div>
         )}
         <div className={styles.hr} />
         <div className={styles.total}>
           <div>Order Total</div>
-          <div>{total}</div>
+          <div>$ {total}</div>
         </div>
         <Button
           arrow

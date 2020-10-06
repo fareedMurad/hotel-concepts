@@ -168,13 +168,13 @@ class CartSaga {
 
       const {
         auth: {
-          user: { language: locale }
+          user: { language }
         }
       } = yield select((state: State) => state);
 
       const response = yield call(api.marketplace.fetchAnyProductsListByIds, {
         ids: JSON.parse(cart).map((item: string) => item),
-        locale
+        locale: language || 'en-US'
       });
 
       yield put(getProducts.success(response.data.items));

@@ -10,7 +10,7 @@ type SummaryProps = {
    * Summary data
    */
   summaryData: {
-    total: string;
+    total: number;
     estimatedShipping: string;
     estimatedTax: string;
   };
