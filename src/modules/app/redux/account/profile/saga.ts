@@ -1,6 +1,7 @@
 import { getUser } from '@app/redux/auth';
 import { Context } from '@app/redux/context';
 import { handleError } from '@general/store';
+import { changeLanguage } from '@localization/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
@@ -33,6 +34,7 @@ class ProfileSaga {
 
     try {
       yield call(api.profile.editPreferredLanguage, payload);
+      yield put(changeLanguage(payload));
       yield put(getUser());
       yield put(
         toggleToast({

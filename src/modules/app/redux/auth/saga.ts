@@ -1,5 +1,6 @@
 import { GoogleSignInModel } from '@app/models';
 import { handleError } from '@general/store';
+import { changeLanguage } from '@localization/store';
 import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
@@ -59,7 +60,8 @@ class AuthSaga {
 
     try {
       const response = yield call(api.auth.getUser);
-
+      const { language } = response.data;
+      yield put(changeLanguage(language));
       yield put(getUser.success(response.data));
       yield put(authorize());
     } catch (error) {
