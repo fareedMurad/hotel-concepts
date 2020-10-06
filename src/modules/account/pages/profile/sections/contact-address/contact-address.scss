@@ -4,10 +4,10 @@
 }
 
 .form {
-  margin-top: 16px;
+  margin-top: 15px;
 
   & > div:not(:first-child) {
-    margin-top: 16px;
+    margin-top: 15px;
   }
 }
 
@@ -28,7 +28,7 @@
 }
 
 .submit {
-  height: 36px;
+  padding: 8px 0;
   @include mobile() {
     height: auto;
   }

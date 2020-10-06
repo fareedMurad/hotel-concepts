@@ -46,7 +46,7 @@
 .column-bottom {
   display: grid;
   gap: 20px;
-  height: 100%;
+  // height: 100%;
   margin-top: 20px;
   &__email-password {
     padding: 12px 20px 20px 20px;
@@ -69,6 +69,7 @@
   @include desktop() {
     grid-template-areas: 'email-password avatar' 'payment container';
     grid-template-columns: auto 42.5%;
+    grid-template-rows: 1fr 1fr;
     &__email-password {
       grid-area: email-password;
     }
