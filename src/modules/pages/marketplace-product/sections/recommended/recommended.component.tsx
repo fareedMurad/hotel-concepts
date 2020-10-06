@@ -32,6 +32,8 @@ const responsive = {
 const Recommended: React.FC<RecommendedProps> = ({ data }) => {
   const { recommended } = data;
 
+  if (!recommended) return null;
+
   return (
     <div className={styles.recommended}>
       <Title className={styles.title}>Recommended books</Title>

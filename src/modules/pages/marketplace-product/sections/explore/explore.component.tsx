@@ -41,6 +41,8 @@ const responsive = {
 const Explore: React.FC<ExploreProps> = ({ data }) => {
   const { coverPhotos } = data || {};
 
+  if (!coverPhotos) return null;
+
   return (
     <div className={styles.explore}>
       <Title className={styles.title}>Explore pages</Title>
