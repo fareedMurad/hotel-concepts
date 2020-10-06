@@ -22,6 +22,7 @@
 
   @include tablet() {
     margin-top: 80px;
+    padding-bottom: 0;
   }
 
   @include desktop() {
@@ -130,10 +131,12 @@
   left: 20px;
   bottom: 40px;
   height: 44px;
+  width: 211px;
 
   @include tablet() {
     left: 150px;
     bottom: 40px;
+    width: 241px;
   }
 
   @include desktop() {
