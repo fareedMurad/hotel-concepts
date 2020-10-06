@@ -30,7 +30,8 @@ enum Title {
  */
 enum Language {
   en = 'en-US',
-  es = 'es'
+  es = 'es',
+  ru = 'ru-RU'
 }
 
 /**

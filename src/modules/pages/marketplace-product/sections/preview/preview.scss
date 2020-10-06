@@ -76,6 +76,7 @@
   align-self: center;
   width: 204px;
   margin-top: 20px;
+  padding: 8px;
 }
 
 .share {
@@ -283,7 +284,8 @@
 
 .controls {
   @include flex($align: stretch, $direction: column);
-  margin-top: 16px;
+  //to fit 100% height of 1inch display
+  // margin-top: 16px;
 
   @include tablet() {
     flex-direction: row;
@@ -293,7 +295,6 @@
 
 .checkout {
   width: 100%;
-
   @include tablet() {
     width: 224px;
   }

@@ -10,12 +10,14 @@ class LocalizationSaga {
   @Saga(changeLanguage)
   public *change(language: Payload<typeof changeLanguage>) {
     i18next.changeLanguage(language);
+    window.localStorage.setItem('language', language);
   }
   /**
    * Setup i18next
    */
   @Saga(setupLocalization)
   public *setup(language: Payload<typeof setupLocalization>) {
+    i18next.changeLanguage(language);
     yield put(setupLocalization.success());
   }
 }
