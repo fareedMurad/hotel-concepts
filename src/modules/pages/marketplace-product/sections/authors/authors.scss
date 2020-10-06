@@ -17,6 +17,8 @@
 .slider {
   margin-top: 70px;
   margin-bottom: 0;
+  //for correct buttons position
+  padding-bottom: 80px;
 
   @include tablet() {
     margin-top: 80px;
@@ -32,7 +34,7 @@
 }
 
 .author {
-  @include flex($align: stretch, $direction: column);
+  @include flex($align: stretch, $direction: column-reverse);
 
   @include tablet() {
     @include flex(space-between, stretch, row);
@@ -46,8 +48,10 @@
 .info {
   @include flex($align: stretch, $direction: column);
   width: 100%;
+  margin-top: 30px;
 
   @include tablet() {
+    margin-top: 0;
     max-width: 47%;
     margin-bottom: 60px;
   }
@@ -91,7 +95,7 @@
 
 .image {
   border-radius: 6px;
-
+  @include size(200px);
   @include tablet() {
     margin-left: 20px;
     width: 350px;
@@ -106,8 +110,15 @@
 }
 
 .controls {
+  position: absolute;
   bottom: 0;
+  right: 0;
   margin-left: 0;
+  width: auto;
+  @include tablet() {
+    width: 100%;
+    right: unset;
+  }
 }
 
 .control {
@@ -116,8 +127,8 @@
 
 .see-all {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 20px;
+  bottom: 40px;
   height: 44px;
 
   @include tablet() {

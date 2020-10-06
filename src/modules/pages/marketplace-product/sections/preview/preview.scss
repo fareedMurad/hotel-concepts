@@ -30,14 +30,16 @@
   flex: 1;
 
   @include desktop() {
+    height: calc(100vh - 120px);
     flex-direction: row;
     margin-left: 20px;
   }
 }
 
 .showcase {
-  @include flex($align: stretch, $direction: column);
+  @include flex($align: stretch, $direction: column, $justify: center);
   flex: 1;
+  height: 80vh;
   padding: 20px 0;
 
   @include desktop() {
@@ -47,6 +49,9 @@
   &__info {
     @include flex(space-between, center);
     margin-top: 25px;
+  }
+  @include desktop() {
+    height: auto;
   }
 }
 
@@ -119,6 +124,7 @@
   }
 
   @include desktop() {
+    height: auto;
     max-width: 55.5%;
     border-radius: 12px 0 0 12px;
   }
@@ -235,10 +241,14 @@
 .highlight {
   @include flex(center, center);
   @include font($primary-gray, 16px, 500, normal);
+  @include size(154px);
+  @include min-size(154px);
+  text-overflow: ellipsis;
   text-align: center;
   padding: 10px;
   border: 1px solid $primary-orange;
   background: $white;
+  border-radius: 50%;
 
   &:not(:first-child) {
     @include mobile() {

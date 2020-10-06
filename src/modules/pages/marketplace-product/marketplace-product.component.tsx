@@ -1,3 +1,4 @@
+import { ScrollToTop } from '@app';
 import { Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
@@ -38,6 +39,7 @@ const MarketplaceProduct: React.FC = () => {
 
   return (
     <div className={styles.marketplaceProduct}>
+      <ScrollToTop />
       <Preloader id={Preloaders.marketplaceProduct}>
         <Preview data={previewData} />
         <Description data={descriptionData} />
