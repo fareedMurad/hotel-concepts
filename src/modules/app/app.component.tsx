@@ -13,6 +13,7 @@ import { ErrorBoundary } from '@core/components/error-boundary';
 import { StickyContainer } from 'react-sticky';
 import { Preloaders } from '@ui/models';
 import { Preloader } from '@core/components';
+import { cart } from './redux/cart';
 
 /**
  * Scroll to top

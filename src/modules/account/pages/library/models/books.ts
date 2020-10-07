@@ -1,3 +1,6 @@
+import { Pricing } from '@app/models';
+import { ProductCategory as FastSpringProductCategory } from '@app/models/fastspring';
+
 /**
  * Book model
  */
@@ -7,7 +10,7 @@ type Book = {
   pagesCount: number;
   previewDescription: string;
   price: number;
-  pricing: BookPricing;
+  pricing: Pricing;
   previewPages: {
     title: string;
     file: FileModel;
@@ -33,7 +36,7 @@ type Book = {
   recommended: Book[];
   listOfSkills: string[];
   materialsIncluded: string[];
-  __typename: string;
+  __typename: FastSpringProductCategory;
 };
 
 /**
@@ -92,18 +95,18 @@ type BookDetails = {
 /**
  * Book pricing
  */
-type BookPricing = {
-  dateLimitsEnabled: boolean;
-  quantityBehavior: string;
-  quantityDefault: number;
-  price: {
-    USD: number;
-  };
-  cancellation: {
-    interval: string;
-    intervalLength: number;
-  };
-};
+// type BookPricing = {
+//   dateLimitsEnabled: boolean;
+//   quantityBehavior: string;
+//   quantityDefault: number;
+//   price: {
+//     USD: number;
+//   };
+//   cancellation: {
+//     interval: string;
+//     intervalLength: number;
+//   };
+// };
 
 /**
  * Product category

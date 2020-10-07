@@ -1,3 +1,5 @@
+import { ContentType } from './enum';
+
 type Session = {
   coupon?: string;
   products: Product[];
@@ -20,6 +22,8 @@ type CreateSessionItem = {
   product: string;
   quantity: number;
 };
+
+type ProductCategory = ContentType.product | ContentType.onlineCourse; // product = book , onlineCourse = program
 
 type Product = {
   path: string;
@@ -150,5 +154,6 @@ export {
   Product,
   CreateSession,
   CreateSessionItem,
-  OrderSuccess
+  OrderSuccess,
+  ProductCategory
 };

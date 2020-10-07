@@ -2,6 +2,7 @@ import {
   addProgramToWishlist,
   removeProgramFromWishlist
 } from '@app/redux/account';
+import { addToCart } from '@app/redux/cart';
 import { Button, Icon } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
@@ -56,9 +57,19 @@ const Program: React.FC<ProgramProps> = ({ type, program }) => {
         </div>
         <div className={styles.box}>
           <div className={styles.description}>{description}</div>
-          <Button className={styles.add} arrow>
-            Add to cart
-          </Button>
+          {fromWishlist ? (
+            <Button
+              className={styles.control}
+              arrow
+              onClick={() => dispatch(addToCart({ id }))}
+            >
+              Add to cart
+            </Button>
+          ) : (
+            <Button className={styles.control} arrow>
+              Access program
+            </Button>
+          )}
         </div>
       </div>
     </div>

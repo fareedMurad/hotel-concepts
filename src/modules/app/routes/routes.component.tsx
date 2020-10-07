@@ -17,7 +17,9 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import { Account } from 'src/modules/account';
 import { Interests } from '@pages';
 import { MarketplaceProduct } from '@pages/marketplace-product';
+import { Cart } from '@pages/cart';
 import { getUser } from '@app/redux/auth';
+import { checkCart } from '@app/redux/cart';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -120,6 +122,7 @@ const Routes: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUser());
+    dispatch(checkCart());
   }, []);
 
   return (
@@ -148,6 +151,7 @@ const Routes: React.FC = () => {
               {authorized && <Route path='/account' component={Account} />}
 
               {/* ROUTES */}
+              <Route path='/cart' component={Cart} />
               <Route path='/interests' component={Interests} />
               <Route
                 path='/insights/article/:articleId'

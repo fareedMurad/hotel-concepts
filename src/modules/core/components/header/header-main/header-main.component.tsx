@@ -9,6 +9,8 @@ import { LocalizationMenu } from './menus/localization-menu';
 import { ProfileMenu } from './menus/profile-menu';
 import { useHeaderMainData } from './hooks/header-main.hook';
 import { AboutMenu } from './menus/about-menu';
+import { useDispatch } from 'react-redux';
+import { navigate } from '@router/store';
 import { Dropdown } from './components';
 import { Burger } from './burger';
 import { useEffect, useState } from 'react';
@@ -23,7 +25,8 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   whiteBackground,
   isSticky
 }) => {
-  const { menus } = useHeaderMainData();
+  const dispatch = useDispatch();
+  const { menus, cartQuantity } = useHeaderMainData();
   const location = useLocation();
   const [selectedMenu, setSelectedMenu] = useState('');
   const [showBurger, setShowBurger] = useState(false);
@@ -93,6 +96,20 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
               [styles.invertedHeader]: whiteBackground || isSticky
             })}
           />
+
+          <div
+            className={styles.cart}
+            onClick={() => dispatch(navigate('/cart'))}
+          >
+            <Icon
+              name='shopping-cart'
+              fill={whiteBackground || isSticky ? 'black' : 'white'}
+            />
+            {cartQuantity > 0 && (
+              <div className={styles.indicator}>{cartQuantity}</div>
+            )}
+          </div>
+
           <div className={styles.headerMainNavigationProfile}>
             <div
               className={styles.profileNavigation}

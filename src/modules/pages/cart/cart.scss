@@ -1,0 +1,82 @@
+@import 'core.scss';
+
+.cart {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+  width: 100%;
+  margin: 85px auto 0 auto;
+  padding: 20px 20px 40px 20px;
+
+  @include tablet() {
+    margin-top: 132px;
+    max-width: 505px;
+  }
+}
+
+.header {
+  @include flex(space-between, flex-end);
+  padding-bottom: 16px;
+  border-bottom: 1px solid $light-grey;
+
+  &__caption {
+    @include font($primary-gray, 36px, 600, normal);
+    font-family: $EBGaramond;
+
+    @include tablet() {
+      font-size: 48px;
+      line-height: 58px;
+    }
+  }
+
+  &__quantity {
+    @include font($primary-gray, 18px, 400, 24px);
+    font-family: $EBGaramond;
+  }
+}
+
+.placeholder {
+  @include font($primary-gray, 18px, 400, 24px);
+  margin-top: 30px;
+  text-align: center;
+}
+
+.container {
+  margin: 30px 0;
+}
+
+.products {
+  @include flex($align: stretch, $direction: column);
+  padding-bottom: 20px;
+}
+
+.product {
+  &:not(:first-child) {
+    margin-top: 24px;
+  }
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  background-color: $light-grey;
+}
+
+.alternatives {
+  @include flex($align: stretch, $direction: column);
+  margin-top: 20px;
+}
+
+.divider {
+  @include flex($align: center);
+
+  &__line {
+    flex: 1;
+    height: 1px;
+    background-color: $light-grey;
+  }
+
+  &__caption {
+    @include font($primary-gray, 18px, 400, 28px);
+    margin: 0 10px;
+  }
+}

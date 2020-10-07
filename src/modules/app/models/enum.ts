@@ -85,6 +85,10 @@ enum SocketResponseType {
   checkout = 'checkout'
 }
 
+enum LocalStorageKeys {
+  cart = 'cart'
+}
+
 enum CurrenciesesCharacters {
   USD = '$',
   EUR = '&euro'
@@ -100,5 +104,6 @@ export {
   SocketResponseType,
   ContentType,
   OnlineCourseSubfilter,
+  LocalStorageKeys,
   CurrenciesesCharacters
 };

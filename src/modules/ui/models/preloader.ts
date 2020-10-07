@@ -44,6 +44,9 @@ enum Preloaders {
   //Programs
   categories = 'programs categories',
 
+  // Cart
+  cart = 'cart',
+
   // Uikit
   uikit = 'uikit',
 

@@ -41,4 +41,9 @@ enum LocaleToCurrency {
 const parsePrice = (locale: string, price: any) =>
   `${price[LocaleToCurrency[locale]]} ${LocaleToCurrency[locale]}`;
 
-export { capitalize, fileSize, parsePrice };
+/**
+ * Parse String to Object
+ */
+const parseString = (source: string) => JSON.parse(JSON.stringify(source));
+
+export { capitalize, fileSize, parseString, parsePrice };

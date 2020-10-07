@@ -1,3 +1,6 @@
+import { Pricing } from '@app/models';
+import { ProductCategory } from '@app/models/fastspring';
+
 /**
  * Program model
  */
@@ -6,15 +9,16 @@ type Program = {
   name: string;
   description: string;
   price: number;
-  pricing: any;
+  pricing: Pricing;
   complexityLevel: string;
   languages: string;
   results: string[];
   slug: string;
+  inWishlist?: boolean;
   sprints: number;
   videoVimeoUrl: string;
   weeks: number;
-  __typename: string;
+  __typename: ProductCategory;
   whoShouldEnrol: ProgramWhoShouldEnroll;
   subfilters: string[];
   testimonials: ProgramTestimonials[];
