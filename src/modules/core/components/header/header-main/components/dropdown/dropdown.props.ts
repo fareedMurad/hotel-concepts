@@ -5,7 +5,11 @@ type DropdownProps = {
   /*
    * Title
    */
-  title?: string;
+  title?: {
+    name: string;
+    to: string;
+  };
+
   /*
    * Programs
    */
@@ -14,6 +18,7 @@ type DropdownProps = {
     subtitle: string;
     sys: { id: string };
   }[];
+
   /*
    * Links
    */
@@ -22,10 +27,12 @@ type DropdownProps = {
     image: string;
     to?: string;
   }[];
+
   /*
    * Select dropdown
    */
   setSelectedMenu: (menu: string) => void;
+
   /*
    * Links flex direction
    */

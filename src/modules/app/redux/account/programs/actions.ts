@@ -1,4 +1,5 @@
 import { Program } from '@account/pages/my-programs/models';
+import { Preloaders } from '@ui/models';
 import { make } from 'redux-chill';
 
 /**
@@ -20,14 +21,14 @@ const fetchProgramsWishlist = make('[programs] fetch programs wishlist').stage(
  * Add program to wishlist
  */
 const addProgramToWishlist = make('[program] add program to wishlist')
-  .stage((payload: string) => payload)
+  .stage((payload: { id: string; preloader: Preloaders }) => payload)
   .stage('success');
 
 /**
  * Remove program from wishlist
  */
 const removeProgramFromWishlist = make('[program] remove program from wishlist')
-  .stage((payload: string) => payload)
+  .stage((payload: { id: string; preloader: Preloaders }) => payload)
   .stage('success', (payload: { items: Program[]; total: number }) => payload);
 
 export {

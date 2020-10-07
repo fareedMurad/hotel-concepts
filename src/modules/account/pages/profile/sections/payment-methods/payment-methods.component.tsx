@@ -1,6 +1,6 @@
 import { Card } from '@account/components';
 import { editPaymentMethods } from '@app/redux/account';
-import { Button, Field, Preloader } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import { Formik } from 'formik';
@@ -38,7 +38,7 @@ const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
           }}
         >
           {({ handleSubmit }) => (
-            <div className={styles.form}>
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
               <Field.Checkbox
                 labelClassname={styles.checkboxLabel}
                 name='card'
@@ -62,7 +62,7 @@ const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
               <Button className={styles.submit} onClick={() => handleSubmit()}>
                 Save
               </Button>
-            </div>
+            </FormNew>
           )}
         </Formik>
       </Preloader>

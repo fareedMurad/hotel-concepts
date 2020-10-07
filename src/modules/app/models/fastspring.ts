@@ -1,3 +1,5 @@
+import { ContentType } from './enum';
+
 type Session = {
   coupon?: string;
   products: Product[];
@@ -20,6 +22,8 @@ type CreateSessionItem = {
   product: string;
   quantity: number;
 };
+
+type ProductCategory = ContentType.product | ContentType.onlineCourse; // product = book , onlineCourse = program
 
 type Product = {
   path: string;
@@ -137,6 +141,11 @@ type Builder = {
   labguage: (language: string) => void;
 };
 
+type OrderSuccess = {
+  id: string;
+  reference: string;
+};
+
 export {
   Session,
   PaymentContact,
@@ -144,5 +153,7 @@ export {
   Recipient,
   Product,
   CreateSession,
-  CreateSessionItem
+  CreateSessionItem,
+  OrderSuccess,
+  ProductCategory
 };

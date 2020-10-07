@@ -2,9 +2,11 @@ import * as React from 'react';
 import { LocalizationMenuProps } from './localization-menu.props';
 import * as styles from './localization-menu.scss';
 import { Icon } from '@core/components';
-import { useClickOutside } from '@core/shared';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeLanguage } from '@localization/store';
+import { State } from '@app/redux/state';
+import { useLocalizationData } from './localization-menu.hook';
+import { useState } from 'react';
 
 /**
  * Localization Dropdown
@@ -34,37 +36,22 @@ const LocalizationDropDown: React.FC<any> = ({
  */
 const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
   className,
-  iconName
+  iconName,
+  selectedMenu,
+  setSelectedMenu
 }) => {
-  const languages = [
-    {
-      id: 'en-US',
-      name: 'eng'
-    },
-    {
-      id: 'es',
-      name: 'esp'
-    }
-  ];
+  const { languages, selectedLanguage } = useLocalizationData();
 
-  const [currentLanguage, setCurrentLanguage] = React.useState(
-    languages[0].name
-  );
-  const [showLanguges, setShowLangueges] = React.useState(false);
-  const ref = React.useRef();
-  useClickOutside(ref, () => {
-    setShowLangueges(false);
-  });
   return (
     <div
-      ref={ref}
       className={className}
-      onClick={() => setShowLangueges(!showLanguges)}
+      onMouseEnter={() => setSelectedMenu('Languages')}
+      onMouseLeave={() => setSelectedMenu('')}
     >
-      {currentLanguage} <Icon name={iconName} />
-      {showLanguges && (
+      {selectedLanguage.name} <Icon name={iconName} />
+      {selectedMenu === 'Languages' && (
         <LocalizationDropDown
-          setCurrentLanguage={setCurrentLanguage}
+          setSelectedMenu={setSelectedMenu}
           langueges={languages}
         />
       )}

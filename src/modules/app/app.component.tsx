@@ -1,7 +1,7 @@
 import { startup } from '@general/store';
 import { Localization } from '@localization';
 import * as React from 'react';
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { AppProps } from './app.props';
@@ -11,6 +11,9 @@ import { client } from './graphql/apollo-client';
 import { useLocation } from 'react-router-dom';
 import { ErrorBoundary } from '@core/components/error-boundary';
 import { StickyContainer } from 'react-sticky';
+import { Preloaders } from '@ui/models';
+import { Preloader } from '@core/components';
+import { cart } from './redux/cart';
 
 /**
  * Scroll to top
@@ -38,7 +41,7 @@ const Content: React.FC = ({ children }) => {
 
   if (!isReady) return null;
 
-  return <React.Fragment>{children}</React.Fragment>;
+  return <Fragment>{children}</Fragment>;
 };
 
 /**

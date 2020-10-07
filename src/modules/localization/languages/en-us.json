@@ -119,9 +119,9 @@
         "name": "Name*",
         "specialization": "Specialization*",
         "linkedin": "LinkedIn profile*",
-        "email": "contact e-mail*",
+        "email": "Contact e-mail*",
         "message": "Message",
-        "button-text": "Sentd Request"
+        "button-text": "Send Request"
       },
       "sent-successful": "Your apply successfuly sent"
     }
@@ -675,6 +675,10 @@
     "learning-approach": {
       "title": "Learning approach",
       "button-text": "Learn more"
+    },
+    "additional-materials": {
+      "no-materials": "We haven't added additional materials yet. Please come back later!",
+      "title": "Additional materials"
     },
     "program-enroll-now": {
       "title": "Enroll now",

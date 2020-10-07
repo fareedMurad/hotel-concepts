@@ -2,7 +2,10 @@
 
 .program-results {
   // padding: $left-offset;
-  padding: 112px 134px 112px 134px;
+  padding: $default-offset;
+  @include desktop() {
+    padding: 112px 134px 112px 134px;
+  }
 }
 
 .title {
@@ -33,14 +36,10 @@
 }
 
 .result {
-  height: 98px;
   @include flex($align: center);
   @include font($primary-gray, 18px, 400, 28px);
   font-family: $IBMPlex;
-}
-
-@media screen and (max-width: 768px) {
-  .program-results {
-    padding: $default-offset;
+  @include desktop() {
+    min-height: 98px;
   }
 }

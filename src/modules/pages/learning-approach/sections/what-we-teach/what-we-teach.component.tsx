@@ -25,7 +25,6 @@ const Card = ({ card, rate }) => {
           className={styles.cardButton}
           children='Explore programs'
           arrow
-          width={301}
         />
       </Link>
     </div>

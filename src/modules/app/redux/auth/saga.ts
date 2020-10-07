@@ -1,5 +1,6 @@
 import { GoogleSignInModel } from '@app/models';
 import { handleError } from '@general/store';
+import { changeLanguage } from '@localization/store';
 import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
@@ -43,6 +44,7 @@ class AuthSaga {
     try {
       localStorage.setItem('isAuthorized', 'false');
       yield call(api.auth.unauthorize);
+      yield put(navigate('/'));
     } catch (error) {
       yield put(handleError('Your session has expired'));
     }
@@ -54,10 +56,12 @@ class AuthSaga {
   @Saga(getUser)
   public *getUser(_, { api }: Context) {
     const isAuthorized = localStorage.getItem('isAuthorized') == 'true';
+    yield put(preloaderStart(Preloaders.profile));
 
     try {
       const response = yield call(api.auth.getUser);
-
+      const { language } = response.data;
+      yield put(changeLanguage(language));
       yield put(getUser.success(response.data));
       yield put(authorize());
     } catch (error) {
@@ -65,6 +69,8 @@ class AuthSaga {
         yield put(unauthorize());
         yield put(handleError(error.response.data.message));
       }
+    } finally {
+      yield put(preloaderStop(Preloaders.profile));
     }
   }
 
@@ -132,6 +138,7 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.chooseInterests, payload);
 
+      yield put(getUser());
       yield put(navigate('/account/profile'));
     } catch (error) {
       yield put(handleError(error.response.data.message));

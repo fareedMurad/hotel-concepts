@@ -1,10 +1,18 @@
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
 import { useProgramsMenuData } from './programs.hook';
+import { useHistory } from 'react-router';
 
 const useHeaderMainData = () => {
-  const { language } = useSelector((state: State) => state.localization);
+  const {
+    localization: { language },
+    cart: { selectedProducts }
+  } = useSelector((state: State) => state);
   const { programsData, programsLoading } = useProgramsMenuData(language);
+  const {
+    location: { pathname }
+  } = useHistory();
+  const cartQuantity = selectedProducts?.length;
 
   const menus = [
     {
@@ -25,7 +33,11 @@ const useHeaderMainData = () => {
       name: 'E-library',
       content: {
         flexDirection: 'row',
-        title: 'Explore',
+        title: {
+          name: 'Explore',
+          to: '/marketplace'
+        },
+
         links: [
           {
             name: 'Individual Subscription',
@@ -53,12 +65,27 @@ const useHeaderMainData = () => {
           {
             name: 'E-library Acess',
             image: 'src/assets/img/header-image.png',
-            to: '/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'
+            to: '/marketplace'
           }
         ]
       }
     }
   ];
-  return { menus };
+  const darkThemes = [
+    '/marketplace/:id',
+    '/auth',
+    '/insights',
+    '/contact-us',
+    '/faq',
+    '/interests',
+    '/jobs',
+    '/privacy-policy',
+    '/category/:categorySlug/product/:id'
+  ];
+
+  // const blackTheme = ;
+  // const theme =
+
+  return { menus, cartQuantity };
 };
 export { useHeaderMainData };

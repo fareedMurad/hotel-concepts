@@ -7,6 +7,9 @@ import { ui } from '@ui';
 import { auth } from './auth';
 import { checkouts } from './checkout';
 import { library, profile, programs, subscription } from './account';
+import { marketplace } from './marketplace';
+import { programsData } from './programs';
+import { cart } from './cart/reducer';
 
 /**
  * App rd
@@ -22,7 +25,10 @@ const app = combineReducers({
   profile,
   subscription,
   library,
-  programs
+  programs,
+  marketplace,
+  programsData,
+  cart
 });
 
 export { app };

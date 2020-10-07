@@ -1,0 +1,114 @@
+@import 'core.scss';
+
+.section {
+}
+
+.slider-item {
+  padding: 0 10px;
+}
+
+.container {
+  @include tablet() {
+    margin-left: 60px;
+  }
+
+  @include desktop() {
+    margin-left: 112px;
+  }
+}
+
+.description {
+  @include font($primary-orange, 16px, 500, 24px);
+
+  @include tablet() {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.caption {
+  @include font($primary-gray, 40px, 600, normal);
+  margin-top: 10px;
+  font-family: $EBGaramond;
+
+  @include tablet() {
+    margin-top: 12px;
+    font-size: 48px;
+    line-height: 58px;
+  }
+}
+
+.slider {
+  margin-top: 24px;
+  margin-bottom: 0;
+
+  @include tablet() {
+    margin-top: 48px;
+  }
+
+  & > ul {
+    align-items: stretch;
+    margin-bottom: 76px;
+  }
+}
+
+.book {
+  @include flex($align: stretch, $direction: column);
+  position: relative;
+  height: 100%;
+  padding: 20px 18px 18px 18px;
+  background: #f5f1f0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.like {
+  @include size(24px);
+  position: absolute;
+  top: 20px;
+  right: 18px;
+}
+
+.image {
+  width: 100%;
+  max-height: 240px;
+  padding-bottom: 20px;
+  align-self: center;
+  object-fit: contain;
+}
+
+.divider {
+  height: 2px;
+  background: #cbd0d3;
+}
+
+.name {
+  @include font(#3e3e3e, 24px, 600, 36px);
+  flex: 1;
+  margin-top: 12px;
+  font-family: $EBGaramond;
+
+  @include tablet() {
+    margin-top: 20px;
+    font-size: 36px;
+    line-height: 46px;
+  }
+}
+
+.controls {
+  @include flex($align: center);
+  margin-top: 10px;
+
+  & > button {
+    width: 100%;
+    font-size: 14px;
+
+    @include tablet() {
+      font-size: 16px;
+    }
+  }
+
+  & > button:not(:first-child) {
+    margin-left: 20px;
+  }
+}

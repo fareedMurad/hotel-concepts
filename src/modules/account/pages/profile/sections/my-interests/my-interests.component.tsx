@@ -36,13 +36,7 @@ const MyInterests: React.FC<MyInterestsProps> = ({ className }) => {
           ?.sort((a, b) => {
             const match = selectedInterests.some(one => one.value == a.value);
 
-            if (a.label < b.label || match) {
-              return -1;
-            }
-            if (a.label > b.label) {
-              return 1;
-            }
-            return 0;
+            return match ? -1 : 1;
           })
           ?.map((interest, index) => {
             const { label, value } = interest;
@@ -90,6 +84,7 @@ const MyInterests: React.FC<MyInterestsProps> = ({ className }) => {
                 );
                 setExpanded(false);
               }}
+              disabled={selectedInterests.length < 1}
             >
               Save
             </Button>

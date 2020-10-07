@@ -39,15 +39,14 @@
   @include tablet() {
     @include flex($justify: flex-start);
     margin-top: 0px;
-    margin-right: 35px;
   }
-  @include ipad-l(){
+  @include ipad-l() {
     @include flex($justify: flex-end);
   }
   flex: 1;
   flex-wrap: wrap;
   max-width: 490px;
-  margin-right: 22px;
+
   @include desktop() {
     @include flex($justify: center);
     margin: $default-offset 0;
@@ -75,9 +74,9 @@
 
 .button {
   height: 44px;
-  margin-top: 24px;
-  margin-left: 22px;
+  margin: 24px auto 0 auto;
   @include desktop() {
+    margin-top: 24px;
     margin-left: 134px;
   }
 }

@@ -1,14 +1,15 @@
-import { setupLocalization } from '@localization/store';
-import { Saga, Payload } from 'redux-chill';
-import { put, spawn, take } from 'redux-saga/effects';
-import { startup, handleError, connectSocket } from './actions';
-import { toggleToast } from '@ui/toast';
-import { SocketResponseType } from '@app/models/enum';
+import { Language, SocketResponseType } from '@app/models/enum';
+// import { checkCart } from '@app/redux/cart';
 import { Context } from '@app/redux/context';
-import { eventChannel } from 'redux-saga';
 import { SocketService } from '@app/services';
-import socketIOClient from 'socket.io-client';
 import { enviroment } from '@env';
+import { setupLocalization } from '@localization/store';
+import { toggleToast } from '@ui/toast';
+import { Payload, Saga } from 'redux-chill';
+import { eventChannel } from 'redux-saga';
+import { all, put, spawn, take } from 'redux-saga/effects';
+import socketIOClient from 'socket.io-client';
+import { connectSocket, handleError, startup } from './actions';
 
 /**
  * General app methods
@@ -19,11 +20,12 @@ class GeneralSaga {
    */
   @Saga(startup)
   public *startup() {
+    // yield put(checkCart());
     yield spawn(this.run);
 
-    yield put(setupLocalization('en-US'));
-
-    yield take(setupLocalization.success);
+    // yield put(getUser());
+    const language = window.localStorage.getItem('language');
+    yield put(setupLocalization(language ? language : Language.en));
   }
 
   /**
@@ -45,6 +47,13 @@ class GeneralSaga {
    * Run app
    */
   public *run() {
+    // const { authorized } = yield select((state: State) => state.auth);
+
+    yield all([
+      take(setupLocalization.success)
+      // take(checkCart.success)
+    ]);
+
     yield put(startup.success());
     // yield put(connectSocket());
   }

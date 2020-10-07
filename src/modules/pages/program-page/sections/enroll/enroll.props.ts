@@ -1,9 +1,9 @@
+import { SingleProgramModel } from '@app/models/single-program';
 /**
  * Props
  */
 type EnrollProps = {
-  programId: string;
-  title?: 'Who Should Enroll?' | 'For whom';
+  data: SingleProgramModel;
 };
 
 export { EnrollProps };

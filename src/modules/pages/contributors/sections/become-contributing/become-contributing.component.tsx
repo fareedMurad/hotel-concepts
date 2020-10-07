@@ -47,10 +47,12 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
       <div className={styles.wrapper}>
         <div id='become-contributor' />
         <SectionTitle>{t('contributors.form.title')}</SectionTitle>
-        <Paragraph className={styles.paragraph}>
-          {t('contributors.form.description-one')}
-        </Paragraph>
-        <Paragraph>{t('contributors.form.description-two')}</Paragraph>
+        <div className={styles.becomeContributingText}>
+          <Paragraph className={styles.paragraph}>
+            {t('contributors.form.description-one')}
+          </Paragraph>
+          <Paragraph>{t('contributors.form.description-two')}</Paragraph>
+        </div>
         <div className={styles.rule}>{t('contributors.form.rule')}</div>
         <Formik
           initialValues={defaultValues}
@@ -91,12 +93,17 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                 />
               </div>
 
-              <div style={{ marginTop: 14 }}>
+              <label
+                htmlFor='textarea'
+                className={styles.textAreaLabel}
+                style={{ marginTop: 14 }}
+              >
                 {t('contributors.form.lable.message')}
-              </div>
+              </label>
               <textarea
                 value={message}
                 className={styles.textArea}
+                id='textarea'
                 onChange={e => setMessage(e.target.value)}
               />
               <Button

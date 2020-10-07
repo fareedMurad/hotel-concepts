@@ -1,14 +1,36 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-overview {
-  min-height: 180px;
-  @include flex($align: center, $justify: space-between);
+  @include flex($align: stretch, $direction: column);
+  position: relative;
   padding-left: $left-offset;
   padding-right: 106px;
+
+  @include tablet() {
+    padding: 22px;
+  }
+
+  @include desktop() {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+.like {
+  @include size(24px);
+  position: absolute;
+  top: 40px;
+  right: 22px;
+
+  @include desktop() {
+    position: relative;
+    top: unset;
+    right: unset;
+    margin: 0 20px;
+  }
 }
 
 .title {
-  width: 70%;
   @include font($primary-gray, 48px, 500, 50px);
   font-family: $EBGaramond;
 }
@@ -20,11 +42,21 @@
 .item {
   @include flex($justify: space-between);
   width: 100%;
+
+  @include tablet() {
+    margin-top: 24px;
+  }
+
+  @include desktop() {
+    width: 50%;
+    margin-top: 0;
+    margin-left: 24px;
+  }
 }
 
 .info {
-  margin-top: 10px;
   @include font($primary-gray, 18px, 400, 20px);
+  margin-top: 10px;
 }
 
 .hr {
@@ -32,31 +64,6 @@
   width: 2px;
   margin: 0 20px;
   background-color: $hr;
-}
-
-@media screen and (max-width: 900px) {
-  .program-overview {
-    padding-right: $default-offset;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .program-overview {
-    padding: 0 $default-offset;
-  }
-  .title {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .program-overview {
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  .title {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 450px) {

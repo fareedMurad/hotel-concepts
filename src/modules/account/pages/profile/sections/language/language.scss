@@ -1,6 +1,7 @@
 @import 'core.scss';
 
 .language {
+  max-height: 177px;
 }
 
 .form {
@@ -21,7 +22,10 @@
 }
 
 .submit {
-  height: 36px;
-  width: 50%;
-  margin: 26px auto 0 auto;
+  padding: 8px 0;
+  @include mobile() {
+    height: auto;
+  }
+  width: 151px;
+  margin: 16px auto 0 auto;
 }

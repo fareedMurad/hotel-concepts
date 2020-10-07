@@ -56,7 +56,7 @@ const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
       <Slider
         containerClass={styles.slider}
         draggable={false}
-        swipeable={false}
+        swipeable={true}
         responsive={responsiveBreakpoints}
         autoPlay
         infinite

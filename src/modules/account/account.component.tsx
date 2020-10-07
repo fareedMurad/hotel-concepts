@@ -1,4 +1,5 @@
 import { usePrefixedRoutes } from '@core/shared';
+import classNames from 'classnames';
 import * as React from 'react';
 import { Route } from 'react-router';
 import { NavLink } from 'react-router-dom';
@@ -29,9 +30,11 @@ const Account: React.FC = () => {
       <div className={styles.navigation}>
         <div className={styles.title}>My account</div>
         <div className={styles.links}>
-          {navigation.map(({ caption, to }, index) => (
+          {navigation.map(({ caption, to, active }, index) => (
             <NavLink
-              className={styles.link}
+              className={classNames(styles.link, {
+                [styles.linkActive]: active
+              })}
               activeClassName={styles.linkActive}
               to={to}
               key={index}

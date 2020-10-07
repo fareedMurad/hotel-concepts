@@ -1,0 +1,314 @@
+@import 'core.scss';
+
+.preview {
+  @include flex($align: stretch, $direction: column);
+  padding: 0 20px 20px 20px;
+
+  @include desktop() {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px 0 0 20px;
+  }
+}
+
+.back {
+  @include flex($align: center);
+  @include font($primary-gray, 15px, 500, 20px);
+  width: fit-content;
+  padding: 8px 12px;
+  background-color: #f5f1f0;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &__caption {
+    margin-left: 18px;
+  }
+}
+
+.container {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+
+  @include desktop() {
+    height: calc(100vh - 120px);
+    flex-direction: row;
+    margin-left: 20px;
+  }
+}
+
+.showcase {
+  @include flex($align: stretch, $direction: column, $justify: center);
+  flex: 1;
+  height: 80vh;
+  padding: 20px 0;
+
+  @include desktop() {
+    padding: 36px 16px 25px 0;
+  }
+
+  &__info {
+    @include flex(space-between, center);
+    margin-top: 25px;
+  }
+  @include desktop() {
+    height: auto;
+  }
+}
+
+.image {
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  max-width: 60%;
+  // max-height: 482px;
+  object-fit: contain;
+
+  @include tablet() {
+    max-width: 40%;
+  }
+
+  @include desktop() {
+    max-width: 50%;
+  }
+}
+
+.show {
+  align-self: center;
+  width: 204px;
+  margin-top: 20px;
+  padding: 8px;
+}
+
+.share {
+  @include flex($align: center);
+
+  &__caption {
+    @include font($primary-gray, 16px, 400, 22px);
+  }
+
+  &__icon {
+    @include flex(center, center);
+    @include size(34px);
+    @include min-size(34px);
+    margin-left: 12px;
+    border-radius: 50%;
+    background: #f5f1f0;
+  }
+}
+
+.formats {
+  @include flex($align: center);
+}
+
+.format {
+  @include flex(center, center);
+  @include font($primary-gray, 9px, 400, 12px);
+  @include size(34px);
+  @include min-size(34px);
+  border-radius: 50%;
+  background: #f5f1f0;
+
+  &:not(:first-child) {
+    margin-left: 8px;
+  }
+}
+
+.info {
+  position: relative;
+  width: 100%;
+  padding: 16px;
+  background-color: $background;
+  border-radius: 12px;
+
+  @include tablet() {
+    padding: 20px;
+  }
+
+  @include desktop() {
+    height: auto;
+    max-width: 55.5%;
+    border-radius: 12px 0 0 12px;
+  }
+}
+
+.like {
+  @include size(20px);
+  @include min-size(20px);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  @include tablet() {
+    @include size(24px);
+    @include min-size(24px);
+  }
+}
+
+.caption {
+  @include font($primary-gray, 32px, 600, normal);
+  margin-right: 30px;
+  font-family: $EBGaramond;
+
+  @include tablet() {
+    margin-right: 34px;
+    font-size: 48px;
+    line-height: 58px;
+  }
+}
+
+.description {
+  @include font($primary-gray, 16px, 400, normal);
+  margin-top: 12px;
+
+  @include tablet() {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.authors {
+  @include font($primary-gray, 16px, 400, normal);
+  margin-top: 20px;
+  font-family: $EBGaramond;
+
+  @include tablet() {
+    font-size: 18px;
+    line-height: 58px;
+  }
+}
+
+.author {
+  margin-left: 4px;
+  text-decoration: underline;
+  transition: $transition;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-orange;
+  }
+
+  &:not(:last-child) {
+    &:after {
+      content: ',';
+    }
+  }
+}
+
+.meta {
+  @include flex(space-between, flex-start);
+  margin-top: 24px;
+
+  @include tablet() {
+    justify-content: flex-start;
+  }
+}
+
+.languages {
+  @include font($primary-gray, 12px, 400, 16px);
+
+  &__bold {
+    font-weight: 500;
+  }
+
+  &__list {
+    margin-left: 8px;
+  }
+}
+
+.published {
+  @include font($primary-gray, 12px, 400, 16px);
+
+  @include tablet() {
+    margin-left: 74px;
+  }
+
+  &__bold {
+    font-weight: 500;
+  }
+  &__date {
+    margin-left: 8px;
+  }
+}
+
+.highlights {
+  @include flex($align: center, $direction: column);
+  margin-top: 52px;
+
+  @include tablet() {
+    flex-direction: row;
+  }
+}
+
+.highlight {
+  @include flex(center, center);
+  @include font($primary-gray, 16px, 500, normal);
+  @include size(154px);
+  @include min-size(154px);
+  text-overflow: ellipsis;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid $primary-orange;
+  background: $white;
+  border-radius: 50%;
+
+  &:not(:first-child) {
+    @include mobile() {
+      margin-top: 16px;
+    }
+  }
+
+  @include tablet() {
+    @include size(204px);
+    @include min-size(204px);
+    padding: 20px;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 18px;
+
+    &:nth-child(2) {
+      z-index: 3;
+      margin: 0 -10px;
+    }
+  }
+}
+
+.price {
+  @include font($primary-gray, 36px, 600, 46px);
+  margin-top: 30px;
+  font-family: $EBGaramond;
+
+  @include tablet() {
+    margin-top: 50px;
+  }
+}
+
+.controls {
+  @include flex($align: stretch, $direction: column);
+  //to fit 100% height of 1inch display
+  // margin-top: 16px;
+
+  @include tablet() {
+    flex-direction: row;
+    height: 48px;
+  }
+}
+
+.checkout {
+  width: 100%;
+  @include tablet() {
+    width: 224px;
+  }
+}
+
+.subscription-hint {
+  @include font($primary-orange, 12px, 400, 16px);
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 1px solid $primary-orange;
+  border-radius: 8px;
+
+  @include tablet() {
+    margin-top: 0;
+    margin-left: 20px;
+  }
+}

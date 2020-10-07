@@ -60,15 +60,15 @@ class ProgramsSaga {
    */
   @Saga(addProgramToWishlist)
   public *addProgramToWishlist(
-    payload: Payload<typeof addProgramToWishlist>,
+    { id, preloader }: Payload<typeof addProgramToWishlist>,
     { api }: Context
   ) {
-    // TODO Preloader start
+    yield put(preloaderStart(preloader));
 
     try {
       yield call(
         api.programs.addProgramToWishlist,
-        payload,
+        id,
         ContentType.onlineCourse
       );
 
@@ -81,7 +81,7 @@ class ProgramsSaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      // TODO Preloader stop
+      yield put(preloaderStop(preloader));
     }
   }
 
@@ -90,15 +90,15 @@ class ProgramsSaga {
    */
   @Saga(removeProgramFromWishlist)
   public *removeProgramFromWishlist(
-    payload: Payload<typeof removeProgramFromWishlist>,
+    { id, preloader }: Payload<typeof removeProgramFromWishlist>,
     { api }: Context
   ) {
-    yield put(preloaderStart(Preloaders.programsWishlist));
+    yield put(preloaderStart(preloader));
 
     try {
       const response = yield call(
         api.programs.removeProgramFromWishlist,
-        payload,
+        id,
         ContentType.onlineCourse
       );
 
@@ -113,7 +113,7 @@ class ProgramsSaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.programsWishlist));
+      yield put(preloaderStop(preloader));
     }
   }
 }

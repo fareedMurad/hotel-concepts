@@ -2,33 +2,33 @@
 
 .button {
   @include flex(center, center);
+  @include buttonHover();
   position: relative;
   width: fit-content;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
-  @include buttonHover;
 
   &--primary {
     @include font($white, 16px, 500, 22px);
     font-family: $IBMPlex;
     background: $primary-orange;
-    // border: 1px solid $primary-orange;
+    border-color: $primary-orange;
   }
 
   &--secondary {
     @include font($primary-gray, 16px, 500, 22px);
     background: none;
     transition: $transition;
-    border: 1px solid $primary-orange;
+    border-color: $primary-orange;
 
     &:hover {
       color: $white;
       background: $primary-orange;
       border-color: $primary-orange;
-      border: 1px solid $primary-orange;
     }
+
     &::before {
       content: '';
       position: absolute;
@@ -46,8 +46,6 @@
 
     &:hover {
       border-color: $primary-orange;
-      border: 1px solid $primary-orange;
-      outline: none;
       &::before {
         top: unset;
         bottom: 0;

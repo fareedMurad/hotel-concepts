@@ -1,5 +1,7 @@
-import { StoreBuilder } from '@app/models/fastspring';
+import { OrderSuccess, StoreBuilder } from '@app/models/fastspring';
 import { enviroment } from '@env';
+import { HttpService } from '.';
+import { CheckoutService } from '../checkout.service';
 
 const DEFAULT_SDK_URL =
   'https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.7.6/fastspring-builder.min.js';
@@ -29,7 +31,7 @@ const createScript = (
 };
 
 class FastSpringService {
-  constructor(storefront) {
+  constructor(storefront, private http: HttpService) {
     createScript(
       DEFAULT_SDK_URL,
       {
@@ -48,10 +50,15 @@ class FastSpringService {
     );
   }
 
+  private checkout = new CheckoutService(this.http);
+
   public store: StoreBuilder;
 
   private onPopUpClosed = data => {
     console.log('onPopUpClosed', data);
+    if (data as OrderSuccess) {
+      this.checkout.acknowledgeSessionSuccess(data);
+    }
   };
 }
 

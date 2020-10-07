@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
   program
 }) => {
-  const { rate, caption, id, description } = program;
+  const { rate, caption, id, description, link } = program;
   const { t } = useTranslation();
   return (
     <div className={styles.program}>
@@ -24,7 +24,7 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
       <Paragraph className={styles.programBlockDescription}>
         {description}
       </Paragraph>
-      <Link to={`/in-progress/${id}`} className={styles.programBlockBtn}>
+      <Link to={link} className={styles.programBlockBtn}>
         <Button
           theme='secondary'
           width={224}

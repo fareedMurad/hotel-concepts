@@ -1,0 +1,33 @@
+@import 'core.scss';
+
+.explore {
+  padding: 40px 20px;
+
+  @include desktop() {
+    padding: 80px 20px;
+  }
+}
+
+.title {
+  @include desktop() {
+    margin-left: 114px;
+  }
+}
+
+.slider {
+  margin-top: 48px;
+  margin-bottom: 0;
+
+  & > ul {
+    margin-bottom: 92px;
+  }
+}
+
+.wrapper {
+  width: 316px;
+  height: 416px;
+}
+
+.image {
+  @include size(100%);
+}

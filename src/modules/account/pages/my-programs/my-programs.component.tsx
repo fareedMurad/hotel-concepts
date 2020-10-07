@@ -12,7 +12,7 @@ import { Wishlist } from './wishlist';
  */
 const MyPrograms: React.FC = () => {
   const [purchased, wishlist] = usePrefixedRoutes(['purchased', 'wishlist']);
-  const { navigation } = useMyProgramsData();
+  const { navigation, matchWishlist } = useMyProgramsData();
 
   return (
     <div className={styles.myPrograms}>
@@ -22,11 +22,16 @@ const MyPrograms: React.FC = () => {
           <NavLink
             className={styles.link}
             activeClassName={styles.linkActive}
-            to={`/account/programs${to}`}
+            to={to}
             key={index}
           >
             {label}
-            {withIcon && <Icon name='like' className={styles.linkIcon} />}
+            {withIcon && (
+              <Icon
+                className={styles.linkIcon}
+                name={`${matchWishlist ? 'heart' : 'like'}`}
+              />
+            )}
           </NavLink>
         ))}
       </div>

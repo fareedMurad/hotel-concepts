@@ -12,6 +12,10 @@ type BookProps = {
    * Book
    */
   book: Book;
+  /**
+   * Is in cart
+   */
+  inCart?: boolean;
 };
 
 /**

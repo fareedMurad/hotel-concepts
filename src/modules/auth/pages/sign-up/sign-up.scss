@@ -2,9 +2,15 @@
 
 .sign-up {
   @include flex(center, stretch, column);
-  width: 505px;
+  width: 85%;
   flex: 1;
   margin: 132px auto 115px auto;
+  @include tablet() {
+    width: 50%;
+  }
+  @include desktop() {
+    width: 505px;
+  }
 }
 
 .form {
@@ -37,7 +43,7 @@
 
   &__radio {
     &:not(:first-child) {
-      margin-top: 18px;
+      margin-top: 16px;
     }
   }
 }

@@ -7,42 +7,46 @@ import { ForgotPasswordModal } from './modals';
 import {
   EmailVerification,
   Login,
-  Otp,
   ResetPassword,
   SignUp,
   UpdatePassword
 } from './pages';
+import { State } from '@app/redux/state';
+import { useSelector } from 'react-redux';
+import { Modals } from '@ui/models';
 
 /**
  * Renders Auth
  */
 const Auth: React.FC = () => {
   const {} = useAuthData();
+  const { active: activeModal } = useSelector((state: State) => state.ui.modal);
+  console.log(activeModal);
   const [
     login,
     register,
     resetPassword,
     updatePassword,
-    emailVerification,
-    otp
+    emailVerification
   ] = usePrefixedRoutes([
     'login',
     'register',
     'reset-password',
     'update-password',
-    'email-verification',
-    'otp'
+    'email-verification'
   ]);
 
   return (
     <div className={styles.auth}>
-      <ForgotPasswordModal />
+      {/* modal olvays shows in mobile fix */}
+      {activeModal.find(el => el === Modals.forgotPassword) && (
+        <ForgotPasswordModal />
+      )}
       <Route path={register} component={SignUp} />
       <Route path={login} component={Login} />
       <Route path={resetPassword} component={ResetPassword} />
       <Route path={updatePassword} component={UpdatePassword} />
       <Route path={emailVerification} component={EmailVerification} />
-      <Route path={otp} component={Otp} />
     </div>
   );
 };

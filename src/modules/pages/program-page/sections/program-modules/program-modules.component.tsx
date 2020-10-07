@@ -12,32 +12,33 @@ import { useSelector } from 'react-redux';
 /**
  * Renders ProgramModules
  */
-const ProgramModules: React.FC<ProgramModulesProps> = ({ programId }) => {
+const ProgramModules: React.FC<ProgramModulesProps> = ({ data }) => {
   const { language } = useSelector((state: State) => state.localization);
-  const { modulesData, modulesLoading } = useProgramModulesData(
-    programId,
-    language
-  );
+  console.log(data);
+  // const { modulesData, modulesLoading } = useProgramModulesData(
+  //   programId,
+  //   language
+  // );
   const { t } = useTranslation();
 
-  if (modulesLoading) return <Spinner />;
-  console.log(modulesData);
-  const { items, total } = modulesData;
+  // const { items, total } = modulesData;
   return (
     <section id='facility' className={styles.programModules}>
       <div className={styles.title}>
         <div>{t('program-page.modules.title')}</div>
         <div>
-          {`The program consist of ${total} weekly courses.
+          {`The program consist of ${data?.modules.length} weekly courses.
           Each course can be taken separately on your request.`}
         </div>
-        {items.map((item, index) => {
+        {data?.modules.map((item, index) => {
           const {
             description,
             name,
             weeks,
             hours,
-            modulePdf: { url }
+            modulePdf: {
+              file: { url }
+            }
           } = item;
           return (
             <ProgramModuleItem

@@ -3,7 +3,7 @@
  */
 const capitalize = (source: string) =>
   source
-    .split(' ')
+    ?.split(' ')
     .map(item => item.charAt(0).toUpperCase() + item.substring(1))
     .join(' ');
 
@@ -33,4 +33,17 @@ function fileSize(bytes, dp = 1) {
   return bytes.toFixed(dp) + ' ' + units[u];
 }
 
-export { capitalize, fileSize };
+enum LocaleToCurrency {
+  'en-US' = 'USD',
+  es = 'EUR'
+}
+
+const parsePrice = (locale: string, price: any) =>
+  `${price[LocaleToCurrency[locale]]} ${LocaleToCurrency[locale]}`;
+
+/**
+ * Parse String to Object
+ */
+const parseString = (source: string) => JSON.parse(JSON.stringify(source));
+
+export { capitalize, fileSize, parseString, parsePrice };

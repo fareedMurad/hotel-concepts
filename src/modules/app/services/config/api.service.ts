@@ -6,6 +6,7 @@ import { SubscriptionService } from '../subscription.service';
 import { LibraryService } from '../library.service';
 import { ProgramsService } from '../programs.service';
 import { CheckoutService } from '../checkout.service';
+import { MarketplaceService } from '../marketplace.service';
 
 class ApiService {
   /**
@@ -25,6 +26,7 @@ class ApiService {
   public checkout = new CheckoutService(this.http);
   public library = new LibraryService(this.http);
   public programs = new ProgramsService(this.http);
+  public marketplace = new MarketplaceService(this.http);
 }
 
 export { ApiService };

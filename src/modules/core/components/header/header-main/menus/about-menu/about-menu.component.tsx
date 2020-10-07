@@ -10,27 +10,32 @@ import { DropDown } from './drop-down';
 /**
  * Renders AboutMenu
  */
-const AboutMenu: React.FC<AboutMenuProps> = ({ onClick, className }) => {
+const AboutMenu: React.FC<AboutMenuProps> = ({
+  onClick,
+  className,
+  setSelectedMenu,
+  selectedMenu
+}) => {
   const { t } = useTranslation();
   const ref = React.useRef(null);
   const { aboutMenuLinks } = useAboutMenuData();
-  const [toggleDropDown, setToggleDropdown] = React.useState(false);
-  useClickOutside(ref, () => {
-    setToggleDropdown(false);
-  });
+
   React.useEffect(() => {
-    return () => setToggleDropdown(false);
+    return () => setSelectedMenu('');
   }, [location.pathname]);
   return (
     <React.Fragment>
       <div
         className={classNames(className, styles.aboutMenu)}
-        onClick={() => setToggleDropdown(true)}
-        ref={ref}
+        onMouseOver={() => {
+          setSelectedMenu('About');
+        }}
       >
         {t('header.header-main.link-three')}
         <span className={styles.arrow}>&#x25BE;</span>
-        <DropDown links={aboutMenuLinks} show={toggleDropDown} />
+        {selectedMenu === 'About' && (
+          <DropDown links={aboutMenuLinks} setSelectedMenu={setSelectedMenu} />
+        )}
       </div>
     </React.Fragment>
   );

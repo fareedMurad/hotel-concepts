@@ -6,20 +6,21 @@ import { NavLink } from 'react-router-dom';
 /**
  * Renders DropDown
  */
-const DropDown: React.FC<DropDownProps> = ({ show, links }) => {
+const DropDown: React.FC<DropDownProps> = ({ links, setSelectedMenu }) => {
   return (
     <React.Fragment>
-      {show && (
-        <div className={styles.dropDown}>
-          {links.map((link, idx) => {
-            return (
-              <div key={link.name + idx} className={styles.dropDownItem}>
-                <NavLink to={link.to}>{link.name}</NavLink>
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <div
+        className={styles.dropDown}
+        onMouseLeave={() => setSelectedMenu(' ')}
+      >
+        {links.map((link, idx) => {
+          return (
+            <div key={link.name + idx} className={styles.dropDownItem}>
+              <NavLink to={link.to}>{link.name}</NavLink>
+            </div>
+          );
+        })}
+      </div>
     </React.Fragment>
   );
 };

@@ -4,7 +4,7 @@
   "apiUrl": "http://localhost:8288/v1",
   "googleClientId": "870514345083-s3coqcsaqbib789m3bq9ffc12r4ke4qj.apps.googleusercontent.com",
   "facebookAppId": "1659761480855161",
-  "fastspringAccessKey": "UYRDMO5URL65MXWKXA9ZKA",
-  "fastspringStoreFront": "zadeagency.test.onfastspring.com/popup-zadeagency",
+  "fastspringAccessKey": "LVBGTlFRWk5UUk05U0tCQ1FVX1ZOVzoxTUtrYU1YM1JfYUtvSDBTOFNsaUVR",
+  "fastspringStoreFront": "kordie.test.onfastspring.com/popup-kordie",
   "socketUrl": "wss://dev.kordie.com"
 }

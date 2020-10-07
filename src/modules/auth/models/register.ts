@@ -17,7 +17,10 @@ type RegisterValues = {
  * Register Validation Schema
  */
 const registerValidationSchema = yup.object().shape<RegisterValues>({
-  title: yup.string().label('Title'),
+  title: yup
+    .string()
+    .label('Title')
+    .required('Title is required'),
   name: yup
     .string()
     .label('First Name')

@@ -1,0 +1,120 @@
+@import 'core.scss';
+
+.description {
+  @include flex(flex-start, stretch, column);
+  width: 100%;
+  padding: 20px;
+
+  @include tablet() {
+    @include flex(space-between, flex-start, row);
+  }
+
+  @include desktop() {
+    margin: 95px auto 0 135px;
+    padding: 0;
+    max-width: 64%;
+  }
+}
+
+.container {
+  @include flex($align: stretch, $direction: column);
+  width: 100%;
+
+  @include tablet() {
+    max-width: 61.5%;
+  }
+}
+
+.publication {
+  @include flex($align: center);
+  @include font($primary-gray, 16px, 400, normal);
+  margin-top: 20px;
+
+  &__caption {
+    font-weight: 500;
+  }
+
+  &__date {
+    margin-left: 8px;
+  }
+}
+
+.text {
+  @include font($primary-gray, 18px, 400, 28px);
+  margin-top: 24px;
+
+  @include tablet() {
+    margin-top: 46px;
+  }
+}
+
+.product {
+  @include flex($align: center);
+  @include font($primary-gray, 16px, 400, normal);
+  margin-top: 24px;
+
+  &__caption {
+    font-weight: 500;
+  }
+  &__name {
+    margin-left: 8px;
+  }
+}
+
+.page {
+  @include flex($align: center);
+  @include font($primary-gray, 16px, 400, normal);
+  margin-top: 12px;
+
+  &__caption {
+    font-weight: 500;
+  }
+  &__count {
+    margin-left: 8px;
+  }
+}
+
+.skills {
+  @include flex($align: stretch, $direction: column);
+  margin-top: 40px;
+
+  @include tablet() {
+    margin-top: 110px;
+  }
+
+  &__caption {
+    @include font($primary-gray, 24px, 400, 34px);
+  }
+
+  &__list {
+    @include flex($align: stretch, $direction: column);
+    margin-top: 16px;
+  }
+}
+
+.skill {
+  @include flex($align: center);
+  padding: 12px;
+  border-radius: 12px;
+  background: #f5f1f0;
+
+  @include tablet() {
+    width: 205px;
+  }
+
+  &:not(:first-child) {
+    margin-top: 12px;
+  }
+
+  &__indicator {
+    @include size(6px);
+    @include min-size(6px);
+    background: $primary-orange;
+  }
+
+  &__caption {
+    @include font($primary-gray, 18px, 400, 28px);
+    flex: 1;
+    margin-left: 12px;
+  }
+}

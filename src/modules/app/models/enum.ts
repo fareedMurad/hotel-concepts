@@ -30,7 +30,8 @@ enum Title {
  */
 enum Language {
   en = 'en-US',
-  es = 'es'
+  es = 'es',
+  ru = 'ru-RU'
 }
 
 /**
@@ -54,9 +55,43 @@ enum Interest {
   guestloyalty = 'Guest Loyalty',
   reputationmanagement = 'Reputation Management'
 }
+/**
+ * Content type enum
+ */
+enum ContentType {
+  product = 'product',
+  onlineCourse = 'onlineCourse',
+  courseCategory = 'courseCategory'
+}
+
+/**
+ * Online course subfilter enum
+ */
+
+enum OnlineCourseSubfilter {
+  all = 'all',
+  familybusiness = 'familyBusiness',
+  strategy = 'strategy',
+  marketing = 'marketing',
+  governance = 'governance',
+  innovation = 'innovation',
+  negotiation = 'negotiation',
+  organizationallearning = 'organizationalLearning',
+  sustainability = 'sustainability',
+  finance = 'finance'
+}
 
 enum SocketResponseType {
   checkout = 'checkout'
+}
+
+enum LocalStorageKeys {
+  cart = 'cart'
+}
+
+enum CurrenciesesCharacters {
+  USD = '$',
+  EUR = '&euro'
 }
 
 export {
@@ -66,5 +101,9 @@ export {
   Language,
   PaymentMethod,
   Interest,
-  SocketResponseType
+  SocketResponseType,
+  ContentType,
+  OnlineCourseSubfilter,
+  LocalStorageKeys,
+  CurrenciesesCharacters
 };

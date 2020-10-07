@@ -1,53 +1,45 @@
+import { Preloader } from '@core/components';
+import { Preloaders } from '@ui/models';
 import * as React from 'react';
-import { MarketplaceProps } from './marketplace.props';
-import * as styles from './marketplace.scss';
-import {
-  H1,
-  ButtonFilter,
-  Footer,
-  H2,
-  PreCaption,
-  Spinner
-} from '@core/components';
-import { useMarketplaceData } from './hooks/marketplace.hook';
-import { ProductsSlider } from '@pages/components/products-slider';
-import { MarketplaceHero } from './marketplace-hero';
-import { useProductsCategoriesData } from './hooks/marketplace-categories.hook';
-import { MarketplaceProductsCarusel } from './marketplace-products-carusel';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { State } from '@app/redux/state';
+import { useDispatch } from 'react-redux';
+import { Hero, Section } from './components';
+import { useMarketplaceData } from './marketplace.hook';
+import * as styles from './marketplace.scss';
 
 /**
  * Renders Marketplace
  */
-const Marketplace: React.FC<MarketplaceProps> = ({}) => {
+const Marketplace: React.FC = () => {
   const { t } = useTranslation();
-  const { language } = useSelector((state: State) => state.localization);
-  const {
-    productCategories,
-    productCategoriesLoading
-  } = useProductsCategoriesData(language);
-
-  if (productCategoriesLoading) return <Spinner />;
+  const { categories, authorized, user } = useMarketplaceData();
+  const dispatch = useDispatch();
 
   return (
-    <div className={styles.marketplace}>
-      <MarketplaceHero />
+    <Preloader id={Preloaders.marketplace}>
+      <div className={styles.marketplace}>
+        <Hero categories={categories} />
 
-      {productCategories.map(el => {
-        return (
-          <React.Fragment key={el.sys.id}>
-            <div className={styles.itemsContainer} id={el.category}>
-              <PreCaption>{t('marketplace.popular-items')}</PreCaption>
-              <H2 className={styles.title}>{el.category}</H2>
-            </div>
-            <MarketplaceProductsCarusel category={el.category} />
-          </React.Fragment>
-        );
-      })}
-      {/* <Footer /> */}
-    </div>
+        <div className={styles.content}>
+          {categories?.map(({ category: { category, id }, items }) => {
+            const isNotEmpty = items.length > 0;
+
+            return (
+              isNotEmpty && (
+                <Section
+                  id={id}
+                  className={styles.section}
+                  caption={category}
+                  description='New items in'
+                  data={items}
+                  key={id}
+                />
+              )
+            );
+          })}
+        </div>
+      </div>
+    </Preloader>
   );
 };
 

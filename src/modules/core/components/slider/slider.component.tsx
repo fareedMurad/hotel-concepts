@@ -1,5 +1,9 @@
+import classNames from 'classnames';
 import * as React from 'react';
 import Carousel from 'react-multi-carousel';
+import { Controls } from './controls';
+import { SliderButtons } from './slider-buttons';
+import { SliderProps } from './slider.props';
 import * as styles from './slider.scss';
 
 const responsiveBreakpoints = {
@@ -23,31 +27,53 @@ const responsiveBreakpoints = {
 /**
  * Renders Slider
  */
-const Slider: React.FC<any> = ({
+const Slider: React.FC<SliderProps> = ({
   children,
+  className,
   draggable,
+  autoPlay,
+  infinite,
+  keyBoardControl,
+  controls,
   swipeable,
   responsive,
   itemClass,
-  ...rest
-}) => {
-  const drag = draggable === undefined ? true : draggable;
-  const swipe = swipeable === undefined ? true : swipeable;
-  const resp = responsive === undefined ? responsiveBreakpoints : responsive;
-  return (
-    <Carousel
-      responsive={resp}
-      ssr
-      draggable={drag}
-      swipeable={swipe}
-      arrows={false}
-      itemClass={itemClass}
-      sliderClass={styles.slider}
-      {...rest}
-    >
-      {children}
-    </Carousel>
-  );
-};
+  customButtonGroup,
+  controlsClassname,
+  controlsTheme,
+  controlClassname,
+  ...props
+}) => (
+  <Carousel
+    containerClass={classNames(styles.slider, className)}
+    responsive={responsive || responsiveBreakpoints}
+    draggable={draggable}
+    swipeable={swipeable}
+    infinite={infinite}
+    keyBoardControl={keyBoardControl}
+    customButtonGroup={
+      controls ? (
+        <Controls
+          className={controlsClassname}
+          theme={controlsTheme}
+          controlClassname={controlClassname}
+        />
+      ) : (
+        customButtonGroup
+      )
+    }
+    arrows={false}
+    itemClass={itemClass}
+    sliderClass={styles.slider}
+    {...props}
+  >
+    {children}
+  </Carousel>
+);
+
+/**
+ * Default props
+ */
+Slider.defaultProps = {};
 
 export { Slider };

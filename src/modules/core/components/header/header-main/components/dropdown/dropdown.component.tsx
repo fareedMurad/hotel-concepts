@@ -16,17 +16,14 @@ const Dropdown: React.FC<DropdownProps> = ({
   flexDirection
 }) => {
   const dispatch = useDispatch();
-
-  const ref = React.useRef<HTMLDivElement>();
-  useClickOutside(ref, () => {
-    setSelectedMenu('');
-  });
-
   return (
-    <div className={styles.dropdown} ref={ref}>
+    <div className={styles.dropdown} onMouseLeave={() => setSelectedMenu('')}>
       {title && (
-        <div className={styles.dropdownTitle}>
-          {title}
+        <div
+          className={styles.dropdownTitle}
+          onClick={() => dispatch(navigate(title.to))}
+        >
+          {title.name}
           <span>&#8594;</span>
         </div>
       )}

@@ -7,7 +7,6 @@
   position: relative;
   flex: 1;
   margin-top: 20px;
-
   &:hover {
     .controls {
       @include flex(center, center, column);
@@ -37,6 +36,7 @@
 .avatar {
   @include size(100%);
   border-radius: 16px;
+  min-height: 300px;
 }
 
 .input {

@@ -1,12 +1,18 @@
 @import 'core.scss';
 
 .profile {
-  @include flex(space-between, stretch);
+  @include flex($direction: column);
+  padding: 0 20px 20px 20px;
+
+  @include desktop() {
+    @include flex(space-between, stretch);
+    padding: 0px;
+  }
 }
 
 .column-left {
   @include flex($align: stretch, $direction: column);
-  width: 30%;
+  width: 100%;
 
   &__language {
     padding: 12px 20px 18px 20px;
@@ -16,41 +22,40 @@
     margin-top: 20px;
     padding: 20px 20px 16px 20px;
   }
+
+  @include desktop() {
+    width: 29.5%;
+  }
 }
 
 .column-right {
   @include flex($align: stretch, $direction: column);
   flex: 1;
-  margin-left: 20px;
-
+  margin-top: 20px;
+  width: 100%;
   &__interests {
     padding: 12px 20px 20px 20px;
+  }
+  @include desktop() {
+    margin-top: 0px;
+    margin-left: 20px;
+    width: auto;
   }
 }
 
 .column-bottom {
   display: grid;
   gap: 20px;
-  grid-template-areas: 'email-password avatar' 'payment container';
-  grid-template-columns: auto 42%;
-  height: 100%;
+  // height: 100%;
   margin-top: 20px;
-
   &__email-password {
-    grid-area: email-password;
-    padding: 12px 20px 41px 20px;
+    padding: 12px 20px 20px 20px;
   }
   &__avatar {
-    grid-area: avatar;
     padding: 12px 20px;
   }
   &__payment {
-    grid-area: payment;
     padding: 12px 20px;
-  }
-  &__container {
-    @include flex($align: stretch, $direction: column);
-    grid-area: container;
   }
   &__privacy {
     padding: 12px 20px 18px 20px;
@@ -59,5 +64,24 @@
     flex: 1;
     margin-top: 20px;
     padding: 12px 20px;
+  }
+
+  @include desktop() {
+    grid-template-areas: 'email-password avatar' 'payment container';
+    grid-template-columns: auto 42.5%;
+    grid-template-rows: 1fr 1fr;
+    &__email-password {
+      grid-area: email-password;
+    }
+    &__avatar {
+      grid-area: avatar;
+    }
+    &__payment {
+      grid-area: payment;
+    }
+    &__container {
+      @include flex($align: stretch, $direction: column);
+      grid-area: container;
+    }
   }
 }

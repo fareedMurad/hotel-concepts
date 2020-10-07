@@ -1,5 +1,10 @@
-import { removeProgramFromWishlist } from '@app/redux/account';
+import {
+  addProgramToWishlist,
+  removeProgramFromWishlist
+} from '@app/redux/account';
+import { addToCart } from '@app/redux/cart';
 import { Button, Icon } from '@core/components';
+import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
@@ -30,8 +35,15 @@ const Program: React.FC<ProgramProps> = ({ type, program }) => {
       {fromWishlist && (
         <Icon
           className={styles.like}
-          name='like'
-          onClick={() => dispatch(removeProgramFromWishlist(id))}
+          name='heart'
+          onClick={() =>
+            dispatch(
+              removeProgramFromWishlist({
+                id,
+                preloader: Preloaders.programsWishlist
+              })
+            )
+          }
         />
       )}
       <img className={styles.image} src={url} alt={url} />
@@ -45,9 +57,19 @@ const Program: React.FC<ProgramProps> = ({ type, program }) => {
         </div>
         <div className={styles.box}>
           <div className={styles.description}>{description}</div>
-          <Button className={styles.add} arrow>
-            Add to cart
-          </Button>
+          {fromWishlist ? (
+            <Button
+              className={styles.control}
+              arrow
+              onClick={() => dispatch(addToCart({ id }))}
+            >
+              Add to cart
+            </Button>
+          ) : (
+            <Button className={styles.control} arrow>
+              Access program
+            </Button>
+          )}
         </div>
       </div>
     </div>

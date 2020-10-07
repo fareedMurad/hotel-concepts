@@ -60,9 +60,9 @@
 }
 
 .footer {
-  margin-top: 35px;
+  margin: 35px 20px 0 20px;
   @include desktop() {
-    padding-left: 110px;
+    margin: 40px 0 0 $left-offset;
   }
 }
 
@@ -72,7 +72,10 @@
 }
 
 .button {
-  margin-top: 24px;
+  margin: 24px auto 0 auto;
+  @include desktop() {
+    margin: 24px 0 0 0;
+  }
 }
 
 .courses {

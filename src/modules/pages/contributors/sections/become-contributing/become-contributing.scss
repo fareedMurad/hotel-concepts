@@ -2,10 +2,17 @@
 
 .become-contributing {
   background-color: #f5f1f0;
+  &--text {
+    width: 100%;
+    @include desktop() {
+      width: 30%;
+    }
+  }
 }
 
 .wrapper {
-  @include container($top: 50px); //bug
+  @include container($top: 50px);
+  padding-bottom: 49px;
 }
 
 .form {
@@ -15,12 +22,12 @@
     width: 670px;
   }
   & > * {
-    margin-top: 18px;
+    margin-top: 16px;
   }
 }
 
 .rule {
-  @include font($primary-gray, 18px, 400, 28px);
+  @include font($primary-gray, 16px, 500, 28px);
 }
 
 .text-area {
@@ -35,6 +42,9 @@
   outline: none;
   resize: none;
   border-radius: 4px;
+  &--label {
+    @include font($primary-gray, 16px, 400, 22px);
+  }
 }
 
 .form-group {

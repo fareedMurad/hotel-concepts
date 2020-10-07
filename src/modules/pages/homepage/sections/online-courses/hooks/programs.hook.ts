@@ -1,43 +1,34 @@
-import { gql, useQuery } from '@apollo/client';
+import { OnlineCourseSubfilter } from '@app/models/enum';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectCategory,
+  getPrograms,
+  getCategories
+} from '@app/redux/programs';
+import { useEffect } from 'react';
+import { State } from '@app/redux/state';
 
-const useProgramsData = (category: string, language: string) => {
-  const GET_CATEGORIES = gql`
-    query($category: String!, $locale: String!) {
-      onlineCourseCollection(
-        where: { category: { name: $category } }
-        limit: 6
-        locale: $locale
-      ) {
-        total
-        items {
-          name
-          price
-          weeks
-          sprints
-          slug
-          description
-          category {
-            sys {
-              id
-            }
-          }
-          courseImage {
-            url(transform: { format: JPG_PROGRESSIVE, quality: 75 })
-          }
-          sys {
-            id
-          }
-        }
-      }
-    }
-  `;
+const useProgramsData = () => {
+  const dispatch = useDispatch();
+  const { language } = useSelector((state: State) => state.localization);
 
-  const { data, loading } = useQuery(GET_CATEGORIES, {
-    variables: { category: category, locale: language }
-  });
+  useEffect(() => {
+    dispatch(getCategories(language));
+  }, []);
+
+  const fetchPrograms = item => {
+    const params = {
+      category: item.category.id,
+      limit: 6,
+      skip: 0,
+      locale: language,
+      subfilters: OnlineCourseSubfilter.all
+    };
+    dispatch(selectCategory(item));
+    dispatch(getPrograms(params));
+  };
   return {
-    programsData: data?.onlineCourseCollection?.items,
-    programsLoading: loading
+    fetchPrograms
   };
 };
 

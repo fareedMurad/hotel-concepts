@@ -15,8 +15,11 @@ import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Account } from 'src/modules/account';
-import { getUser } from '@app/redux/auth';
 import { Interests } from '@pages';
+import { MarketplaceProduct } from '@pages/marketplace-product';
+import { Cart } from '@pages/cart';
+import { getUser } from '@app/redux/auth';
+import { checkCart } from '@app/redux/cart';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -119,6 +122,7 @@ const Routes: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUser());
+    dispatch(checkCart());
   }, []);
 
   return (
@@ -141,12 +145,13 @@ const Routes: React.FC = () => {
           </div>
           <React.Suspense fallback={<Spinner />}>
             <Switch>
-              {authorized && <Route path='/account' component={Account} />}
               <Route path='/uikit' component={Uikit} />
               <Route path='/testing' component={TestPage} />
               <Route path='/auth' component={Auth} />
+              {authorized && <Route path='/account' component={Account} />}
 
               {/* ROUTES */}
+              <Route path='/cart' component={Cart} />
               <Route path='/interests' component={Interests} />
               <Route
                 path='/insights/article/:articleId'
@@ -173,16 +178,8 @@ const Routes: React.FC = () => {
                   )}
                 />
               )}
-              <Route
-                exact={mobile}
-                path='/program/:slug'
-                component={ProgramPage}
-              />
-              <Route
-                exact={mobile}
-                path='/contributors'
-                component={Contributors}
-              />
+              <Route path='/program/:slug' component={ProgramPage} />
+              <Route path='/contributors' component={Contributors} />
               <Route path='/faq' component={Faq} />
               <Route
                 path='/programs-catalogue/:id'
@@ -193,6 +190,7 @@ const Routes: React.FC = () => {
               <Route path='/jobs/job-details/:id' component={JobDetails} />
               <Route path='/jobs' component={JobsList} />
               <Route path='/for-companies' component={ForCompanies} />
+              <Route path='/marketplace/:id' component={MarketplaceProduct} />
               <Route path='/marketplace' component={Marketplace} />
               <Route
                 path='/category/:categorySlug/product/:id'
@@ -200,9 +198,7 @@ const Routes: React.FC = () => {
               />
               <Route path='/course-partnership' component={CoursePartnership} />
               <Route exact={mobile} path='/' component={Homepage} />
-              <Route path='*'>
-                <NotFound />
-              </Route>
+              <Route path='*' component={NotFound} />
             </Switch>
           </React.Suspense>
           <Footer />

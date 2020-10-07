@@ -1,13 +1,17 @@
 import { ContentType } from '@account/pages/library/models';
 import { Context } from '@app/redux/context';
+import { State } from '@app/redux/state';
+import { downloadBlob } from '@core/shared';
 import { handleError } from '@general/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
+import axios from 'axios';
 import { Payload, Saga } from 'redux-chill';
-import { call, put } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 import {
   addBookToWishlist,
+  downloadBook,
   fetchLibraryPurchased,
   fetchLibraryWishlist,
   removeBookFromWishlist
@@ -68,13 +72,20 @@ class LibrarySaga {
    */
   @Saga(addBookToWishlist)
   public *addBookToWishlist(
-    payload: Payload<typeof addBookToWishlist>,
+    { id, preloader }: Payload<typeof addBookToWishlist>,
     { api }: Context
   ) {
-    // TODO Preloader start
+    yield put(preloaderStart(preloader));
 
     try {
-      yield call(api.library.addBookToWishlist, payload, ContentType.product);
+      yield call(api.library.addBookToWishlist, id, ContentType.product);
+
+      const { location } = yield select((state: State) => state.router);
+
+      if (location.pathname === '/marketplace') {
+        yield put(addBookToWishlist.success(id));
+      }
+
       yield put(
         toggleToast({
           status: 'success',
@@ -84,7 +95,7 @@ class LibrarySaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      // TODO Preloader stop
+      yield put(preloaderStop(preloader));
     }
   }
 
@@ -93,17 +104,32 @@ class LibrarySaga {
    */
   @Saga(removeBookFromWishlist)
   public *removeBookFromWishlist(
-    payload: Payload<typeof removeBookFromWishlist>,
+    { id, preloader }: Payload<typeof removeBookFromWishlist>,
     { api }: Context
   ) {
-    yield put(preloaderStart(Preloaders.libraryWishlist));
+    yield put(preloaderStart(preloader));
 
     try {
       const response = yield call(
         api.library.removeBookFromWishlist,
-        payload,
+        id,
         ContentType.product
       );
+
+      const { location } = yield select((state: State) => state.router);
+
+      if (location.pathname === '/marketplace') {
+        const {
+          data: { items }
+        } = response;
+        if (Array.isArray(items)) {
+          yield put(
+            removeBookFromWishlist.removeHeart(
+              items.map(item => item.id) as string[]
+            )
+          );
+        }
+      }
 
       yield put(removeBookFromWishlist.success(response.data));
       yield put(
@@ -115,7 +141,22 @@ class LibrarySaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(Preloaders.libraryWishlist));
+      yield put(preloaderStop(preloader));
+    }
+  }
+
+  /**
+   * Download book
+   */
+  @Saga(downloadBook)
+  public *downloadBook(url: Payload<typeof downloadBook>) {
+    try {
+      const response = yield call(axios.get, url, {
+        responseType: 'blob'
+      });
+      downloadBlob(response.data, name);
+    } catch (error) {
+      console.log(error);
     }
   }
 }

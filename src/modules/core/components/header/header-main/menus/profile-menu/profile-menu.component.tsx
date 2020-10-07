@@ -13,26 +13,21 @@ import { useClickOutside } from '@core/shared';
 /**
  * Renders ProfileMenu
  */
-const ProfileMenu: React.FC<ProfileMenuProps> = ({
-  setShowProfileNavigationMenu
-}) => {
+const ProfileMenu: React.FC<ProfileMenuProps> = ({ setSelectedMenu }) => {
   const { authorized } = useSelector((state: State) => state.auth);
   const { links } = useProfileMenuData();
-
-  const ref = React.useRef();
   const dispatch = useDispatch();
-  useClickOutside(ref, () => {
-    setShowProfileNavigationMenu(false);
-  });
 
   if (!authorized)
     return (
-      <div className={styles.profileMenu} ref={ref}>
+      <div
+        className={styles.profileMenu}
+        onMouseLeave={() => setSelectedMenu('')}
+      >
         <Button
           width={'100%'}
           onClick={() => {
             dispatch(navigate('/auth/login'));
-            setShowProfileNavigationMenu(false);
           }}
         >
           Log in
@@ -41,14 +36,18 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
     );
 
   return (
-    <div className={styles.profileMenu} ref={ref}>
-      {links.map(link => {
-        <NavLink to={link.to}>{link.title}</NavLink>;
-      })}
+    <div
+      className={styles.profileMenu}
+      onMouseLeave={() => setSelectedMenu('')}
+    >
+      {links.map(link => (
+        <NavLink key={link.title} to={link.to}>
+          {link.title}
+        </NavLink>
+      ))}
       <Button
         className={styles.logout}
         onClick={() => {
-          setShowProfileNavigationMenu(false);
           dispatch(unauthorize());
         }}
       >

@@ -1,6 +1,6 @@
 import { Card } from '@account/components';
 import { editPrefferedLanguage } from '@app/redux/account';
-import { Button, Field, Preloader } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import { Formik } from 'formik';
@@ -43,7 +43,7 @@ const Language: React.FC<LanguageProps> = ({ className }) => {
           }}
         >
           {({ handleSubmit }) => (
-            <div className={styles.form}>
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
               <div className={styles.container}>
                 <div className={styles.label}>Preffered language</div>
                 <Field.Select
@@ -55,7 +55,7 @@ const Language: React.FC<LanguageProps> = ({ className }) => {
               <Button className={styles.submit} onClick={() => handleSubmit()}>
                 Save
               </Button>
-            </div>
+            </FormNew>
           )}
         </Formik>
       </Preloader>

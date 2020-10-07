@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-learning-approach {
   padding: 124px 0;
@@ -22,10 +22,12 @@
   @include flex($justify: center);
   flex-wrap: wrap;
   padding: 0 12px;
+
   .item {
     padding: 16px;
     min-height: 208px;
     min-width: 428px;
+    max-width: 428px;
     flex: 1;
     border: 1px solid $light-grey;
     border-radius: 6px;

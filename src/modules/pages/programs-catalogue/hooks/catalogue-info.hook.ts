@@ -1,24 +1,24 @@
-import { gql, useQuery } from '@apollo/client';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSingleCategory } from '@app/redux/programs';
+import { State } from '@app/redux/state';
 
-const useCatalogueInfoData = (categoryId?: string, language?: string) => {
-  const GET_CATEGORY_INFO = gql`
-    query($id: String!, $locale: String!) {
-      courseCategory(id: $id, locale: $locale) {
-        name
-        description
-        subtitle
-        isSubfiltersAllowed
-      }
-    }
-  `;
+const useCatalogueInfoData = (categoryId?: string) => {
+  const { language } = useSelector((state: State) => state.localization);
+  const { selectedCategory } = useSelector(
+    (state: State) => state.programsData
+  );
 
-  const { data, loading, error } = useQuery(GET_CATEGORY_INFO, {
-    variables: { id: categoryId, locale: language }
-  });
-
+  const dispatch = useDispatch();
+  const payload = {
+    locale: language,
+    id: categoryId
+  };
+  useEffect(() => {
+    dispatch(getSingleCategory(payload));
+  }, [categoryId]);
   return {
-    catalogueInfoData: data?.courseCategory,
-    catalogueInfoLoading: loading
+    selectedCategory
   };
 };
 export { useCatalogueInfoData };

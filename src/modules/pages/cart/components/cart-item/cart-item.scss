@@ -1,0 +1,71 @@
+@import 'core.scss';
+
+.cart-item {
+  @include flex();
+  margin-bottom: 15px;
+
+  &__image {
+    @include flex($direction: column, $align: center);
+    & > img {
+      width: 130px;
+      height: 180px;
+      object-fit: contain;
+    }
+  }
+
+  &__info {
+    @include flex($direction: column);
+    padding: 0 15px 0 15px;
+
+    &--title {
+      @include font($primary-gray, 24px, 400, 28px);
+    }
+  }
+}
+
+.description {
+  @include flex($direction: column, $justify: flex-end);
+  flex-grow: 2;
+  height: 100%;
+  &--author {
+    @include font($light-grey, 18px, 400, 28px);
+    min-height: 16px;
+  }
+  &--amount {
+    @include flex($align: center);
+
+    & > input {
+      @include flex($align: center, $justify: center);
+      @include font($light-grey, 18px, 400, 28px);
+      margin-left: 30px;
+      width: 80px;
+      height: 40px;
+      border: 1px solid $light-grey;
+      text-align: center;
+      -webkit-appearance: none;
+      outline: none;
+    }
+  }
+  &--price {
+    @include font(red, 24px, 400, 28px);
+    font-family: $EBGaramond;
+    & > span {
+      margin-right: 20px;
+      text-decoration: line-through;
+      color: $light-grey;
+    }
+  }
+}
+
+.remove {
+  @include font($primary-orange, 14px, 500, 28px);
+  margin-top: 5px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

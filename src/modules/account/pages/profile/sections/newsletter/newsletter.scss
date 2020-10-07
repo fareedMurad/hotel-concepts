@@ -7,12 +7,23 @@
   margin-top: 12px;
 }
 
-.checkboxLabel {
-  @include font(#3e3e3e, 18px, 500, 28px);
+.agreement {
+  align-items: flex-start;
+
+  & > div:first-child {
+    margin-top: 4px;
+  }
+
+  &__label {
+    @include font(#3e3e3e, 18px, 500, 28px);
+  }
 }
 
 .submit {
-  height: 36px;
-  width: 50%;
+  padding: 8px 0;
+  @include mobile() {
+    height: auto;
+  }
+  width: 151px;
   margin: 16px auto 0 auto;
 }

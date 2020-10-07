@@ -1,0 +1,118 @@
+@import 'core.scss';
+
+.feedback {
+  @include flex($align: stretch, $direction: column);
+  padding: 20px;
+
+  @include desktop() {
+    padding: 30px 229px 120px 134px;
+  }
+}
+
+.label {
+  @include font($primary-orange, 18px, 500, 28px);
+}
+
+.title {
+  margin-top: 12px;
+}
+
+.slider {
+  margin-top: 24px;
+  margin-bottom: 0;
+
+  @include tablet() {
+    margin-top: 48px;
+  }
+
+  & > ul {
+    justify-content: space-between;
+    margin-bottom: 85px;
+
+    @include tablet() {
+      margin-bottom: 108px;
+    }
+  }
+
+  &__item {
+    padding: 0 10px;
+
+    @include desktop() {
+      max-width: 43%;
+    }
+  }
+}
+
+.container {
+  @include flex($align: stretch, $direction: column);
+}
+
+.description {
+  @include font($primary-gray, 24px, 400, 30px);
+  font-family: $EBGaramond;
+
+  @include tablet() {
+    font-size: 28px;
+    line-height: 35px;
+  }
+}
+
+.meta {
+  @include flex($align: center);
+  margin-top: 16px;
+
+  &__image {
+    @include size(60px);
+    @include min-size(60px);
+    border-radius: 50%;
+    object-fit: cover;
+
+    @include tablet() {
+      @include size(75px);
+      @include min-size(75px);
+    }
+
+    @include desktop() {
+      @include size(90px);
+      @include min-size(90px);
+    }
+  }
+
+  &__container {
+    @include flex($align: stretch, $direction: column);
+    flex: 1;
+    margin-left: 16px;
+
+    @include tablet() {
+      margin-left: 20px;
+    }
+  }
+}
+
+.name {
+  @include font($primary-gray, 18px, 600, 24px);
+
+  @include tablet() {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.company {
+  @include font($primary-gray, 14px, 400, 20px);
+  margin-top: 2px;
+
+  @include tablet() {
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.controls {
+  margin-left: 0;
+}
+
+.control {
+  border-color: #f5f1f0;
+}

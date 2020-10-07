@@ -25,17 +25,26 @@
 
 .links {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0 20px;
-  width: 100%;
-  max-width: 52%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   align-self: center;
-  margin-top: 72px;
+  margin: 72px auto 0 auto;
+
+  @include tablet() {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  @include desktop() {
+    width: auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 20px;
+  }
 }
 
 .link {
   @include flex($align: center);
-  width: 204px;
+  width: 100%;
   padding: 11px 20px;
   border-radius: 4px;
   background: #f5f1f0;
@@ -60,10 +69,18 @@
       color: $white;
     }
   }
+
+  @include desktop() {
+    width: 204px;
+  }
 }
 
 .content {
   width: 100%;
-  max-width: 1140px;
-  margin: 28px auto 80px auto;
+  margin: 28px auto;
+
+  @include desktop() {
+    max-width: 1140px;
+    margin: 28px auto 80px auto;
+  }
 }
