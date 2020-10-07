@@ -73,9 +73,9 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = () => {
 
           <div className={styles.content} id='programs'>
             {programs.length > 0 ? (
-              programs.map((program, index) => {
-                return <ProgramItem program={program} key={index} />;
-              })
+              programs.map((program, index) => (
+                <ProgramItem program={program} key={index} />
+              ))
             ) : (
               <div className={styles.emptyInfo}>
                 {t('programs-catalogue.empty-info')}
@@ -92,7 +92,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = () => {
               />
             </div>
           )}
-          <ProgramsContactUs reduceMargin={true} />
+          <ProgramsContactUs reduceMargin />
         </div>
       </Preloader>
     </React.Fragment>

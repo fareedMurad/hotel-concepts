@@ -79,7 +79,7 @@ const Books: React.FC<BooksProps> = ({ className, type, data }) => {
   return total > 0 ? (
     <div className={classNames(styles.books, className)}>
       {items.map(book => {
-        const match = selectedProducts.some(one => one == book.id);
+        const match = selectedProducts?.some(one => one == book.id);
 
         return <Book type={type} book={book} inCart={match} key={book?.id} />;
       })}

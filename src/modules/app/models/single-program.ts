@@ -2,8 +2,11 @@
  * Single program (online course) model
  */
 
+import { ProductCategory } from './fastspring';
+
 type SingleProgramModel = {
   id: string;
+  inWishlist?: boolean;
   about: {
     aboutText: string;
     id: string;
@@ -136,6 +139,7 @@ type SingleProgramModel = {
   }[];
   videoVimeoUrl: string;
   weeks: number;
+  __typename: ProductCategory;
   whoShouldEnrol: {
     description: string;
     id: string;

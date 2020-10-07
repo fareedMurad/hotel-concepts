@@ -14,6 +14,7 @@ type Program = {
   languages: string;
   results: string[];
   slug: string;
+  inWishlist?: boolean;
   sprints: number;
   videoVimeoUrl: string;
   weeks: number;
