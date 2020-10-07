@@ -1,19 +1,18 @@
+import { State } from '@app/redux/state';
+import { Button, Preloader } from '@core/components';
+import { BackButton } from '@core/components/back-button';
+import { WatchButton } from '@core/components/watch-button';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
+import { Preloaders } from '@ui/models';
+import Player from '@vimeo/player';
 import * as React from 'react';
+import ReactPlayer from 'react-player';
+import { useSelector } from 'react-redux';
+import Popup from 'reactjs-popup';
+import { useProgramIntroData } from './program-intro.hook';
 import { ProgramIntroProps } from './program-intro.props';
 import * as styles from './program-intro.scss';
-import Popup from 'reactjs-popup';
-import ReactPlayer from 'react-player';
-import { WatchButton } from '@core/components/watch-button';
-import { Button, Spinner, Preloader } from '@core/components';
-import { useProgramIntroData } from './program-intro.hook';
-import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
-import { BackButton } from '@core/components/back-button';
-import { scrollTo } from '@core/helpers/scroll-to.helper';
-import Player from '@vimeo/player';
-import { useSelector } from 'react-redux';
-import { State } from '@app/redux/state';
-import { Preloaders } from '@ui/models';
-import { preloader } from '@ui/preloader';
 
 /**
  * Renders ProgramIntro

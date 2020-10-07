@@ -10,9 +10,11 @@ const useProgramData = (locale: string, id: string) => {
     locale,
     id
   };
+
   useEffect(() => {
     dispatch(getSingleProgram(payload));
   }, []);
+
   return { singleProgram };
 };
 

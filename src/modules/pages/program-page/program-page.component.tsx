@@ -1,34 +1,29 @@
+import { ScrollToTop } from '@app';
+import { State } from '@app/redux/state';
+import { Preloader } from '@core/components';
+import { FaqBlock, PartnerApply } from '@pages/components';
+import { Impact } from '@pages/homepage/sections';
+import { Preloaders } from '@ui/models';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
+import { useProgramData } from './hooks';
 import { ProgramPageProps } from './program-page.props';
 import * as styles from './program-page.scss';
-import { Footer, Preloader } from '@core/components';
-import { ScrollToTop } from '@app';
 import {
-  ProgramIntro,
-  ProgramOverview,
-  ProgramAbout,
   Enroll,
-  ProgramModules,
-  ProgramResults,
+  ProgramAbout,
+  ProgramEnrollNow,
+  ProgramIntro,
   ProgramLearningApproach,
   ProgramMaterials,
-  ProgramEnrollNow,
+  ProgramMentors,
+  ProgramModules,
+  ProgramOverview,
   ProgramQuote,
-  ProgramMentors
+  ProgramResults
 } from './sections';
-import { Impact } from '@pages/homepage/sections';
-import { FaqBlock, PartnerApply } from '@pages/components';
-import { useHistory } from 'react-router';
-import {
-  useProgramPageDataMentors,
-  useProgramPageDataDivider,
-  useProgramPageDataTestimonials
-} from './hooks';
-import { useTranslation } from 'react-i18next';
-import { State } from '@app/redux/state';
-import { useSelector } from 'react-redux';
-import { useProgramData } from './hooks/program.hook';
-import { Preloaders } from '@ui/models';
 
 /**
  * Renders ProgramPage
@@ -40,19 +35,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const programId = searchParams.get('programId');
   const { t } = useTranslation();
   const { language } = useSelector((state: State) => state.localization);
-
   const { singleProgram } = useProgramData(language, programId);
-  console.log(singleProgram);
-
-  const {
-    mentorsForCurrentCourse,
-    mentorsForCurrentCourseLoading
-  } = useProgramPageDataMentors(programId, language);
-
-  const {
-    programPageTestimonials,
-    programPageTestimonialsLoading
-  } = useProgramPageDataTestimonials(programId, language);
 
   return (
     <div className={styles.programPage}>
