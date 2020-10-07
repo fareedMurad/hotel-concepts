@@ -2,12 +2,21 @@
 
 .profile {
   @include flex($direction: column);
-  padding: 0 20px 20px 20px;
+  padding: 0 10px;
+
+  @include tablet() {
+    padding: 0 20px;
+  }
 
   @include desktop() {
     @include flex(space-between, stretch);
     padding: 0px;
   }
+}
+
+.preloader {
+  width: 100%;
+  padding: 40px 0;
 }
 
 .column-left {

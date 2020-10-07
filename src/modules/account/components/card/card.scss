@@ -7,7 +7,12 @@
 }
 
 .title {
-  @include font(#3e3e3e, 24px, 400, 34px);
+  @include font(#3e3e3e, 20px, 400);
+
+  @include tablet() {
+    font-size: 24px;
+    line-height: 34px;
+  }
 }
 
 .content {

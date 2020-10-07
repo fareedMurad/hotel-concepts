@@ -4,22 +4,38 @@
 }
 
 .form {
-  margin-top: 20px;
+  margin-top: 16px;
+
+  @include tablet() {
+    margin-top: 20px;
+  }
 
   div:not(:first-child) {
-    margin-top: 20px;
+    margin-top: 16px;
+
+    @include tablet() {
+      margin-top: 20px;
+    }
   }
 }
 
 .checkboxLabel {
-  @include font(#3e3e3e, 18px, 500, 28px);
+  @include font(#3e3e3e, 16px, 500);
+
+  @include tablet() {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 .submit {
-  padding: 8px 0;
-  @include mobile() {
-    height: auto;
-  }
   width: 151px;
   margin: 26px auto 0 auto;
+  padding: 8px 0;
+  font-size: 14px;
+
+  @include tablet() {
+    margin-top: 16px;
+    font-size: 16px;
+  }
 }

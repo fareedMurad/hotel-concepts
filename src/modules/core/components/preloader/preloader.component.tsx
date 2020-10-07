@@ -43,9 +43,9 @@ const Preloader: React.FC<PreloaderProps> = ({
 
 Preloader.defaultProps = {
   id: null,
-  children: null,
-  size: 130,
-  thickness: 10
+  children: null
+  // size: 130,
+  // thickness: 10
 };
 
 export { Preloader };
