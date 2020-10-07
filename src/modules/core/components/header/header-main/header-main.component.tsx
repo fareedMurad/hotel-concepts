@@ -31,8 +31,6 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   const { iconRotation } = useIconAnimation(showBurger);
   useEffect(() => {
     isSticky ? setWhite(true) : setWhite(false);
-    setShowBurger(false);
-    return () => setSelectedMenu('');
   }, [isSticky, location.pathname]);
 
   const { mobile, tablet } = useMediaPoints(true);
