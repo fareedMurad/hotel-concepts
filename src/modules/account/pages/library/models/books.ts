@@ -11,15 +11,7 @@ type Book = {
   previewDescription: string;
   price: number;
   pricing: Pricing;
-  previewPages: {
-    title: string;
-    file: FileModel;
-  };
   productCategory: ProductCategory;
-  productImage: {
-    title: string;
-    file: FileModel;
-  };
   publishDate: string;
   results: string[];
   authors: BookAuthor[];
@@ -36,6 +28,19 @@ type Book = {
   recommended: Book[];
   listOfSkills: string[];
   materialsIncluded: string[];
+  productImage: {
+    title: string;
+    file: FileModel;
+  };
+  previewPages: {
+    title: string;
+    file: FileModel;
+  };
+  attachment: {
+    title: string;
+    file: FileModel;
+  };
+
   __typename: FastSpringProductCategory;
 };
 

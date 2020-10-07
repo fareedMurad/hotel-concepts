@@ -1,7 +1,8 @@
 import { downloadBook, removeBookFromWishlist } from '@app/redux/account';
-import { addToCart, cart } from '@app/redux/cart';
+import { addToCart } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { Button, Icon } from '@core/components';
+import { toggleBookPreviewModal } from '@ui/modal';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -13,11 +14,18 @@ import * as styles from './books.scss';
  * Renders single book
  */
 const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
+  const {
+    cart: { selectedProducts },
+    ui: {
+      modal: { bookPreviewModal }
+    }
+  } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const fromWishlist = type == 'wishlist';
   const {
     id,
     name,
+    attachment,
     productImage: {
       file: { url }
     }
@@ -25,6 +33,12 @@ const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
 
   return (
     <div className={styles.book}>
+      {/* {bookPreviewModal && (
+        <BookPreviewModal
+          bookPreview={attachment?.file?.url}
+          hideComponent={() => dispatch(toggleBookPreviewModal(false))}
+        />
+      )} */}
       {fromWishlist && (
         <Icon
           className={styles.like}
@@ -53,11 +67,16 @@ const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
           )
         ) : (
           <React.Fragment>
-            <Button arrow>Read</Button>
+            <Button
+              arrow
+              onClick={() => dispatch(toggleBookPreviewModal(true))}
+            >
+              Read
+            </Button>
             <Button
               theme='secondary'
               arrow
-              // onClick={() => dispatch(downloadBook(()))}
+              onClick={() => dispatch(downloadBook(attachment?.file?.url))}
             >
               Download
             </Button>
@@ -72,7 +91,12 @@ const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
  * Renders Books
  */
 const Books: React.FC<BooksProps> = ({ className, type, data }) => {
-  const { selectedProducts } = useSelector((state: State) => state.cart);
+  const {
+    cart: { selectedProducts },
+    ui: {
+      modal: { bookPreviewModal }
+    }
+  } = useSelector((state: State) => state);
   const fromWishlist = type == 'wishlist';
   const { items, total } = data || {};
 

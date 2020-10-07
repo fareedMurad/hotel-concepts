@@ -148,12 +148,12 @@ const Product: React.FC<ProductProps> = ({}) => {
           url={selectedImage}
         />
       )}
-      {bookPreviewModal && (
+      {/* {bookPreviewModal && (
         <BookPreviewModal
           bookPreview={product.previewPages.url}
           hideComponent={() => dispatch(toggleBookPreviewModal(false))}
         />
-      )}
+      )} */}
     </div>
   );
 };
