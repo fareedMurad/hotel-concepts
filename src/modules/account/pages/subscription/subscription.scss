@@ -1,4 +1,79 @@
 @import 'core.scss';
 
 .subscription {
+  @include flex($align: stretch, $direction: column);
+  padding: 0 10px;
+
+  @include tablet() {
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0 20px;
+  }
+
+  @include desktop() {
+    justify-content: flex-start;
+    padding: 0;
+  }
+}
+
+.subscription-time {
+  padding: 12px 20px;
+
+  @include tablet() {
+    width: 50%;
+    height: 221px;
+  }
+
+  @include desktop() {
+    width: 336px;
+  }
+}
+
+.no-subscription {
+  @include font($primary-orange, 18px, 500, 28px);
+  margin-top: 24px;
+}
+
+.buy-subscription {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.duration {
+}
+
+.expiration {
+}
+
+.prolong {
+}
+
+.my-benefits {
+  margin-top: 20px;
+  padding: 12px 20px;
+
+  @include tablet() {
+    margin-top: 0;
+    margin-left: 20px;
+    width: 50%;
+    height: 221px;
+  }
+
+  @include desktop() {
+    width: 428px;
+  }
+}
+
+.links {
+  @include flex($align: stretch, $direction: column);
+  margin-top: 24px;
+}
+
+.link {
+  @include font($primary-orange, 18px, 500, 28px);
+  text-decoration: underline;
+
+  &:not(:first-child) {
+    margin-top: 24px;
+  }
 }
