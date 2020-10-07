@@ -75,7 +75,7 @@ const Modal: React.FC<ModalProps> = ({
     );
   }
 
-  return mobile ? <Content /> : null;
+  return null;
 };
 
 /**

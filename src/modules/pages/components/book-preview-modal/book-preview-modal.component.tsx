@@ -1,5 +1,6 @@
 import { State } from '@app/redux/state';
 import { Modal } from '@core/components';
+import { closeModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,21 +11,24 @@ import * as styles from './book-preview-modal.scss';
  */
 const BookPreviewModal: React.FC = () => {
   const dispatch = useDispatch();
-  const {} = useSelector((state: State) => state.ui.modal);
+  const { readBookUrl } = useSelector((state: State) => state.ui.modal);
 
   return (
-    <Modal id={Modals.bookPreview}>
-      <div
-        className={styles.close}
-        // onClick={()=> dispatch()}
-      >
-        X
+    <Modal className={styles.modal} id={Modals.bookPreview} withOverlay>
+      <div className={styles.header}>
+        <div className={styles.headerCaption}>Book Preview</div>
+        <div
+          className={styles.headerClose}
+          onClick={() => dispatch(closeModal(Modals.bookPreview))}
+        >
+          X
+        </div>
       </div>
       <iframe
+        className={styles.iframe}
         width='100%'
         height='100%'
-        // className={bookPreview}
-        src='//assets.ctfassets.net/qgx3dmmccd7u/6kwuGAUd5o3htEYA0efasv/04df965eeace89c81c2187091259f6d4/Fundamentals_of_Luxury_Marketing.pdf'
+        src={readBookUrl}
       />
     </Modal>
   );

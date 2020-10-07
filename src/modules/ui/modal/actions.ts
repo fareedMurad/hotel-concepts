@@ -14,18 +14,28 @@ const showModal = make('[ui] show modal').stage((id: any | any[]) => ({
 const closeModal = make('[ui] close modal').stage((id: any | any[]) => ({
   id: ensureIsList(id)
 }));
+
 /**
  * Contributor modal
  */
 const toogleContributorModal = make('[ui] open contributor').stage(
   (payload: boolean) => payload
 );
+
 /*
  * Book overview modal
  */
-const toggleBookOverviewModal = make('[ui] open book overview').stage(
+const toggleBookOverviewModal = make('[ui] toggle book overview').stage(
   (payload: boolean) => payload
 );
+
+/**
+ * Toggle book read
+ */
+const readBook = make('[ui] read book').stage(
+  (payload: { url: string }) => payload
+);
+
 /**
  * Book preview modal
  */
@@ -37,6 +47,7 @@ export {
   showModal,
   closeModal,
   toogleContributorModal,
+  readBook,
   toggleBookOverviewModal,
   toggleBookPreviewModal
 };

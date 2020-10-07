@@ -20,11 +20,13 @@
     0px 4px 8px rgba(0, 0, 0, 0.04);
   border-radius: 12px;
 }
+
 .modal-mobile {
-  margin-top: 100px;
+  // margin-top: 100px;
 }
 
 .content {
+  @include flex($align: stretch, $direction: column);
   height: 100%;
   padding: 20px;
 }

@@ -1,4 +1,5 @@
 import { Preloader } from '@core/components';
+import { BookPreviewModal } from '@pages/components';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
 import { Books } from '../components';
@@ -15,6 +16,7 @@ const Purchased: React.FC = () => {
     <div className={styles.purchased}>
       <Preloader className={styles.preloader} id={Preloaders.libraryPurchased}>
         <Books data={purchased} type='purchased' />
+        <BookPreviewModal />
       </Preloader>
     </div>
   );

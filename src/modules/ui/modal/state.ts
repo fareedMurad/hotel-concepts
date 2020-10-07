@@ -17,7 +17,7 @@ class ModalState {
   /*
    *  Book preview modal
    */
-  public bookPreviewModal: boolean = false;
+  public readBookUrl: string = '';
 }
 
 export { ModalState };

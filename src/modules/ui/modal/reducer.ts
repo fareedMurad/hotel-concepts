@@ -5,8 +5,10 @@ import {
   closeModal,
   toogleContributorModal,
   toggleBookOverviewModal,
-  toggleBookPreviewModal
+  toggleBookPreviewModal,
+  readBook
 } from './actions';
+import { Modals } from '@ui/models';
 
 /**
  * modal state
@@ -30,9 +32,9 @@ const modal = reducer(new ModalState())
     toggleBookOverviewModal,
     (state, payload) => (state.bookOverviewModal = payload)
   )
-  .on(
-    toggleBookPreviewModal,
-    (state, payload) => (state.bookPreviewModal = payload)
-  );
+  .on(readBook, (state, { url }) => {
+    state.readBookUrl = url;
+    state.active.push(Modals.bookPreview);
+  });
 
 export { modal };

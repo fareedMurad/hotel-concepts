@@ -53,9 +53,7 @@ const Product: React.FC<ProductProps> = ({}) => {
 
   const { pathname } = useLocation();
 
-  const { bookOverviewModal, bookPreviewModal } = useSelector(
-    (state: State) => state.ui.modal
-  );
+  const { bookOverviewModal } = useSelector((state: State) => state.ui.modal);
   const {
     recomendedProducts,
     redomendedProductsLoading
@@ -82,7 +80,7 @@ const Product: React.FC<ProductProps> = ({}) => {
         url={`localhost:8289${pathname}`}
       ></SEO> */}
 
-      <div className={styles.header}></div>
+      <div className={styles.header} />
       <div onClick={() => history.goBack()} className={styles.back}>
         <div>&#8592;</div>
         <div>{t('product.back')}</div>
@@ -148,12 +146,10 @@ const Product: React.FC<ProductProps> = ({}) => {
           url={selectedImage}
         />
       )}
-      {/* {bookPreviewModal && (
-        <BookPreviewModal
-          bookPreview={product.previewPages.url}
-          hideComponent={() => dispatch(toggleBookPreviewModal(false))}
-        />
-      )} */}
+      {/* <BookPreviewModal
+        bookPreview={product.previewPages.url}
+        hideComponent={() => dispatch(toggleBookPreviewModal(false))}
+      /> */}
     </div>
   );
 };
