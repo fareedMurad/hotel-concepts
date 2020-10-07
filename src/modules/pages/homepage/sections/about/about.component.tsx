@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { AboutProps } from './about.props';
 import * as styles from './about.scss';
 import { useAboutData } from './about.hook';
 import { PreCaption, SectionTitle } from '@core/components';
@@ -8,9 +7,10 @@ import { useTranslation } from 'react-i18next';
 /**
  * Renders About
  */
-const About: React.FC<AboutProps> = ({}) => {
+const About: React.FC = () => {
   const { data } = useAboutData();
   const { t } = useTranslation();
+
   return (
     <section className={styles.about}>
       <div className={styles.title}>

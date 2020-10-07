@@ -1,24 +1,20 @@
-import * as React from 'react';
-import { StoryMissionProps } from './story-mission.props';
-import * as styles from './story-mission.scss';
+import { ScrollToTop } from '@app';
 import {
   Button,
-  H2,
-  Paragraph,
-  Footer,
-  HeroTitle,
   HeroSubtitle,
+  HeroTitle,
+  Paragraph,
   SectionTitle
 } from '@core/components';
-import { useStoryMissionData } from './story-mission.hook';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { PartnerApply } from '@pages/components';
+import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { HeroCaption } from './components';
 import { ManagingHospitality, OurMissionVision } from './sections';
 import { OurFoundingValues } from './sections/our-founding-values';
-import { PartnerApply } from '@pages/components';
-import { scrollTo } from '@core/helpers/scroll-to.helper';
-import { ScrollToTop } from '@app';
-import { useTransition } from 'react-spring';
-import { useTranslation } from 'react-i18next';
+import { useStoryMissionData } from './story-mission.hook';
+import * as styles from './story-mission.scss';
 
 const Hr = () => <div className={styles.hr} />;
 /**
@@ -42,7 +38,7 @@ const Anchor: React.FC<{ anchor: string; rate: string; caption: string }> = ({
 /**
  * Renders StoryMission
  */
-const StoryMission: React.FC<StoryMissionProps> = ({}) => {
+const StoryMission: React.FC = () => {
   const { anchors, storyMissionHeroImage } = useStoryMissionData();
   const { t } = useTranslation();
 
