@@ -1,1 +1,6 @@
 @import 'core.scss';
+
+.course-partnership {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+}
