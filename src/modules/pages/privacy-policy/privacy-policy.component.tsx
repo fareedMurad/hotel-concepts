@@ -13,17 +13,15 @@ const Block: React.FC<{
   id: string;
   title: string;
   description?: string;
-}> = ({ id, title, description }) => {
-  return (
-    <div className={styles.block}>
-      <div className={styles.blockId}>{id}</div>
-      <div className={styles.blockTitle}>{title}</div>
-      <Paragraph className={styles.blockDescription} sm>
-        {description}
-      </Paragraph>
-    </div>
-  );
-};
+}> = ({ id, title, description }) => (
+  <div className={styles.block}>
+    <div className={styles.blockId}>{id}</div>
+    <div className={styles.blockTitle}>{title}</div>
+    <Paragraph className={styles.blockDescription} sm>
+      {description}
+    </Paragraph>
+  </div>
+);
 /**
  * Renders PrivacyPolicy
  */
@@ -41,7 +39,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
 
   return (
     <div className={styles.privacyPolicy}>
-      <header className={styles.header}></header>
+      <header className={styles.header} />
       <main className={styles.container}>
         <H2 className={styles.title}>{t('privacy-policy.title')}</H2>
         <Block

@@ -17,14 +17,20 @@
 }
 
 .interest {
-  @include font(#3e3e3e, 18px, 400, 28px);
+  @include font(#3e3e3e, 16px, 400);
   margin: 6px 10px;
-  padding: 12px;
+  padding: 10px;
   width: fit-content;
   border: 1px solid $primary-gray;
-  border-radius: 8px;
+  border-radius: 4px;
   transition: $transition;
   cursor: pointer;
+
+  @include tablet() {
+    padding: 12px;
+    font-size: 18px;
+    line-height: 28px;
+  }
 
   @include desktop() {
     &:hover:not(.interest--disabled) {
@@ -44,16 +50,27 @@
 }
 
 .submit {
-  padding: 8px;
   width: 151px;
   margin: 10px auto 0 auto;
+  padding: 8px 0;
+  font-size: 14px;
+
+  @include tablet() {
+    margin-top: 16px;
+    font-size: 16px;
+  }
 }
 
 .toggle {
-  @include font(#3e3e3e, 18px, 400, 28px);
+  @include font(#3e3e3e, 16px, 400);
   align-self: center;
   width: fit-content;
   margin-top: 5px;
   text-decoration: underline;
   cursor: pointer;
+
+  @include tablet() {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }

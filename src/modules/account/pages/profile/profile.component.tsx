@@ -23,7 +23,7 @@ const Profile: React.FC = () => {
 
   return (
     <div className={styles.profile}>
-      <Preloader id={Preloaders.profile}>
+      <Preloader className={styles.preloader} id={Preloaders.profile}>
         <div className={styles.columnLeft}>
           <Language className={styles.columnLeftLanguage} />
           <ContactAddress className={styles.columnLeftContact} />

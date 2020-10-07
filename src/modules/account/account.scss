@@ -6,33 +6,50 @@
 }
 
 .hero {
-  height: 90vh;
+  height: 80vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  @include tablet() {
+    height: 90vh;
+  }
 }
 
 .navigation {
   @include flex($align: stretch, $direction: column);
-  margin-top: -115px;
+  margin-top: -100px;
+
+  @include tablet() {
+    margin-top: -115px;
+  }
 }
 
 .title {
-  @include font($white, 60px, 600, 70px);
+  @include font($white, 54px, 600);
   font-family: $EBGaramond;
   text-align: center;
+
+  @include tablet() {
+    font-size: 60px;
+    line-height: 70px;
+  }
 }
 
 .links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 16px;
+  width: 100%;
   align-self: center;
-  margin: 72px auto 0 auto;
+  margin-top: 50px;
+  padding: 0 10px;
 
   @include tablet() {
     width: 100%;
+    margin-top: 72px;
     padding: 0 20px;
+    gap: 20px;
   }
 
   @include desktop() {
@@ -45,20 +62,37 @@
 .link {
   @include flex($align: center);
   width: 100%;
-  padding: 11px 20px;
+  padding: 10px 16px;
   border-radius: 4px;
   background: #f5f1f0;
   transition: $transition;
 
+  @include tablet() {
+    padding: 11px 20px;
+  }
+
+  @include desktop() {
+    width: 204px;
+  }
+
   &__index {
-    @include font(#ff6634, 18px, 600);
+    @include font(#ff6634, 16px, 600);
     font-family: $EBGaramond;
+
+    @include tablet() {
+      font-size: 18px;
+    }
   }
 
   &__caption {
-    @include font(#3e3e3e, 16px, 500, 22px);
+    @include font(#3e3e3e, 14px, 500);
     flex: 1;
     margin-left: 8px;
+
+    @include tablet() {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 
   &--active {
@@ -69,15 +103,11 @@
       color: $white;
     }
   }
-
-  @include desktop() {
-    width: 204px;
-  }
 }
 
 .content {
   width: 100%;
-  margin: 28px auto;
+  margin: 20px auto 28px auto;
 
   @include desktop() {
     max-width: 1140px;

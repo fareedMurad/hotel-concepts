@@ -144,8 +144,14 @@
     }
   }
 }
+
 .label {
-  @include font($primary-gray, 16px, 400, 22px);
+  @include font($primary-gray, 14px, 400);
+
+  @include tablet() {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .error {

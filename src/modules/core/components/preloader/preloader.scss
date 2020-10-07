@@ -8,16 +8,25 @@
 .preloader {
   position: relative;
   text-indent: -9999rem;
-  border-top: 10px solid $primary-orange;
-  border-right: 10px solid $primary-orange;
-  border-bottom: 10px solid $primary-orange;
-  border-left: 10px solid rgba($primary-orange, $alpha: 0.5);
+  border-top: 5px solid $primary-orange;
+  border-right: 5px solid $primary-orange;
+  border-bottom: 5px solid $primary-orange;
+  border-left: 5px solid rgba($primary-orange, $alpha: 0.5);
   transform: translateZ(0);
   animation: spin 1.3s infinite linear;
   &,
   &:after {
+    @include size(100px);
     border-radius: 50%;
-    @include size(130px);
+
+    @include tablet() {
+      @include size(130px);
+      border-width: 7px;
+    }
+
+    @include desktop() {
+      border-width: 10px;
+    }
   }
 }
 

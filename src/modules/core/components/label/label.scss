@@ -1,8 +1,13 @@
 @import 'core.scss';
 
 .label {
-  @include font($primary-gray, 16px, 400, 22px);
+  @include font($primary-gray, 14px, 400);
   display: block;
   margin-bottom: 2px;
   transition: $transition;
+
+  @include tablet() {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }

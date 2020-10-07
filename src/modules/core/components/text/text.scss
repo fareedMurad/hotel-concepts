@@ -15,12 +15,17 @@
 }
 
 .label {
-  @include font($black, 16px, 400, 22px);
+  @include font($black, 14px, 400);
   margin-bottom: 2px;
+
+  @include tablet() {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .input {
-  @include font($black, 16px, 400, 22px);
+  @include font($black, 14px, 400);
   width: 100%;
   padding: 10px 8px;
   background: $white;
@@ -29,14 +34,30 @@
   outline: none;
   transition: $transition;
   -webkit-appearance: none;
+
   &::placeholder {
-    @include font(#969ba3, 16px, 400, 22px);
+    @include font(#969ba3, 14px, 400);
+
+    @include tablet() {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  @include tablet() {
+    font-size: 16px;
+    line-height: 22px;
   }
 
   &--ios {
-    font-size: 16px;
+    font-size: 14px;
     transform: scale(1);
     transform-origin: left top;
+
+    @include tablet() {
+      font-size: 16px;
+    }
+
     &::placeholder {
       padding-top: 2px;
     }

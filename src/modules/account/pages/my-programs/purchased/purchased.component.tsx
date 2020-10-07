@@ -13,7 +13,7 @@ const Purchased: React.FC = () => {
 
   return (
     <div className={styles.purchased}>
-      <Preloader id={Preloaders.programsPurchased}>
+      <Preloader className={styles.preloader} id={Preloaders.programsPurchased}>
         <Programs data={purchased} type='purchased' />
       </Preloader>
     </div>
