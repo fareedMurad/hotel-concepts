@@ -24,10 +24,10 @@
 }
 
 .wrapper {
-  width: 316px;
-  height: 416px;
+  @include flex(center, center);
 }
 
 .image {
   @include size(100%);
+  max-width: 50%;
 }
