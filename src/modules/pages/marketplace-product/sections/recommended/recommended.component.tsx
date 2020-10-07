@@ -1,4 +1,5 @@
 import { Slider } from '@core/components';
+import { parsePrice } from '@core/shared';
 import { Title } from '@pages/marketplace-product/components';
 import * as React from 'react';
 import { RecommendedProps } from './recommended.props';
@@ -25,32 +26,13 @@ const responsive = {
   }
 };
 
-const recommended = [
-  {
-    url:
-      '//images.ctfassets.net/qgx3dmmccd7u/6xalmkUoAdbqZx10D23Gil/5a1bd90daccdfd29f53f92f075eef3cb/Screen_Shot_2020-09-09_at_12.22.06_PM.png',
-    price: 34.9,
-    name: 'Business Analytics'
-  },
-  {
-    url:
-      '//images.ctfassets.net/qgx3dmmccd7u/6xalmkUoAdbqZx10D23Gil/5a1bd90daccdfd29f53f92f075eef3cb/Screen_Shot_2020-09-09_at_12.22.06_PM.png',
-    price: 34.9,
-    name: 'Business Analytics'
-  },
-  {
-    url:
-      '//images.ctfassets.net/qgx3dmmccd7u/6xalmkUoAdbqZx10D23Gil/5a1bd90daccdfd29f53f92f075eef3cb/Screen_Shot_2020-09-09_at_12.22.06_PM.png',
-    price: 34.9,
-    name: 'Business Analytics'
-  }
-];
-
 /**
  * Renders Recommended
  */
-const Recommended: React.FC<RecommendedProps> = ({}) => {
-  const {} = {};
+const Recommended: React.FC<RecommendedProps> = ({ data }) => {
+  const { recommended } = data;
+
+  if (!recommended) return null;
 
   return (
     <div className={styles.recommended}>
@@ -63,14 +45,27 @@ const Recommended: React.FC<RecommendedProps> = ({}) => {
         controlClassname={styles.control}
         responsive={responsive}
       >
-        {recommended.map(({ url, price, name }, index) => (
-          <div className={styles.book} key={index}>
-            <img className={styles.image} src={url} alt={url} />
-            <div className={styles.divider} />
-            <div className={styles.price}>${price}</div>
-            <div className={styles.name}>{name}</div>
-          </div>
-        ))}
+        {recommended?.map((book, index) => {
+          const {
+            productImage: {
+              file: { url }
+            },
+            name,
+            pricing: { price }
+          } = book;
+
+          // Pass here localization value from state in future
+          const parsedPrice = parsePrice('en-US', price);
+
+          return (
+            <div className={styles.book} key={index}>
+              <img className={styles.image} src={url} alt={url} />
+              <div className={styles.divider} />
+              <div className={styles.price}>{parsedPrice}</div>
+              <div className={styles.name}>{name}</div>
+            </div>
+          );
+        })}
       </Slider>
     </div>
   );

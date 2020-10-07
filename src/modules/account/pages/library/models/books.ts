@@ -30,6 +30,7 @@ type Book = {
   forWhomListOfPositions: string[];
   highlightsText: string[];
   languages: string;
+  recommended: Book[];
   listOfSkills: string[];
   materialsIncluded: string[];
   __typename: string;
@@ -129,4 +130,4 @@ type FileModel = {
   };
 };
 
-export { Book, BookAuthor, FileModel, BookComment };
+export { Book, BookAuthor, FileModel, BookComment, BookCoverPhotos };

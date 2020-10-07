@@ -24,6 +24,8 @@ const useMarketplaceProductData = () => {
     languages,
     pagesCount,
     inWishlist,
+    coverPhotos,
+    recommended,
     publishDate,
     listOfSkills,
     productImage,
@@ -82,7 +84,7 @@ const useMarketplaceProductData = () => {
    * Explore pages data
    */
   const explorePagesData = {
-    previewPages
+    coverPhotos
   };
 
   /**
@@ -106,6 +108,12 @@ const useMarketplaceProductData = () => {
     comments
   };
 
+  /**
+   * Recommended books data
+   */
+  const recommendedData = {
+    recommended
+  };
   /**
    * Banner section data
    */
@@ -140,7 +148,8 @@ const useMarketplaceProductData = () => {
     authorsData,
     resultsData,
     feedbackData,
-    bannerData
+    bannerData,
+    recommendedData
   };
 };
 

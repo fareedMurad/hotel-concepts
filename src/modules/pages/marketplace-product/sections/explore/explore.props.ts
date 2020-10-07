@@ -1,4 +1,8 @@
-import { FileModel } from '@account/pages/library/models';
+import {
+  Book,
+  BookCoverPhotos,
+  FileModel
+} from '@account/pages/library/models';
 
 /**
  * Props
@@ -8,10 +12,7 @@ type ExploreProps = {
    * Data
    */
   data: {
-    previewPages: {
-      title: string;
-      file: FileModel;
-    };
+    coverPhotos: BookCoverPhotos[];
   };
 };
 

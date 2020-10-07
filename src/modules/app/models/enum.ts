@@ -85,6 +85,11 @@ enum SocketResponseType {
   checkout = 'checkout'
 }
 
+enum CurrenciesesCharacters {
+  USD = '$',
+  EUR = '&euro'
+}
+
 export {
   UserSource,
   Position,
@@ -94,5 +99,6 @@ export {
   Interest,
   SocketResponseType,
   ContentType,
-  OnlineCourseSubfilter
+  OnlineCourseSubfilter,
+  CurrenciesesCharacters
 };
