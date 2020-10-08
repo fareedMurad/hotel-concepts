@@ -44,6 +44,20 @@ const OverviewItem = ({ weeks, sprints, enrollBy, languages }) => {
 };
 
 /**
+ * Renders meta
+ */
+const Meta = ({ title, children }) => {
+  const { t } = useTranslation();
+
+  return (
+    <div className={styles.meta}>
+      <div className={styles.metaTitle}>{t(title)}</div>
+      <div className={styles.metaValue}>{children}</div>
+    </div>
+  );
+};
+
+/**
  * Renders ProgramOverview
  */
 const ProgramOverview: React.FC<ProgramOverviewProps> = ({ data }) => {
@@ -62,7 +76,7 @@ const ProgramOverview: React.FC<ProgramOverviewProps> = ({ data }) => {
         <Icon
           className={styles.like}
           name={inWishlist ? 'heart' : 'like'}
-          onClick={event => {
+          onClick={() => {
             const data = { id, preloader: Preloaders.programs };
 
             dispatch(
@@ -73,12 +87,16 @@ const ProgramOverview: React.FC<ProgramOverviewProps> = ({ data }) => {
           }}
         />
       )}
-      <OverviewItem
-        weeks={weeks}
-        sprints={sprints}
-        enrollBy={enroll}
-        languages={languages}
-      />
+      <div className={styles.container}>
+        <Meta title='program-page.overview.duration'>
+          {weeks} {t('program-page.overview.weeks')} / {sprints}{' '}
+          {t('program-page.overview.sprints')}
+        </Meta>
+        <Meta title='program-page.overview.enroll'>
+          {`${enroll?.months} ${enroll?.day}, ${enroll?.year}`}
+        </Meta>
+        <Meta title='program-page.overview.languages'>{languages}</Meta>
+      </div>
     </section>
   );
 };
