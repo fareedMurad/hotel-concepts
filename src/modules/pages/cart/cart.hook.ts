@@ -8,7 +8,9 @@ import { isBackgroundWhite } from '@core/components/header/store';
 
 const useCartData = () => {
   const dispatch = useDispatch();
-  const { cart, products } = useSelector((state: State) => state.cart);
+  const { selectedProducts, products } = useSelector(
+    (state: State) => state.cart
+  );
 
   /**
    * Mount

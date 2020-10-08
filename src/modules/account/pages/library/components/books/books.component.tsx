@@ -1,5 +1,5 @@
 import { downloadBook, removeBookFromWishlist } from '@app/redux/account';
-import { addToCart } from '@app/redux/cart';
+import { cart } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { Button, Icon } from '@core/components';
 import { readBook, toggleBookPreviewModal } from '@ui/modal';
@@ -49,7 +49,10 @@ const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
           inCart ? (
             <Button disabled>Is in cart</Button>
           ) : (
-            <Button arrow onClick={() => dispatch(addToCart({ id }))}>
+            <Button
+              arrow
+              onClick={() => dispatch(cart.add({ path: id, quantity: 1 }))}
+            >
               Add to cart
             </Button>
           )
@@ -88,7 +91,7 @@ const Books: React.FC<BooksProps> = ({ className, type, data }) => {
   return total > 0 ? (
     <div className={classNames(styles.books, className)}>
       {items.map(book => {
-        const match = selectedProducts?.some(one => one == book.id);
+        const match = selectedProducts?.some(one => one.path == book.id);
 
         return <Book type={type} book={book} inCart={match} key={book?.id} />;
       })}

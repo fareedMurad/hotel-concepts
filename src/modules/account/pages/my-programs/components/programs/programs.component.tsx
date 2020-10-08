@@ -2,7 +2,7 @@ import {
   addProgramToWishlist,
   removeProgramFromWishlist
 } from '@app/redux/account';
-import { addToCart } from '@app/redux/cart';
+import { cart } from '@app/redux/cart';
 import { Button, Icon } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
@@ -61,7 +61,7 @@ const Program: React.FC<ProgramProps> = ({ type, program }) => {
             <Button
               className={styles.control}
               arrow
-              onClick={() => dispatch(addToCart({ id }))}
+              onClick={() => dispatch(cart.add({ path: id, quantity: 1 }))}
             >
               Add to cart
             </Button>

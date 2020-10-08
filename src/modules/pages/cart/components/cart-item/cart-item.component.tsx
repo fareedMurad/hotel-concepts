@@ -27,7 +27,7 @@ const CartItem: React.FC<CartItemProps> = ({
         <img src={imageSource} alt='image' />
         <div
           className={styles.remove}
-          onClick={() => dispatch(cart.remove({ path: id, quantity }))}
+          onClick={() => dispatch(cart.remove(id))}
         >
           Remove
         </div>

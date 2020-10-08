@@ -1,6 +1,6 @@
 import { Book } from '@account/pages/library/models';
 import { Program } from '@account/pages/my-programs/models';
-import { removeFromCart } from '@app/redux/cart';
+import { cart } from '@app/redux/cart';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
@@ -34,7 +34,7 @@ const Product: React.FC<ProductProps> = ({ className, product }) => {
         <img className={styles.image} src={image} alt={image} />
         <div
           className={styles.remove}
-          onClick={() => dispatch(removeFromCart({ id }))}
+          onClick={() => dispatch(cart.remove(id))}
         >
           Remove
         </div>

@@ -10,13 +10,7 @@ import { Payload, Saga } from 'redux-chill';
 import { call, delay, put, select } from 'redux-saga/effects';
 import { Context } from '../context';
 import { State } from '../state';
-import {
-  addToCart,
-  cart,
-  checkCart,
-  getProducts,
-  removeFromCart
-} from './actions';
+import { cart, checkCart, getProducts } from './actions';
 
 /**
  * Cart saga
@@ -35,57 +29,57 @@ class CartSaga {
     yield put(checkCart.success(JSON.parse(cart)));
   }
 
-  /**
-   * Add to cart
-   */
-  @Saga(addToCart)
-  public *addToCart({ id }: Payload<typeof addToCart>) {
-    const cart = localStorage.getItem('cart');
+  // /**
+  //  * Add to cart
+  //  */
+  // @Saga(addToCart)
+  // public *addToCart({ id }: Payload<typeof addToCart>) {
+  //   const cart = localStorage.getItem('cart');
 
-    if (cart?.length > 0) {
-      const parsed = JSON.parse(cart);
+  //   if (cart?.length > 0) {
+  //     const parsed = JSON.parse(cart);
 
-      if (parsed.includes(id)) return;
+  //     if (parsed.includes(id)) return;
 
-      const newArr = [...parsed, id];
-      localStorage.setItem('cart', JSON.stringify(newArr));
-    } else {
-      localStorage.setItem('cart', JSON.stringify([id]));
-    }
-    try {
-      yield put(addToCart.success({ id }));
-      yield put(
-        toggleToast({
-          status: 'success',
-          description: 'Item was added to cart'
-        })
-      );
-    } catch (error) {
-      yield put(handleError(error.response.data.message));
-    }
-  }
+  //     const newArr = [...parsed, id];
+  //     localStorage.setItem('cart', JSON.stringify(newArr));
+  //   } else {
+  //     localStorage.setItem('cart', JSON.stringify([id]));
+  //   }
+  //   try {
+  //     yield put(addToCart.success({ id }));
+  //     yield put(
+  //       toggleToast({
+  //         status: 'success',
+  //         description: 'Item was added to cart'
+  //       })
+  //     );
+  //   } catch (error) {
+  //     yield put(handleError(error.response.data.message));
+  //   }
+  // }
 
-  /**
-   * Remove from cart
-   */
-  @Saga(removeFromCart)
-  public *removeFromCart({ id }: Payload<typeof removeFromCart>) {
-    const cart = localStorage.getItem('cart');
-    yield put(preloaderStart(Preloaders.cart));
+  // /**
+  //  * Remove from cart
+  //  */
+  // @Saga(removeFromCart)
+  // public *removeFromCart({ id }: Payload<typeof removeFromCart>) {
+  //   const cart = localStorage.getItem('cart');
+  //   yield put(preloaderStart(Preloaders.cart));
 
-    try {
-      const parsed = JSON.parse(cart);
-      const filtered = parsed.filter(item => item != id);
+  //   try {
+  //     const parsed = JSON.parse(cart);
+  //     const filtered = parsed.filter(item => item != id);
 
-      localStorage.setItem('cart', JSON.stringify(filtered));
+  //     localStorage.setItem('cart', JSON.stringify(filtered));
 
-      yield put(removeFromCart.success({ id }));
-    } catch (error) {
-      yield put(handleError(error.response.data.message));
-    } finally {
-      yield put(preloaderStop(Preloaders.cart));
-    }
-  }
+  //     yield put(removeFromCart.success({ id }));
+  //   } catch (error) {
+  //     yield put(handleError(error.response.data.message));
+  //   } finally {
+  //     yield put(preloaderStop(Preloaders.cart));
+  //   }
+  // }
 
   /**
    * Add to cart
@@ -131,8 +125,8 @@ class CartSaga {
     let cartFromLS = this.getCartFromLS();
     let { products } = yield select((state: State) => state.cart);
 
-    cartFromLS = cartFromLS.filter(item => item.path !== payload.path);
-    products = products.filter(item => item.id !== payload.path);
+    cartFromLS = cartFromLS.filter(item => item.path !== payload);
+    products = products.filter(item => item.id !== payload);
 
     localStorage.setItem(LocalStorageKeys.cart, JSON.stringify(cartFromLS));
     yield put(cart.saveToState(cartFromLS));

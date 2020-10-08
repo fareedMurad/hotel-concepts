@@ -151,7 +151,7 @@ const Routes: React.FC = () => {
               {authorized && <Route path='/account' component={Account} />}
 
               {/* ROUTES */}
-              <Route path='/cart' component={Cart} />
+              {/* <Route path='/cart' component={Cart} /> */}
               <Route path='/interests' component={Interests} />
               <Route
                 path='/insights/article/:articleId'

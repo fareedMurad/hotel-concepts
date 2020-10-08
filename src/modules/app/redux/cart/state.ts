@@ -9,8 +9,8 @@ class CartState {
   /**
    * Selected products
    */
-  public selectedProducts: string[] = [];
-  public cart: Product[] = [];
+  // public selectedProducts: string[] = [];
+  public selectedProducts: Product[] = [];
   public products: (Program | Book)[] = [];
 }
 

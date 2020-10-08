@@ -8,22 +8,22 @@ import { make } from 'redux-chill';
  */
 const checkCart = make('[cart] check').stage(
   'success',
-  (payload: string[]) => payload
+  (payload: Product[]) => payload
 );
 
-/**
- * Add to cart
- */
-const addToCart = make('[cart] add product')
-  .stage((payload: { id: string }) => payload)
-  .stage('success', (payload: { id: string }) => payload);
+// /**
+//  * Add to cart
+//  */
+// const addToCart = make('[cart] add product')
+//   .stage((payload: Product) => payload)
+//   .stage('success', (payload: Product) => payload);
 
-/**
- * Remove from cart
- */
-const removeFromCart = make('[cart] remove product')
-  .stage((payload: { id: string }) => payload)
-  .stage('success', (payload: { id: string }) => payload);
+// /**
+//  * Remove from cart
+//  */
+// const removeFromCart = make('[cart] remove product')
+//   .stage((payload: { id: string }) => payload)
+//   .stage('success', (payload: { id: string }) => payload);
 
 /**
  * Cart add, get, remove, update
@@ -31,7 +31,7 @@ const removeFromCart = make('[cart] remove product')
 const cart = make('[cart]')
   .stage('add', (product: Product) => product)
   .stage('getMany')
-  .stage('remove', (product: Product) => product)
+  .stage('remove', (id: string) => id)
   .stage('update', (payload: Product) => payload)
   .stage('saveToState', (product: Product[]) => product);
 
@@ -43,4 +43,4 @@ const getProducts = make('[cart] get products').stage(
   (products: (Program | Book)[]) => products
 );
 
-export { cart, getProducts, checkCart, addToCart, removeFromCart };
+export { cart, getProducts, checkCart };

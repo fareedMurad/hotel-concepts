@@ -96,7 +96,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
               [styles.invertedHeader]: whiteBackground || isSticky
             })}
           />
-
+          {/* 
           <div
             className={styles.cart}
             onClick={() => dispatch(navigate('/cart'))}
@@ -108,7 +108,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             {cartQuantity > 0 && (
               <div className={styles.indicator}>{cartQuantity}</div>
             )}
-          </div>
+          </div> */}
 
           <div className={styles.headerMainNavigationProfile}>
             <div
