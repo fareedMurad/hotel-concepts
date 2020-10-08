@@ -39,27 +39,31 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
   return (
     <React.Fragment>
       <div className={styles.programItem}>
-        {authorized && (
-          <Icon
-            className={styles.like}
-            name={inWishlist ? 'heart' : 'like'}
-            onClick={event => {
-              const data = { id, preloader: Preloaders.categories };
-
-              dispatch(
-                inWishlist
-                  ? removeProgramFromWishlist(data)
-                  : addProgramToWishlist(data)
-              );
-            }}
-          />
-        )}
         <div className={styles.container}>
           <Preloader id={Preloaders.programs}>
             <img src={url} alt='' />
             <div className={styles.info}>
               <div className={styles.type}>{complexityLevel}</div>
-              <div className={styles.name}>{name}</div>
+              <div className={styles.nameAndLike}>
+                <div className={styles.name}>{name}</div>
+                {authorized && (
+                  <div className={styles.iconWrapper}>
+                    <Icon
+                      className={styles.like}
+                      name={inWishlist ? 'heart' : 'like'}
+                      onClick={event => {
+                        const data = { id, preloader: Preloaders.categories };
+
+                        dispatch(
+                          inWishlist
+                            ? removeProgramFromWishlist(data)
+                            : addProgramToWishlist(data)
+                        );
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
               <div className={styles.secondaryInfo}>
                 {weeks} weeks
                 <span className={styles.vhr}>|</span>

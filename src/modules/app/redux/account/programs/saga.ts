@@ -64,7 +64,7 @@ class ProgramsSaga {
     { id, preloader }: Payload<typeof addProgramToWishlist>,
     { api }: Context
   ) {
-    yield put(preloaderStart(preloader));
+    // yield put(preloaderStart(preloader));
 
     try {
       yield call(
@@ -88,7 +88,7 @@ class ProgramsSaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(preloader));
+      // yield put(preloaderStop(preloader));
     }
   }
 
@@ -100,7 +100,7 @@ class ProgramsSaga {
     { id, preloader }: Payload<typeof removeProgramFromWishlist>,
     { api }: Context
   ) {
-    yield put(preloaderStart(preloader));
+    // yield put(preloaderStart(preloader));
 
     try {
       const response = yield call(
@@ -126,7 +126,7 @@ class ProgramsSaga {
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
-      yield put(preloaderStop(preloader));
+      // yield put(preloaderStop(preloader));
     }
   }
 }
