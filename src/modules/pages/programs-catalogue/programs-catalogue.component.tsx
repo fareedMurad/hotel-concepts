@@ -26,7 +26,7 @@ const ProgramsCatalogue: React.FC<ProgramsCatalogueProps> = () => {
 
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(6);
-  const [currentFilter, setCurrentFilter] = React.useState('All');
+  const [currentFilter, setCurrentFilter] = React.useState('All programs');
   const skipCourses = itemsPerPage * (currentPage - 1);
 
   const { programs, programsTotal } = useCatalogueProgramsData(

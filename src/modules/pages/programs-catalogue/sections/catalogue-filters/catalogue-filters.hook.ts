@@ -1,6 +1,6 @@
 const useCatalogueFiltersData = () => {
   const filters = [
-    'All',
+    'All programs',
     'Family business',
     'Strategy',
     'Marketing',

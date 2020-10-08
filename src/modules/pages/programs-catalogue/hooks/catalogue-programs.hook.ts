@@ -12,17 +12,20 @@ const useCatalogueProgramsData = (
   const { language } = useSelector((state: State) => state.localization);
   const dispatch = useDispatch();
 
-  const subfilterEnum = () => {
-    for (let key in OnlineCourseSubfilter) {
-      return (
-        key &&
-        subfilter
-          .toLowerCase()
-          .split(' ')
-          .join('')
-      );
-    }
-  };
+  // const subfilterEnum = () => {
+  // for (let key in OnlineCourseSubfilter) {
+  //     return (
+  //       key &&
+  //       subfilter
+  //         .toLowerCase()
+  //         .split(' ')
+  //         .join('')
+  //     );
+  //   }
+  // };
+  if (subfilter === 'All programs') {
+    subfilter = 'all';
+  }
 
   useEffect(() => {
     dispatch(
@@ -31,7 +34,7 @@ const useCatalogueProgramsData = (
         limit: 6,
         category: categoryId,
         locale: language,
-        subfilters: subfilter ? subfilterEnum() : 'all'
+        subfilters: subfilter || 'all'
       })
     );
   }, [skip, subfilter]);
