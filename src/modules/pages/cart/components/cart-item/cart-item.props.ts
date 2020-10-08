@@ -11,10 +11,6 @@ type CartItemProps = {
   price: string;
   imageSource: string;
   id: string;
-  /**
-   * Product
-   */
-  product: Book | Program;
 };
 
 export { CartItemProps };

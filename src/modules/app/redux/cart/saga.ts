@@ -6,8 +6,10 @@ import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
-import { Payload, Saga } from 'redux-chill';
-import { call, delay, put, select } from 'redux-saga/effects';
+import { del } from 'object-path';
+import { Payload, run, Saga } from 'redux-chill';
+import { call, delay, put, select, take } from 'redux-saga/effects';
+import { getUser } from '../auth';
 import { Context } from '../context';
 import { State } from '../state';
 import { cart, checkCart, getProducts } from './actions';
@@ -153,21 +155,23 @@ class CartSaga {
    */
   @Saga(getProducts)
   public *getProductsByIds(_, { api }: Context) {
-    const cart = localStorage.getItem('cart');
-
     yield put(preloaderStart(Preloaders.cart));
 
     try {
-      yield delay(1000);
-
       const {
-        auth: {
-          user: { language }
-        }
+        auth: { user },
+        cart: { selectedProducts }
       } = yield select((state: State) => state);
 
+      if (!user) {
+        yield delay(1000);
+        yield put(getProducts());
+      }
+
+      const { language } = user;
+
       const response = yield call(api.marketplace.fetchAnyProductsListByIds, {
-        ids: JSON.parse(cart).map((item: string) => item),
+        ids: selectedProducts.map((item: Product) => item.path),
         locale: language || 'en-US'
       });
 

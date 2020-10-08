@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Fragment } from 'react';
 import { useCartData } from './cart.hook';
 import * as styles from './cart.scss';
-import { Product, Summary } from './components';
+import { CartItem, Product, Summary } from './components';
 
 /**
  * Renders Cart
@@ -27,11 +27,7 @@ const Cart: React.FC = () => {
               <div className={styles.content}>
                 <div className={styles.products}>
                   {products?.map(product => (
-                    <Product
-                      className={styles.product}
-                      product={product}
-                      key={product?.id}
-                    />
+                    <CartItem key={product.id} {...product} />
                   ))}
                 </div>
                 <div className={styles.hr} />

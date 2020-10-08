@@ -13,6 +13,7 @@ type SummaryProps = {
     total: number;
     estimatedShipping: string;
     estimatedTax: string;
+    onClick: () => void;
   };
 };
 
