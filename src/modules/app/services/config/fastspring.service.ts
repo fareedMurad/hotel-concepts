@@ -1,4 +1,5 @@
 import { OrderSuccess, StoreBuilder } from '@app/models/fastspring';
+import { cart } from '@app/redux/cart/actions';
 import { enviroment } from '@env';
 import { HttpService } from '.';
 import { CheckoutService } from '../checkout.service';
@@ -31,7 +32,7 @@ const createScript = (
 };
 
 class FastSpringService {
-  constructor(storefront, private http: HttpService) {
+  constructor(storefront, private http: HttpService, private reduxStore) {
     createScript(
       DEFAULT_SDK_URL,
       {
@@ -58,6 +59,7 @@ class FastSpringService {
     console.log('onPopUpClosed', data);
     if (data as OrderSuccess) {
       this.checkout.acknowledgeSessionSuccess(data);
+      this.reduxStore.dispatch(cart.clear());
     }
   };
 }

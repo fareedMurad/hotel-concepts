@@ -33,6 +33,7 @@ const cart = make('[cart]')
   .stage('getMany')
   .stage('remove', (id: string) => id)
   .stage('update', (payload: Product) => payload)
+  .stage('clear')
   .stage('saveToState', (product: Product[]) => product);
 
 /**

@@ -120,6 +120,16 @@ class CartSaga {
   }
 
   /**
+   * Clear cart
+   */
+
+  @Saga(cart.clear)
+  public *clear() {
+    localStorage.setItem(LocalStorageKeys.cart, JSON.stringify([]));
+
+    yield put(cart.saveToState([]));
+  }
+  /**
    * Remove from cart
    */
   @Saga(cart.remove)
