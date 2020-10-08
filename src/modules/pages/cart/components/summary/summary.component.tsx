@@ -8,7 +8,7 @@ import classNames from 'classnames';
  * Renders Summary
  */
 const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
-  const { total, estimatedShipping, estimatedTax } = summaryData || {};
+  const { total, estimatedShipping, estimatedTax, onClick } = summaryData || {};
 
   return (
     <div className={classNames(styles.summary, className)}>
@@ -35,11 +35,7 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
           <div>Order Total</div>
           <div>$ {total}</div>
         </div>
-        <Button
-          arrow
-          className={styles.submit}
-          // onClick={onClick}
-        >
+        <Button arrow className={styles.submit} onClick={onClick}>
           Checkout
         </Button>
       </div>

@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { checkout } from '@app/redux/checkout';
 import { Preloaders } from '@ui/models';
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
+import { cart } from '@app/redux/cart';
 
 /**
  * Renders Preview
@@ -110,10 +111,10 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
               className={styles.checkout}
               arrow
               onClick={() => {
-                dispatch(checkout([{ path: id, quantity: 1 }]));
+                dispatch(cart.add({ path: id, quantity: 1 }));
               }}
             >
-              Go to checkout
+              Add to cart
             </Button>
             <div className={styles.subscriptionHint}>
               <div>This book is free with subscription</div>
