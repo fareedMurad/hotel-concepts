@@ -8,6 +8,7 @@ import {
   getSingleCategory,
   getSingleProgram
 } from './actions';
+import { addProgramToWishlist, removeProgramFromWishlist } from '../account';
 
 /**
  * programs state
@@ -28,6 +29,24 @@ const programsData = reducer(new ProgramsState())
   .on(
     getSingleProgram.success,
     (state, payload) => (state.singleProgram = payload)
-  );
+  )
+  .on(addProgramToWishlist.success, (state, id) => {
+    debugger;
+    state.programs = state.programs.map(program => {
+      if (program.id === id) {
+        program.inWishlist = true;
+      }
+      return program;
+    });
+  })
+  .on(removeProgramFromWishlist.removeHeart, (state, id) => {
+    debugger;
+    state.programs = state.programs.map(program => {
+      if (program.id === id) {
+        program.inWishlist = false;
+      }
+      return program;
+    });
+  });
 
 export { programsData };

@@ -22,14 +22,15 @@ const fetchProgramsWishlist = make('[programs] fetch programs wishlist').stage(
  */
 const addProgramToWishlist = make('[program] add program to wishlist')
   .stage((payload: { id: string; preloader: Preloaders }) => payload)
-  .stage('success');
+  .stage('success', (id: string) => id);
 
 /**
  * Remove program from wishlist
  */
 const removeProgramFromWishlist = make('[program] remove program from wishlist')
   .stage((payload: { id: string; preloader: Preloaders }) => payload)
-  .stage('success', (payload: { items: Program[]; total: number }) => payload);
+  .stage('success', (payload: { items: Program[]; total: number }) => payload)
+  .stage('removeHeart', (id: string) => id);
 
 export {
   fetchProgramsPurchased,
