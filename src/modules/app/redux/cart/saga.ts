@@ -181,24 +181,18 @@ class CartSaga {
         yield put(getProducts());
       }
 
-      if (authorized) {
-        const { language } = user;
-        locale = language;
-      } else {
-        locale = localizationLanguage;
-      }
+      locale = authorized ? user?.language : localizationLanguage;
 
       const response = yield call(api.marketplace.fetchAnyProductsListByIds, {
         ids: selectedProducts.map((item: Product) => item.path),
         locale
       });
-      debugger;
+
       yield put(getProducts.success(response.data.items));
     } catch (error) {
       console.log(error);
       yield put(handleError(error.response.data.message));
     } finally {
-      debugger;
       yield put(preloaderStop(Preloaders.cart));
     }
   }
