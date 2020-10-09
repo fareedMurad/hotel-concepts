@@ -74,6 +74,11 @@
     width: 314px;
     height: 482px;
   }
+
+  &--wrapper {
+    @include flex(center, center);
+    height: 80%;
+  }
 }
 
 .show {

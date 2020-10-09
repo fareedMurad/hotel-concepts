@@ -42,7 +42,9 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
       </div>
       <div className={styles.container}>
         <div className={styles.showcase}>
-          <img className={styles.image} src={img} />
+          <div className={styles.imageWrapper}>
+            <img className={styles.image} src={img} />
+          </div>
           <Button className={styles.show} theme='secondary'>
             Show content
           </Button>
