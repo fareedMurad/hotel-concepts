@@ -30,7 +30,9 @@
   flex: 1;
 
   @include desktop() {
-    height: calc(100vh - 120px);
+    @media (min-height: 890px) {
+      height: calc(100vh - 120px);
+    }
     flex-direction: row;
     margin-left: 20px;
   }
