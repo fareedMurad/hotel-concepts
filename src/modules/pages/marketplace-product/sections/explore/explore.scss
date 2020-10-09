@@ -19,12 +19,14 @@
   margin-bottom: 0;
 
   & > ul {
+    @include flex(flex-start, stretch, row);
     margin-bottom: 92px;
   }
 }
 
 .wrapper {
   @include flex(center, center);
+  height: 100%;
 }
 
 .image {
