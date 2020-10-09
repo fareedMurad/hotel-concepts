@@ -97,6 +97,13 @@ const facebookSignIn = make('[auth] sign-in with facebook')
   .stage((payload: any) => payload)
   .stage('success');
 
+/**
+ * Change user language
+ */
+const changeUserLanguage = make('[auth] change user language').stage(
+  (payload: string) => payload
+);
+
 export {
   login,
   getUser,
@@ -110,5 +117,6 @@ export {
   updatePassword,
   facebookSignIn,
   chooseInterests,
-  verifyEmailResend
+  verifyEmailResend,
+  changeUserLanguage
 };

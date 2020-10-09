@@ -8,7 +8,8 @@ import {
   register,
   forgotPassword,
   getUser,
-  updatePassword
+  updatePassword,
+  changeUserLanguage
 } from './actions';
 import { AuthState } from './state';
 
@@ -40,6 +41,11 @@ const auth = reducer(new AuthState())
   })
   .on(facebookSignIn, (state, payload) => {
     state.facebookSignInData = payload;
+  })
+  .on(changeUserLanguage, (state, payload) => {
+    if (state.user !== null) {
+      state.user.language = payload;
+    }
   });
 
 export { auth };

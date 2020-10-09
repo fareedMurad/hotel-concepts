@@ -1,9 +1,12 @@
 import { Language, SocketResponseType } from '@app/models/enum';
+import { getUser } from '@app/redux/auth/actions';
 // import { checkCart } from '@app/redux/cart';
 import { Context } from '@app/redux/context';
 import { SocketService } from '@app/services';
 import { enviroment } from '@env';
 import { setupLocalization } from '@localization/store';
+import { Preloaders } from '@ui/models';
+import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
 import { eventChannel } from 'redux-saga';
@@ -23,9 +26,8 @@ class GeneralSaga {
     // yield put(checkCart());
     yield spawn(this.run);
 
-    // yield put(getUser());
     const language = window.localStorage.getItem('language');
-    yield put(setupLocalization(language ? language : Language.en));
+    yield put(setupLocalization(language || Language.en));
   }
 
   /**
