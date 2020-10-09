@@ -25,15 +25,15 @@ const useCartData = () => {
   }, []);
 
   if (
-    selectedProducts.length !== products.length ||
-    selectedProducts.length === 0
+    selectedProducts?.length !== products?.length ||
+    selectedProducts?.length === 0
   )
     return { cartData: null, summaryData: null };
 
   /**
    * REFACTOR THIS SHIT IN FUTURE
    */
-  const cartData = products.map(item => {
+  const cartData = products?.map(item => {
     const itemCopy = JSON.parse(JSON.stringify(item));
     const {
       __typename,
