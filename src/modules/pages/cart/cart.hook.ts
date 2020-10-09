@@ -24,6 +24,10 @@ const useCartData = () => {
     };
   }, []);
 
+  if (selectedProducts?.length > products?.length) {
+    dispatch(getProducts());
+  }
+
   if (
     selectedProducts?.length !== products?.length ||
     selectedProducts?.length === 0
