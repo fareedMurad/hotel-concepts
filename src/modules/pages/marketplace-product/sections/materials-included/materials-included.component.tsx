@@ -11,7 +11,7 @@ const MaterialsIncluded: React.FC<MaterialsIncludedProps> = ({ data }) => {
 
   return (
     <div className={styles.materialsIncluded}>
-      <Title>Materials included</Title>
+      <Title className={styles.title}>Materials included</Title>
       <div className={styles.materials}>
         {materialsIncluded?.map((material, index) => (
           <div className={styles.material} key={index}>

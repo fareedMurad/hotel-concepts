@@ -33,7 +33,10 @@ const Authors: React.FC<AuthorsProps> = ({ data }) => {
 
   return (
     <div className={styles.authors}>
-      <Title className={styles.title}>Authors</Title>
+      <div className={styles.titleWrapper}>
+        <Title className={styles.title}>Authors</Title>
+      </div>
+
       <Slider
         className={styles.slider}
         controls

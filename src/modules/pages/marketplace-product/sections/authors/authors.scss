@@ -11,7 +11,21 @@
 }
 
 .title {
-  position: absolute;
+  position: relative;
+
+  &--wrapper {
+    position: absolute;
+
+    @include desktop() {
+      top: 90px;
+    }
+  }
+
+  &::before {
+    content: url('../../../../../assets/img/text-decorator.svg');
+    position: absolute;
+    top: -44px;
+  }
 }
 
 .slider {

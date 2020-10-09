@@ -11,6 +11,15 @@
   }
 }
 
+.title {
+  position: relative;
+  &::before {
+    content: url('../../../../../assets/img/text-decorator.svg');
+    position: absolute;
+    top: -44px;
+  }
+}
+
 .materials {
   @include flex($align: stretch, $direction: column);
   width: 100%;

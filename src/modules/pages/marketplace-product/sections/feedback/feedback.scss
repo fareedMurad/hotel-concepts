@@ -26,8 +26,8 @@
   }
 
   & > ul {
-    justify-content: space-between;
     margin-bottom: 85px;
+    @include flex(space-between, stretch);
 
     @include tablet() {
       margin-bottom: 108px;
@@ -44,7 +44,8 @@
 }
 
 .container {
-  @include flex($align: stretch, $direction: column);
+  @include flex($justify: space-between, $align: stretch, $direction: column);
+  height: 100%;
 }
 
 .description {
