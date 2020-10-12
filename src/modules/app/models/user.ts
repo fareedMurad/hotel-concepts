@@ -16,6 +16,7 @@ type User = {
   job: string;
   phone: string;
   email: string;
+  verified: boolean;
   source: string;
   position: string;
   newsSub: boolean;

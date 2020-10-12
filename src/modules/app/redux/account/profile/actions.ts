@@ -26,8 +26,8 @@ const editInterests = make('[account] edit interests').stage(
 /**
  * Edit password
  */
-const editPassword = make('[account] edit password').stage(
-  (payload: string) => payload
+const editPasswordAndEmail = make('[account] edit password and email').stage(
+  (payload: { email: string; password: string }) => payload
 );
 
 /*
@@ -60,7 +60,7 @@ export {
   editPrefferedLanguage,
   editContactAddress,
   editInterests,
-  editPassword,
+  editPasswordAndEmail,
   editPaymentMethods,
   uploadAvatar,
   deleteAvatar,

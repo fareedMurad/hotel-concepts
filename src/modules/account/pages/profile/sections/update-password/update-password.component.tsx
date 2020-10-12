@@ -1,5 +1,5 @@
 import { Card } from '@account/components';
-import { editPassword } from '@app/redux/account';
+import { editPasswordAndEmail } from '@app/redux/account';
 import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
@@ -30,7 +30,12 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
           initialValues={defaultValues}
           validationSchema={updatePasswordValidationSchema}
           onSubmit={values => {
-            dispatch(editPassword(values.newPassword));
+            dispatch(
+              editPasswordAndEmail({
+                password: values.newPassword,
+                email: values.email
+              })
+            );
           }}
         >
           {({ handleSubmit }) => (
@@ -41,7 +46,11 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
                 <span className={styles.hintBold}>Kordie.</span>
               </div>
               <FormNew className={styles.form} handleSubmit={handleSubmit}>
-                <Field.Text name='email' label='E-mail' disabled />
+                <Field.Text
+                  name='email'
+                  label='E-mail'
+                  disabled={!isInternalSource}
+                />
                 <Field.Text
                   name='newPassword'
                   label='New password'

@@ -1,6 +1,13 @@
+import { State } from '@app/redux/state';
+import { userInfo } from 'os';
+import { useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router';
 
 const useAccountData = () => {
+  const { user } = useSelector((state: State) => state.auth);
+
+  const emailVerified = user ? user.verified : false;
+
   const libraryRoute = useRouteMatch('/account/library');
   const programsRoute = useRouteMatch('/account/programs');
 
@@ -19,7 +26,7 @@ const useAccountData = () => {
     }
   ];
 
-  return { navigation };
+  return { navigation, verified: emailVerified };
 };
 
 export { useAccountData };

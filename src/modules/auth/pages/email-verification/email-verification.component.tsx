@@ -12,7 +12,7 @@ import * as styles from './email-verification.scss';
  */
 const EmailVerification: React.FC = () => {
   const dispatch = useDispatch();
-  const { emailVerified, token } = useEmailVerificationData();
+  const { emailVerified, token, authorized } = useEmailVerificationData();
 
   return (
     <Preloader id={Preloaders.emailVerification}>
@@ -22,7 +22,13 @@ const EmailVerification: React.FC = () => {
             <div className={styles.successCaption}>
               Verification successfull
             </div>
-            <Button onClick={() => dispatch(navigate('/auth/login'))}>
+            <Button
+              onClick={() =>
+                authorized
+                  ? dispatch(navigate('/account/profile'))
+                  : dispatch(navigate('/auth/login'))
+              }
+            >
               Go to login
             </Button>
           </div>

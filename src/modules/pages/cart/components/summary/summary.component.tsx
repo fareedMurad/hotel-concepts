@@ -3,12 +3,17 @@ import { SummaryProps } from './summary.props';
 import * as styles from './summary.scss';
 import { Button } from '@core/components';
 import classNames from 'classnames';
+import { useSelector } from 'react-redux';
+import { State } from '@app/redux/state';
 
 /**
  * Renders Summary
  */
 const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
   const { total, estimatedShipping, estimatedTax, onClick } = summaryData || {};
+  const { user } = useSelector((state: State) => state.auth);
+
+  const isAccountVerified = user ? user.verified : false;
 
   return (
     <div className={classNames(styles.summary, className)}>
@@ -35,7 +40,12 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
           <div>Order Total</div>
           <div>$ {total}</div>
         </div>
-        <Button arrow className={styles.submit} onClick={onClick}>
+        <Button
+          arrow
+          className={styles.submit}
+          onClick={onClick}
+          disabled={!isAccountVerified}
+        >
           Checkout
         </Button>
       </div>

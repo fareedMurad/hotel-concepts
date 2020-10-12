@@ -11,7 +11,7 @@ import { Library, MyPrograms, Profile, Subscription } from './pages';
  * Renders Account
  */
 const Account: React.FC = () => {
-  const { navigation } = useAccountData();
+  const { navigation, verified } = useAccountData();
   const [profile, subscription, library, programs] = usePrefixedRoutes([
     'profile',
     'subscription',
@@ -33,7 +33,8 @@ const Account: React.FC = () => {
           {navigation.map(({ caption, to, active }, index) => (
             <NavLink
               className={classNames(styles.link, {
-                [styles.linkActive]: active
+                [styles.linkActive]: active,
+                [styles.linkNotEnabled]: !verified
               })}
               activeClassName={styles.linkActive}
               to={to}

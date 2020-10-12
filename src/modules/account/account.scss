@@ -103,6 +103,10 @@
       color: $white;
     }
   }
+
+  &--notEnabled {
+    pointer-events: none;
+  }
 }
 
 .content {

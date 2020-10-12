@@ -67,11 +67,11 @@ class ProfileService {
   /**
    * Edit password
    */
-  public editPassword = (newPassword: string) =>
+  public editPasswordAndEmail = (password: string, email: string) =>
     this.http.request({
       method: 'PATCH',
-      url: '/auth/password/update',
-      data: { newPassword }
+      url: '/user/email-password',
+      data: { password, email }
     });
 
   /**

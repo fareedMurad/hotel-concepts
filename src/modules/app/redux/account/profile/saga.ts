@@ -12,7 +12,7 @@ import {
   editContactAddress,
   editInterests,
   editNewsletterSubscription,
-  editPassword,
+  editPasswordAndEmail,
   editPaymentMethods,
   editPrefferedLanguage,
   uploadAvatar
@@ -104,20 +104,25 @@ class ProfileSaga {
   /**
    * Edit password
    */
-  @Saga(editPassword)
+  @Saga(editPasswordAndEmail)
   public *updatePassword(
-    payload: Payload<typeof editPassword>,
+    payload: Payload<typeof editPasswordAndEmail>,
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.profileUpdatePassword));
 
     try {
-      yield call(api.profile.editPassword, payload);
+      yield call(
+        api.profile.editPasswordAndEmail,
+        payload.password,
+        payload.email
+      );
       yield put(getUser());
       yield put(
         toggleToast({
           status: 'success',
-          description: 'Password updated successfully'
+          description:
+            'Credentials updated successfully. Please check your email if you have changed your email'
         })
       );
     } catch (error) {

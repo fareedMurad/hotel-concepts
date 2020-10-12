@@ -7,7 +7,9 @@ import { parse } from 'query-string';
 
 const useEmailVerificationData = () => {
   const dispatch = useDispatch();
-  const { emailVerified } = useSelector((state: State) => state.auth);
+  const { emailVerified, authorized } = useSelector(
+    (state: State) => state.auth
+  );
   const history = useHistory();
   const {
     location: { search }
@@ -18,7 +20,7 @@ const useEmailVerificationData = () => {
     dispatch(verifyEmail(token));
   }, []);
 
-  return { emailVerified, token };
+  return { emailVerified, token, authorized };
 };
 
 export { useEmailVerificationData };
