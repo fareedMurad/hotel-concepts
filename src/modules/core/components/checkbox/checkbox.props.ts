@@ -3,7 +3,7 @@ import { ControlProps } from '@core/models';
 /**
  * Props
  */
-type CheckboxProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> &
+type CheckboxProps = Omit<React.HTMLAttributes<HTMLButtonElement>, 'onChange'> &
   ControlProps<boolean> & {
     /**
      * Checkbox theme

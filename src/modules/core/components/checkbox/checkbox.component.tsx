@@ -20,11 +20,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
   disabled,
   ...props
 }) => (
-  <div
+  <button
     className={classNames(styles.checkbox, className, {
       [styles.checkboxDisabled]: disabled
     })}
-    onClick={() => {
+    onClick={e => {
+      e.preventDefault();
       if (disabled) return;
       onChange(!value);
     }}
@@ -48,7 +49,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     {isError && (
       <div className={classNames(styles.error, errorClassname)}>{error}</div>
     )}
-  </div>
+  </button>
 );
 
 /**
