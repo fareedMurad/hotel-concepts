@@ -36,6 +36,10 @@
 
 .buy-subscription {
   width: 100%;
+  @include desktop() {
+    width: 268px;
+    height: 36px;
+  }
   margin-top: 24px;
 }
 

@@ -47,7 +47,7 @@
     }
   }
   &--price {
-    @include font(red, 24px, 400, 28px);
+    @include font($primary-gray, 24px, 400, 28px);
     font-family: $EBGaramond;
     & > span {
       margin-right: 20px;

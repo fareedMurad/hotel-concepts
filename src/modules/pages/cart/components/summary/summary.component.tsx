@@ -26,7 +26,14 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
         {estimatedShipping && (
           <div className={styles.section}>
             <div className={styles.sectionLabel}>Estimated shipping</div>
-            <div className={styles.sectionValue}>{estimatedShipping}</div>
+            <div
+              className={classNames(
+                styles.sectionValue,
+                styles.sectionValueShipping
+              )}
+            >
+              {estimatedShipping}
+            </div>
           </div>
         )}
         {estimatedTax && (

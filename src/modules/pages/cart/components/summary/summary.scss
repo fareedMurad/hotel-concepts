@@ -22,6 +22,10 @@
 
   &__value {
     @include font($primary-gray, 14px, 500, 18px);
+
+    &__shipping {
+      color: $primary-orange;
+    }
   }
 
   &__label {

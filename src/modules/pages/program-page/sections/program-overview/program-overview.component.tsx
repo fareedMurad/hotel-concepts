@@ -72,7 +72,7 @@ const ProgramOverview: React.FC<ProgramOverviewProps> = ({ data }) => {
   return (
     <section className={styles.programOverview}>
       <div className={styles.title}>{t('program-page.overview.title')}</div>
-      {authorized && (
+      {/* {authorized && (
         <Icon
           className={styles.like}
           name={inWishlist ? 'heart' : 'like'}
@@ -86,7 +86,7 @@ const ProgramOverview: React.FC<ProgramOverviewProps> = ({ data }) => {
             );
           }}
         />
-      )}
+      )} */}
       <div className={styles.container}>
         <Meta title='program-page.overview.duration'>
           {weeks} {t('program-page.overview.weeks')} / {sprints}{' '}
