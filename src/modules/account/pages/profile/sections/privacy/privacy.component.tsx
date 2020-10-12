@@ -16,9 +16,9 @@ const Privacy: React.FC<PrivacyProps> = ({ className }) => (
     </div>
 
     <div className={styles.email}>
-      <div className={styles.emailIcon}>
+      <a className={styles.emailIcon} href='mailto: info@kordie.com'>
         <Icon name='email-icon' />
-      </div>
+      </a>
       <a className={styles.emailLink} href='mailto: info@kordie.com'>
         info@kordie.com
       </a>

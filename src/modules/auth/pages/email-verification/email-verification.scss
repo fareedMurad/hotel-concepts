@@ -4,3 +4,15 @@
   @include flex(center, stretch, column);
   flex: 1;
 }
+
+.success {
+  @include flex(space-between, center, column);
+  height: 15vh;
+  @media (max-width: 550px) {
+    margin: 25vh 0;
+  }
+  @media (max-height: 400px) {
+    margin: 25vh 0;
+    height: 25vh;
+  }
+}

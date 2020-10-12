@@ -103,8 +103,11 @@
   background-color: $white;
 
   @include tablet() {
-    margin-bottom: 325px;
+    margin-bottom: 515px;
     box-shadow: 0px 4px 10px -1px rgba(135, 133, 135, 0.63);
+  }
+  @media (min-width: 971px) {
+    margin-bottom: 325px;
   }
 
   @include desktop() {

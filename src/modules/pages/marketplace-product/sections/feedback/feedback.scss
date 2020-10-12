@@ -114,6 +114,31 @@
   margin-left: 0;
 }
 
+.comments-count {
+  position: absolute;
+  left: 110px;
+  top: 380px;
+  @include tablet() {
+    left: 110px;
+    top: 355px;
+  }
+  &--controls {
+    position: absolute;
+    bottom: -3;
+    left: -4px;
+  }
+}
+
+.dots {
+  @include flex();
+  position: absolute;
+  bottom: 97px;
+  width: 100%;
+  & > div:last-child {
+    margin-right: 0;
+  }
+}
+
 .control {
   border-color: #f5f1f0;
 }

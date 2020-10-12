@@ -229,6 +229,8 @@ class AuthSaga {
           description: 'Your password was successfully changed'
         })
       );
+
+      yield put(navigate('/auth/login'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -308,6 +310,7 @@ class AuthSaga {
           'Unable to sign in with Facebook. Please try another authorisation method'
         )
       );
+      yield put(preloaderStop(Preloaders.login));
       return;
     }
 
