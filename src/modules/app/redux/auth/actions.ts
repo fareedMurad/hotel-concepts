@@ -52,14 +52,14 @@ const chooseInterests = make('[auth] choose interests')
  * Verify email
  */
 const verifyEmail = make('[auth] verify email')
-  .stage((payload: string) => payload)
+  .stage((payload: { token: string; isNewEmail: boolean }) => payload)
   .stage('success');
 
 /**
  * Email verification resend
  */
 const verifyEmailResend = make('[auth] verify email resend')
-  .stage((payload: string) => payload)
+  .stage((payload: { token: string; isNewEmail: boolean }) => payload)
   .stage('success');
 
 /**

@@ -14,13 +14,13 @@ const useEmailVerificationData = () => {
   const {
     location: { search }
   } = history;
-  const { token } = parse(search);
-
+  const { token, isNewEmail } = parse(search);
+  debugger;
   useEffect(() => {
-    dispatch(verifyEmail(token));
+    dispatch(verifyEmail({ token, isNewEmail: Boolean(isNewEmail || false) }));
   }, []);
 
-  return { emailVerified, token, authorized };
+  return { emailVerified, token, authorized, isNewEmail: isNewEmail || false };
 };
 
 export { useEmailVerificationData };

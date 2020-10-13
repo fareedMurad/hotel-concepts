@@ -12,7 +12,12 @@ import * as styles from './email-verification.scss';
  */
 const EmailVerification: React.FC = () => {
   const dispatch = useDispatch();
-  const { emailVerified, token, authorized } = useEmailVerificationData();
+  const {
+    emailVerified,
+    token,
+    authorized,
+    isNewEmail
+  } = useEmailVerificationData();
 
   return (
     <Preloader id={Preloaders.emailVerification}>
@@ -38,7 +43,7 @@ const EmailVerification: React.FC = () => {
             <Button
               className={styles.failResend}
               onClick={() => {
-                dispatch(verifyEmailResend(token));
+                dispatch(verifyEmailResend({ token, isNewEmail }));
               }}
             >
               Resend confirmation

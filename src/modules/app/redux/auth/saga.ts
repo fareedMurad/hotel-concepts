@@ -151,11 +151,13 @@ class AuthSaga {
    * Verify email
    */
   @Saga(verifyEmail)
-  public *verifyEmail(token: Payload<typeof verifyEmail>, { api }: Context) {
+  public *verifyEmail(payload: Payload<typeof verifyEmail>, { api }: Context) {
     yield put(preloaderStart(Preloaders.emailVerification));
 
     try {
-      const response = yield call(api.auth.verifyEmail, token);
+      const { token, isNewEmail } = payload;
+      debugger;
+      const response = yield call(api.auth.verifyEmail, token, isNewEmail);
 
       yield put(verifyEmail.success());
     } catch (error) {
@@ -170,13 +172,18 @@ class AuthSaga {
    */
   @Saga(verifyEmailResend)
   public *verifyEmailResend(
-    token: Payload<typeof verifyEmailResend>,
+    payload: Payload<typeof verifyEmailResend>,
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.emailVerification));
 
     try {
-      const response = yield call(api.auth.verifyEmailResend, token);
+      const { token, isNewEmail } = payload;
+      const response = yield call(
+        api.auth.verifyEmailResend,
+        token,
+        isNewEmail
+      );
 
       yield put(
         toggleToast({

@@ -58,24 +58,26 @@ class AuthService {
   /**
    * Verify email
    */
-  public verifyEmail = (token: string) =>
+  public verifyEmail = (token: string, isNewEmail: boolean) =>
     this.http.request({
       method: 'PATCH',
       url: '/auth/email/verification',
       headers: {
-        token
+        token,
+        isNewEmail
       }
     });
 
   /**
    * Email verification resend
    */
-  public verifyEmailResend = (token: string) =>
+  public verifyEmailResend = (token: string, isNewEmail: boolean) =>
     this.http.request({
       method: 'POST',
       url: '/auth/email/verification/resend',
       headers: {
-        token
+        token,
+        isNewEmail
       }
     });
 
