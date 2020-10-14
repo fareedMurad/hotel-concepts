@@ -7,9 +7,14 @@ import * as styles from './preview.scss';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { checkout } from '@app/redux/checkout';
-import { Preloaders } from '@ui/models';
+import { Modals, Preloaders } from '@ui/models';
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 import { cart } from '@app/redux/cart';
+import { readBook, showModal, toggleBookPreviewModal } from '@ui/modal';
+import { ShareSocial } from '@core/components/share';
+import { SEO } from '@core/components/seo/seo.component';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { BookPreviewModal } from '@pages/components';
 
 /**
  * Renders Preview
@@ -29,13 +34,15 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
     authorized,
     inWishlist,
     publishDate,
+    previewPages,
     highlightsText,
     availableFormats,
     previewDescription
   } = data;
-
+  debugger;
   return (
     <div className={styles.preview}>
+      <SEO title={name} thumbnail={img} url={window.location.href} />
       <div onClick={() => history.goBack()} className={styles.back}>
         <div>&#8592;</div>
         <div className={styles.backCaption}>{t('product.back')}</div>
@@ -45,13 +52,18 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
           <div className={styles.imageWrapper}>
             <img className={styles.image} src={img} />
           </div>
-          <Button className={styles.show} theme='secondary'>
+          <Button
+            className={styles.show}
+            theme='secondary'
+            onClick={() => {
+              dispatch(readBook({ url: previewPages.file.url }));
+            }}
+          >
             Show content
           </Button>
           <div className={styles.showcaseInfo}>
             <div className={styles.share}>
-              <div className={styles.shareCaption}>Share</div>
-              <Icon className={styles.shareIcon} name='share' />
+              <ShareSocial link={window.location.href} />
             </div>
             <div className={styles.formats}>
               {availableFormats?.map((format, index) => (
@@ -83,7 +95,11 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
           <div className={styles.authors}>
             by
             {authors?.map((author, index) => (
-              <a className={styles.author} key={index}>
+              <a
+                className={styles.author}
+                key={index}
+                onClick={() => scrollTo('authors')}
+              >
                 {author.name} {author.surname}
               </a>
             ))}
@@ -125,6 +141,7 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
           </div>
         </div>
       </div>
+      <BookPreviewModal />
     </div>
   );
 };

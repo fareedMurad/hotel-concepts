@@ -1,6 +1,8 @@
 import { Button, Slider } from '@core/components';
 import { Title } from '@pages/marketplace-product/components';
+import { navigate } from '@router/store';
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { AuthorsProps } from './authors.props';
 import * as styles from './authors.scss';
 
@@ -30,9 +32,9 @@ const responsive = {
  */
 const Authors: React.FC<AuthorsProps> = ({ data }) => {
   const { authors } = data || {};
-
+  const dispatch = useDispatch();
   return (
-    <div className={styles.authors}>
+    <div className={styles.authors} id='authors'>
       <div className={styles.titleWrapper}>
         <Title className={styles.title}>Authors</Title>
       </div>
@@ -74,7 +76,11 @@ const Authors: React.FC<AuthorsProps> = ({ data }) => {
           )
         )}
       </Slider>
-      <Button className={styles.seeAll} arrow>
+      <Button
+        className={styles.seeAll}
+        arrow
+        onClick={() => dispatch(navigate('/contributors'))}
+      >
         See All Contributors
       </Button>
     </div>

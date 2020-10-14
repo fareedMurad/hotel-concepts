@@ -3,7 +3,10 @@ import { Title } from '@pages/marketplace-product/components';
 import moment from 'moment';
 import * as React from 'react';
 import { BannerProps } from './banner.props';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 import * as styles from './banner.scss';
+import { useDispatch } from 'react-redux';
+import { cart } from '@app/redux/cart';
 
 /**
  * Renders Banner
@@ -19,7 +22,7 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
     publishDate,
     price
   } = data;
-
+  const dispatch = useDispatch();
   return (
     <div className={styles.banner}>
       <div className={styles.box}>
@@ -30,7 +33,11 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
           <div className={styles.authors}>
             by
             {authors?.map((author, index) => (
-              <a className={styles.author} key={index}>
+              <a
+                className={styles.author}
+                key={index}
+                onClick={() => scrollTo('authors')}
+              >
                 {author.name} {author.surname}
               </a>
             ))}
@@ -48,8 +55,14 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
             </div>
           </div>
           <div className={styles.price}>${price}</div>
-          <Button className={styles.checkout} arrow>
-            Go to checkout
+          <Button
+            className={styles.checkout}
+            arrow
+            onClick={() => {
+              dispatch(cart.add({ path: id, quantity: 1 }));
+            }}
+          >
+            Add to cart
           </Button>
         </div>
       </div>

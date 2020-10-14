@@ -156,7 +156,7 @@ class AuthSaga {
 
     try {
       const { token, isNewEmail } = payload;
-      debugger;
+
       const response = yield call(api.auth.verifyEmail, token, isNewEmail);
 
       yield put(verifyEmail.success());

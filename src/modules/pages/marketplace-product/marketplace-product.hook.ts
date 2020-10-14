@@ -49,6 +49,7 @@ const useMarketplaceProductData = () => {
     authorized,
     inWishlist,
     publishDate,
+    previewPages,
     highlightsText,
     availableFormats,
     previewDescription,

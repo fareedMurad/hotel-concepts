@@ -41,7 +41,7 @@ const Modal: React.FC<ModalProps> = ({
     'isActive' in props ? props.isActive : active.some(one => one == id);
   const modalRef = useRef();
   const history = useHistory();
-
+  debugger;
   useClickOutside(modalRef, () => {
     dispatch(closeModal(id));
     dispatch(toogleContributorModal(false));

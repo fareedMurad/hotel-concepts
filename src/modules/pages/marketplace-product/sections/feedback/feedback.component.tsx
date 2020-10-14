@@ -1,6 +1,7 @@
 import { Slider } from '@core/components';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { Title } from '@pages/marketplace-product/components';
+import classNames from 'classnames';
 import * as React from 'react';
 import { useState } from 'react';
 import { FeedbackProps } from './feedback.props';
@@ -39,17 +40,21 @@ const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
     carouselState: { currentSlide, deviceType },
     items
   } = rest;
-  const carouselItems = items.map(el => {
-    return <div />;
-  });
+
+  const carouselItems = items.map((_, indx) => <div key={indx} />);
 
   return (
-    <div
-      className={active ? styles.activeDot : styles.inactiveDot}
-      onClick={() => onClick()}
-    >
-      {React.Children.toArray(carouselItems)[index]}
-    </div>
+    <React.Fragment>
+      <div
+        className={classNames(
+          styles.dot,
+          active ? styles.activeDot : styles.inactiveDot
+        )}
+        onClick={() => onClick()}
+      >
+        {React.Children.toArray(carouselItems)[index]}
+      </div>
+    </React.Fragment>
   );
 };
 
@@ -79,7 +84,7 @@ const Feedback: React.FC<FeedbackProps> = ({ data }) => {
             setCount={setCount}
           />
         }
-        showDots
+        showDots={false}
         customDot={<CustomDot items={comments} />}
         dotListClass={styles.dots}
       >

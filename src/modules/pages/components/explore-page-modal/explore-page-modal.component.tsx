@@ -4,34 +4,30 @@ import { closeModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as styles from './book-preview-modal.scss';
+import * as styles from './explore-page-modal.scss';
 
 /**
- * Renders BookPreviewModal
+ * Renders ExplorePageModal
  */
-const BookPreviewModal: React.FC = () => {
+const ExplorePageModal: React.FC = () => {
   const dispatch = useDispatch();
   const { readBookUrl } = useSelector((state: State) => state.ui.modal);
+
   debugger;
   return (
-    <Modal className={styles.modal} id={Modals.bookPreview} withOverlay>
+    <Modal className={styles.modal} id={Modals.explorePage} withOverlay>
       <div className={styles.header}>
-        <div className={styles.headerCaption}>Book Preview</div>
+        <div className={styles.headerCaption}>Page</div>
         <div
           className={styles.headerClose}
-          onClick={() => dispatch(closeModal(Modals.bookPreview))}
+          onClick={() => dispatch(closeModal(Modals.explorePage))}
         >
           X
         </div>
       </div>
-      <iframe
-        className={styles.iframe}
-        width='100%'
-        height='100%'
-        src={readBookUrl}
-      />
+      <img className={styles.img} src={readBookUrl} />
     </Modal>
   );
 };
 
-export { BookPreviewModal };
+export { ExplorePageModal };

@@ -1,6 +1,7 @@
 @import 'core.scss';
 
 .feedback {
+  position: relative;
   @include flex($align: stretch, $direction: column);
   padding: 20px;
 
@@ -116,11 +117,12 @@
 
 .comments-count {
   position: absolute;
-  left: 110px;
   top: 380px;
+  left: 110px;
+
   @include tablet() {
-    left: 110px;
-    top: 355px;
+    top: 344px;
+    left: 170px;
   }
   &--controls {
     position: absolute;
@@ -133,10 +135,30 @@
   @include flex();
   position: absolute;
   bottom: 97px;
+  justify-content: flex-start !important;
   width: 100%;
+  margin-bottom: 0px !important;
   & > div:last-child {
     margin-right: 0;
   }
+}
+
+.dot {
+  height: 8px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.inactive-dot {
+  background-color: $background;
+  border-radius: 50%;
+  width: 8px;
+}
+
+.active-dot {
+  background-color: $primary-orange;
+  border-radius: 4px;
+  width: 16px;
 }
 
 .control {

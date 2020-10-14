@@ -1,4 +1,5 @@
-import { BookAuthor } from '@account/pages/library/models';
+import { BookAuthor, FileModel } from '@account/pages/library/models';
+import { PreviewPages } from '@app/models';
 
 /**
  * Props
@@ -17,6 +18,10 @@ type PreviewProps = {
     publishDate: string;
     inWishlist: boolean;
     authors: BookAuthor[];
+    previewPages: {
+      title: string;
+      file: FileModel;
+    };
     highlightsText: string[];
     availableFormats: string[];
     previewDescription: string;

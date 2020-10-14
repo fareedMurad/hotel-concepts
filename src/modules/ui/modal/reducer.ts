@@ -6,7 +6,8 @@ import {
   toogleContributorModal,
   toggleBookOverviewModal,
   toggleBookPreviewModal,
-  readBook
+  readBook,
+  explorePage
 } from './actions';
 import { Modals } from '@ui/models';
 
@@ -35,6 +36,11 @@ const modal = reducer(new ModalState())
   .on(readBook, (state, { url }) => {
     state.readBookUrl = url;
     state.active.push(Modals.bookPreview);
+  })
+  .on(explorePage, (state, { url }) => {
+    debugger;
+    state.readBookUrl = url;
+    state.active.push(Modals.explorePage);
   });
 
 export { modal };

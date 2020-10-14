@@ -3,6 +3,7 @@ enum Modals {
   contributor = 'contributor',
   bookOverview = 'product',
   bookPreview = 'book-preview',
+  explorePage = 'explore-page',
 
   // Auth
   forgotPassword = 'forgot password'

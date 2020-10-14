@@ -1,6 +1,9 @@
 import { Slider } from '@core/components';
+import { ExplorePageModal } from '@pages/components/explore-page-modal';
 import { Title } from '@pages/marketplace-product/components';
+import { explorePage } from '@ui/modal';
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { ExploreProps } from './explore.props';
 import * as styles from './explore.scss';
 
@@ -40,7 +43,7 @@ const responsive = {
  */
 const Explore: React.FC<ExploreProps> = ({ data }) => {
   const { coverPhotos } = data || {};
-
+  const dispatch = useDispatch();
   if (!coverPhotos) return null;
 
   return (
@@ -57,10 +60,18 @@ const Explore: React.FC<ExploreProps> = ({ data }) => {
       >
         {coverPhotos?.map(({ file }, index) => (
           <div key={index} className={styles.wrapper}>
-            <img className={styles.image} src={file?.url} alt={file?.url} />
+            <img
+              className={styles.image}
+              src={file?.url}
+              alt={file?.url}
+              onClick={() => {
+                dispatch(explorePage({ url: file?.url }));
+              }}
+            />
           </div>
         ))}
       </Slider>
+      <ExplorePageModal />
     </div>
   );
 };

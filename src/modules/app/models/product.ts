@@ -9,4 +9,18 @@ type Pricing = {
   };
 };
 
-export { Pricing };
+type PreviewPages = {
+  createdAt: string;
+  file: File;
+  title: string;
+  updateAt: string;
+};
+
+type File = {
+  contentType: string;
+  details: { size: number };
+  fileName: string;
+  url: string;
+};
+
+export { Pricing, PreviewPages };

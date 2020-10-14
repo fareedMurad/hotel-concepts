@@ -15,7 +15,7 @@ const useEmailVerificationData = () => {
     location: { search }
   } = history;
   const { token, isNewEmail } = parse(search);
-  debugger;
+
   useEffect(() => {
     dispatch(verifyEmail({ token, isNewEmail: Boolean(isNewEmail || false) }));
   }, []);

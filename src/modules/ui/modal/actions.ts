@@ -37,6 +37,13 @@ const readBook = make('[ui] read book').stage(
 );
 
 /**
+ * Toggle explore page
+ */
+const explorePage = make('[ui] explore page').stage(
+  (payload: { url: string }) => payload
+);
+
+/**
  * Book preview modal
  */
 const toggleBookPreviewModal = make('[ui] open book preview').stage(
@@ -49,5 +56,6 @@ export {
   toogleContributorModal,
   readBook,
   toggleBookOverviewModal,
-  toggleBookPreviewModal
+  toggleBookPreviewModal,
+  explorePage
 };

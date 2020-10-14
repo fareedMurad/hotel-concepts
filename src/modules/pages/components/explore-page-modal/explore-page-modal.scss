@@ -1,0 +1,37 @@
+@import 'core.scss';
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+
+  @include tablet() {
+    width: 90vw;
+    height: 90vh;
+  }
+}
+
+.header {
+  @include flex(space-between, center);
+
+  &__caption {
+    @include font($primary-gray, 16px, 500);
+
+    @include tablet() {
+      font-size: 20px;
+    }
+  }
+
+  &__close {
+    @include flex(center, center);
+    @include size(36px);
+    @include min-size(36px);
+    font-size: 24px;
+    background-color: $background;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.img {
+  object-fit: contain;
+}

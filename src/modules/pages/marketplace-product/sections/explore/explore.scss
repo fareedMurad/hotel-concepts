@@ -20,6 +20,7 @@
 
   & > ul {
     @include flex(flex-start, stretch, row);
+    height: 416px;
     margin-bottom: 92px;
   }
 }
@@ -31,5 +32,6 @@
 
 .image {
   @include size(100%);
-  max-width: 50%;
+  cursor: pointer;
+  max-width: 316px;
 }

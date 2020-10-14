@@ -31,7 +31,6 @@ const programsData = reducer(new ProgramsState())
     (state, payload) => (state.singleProgram = payload)
   )
   .on(addProgramToWishlist.success, (state, id) => {
-    debugger;
     state.programs = state.programs.map(program => {
       if (program.id === id) {
         program.inWishlist = true;
@@ -40,7 +39,6 @@ const programsData = reducer(new ProgramsState())
     });
   })
   .on(removeProgramFromWishlist.removeHeart, (state, id) => {
-    debugger;
     state.programs = state.programs.map(program => {
       if (program.id === id) {
         program.inWishlist = false;
