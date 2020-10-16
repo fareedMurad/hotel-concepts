@@ -12,8 +12,6 @@ import * as styles from './explore-page-modal.scss';
 const ExplorePageModal: React.FC = () => {
   const dispatch = useDispatch();
   const { readBookUrl } = useSelector((state: State) => state.ui.modal);
-
-  debugger;
   return (
     <Modal className={styles.modal} id={Modals.explorePage} withOverlay>
       <div className={styles.header}>

@@ -12,7 +12,6 @@ import * as styles from './book-preview-modal.scss';
 const BookPreviewModal: React.FC = () => {
   const dispatch = useDispatch();
   const { readBookUrl } = useSelector((state: State) => state.ui.modal);
-  debugger;
   return (
     <Modal className={styles.modal} id={Modals.bookPreview} withOverlay>
       <div className={styles.header}>

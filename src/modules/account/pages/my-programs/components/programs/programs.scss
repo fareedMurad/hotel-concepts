@@ -67,7 +67,6 @@
   @include flex($align: center);
   @include font($primary-orange, 16px, 500, normal);
   margin-top: 16px;
-
   @include tablet() {
     font-size: 18px;
   }
@@ -101,7 +100,7 @@
   width: 100%;
   margin-bottom: 80px;
 
-  @include tablet() {
+  @include desktop() {
     max-width: 41%;
     margin-bottom: 0;
   }

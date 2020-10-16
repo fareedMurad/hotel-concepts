@@ -39,7 +39,8 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
     availableFormats,
     previewDescription
   } = data;
-  debugger;
+
+  console.log(inWishlist);
   return (
     <div className={styles.preview}>
       <SEO title={name} thumbnail={img} url={window.location.href} />

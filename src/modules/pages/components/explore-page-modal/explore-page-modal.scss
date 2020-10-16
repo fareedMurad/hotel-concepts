@@ -3,6 +3,7 @@
 .modal {
   width: 100vw;
   height: 100vh;
+  overflow: auto;
 
   @include tablet() {
     width: 90vw;
