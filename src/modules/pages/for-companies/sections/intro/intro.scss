@@ -22,6 +22,10 @@
   @include ipad-l() {
     height: calc(100vh - 30px);
   }
+  background-position: -600px;
+  @include tablet() {
+    background-position: center;
+  }
 }
 
 .button {

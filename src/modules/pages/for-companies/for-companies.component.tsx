@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ForCompaniesProps } from './for-companies.props';
 import * as styles from './for-companies.scss';
-import { Footer } from '@core/components';
 import {
   TalentMatters,
   Benefits,
