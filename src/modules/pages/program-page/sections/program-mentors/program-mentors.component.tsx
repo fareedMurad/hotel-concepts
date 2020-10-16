@@ -53,6 +53,15 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
   const dispatch = useDispatch();
   const handleClick = () => history.push(`/contributors`);
 
+  const handleOpenModalMobile = contributor => {
+    dispatch(
+      navigate(
+        `contributors/mentor/${contributor.slug}/?&mentorId=${contributor.id}`
+      )
+    );
+    dispatch(showModal(Modals.contributor));
+  };
+
   if (!contributors)
     return <div className={styles.noMentors}>No mentors yet</div>;
 
@@ -104,11 +113,7 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
               key={index}
               onClick={() => {
                 mobile
-                  ? dispatch(
-                      navigate(
-                        `contributors/mentor/${contributor.slug}/?&mentorId=${contributor.id}`
-                      )
-                    )
+                  ? handleOpenModalMobile(contributor)
                   : dispatch(
                       navigate(
                         `${url}/${contributor.slug}/?&mentorId=${contributor.id}`

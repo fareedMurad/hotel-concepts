@@ -34,6 +34,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   const { iconRotation } = useIconAnimation(showBurger);
   useEffect(() => {
     isSticky ? setWhite(true) : setWhite(false);
+    setShowBurger(false);
   }, [isSticky, location.pathname]);
 
   const { mobile, tablet } = useMediaPoints(true);

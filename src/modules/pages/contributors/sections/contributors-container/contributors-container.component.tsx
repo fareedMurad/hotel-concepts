@@ -48,6 +48,14 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const handleOpenModalMobile = contributor => {
+    dispatch(
+      navigate(
+        `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
+      )
+    );
+    dispatch(showModal(Modals.contributor));
+  };
 
   React.useEffect(() => {
     if (!loading) {
@@ -109,11 +117,7 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
                 contributor={contributor}
                 key={index}
                 onClick={() => {
-                  dispatch(
-                    navigate(
-                      `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
-                    )
-                  );
+                  handleOpenModalMobile(contributor);
                   !mobile &&
                     (dispatch(showModal(Modals.contributor)),
                     dispatch(toogleContributorModal(true)));

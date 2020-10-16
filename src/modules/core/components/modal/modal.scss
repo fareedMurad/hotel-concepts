@@ -1,16 +1,21 @@
 @import 'core.scss';
 
 .overlay {
-  @include flex(center, center);
-  position: fixed;
-  z-index: 99999;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  margin-top: 80px;
+  @include tablet() {
+    @include flex(center, center);
+    margin-top: 0;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-  &--visible {
-    background: rgba(#232323, 0.5);
+    &--visible {
+      background: rgba(#232323, 0.5);
+    }
   }
 }
 

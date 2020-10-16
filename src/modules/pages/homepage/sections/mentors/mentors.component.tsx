@@ -56,6 +56,13 @@ const Mentors: React.FC<MentorsProps> = ({
 
   const handleClick = () => history.push(`/contributors`);
 
+  const handleOpenModalMobile = contributor => {
+    dispatch(
+      navigate(`${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`)
+    );
+    dispatch(showModal(Modals.contributor));
+  };
+
   if (loading) return <Spinner />;
   if (!contributors)
     return <div className={styles.noMentors}>No mentors yet</div>;
@@ -102,11 +109,7 @@ const Mentors: React.FC<MentorsProps> = ({
               contributor={contributor}
               key={index}
               onClick={() => {
-                dispatch(
-                  navigate(
-                    `${url}/${contributor.slug}?&mentorId=${contributor.sys.id}`
-                  )
-                );
+                handleOpenModalMobile(contributor);
                 !mobile &&
                   (dispatch(showModal(Modals.contributor)),
                   dispatch(toogleContributorModal(true)));
