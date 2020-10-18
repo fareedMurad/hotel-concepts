@@ -1,5 +1,6 @@
 import { ContentType } from '@account/pages/library/models';
 import { Context } from '@app/redux/context';
+import { fetchMarketplaceProduct } from '@app/redux/marketplace/actions';
 import { State } from '@app/redux/state';
 import { downloadBlob } from '@core/shared';
 import { handleError } from '@general/store';
@@ -85,7 +86,7 @@ class LibrarySaga {
       if (location.pathname === '/marketplace') {
         yield put(addBookToWishlist.success(id));
       }
-
+      yield put(fetchMarketplaceProduct(id));
       yield put(
         toggleToast({
           status: 'success',
@@ -130,7 +131,7 @@ class LibrarySaga {
           );
         }
       }
-
+      yield put(fetchMarketplaceProduct(id));
       yield put(removeBookFromWishlist.success(response.data));
       yield put(
         toggleToast({

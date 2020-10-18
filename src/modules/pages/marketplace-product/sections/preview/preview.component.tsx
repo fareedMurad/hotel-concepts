@@ -1,4 +1,4 @@
-import { Button, Icon } from '@core/components';
+import { Button, Icon, Preloader } from '@core/components';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
@@ -77,19 +77,25 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
         </div>
         <div className={styles.info}>
           {authorized && (
-            <Icon
-              className={styles.like}
-              name={inWishlist ? 'heart' : 'like'}
-              onClick={() => {
-                const data = { id, preloader: Preloaders.marketplaceProduct };
+            <div className={styles.icon}>
+              <Icon
+                className={styles.like}
+                name={inWishlist ? 'heart' : 'like'}
+                onClick={() => {
+                  const data = { id, preloader: Preloaders.marketplaceProduct };
 
-                dispatch(
-                  inWishlist
-                    ? removeBookFromWishlist(data)
-                    : addBookToWishlist(data)
-                );
-              }}
-            />
+                  dispatch(
+                    inWishlist
+                      ? removeBookFromWishlist(data)
+                      : addBookToWishlist(data)
+                  );
+                }}
+              />
+              <Preloader
+                className={styles.iconPreloader}
+                id={Preloaders.marketplace}
+              />
+            </div>
           )}
           <div className={styles.caption}>{name}</div>
           <div className={styles.description}>{previewDescription}</div>
