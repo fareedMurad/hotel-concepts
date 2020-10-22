@@ -56,7 +56,7 @@
   @include flex($align: stretch, $direction: column);
   position: relative;
   height: 100%;
-  padding: 20px 18px 18px 18px;
+  padding: 20px;
   background: #f5f1f0;
   border-radius: 6px;
   cursor: pointer;
@@ -70,11 +70,11 @@
 }
 
 .image {
-  width: 100%;
-  max-height: 240px;
+  width: 132px;
+  height: 203px;
   padding-bottom: 20px;
   align-self: center;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .divider {
@@ -82,8 +82,31 @@
   background: #cbd0d3;
 }
 
+.meta {
+  @include flex(space-between, center);
+  margin-top: 16px;
+}
+
+.price {
+  @include font($primary-gray, 18px, 600, 24px);
+  width: fit-content;
+  padding: 8px 12px;
+  font-family: $EBGaramond;
+  border-radius: 4px;
+  background: $white;
+}
+
+.authors {
+  @include flex($align: stretch, $direction: column);
+  max-width: 50%;
+}
+
+.author {
+  @include font($primary-gray, 18px, 400, 28px);
+}
+
 .name {
-  @include font(#3e3e3e, 24px, 600, 36px);
+  @include font(#3e3e3e, 36px, 600, 46px);
   flex: 1;
   margin-top: 12px;
   font-family: $EBGaramond;
@@ -95,20 +118,20 @@
   }
 }
 
-.controls {
-  @include flex($align: center);
-  margin-top: 10px;
+// .controls {
+//   @include flex($align: center);
+//   margin-top: 10px;
 
-  & > button {
-    width: 100%;
-    font-size: 14px;
+//   & > button {
+//     width: 100%;
+//     font-size: 14px;
 
-    @include tablet() {
-      font-size: 16px;
-    }
-  }
+//     @include tablet() {
+//       font-size: 16px;
+//     }
+//   }
 
-  & > button:not(:first-child) {
-    margin-left: 20px;
-  }
-}
+//   & > button:not(:first-child) {
+//     margin-left: 20px;
+//   }
+// }

@@ -16,8 +16,8 @@ const Marketplace: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <Preloader id={Preloaders.marketplace}>
-      <div className={styles.marketplace}>
+    <div className={styles.marketplace}>
+      <Preloader id={Preloaders.marketplace}>
         <Hero categories={categories} />
 
         <div className={styles.content}>
@@ -38,8 +38,8 @@ const Marketplace: React.FC = () => {
             );
           })}
         </div>
-      </div>
-    </Preloader>
+      </Preloader>
+    </div>
   );
 };
 

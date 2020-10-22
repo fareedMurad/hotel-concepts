@@ -1,6 +1,3 @@
-import { Book } from '@account/pages/library/models';
-import { Program } from '@account/pages/my-programs/models';
-
 /**
  * Props
  */

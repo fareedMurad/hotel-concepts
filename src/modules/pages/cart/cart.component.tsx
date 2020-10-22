@@ -6,7 +6,7 @@ import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCartData } from './cart.hook';
 import * as styles from './cart.scss';
-import { CartItem, Product, Summary } from './components';
+import { CartItem, Summary } from './components';
 
 /**
  * Renders Cart

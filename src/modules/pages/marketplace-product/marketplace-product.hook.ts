@@ -9,7 +9,8 @@ const useMarketplaceProductData = () => {
   const dispatch = useDispatch();
   const {
     auth: { authorized },
-    marketplace: { selectedProduct }
+    marketplace: { selectedProduct },
+    cart: { selectedProducts }
   } = useSelector((state: State) => state);
   const {
     params: { id }
@@ -36,6 +37,7 @@ const useMarketplaceProductData = () => {
     previewDescription,
     forWhomListOfPositions
   } = selectedProduct || {};
+  const inCart = selectedProducts?.some(one => one.path == id);
 
   /**
    * Preview section data
@@ -44,6 +46,7 @@ const useMarketplaceProductData = () => {
     id,
     name,
     price,
+    inCart,
     authors,
     languages,
     authorized,
@@ -122,6 +125,7 @@ const useMarketplaceProductData = () => {
     id,
     name,
     price,
+    inCart,
     authors,
     languages,
     publishDate,

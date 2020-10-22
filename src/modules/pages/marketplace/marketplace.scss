@@ -1,5 +1,10 @@
 @import 'core.scss';
 
+.marketplace {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
+}
+
 .content {
   @include flex($align: stretch, $direction: column);
   padding: 40px 20px 40px 20px;
