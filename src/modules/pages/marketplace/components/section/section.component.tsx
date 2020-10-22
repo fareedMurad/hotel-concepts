@@ -13,13 +13,18 @@ import * as styles from './section.scss';
  * Responsive slider breakpoints
  */
 const responsive = {
-  xl: {
-    breakpoint: { max: 2000, min: 1681 },
+  desktopXlg: {
+    breakpoint: { max: 3000, min: 2000 },
+    items: 6,
+    slidesToSlide: 1
+  },
+  desktopLg: {
+    breakpoint: { max: 1999, min: 1367 },
     items: 5,
     slidesToSlide: 1
   },
   desktop: {
-    breakpoint: { max: 1680, min: 1025 },
+    breakpoint: { max: 1366, min: 1025 },
     items: 4,
     slidesToSlide: 1
   },
@@ -44,6 +49,8 @@ const Book: React.FC<BookProps> = ({ book, onClick }) => {
   const {
     id,
     name,
+    price,
+    authors,
     productImage: {
       file: { url }
     },
@@ -70,13 +77,17 @@ const Book: React.FC<BookProps> = ({ book, onClick }) => {
       )}
       <img className={styles.image} src={url} alt={url} />
       <div className={styles.divider} />
-      <div className={styles.name}>{name}</div>
-      <div className={styles.controls}>
-        <Button arrow>Read</Button>
-        <Button arrow theme='secondary'>
-          Download
-        </Button>
+      <div className={styles.meta}>
+        <div className={styles.price}>${price}</div>
+        <div className={styles.authors}>
+          {authors.map(({ id, name, surname }) => (
+            <div className={styles.author} key={id}>
+              {name} {surname}
+            </div>
+          ))}
+        </div>
       </div>
+      <div className={styles.name}>{name}</div>
     </div>
   );
 };
