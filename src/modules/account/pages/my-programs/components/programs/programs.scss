@@ -37,6 +37,7 @@
   max-width: 317px;
   max-height: 240px;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .container {
@@ -65,7 +66,7 @@
 
 .meta {
   @include flex($align: center);
-  @include font($primary-orange, 16px, 500, normal);
+  @include font($primary-gray, 16px, 400, normal);
   margin-top: 16px;
   @include tablet() {
     font-size: 18px;

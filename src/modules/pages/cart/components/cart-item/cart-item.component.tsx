@@ -1,6 +1,6 @@
-import { ContentType } from '@app/models/enum';
 import { cart } from '@app/redux/cart';
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { CartItemProps } from './cart-item.props';
 import * as styles from './cart-item.scss';
@@ -17,6 +17,7 @@ const CartItem: React.FC<CartItemProps> = ({
   id
 }) => {
   const dispatch = useDispatch();
+  const [value, setValue] = useState(quantity.toString() || '1');
 
   return (
     <div className={styles.cartItem}>
@@ -36,13 +37,20 @@ const CartItem: React.FC<CartItemProps> = ({
           <div className={styles.descriptionAmount}>
             Amount:{' '}
             <input
-              onChange={e =>
+              onChange={e => {
+                const {
+                  target: { value }
+                } = e;
+                const filteredValue = value.replace(/\D+/g, '');
+
+                setValue(filteredValue);
                 dispatch(
-                  cart.update({ path: id, quantity: Number(e.target.value) })
-                )
-              }
-              type='number'
+                  cart.update({ path: id, quantity: Number(filteredValue) })
+                );
+              }}
+              type='text'
               placeholder={quantity?.toString()}
+              value={value}
             />
           </div>
           <div className={styles.descriptionPrice}>

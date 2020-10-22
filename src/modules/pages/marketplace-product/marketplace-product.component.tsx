@@ -2,7 +2,6 @@ import { ScrollToTop } from '@app';
 import { Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
 import { useMarketplaceProductData } from './marketplace-product.hook';
 import * as styles from './marketplace-product.scss';
 import {
@@ -36,7 +35,6 @@ const MarketplaceProduct: React.FC = () => {
     bannerData,
     recommendedData
   } = useMarketplaceProductData();
-  const dispatch = useDispatch();
 
   return (
     <div className={styles.marketplaceProduct}>

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Fragment } from 'react';
 import { useCartData } from './cart.hook';
 import * as styles from './cart.scss';
-import { CartItem, Product, Summary } from './components';
+import { CartItem, Summary } from './components';
 
 /**
  * Renders Cart
@@ -17,7 +17,9 @@ const Cart: React.FC = () => {
     <div className={styles.cart}>
       <div className={styles.header}>
         <div className={styles.headerCaption}>My cart</div>
-        <div className={styles.headerQuantity}>{cartQuantity} items</div>
+        {cartQuantity && (
+          <div className={styles.headerQuantity}>{cartQuantity} items</div>
+        )}
       </div>
 
       <div className={styles.container}>
