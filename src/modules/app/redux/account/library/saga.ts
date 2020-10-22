@@ -73,20 +73,20 @@ class LibrarySaga {
    */
   @Saga(addBookToWishlist)
   public *addBookToWishlist(
-    { id, preloader }: Payload<typeof addBookToWishlist>,
+    { id, preloader, page }: Payload<typeof addBookToWishlist>,
     { api }: Context
   ) {
-    yield put(preloaderStart(preloader));
+    const pages = {
+      '/marketplace': addBookToWishlist.marketplace,
+      [`/marketplace/${id}`]: addBookToWishlist.product
+    };
+    const handle = pages[page];
 
+    yield put(preloaderStart(preloader));
     try {
       yield call(api.library.addBookToWishlist, id, ContentType.product);
+      yield put(handle(id));
 
-      const { location } = yield select((state: State) => state.router);
-
-      if (location.pathname === '/marketplace') {
-        yield put(addBookToWishlist.success(id));
-      }
-      yield put(fetchMarketplaceProduct(id));
       yield put(
         toggleToast({
           status: 'success',
@@ -105,34 +105,25 @@ class LibrarySaga {
    */
   @Saga(removeBookFromWishlist)
   public *removeBookFromWishlist(
-    { id, preloader }: Payload<typeof removeBookFromWishlist>,
+    { id, preloader, page }: Payload<typeof removeBookFromWishlist>,
     { api }: Context
   ) {
-    yield put(preloaderStart(preloader));
+    const pages = {
+      '/account/library/wishlist': removeBookFromWishlist.library,
+      '/marketplace': removeBookFromWishlist.marketplace,
+      [`/marketplace/${id}`]: removeBookFromWishlist.product
+    };
+    const handle = pages[page];
+    const isLibrary = page == '/account/library/wishlist';
 
+    yield put(preloaderStart(preloader));
     try {
       const response = yield call(
         api.library.removeBookFromWishlist,
         id,
         ContentType.product
       );
-
-      const { location } = yield select((state: State) => state.router);
-
-      if (location.pathname === '/marketplace') {
-        const {
-          data: { items }
-        } = response;
-        if (Array.isArray(items)) {
-          yield put(
-            removeBookFromWishlist.removeHeart(
-              items.map(item => item.id) as string[]
-            )
-          );
-        }
-      }
-      yield put(fetchMarketplaceProduct(id));
-      yield put(removeBookFromWishlist.success(response.data));
+      yield put(handle(isLibrary ? response.data : id));
       yield put(
         toggleToast({
           status: 'success',

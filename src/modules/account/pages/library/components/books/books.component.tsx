@@ -35,7 +35,8 @@ const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
             dispatch(
               removeBookFromWishlist({
                 id,
-                preloader: Preloaders.libraryWishlist
+                preloader: Preloaders.libraryWishlist,
+                page: '/account/library/wishlist'
               })
             )
           }

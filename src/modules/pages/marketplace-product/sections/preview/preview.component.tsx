@@ -76,25 +76,19 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
         </div>
         <div className={styles.info}>
           {authorized && (
-            <div className={styles.icon}>
-              <Icon
-                className={styles.like}
-                name={inWishlist ? 'heart' : 'like'}
-                onClick={() => {
-                  const data = { id, preloader: Preloaders.marketplaceProduct };
+            <Icon
+              className={styles.like}
+              name={inWishlist ? 'heart' : 'like'}
+              onClick={() => {
+                const data = { id, page: `/marketplace/${id}` };
 
-                  dispatch(
-                    inWishlist
-                      ? removeBookFromWishlist(data)
-                      : addBookToWishlist(data)
-                  );
-                }}
-              />
-              <Preloader
-                className={styles.iconPreloader}
-                id={Preloaders.marketplace}
-              />
-            </div>
+                dispatch(
+                  inWishlist
+                    ? removeBookFromWishlist(data)
+                    : addBookToWishlist(data)
+                );
+              }}
+            />
           )}
           <div className={styles.caption}>{name}</div>
           <div className={styles.description}>{previewDescription}</div>

@@ -2,7 +2,7 @@ import { reducer } from 'redux-chill';
 import { addBookToWishlist, removeBookFromWishlist } from '../account';
 import {
   fetchMarketplaceByCategory,
-  fetchMarketplaceCategories,
+  fetchMarketplace,
   fetchMarketplaceProduct
 } from './actions';
 import { MarketplaceState } from './state';
@@ -11,8 +11,9 @@ import { MarketplaceState } from './state';
  * marketplace state
  */
 const marketplace = reducer(new MarketplaceState())
-  .on(fetchMarketplaceCategories.success, (state, payload) => {
-    state.categories = payload;
+  .on(fetchMarketplace.success, (state, { carousel, categories }) => {
+    state.categories = categories;
+    state.slider = carousel;
   })
   .on(fetchMarketplaceByCategory.success, (state, payload) => {
     state.selectedCategory = payload;
@@ -20,10 +21,10 @@ const marketplace = reducer(new MarketplaceState())
   .on(fetchMarketplaceProduct.success, (state, payload) => {
     state.selectedProduct = payload;
   })
-  .on(addBookToWishlist.success, (state, payload) => {
+  .on(addBookToWishlist.marketplace, (state, id) => {
     state.categories = state.categories.map(category => {
       category.items = category.items.map(item => {
-        if (item.id === payload) {
+        if (item.id === id) {
           item.inWishlist = true;
         }
         return item;
@@ -31,16 +32,22 @@ const marketplace = reducer(new MarketplaceState())
       return category;
     });
   })
-  .on(removeBookFromWishlist.removeHeart, (state, payload) => {
+  .on(addBookToWishlist.product, state => {
+    state.selectedProduct.inWishlist = true;
+  })
+  .on(removeBookFromWishlist.marketplace, (state, id) => {
     state.categories = state.categories.map(category => {
       category.items = category.items.map(item => {
-        if (!payload.includes(item.id)) {
+        if (item.id == id) {
           item.inWishlist = false;
         }
         return item;
       });
       return category;
     });
+  })
+  .on(removeBookFromWishlist.product, state => {
+    state.selectedProduct.inWishlist = false;
   });
 
 export { marketplace };
