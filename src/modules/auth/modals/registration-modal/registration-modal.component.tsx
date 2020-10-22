@@ -17,14 +17,15 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({}) => {
   return (
     <React.Fragment>
       <Modal id={Modals.registration} className={styles.registrationModal}>
-        <Preloader id={Preloaders.login} />
-        <Icon
-          name='close-modal'
-          className={styles.closeModal}
-          onClick={() => dispatch(closeModal(Modals.registration))}
-        />
-        <ModalHeader />
-        <ModalLogin />
+        <Preloader id={Preloaders.login}>
+          <Icon
+            name='close-modal'
+            className={styles.closeModal}
+            onClick={() => dispatch(closeModal(Modals.registration))}
+          />
+          <ModalHeader />
+          <ModalLogin />
+        </Preloader>
       </Modal>
     </React.Fragment>
   );

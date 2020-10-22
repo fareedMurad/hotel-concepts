@@ -88,7 +88,6 @@ class AuthSaga {
         data: { newUser }
       } = response;
       localStorage.setItem('isAuthorized', 'true');
-
       yield put(getUser.success(user.data));
       yield put(
         toggleToast({
