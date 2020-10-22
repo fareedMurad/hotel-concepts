@@ -1,7 +1,9 @@
+import { ScrollToTop } from '@app';
 import { Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useCartData } from './cart.hook';
 import * as styles from './cart.scss';
 import { CartItem, Product, Summary } from './components';
@@ -11,13 +13,20 @@ import { CartItem, Product, Summary } from './components';
  */
 const Cart: React.FC = () => {
   const { products, summaryData } = useCartData();
+  const { t } = useTranslation();
   const cartQuantity = products?.length;
 
   return (
     <div className={styles.cart}>
+      <ScrollToTop />
       <div className={styles.header}>
-        <div className={styles.headerCaption}>My cart</div>
-        <div className={styles.headerQuantity}>{cartQuantity} items</div>
+        <div className={styles.headerWrap}>
+          <div className={styles.headerTitle}>{t('cart.title')}</div>
+          <div className={styles.headerQuantity}>
+            {cartQuantity} {t('cart.items')}
+          </div>
+        </div>
+        <span className={styles.headerPrecaption}>{t('cart.precaption')}</span>
       </div>
 
       <div className={styles.container}>
@@ -36,15 +45,27 @@ const Cart: React.FC = () => {
               <div className={styles.alternatives}>
                 <div className={styles.divider}>
                   <span className={styles.dividerLine} />
-                  <div className={styles.dividerCaption}>Or checkout with</div>
+                  <div className={styles.dividerCaption}>
+                    {t('cart.diviver-caption')}
+                  </div>
                   <span className={styles.dividerLine} />
                 </div>
-                <div>Paypal</div>
-                <div>Visa checkout</div>
+                <div className={styles.paymentMethods}>
+                  <img src={require('img/payments/visa.png')} width={90} />
+                  <img
+                    src={require('img/payments/master-card.png')}
+                    width={47}
+                  />
+                  <img
+                    src={require('img/payments/american-express.png')}
+                    width={45}
+                  />
+                  <img src={require('img/payments/paypal.png')} width={102} />
+                </div>
               </div>
             </Fragment>
           ) : (
-            <div className={styles.placeholder}>Your cart is empty</div>
+            <div className={styles.placeholder}>{t('cart.placeholder')}</div>
           )}
         </Preloader>
       </div>

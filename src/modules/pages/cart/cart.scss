@@ -14,11 +14,15 @@
 }
 
 .header {
-  @include flex(space-between, flex-end);
   padding-bottom: 16px;
-  border-bottom: 1px solid $light-grey;
+  border-bottom: 2px solid $light-grey;
 
-  &__caption {
+  &__wrap {
+    @include flex(space-between, flex-end);
+  }
+
+  &__title {
+    @include flex($direction: column);
     @include font($primary-gray, 36px, 600, normal);
     font-family: $EBGaramond;
 
@@ -29,8 +33,14 @@
   }
 
   &__quantity {
-    @include font($primary-gray, 18px, 400, 24px);
+    @include font($primary-gray, 18px, 600, 24px);
     font-family: $EBGaramond;
+  }
+
+  &--precaption {
+    @include font($light-grey, 12px, 500, 16px);
+    margin-top: 4px;
+    font-family: $IBMPlex;
   }
 }
 
@@ -57,7 +67,7 @@
 
 .hr {
   width: 100%;
-  height: 1px;
+  height: 2px;
   background-color: $light-grey;
 }
 
@@ -71,12 +81,17 @@
 
   &__line {
     flex: 1;
-    height: 1px;
+    height: 2px;
     background-color: $light-grey;
   }
 
   &__caption {
-    @include font($primary-gray, 18px, 400, 28px);
+    @include font($primary-gray, 16px, 400, 22px);
     margin: 0 10px;
   }
+}
+
+.payment-methods {
+  @include flex($justify: space-between);
+  padding: 6px 66px;
 }

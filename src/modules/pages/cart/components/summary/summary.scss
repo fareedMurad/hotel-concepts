@@ -5,7 +5,7 @@
 }
 
 .title {
-  @include font($primary-gray, 28px, 400, 28px);
+  @include font($primary-gray, 36px, 600, 46px);
   font-family: $EBGaramond;
 }
 
@@ -21,7 +21,7 @@
   }
 
   &__value {
-    @include font($primary-gray, 14px, 500, 18px);
+    @include font($primary-gray, 18px, 500, 28px);
 
     &__shipping {
       color: $primary-orange;
@@ -29,7 +29,7 @@
   }
 
   &__label {
-    @include font($primary-gray, 14px, 500, 18px);
+    @include font($primary-gray, 18px, 500, 28px);
   }
 }
 
@@ -42,8 +42,13 @@
 
 .total {
   @include flex($justify: space-between);
-  @include font($primary-gray, 28px, 400, 28px);
+  @include font($primary-gray, 28px, 400, 35px);
   font-family: $EBGaramond;
+}
+
+.hint {
+  @include font($primary-gray, 16px, 400, 22px);
+  margin-top: 16px;
 }
 
 .submit {

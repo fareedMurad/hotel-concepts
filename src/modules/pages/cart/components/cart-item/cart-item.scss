@@ -2,23 +2,30 @@
 
 .cart-item {
   @include flex();
-  margin-bottom: 15px;
+  width: 486px;
+  height: 234px;
+  margin-bottom: 32px;
 
   &__image {
     @include flex($direction: column, $align: center);
     & > img {
-      width: 130px;
-      height: 180px;
+      width: 150px;
+      height: 206px;
       object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0px 10px 10px #00000016;
     }
   }
 
   &__info {
     @include flex($direction: column);
-    padding: 0 15px 0 15px;
+    height: 100%;
+
+    padding: 0 16px 28px 16px;
 
     &--title {
       @include font($primary-gray, 24px, 400, 28px);
+      max-width: 100%;
     }
   }
 }
@@ -44,6 +51,10 @@
       text-align: center;
       -webkit-appearance: none;
       outline: none;
+
+      &::placeholder {
+        color: $light-grey;
+      }
     }
   }
   &--price {
@@ -58,7 +69,7 @@
 }
 
 .remove {
-  @include font($primary-orange, 14px, 500, 28px);
+  @include font($primary-orange, 16px, 500, 22px);
   margin-top: 5px;
   text-decoration: underline;
   cursor: pointer;
