@@ -11,8 +11,8 @@ import { Modals } from '@ui/models';
 const useCartData = () => {
   const dispatch = useDispatch();
   const {
-    cart: { selectedProducts, products }
-    // auth: { authorized }
+    cart: { selectedProducts, products },
+    auth: { authorized }
   } = useSelector((state: State) => state);
 
   /**
@@ -27,9 +27,11 @@ const useCartData = () => {
     };
   }, []);
 
-  if (selectedProducts?.length > products?.length) {
-    dispatch(getProducts());
-  }
+  useEffect(() => {
+    if (selectedProducts?.length > products?.length) {
+      dispatch(getProducts());
+    }
+  }, [selectedProducts]);
 
   if (
     selectedProducts?.length !== products?.length ||
@@ -107,9 +109,9 @@ const useCartData = () => {
         path: item.id,
         quantity: item.quantity
       }));
-      // authorized
-      //   ? dispatch(checkout(items))
-      //   : dispatch(showModal(Modals.registration));
+      authorized
+        ? dispatch(checkout(items))
+        : dispatch(showModal(Modals.registration));
     }
   };
 

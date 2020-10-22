@@ -52,7 +52,7 @@ const Cart: React.FC = () => {
             <div className={styles.placeholder}>Your cart is empty</div>
           )}
         </Preloader>
-        {/* <RegistrationModal /> */}
+        <RegistrationModal />
       </div>
     </div>
   );
