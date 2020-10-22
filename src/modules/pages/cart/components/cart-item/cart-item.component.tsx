@@ -17,6 +17,13 @@ const CartItem: React.FC<CartItemProps> = ({
   id
 }) => {
   const dispatch = useDispatch();
+  const [value, setValue] = React.useState(quantity.toString() || '1');
+
+  React.useEffect(() => {
+    const filteredValue = value.replace(/\D+/g, '');
+    setValue(filteredValue);
+    dispatch(cart.update({ path: id, quantity: Number(filteredValue) }));
+  }, [value]);
 
   return (
     <div className={styles.cartItem}>
@@ -36,13 +43,12 @@ const CartItem: React.FC<CartItemProps> = ({
           <div className={styles.descriptionAmount}>
             Amount:{' '}
             <input
-              onChange={e =>
-                dispatch(
-                  cart.update({ path: id, quantity: Number(e.target.value) })
-                )
-              }
-              type='number'
+              onChange={e => {
+                setValue(e.target.value);
+              }}
+              type='text'
               placeholder={quantity?.toString()}
+              value={value}
             />
           </div>
           <div className={styles.descriptionPrice}>

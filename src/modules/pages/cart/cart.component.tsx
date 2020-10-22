@@ -12,12 +12,14 @@ import { CartItem, Product, Summary } from './components';
 const Cart: React.FC = () => {
   const { products, summaryData } = useCartData();
   const cartQuantity = products?.length;
-
+  console.log(cartQuantity);
   return (
     <div className={styles.cart}>
       <div className={styles.header}>
         <div className={styles.headerCaption}>My cart</div>
-        <div className={styles.headerQuantity}>{cartQuantity} items</div>
+        {cartQuantity && (
+          <div className={styles.headerQuantity}>{cartQuantity} items</div>
+        )}
       </div>
 
       <div className={styles.container}>
