@@ -786,6 +786,11 @@
       "interests": "Paths you are interested in",
       "comment": "Comment",
       "button-text": "Send Request"
+    },
+    "success-alert": {
+      "title": "Thank you",
+      "hint": "We received your message and will get in touch soon",
+      "button-text": "Download presentation"
     }
   }
 }
