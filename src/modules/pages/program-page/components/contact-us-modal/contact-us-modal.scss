@@ -1,9 +1,11 @@
 @import 'core.scss';
 
 .modal {
+  position: relative;
   width: 692px;
   box-shadow: 0px 4px 10px #000016;
   padding: 6px 74px 40px 74px;
+  border-radius: 4px;
 }
 
 .title {
@@ -40,4 +42,9 @@
       /** */
     }
   }
+}
+
+.close-modal {
+  position: absolute;
+  right: 30px;
 }

@@ -1,8 +1,10 @@
-import { Button, Field, Form, Modal } from '@core/components';
+import { Button, Field, Form, Icon, Modal } from '@core/components';
+import { closeModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import { Formik } from 'formik';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import { ContactUsModalProps } from './contact-us-modal.props';
 import * as styles from './contact-us-modal.scss';
 import {
@@ -14,10 +16,16 @@ import {
  * Renders ContactUsModal
  */
 const ContactUsModal: React.FC<ContactUsModalProps> = ({}) => {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   return (
     <React.Fragment>
       <Modal id={Modals.contactUs} className={styles.modal}>
+        <Icon
+          name='close-modal'
+          className={styles.closeModal}
+          onClick={() => dispatch(closeModal(Modals.contactUs))}
+        />
         <div className={styles.title}>{t('modal-contact-us.title')}</div>
         <div className={styles.caption}>{t('modal-contact-us.caption')}</div>
         <Formik
