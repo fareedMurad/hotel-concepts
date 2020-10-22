@@ -1,20 +1,19 @@
+import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
+import { cart } from '@app/redux/cart';
 import { Button, Icon } from '@core/components';
+import { SEO } from '@core/components/seo/seo.component';
+import { ShareSocial } from '@core/components/share';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { BookPreviewModal } from '@pages/components';
+import { readBook } from '@ui/modal';
+import { Preloaders } from '@ui/models';
+import moment from 'moment';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { PreviewProps } from './preview.props';
 import * as styles from './preview.scss';
-import moment from 'moment';
-import { useDispatch } from 'react-redux';
-import { checkout } from '@app/redux/checkout';
-import { Modals, Preloaders } from '@ui/models';
-import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
-import { cart } from '@app/redux/cart';
-import { readBook, showModal, toggleBookPreviewModal } from '@ui/modal';
-import { ShareSocial } from '@core/components/share';
-import { SEO } from '@core/components/seo/seo.component';
-import { scrollTo } from '@core/helpers/scroll-to.helper';
-import { BookPreviewModal } from '@pages/components';
 
 /**
  * Renders Preview
@@ -29,6 +28,7 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
     img,
     name,
     price,
+    inCart,
     authors,
     languages,
     authorized,
@@ -40,7 +40,6 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
     previewDescription
   } = data;
 
-  console.log(inWishlist);
   return (
     <div className={styles.preview}>
       <SEO title={name} thumbnail={img} url={window.location.href} />
@@ -128,12 +127,13 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
           <div className={styles.controls}>
             <Button
               className={styles.checkout}
-              arrow
+              arrow={!inCart}
+              disabled={inCart}
               onClick={() => {
-                dispatch(cart.add({ path: id, quantity: 1 }));
+                !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
               }}
             >
-              Add to cart
+              {inCart ? 'In cart' : 'Add to cart'}
             </Button>
             <div className={styles.subscriptionHint}>
               <div>This book is free with subscription</div>
