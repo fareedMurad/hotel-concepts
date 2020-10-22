@@ -55,14 +55,14 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ data }) => {
                 <Button
                   className={styles.button}
                   children={
-                    item.name === 'Self Education'
+                    item.name === 'Enterprise'
                       ? t('program-page.program-enroll-now.button-text-contact')
                       : t('program-page.program-enroll-now.button-text')
                   }
                   arrow
                   width='100%'
                   onClick={() =>
-                    item.name === 'Self Education' &&
+                    item.name === 'Enterprise' &&
                     distpatch(showModal(Modals.contactUs))
                   }
                 />
