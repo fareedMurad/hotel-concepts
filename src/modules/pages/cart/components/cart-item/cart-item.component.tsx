@@ -18,7 +18,7 @@ const CartItem: React.FC<CartItemProps> = ({
 }) => {
   const dispatch = useDispatch();
   const [value, setValue] = useState(quantity.toString() || '1');
-
+  debugger;
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>

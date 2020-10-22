@@ -5,12 +5,15 @@ import { cart as cartAction, getProducts } from '@app/redux/cart';
 import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
 import { checkout } from '@app/redux/checkout';
 import { isBackgroundWhite } from '@core/components/header/store';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 
 const useCartData = () => {
   const dispatch = useDispatch();
-  const { selectedProducts, products } = useSelector(
-    (state: State) => state.cart
-  );
+  const {
+    cart: { selectedProducts, products }
+    // auth: { authorized }
+  } = useSelector((state: State) => state);
 
   /**
    * Mount
@@ -104,7 +107,9 @@ const useCartData = () => {
         path: item.id,
         quantity: item.quantity
       }));
-      dispatch(checkout(items));
+      // authorized
+      //   ? dispatch(checkout(items))
+      //   : dispatch(showModal(Modals.registration));
     }
   };
 

@@ -47,12 +47,7 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
           <div>Order Total</div>
           <div>$ {total}</div>
         </div>
-        <Button
-          arrow
-          className={styles.submit}
-          onClick={onClick}
-          disabled={!isAccountVerified}
-        >
+        <Button arrow className={styles.submit} onClick={onClick}>
           Checkout
         </Button>
       </div>

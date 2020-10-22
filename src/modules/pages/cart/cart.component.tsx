@@ -1,7 +1,10 @@
+import { RegistrationModal } from '@auth/modals/registration-modal';
 import { Preloader } from '@core/components';
-import { Preloaders } from '@ui/models';
+import { showModal } from '@ui/modal';
+import { Modals, Preloaders } from '@ui/models';
 import * as React from 'react';
 import { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
 import { useCartData } from './cart.hook';
 import * as styles from './cart.scss';
 import { CartItem, Summary } from './components';
@@ -49,6 +52,7 @@ const Cart: React.FC = () => {
             <div className={styles.placeholder}>Your cart is empty</div>
           )}
         </Preloader>
+        {/* <RegistrationModal /> */}
       </div>
     </div>
   );
