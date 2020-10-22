@@ -683,6 +683,7 @@
     "program-enroll-now": {
       "title": "Enroll now",
       "button-text": "Enroll now",
+      "button-text-contact": "Contact us",
       "sub-title": "Features"
     },
     "program-quote": {
@@ -771,6 +772,20 @@
     "form": {
       "title": "Want to get involved?",
       "subtitle": "We’re always happy to talk if you are interested in becoming a Partner"
+    }
+  },
+  "modal-contact-us": {
+    "title": "Contact us",
+    "caption": "Please fill in the form below and we will get in touch with you shortly",
+    "form": {
+      "name": "Your Name",
+      "email": "Contact E-mail",
+      "company": "Property / Company Name",
+      "website": "Website",
+      "team": "Team size",
+      "interests": "Paths you are interested in",
+      "comment": "Comment",
+      "button-text": "Send Request"
     }
   }
 }

@@ -30,12 +30,12 @@
   padding: 10px;
   font-size: 16px;
   color: $black;
-  background: $white;
+  background: $background;
   transition: $transition;
   &:hover,
   &--selected {
     color: $white;
-    background: $primary;
+    background: $primary-orange;
   }
 }
 
@@ -54,7 +54,7 @@
   @include flex(flex-start, center);
   height: 44px;
   padding: 12px 8px;
-  background: white;
+  background: $background;
   border: unset;
   border-radius: 4px;
   transition: $transition;

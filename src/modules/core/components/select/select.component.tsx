@@ -69,7 +69,8 @@ const Select: React.FC<SelectProps> = ({
   searchable,
   disabled,
   getOptionValue,
-  whiteBackground
+  whiteBackground,
+  theme
 }) => {
   const [focused, setFocused] = useState(false);
 
