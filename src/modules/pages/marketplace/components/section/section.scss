@@ -3,10 +3,6 @@
 .section {
 }
 
-.slider-item {
-  padding: 0 10px;
-}
-
 .container {
   @include tablet() {
     margin-left: 60px;
@@ -38,18 +34,11 @@
   }
 }
 
-.slider {
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 20px;
   margin-top: 24px;
-  margin-bottom: 0;
-
-  @include tablet() {
-    margin-top: 48px;
-  }
-
-  & > ul {
-    align-items: stretch;
-    margin-bottom: 76px;
-  }
 }
 
 .book {
@@ -82,27 +71,14 @@
   background: #cbd0d3;
 }
 
-.meta {
-  @include flex(space-between, center);
-  margin-top: 16px;
-}
-
 .price {
   @include font($primary-gray, 18px, 600, 24px);
+  margin-top: 16px;
   width: fit-content;
   padding: 8px 12px;
   font-family: $EBGaramond;
   border-radius: 4px;
   background: $white;
-}
-
-.authors {
-  @include flex($align: stretch, $direction: column);
-  max-width: 50%;
-}
-
-.author {
-  @include font($primary-gray, 18px, 400, 28px);
 }
 
 .name {

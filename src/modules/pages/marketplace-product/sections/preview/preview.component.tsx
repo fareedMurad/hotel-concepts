@@ -1,6 +1,6 @@
+import { Button, Icon, Preloader } from '@core/components';
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 import { cart } from '@app/redux/cart';
-import { Button, Icon } from '@core/components';
 import { SEO } from '@core/components/seo/seo.component';
 import { ShareSocial } from '@core/components/share';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
@@ -80,7 +80,7 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
               className={styles.like}
               name={inWishlist ? 'heart' : 'like'}
               onClick={() => {
-                const data = { id, preloader: Preloaders.marketplaceProduct };
+                const data = { id, page: `/marketplace/${id}` };
 
                 dispatch(
                   inWishlist

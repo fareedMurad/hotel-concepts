@@ -12,6 +12,10 @@ type HeroProps = {
    * Categories
    */
   categories: MarketplaceCategory[];
+  /**
+   * Slider data
+   */
+  slider: { title: string; url: string }[];
 };
 
 export { HeroProps };
