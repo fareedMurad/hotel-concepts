@@ -16,6 +16,7 @@ import { Burger } from './burger';
 import { useEffect, useState } from 'react';
 import { useIconAnimation } from './hooks/burger-icon-animation';
 import { animated } from 'react-spring';
+import { CartMenu } from './menus/cart-menu';
 
 /**
  * Renders HeaderMain
@@ -101,6 +102,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
           <div
             className={styles.cart}
             onClick={() => dispatch(navigate('/cart'))}
+            onMouseOver={() => setSelectedMenu('Cart')}
           >
             <Icon
               name='shopping-cart'
@@ -109,6 +111,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             {cartQuantity > 0 && (
               <div className={styles.indicator}>{cartQuantity}</div>
             )}
+            {selectedMenu === 'Cart' && <CartMenu />}
           </div>
 
           <div className={styles.headerMainNavigationProfile}>

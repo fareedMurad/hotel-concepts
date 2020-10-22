@@ -1,0 +1,22 @@
+@import 'core.scss';
+
+.cart-menu {
+  position: absolute;
+  right: 0;
+  width: 488px;
+  border-radius: 6px;
+}
+
+.title {
+  @include font($primary-gray, 18px, 600, normal);
+  padding: 19px 0;
+  font-family: $EBGaramond;
+  text-align: center;
+  background-color: $background;
+  text-align: center;
+}
+
+.item {
+  padding: 27px 33px;
+  background-color: $white;
+}

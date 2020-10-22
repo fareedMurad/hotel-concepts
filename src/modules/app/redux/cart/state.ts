@@ -12,6 +12,7 @@ class CartState {
   // public selectedProducts: string[] = [];
   public selectedProducts: Product[] = [];
   public products: (Program | Book)[] = [];
+  public lastProduct: Program | Book = null;
 }
 
 export { CartState };
