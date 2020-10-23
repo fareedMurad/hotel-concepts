@@ -4,7 +4,8 @@ import {
   selectCategory,
   getSingleCategory,
   getSingleProgram,
-  getCategories
+  getCategories,
+  sendRequest
 } from './actions';
 import { Context } from '../context';
 import { put, call, select } from 'redux-saga/effects';
@@ -113,6 +114,20 @@ class ProgramsSaga {
       console.log(err);
     } finally {
       yield put(preloaderStop(Preloaders.programs));
+    }
+  }
+
+  /*
+   * Saga send request contact us
+   */
+
+  @Saga(sendRequest)
+  public *sendRequest(payload: Payload<typeof sendRequest>, { api }: Context) {
+    console.log(payload);
+    try {
+      yield call(api.form.sendForm, payload);
+    } catch (error) {
+      console.log(error);
     }
   }
 }
