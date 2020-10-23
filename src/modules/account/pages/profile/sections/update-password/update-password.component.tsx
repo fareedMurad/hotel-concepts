@@ -1,6 +1,7 @@
 import { Card } from '@account/components';
 import { editPasswordAndEmail } from '@app/redux/account';
 import { Button, Field, FormNew, Preloader } from '@core/components';
+import { capitalize } from '@core/shared';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import { Formik } from 'formik';
@@ -17,7 +18,7 @@ import * as styles from './update-password.scss';
  */
 const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
   const dispatch = useDispatch();
-  const { isInternalSource, defaultValues } = useUpdatePasswordData();
+  const { isInternalSource, defaultValues, source } = useUpdatePasswordData();
 
   return (
     <Card
@@ -63,6 +64,12 @@ const UpdatePassword: React.FC<UpdatePasswordProps> = ({ className }) => {
                   type='password'
                   disabled={!isInternalSource}
                 />
+                {!isInternalSource && (
+                  <div className={styles.hint}>
+                    You're logged in with your {capitalize(source)} account,
+                    password cannot be changed
+                  </div>
+                )}
                 <Button
                   className={styles.submit}
                   onClick={() => handleSubmit()}

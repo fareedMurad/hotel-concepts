@@ -17,7 +17,7 @@ const useUpdatePasswordData = () => {
 
   const isInternalSource = user?.source == UserSource.internal;
 
-  return { isInternalSource, defaultValues };
+  return { isInternalSource, defaultValues, source: user?.source };
 };
 
 export { useUpdatePasswordData };

@@ -6,17 +6,21 @@ import { MarketplaceCategory } from '@pages/marketplace/models';
  */
 class MarketplaceState {
   /**
+   * Marketplace slider
+   */
+  public slider: { title: string; url: string }[] = [];
+  /**
    * Categories
    */
   public categories: {
-    category: MarketplaceCategory['category'];
+    category: MarketplaceCategory;
     items: Book[];
     total: number;
   }[] = [];
   /**
    * Selected category
    */
-  public selectedCategory: MarketplaceCategory['category'] = null;
+  public selectedCategory: MarketplaceCategory = null;
   /**
    * Selected product
    */

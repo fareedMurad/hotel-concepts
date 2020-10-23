@@ -7,7 +7,7 @@ import { call, put } from 'redux-saga/effects';
 import { Context } from '../context';
 import {
   fetchMarketplaceByCategory,
-  fetchMarketplaceCategories,
+  fetchMarketplace,
   fetchMarketplaceList,
   fetchMarketplaceProduct
 } from './actions';
@@ -45,17 +45,14 @@ class MarketplaceSaga {
   /**
    * Fetch marketplace categories
    */
-  @Saga(fetchMarketplaceCategories)
-  public *fetchMarketplaceCategories(_, { api }: Context) {
+  @Saga(fetchMarketplace)
+  public *fetchMarketplace(_, { api }: Context) {
     yield put(preloaderStart(Preloaders.marketplace));
 
     try {
-      const response = yield call(
-        api.marketplace.fetchMarketplaceCategories,
-        'en-US'
-      );
+      const response = yield call(api.marketplace.fetchMarketplace, 'en-US');
 
-      yield put(fetchMarketplaceCategories.success(response.data));
+      yield put(fetchMarketplace.success(response.data));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

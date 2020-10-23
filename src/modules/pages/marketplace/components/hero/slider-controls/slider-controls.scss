@@ -1,0 +1,42 @@
+@import 'core.scss';
+
+.slider-controls {
+  @include flex(space-between, center);
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 10%;
+
+  @include tablet() {
+    bottom: 15%;
+  }
+
+  @include desktop() {
+    top: 50%;
+    left: 54px;
+    right: 54px;
+    bottom: unset;
+    transform: translateY(-50%);
+  }
+}
+
+.control {
+  @include flex(center, center);
+  @include size(60px);
+  @include min-size(60px);
+  border-radius: 50%;
+  background: rgba($white, 0.36);
+  cursor: pointer;
+
+  &--disabled {
+    cursor: not-allowed;
+
+    & > div {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.arrow-right {
+  transform: rotate(180deg);
+}

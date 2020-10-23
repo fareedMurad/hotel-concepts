@@ -1,5 +1,4 @@
 import { BookAuthor, FileModel } from '@account/pages/library/models';
-import { PreviewPages } from '@app/models';
 
 /**
  * Props
@@ -13,6 +12,7 @@ type PreviewProps = {
     img: string;
     name: string;
     price: number;
+    inCart: boolean;
     languages: string;
     authorized: boolean;
     publishDate: string;
