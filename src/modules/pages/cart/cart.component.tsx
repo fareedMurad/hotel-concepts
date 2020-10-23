@@ -11,9 +11,10 @@ import * as styles from './cart.scss';
 import { CartItem, Summary } from './components';
 
 /**
- * Place holder
+ * Placeholder
  */
-const CartPlaceHolder: React.FC<any> = ({ t }) => {
+const CartPlaceholder: React.FC = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   return (
     <div className={styles.placeholder}>
@@ -23,7 +24,12 @@ const CartPlaceHolder: React.FC<any> = ({ t }) => {
       <div className={styles.placeholderCaption}>
         {t('cart.placeholder.caption')}
       </div>
-      <Button width={250} arrow onClick={() => dispatch(navigate('/'))}>
+      <Button
+        className={styles.placeholderButton}
+        width={250}
+        arrow
+        onClick={() => dispatch(navigate('/'))}
+      >
         {t('cart.placeholder.button-text')}
       </Button>
     </div>
@@ -45,7 +51,7 @@ const Cart: React.FC = () => {
         <div className={styles.headerWrap}>
           <div className={styles.headerTitle}>{t('cart.title')}</div>
           <div className={styles.headerQuantity}>
-            {cartQuantity} {t('cart.items')}
+            {cartQuantity || 0} {t('cart.items')}
           </div>
         </div>
         <span className={styles.headerPrecaption}>{t('cart.precaption')}</span>
@@ -87,7 +93,7 @@ const Cart: React.FC = () => {
               </div>
             </Fragment>
           ) : (
-            <CartPlaceHolder t={t} />
+            <CartPlaceholder />
           )}
         </Preloader>
       </div>
