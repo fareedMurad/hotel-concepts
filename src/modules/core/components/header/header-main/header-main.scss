@@ -63,10 +63,6 @@
 .cart {
   position: relative;
   margin-right: 20px;
-
-  & > div > div {
-    @include flex();
-  }
 }
 
 .indicator {

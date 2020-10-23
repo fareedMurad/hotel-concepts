@@ -111,7 +111,8 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             {cartQuantity > 0 && (
               <div className={styles.indicator}>{cartQuantity}</div>
             )}
-            {selectedMenu === 'Cart' && <CartMenu />}
+            {/* {selectedMenu === 'Cart' && <CartMenu />} */}
+            <CartMenu />
           </div>
 
           <div className={styles.headerMainNavigationProfile}>
