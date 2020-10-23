@@ -1,0 +1,17 @@
+@import 'core.scss';
+
+.faq {
+  @include flex($align: stretch, $direction: column);
+  padding: 80px 20px;
+}
+
+.title {
+  @include font($primary-gray, 36px, 500, 46px);
+  padding-left: 114px;
+  font-family: $EBGaramond;
+}
+
+.content {
+  margin-top: 50px;
+  padding: 0;
+}

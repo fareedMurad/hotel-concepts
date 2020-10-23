@@ -13,8 +13,10 @@ const handleError = make('[general] handle error').stage(
 );
 
 /**
- * Connect socket
+ * Handle cookie notifier
  */
-const connectSocket = make('[general] connect socket');
+const toggleCookieBanner = make('[general] toggle cookie banner').stage(
+  (payload: boolean) => payload
+);
 
-export { startup, handleError, connectSocket };
+export { startup, handleError, toggleCookieBanner };

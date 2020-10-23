@@ -1,0 +1,79 @@
+@import 'core.scss';
+
+.reading {
+  @include flex($align: stretch, $direction: column);
+  padding: 80px 0 0 48px;
+}
+
+.head {
+  @include flex($align: stretch, $direction: column);
+  padding-left: 86px;
+}
+
+.title {
+  @include font($primary-gray, 48px, 600, 58px);
+  font-family: $EBGaramond;
+}
+
+.description {
+  @include font($primary-gray, 18px, 400, 28px);
+  max-width: 444px;
+  margin-top: 24px;
+}
+
+.formats {
+  @include flex($align: stretch, $direction: column);
+  margin-top: 24px;
+}
+
+.format {
+  @include flex($align: center);
+
+  &__caption {
+    @include font($primary-orange, 18px, 600, 28px);
+    margin-right: 4px;
+    font-family: $EBGaramond;
+  }
+
+  &__description {
+    @include font($primary-gray, 18px, 400, 28px);
+    font-family: $EBGaramond;
+  }
+}
+
+.preview {
+  position: relative;
+  height: 524px;
+  margin-top: 40px;
+
+  &__image {
+    position: absolute;
+
+    &--ebook {
+      top: 53px;
+      left: 0;
+      z-index: 2;
+      width: 20%;
+    }
+
+    &--phone {
+      top: 110px;
+      left: 16%;
+      z-index: 3;
+      width: 12%;
+    }
+
+    &--tablet {
+      top: 53px;
+      right: 48%;
+      z-index: 2;
+      width: 28%;
+    }
+
+    &--laptop {
+      right: 0;
+      z-index: 1;
+      width: 60.5%;
+    }
+  }
+}

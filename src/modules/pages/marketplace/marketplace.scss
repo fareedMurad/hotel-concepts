@@ -4,22 +4,3 @@
   @include flex($align: stretch, $direction: column);
   flex: 1;
 }
-
-.content {
-  @include flex($align: stretch, $direction: column);
-  padding: 40px 20px 40px 20px;
-
-  @include tablet() {
-    padding: 60px 20px 120px 20px;
-  }
-}
-
-.section {
-  &:not(:first-child) {
-    margin-top: 60px;
-
-    @include tablet() {
-      margin-top: 80px;
-    }
-  }
-}
