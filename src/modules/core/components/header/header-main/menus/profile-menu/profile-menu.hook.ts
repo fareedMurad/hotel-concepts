@@ -1,4 +1,8 @@
+import { State } from '@app/redux/state';
+import { useSelector } from 'react-redux';
+
 const useProfileMenuData = () => {
+  const { authorized, user } = useSelector((state: State) => state.auth);
   const links = [
     {
       title: 'my Account',
@@ -17,7 +21,7 @@ const useProfileMenuData = () => {
       to: '/account/programs/purchased'
     }
   ];
-  return { links };
+  return { links, authorized, user };
 };
 
 export { useProfileMenuData };

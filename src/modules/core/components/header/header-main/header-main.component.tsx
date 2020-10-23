@@ -135,18 +135,17 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                 <ProfileMenu setSelectedMenu={setSelectedMenu} />
               )}
             </div>
-
-            <LocalizationMenu
-              setSelectedMenu={setSelectedMenu}
-              selectedMenu={selectedMenu}
-              className={classNames(styles.local, {
-                [styles.invertedHeader]: whiteBackground || isSticky
-              })}
-              iconName={
-                whiteBackground || isSticky ? 'triangle-arr-b' : 'triangle-arr'
-              }
-            />
           </div>
+          <LocalizationMenu
+            setSelectedMenu={setSelectedMenu}
+            selectedMenu={selectedMenu}
+            className={classNames(styles.local, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+            iconName={
+              whiteBackground || isSticky ? 'triangle-arr-b' : 'triangle-arr'
+            }
+          />
         </div>
       )}
     </div>
