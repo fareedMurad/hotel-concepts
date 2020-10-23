@@ -12,15 +12,16 @@ const fetchMarketplaceList = make('[marketplace] fetch list')
 /**
  * Fetch marketplace categories
  */
-const fetchMarketplaceCategories = make('[marketplace] fetch categories').stage(
+const fetchMarketplace = make('[marketplace] fetch categories').stage(
   'success',
-  (
-    payload: {
+  (payload: {
+    carousel: { title: string; url: string }[];
+    categories: {
       category: MarketplaceCategory['category'];
       items: Book[];
       total: number;
-    }[]
-  ) => payload
+    }[];
+  }) => payload
 );
 
 /**
@@ -39,7 +40,7 @@ const fetchMarketplaceProduct = make('[marketplace] fetch product')
 
 export {
   fetchMarketplaceList,
-  fetchMarketplaceCategories,
+  fetchMarketplace,
   fetchMarketplaceByCategory,
   fetchMarketplaceProduct
 };

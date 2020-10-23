@@ -12,13 +12,13 @@ import * as styles from './marketplace.scss';
  */
 const Marketplace: React.FC = () => {
   const { t } = useTranslation();
-  const { categories, authorized, user } = useMarketplaceData();
+  const { categories, slider, authorized, user } = useMarketplaceData();
   const dispatch = useDispatch();
 
   return (
     <div className={styles.marketplace}>
       <Preloader id={Preloaders.marketplace}>
-        <Hero categories={categories} />
+        <Hero categories={categories} slider={slider} />
 
         <div className={styles.content}>
           {categories?.map(({ category: { category, id }, items }) => {

@@ -5,6 +5,10 @@ import { Book } from '@account/pages/library/models';
  */
 type BookProps = {
   /**
+   * Classname
+   */
+  className?: string;
+  /**
    * Book
    */
   book: Book;
