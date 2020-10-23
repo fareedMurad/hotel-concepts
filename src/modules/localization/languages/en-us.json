@@ -772,5 +772,30 @@
       "title": "Want to get involved?",
       "subtitle": "We’re always happy to talk if you are interested in becoming a Partner"
     }
+  },
+  "cart": {
+    "title": "My cart",
+    "precaption": "Items to be delivered electronically",
+    "items": "items",
+    "diviver-caption": "Accepted Payment Methods",
+    "placeholder": "Your cart is empty",
+    "cart-item": {
+      "remove": "Remove",
+      "amount": "Amount"
+    },
+    "summary": {
+      "title": "Order summary",
+      "total": "Total",
+      "shiping": "Estimated shipping",
+      "tax": "Estimated tax",
+      "order": "Order Total",
+      "button-text": "Checkout with your account",
+      "button-text-second": "Checkout as a guest",
+      "hint": "*Proceed to checkout and you will have an oppurnity to create an account at the end"
+    },
+    "placeholder": {
+      "caption": "Your Shopping Cart is empty.",
+      "button-text": "Go to Homepage"
+    }
   }
 }

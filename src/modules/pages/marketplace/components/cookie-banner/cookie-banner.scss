@@ -1,0 +1,27 @@
+@import 'core.scss';
+
+.cookie-banner {
+  @include flex(space-between, center);
+  position: fixed;
+  z-index: 5;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 25px 20px;
+  border: 1px solid #cbd0d3;
+  box-shadow: 0 -3px 6px rgba($black, 0.16);
+  background: $white;
+}
+
+.text {
+  @include font($primary-gray, 12px, 400, 16px);
+  flex: 1;
+
+  @include desktop() {
+    margin-left: 113px;
+  }
+}
+
+.icon {
+  margin-left: 20px;
+}

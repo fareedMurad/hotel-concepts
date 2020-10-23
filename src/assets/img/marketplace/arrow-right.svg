@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19.947" height="19.947" viewBox="0 0 19.947 19.947">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="19.947" height="19.947" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_6" data-name="Repeat Grid 6" clip-path="url(#clip-path)">
+    <g transform="translate(-401.448 -2159.432)">
+      <g id="Group_386" data-name="Group 386" transform="translate(411.41 2201.348) rotate(-135)">
+        <line id="Line_51" data-name="Line 51" x1="15.515" transform="translate(16.937 22.4)" fill="none" stroke="#fb6633" stroke-width="2" opacity="0.5"/>
+        <g id="Polygon_19" data-name="Polygon 19" transform="translate(12.706 26.826) rotate(-90)" fill="#fb6633">
+          <path d="M 7.462862968444824 5.141914844512939 L 1.000002026557922 5.141914844512939 L 4.231432437896729 0.8333386778831482 L 7.462862968444824 5.141914844512939 Z" stroke="none"/>
+          <path d="M 4.231432437896729 1.666662216186523 L 2.000001907348633 4.641904830932617 L 6.462862968444824 4.641904830932617 L 4.231432437896729 1.666662216186523 M 4.231432437896729 -4.76837158203125e-06 L 8.462862014770508 5.641904830932617 L 2.86102294921875e-06 5.641904830932617 L 4.231432437896729 -4.76837158203125e-06 Z" stroke="none" fill="#fb6633"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
