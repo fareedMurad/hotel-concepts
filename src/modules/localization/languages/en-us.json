@@ -792,6 +792,10 @@
       "button-text": "Checkout with your account",
       "button-text-second": "Checkout as a guest",
       "hint": "*Proceed to checkout and you will have an oppurnity to create an account at the end"
+    },
+    "placeholder": {
+      "caption": "Your Shopping Cart is empty.",
+      "button-text": "Go to Homepage"
     }
   }
 }

@@ -1,12 +1,34 @@
 import { ScrollToTop } from '@app';
-import { Preloader } from '@core/components';
+import { Button, Icon, Preloader } from '@core/components';
+import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import { useCartData } from './cart.hook';
 import * as styles from './cart.scss';
 import { CartItem, Summary } from './components';
+
+/**
+ * Place holder
+ */
+const CartPlaceHolder: React.FC<any> = ({ t }) => {
+  const dispatch = useDispatch();
+  return (
+    <div className={styles.placeholder}>
+      <div className={styles.placeholderIcon}>
+        <Icon name='basket-placeholder' />
+      </div>
+      <div className={styles.placeholderCaption}>
+        {t('cart.placeholder.caption')}
+      </div>
+      <Button width={250} arrow onClick={() => dispatch(navigate('/'))}>
+        {t('cart.placeholder.button-text')}
+      </Button>
+    </div>
+  );
+};
 
 /**
  * Renders Cart
@@ -65,7 +87,7 @@ const Cart: React.FC = () => {
               </div>
             </Fragment>
           ) : (
-            <div className={styles.placeholder}>{t('cart.placeholder')}</div>
+            <CartPlaceHolder t={t} />
           )}
         </Preloader>
       </div>
