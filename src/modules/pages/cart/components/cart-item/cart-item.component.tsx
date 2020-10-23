@@ -1,5 +1,6 @@
 import { cart } from '@app/redux/cart';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { CartItemProps } from './cart-item.props';
@@ -17,6 +18,7 @@ const CartItem: React.FC<CartItemProps> = ({
   id
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [value, setValue] = useState(quantity.toString() || '1');
 
   return (
@@ -27,7 +29,7 @@ const CartItem: React.FC<CartItemProps> = ({
           className={styles.remove}
           onClick={() => dispatch(cart.remove(id))}
         >
-          Remove
+          {t('cart.cart-item.remove')}
         </div>
       </div>
       <div className={styles.cartItemInfo}>
@@ -35,7 +37,7 @@ const CartItem: React.FC<CartItemProps> = ({
         <div className={styles.description}>
           <div className={styles.descriptionAuthor}>{author}</div>
           <div className={styles.descriptionAmount}>
-            Amount:{' '}
+            {t('cart.cart-item.amount')}:
             <input
               onChange={e => {
                 const {

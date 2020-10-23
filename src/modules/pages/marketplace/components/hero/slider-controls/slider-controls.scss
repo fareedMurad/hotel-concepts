@@ -3,10 +3,21 @@
 .slider-controls {
   @include flex(space-between, center);
   position: absolute;
-  left: 54px;
-  right: 54px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 20px;
+  right: 20px;
+  bottom: 10%;
+
+  @include tablet() {
+    bottom: 15%;
+  }
+
+  @include desktop() {
+    top: 50%;
+    left: 54px;
+    right: 54px;
+    bottom: unset;
+    transform: translateY(-50%);
+  }
 }
 
 .control {

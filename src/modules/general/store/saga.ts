@@ -1,18 +1,9 @@
-import { Language, SocketResponseType } from '@app/models/enum';
-import { getUser } from '@app/redux/auth/actions';
-// import { checkCart } from '@app/redux/cart';
-import { Context } from '@app/redux/context';
-import { SocketService } from '@app/services';
-import { enviroment } from '@env';
+import { Language } from '@app/models/enum';
 import { setupLocalization } from '@localization/store';
-import { Preloaders } from '@ui/models';
-import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
-import { eventChannel } from 'redux-saga';
 import { all, put, spawn, take } from 'redux-saga/effects';
-import socketIOClient from 'socket.io-client';
-import { connectSocket, handleError, startup } from './actions';
+import { handleError, startup, toggleCookieBanner } from './actions';
 
 /**
  * General app methods
@@ -23,11 +14,26 @@ class GeneralSaga {
    */
   @Saga(startup)
   public *startup() {
-    // yield put(checkCart());
     yield spawn(this.run);
-
+    const cookieBanner = localStorage.getItem('kordieCookieBanner');
     const language = window.localStorage.getItem('language');
+
     yield put(setupLocalization(language || Language.en));
+
+    if (!cookieBanner && cookieBanner != 'false') {
+      yield put(toggleCookieBanner(true));
+    } else {
+      yield put(toggleCookieBanner(false));
+    }
+  }
+
+  /**
+   * Run app
+   */
+  public *run() {
+    yield all([take(setupLocalization.success)]);
+
+    yield put(startup.success());
   }
 
   /**
@@ -46,67 +52,14 @@ class GeneralSaga {
   }
 
   /**
-   * Run app
+   * Toggle cookie banner
    */
-  public *run() {
-    // const { authorized } = yield select((state: State) => state.auth);
-
-    yield all([
-      take(setupLocalization.success)
-      // take(checkCart.success)
-    ]);
-
-    yield put(startup.success());
-    // yield put(connectSocket());
-  }
-
-  /**
-   * Connect to WS
-   */
-  @Saga(connectSocket)
-  public *connect(_, context: Context) {
-    const channel = eventChannel(emit => {
-      const socket: any =
-        context.socket && context.socket.client.connected
-          ? context.socket.client
-          : socketIOClient(enviroment.socketUrl, {
-              transports: ['websocket']
-            });
-      /**
-       * Listen to events
-       */
-      socket.on('message', (data: any) => {
-        emit({ ...data, type: SocketResponseType.checkout });
-      });
-      socket.on('connect', () => {
-        context.socket = new SocketService(socket);
-      });
-      socket.on('disconnect', () => {});
-      socket.on('exception', (data: any) => {
-        console.error('exc', data);
-      });
-      return () => {
-        channel.close();
-      };
-    });
-
-    try {
-      const types = {
-        // [SocketResponseType.checkout]: receiveMessage.message
-      };
-
-      while (true) {
-        const response = yield take(channel);
-        const { type } = response;
-        if (!type) return;
-
-        const handle = types[type];
-        if (handle) {
-          yield put(handle(response));
-        }
-      }
-    } catch (error) {
-      console.log('CHANNEL CLOSED', error);
+  @Saga(toggleCookieBanner)
+  public *toggleCookieBanner(payload: Payload<typeof toggleCookieBanner>) {
+    if (payload) {
+      localStorage.setItem('kordieCookieBanner', 'true');
+    } else {
+      localStorage.setItem('kordieCookieBanner', 'false');
     }
   }
 }
