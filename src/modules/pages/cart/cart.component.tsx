@@ -5,6 +5,7 @@ import { Fragment } from 'react';
 import { useCartData } from './cart.hook';
 import * as styles from './cart.scss';
 import { CartItem, Summary } from './components';
+import { ModalInvoiceRequest } from './components/modal-invoice-request';
 
 /**
  * Renders Cart
@@ -12,7 +13,7 @@ import { CartItem, Summary } from './components';
 const Cart: React.FC = () => {
   const { products, summaryData } = useCartData();
   const cartQuantity = products?.length;
-
+  console.log(summaryData);
   return (
     <div className={styles.cart}>
       <div className={styles.header}>
@@ -49,6 +50,7 @@ const Cart: React.FC = () => {
             <div className={styles.placeholder}>Your cart is empty</div>
           )}
         </Preloader>
+        <ModalInvoiceRequest total={summaryData?.total} />
       </div>
     </div>
   );

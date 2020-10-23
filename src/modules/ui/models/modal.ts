@@ -4,6 +4,7 @@ enum Modals {
   bookOverview = 'product',
   bookPreview = 'book-preview',
   explorePage = 'explore-page',
+  invoiceRequest = 'invoice request',
 
   // Auth
   forgotPassword = 'forgot password'

@@ -10,8 +10,9 @@ import { State } from '@app/redux/state';
  * Renders Summary
  */
 const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
-  const { total, estimatedShipping, estimatedTax, onClick } = summaryData || {};
-  const { user } = useSelector((state: State) => state.auth);
+  const { total, estimatedShipping, estimatedTax, onClick, showInvoiceModal } =
+    summaryData || {};
+  const { user, authorized } = useSelector((state: State) => state.auth);
 
   const isAccountVerified = user ? user.verified : false;
 
@@ -53,8 +54,18 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
           onClick={onClick}
           disabled={!isAccountVerified}
         >
-          Checkout
+          Checkout with your account
         </Button>
+        {!authorized && (
+          <Button
+            arrow
+            className={styles.submit}
+            onClick={showInvoiceModal}
+            theme='secondary'
+          >
+            Checkout as a guest
+          </Button>
+        )}
       </div>
     </div>
   );

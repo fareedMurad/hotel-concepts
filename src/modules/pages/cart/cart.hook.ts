@@ -5,6 +5,8 @@ import { cart as cartAction, getProducts } from '@app/redux/cart';
 import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
 import { checkout } from '@app/redux/checkout';
 import { isBackgroundWhite } from '@core/components/header/store';
+import { Modals } from '@ui/models';
+import { showModal } from '@ui/modal';
 
 const useCartData = () => {
   const dispatch = useDispatch();
@@ -105,8 +107,15 @@ const useCartData = () => {
         quantity: item.quantity
       }));
       dispatch(checkout(items));
+    },
+    showInvoiceModal: () => {
+      dispatch(showModal(Modals.invoiceRequest));
     }
   };
+
+  /*
+   * if user anauthorize show modal
+   */
 
   return {
     products: cartData,

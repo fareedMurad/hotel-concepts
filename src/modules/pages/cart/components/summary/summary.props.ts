@@ -14,6 +14,7 @@ type SummaryProps = {
     estimatedShipping: string;
     estimatedTax: string;
     onClick: () => void;
+    showInvoiceModal: () => void;
   };
 };
 
