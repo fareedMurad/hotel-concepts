@@ -1,5 +1,8 @@
 import { Book } from '@account/pages/library/models';
-import { MarketplaceCategory } from '@pages/marketplace/models';
+import {
+  MarketplaceCategory,
+  MarketplaceModel
+} from '@pages/marketplace/models';
 import { make } from 'redux-chill';
 
 /**
@@ -14,14 +17,7 @@ const fetchMarketplaceList = make('[marketplace] fetch list')
  */
 const fetchMarketplace = make('[marketplace] fetch categories').stage(
   'success',
-  (payload: {
-    carousel: { title: string; url: string }[];
-    categories: {
-      category: MarketplaceCategory['category'];
-      items: Book[];
-      total: number;
-    }[];
-  }) => payload
+  (payload: MarketplaceModel) => payload
 );
 
 /**
@@ -29,7 +25,7 @@ const fetchMarketplace = make('[marketplace] fetch categories').stage(
  */
 const fetchMarketplaceByCategory = make('[marketplace] fetch by category')
   .stage((payload: string) => payload)
-  .stage('success', (payload: MarketplaceCategory['category']) => payload);
+  .stage('success', (payload: MarketplaceCategory) => payload);
 
 /**
  * Fetch marketplace product

@@ -44,12 +44,22 @@
 .more {
   @include flex($align: center);
   width: fit-content;
-  margin: 32px 132px 0 auto;
+  margin-top: 32px;
+  margin-left: auto;
   cursor: pointer;
 
+  @include desktop {
+    margin-right: 132px;
+  }
+
   &__caption {
-    @include font($primary-orange, 18px, 500, 28px);
+    @include font($primary-orange, 16px, 500, 20px);
     text-decoration: underline;
+
+    @include tablet() {
+      font-size: 18px;
+      line-height: 28px;
+    }
   }
 
   &__icon {
@@ -101,7 +111,7 @@
 }
 
 .name {
-  @include font(#3e3e3e, 36px, 600, 46px);
+  @include font(#3e3e3e, 24px, 600, 32px);
   flex: 1;
   margin-top: 12px;
   font-family: $EBGaramond;
@@ -112,21 +122,3 @@
     line-height: 46px;
   }
 }
-
-// .controls {
-//   @include flex($align: center);
-//   margin-top: 10px;
-
-//   & > button {
-//     width: 100%;
-//     font-size: 14px;
-
-//     @include tablet() {
-//       font-size: 16px;
-//     }
-//   }
-
-//   & > button:not(:first-child) {
-//     margin-left: 20px;
-//   }
-// }

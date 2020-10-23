@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const useMarketplaceData = () => {
   const dispatch = useDispatch();
   const {
+    general: { isCookieBanner },
     auth: { authorized, user },
     marketplace: { categories, slider }
   } = useSelector((state: State) => state);
@@ -14,7 +15,13 @@ const useMarketplaceData = () => {
     dispatch(fetchMarketplace());
   }, []);
 
-  return { categories, slider, authorized, user };
+  return {
+    categories,
+    slider,
+    authorized,
+    user,
+    isCookieBanner
+  };
 };
 
 export { useMarketplaceData };

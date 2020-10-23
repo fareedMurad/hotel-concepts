@@ -1,7 +1,7 @@
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 import { State } from '@app/redux/state';
-import { Icon, Slider } from '@core/components';
-import { useMediaPoints, useWindowSize } from '@core/shared';
+import { Icon } from '@core/components';
+import { useWindowSize } from '@core/shared';
 import { navigate } from '@router/store';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -9,37 +9,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BookProps, SectionProps } from './section.props';
 import * as styles from './section.scss';
-
-/**
- * Responsive slider breakpoints
- */
-const responsive = {
-  // desktopXlg: {
-  //   breakpoint: { max: 3000, min: 2000 },
-  //   items: 6,
-  //   slidesToSlide: 1
-  // },
-  desktopLg: {
-    breakpoint: { max: 2800, min: 1367 },
-    items: 5,
-    slidesToSlide: 1
-  },
-  desktop: {
-    breakpoint: { max: 1366, min: 1025 },
-    items: 4,
-    slidesToSlide: 1
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 601 },
-    items: 2,
-    slidesToSlide: 1
-  },
-  mobile: {
-    breakpoint: { max: 600, min: 0 },
-    items: 1,
-    slidesToSlide: 1
-  }
-};
 
 /**
  * Renders single book
