@@ -1,9 +1,11 @@
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 import { State } from '@app/redux/state';
 import { Icon, Slider } from '@core/components';
+import { useMediaPoints, useWindowSize } from '@core/shared';
 import { navigate } from '@router/store';
 import classNames from 'classnames';
 import * as React from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BookProps, SectionProps } from './section.props';
 import * as styles from './section.scss';
@@ -92,6 +94,15 @@ const Section: React.FC<SectionProps> = ({
   data
 }) => {
   const dispatch = useDispatch();
+  const { width } = useWindowSize();
+  const responsiveLimit = () => {
+    if (width > 1366) return 4;
+    if (width > 766) return 2;
+    return 1;
+  };
+
+  const [limit, setLimit] = useState(responsiveLimit());
+  const showMore = data?.length > limit;
 
   return (
     <div className={classNames(styles.section, className)} id={id}>
@@ -100,8 +111,11 @@ const Section: React.FC<SectionProps> = ({
         <div className={styles.caption}>{caption}</div>
       </div>
       {data?.length > 0 && (
-        <div className={styles.products}>
-          {data.map(book => {
+        <div
+          className={styles.products}
+          style={{ gridTemplateColumns: `repeat(${responsiveLimit()},1fr)` }}
+        >
+          {data.slice(0, limit).map(book => {
             const { id } = book || {};
 
             return (
@@ -112,6 +126,15 @@ const Section: React.FC<SectionProps> = ({
               />
             );
           })}
+        </div>
+      )}
+      {showMore && (
+        <div
+          className={styles.more}
+          onClick={() => setLimit(limit + responsiveLimit())}
+        >
+          <div className={styles.moreCaption}>Show more</div>
+          <Icon className={styles.moreIcon} name='marketplace/arrow-right' />
         </div>
       )}
     </div>
