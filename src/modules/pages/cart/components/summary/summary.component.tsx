@@ -11,15 +11,10 @@ import { useTranslation } from 'react-i18next';
  * Renders Summary
  */
 const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
-<<<<<<< HEAD
+  const { t } = useTranslation();
   const { total, estimatedShipping, estimatedTax, onClick, showInvoiceModal } =
     summaryData || {};
   const { user, authorized } = useSelector((state: State) => state.auth);
-=======
-  const { total, estimatedShipping, estimatedTax, onClick } = summaryData || {};
-  const { user } = useSelector((state: State) => state.auth);
-  const { t } = useTranslation();
->>>>>>> 80861e7e6bc4866c5b89ea95d3ce881f6fe25d62
 
   const isAccountVerified = user ? user.verified : false;
 
