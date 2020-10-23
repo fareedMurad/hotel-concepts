@@ -1,4 +1,3 @@
-import { ContentType } from '@account/pages/library/models';
 import { HttpService } from './config';
 
 class MarketplaceService {
@@ -26,7 +25,7 @@ class MarketplaceService {
   /**
    * Fetch marketplace categories
    */
-  public fetchMarketplaceCategories = (locale: string) =>
+  public fetchMarketplace = (locale: string) =>
     this.http.request({
       url: `/contentful/products/categories?locale=${locale}`
     });

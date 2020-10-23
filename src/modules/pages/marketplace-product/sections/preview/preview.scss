@@ -324,3 +324,13 @@
     margin-left: 20px;
   }
 }
+
+.icon {
+  position: relative;
+
+  &--preloader {
+    @include size(20px);
+    position: absolute;
+    top: 0;
+  }
+}

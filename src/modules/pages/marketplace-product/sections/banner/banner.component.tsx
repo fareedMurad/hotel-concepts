@@ -16,13 +16,15 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
     id,
     img,
     name,
-    previewDescription,
+    price,
+    inCart,
     authors,
     languages,
     publishDate,
-    price
+    previewDescription
   } = data;
   const dispatch = useDispatch();
+
   return (
     <div className={styles.banner}>
       <div className={styles.box}>
@@ -57,12 +59,13 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
           <div className={styles.price}>${price}</div>
           <Button
             className={styles.checkout}
-            arrow
+            arrow={!inCart}
+            disabled={inCart}
             onClick={() => {
-              dispatch(cart.add({ path: id, quantity: 1 }));
+              !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
             }}
           >
-            Add to cart
+            {inCart ? 'In cart' : 'Add to cart'}
           </Button>
         </div>
       </div>

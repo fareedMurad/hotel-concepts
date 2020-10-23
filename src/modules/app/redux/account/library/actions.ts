@@ -22,16 +22,23 @@ const fetchLibraryWishlist = make('[library] fetch library wishlist').stage(
  * Add book to wishlist
  */
 const addBookToWishlist = make('[library] add book to wishlist')
-  .stage((payload: { id: string; preloader: Preloaders }) => payload)
-  .stage('success', (id: string) => id);
+  .stage(
+    (payload: { id: string; preloader?: Preloaders; page: string }) => payload
+  )
+  .stage('marketplace', (payload: string) => payload)
+  .stage('product', (payload: string) => payload);
 
 /**
  * Remove book from wishlist
  */
 const removeBookFromWishlist = make('[library] remove book from wishlist')
-  .stage((payload: { id: string; preloader: Preloaders }) => payload)
+  .stage(
+    (payload: { id: string; preloader?: Preloaders; page: string }) => payload
+  )
   .stage('success', (payload: { items: Book[]; total: number }) => payload)
-  .stage('removeHeart', (ids: string[]) => ids);
+  .stage('library')
+  .stage('marketplace', (payload: string) => payload)
+  .stage('product', (payload: string) => payload);
 
 /**
  * Download book

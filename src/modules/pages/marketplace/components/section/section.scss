@@ -3,10 +3,6 @@
 .section {
 }
 
-.slider-item {
-  padding: 0 10px;
-}
-
 .container {
   @include tablet() {
     margin-left: 60px;
@@ -38,19 +34,41 @@
   }
 }
 
-.slider {
+.products {
+  display: grid;
+  // grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   margin-top: 24px;
-  margin-bottom: 0;
+}
 
-  @include tablet() {
-    margin-top: 48px;
+.more {
+  @include flex($align: center);
+  width: fit-content;
+  margin-top: 32px;
+  margin-left: auto;
+  cursor: pointer;
+
+  @include desktop {
+    margin-right: 132px;
   }
 
-  & > ul {
-    align-items: stretch;
-    margin-bottom: 76px;
+  &__caption {
+    @include font($primary-orange, 16px, 500, 20px);
+    text-decoration: underline;
+
+    @include tablet() {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  &__icon {
+    @include fill($primary-orange);
+    margin-left: 5px;
   }
 }
+
+// Book styles
 
 .book {
   @include flex($align: stretch, $direction: column);
@@ -82,13 +100,9 @@
   background: #cbd0d3;
 }
 
-.meta {
-  @include flex(space-between, center);
-  margin-top: 16px;
-}
-
 .price {
   @include font($primary-gray, 18px, 600, 24px);
+  margin-top: 16px;
   width: fit-content;
   padding: 8px 12px;
   font-family: $EBGaramond;
@@ -96,17 +110,8 @@
   background: $white;
 }
 
-.authors {
-  @include flex($align: stretch, $direction: column);
-  max-width: 50%;
-}
-
-.author {
-  @include font($primary-gray, 18px, 400, 28px);
-}
-
 .name {
-  @include font(#3e3e3e, 36px, 600, 46px);
+  @include font(#3e3e3e, 24px, 600, 32px);
   flex: 1;
   margin-top: 12px;
   font-family: $EBGaramond;
@@ -117,21 +122,3 @@
     line-height: 46px;
   }
 }
-
-// .controls {
-//   @include flex($align: center);
-//   margin-top: 10px;
-
-//   & > button {
-//     width: 100%;
-//     font-size: 14px;
-
-//     @include tablet() {
-//       font-size: 16px;
-//     }
-//   }
-
-//   & > button:not(:first-child) {
-//     margin-left: 20px;
-//   }
-// }

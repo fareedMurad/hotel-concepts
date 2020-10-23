@@ -1,0 +1,25 @@
+@import 'core.scss';
+
+.products {
+  @include flex($align: stretch, $direction: column);
+  padding: 20px 20px 40px 20px;
+
+  @include tablet() {
+    padding-bottom: 60px;
+  }
+
+  @include desktop() {
+    padding-top: 60px;
+    padding-bottom: 135px;
+  }
+}
+
+.section {
+  &:not(:first-child) {
+    margin-top: 60px;
+
+    @include tablet() {
+      margin-top: 80px;
+    }
+  }
+}

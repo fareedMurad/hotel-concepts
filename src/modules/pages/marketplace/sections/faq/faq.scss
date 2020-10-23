@@ -1,0 +1,32 @@
+@import 'core.scss';
+
+.faq {
+  @include flex($align: stretch, $direction: column);
+  padding: 40px 20px;
+
+  @include desktop() {
+    padding: 80px 20px;
+  }
+}
+
+.title {
+  @include font($primary-gray, 28px, 500, 36px);
+  font-family: $EBGaramond;
+
+  @include tablet() {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include desktop() {
+    padding-left: 114px;
+  }
+}
+
+.content {
+  padding: 0;
+
+  @include desktop() {
+    margin-top: 20px;
+  }
+}

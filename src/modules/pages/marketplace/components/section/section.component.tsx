@@ -1,56 +1,25 @@
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 import { State } from '@app/redux/state';
-import { Button, Icon, Slider } from '@core/components';
+import { Icon } from '@core/components';
+import { useWindowSize } from '@core/shared';
 import { navigate } from '@router/store';
-import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BookProps, SectionProps } from './section.props';
 import * as styles from './section.scss';
 
 /**
- * Responsive slider breakpoints
- */
-const responsive = {
-  desktopXlg: {
-    breakpoint: { max: 3000, min: 2000 },
-    items: 6,
-    slidesToSlide: 1
-  },
-  desktopLg: {
-    breakpoint: { max: 1999, min: 1367 },
-    items: 5,
-    slidesToSlide: 1
-  },
-  desktop: {
-    breakpoint: { max: 1366, min: 1025 },
-    items: 4,
-    slidesToSlide: 1
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 601 },
-    items: 2,
-    slidesToSlide: 1
-  },
-  mobile: {
-    breakpoint: { max: 600, min: 0 },
-    items: 1,
-    slidesToSlide: 1
-  }
-};
-
-/**
  * Renders single book
  */
-const Book: React.FC<BookProps> = ({ book, onClick }) => {
+const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
   const dispatch = useDispatch();
   const { authorized } = useSelector((state: State) => state.auth);
   const {
     id,
     name,
     price,
-    authors,
     productImage: {
       file: { url }
     },
@@ -58,14 +27,14 @@ const Book: React.FC<BookProps> = ({ book, onClick }) => {
   } = book || {};
 
   return (
-    <div className={styles.book} onClick={onClick}>
+    <div className={classNames(styles.book, className)} onClick={onClick}>
       {authorized && (
         <Icon
           className={styles.like}
           name={inWishlist ? 'heart' : 'like'}
           onClick={event => {
             event.stopPropagation();
-            const data = { id, preloader: Preloaders.marketplace };
+            const data = { id, page: '/marketplace' };
 
             dispatch(
               inWishlist
@@ -77,16 +46,7 @@ const Book: React.FC<BookProps> = ({ book, onClick }) => {
       )}
       <img className={styles.image} src={url} alt={url} />
       <div className={styles.divider} />
-      <div className={styles.meta}>
-        <div className={styles.price}>${price}</div>
-        <div className={styles.authors}>
-          {authors.map(({ id, name, surname }) => (
-            <div className={styles.author} key={id}>
-              {name} {surname}
-            </div>
-          ))}
-        </div>
-      </div>
+      <div className={styles.price}>${price}</div>
       <div className={styles.name}>{name}</div>
     </div>
   );
@@ -103,6 +63,15 @@ const Section: React.FC<SectionProps> = ({
   data
 }) => {
   const dispatch = useDispatch();
+  const { width } = useWindowSize();
+  const responsiveLimit = () => {
+    if (width > 1366) return 4;
+    if (width > 766) return 2;
+    return 1;
+  };
+
+  const [limit, setLimit] = useState(responsiveLimit());
+  const showMore = data?.length > limit;
 
   return (
     <div className={classNames(styles.section, className)} id={id}>
@@ -111,14 +80,11 @@ const Section: React.FC<SectionProps> = ({
         <div className={styles.caption}>{caption}</div>
       </div>
       {data?.length > 0 && (
-        <Slider
-          className={styles.slider}
-          itemClass={styles.sliderItem}
-          controls
-          controlsTheme='primary'
-          responsive={responsive}
+        <div
+          className={styles.products}
+          style={{ gridTemplateColumns: `repeat(${responsiveLimit()},1fr)` }}
         >
-          {data.map(book => {
+          {data.slice(0, limit).map(book => {
             const { id } = book || {};
 
             return (
@@ -129,7 +95,16 @@ const Section: React.FC<SectionProps> = ({
               />
             );
           })}
-        </Slider>
+        </div>
+      )}
+      {showMore && (
+        <div
+          className={styles.more}
+          onClick={() => setLimit(limit + responsiveLimit())}
+        >
+          <div className={styles.moreCaption}>Show more</div>
+          <Icon className={styles.moreIcon} name='marketplace/arrow-right' />
+        </div>
       )}
     </div>
   );

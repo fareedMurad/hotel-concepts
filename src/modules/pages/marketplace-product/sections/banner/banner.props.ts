@@ -11,11 +11,12 @@ type BannerProps = {
     id: string;
     img: string;
     name: string;
-    previewDescription: string;
-    authors: BookAuthor[];
+    price: number;
+    inCart: boolean;
     languages: string;
     publishDate: string;
-    price: number;
+    authors: BookAuthor[];
+    previewDescription: string;
   };
 };
 

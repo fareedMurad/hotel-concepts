@@ -1,6 +1,8 @@
 @import 'core.scss';
 
 .marketplace-product {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
   margin-top: 105px;
 }
 

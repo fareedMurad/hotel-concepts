@@ -6,7 +6,6 @@ import { Formik } from 'formik';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { ContactUsModalProps } from './contact-us-modal.props';
 import * as styles from './contact-us-modal.scss';
 import {
   ContactUsModalValidationSchema,
@@ -17,49 +16,40 @@ import {
  * Success alert
  */
 
-const SuccessAlert: React.FC<any> = () => {
+const SuccessAlert: React.FC = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+
   return (
-    <React.Fragment>
-      <Modal id={Modals.contactUs} className={styles.modal}>
-        <Icon
-          name='close-modal'
-          className={styles.closeModal}
-          onClick={() => dispatch(closeModal(Modals.contactUs))}
-        />
-        <div className={styles.success}>
-          <div className={styles.successTitle}>
-            {t('modal-contact-us.success-alert.title')}
-          </div>
-          <div className={styles.successDivider} />
-          <div className={styles.successHint}>
-            {' '}
-            {t('modal-contact-us.success-alert.hint')}
-          </div>
-          <Button arrow width={'100%'}>
-            {t('modal-contact-us.success-alert.button-text')}
-          </Button>
+    <Modal id={Modals.contactUs} className={styles.modal}>
+      <Icon
+        name='close-modal'
+        className={styles.closeModal}
+        onClick={() => dispatch(closeModal(Modals.contactUs))}
+      />
+      <div className={styles.success}>
+        <div className={styles.successTitle}>
+          {t('modal-contact-us.success-alert.title')}
         </div>
-      </Modal>
-    </React.Fragment>
+        <div className={styles.successDivider} />
+        <div className={styles.successHint}>
+          {' '}
+          {t('modal-contact-us.success-alert.hint')}
+        </div>
+        <Button arrow width={'100%'}>
+          {t('modal-contact-us.success-alert.button-text')}
+        </Button>
+      </div>
+    </Modal>
   );
 };
 
 /**
  * Renders ContactUsModal
  */
-const ContactUsModal: React.FC<ContactUsModalProps> = ({}) => {
+const ContactUsModal: React.FC = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-
-  /**
-   *  Show succes alert after action
-   */
-
-  // if () {
-  //   return <SuccessAlert />;
-  // }
 
   return (
     <Modal id={Modals.contactUs} className={styles.modal}>
