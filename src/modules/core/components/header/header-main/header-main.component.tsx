@@ -9,7 +9,7 @@ import { LocalizationMenu } from './menus/localization-menu';
 import { ProfileMenu } from './menus/profile-menu';
 import { useHeaderMainData } from './hooks/header-main.hook';
 import { AboutMenu } from './menus/about-menu';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { navigate } from '@router/store';
 import { Dropdown } from './components';
 import { Burger } from './burger';
@@ -17,6 +17,7 @@ import { useEffect, useState } from 'react';
 import { useIconAnimation } from './hooks/burger-icon-animation';
 import { animated } from 'react-spring';
 import { CartMenu } from './menus/cart-menu';
+import { State } from '@app/redux/state';
 
 /**
  * Renders HeaderMain
@@ -26,6 +27,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   whiteBackground,
   isSticky
 }) => {
+  const { addedProduct } = useSelector((state: State) => state.cart);
   const dispatch = useDispatch();
   const { menus, cartQuantity } = useHeaderMainData();
   const location = useLocation();
@@ -112,7 +114,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
               <div className={styles.indicator}>{cartQuantity}</div>
             )}
             {/* {selectedMenu === 'Cart' && <CartMenu />} */}
-            <CartMenu />
+            {addedProduct && <CartMenu />}
           </div>
 
           <div className={styles.headerMainNavigationProfile}>

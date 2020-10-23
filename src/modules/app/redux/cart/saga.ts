@@ -133,7 +133,7 @@ class CartSaga {
       console.log(err);
     }
     yield delay(3000);
-    // yield put()
+    yield put(cart.removeCurrent());
   }
 
   /**
