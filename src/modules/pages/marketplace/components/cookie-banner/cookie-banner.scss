@@ -16,7 +16,10 @@
 .text {
   @include font($primary-gray, 12px, 400, 16px);
   flex: 1;
-  margin-left: 113px;
+
+  @include desktop() {
+    margin-left: 113px;
+  }
 }
 
 .icon {

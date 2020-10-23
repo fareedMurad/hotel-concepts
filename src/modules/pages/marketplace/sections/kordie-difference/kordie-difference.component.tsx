@@ -97,7 +97,7 @@ const KordieDifference: React.FC = () => {
       </div>
       <div className={styles.descriptions}>
         <div className={styles.topics}>
-          <div className={styles.topicsCaption}>Tiemly topics</div>
+          <div className={styles.topicsCaption}>Timely topics</div>
           <div className={styles.topicsSubcaption}>
             Analytics is our priority.
           </div>
