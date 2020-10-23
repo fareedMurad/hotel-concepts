@@ -24,6 +24,10 @@ type ModalProps = {
    * With overlay
    */
   withOverlay?: boolean;
+  /**
+   * onClose
+   */
+  onClose?: () => void;
 };
 
 export { ModalProps };

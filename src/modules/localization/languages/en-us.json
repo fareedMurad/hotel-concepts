@@ -790,30 +790,30 @@
       "title": "Thank you",
       "hint": "We received your message and will get in touch soon",
       "button-text": "Download presentation"
+    }
+  },
+  "cart": {
+    "title": "My cart",
+    "precaption": "Items to be delivered electronically",
+    "items": "items",
+    "diviver-caption": "Accepted Payment Methods",
+    "cart-item": {
+      "remove": "Remove",
+      "amount": "Amount"
     },
-    "cart": {
-      "title": "My cart",
-      "precaption": "Items to be delivered electronically",
-      "items": "items",
-      "diviver-caption": "Accepted Payment Methods",
-      "cart-item": {
-        "remove": "Remove",
-        "amount": "Amount"
-      },
-      "summary": {
-        "title": "Order summary",
-        "total": "Total",
-        "shiping": "Estimated shipping",
-        "tax": "Estimated tax",
-        "order": "Order Total",
-        "button-text": "Checkout with your account",
-        "button-text-second": "Checkout as a guest",
-        "hint": "*Proceed to checkout and you will have an oppurnity to create an account at the end"
-      },
-      "placeholder": {
-        "caption": "Your Shopping Cart is empty.",
-        "button-text": "Go to Homepage"
-      }
+    "summary": {
+      "title": "Order summary",
+      "total": "Total",
+      "shiping": "Estimated shipping",
+      "tax": "Estimated tax",
+      "order": "Order Total",
+      "button-text": "Checkout with your account",
+      "button-text-second": "Checkout as a guest",
+      "hint": "*Proceed to checkout and you will have an oppurnity to create an account at the end"
+    },
+    "placeholder": {
+      "caption": "Your Shopping Cart is empty.",
+      "button-text": "Go to Homepage"
     }
   }
 }
