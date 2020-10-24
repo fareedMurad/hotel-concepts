@@ -10,6 +10,7 @@
   font-family: $IBMPlex;
   border: 1px solid white;
   border-radius: 4px;
+  transition: none;
   & > div:first-child {
     margin-left: 3px;
   }
@@ -19,6 +20,9 @@
   border-bottom: 1px solid transparent;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+.arrow-rotate {
+  transform: rotate(180deg);
 }
 
 .drop-down {

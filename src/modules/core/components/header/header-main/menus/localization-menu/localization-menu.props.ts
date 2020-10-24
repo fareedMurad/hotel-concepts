@@ -3,9 +3,10 @@
  */
 type LocalizationMenuProps = {
   className: string;
-  iconName: string;
-  selectedMenu: string;
-  setSelectedMenu: (isShow: string) => void;
+  /**
+   * black theme
+   */
+  blackTheme: boolean;
 };
 
 export { LocalizationMenuProps };

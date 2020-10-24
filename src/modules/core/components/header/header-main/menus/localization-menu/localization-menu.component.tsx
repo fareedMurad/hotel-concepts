@@ -14,35 +14,34 @@ import classNames from 'classnames';
  */
 const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
   className,
-  iconName,
-  selectedMenu,
-  setSelectedMenu
+  blackTheme
 }) => {
   const { languages, selectedLanguage } = useLocalizationData();
   const dispatch = useDispatch();
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <div
       className={classNames(className, styles.localMenu, {
-        [styles.open]: selectedMenu === 'Languages'
+        [styles.open]: showMenu
       })}
-      onMouseEnter={() => setSelectedMenu('Languages')}
-      onMouseLeave={() => setSelectedMenu('')}
+      onClick={() => setShowMenu(true)}
+      onMouseLeave={() => setShowMenu(false)}
     >
-      {selectedLanguage.name} <Icon name={iconName} />
-      {selectedMenu === 'Languages' && (
+      {selectedLanguage.name}{' '}
+      <Icon
+        className={showMenu && styles.arrowRotate}
+        name={blackTheme ? 'triangle-arr-b' : 'triangle-arr'}
+      />
+      {showMenu && (
         <div className={styles.dropDown}>
           {languages.map(el => (
             <div
-              className={styles.link}
               key={el.id}
-              onClick={() => {
-                setSelectedMenu(el.name);
-              }}
+              className={styles.link}
+              onClick={() => dispatch(changeLanguage(el.id))}
             >
-              <div onClick={() => dispatch(changeLanguage(el.id))}>
-                {el.name}
-              </div>
+              {el.name}
             </div>
           ))}
         </div>

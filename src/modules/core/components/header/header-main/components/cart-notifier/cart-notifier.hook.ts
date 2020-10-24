@@ -1,13 +1,13 @@
 import { State } from '@app/redux/state';
 import { useSelector } from 'react-redux';
 /*
- * Cart menu hook
+ * Cart Notifier hook
  */
 
-const useCartMenuData = () => {
+const useCartNotifierData = () => {
   const { addedProduct } = useSelector((state: State) => state.cart);
 
   return { addedProduct };
 };
 
-export { useCartMenuData };
+export { useCartNotifierData };

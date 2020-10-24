@@ -131,14 +131,11 @@ const Routes: React.FC = () => {
         <div className={styles.routes}>
           {isToastVisible && <Toast />}
           <div className={styles.header}>
-            <HeaderSecondary whiteBackground={isBackgroundWhite && true} />
+            <HeaderSecondary whiteBackground={isBackgroundWhite} />
             <Sticky topOffset={40}>
               {({ style, isSticky }) => (
                 <div style={style}>
-                  <HeaderMain
-                    whiteBackground={isBackgroundWhite && true}
-                    isSticky={isSticky}
-                  />
+                  <HeaderMain isSticky={isSticky} />
                 </div>
               )}
             </Sticky>

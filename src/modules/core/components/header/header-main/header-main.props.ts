@@ -2,8 +2,7 @@
  * Props
  */
 type HeaderMainProps = {
-  whiteBackground: boolean;
-  isSticky?: boolean;
+  isSticky: boolean;
 };
 
 export { HeaderMainProps };

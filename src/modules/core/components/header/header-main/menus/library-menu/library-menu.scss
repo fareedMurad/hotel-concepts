@@ -13,6 +13,14 @@
     padding-bottom: 9px;
     cursor: pointer;
     transition: $transition;
+    & > span {
+      margin-left: 8px;
+      color: $primary-orange;
+    }
+    &:hover {
+      color: $primary-orange;
+    }
+
     &:before {
       content: '';
       position: absolute;
@@ -21,13 +29,6 @@
       width: 24px;
       height: 2px;
       background-color: $primary-orange;
-    }
-    &:hover {
-      color: $primary-orange;
-    }
-    & > span {
-      margin-left: 8px;
-      color: $primary-orange;
     }
   }
 }

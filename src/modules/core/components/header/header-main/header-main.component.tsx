@@ -11,47 +11,45 @@ import { useHeaderMainData } from './hooks/header-main.hook';
 import { AboutMenu } from './menus/about-menu';
 import { useDispatch, useSelector } from 'react-redux';
 import { navigate } from '@router/store';
-import { Dropdown } from './components';
 import { Burger } from './burger';
 import { useEffect, useState } from 'react';
 import { useIconAnimation } from './hooks/burger-icon-animation';
 import { animated } from 'react-spring';
-import { CartMenu } from './menus/cart-menu';
+
 import { State } from '@app/redux/state';
 import { ProgramsMenu } from './menus/programs-menu';
 import { LibraryMenu } from './menus/library-menu';
 import { CorporateMenu } from './menus/corporate-menu';
+import { CartMenu } from './menus/cart-menu';
 
 /**
  * Renders HeaderMain
  */
 
-const HeaderMain: React.FC<HeaderMainProps> = ({
-  whiteBackground,
-  isSticky
-}) => {
-  const { addedProduct } = useSelector((state: State) => state.cart);
+const HeaderMain: React.FC<HeaderMainProps> = ({ isSticky }) => {
+  /**
+   * isSticky calls many rerenders (needs to be fixed)
+   */
   const dispatch = useDispatch();
-  const { menus, cartQuantity } = useHeaderMainData();
+  const { blackTheme } = useHeaderMainData();
   const location = useLocation();
-  const [selectedMenu, setSelectedMenu] = useState('');
   const [showBurger, setShowBurger] = useState(false);
   const [white, setWhite] = useState(false);
   const { iconRotation } = useIconAnimation(showBurger);
-  useEffect(() => {
-    isSticky ? setWhite(true) : setWhite(false);
-    setShowBurger(false);
-  }, [isSticky, location.pathname]);
+
+  const className = classNames(styles.headerMainNavigationItem, {
+    [styles.invertedHeader]: blackTheme || isSticky
+  });
 
   const { mobile, tablet } = useMediaPoints(true);
 
   return (
     <div
-      style={{ backgroundColor: white ? 'white' : 'transparent' }}
+      style={{ backgroundColor: (blackTheme || isSticky) && 'white' }}
       className={styles.headerMain}
     >
       <NavLink className={styles.logo} to={'/'}>
-        <Icon name={whiteBackground || isSticky ? 'logo-b' : 'logo'} />
+        <Icon name={blackTheme || isSticky ? 'logo-b' : 'logo'} />
       </NavLink>
       {mobile || tablet ? (
         <div className={styles.mobileMenu}>
@@ -68,76 +66,15 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
         </div>
       ) : (
         <div className={styles.headerMainNavigation}>
-          <ProgramsMenu
-            className={classNames(styles.headerMainNavigationItem, {
-              [styles.invertedHeader]: whiteBackground || isSticky
-            })}
-          />
-
-          <LibraryMenu
-            className={classNames(styles.headerMainNavigationItem, {
-              [styles.invertedHeader]: whiteBackground || isSticky
-            })}
-          />
-
-          <CorporateMenu
-            className={classNames(styles.headerMainNavigationItem, {
-              [styles.invertedHeader]: whiteBackground || isSticky
-            })}
-          />
-
-          <AboutMenu
-            selectedMenu={selectedMenu}
-            setSelectedMenu={setSelectedMenu}
-            className={classNames(styles.headerMainNavigationItem, {
-              [styles.invertedHeader]: whiteBackground || isSticky
-            })}
-          />
-
-          <div
-            className={styles.cart}
-            onClick={() => dispatch(navigate('/cart'))}
-            onMouseOver={() => setSelectedMenu('Cart')}
-          >
-            <Icon
-              name='shopping-cart'
-              fill={whiteBackground || isSticky ? 'black' : 'white'}
-            />
-            {cartQuantity > 0 && (
-              <div className={styles.indicator}>{cartQuantity}</div>
-            )}
-            {/* {selectedMenu === 'Cart' && <CartMenu />} */}
-            {addedProduct && <CartMenu />}
-          </div>
-
-          <div className={styles.headerMainNavigationProfile}>
-            <div
-              className={styles.profileNavigation}
-              onMouseEnter={() => {
-                setSelectedMenu('Profile');
-              }}
-            >
-              <Icon
-                name={
-                  whiteBackground || isSticky
-                    ? 'default-avatar-b'
-                    : 'default-avatar'
-                }
-              />
-              {selectedMenu === 'Profile' && (
-                <ProfileMenu setSelectedMenu={setSelectedMenu} />
-              )}
-            </div>
-          </div>
+          <ProgramsMenu className={className} />
+          <LibraryMenu className={className} />
+          <CorporateMenu className={className} />
+          <AboutMenu className={className} />
+          <CartMenu blackTheme={blackTheme || isSticky} />
+          <ProfileMenu blackTheme={blackTheme || isSticky} />
           <LocalizationMenu
-            setSelectedMenu={setSelectedMenu}
-            selectedMenu={selectedMenu}
-            className={classNames(styles.local, {
-              [styles.invertedHeader]: whiteBackground || isSticky
-            })}
-            iconName={
-              whiteBackground || isSticky ? 'triangle-arr-b' : 'triangle-arr'
-            }
+            className={className}
+            blackTheme={blackTheme || isSticky}
           />
         </div>
       )}

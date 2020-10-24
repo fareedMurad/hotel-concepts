@@ -1,13 +1,14 @@
 @import 'core.scss';
 
 .profile-menu {
+  position: relative;
+  margin-right: 20px;
+}
+
+.dropdown {
   position: absolute;
-  top: 40px;
-  right: 0;
-  width: 188px;
-  background-color: $background;
-  padding: 16px 15px;
-  border-radius: 10px;
+  left: -95px;
+  width: 210px;
 }
 
 .button {
