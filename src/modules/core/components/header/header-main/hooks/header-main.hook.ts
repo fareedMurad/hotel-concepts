@@ -25,7 +25,8 @@ const useHeaderMainData = () => {
     'interests',
     'jobs',
     'privacy-policy',
-    'category'
+    'category',
+    'cart'
   ];
 
   const blackTheme = darkThemes.includes(pathname.split('/')[1]);

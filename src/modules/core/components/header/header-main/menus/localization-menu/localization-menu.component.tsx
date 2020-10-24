@@ -22,8 +22,9 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
 
   return (
     <div
-      className={classNames(className, styles.localMenu, {
-        [styles.open]: showMenu
+      className={classNames(styles.localMenu, {
+        [styles.open]: showMenu,
+        [styles.black]: blackTheme
       })}
       onClick={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
@@ -34,7 +35,11 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
         name={blackTheme ? 'triangle-arr-b' : 'triangle-arr'}
       />
       {showMenu && (
-        <div className={styles.dropDown}>
+        <div
+          className={classNames(styles.dropDown, {
+            [styles.dropDownBlack]: blackTheme
+          })}
+        >
           {languages.map(el => (
             <div
               key={el.id}

@@ -13,7 +13,7 @@ import { showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import classNames from 'classnames';
 import { Icon } from '@core/components/icon';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { CartMenu } from '../cart-menu';
 import { CardDropdown } from '../../components/card-dropdown';
 
@@ -24,9 +24,15 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
   const [showMenu, setShowMenu] = useState(false);
   const { links, authorized, user } = useProfileMenuData();
   const dispatch = useDispatch();
+  const ref = useRef();
+  useClickOutside(ref, () => setShowMenu(false));
 
   return (
-    <div className={styles.profileMenu} onClick={() => setShowMenu(true)}>
+    <div
+      className={styles.profileMenu}
+      onClick={() => setShowMenu(true)}
+      ref={ref}
+    >
       <Icon name={blackTheme ? 'default-avatar-b' : 'default-avatar'} />
 
       {showMenu && (

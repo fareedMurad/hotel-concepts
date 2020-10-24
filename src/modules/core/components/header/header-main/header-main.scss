@@ -10,30 +10,6 @@
   &_navigation {
     @include flex($justify: flex-end, $align: center);
     width: 100%;
-
-    &-item {
-      position: relative;
-      margin-right: 60px;
-      @include flex($align: center, $justify: center);
-      @include font(white, 16px, 500, 24px);
-
-      border-bottom: 1px solid white;
-      padding-bottom: 4px;
-      cursor: pointer;
-      transition: $transition;
-      &:hover:not(:last-child) {
-        color: $primary-orange;
-        border-color: $primary-orange;
-      }
-    }
-    &-profile {
-      @include flex($align: center);
-      cursor: pointer;
-      position: relative;
-      & > div:first-child {
-        margin-right: 16px;
-      }
-    }
   }
 }
 

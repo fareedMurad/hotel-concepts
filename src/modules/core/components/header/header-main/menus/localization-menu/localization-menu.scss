@@ -16,11 +16,17 @@
   }
 }
 
+.black {
+  border-color: $primary-gray;
+  color: $primary-gray;
+}
+
 .open {
   border-bottom: 1px solid transparent;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
 .arrow-rotate {
   transform: rotate(180deg);
 }
@@ -37,7 +43,10 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+.drop-down-black {
+  border-color: $primary-gray;
+  border-top: 1px solid transparent;
+}
 .link {
   display: block;
   transition: $transition;
