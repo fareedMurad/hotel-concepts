@@ -7,30 +7,8 @@ import { changeLanguage } from '@localization/store';
 import { State } from '@app/redux/state';
 import { useLocalizationData } from './localization-menu.hook';
 import { useState } from 'react';
+import classNames from 'classnames';
 
-/**
- * Localization Dropdown
- */
-const LocalizationDropDown: React.FC<any> = ({
-  langueges,
-  setCurrentLanguage
-}) => {
-  const dispatch = useDispatch();
-  return (
-    <div className={styles.dropDown}>
-      {langueges.map(el => (
-        <div
-          key={el.id}
-          onClick={() => {
-            setCurrentLanguage(el.name);
-          }}
-        >
-          <div onClick={() => dispatch(changeLanguage(el.id))}>{el.name}</div>
-        </div>
-      ))}
-    </div>
-  );
-};
 /**
  * Renders LocalizationMenu
  */
@@ -41,19 +19,33 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
   setSelectedMenu
 }) => {
   const { languages, selectedLanguage } = useLocalizationData();
+  const dispatch = useDispatch();
 
   return (
     <div
-      className={className}
+      className={classNames(className, styles.localMenu, {
+        [styles.open]: selectedMenu === 'Languages'
+      })}
       onMouseEnter={() => setSelectedMenu('Languages')}
       onMouseLeave={() => setSelectedMenu('')}
     >
       {selectedLanguage.name} <Icon name={iconName} />
       {selectedMenu === 'Languages' && (
-        <LocalizationDropDown
-          setSelectedMenu={setSelectedMenu}
-          langueges={languages}
-        />
+        <div className={styles.dropDown}>
+          {languages.map(el => (
+            <div
+              className={styles.link}
+              key={el.id}
+              onClick={() => {
+                setSelectedMenu(el.name);
+              }}
+            >
+              <div onClick={() => dispatch(changeLanguage(el.id))}>
+                {el.name}
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

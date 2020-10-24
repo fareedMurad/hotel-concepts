@@ -4,22 +4,45 @@
   position: absolute;
   top: 40px;
   right: 0;
-  width: 230px;
+  width: 188px;
   background-color: $background;
-  padding: 10px;
+  padding: 16px 15px;
   border-radius: 10px;
-  & > a {
-    display: block;
-    transition: $transition;
-    &:not(:last-child) {
-      margin-bottom: 10px;
-    }
-    &:hover {
-      color: $primary-orange;
-    }
+}
+
+.button {
+  margin-bottom: 13px;
+}
+
+.user-name {
+  @include font($primary-orange, 18px, 600, normal);
+  margin-bottom: 13px;
+  font-family: $EBGaramond;
+}
+
+.create-acc {
+  background-color: unset;
+  padding: 11px 9px;
+  color: $light-grey;
+  border-color: $light-grey;
+}
+
+.link {
+  display: block;
+  padding: 12px 0;
+  border-top: 1px solid $light-grey;
+  transition: $transition;
+  &:hover {
+    color: $primary-orange;
+  }
+  &:last-child {
+    border-bottom: 1px solid $light-grey;
   }
 }
 
 .logout {
   width: 100%;
+  background-color: unset;
+  color: $light-grey;
+  border-color: $light-grey;
 }

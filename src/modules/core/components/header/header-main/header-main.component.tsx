@@ -9,13 +9,15 @@ import { LocalizationMenu } from './menus/localization-menu';
 import { ProfileMenu } from './menus/profile-menu';
 import { useHeaderMainData } from './hooks/header-main.hook';
 import { AboutMenu } from './menus/about-menu';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { navigate } from '@router/store';
 import { Dropdown } from './components';
 import { Burger } from './burger';
 import { useEffect, useState } from 'react';
 import { useIconAnimation } from './hooks/burger-icon-animation';
 import { animated } from 'react-spring';
+import { CartMenu } from './menus/cart-menu';
+import { State } from '@app/redux/state';
 
 /**
  * Renders HeaderMain
@@ -25,6 +27,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
   whiteBackground,
   isSticky
 }) => {
+  const { addedProduct } = useSelector((state: State) => state.cart);
   const dispatch = useDispatch();
   const { menus, cartQuantity } = useHeaderMainData();
   const location = useLocation();
@@ -101,6 +104,7 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
           <div
             className={styles.cart}
             onClick={() => dispatch(navigate('/cart'))}
+            onMouseOver={() => setSelectedMenu('Cart')}
           >
             <Icon
               name='shopping-cart'
@@ -109,6 +113,8 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
             {cartQuantity > 0 && (
               <div className={styles.indicator}>{cartQuantity}</div>
             )}
+            {/* {selectedMenu === 'Cart' && <CartMenu />} */}
+            {addedProduct && <CartMenu />}
           </div>
 
           <div className={styles.headerMainNavigationProfile}>
@@ -129,18 +135,17 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
                 <ProfileMenu setSelectedMenu={setSelectedMenu} />
               )}
             </div>
-
-            <LocalizationMenu
-              setSelectedMenu={setSelectedMenu}
-              selectedMenu={selectedMenu}
-              className={classNames(styles.local, {
-                [styles.invertedHeader]: whiteBackground || isSticky
-              })}
-              iconName={
-                whiteBackground || isSticky ? 'triangle-arr-b' : 'triangle-arr'
-              }
-            />
           </div>
+          <LocalizationMenu
+            setSelectedMenu={setSelectedMenu}
+            selectedMenu={selectedMenu}
+            className={classNames(styles.local, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+            iconName={
+              whiteBackground || isSticky ? 'triangle-arr-b' : 'triangle-arr'
+            }
+          />
         </div>
       )}
     </div>

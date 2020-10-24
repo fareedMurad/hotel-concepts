@@ -9,50 +9,71 @@ import { useProfileMenuData } from './profile-menu.hook';
 import { State } from '@app/redux/state';
 import { navigate } from '@router/store';
 import { useClickOutside } from '@core/shared';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import classNames from 'classnames';
 
 /**
  * Renders ProfileMenu
  */
 const ProfileMenu: React.FC<ProfileMenuProps> = ({ setSelectedMenu }) => {
-  const { authorized } = useSelector((state: State) => state.auth);
-  const { links } = useProfileMenuData();
+  const { links, authorized, user } = useProfileMenuData();
   const dispatch = useDispatch();
-
-  if (!authorized)
-    return (
-      <div
-        className={styles.profileMenu}
-        onMouseLeave={() => setSelectedMenu('')}
-      >
-        <Button
-          width={'100%'}
-          onClick={() => {
-            dispatch(navigate('/auth/login'));
-          }}
-        >
-          Log in
-        </Button>
-      </div>
-    );
 
   return (
     <div
       className={styles.profileMenu}
       onMouseLeave={() => setSelectedMenu('')}
     >
+      {authorized ? (
+        <div className={styles.userName}>
+          Hello, {user.name} {user.surname}
+        </div>
+      ) : (
+        <React.Fragment>
+          <Button
+            className={styles.button}
+            width={'100%'}
+            onClick={() => {
+              dispatch(navigate('/auth/login'));
+            }}
+          >
+            Sign in
+          </Button>
+          <Button
+            className={classNames(styles.button, styles.createAcc)}
+            width={'100%'}
+            onClick={() => {
+              dispatch(navigate('/auth/register'));
+            }}
+          >
+            Create an account
+          </Button>
+        </React.Fragment>
+      )}
       {links.map(link => (
-        <NavLink key={link.title} to={link.to}>
+        <NavLink
+          className={styles.link}
+          key={link.title}
+          to={link.to}
+          onClick={
+            () => {}
+            // !authorized && dispatch(showModal(Modals.registration))
+          }
+        >
           {link.title}
         </NavLink>
       ))}
-      <Button
-        className={styles.logout}
-        onClick={() => {
-          dispatch(unauthorize());
-        }}
-      >
-        Log out
-      </Button>
+      {authorized && (
+        <Button
+          className={styles.logout}
+          onClick={() => {
+            dispatch(unauthorize());
+          }}
+        >
+          Log out
+        </Button>
+      )}
     </div>
   );
 };
