@@ -1,8 +1,23 @@
 @import 'core.scss';
 
-.about-menu {
+.aboute-menu {
   position: relative;
-  & > span {
-    margin-left: 10px;
+}
+
+.dropdown {
+  left: -130px;
+  width: 330px;
+}
+.link {
+  @include font($primary-gray, 20px, 500, 28px);
+  display: block;
+  transition: $transition;
+  &:not(:last-child) {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $light-grey;
+  }
+  &:hover {
+    color: $primary-orange;
   }
 }

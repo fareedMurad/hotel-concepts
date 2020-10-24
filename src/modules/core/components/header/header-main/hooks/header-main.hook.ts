@@ -86,6 +86,6 @@ const useHeaderMainData = () => {
   // const blackTheme = ;
   // const theme =
 
-  return { menus, cartQuantity };
+  return { menus, cartQuantity, programsData };
 };
 export { useHeaderMainData };

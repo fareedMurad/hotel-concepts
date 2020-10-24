@@ -18,6 +18,9 @@ import { useIconAnimation } from './hooks/burger-icon-animation';
 import { animated } from 'react-spring';
 import { CartMenu } from './menus/cart-menu';
 import { State } from '@app/redux/state';
+import { ProgramsMenu } from './menus/programs-menu';
+import { LibraryMenu } from './menus/library-menu';
+import { CorporateMenu } from './menus/corporate-menu';
 
 /**
  * Renders HeaderMain
@@ -65,33 +68,23 @@ const HeaderMain: React.FC<HeaderMainProps> = ({
         </div>
       ) : (
         <div className={styles.headerMainNavigation}>
-          {menus.map(menu => {
-            const {
-              content: { links, title, flexDirection },
-              programs
-            } = menu;
-            return (
-              <div
-                className={classNames(styles.headerMainNavigationItem, {
-                  [styles.invertedHeader]: whiteBackground || isSticky
-                })}
-                key={menu.name}
-                onMouseOver={() => setSelectedMenu(menu.name)}
-              >
-                {menu.name}
-                <span className={styles.arrow}>&#x25BE;</span>
-                {selectedMenu === menu.name && (
-                  <Dropdown
-                    setSelectedMenu={setSelectedMenu}
-                    programs={programs}
-                    links={links}
-                    title={title}
-                    flexDirection={flexDirection}
-                  />
-                )}
-              </div>
-            );
-          })}
+          <ProgramsMenu
+            className={classNames(styles.headerMainNavigationItem, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+          />
+
+          <LibraryMenu
+            className={classNames(styles.headerMainNavigationItem, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+          />
+
+          <CorporateMenu
+            className={classNames(styles.headerMainNavigationItem, {
+              [styles.invertedHeader]: whiteBackground || isSticky
+            })}
+          />
 
           <AboutMenu
             selectedMenu={selectedMenu}

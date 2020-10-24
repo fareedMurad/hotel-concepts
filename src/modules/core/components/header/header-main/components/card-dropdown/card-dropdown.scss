@@ -1,0 +1,13 @@
+@import 'core.scss';
+
+.card {
+  position: absolute;
+  top: 30px;
+  padding: 10px;
+}
+
+.content {
+  border-radius: 8px;
+  background-color: $background;
+  padding: 16px 16px 26px 16px;
+}
