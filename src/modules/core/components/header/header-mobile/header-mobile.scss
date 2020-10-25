@@ -16,6 +16,13 @@
   }
 }
 
+.controll {
+  @include flex();
+  & > div:first-child {
+    margin-right: 20px;
+  }
+}
+
 .white-header {
   transition: $transition;
   background-color: white;

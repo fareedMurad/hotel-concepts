@@ -7,6 +7,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useBurgerTransition } from './components/burger/burger.animation';
 import classNames from 'classnames';
 import { useHeaderMainData } from '../header-main/hooks';
+import { LocalizationMenu } from '../header-main/menus';
 
 /**
  * Renders HeaderMobile
@@ -39,10 +40,16 @@ const HeaderMobile: React.FC = () => {
       <NavLink className={styles.logo} to={'/'}>
         <Icon name={whiteHeader || stickyHeader ? 'logo-b' : 'logo'} />
       </NavLink>
-      <Icon
-        name={showBurger ? 'close-modal' : 'burger'}
-        onClick={() => setShowBurger(!showBurger)}
-      />
+      <div className={styles.controll}>
+        <LocalizationMenu
+          className={styles.localization}
+          blackTheme={whiteHeader || stickyHeader}
+        />
+        <Icon
+          name={showBurger ? 'close-modal' : 'burger'}
+          onClick={() => setShowBurger(!showBurger)}
+        />
+      </div>
       {transition.map(
         ({ item, key, props }) => item && <Burger transition={props} />
       )}
