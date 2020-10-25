@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
 import { useProgramsMenuData } from './programs.hook';
-import { useHistory, useLocation } from 'react-router';
+import { matchPath, useHistory, useLocation } from 'react-router';
 import { ProgramsMenu } from '../menus/programs-menu';
 import { useEffect, useState } from 'react';
 
@@ -18,16 +18,23 @@ const useHeaderMainData = () => {
   const [stickyHeader, setStickyHeader] = useState(false);
 
   const darkThemes = [
-    'auth',
-    'insights',
-    'contact-us',
-    'faq',
-    'interests',
-    'jobs',
-    'privacy-policy',
-    'category',
-    'cart'
+    '/marketplace/:id',
+    '/auth',
+    '/insights',
+    '/contact-us',
+    '/faq',
+    '/interests',
+    '/jobs',
+    '/privacy-policy',
+    '/category',
+    '/cart'
   ];
+
+  const match = matchPath(pathname, {
+    path: darkThemes,
+    exact: false,
+    strict: false
+  });
 
   /*
    * handle on scroll theme change
@@ -39,9 +46,7 @@ const useHeaderMainData = () => {
        */
       window.pageYOffset > 40 ? setStickyHeader(true) : setStickyHeader(false)
     );
-    darkThemes.includes(pathname.split('/')[1])
-      ? setWhiteHeader(true)
-      : setWhiteHeader(false);
+    match ? setWhiteHeader(true) : setWhiteHeader(false);
   }, [pathname]);
 
   return {
