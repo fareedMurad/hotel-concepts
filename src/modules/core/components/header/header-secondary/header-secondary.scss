@@ -1,7 +1,7 @@
 @import 'core.scss';
 
 .header-secondary {
-  @include flex($justify: flex-end);
+  display: none;
   border-bottom: 1px solid #f5f1f060;
   background-color: #f5f1f010;
   width: 100%;
@@ -19,6 +19,9 @@
     &:hover {
       color: $primary-orange !important;
     }
+  }
+  @include desktop() {
+    @include flex($justify: flex-end);
   }
 }
 

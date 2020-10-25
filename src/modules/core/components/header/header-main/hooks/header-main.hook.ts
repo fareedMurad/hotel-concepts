@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
 import { useProgramsMenuData } from './programs.hook';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { ProgramsMenu } from '../menus/programs-menu';
+import { useEffect, useState } from 'react';
 
 const useHeaderMainData = () => {
   const {
@@ -11,13 +12,12 @@ const useHeaderMainData = () => {
     header: { isBackgroundWhite }
   } = useSelector((state: State) => state);
   const { programsData } = useProgramsMenuData(language);
-  const {
-    location: { pathname }
-  } = useHistory();
+  const { pathname } = useLocation();
   const cartQuantity = selectedProducts?.length;
+  const [whiteHeader, setWhiteHeader] = useState(false);
+  const [stickyHeader, setStickyHeader] = useState(false);
 
   const darkThemes = [
-    'marketplace',
     'auth',
     'insights',
     'contact-us',
@@ -29,14 +29,28 @@ const useHeaderMainData = () => {
     'cart'
   ];
 
-  const blackTheme = darkThemes.includes(pathname.split('/')[1]);
+  /*
+   * handle on scroll theme change
+   */
+  useEffect(() => {
+    window.addEventListener('scroll', () =>
+      /*
+       * make delay for passing secondary header
+       */
+      window.pageYOffset > 40 ? setStickyHeader(true) : setStickyHeader(false)
+    );
+    darkThemes.includes(pathname.split('/')[1])
+      ? setWhiteHeader(true)
+      : setWhiteHeader(false);
+  }, [pathname]);
 
   return {
     cartQuantity,
     programsData,
     addedProduct,
     isBackgroundWhite,
-    blackTheme
+    whiteHeader,
+    stickyHeader
   };
 };
 export { useHeaderMainData };

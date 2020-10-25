@@ -12,7 +12,6 @@ import { Spinner } from '@core/components/spinner';
 import { ScrollToTop } from '@app';
 import ReactMarkdown from 'react-markdown';
 import { State } from '@app/redux/state';
-import { isBackgroundWhite } from '@core/components/header/store';
 
 const GET_MENTOR = gql`
   query($id: String!, $locale: String!) {
@@ -59,7 +58,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     if (data) {
       setMentor(data?.mentor);
     }
-    dispatch(isBackgroundWhite(true));
+
     return () => {
       setMentor({
         name: '',
@@ -71,7 +70,6 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
         linkedIn: '',
         workAt: ''
       });
-      dispatch(isBackgroundWhite(false));
     };
   }, [data]);
   if (loading) return <div>{mobile && <Spinner />}</div>;

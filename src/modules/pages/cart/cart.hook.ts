@@ -4,25 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cart as cartAction, getProducts } from '@app/redux/cart';
 import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
 import { checkout } from '@app/redux/checkout';
-import { isBackgroundWhite } from '@core/components/header/store';
 
 const useCartData = () => {
   const dispatch = useDispatch();
   const { selectedProducts, products } = useSelector(
     (state: State) => state.cart
   );
-
-  /**
-   * Mount
-   */
-  useEffect(() => {
-    dispatch(getProducts());
-    dispatch(isBackgroundWhite(true));
-
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
 
   if (selectedProducts?.length > products?.length) {
     dispatch(getProducts());

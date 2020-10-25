@@ -23,7 +23,6 @@ import { Authors } from './sections/authors';
 import { Feedback } from './sections/feedback';
 import { ProductBanner } from './sections/product-banner';
 import { useDispatch, useSelector } from 'react-redux';
-import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
 import { ProductResult } from './sections/product-result';
@@ -42,12 +41,6 @@ const Product: React.FC<ProductProps> = ({}) => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(isBackgroundWhite(true));
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
   const { id: productId, categorySlug } = useParams();
   const { product, productLoading } = useProductData(productId, language);
 

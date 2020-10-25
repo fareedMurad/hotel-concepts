@@ -20,6 +20,9 @@ import { MarketplaceProduct } from '@pages/marketplace-product';
 import { Cart } from '@pages/cart';
 import { getUser } from '@app/redux/auth';
 import { checkCart } from '@app/redux/cart';
+import { HeaderMobile } from '@core/components/header/header-mobile';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { setBackgroundWhite } from '@core/components/header/store';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -123,6 +126,7 @@ const Routes: React.FC = () => {
   useEffect(() => {
     dispatch(getUser());
     dispatch(checkCart());
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -131,11 +135,12 @@ const Routes: React.FC = () => {
         <div className={styles.routes}>
           {isToastVisible && <Toast />}
           <div className={styles.header}>
-            <HeaderSecondary whiteBackground={isBackgroundWhite} />
+            <HeaderMobile />
+            <HeaderSecondary />
             <Sticky topOffset={40}>
-              {({ style, isSticky }) => (
+              {({ style }) => (
                 <div style={style}>
-                  <HeaderMain isSticky={isSticky} />
+                  <HeaderMain />
                 </div>
               )}
             </Sticky>

@@ -1,0 +1,22 @@
+@import 'core.scss';
+
+.logo {
+}
+.header-mobile {
+  @include flex($justify: space-between, $align: center);
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  padding: 15px;
+  transition: $transition;
+
+  //hide mobile header on desk-top
+  @include desktop() {
+    display: none;
+  }
+}
+
+.white-header {
+  transition: $transition;
+  background-color: white;
+}

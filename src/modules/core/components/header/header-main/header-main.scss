@@ -1,8 +1,8 @@
 @import 'core.scss';
 
 .header-main {
-  @include flex($align: flex-end, $justify: space-between);
   position: relative;
+  display: none;
   width: 100%;
   padding: 10px 20px 10px 22px;
   transition: $transition;
@@ -10,6 +10,9 @@
   &_navigation {
     @include flex($justify: flex-end, $align: center);
     width: 100%;
+  }
+  @include desktop() {
+    @include flex($align: flex-end, $justify: space-between);
   }
 }
 
