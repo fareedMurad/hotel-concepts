@@ -22,6 +22,7 @@
 .title {
   @include flex($justify: center);
   @include font($primary-gray, 18px, 600, normal);
+  position: relative;
   padding: 19px 0;
   font-family: $EBGaramond;
   text-align: center;
@@ -55,4 +56,8 @@
     flex-grow: 2;
     font-family: $EBGaramond;
   }
+}
+
+.submit {
+  width: 100%;
 }

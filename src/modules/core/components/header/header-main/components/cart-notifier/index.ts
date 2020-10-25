@@ -1,1 +1,1 @@
-export * from './cart-nitifier.component';
+export * from './cart-notifier.component';
