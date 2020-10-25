@@ -23,6 +23,7 @@ const Text: React.FC<TextProps> = ({
   error,
   ref,
   isError,
+  theme,
   autoComplete
 }) => {
   const [focused, setFocused] = useState(false);
@@ -47,7 +48,8 @@ const Text: React.FC<TextProps> = ({
         className={classNames(styles.input, {
           [styles.inputInvalid]: isError,
           [styles.inputIos]: isIOS,
-          [styles.inputDisabled]: disabled
+          [styles.inputDisabled]: disabled,
+          [styles.secondaryTheme]: theme === 'secondary'
         })}
         name={name}
         mask={mask}
@@ -78,6 +80,7 @@ const Text: React.FC<TextProps> = ({
  * Defaults props
  */
 Text.defaultProps = {
+  theme: 'primary',
   type: 'text',
   mask: '',
   onChange: () => {},

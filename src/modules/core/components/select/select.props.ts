@@ -11,11 +11,15 @@ type SelectProps = ControlProps & {
   /**
    * Options list
    */
-  options?: Option[];
+  options: Option[];
   /**
    * Is search enabled
    */
   searchable?: boolean;
+  /*
+   * Theme
+   */
+  theme?: 'primary' | 'secondary';
 };
 
 export { SelectProps };

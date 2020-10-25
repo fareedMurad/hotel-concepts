@@ -5,8 +5,10 @@ import { Button, Spinner } from '@core/components';
 import classNames from 'classnames';
 import { useProgramEnrollData } from './program-enroll.hook';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 
 /**
  * Renders ProgramEnrollNow
@@ -15,6 +17,7 @@ import { State } from '@app/redux/state';
 const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ data }) => {
   const { t } = useTranslation();
   const { language } = useSelector((state: State) => state.localization);
+  const distpatch = useDispatch();
 
   if (!data) return null;
   // put popular in the middle of array;
@@ -51,9 +54,17 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({ data }) => {
                 </div>
                 <Button
                   className={styles.button}
-                  children={t('program-page.program-enroll-now.button-text')}
+                  children={
+                    item.name === 'Enterprise'
+                      ? t('program-page.program-enroll-now.button-text-contact')
+                      : t('program-page.program-enroll-now.button-text')
+                  }
                   arrow
                   width='100%'
+                  onClick={() =>
+                    item.name === 'Enterprise' &&
+                    distpatch(showModal(Modals.contactUs))
+                  }
                 />
               </div>
             </div>
