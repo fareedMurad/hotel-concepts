@@ -3,6 +3,7 @@
 .cart-notifier {
   position: absolute;
   right: -40px;
+  display: none;
   width: 488px;
 
   &--footer {
@@ -16,6 +17,9 @@
     @include font($primary-gray, 18px, 600, normal);
     font-family: $EBGaramond;
     margin-bottom: 27px;
+  }
+  @include desktop() {
+    display: block;
   }
 }
 

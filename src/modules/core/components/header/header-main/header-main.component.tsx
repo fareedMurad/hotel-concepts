@@ -21,31 +21,29 @@ import { CartMenu } from './menus/cart-menu';
 
 const HeaderMain: React.FC = () => {
   const { whiteHeader, stickyHeader } = useHeaderMainData();
+  const blackTheme = whiteHeader || stickyHeader;
   const className = classNames(styles.headerMainNavigationItem, {
-    [styles.invertedHeader]: whiteHeader || stickyHeader
+    [styles.invertedHeader]: blackTheme
   });
 
   return (
     <div
       style={{
-        backgroundColor: (whiteHeader || stickyHeader) && 'white'
+        backgroundColor: blackTheme && 'white'
       }}
       className={styles.headerMain}
     >
       <NavLink className={styles.logo} to={'/'}>
-        <Icon name={whiteHeader || stickyHeader ? 'logo-b' : 'logo'} />
+        <Icon name={blackTheme ? 'logo-b' : 'logo'} />
       </NavLink>
       <div className={styles.headerMainNavigation}>
         <ProgramsMenu className={className} />
         <LibraryMenu className={className} />
         <CorporateMenu className={className} />
         <AboutMenu className={className} />
-        <CartMenu blackTheme={whiteHeader || stickyHeader} />
-        <ProfileMenu blackTheme={whiteHeader || stickyHeader} />
-        <LocalizationMenu
-          className={className}
-          blackTheme={whiteHeader || stickyHeader}
-        />
+        <CartMenu />
+        <ProfileMenu blackTheme={blackTheme} />
+        <LocalizationMenu theme={blackTheme ? 'black' : 'primary'} />
       </div>
     </div>
   );

@@ -2,11 +2,10 @@
  * Props
  */
 type LocalizationMenuProps = {
-  className: string;
   /**
-   * black theme
+   *  Theme
    */
-  blackTheme: boolean;
+  theme: 'primary' | 'secondary' | 'black';
 };
 
 export { LocalizationMenuProps };

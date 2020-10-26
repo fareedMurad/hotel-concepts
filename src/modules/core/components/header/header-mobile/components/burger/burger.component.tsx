@@ -7,6 +7,7 @@ import { Button } from '@core/components/button';
 import { navigate } from '@router/store';
 import { useDispatch } from 'react-redux';
 import { animated } from 'react-spring';
+import { unauthorize } from '@app/redux/auth';
 
 /**
  * Renders Burger
@@ -55,6 +56,14 @@ const Burger: React.FC<any> = ({ transition }) => {
       >
         Contact
       </div>
+      {authorized && (
+        <Button
+          onClick={() => dispatch(unauthorize())}
+          className={styles.button}
+        >
+          Log out
+        </Button>
+      )}
     </animated.div>
   );
 };

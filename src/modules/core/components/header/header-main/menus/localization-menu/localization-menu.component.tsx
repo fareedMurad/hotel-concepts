@@ -12,19 +12,18 @@ import classNames from 'classnames';
 /**
  * Renders LocalizationMenu
  */
-const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
-  className,
-  blackTheme
-}) => {
+const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
   const { languages, selectedLanguage } = useLocalizationData();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  console.log(theme);
 
   return (
     <div
       className={classNames(styles.localMenu, {
         [styles.open]: showMenu,
-        [styles.black]: blackTheme
+        [styles.black]: theme === 'black',
+        [styles.secondary]: theme === 'secondary'
       })}
       onClick={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
@@ -32,12 +31,13 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
       {selectedLanguage.name}{' '}
       <Icon
         className={showMenu && styles.arrowRotate}
-        name={blackTheme ? 'triangle-arr-b' : 'triangle-arr'}
+        name={theme != 'primary' ? 'triangle-arr-b' : 'triangle-arr'}
       />
       {showMenu && (
         <div
           className={classNames(styles.dropDown, {
-            [styles.dropDownBlack]: blackTheme
+            [styles.blackDropdown]: theme === 'black',
+            [styles.secondaryDropdown]: theme === 'secondary'
           })}
         >
           {languages.map(el => (
@@ -53,6 +53,13 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
       )}
     </div>
   );
+};
+
+/**
+ * Default props
+ */
+LocalizationMenu.defaultProps = {
+  theme: 'primary'
 };
 
 export { LocalizationMenu };
