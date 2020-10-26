@@ -111,30 +111,35 @@ class CartSaga {
   /**
    * Notification product added
    */
-  @Saga(cart.add)
-  public *setCurrent(payload: Payload<typeof cart.add>, { api }: Context) {
-    const { path } = payload;
-    const {
-      localization: { language: localizationLanguage },
-      auth: { user, authorized }
-    } = yield select((state: State) => state);
 
-    let locale = 'en-US';
+  /*
+   *styles for this should be added
+   */
 
-    locale = authorized ? user?.language : localizationLanguage;
-    try {
-      const response = yield call(api.marketplace.fetchAnyProductsListByIds, {
-        ids: [path],
-        locale
-      });
+  // @Saga(cart.add)
+  // public *setCurrent(payload: Payload<typeof cart.add>, { api }: Context) {
+  //   const { path } = payload;
+  //   const {
+  //     localization: { language: localizationLanguage },
+  //     auth: { user, authorized }
+  //   } = yield select((state: State) => state);
 
-      yield put(cart.setCurrent(response.data.items[0]));
-    } catch (err) {
-      console.log(err);
-    }
-    yield delay(3000);
-    yield put(cart.removeCurrent());
-  }
+  //   let locale = 'en-US';
+
+  //   locale = authorized ? user?.language : localizationLanguage;
+  //   try {
+  //     const response = yield call(api.marketplace.fetchAnyProductsListByIds, {
+  //       ids: [path],
+  //       locale
+  //     });
+
+  //     yield put(cart.setCurrent(response.data.items[0]));
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  //   yield delay(3000);
+  //   yield put(cart.removeCurrent());
+  // }
 
   /**
    * Get many from cart
