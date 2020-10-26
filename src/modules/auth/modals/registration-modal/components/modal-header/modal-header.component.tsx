@@ -1,5 +1,4 @@
 import { Sso } from '@auth/components';
-import { useAuthHeaderData } from '@auth/components/auth-header/auth-header.hook';
 import * as React from 'react';
 import { ModalHeaderProps } from './modal-header.props';
 import * as styles from './modal-header.scss';
@@ -34,7 +33,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({}) => {
         Build skills for today, tomorrow, and beyond. Education to future-proof
         your career.
       </div>
-      <Sso className={styles.socials} isLogin={true} />
+      <Sso className={styles.socials} isLogin />
       <div className={styles.separator}>
         <span className={styles.separatorLine} />
         <span className={styles.separatorCaption}>Or</span>

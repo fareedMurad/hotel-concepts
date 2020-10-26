@@ -107,7 +107,8 @@ const useCartData = () => {
 
   return {
     products: cartData,
-    summaryData
+    summaryData,
+    authorized
   };
 };
 

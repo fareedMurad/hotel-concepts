@@ -41,7 +41,7 @@ const CartPlaceholder: React.FC = () => {
  * Renders Cart
  */
 const Cart: React.FC = () => {
-  const { products, summaryData } = useCartData();
+  const { products, summaryData, authorized } = useCartData();
   const { t } = useTranslation();
   const cartQuantity = products?.length;
 
@@ -97,7 +97,7 @@ const Cart: React.FC = () => {
             <CartPlaceholder />
           )}
         </Preloader>
-        <RegistrationModal />
+        {!authorized && <RegistrationModal />}
       </div>
     </div>
   );
