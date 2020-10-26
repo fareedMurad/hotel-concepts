@@ -1,0 +1,51 @@
+@import 'core.scss';
+
+.library-menu {
+  position: relative;
+  margin-right: 60px;
+}
+
+.dropdown {
+  left: -300px;
+
+  &--title {
+    @include flex();
+    @include font($primary-gray, 20px, 600, 28px);
+    position: relative;
+    padding-bottom: 9px;
+    transition: $transition;
+    cursor: pointer;
+
+    & > span {
+      margin-left: 8px;
+      color: $primary-orange;
+    }
+
+    &:hover {
+      color: $primary-orange;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background-color: $primary-orange;
+    }
+  }
+}
+
+.links {
+  @include flex();
+  margin-top: 30px;
+
+  &--link {
+    width: 275px;
+
+    &:first-child {
+      margin-right: 28px;
+    }
+  }
+}

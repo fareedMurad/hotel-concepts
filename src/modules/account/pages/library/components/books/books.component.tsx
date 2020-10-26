@@ -2,7 +2,8 @@ import { downloadBook, removeBookFromWishlist } from '@app/redux/account';
 import { cart } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { Button, Icon } from '@core/components';
-import { readBook, toggleBookPreviewModal } from '@ui/modal';
+import { navigate } from '@router/store';
+import { readBook } from '@ui/modal';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -26,20 +27,26 @@ const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
   } = book || {};
 
   return (
-    <div className={styles.book}>
+    <div
+      className={styles.book}
+      onClick={() => {
+        dispatch(navigate(`/marketplace/${id}`));
+      }}
+    >
       {fromWishlist && (
         <Icon
           className={styles.like}
           name='heart'
-          onClick={() =>
+          onClick={e => {
+            e.stopPropagation();
             dispatch(
               removeBookFromWishlist({
                 id,
                 preloader: Preloaders.libraryWishlist,
                 page: '/account/library/wishlist'
               })
-            )
-          }
+            );
+          }}
         />
       )}
       <img className={styles.image} src={url} alt={url} />
@@ -52,7 +59,10 @@ const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
           ) : (
             <Button
               arrow
-              onClick={() => dispatch(cart.add({ path: id, quantity: 1 }))}
+              onClick={e => {
+                e.stopPropagation();
+                dispatch(cart.add({ path: id, quantity: 1 }));
+              }}
             >
               Add to cart
             </Button>
@@ -61,14 +71,20 @@ const Book: React.FC<BookProps> = ({ type, book, inCart }) => {
           <React.Fragment>
             <Button
               arrow
-              onClick={() => dispatch(readBook({ url: attachment?.file?.url }))}
+              onClick={e => {
+                e.stopPropagation();
+                dispatch(readBook({ url: attachment?.file?.url }));
+              }}
             >
               Read
             </Button>
             <Button
               theme='secondary'
               arrow
-              onClick={() => dispatch(downloadBook(attachment?.file?.url))}
+              onClick={e => {
+                e.stopPropagation();
+                dispatch(downloadBook(attachment?.file?.url));
+              }}
             >
               Download
             </Button>

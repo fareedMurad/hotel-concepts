@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
         itemClass={styles.slide}
         customButtonGroup={<SliderControls />}
       >
-        {slider.map(({ url }, index) => (
+        {slider?.map(({ url }, index) => (
           <div
             className={styles.image}
             style={{ backgroundImage: `url(${url})` }}

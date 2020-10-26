@@ -12,7 +12,6 @@ const getCategories = make('[programs] get categories')
 /*
  * Get single category
  */
-
 const getSingleCategory = make('[programs] get single category')
   .stage((payload: { locale: string; id: string }) => payload)
   .stage('success', (payload: ProgramCategoryModel) => payload);
@@ -49,10 +48,17 @@ const getSingleProgram = make('[programs] get single program')
   .stage((payload: { locale: string; id: string }) => payload)
   .stage('success', (payload: SingleProgramModel) => payload);
 
+/*
+ * Submit form
+ */
+
+const sendRequest = make('[form submit]').stage(payload => payload);
+
 export {
   getCategories,
   getPrograms,
   selectCategory,
   getSingleCategory,
-  getSingleProgram
+  getSingleProgram,
+  sendRequest
 };

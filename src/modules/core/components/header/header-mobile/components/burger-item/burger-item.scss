@@ -1,0 +1,32 @@
+@import 'core.scss';
+
+.burger-item {
+  padding: 22px 15px;
+}
+
+.title {
+  @include flex($justify: space-between, $align: center);
+  @include font($primary-gray, 16px, 400, 22px);
+  &--indicator {
+    @include font($primary-gray, 22px, 300, 22px);
+    display: block;
+  }
+}
+
+.menu {
+  background-color: $background;
+  margin: 0 15px;
+}
+
+.menu-item {
+  @include flex($align: center);
+  margin-top: 22px;
+  padding: 20px 8px;
+  &:before {
+    content: '';
+    width: 3px;
+    height: 3px;
+    background-color: $primary-orange;
+    margin-right: 8px;
+  }
+}

@@ -1,34 +1,27 @@
+import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
+import { getProducts } from '@app/redux/cart';
+import { checkout } from '@app/redux/checkout';
 import { State } from '@app/redux/state';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cart as cartAction, getProducts } from '@app/redux/cart';
-import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
-import { checkout } from '@app/redux/checkout';
+import { cart as cartAction } from '@app/redux/cart';
+
 import { isBackgroundWhite } from '@core/components/header/store';
-import { Modals } from '@ui/models';
-import { showModal } from '@ui/modal';
 
 const useCartData = () => {
   const dispatch = useDispatch();
-  const { selectedProducts, products } = useSelector(
-    (state: State) => state.cart
-  );
+  const {
+    cart: { selectedProducts, products },
+    auth: { authorized }
+  } = useSelector((state: State) => state);
 
-  /**
-   * Mount
-   */
   useEffect(() => {
-    dispatch(getProducts());
-    dispatch(isBackgroundWhite(true));
-
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
-
-  if (selectedProducts?.length > products?.length) {
-    dispatch(getProducts());
-  }
+    if (selectedProducts?.length > products?.length) {
+      dispatch(getProducts());
+    }
+  }, [selectedProducts]);
 
   if (
     selectedProducts?.length !== products?.length ||
@@ -97,8 +90,11 @@ const useCartData = () => {
 
   const summaryData = {
     total: products
-      ?.map(product => product.price)
-      ?.reduce((acc, cur) => acc + cur, 0),
+      ?.map(product => ({
+        price: product.price,
+        amount: selectedProducts.find(one => one.path == product.id).quantity
+      }))
+      ?.reduce((acc, cur) => acc + cur.price * cur.amount, 0),
     estimatedShipping: 'Free',
     estimatedTax: '0.00',
     onClick: () => {
@@ -120,19 +116,6 @@ const useCartData = () => {
   return {
     products: cartData,
     summaryData
-    // cartData,
-    // summaryData: {
-    //   total,
-    //   estimatedShipping: '',
-    //   estimatedTax: '0 $',
-    //   onClick: () => {
-    //     const items = cartData.map(item => ({
-    //       path: item.id,
-    //       quantity: item.quantity
-    //     }));
-    //     dispatch(checkout(items));
-    //   }
-    // }
   };
 };
 

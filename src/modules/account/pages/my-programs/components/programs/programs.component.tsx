@@ -3,18 +3,20 @@ import {
   removeProgramFromWishlist
 } from '@app/redux/account';
 import { cart } from '@app/redux/cart';
+import { State } from '@app/redux/state';
 import { Button, Icon } from '@core/components';
+import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ProgramProps, ProgramsProps } from './programs.props';
 import * as styles from './programs.scss';
 
 /**
  * Renders single Program
  */
-const Program: React.FC<ProgramProps> = ({ type, program }) => {
+const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
   const dispatch = useDispatch();
   const fromWishlist = type == 'wishlist';
   const {
@@ -31,19 +33,25 @@ const Program: React.FC<ProgramProps> = ({ type, program }) => {
   } = program || {};
 
   return (
-    <div className={styles.program}>
+    <div
+      className={styles.program}
+      onClick={() => {
+        dispatch(navigate(`/program/?programId=${id}`));
+      }}
+    >
       {fromWishlist && (
         <Icon
           className={styles.like}
           name='heart'
-          onClick={() =>
+          onClick={e => {
+            e.stopPropagation();
             dispatch(
               removeProgramFromWishlist({
                 id,
                 preloader: Preloaders.programsWishlist
               })
-            )
-          }
+            );
+          }}
         />
       )}
       <img className={styles.image} src={url} alt={url} />
@@ -58,13 +66,20 @@ const Program: React.FC<ProgramProps> = ({ type, program }) => {
         <div className={styles.box}>
           <div className={styles.description}>{description}</div>
           {fromWishlist ? (
-            <Button
-              className={styles.control}
-              arrow
-              onClick={() => dispatch(cart.add({ path: id, quantity: 1 }))}
-            >
-              Add to cart
-            </Button>
+            inCart ? (
+              <Button disabled>Is in cart</Button>
+            ) : (
+              <Button
+                className={styles.control}
+                arrow
+                onClick={e => {
+                  e.stopPropagation();
+                  dispatch(cart.add({ path: id, quantity: 1 }));
+                }}
+              >
+                Add to cart
+              </Button>
+            )
           ) : (
             <Button className={styles.control} arrow>
               Access program
@@ -80,15 +95,26 @@ const Program: React.FC<ProgramProps> = ({ type, program }) => {
  * Renders Programs
  */
 const Programs: React.FC<ProgramsProps> = ({ className, type, data }) => {
+  const {
+    cart: { selectedProducts }
+  } = useSelector((state: State) => state);
   const fromWishlist = type == 'wishlist';
   const { items, total } = data || {};
-  const dispatch = useDispatch();
 
   return total > 0 ? (
     <div className={classNames(styles.programs, className)}>
-      {items.map(program => (
-        <Program type={type} program={program} key={program?.id} />
-      ))}
+      {items.map(program => {
+        const match = selectedProducts?.some(one => one.path == program.id);
+
+        return (
+          <Program
+            type={type}
+            program={program}
+            inCart={match}
+            key={program?.id}
+          />
+        );
+      })}
     </div>
   ) : (
     <div className={styles.placeholder}>

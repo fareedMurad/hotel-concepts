@@ -1,6 +1,7 @@
 import { Book } from '@account/pages/library/models';
 import { Program } from '@account/pages/my-programs/models';
 import { Product } from '@app/models/fastspring';
+import { ProductModel } from '@pages/product/models/product.model';
 import { make } from 'redux-chill';
 
 /**
@@ -30,6 +31,8 @@ const checkCart = make('[cart] check').stage(
  */
 const cart = make('[cart]')
   .stage('add', (product: Product) => product)
+  .stage('setCurrent', (product: Book) => product)
+  .stage('removeCurrent')
   .stage('getMany')
   .stage('remove', (id: string) => id)
   .stage('update', (payload: Product) => payload)

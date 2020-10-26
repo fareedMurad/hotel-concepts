@@ -9,7 +9,7 @@ import Moment from 'react-moment';
 import { ArticleIntro } from './sections/article-intro';
 import { ArticleRichText } from './sections/article-rich-text';
 import { useDispatch, useSelector } from 'react-redux';
-import { isBackgroundWhite } from '@core/components/header/store';
+
 import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
 import { launch } from 'puppeteer';
@@ -32,12 +32,6 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(isBackgroundWhite(true));
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
 
   if (articleLoading) return <Spinner />;
 

@@ -14,10 +14,12 @@
   position: relative;
   padding-bottom: 26px;
   border-bottom: 2px solid #cbd0d3;
+  cursor: pointer;
 
   &:not(:first-child) {
     margin-top: 32px;
   }
+
   @include tablet() {
     @include flex($align: stretch, $direction: row);
     min-height: 278px;

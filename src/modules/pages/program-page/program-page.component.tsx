@@ -3,11 +3,13 @@ import { State } from '@app/redux/state';
 import { Preloader } from '@core/components';
 import { FaqBlock, PartnerApply } from '@pages/components';
 import { Impact } from '@pages/homepage/sections';
-import { Preloaders } from '@ui/models';
+import { showModal } from '@ui/modal';
+import { Modals, Preloaders } from '@ui/models';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import { ContactUsModal } from './components/contact-us-modal';
 import { useProgramData } from './hooks';
 import { ProgramPageProps } from './program-page.props';
 import * as styles from './program-page.scss';
@@ -71,6 +73,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
           title={t('program-page.partner-apply.title')}
           subtitle={t('program-page.partner-apply.sub-title')}
         />
+        <ContactUsModal />
       </Preloader>
     </div>
   );

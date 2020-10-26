@@ -14,7 +14,6 @@ import {
 import { Formik } from 'formik';
 import { FaqBlock } from '@pages/components';
 import { useDispatch } from 'react-redux';
-import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
 /**
  * Renders Faq
@@ -22,12 +21,7 @@ import { useTranslation } from 'react-i18next';
 const Faq: React.FC<FaqProps> = ({}) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(isBackgroundWhite(true));
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
+
   return (
     <div className={styles.faq}>
       <div className={styles.container}>

@@ -2,10 +2,10 @@
  * Props
  */
 type AboutMenuProps = {
-  onClick?: () => void;
+  /**
+   * Class name
+   */
   className: string;
-  setSelectedMenu: (isShow: string) => void;
-  selectedMenu: string;
 };
 
 export { AboutMenuProps };

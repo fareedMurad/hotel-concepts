@@ -2,10 +2,10 @@
  * Props
  */
 type ProfileMenuProps = {
-  /*
-   * Toggle menu
+  /**
+   * black theme
    */
-  setSelectedMenu: (toggle: string) => void;
+  blackTheme: boolean;
 };
 
 export { ProfileMenuProps };

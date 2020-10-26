@@ -1,0 +1,18 @@
+@import 'core.scss';
+
+.link {
+  cursor: pointer;
+  transition: $transition;
+  &--title {
+    @include font($primary-gray, 20px, 500, 28px);
+  }
+  &:hover > div {
+    color: $primary-orange !important;
+  }
+  &--image {
+    width: 100%;
+    margin-top: 7px;
+    min-height: 200px;
+    border-radius: 10px;
+  }
+}

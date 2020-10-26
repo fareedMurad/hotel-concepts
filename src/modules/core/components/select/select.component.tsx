@@ -24,10 +24,6 @@ const withClassName = (className: string) => ({
 );
 
 /**
- * Custom select indicator
- */
-
-/**
  * Select parts
  */
 const components: Partial<typeof Components> = {
@@ -69,7 +65,8 @@ const Select: React.FC<SelectProps> = ({
   searchable,
   disabled,
   getOptionValue,
-  whiteBackground
+  whiteBackground,
+  theme
 }) => {
   const [focused, setFocused] = useState(false);
 

@@ -1,0 +1,26 @@
+@import 'core.scss';
+
+.burger {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100vw;
+  background-color: white;
+  min-height: 100vh;
+  padding-top: 70px;
+}
+
+.link {
+  @include font($primary-gray, 14px, 600, 22px);
+  padding: 11px 15px;
+  background-color: $background;
+}
+
+.button {
+  width: 90%;
+  margin: 0 auto;
+  &:last-child {
+    margin-top: 20px;
+  }
+}

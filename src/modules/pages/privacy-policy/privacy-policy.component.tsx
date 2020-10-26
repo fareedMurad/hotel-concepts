@@ -4,7 +4,6 @@ import * as styles from './privacy-policy.scss';
 import { H2, Paragraph, Footer } from '@core/components';
 import { usePrivacyPolicyData } from './privacy-policy.hook';
 import { useDispatch } from 'react-redux';
-import { isBackgroundWhite } from '@core/components/header/store';
 import { useTranslation } from 'react-i18next';
 /**
  * Renders Block
@@ -29,13 +28,6 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { list } = usePrivacyPolicyData();
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-    dispatch(isBackgroundWhite(true));
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
 
   return (
     <div className={styles.privacyPolicy}>

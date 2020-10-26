@@ -24,6 +24,10 @@ const cartReducer = reducer(new CartState())
   })
   .on(getProducts.success, (state, payload) => {
     state.products = payload;
-  });
+  })
+  .on(cart.setCurrent, (state, payload) => {
+    state.addedProduct = payload;
+  })
+  .on(cart.removeCurrent, state => (state.addedProduct = null));
 
 export { cartReducer as cart };

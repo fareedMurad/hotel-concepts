@@ -1,6 +1,5 @@
 import { fetchMarketplaceProduct } from '@app/redux/marketplace';
 import { State } from '@app/redux/state';
-import { isBackgroundWhite } from '@core/components/header/store';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router';
@@ -137,10 +136,6 @@ const useMarketplaceProductData = () => {
 
   useEffect(() => {
     dispatch(fetchMarketplaceProduct(id));
-    dispatch(isBackgroundWhite(true));
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
   }, [id]);
 
   return {

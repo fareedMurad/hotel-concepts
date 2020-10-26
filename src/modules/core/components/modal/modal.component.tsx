@@ -23,6 +23,7 @@ const Modal: React.FC<ModalProps> = ({
   className,
   children,
   withOverlay,
+  onClose,
   historyGoBack,
   ...props
 }) => {
@@ -44,6 +45,7 @@ const Modal: React.FC<ModalProps> = ({
 
   useClickOutside(modalRef, () => {
     dispatch(closeModal(id));
+    onClose && onClose();
     dispatch(toogleContributorModal(false));
     dispatch(toggleBookPreviewModal(false));
     dispatch(toggleBookOverviewModal(false));

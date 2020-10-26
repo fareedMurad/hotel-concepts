@@ -1,0 +1,67 @@
+@import 'core.scss';
+
+.cart-notifier {
+  position: absolute;
+  right: -40px;
+  display: none;
+  width: 488px;
+
+  &--footer {
+    padding: 0 33px 12px 33px;
+  }
+
+  border-radius: 6px;
+  background-color: $white;
+  &--total {
+    @include flex($justify: space-between);
+    @include font($primary-gray, 18px, 600, normal);
+    font-family: $EBGaramond;
+    margin-bottom: 27px;
+  }
+  @include desktop() {
+    display: block;
+  }
+}
+
+.title {
+  @include flex($justify: center);
+  @include font($primary-gray, 18px, 600, normal);
+  position: relative;
+  padding: 19px 0;
+  font-family: $EBGaramond;
+  text-align: center;
+  background-color: $background;
+}
+
+.item {
+  @include flex();
+  padding: 27px 33px;
+  &--image {
+    width: 150px;
+    height: 209px;
+    margin-right: 16px;
+  }
+}
+
+.description {
+  @include flex($direction: column, $justify: space-between);
+  flex: 1;
+
+  &--name {
+    @include font($primary-gray, 24px, 400, 34px);
+  }
+  &--author {
+    @include font($light-grey, 18px, 400, normal);
+  }
+  &--price {
+    @include font($primary-gray, 24px, 400, normal);
+    // position: absolute;
+    // bottom: 0;
+    flex-grow: 2;
+    font-family: $EBGaramond;
+  }
+}
+
+.submit {
+  width: 100%;
+}
