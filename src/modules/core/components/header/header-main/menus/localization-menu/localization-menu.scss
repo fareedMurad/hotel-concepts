@@ -4,15 +4,22 @@
   @include flex($align: center, $justify: space-between);
   @include font(white, 12px, 500, 16px);
   position: relative;
-  cursor: pointer;
   width: 55px;
   padding: 6px 8px;
   font-family: $IBMPlex;
   border: 1px solid white;
   border-radius: 4px;
   transition: none;
+  cursor: pointer;
+
   & > div:first-child {
     margin-left: 3px;
+  }
+
+  &--open {
+    border-bottom: 1px solid transparent;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
@@ -50,13 +57,6 @@
     border-top: 1px solid transparent;
   }
 }
-
-.open {
-  border-bottom: 1px solid transparent;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .arrow-rotate {
   transform: rotate(180deg);
 }
@@ -65,6 +65,7 @@
   display: block;
   transition: $transition;
   padding: 8px 0;
+
   &:hover {
     color: $primary-orange;
   }

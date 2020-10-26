@@ -1,15 +1,13 @@
-import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
-import { useProgramsMenuData } from './programs.hook';
-import { matchPath, useHistory, useLocation } from 'react-router';
-import { ProgramsMenu } from '../menus/programs-menu';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { matchPath, useLocation } from 'react-router';
+import { useProgramsMenuData } from './programs.hook';
 
 const useHeaderMainData = () => {
   const {
     localization: { language },
-    cart: { selectedProducts, addedProduct },
-    header: { isBackgroundWhite }
+    cart: { selectedProducts, addedProduct }
   } = useSelector((state: State) => state);
   const { programsData } = useProgramsMenuData(language);
   const { pathname } = useLocation();
@@ -53,7 +51,6 @@ const useHeaderMainData = () => {
     cartQuantity,
     programsData,
     addedProduct,
-    isBackgroundWhite,
     whiteHeader,
     stickyHeader
   };

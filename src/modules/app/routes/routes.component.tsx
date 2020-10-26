@@ -1,28 +1,26 @@
-import { Auth } from '@auth';
-import { Uikit } from '@uikit';
-import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import * as styles from './routes.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { State } from '@app/redux/state';
-import { Toast, Footer, Spinner } from '@core/components';
-import { useMediaPoints } from '@core/shared';
-import { toogleContributorModal } from '@ui/modal';
 import { NotFound } from '@app/components';
-import { TestPage } from 'src/modules/test-page';
-import { lazy, Fragment, useEffect } from 'react';
-import { HeaderMain } from '@core/components/header/header-main';
-import { HeaderSecondary } from '@core/components/header/header-secondary';
-import { StickyContainer, Sticky } from 'react-sticky';
-import { Account } from 'src/modules/account';
-import { Interests } from '@pages';
-import { MarketplaceProduct } from '@pages/marketplace-product';
-import { Cart } from '@pages/cart';
 import { getUser } from '@app/redux/auth';
 import { checkCart } from '@app/redux/cart';
+import { State } from '@app/redux/state';
+import { Auth } from '@auth';
+import { Footer, Spinner, Toast } from '@core/components';
+import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderMobile } from '@core/components/header/header-mobile';
-import { scrollTo } from '@core/helpers/scroll-to.helper';
-import { setBackgroundWhite } from '@core/components/header/store';
+import { HeaderSecondary } from '@core/components/header/header-secondary';
+import { useMediaPoints } from '@core/shared';
+import { Interests } from '@pages';
+import { Cart } from '@pages/cart';
+import { MarketplaceProduct } from '@pages/marketplace-product';
+import { toogleContributorModal } from '@ui/modal';
+import { Uikit } from '@uikit';
+import * as React from 'react';
+import { Fragment, lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { Sticky, StickyContainer } from 'react-sticky';
+import { Account } from 'src/modules/account';
+import { TestPage } from 'src/modules/test-page';
+import * as styles from './routes.scss';
 
 const LearningApproach = lazy(() =>
   import('src/modules/pages').then(({ LearningApproach }) => ({
@@ -118,7 +116,6 @@ const ProgramPage = lazy(() =>
  */
 const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
-  const { isBackgroundWhite } = useSelector((state: State) => state.header);
   const { authorized } = useSelector((state: State) => state.auth);
   const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
