@@ -1,9 +1,8 @@
-import { State } from '@app/redux/state';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { cart as cartAction, getProducts } from '@app/redux/cart';
 import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
+import { getProducts } from '@app/redux/cart';
 import { checkout } from '@app/redux/checkout';
+import { State } from '@app/redux/state';
+import { useDispatch, useSelector } from 'react-redux';
 
 const useCartData = () => {
   const dispatch = useDispatch();
@@ -82,8 +81,11 @@ const useCartData = () => {
 
   const summaryData = {
     total: products
-      ?.map(product => product.price)
-      ?.reduce((acc, cur) => acc + cur, 0),
+      ?.map(product => ({
+        price: product.price,
+        amount: selectedProducts.find(one => one.path == product.id).quantity
+      }))
+      ?.reduce((acc, cur) => acc + cur.price * cur.amount, 0),
     estimatedShipping: 'Free',
     estimatedTax: '0.00',
     onClick: () => {
@@ -98,19 +100,6 @@ const useCartData = () => {
   return {
     products: cartData,
     summaryData
-    // cartData,
-    // summaryData: {
-    //   total,
-    //   estimatedShipping: '',
-    //   estimatedTax: '0 $',
-    //   onClick: () => {
-    //     const items = cartData.map(item => ({
-    //       path: item.id,
-    //       quantity: item.quantity
-    //     }));
-    //     dispatch(checkout(items));
-    //   }
-    // }
   };
 };
 
