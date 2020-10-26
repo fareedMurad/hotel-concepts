@@ -12,9 +12,8 @@ import { useTranslation } from 'react-i18next';
  */
 const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
   const { total, estimatedShipping, estimatedTax, onClick } = summaryData || {};
-  const { user } = useSelector((state: State) => state.auth);
+  const { user, authorized } = useSelector((state: State) => state.auth);
   const { t } = useTranslation();
-
   const isAccountVerified = user ? user.verified : false;
 
   return (
@@ -55,7 +54,7 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
           arrow
           className={styles.submit}
           onClick={onClick}
-          disabled={!isAccountVerified}
+          disabled={authorized && !isAccountVerified}
         >
           {t('cart.summary.button-text')}
         </Button>

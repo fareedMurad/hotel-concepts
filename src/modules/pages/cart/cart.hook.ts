@@ -2,6 +2,9 @@ import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
 import { getProducts } from '@app/redux/cart';
 import { checkout } from '@app/redux/checkout';
 import { State } from '@app/redux/state';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const useCartData = () => {
@@ -11,9 +14,11 @@ const useCartData = () => {
     auth: { authorized }
   } = useSelector((state: State) => state);
 
-  if (selectedProducts?.length > products?.length) {
-    dispatch(getProducts());
-  }
+  useEffect(() => {
+    if (selectedProducts?.length > products?.length) {
+      dispatch(getProducts());
+    }
+  }, [selectedProducts]);
 
   if (
     selectedProducts?.length !== products?.length ||
