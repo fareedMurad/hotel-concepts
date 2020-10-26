@@ -19,6 +19,7 @@
   @include font($primary-orange, 18px, 600, normal);
   margin-bottom: 13px;
   font-family: $EBGaramond;
+  word-break: break-word;
 }
 
 .create-acc {
