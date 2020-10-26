@@ -5,6 +5,7 @@ import {
 import { cart } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { Button, Icon } from '@core/components';
+import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -32,19 +33,25 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
   } = program || {};
 
   return (
-    <div className={styles.program}>
+    <div
+      className={styles.program}
+      onClick={() => {
+        dispatch(navigate(`/program/?programId=${id}`));
+      }}
+    >
       {fromWishlist && (
         <Icon
           className={styles.like}
           name='heart'
-          onClick={() =>
+          onClick={e => {
+            e.stopPropagation();
             dispatch(
               removeProgramFromWishlist({
                 id,
                 preloader: Preloaders.programsWishlist
               })
-            )
-          }
+            );
+          }}
         />
       )}
       <img className={styles.image} src={url} alt={url} />
@@ -65,7 +72,10 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
               <Button
                 className={styles.control}
                 arrow
-                onClick={() => dispatch(cart.add({ path: id, quantity: 1 }))}
+                onClick={e => {
+                  e.stopPropagation();
+                  dispatch(cart.add({ path: id, quantity: 1 }));
+                }}
               >
                 Add to cart
               </Button>

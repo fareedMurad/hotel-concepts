@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { ProgramItemProps } from './program-item.props';
-import * as styles from './program-item.scss';
-import { Button, Icon, Preloader } from '@core/components';
-import { useHistory } from 'react-router';
-import { Preloaders } from '@ui/models';
-import { State } from '@app/redux/state';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   addProgramToWishlist,
   removeProgramFromWishlist
 } from '@app/redux/account';
+import { State } from '@app/redux/state';
+import { Button, Icon, Preloader } from '@core/components';
+import { navigate } from '@router/store';
+import { Preloaders } from '@ui/models';
+import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ProgramItemProps } from './program-item.props';
+import * as styles from './program-item.scss';
 
 /**
  * Renders ProgramItem
@@ -30,11 +30,8 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
       file: { url }
     }
   } = program;
-  const history = useHistory();
   const dispatch = useDispatch();
   const { authorized } = useSelector((state: State) => state.auth);
-  const handleClick = id => () =>
-    history.push(`/program/${slug}?programId=${id}`);
 
   return (
     <React.Fragment>
@@ -77,7 +74,9 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
         </div>
         <div className={styles.buttonContainer}>
           <Button
-            onClick={handleClick(id)}
+            onClick={() => {
+              dispatch(navigate(`/program/?programId=${id}`));
+            }}
             className={styles.button}
             children='Find out more'
             arrow

@@ -90,7 +90,9 @@ const MyInterests: React.FC<MyInterestsProps> = ({ className }) => {
             </Button>
           )}
           <div
-            className={styles.toggle}
+            className={classNames(styles.toggle, {
+              [styles.toggleExpanded]: expanded
+            })}
             onClick={() => {
               setExpanded(!expanded);
             }}

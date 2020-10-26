@@ -23,7 +23,7 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
 
   const history = useHistory();
   const handleClick = (id, slug) => () =>
-    history.push(`/program/${slug}?programId=${id}`);
+    history.push(`/program/?programId=${id}`);
 
   return (
     <div className={styles.courseItem}>

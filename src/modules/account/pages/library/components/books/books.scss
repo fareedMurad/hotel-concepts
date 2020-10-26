@@ -23,6 +23,7 @@
 .book {
   @include flex($align: stretch, $direction: column);
   position: relative;
+  cursor: pointer;
 }
 
 .like {

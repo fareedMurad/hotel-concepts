@@ -12,7 +12,6 @@ const getCategories = make('[programs] get categories')
 /*
  * Get single category
  */
-
 const getSingleCategory = make('[programs] get single category')
   .stage((payload: { locale: string; id: string }) => payload)
   .stage('success', (payload: ProgramCategoryModel) => payload);

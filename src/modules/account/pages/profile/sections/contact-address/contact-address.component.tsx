@@ -34,7 +34,12 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
         >
           {({ handleSubmit }) => (
             <FormNew className={styles.form} handleSubmit={handleSubmit}>
-              <Field.Select name='title' label='Title' options={titleData} />
+              <Field.Select
+                className={styles.select}
+                name='title'
+                label='Title'
+                options={titleData}
+              />
               <Field.Text name='name' label='First Name' />
               <Field.Text name='surname' label='Last Name' />
               <Field.RadioGroup

@@ -42,9 +42,11 @@
   flex: 1;
   margin-top: 20px;
   width: 100%;
+
   &__interests {
     padding: 12px 20px 20px 20px;
   }
+
   @include desktop() {
     margin-top: 0px;
     margin-left: 20px;
@@ -55,7 +57,7 @@
 .column-bottom {
   display: grid;
   gap: 20px;
-  // height: 100%;
+  height: 100%;
   margin-top: 20px;
   &__email-password {
     padding: 12px 20px 20px 20px;
