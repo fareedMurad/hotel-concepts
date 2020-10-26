@@ -11,9 +11,9 @@ import * as styles from './cart-menu.scss';
  * Renders CartMenu
  */
 const CartMenu: React.FC<CartMenuProps> = () => {
-  const { cartQuantity, addedProduct, whiteHeader } = useHeaderMainData();
   const dispatch = useDispatch();
-  console.log(whiteHeader);
+  const { cartQuantity, addedProduct, whiteHeader } = useHeaderMainData();
+
   return (
     <div className={styles.cart} onClick={() => dispatch(navigate('/cart'))}>
       <Icon name={whiteHeader ? 'shopping-cart' : 'shopping-cart-white'} />

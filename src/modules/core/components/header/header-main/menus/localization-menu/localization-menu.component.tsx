@@ -15,7 +15,6 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
   const { languages, selectedLanguage } = useLocalizationData();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  console.log(theme);
 
   return (
     <div

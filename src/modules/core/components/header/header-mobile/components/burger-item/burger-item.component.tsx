@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { BurgerItemProps } from './burger-item.props';
 import * as styles from './burger-item.scss';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
 
@@ -25,28 +24,25 @@ const BurgerItem: React.FC<BurgerItemProps> = ({
   menuLinks,
   showMenu,
   setShowMenu
-}) => {
-  console.log(menuLinks);
-  return (
-    <div className={styles.burgerItem}>
-      <div
-        className={styles.title}
-        onClick={() => setShowMenu(showMenu === title ? '' : title)}
-      >
-        <div>{title}</div>
-        <div className={styles.titleIndicator}>
-          {showMenu === title ? '-' : '+'}
-        </div>
+}) => (
+  <div className={styles.burgerItem}>
+    <div
+      className={styles.title}
+      onClick={() => setShowMenu(showMenu === title ? '' : title)}
+    >
+      <div>{title}</div>
+      <div className={styles.titleIndicator}>
+        {showMenu === title ? '-' : '+'}
       </div>
-      {showMenu === title && (
-        <div className={styles.menu}>
-          {menuLinks.map(el => (
-            <MenuItem key={el.link} link={el.link} to={el.to} />
-          ))}
-        </div>
-      )}
     </div>
-  );
-};
+    {showMenu === title && (
+      <div className={styles.menu}>
+        {menuLinks.map(el => (
+          <MenuItem key={el.link} link={el.link} to={el.to} />
+        ))}
+      </div>
+    )}
+  </div>
+);
 
 export { BurgerItem };

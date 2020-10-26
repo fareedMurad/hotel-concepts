@@ -15,8 +15,8 @@ import { unauthorize } from '@app/redux/auth';
 const Burger: React.FC<any> = ({ transition }) => {
   const { menus, authorized } = useBurgerData();
   const [showMenu, setShowMenu] = useState('');
-
   const dispatch = useDispatch();
+
   return (
     <animated.div style={transition} className={styles.burger}>
       {!authorized && (
@@ -28,11 +28,11 @@ const Burger: React.FC<any> = ({ transition }) => {
           Log in
         </Button>
       )}
-      {menus.map(el => (
+      {menus.map(({ title, menuLinks }) => (
         <BurgerItem
-          key={el.title}
-          title={el.title}
-          menuLinks={el.menuLinks}
+          key={title}
+          title={title}
+          menuLinks={menuLinks}
           showMenu={showMenu}
           setShowMenu={setShowMenu}
         />

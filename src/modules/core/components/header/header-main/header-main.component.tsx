@@ -32,7 +32,7 @@ const HeaderMain: React.FC = () => {
       }}
       className={styles.headerMain}
     >
-      <NavLink className={styles.logo} to={'/'}>
+      <NavLink className={styles.logo} to='/'>
         <Icon name={blackTheme ? 'logo-b' : 'logo'} />
       </NavLink>
       <div className={styles.headerMainNavigation}>
