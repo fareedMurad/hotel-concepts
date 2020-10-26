@@ -12,11 +12,10 @@
   }
 
   @include desktop() {
-    top: 50%;
+    top: 44%;
     left: 54px;
     right: 54px;
     bottom: unset;
-    transform: translateY(-50%);
   }
 }
 
