@@ -19,7 +19,7 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
   return (
     <div
       className={classNames(styles.localMenu, {
-        [styles.open]: showMenu,
+        [styles.localMenuOpen]: showMenu,
         [styles.black]: theme === 'black',
         [styles.secondary]: theme === 'secondary'
       })}
