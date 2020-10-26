@@ -14,6 +14,7 @@ class CartState {
   public selectedProducts: Product[] = [];
   public products: (Program | Book)[] = [];
   public addedProduct: Book = null;
+  public isProductInCart: boolean = false;
 }
 
 export { CartState };

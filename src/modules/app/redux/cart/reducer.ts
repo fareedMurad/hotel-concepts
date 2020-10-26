@@ -27,7 +27,9 @@ const cartReducer = reducer(new CartState())
   })
   .on(cart.setCurrent, (state, payload) => {
     state.addedProduct = payload;
+    state.isProductInCart = true;
   })
+  .on(cart.removing, state => (state.isProductInCart = false))
   .on(cart.removeCurrent, state => (state.addedProduct = null));
 
 export { cartReducer as cart };

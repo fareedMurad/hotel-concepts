@@ -32,6 +32,9 @@ const checkCart = make('[cart] check').stage(
 const cart = make('[cart]')
   .stage('add', (product: Product) => product)
   .stage('setCurrent', (product: Book) => product)
+  //this stage needs to prevent removing item before animation ends
+  .stage('removing')
+  //
   .stage('removeCurrent')
   .stage('getMany')
   .stage('remove', (id: string) => id)

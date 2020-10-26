@@ -7,7 +7,7 @@ import { useProgramsMenuData } from './programs.hook';
 const useHeaderMainData = () => {
   const {
     localization: { language },
-    cart: { selectedProducts, addedProduct }
+    cart: { selectedProducts, addedProduct, isProductInCart }
   } = useSelector((state: State) => state);
   const { programsData } = useProgramsMenuData(language);
   const { pathname } = useLocation();
@@ -52,7 +52,8 @@ const useHeaderMainData = () => {
     programsData,
     addedProduct,
     whiteHeader,
-    stickyHeader
+    stickyHeader,
+    isProductInCart
   };
 };
 export { useHeaderMainData };
