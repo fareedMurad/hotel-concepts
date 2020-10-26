@@ -20,8 +20,11 @@ const CartMenu: React.FC<CartMenuProps> = () => {
   return (
     <div className={styles.cart} onClick={() => dispatch(navigate('/cart'))}>
       <Icon
-        name='shopping-cart'
-        fill={whiteHeader || isProductInCart ? 'black' : 'white'}
+        name={
+          whiteHeader || isProductInCart
+            ? 'shopping-cart'
+            : 'shopping-cart-white'
+        }
       />
       {cartQuantity > 0 && (
         <div className={styles.indicator}>{cartQuantity}</div>
