@@ -52,30 +52,28 @@ class ProgramsService {
   /**
    * Get categories
    */
-  public getCategories = locale => {
-    return this.http.request({
+  public getCategories = locale =>
+    this.http.request({
       method: 'GET',
       url: `/contentful/courses/categories?locale=${locale}`
     });
-  };
 
   /**
    *  Get single category
    */
-  public getSingleCategory = (id, locale) => {
-    return this.http.request({
+  public getSingleCategory = (id, locale) =>
+    this.http.request({
       method: 'GET',
       url: `/contentful/courses/categories/${id}?locale=${locale}`
     });
-  };
 
   /*
    *  Get programs
    */
-  public getPrograms = params => {
-    const { skip, limit, category, locale, subfilters } = params;
+  public getPrograms = data => {
+    const { skip, limit, category, locale, subfilters } = data;
+
     return this.http.request({
-      method: 'GET',
       url: `/contentful/courses/list?skip=${skip}&limit=${limit}&type=${ContentType.onlineCourse}&category=${category}&locale=${locale}&subfilters=${subfilters}`
     });
   };

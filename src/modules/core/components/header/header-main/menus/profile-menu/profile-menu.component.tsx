@@ -1,21 +1,17 @@
+import { unauthorize } from '@app/redux/auth';
+import { Button } from '@core/components';
+import { Icon } from '@core/components/icon';
+import { useClickOutside } from '@core/shared';
+import { navigate } from '@router/store';
+import classNames from 'classnames';
 import * as React from 'react';
+import { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { CardDropdown } from '../../components/card-dropdown';
+import { useProfileMenuData } from './profile-menu.hook';
 import { ProfileMenuProps } from './profile-menu.props';
 import * as styles from './profile-menu.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { unauthorize } from '@app/redux/auth';
-import { NavLink } from 'react-router-dom';
-import { Button } from '@core/components';
-import { useProfileMenuData } from './profile-menu.hook';
-import { State } from '@app/redux/state';
-import { navigate } from '@router/store';
-import { useClickOutside } from '@core/shared';
-import { showModal } from '@ui/modal';
-import { Modals } from '@ui/models';
-import classNames from 'classnames';
-import { Icon } from '@core/components/icon';
-import { useState, useRef } from 'react';
-import { CartMenu } from '../cart-menu';
-import { CardDropdown } from '../../components/card-dropdown';
 
 /**
  * Renders ProfileMenu
@@ -66,17 +62,17 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
               </Button>
             </React.Fragment>
           )}
-          {links.map(link => (
+          {links.map(({ to, title }) => (
             <NavLink
               className={styles.link}
-              key={link.title}
-              to={link.to}
+              key={title}
+              to={to}
               onClick={
                 () => {}
                 // !authorized && dispatch(showModal(Modals.registration))
               }
             >
-              {link.title}
+              {title}
             </NavLink>
           ))}
           {authorized && (
