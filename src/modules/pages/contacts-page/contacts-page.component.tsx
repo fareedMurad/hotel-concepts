@@ -17,7 +17,7 @@ import { Formik } from 'formik';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { isBackgroundWhite } from '@core/components/header/store';
+
 import { useTranslation } from 'react-i18next';
 
 const Card = ({ title, description, href, link }) => (
@@ -56,13 +56,6 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
     { label: 'Male', value: '1' },
     { label: 'Female', value: '2' }
   ];
-  React.useEffect(() => {
-    dispatch(isBackgroundWhite(true));
-    window.scrollTo(0, 0);
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
 
   return (
     <div className={styles.contactsPage}>

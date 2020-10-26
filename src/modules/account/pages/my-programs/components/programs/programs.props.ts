@@ -12,6 +12,10 @@ type ProgramProps = {
    * Program
    */
   program: Program;
+  /**
+   * Is in cart
+   */
+  inCart?: boolean;
 };
 
 /**

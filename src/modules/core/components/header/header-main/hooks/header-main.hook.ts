@@ -1,76 +1,20 @@
-import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { matchPath, useLocation } from 'react-router';
 import { useProgramsMenuData } from './programs.hook';
-import { useHistory } from 'react-router';
 
 const useHeaderMainData = () => {
   const {
     localization: { language },
-    cart: { selectedProducts }
+    cart: { selectedProducts, addedProduct }
   } = useSelector((state: State) => state);
-  const { programsData, programsLoading } = useProgramsMenuData(language);
-  const {
-    location: { pathname }
-  } = useHistory();
+  const { programsData } = useProgramsMenuData(language);
+  const { pathname } = useLocation();
   const cartQuantity = selectedProducts?.length;
+  const [whiteHeader, setWhiteHeader] = useState(false);
+  const [stickyHeader, setStickyHeader] = useState(false);
 
-  const menus = [
-    {
-      name: 'Programs',
-      programs: programsData,
-      content: {
-        flexDirection: 'column',
-        links: [
-          {
-            name: 'Learning Approach',
-            image: 'src/assets/img/header-image.png',
-            to: '/learning-approach'
-          }
-        ]
-      }
-    },
-    {
-      name: 'E-library',
-      content: {
-        flexDirection: 'row',
-        title: {
-          name: 'Explore',
-          to: '/marketplace'
-        },
-
-        links: [
-          {
-            name: 'Individual Subscription',
-            image: 'src/assets/img/header-image.png',
-            to: ''
-          },
-          {
-            name: 'Corporate Subscription',
-            image: 'src/assets/img/header-image.png',
-            tp: '/for-companies'
-          }
-        ]
-      }
-    },
-    {
-      name: 'Corporate solutions',
-      content: {
-        flexDirection: 'column',
-        links: [
-          {
-            name: 'Online programs',
-            image: 'src/assets/img/header-image.png',
-            to: '/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'
-          },
-          {
-            name: 'E-library Acess',
-            image: 'src/assets/img/header-image.png',
-            to: '/marketplace'
-          }
-        ]
-      }
-    }
-  ];
   const darkThemes = [
     '/marketplace/:id',
     '/auth',
@@ -80,12 +24,35 @@ const useHeaderMainData = () => {
     '/interests',
     '/jobs',
     '/privacy-policy',
-    '/category/:categorySlug/product/:id'
+    '/category',
+    '/cart'
   ];
 
-  // const blackTheme = ;
-  // const theme =
+  const match = matchPath(pathname, {
+    path: darkThemes,
+    exact: false,
+    strict: false
+  });
 
-  return { menus, cartQuantity };
+  /*
+   * handle on scroll theme change
+   */
+  useEffect(() => {
+    window.addEventListener('scroll', () =>
+      /*
+       * make delay for passing secondary header
+       */
+      window.pageYOffset > 40 ? setStickyHeader(true) : setStickyHeader(false)
+    );
+    match ? setWhiteHeader(true) : setWhiteHeader(false);
+  }, [pathname]);
+
+  return {
+    cartQuantity,
+    programsData,
+    addedProduct,
+    whiteHeader,
+    stickyHeader
+  };
 };
 export { useHeaderMainData };

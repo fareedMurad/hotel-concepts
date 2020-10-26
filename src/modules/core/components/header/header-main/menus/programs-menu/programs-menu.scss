@@ -1,0 +1,40 @@
+@import 'core.scss';
+
+.programs-menu {
+  position: relative;
+  margin-right: 60px;
+}
+
+.dropdown {
+  left: -255px;
+}
+
+.program {
+  @include font($primary-gray, 20px, 500, 28px);
+  transition: $transition;
+  padding-bottom: 8px;
+  color: $primary-gray;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  &-subtitle {
+    @include font($primary-gray, 16px, 400, 22px);
+  }
+
+  &:hover > div {
+    color: $primary-orange !important;
+
+    & > div:first-child {
+      text-decoration: underline;
+    }
+  }
+
+  &:not(:first-child) {
+    margin-top: 11px;
+  }
+}
+
+.link {
+  width: 588px;
+  margin-top: 20px;
+}

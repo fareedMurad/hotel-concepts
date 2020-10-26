@@ -2,8 +2,8 @@
 
 .my-interests {
   @include flex($align: stretch, $direction: column);
-  min-height: 177px;
-  max-height: max-content;
+  height: 100%;
+  min-height: 174px;
 }
 
 .expandable {
@@ -65,12 +65,16 @@
   @include font(#3e3e3e, 16px, 400);
   align-self: center;
   width: fit-content;
-  margin-top: 5px;
+  margin-top: 2px;
   text-decoration: underline;
   cursor: pointer;
 
   @include tablet() {
     font-size: 18px;
     line-height: 28px;
+  }
+
+  &--expanded {
+    margin-top: 5px;
   }
 }

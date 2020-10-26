@@ -1,6 +1,6 @@
 import { chooseInterests } from '@app/redux/auth';
 import { Button, Preloader } from '@core/components';
-import { isBackgroundWhite } from '@core/components/header/store';
+
 import { Preloaders } from '@ui/models';
 import { toggleToast } from '@ui/toast';
 import classNames from 'classnames';
@@ -17,17 +17,6 @@ const Interests: React.FC = () => {
   const { interests, selectedInterests, selectInterest } = useInterestsData();
   const dispatch = useDispatch();
   const isEmpty = selectedInterests?.length <= 0;
-
-  /**
-   * Change header theme
-   */
-  useEffect(() => {
-    dispatch(isBackgroundWhite(true));
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
-
   /**
    * Handle click
    */

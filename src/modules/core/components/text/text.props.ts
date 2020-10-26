@@ -28,6 +28,10 @@ type TextProps = ControlProps & {
    *Auto complete
    */
   autoComplete?: 'on' | 'off' | 'new-password';
+  /*
+   * Theme
+   */
+  theme?: 'primary' | 'secondary';
 };
 
 export { TextProps };

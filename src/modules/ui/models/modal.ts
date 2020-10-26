@@ -6,6 +6,8 @@ enum Modals {
   explorePage = 'explore-page',
   registration = 'registration',
 
+  contactUs = 'contact us',
+
   // Auth
   forgotPassword = 'forgot password'
 }

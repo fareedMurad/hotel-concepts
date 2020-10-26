@@ -18,7 +18,6 @@ import { ScrollToTop } from '@app';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useDispatch, useSelector } from 'react-redux';
-import { isBackgroundWhite } from '@core/components/header/store';
 import { State } from '@app/redux/state';
 /**
  * query job
@@ -45,12 +44,6 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
   const { language } = useSelector((state: State) => state.localization);
   const { id: jobId } = useParams();
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(isBackgroundWhite(true));
-    return () => {
-      dispatch(isBackgroundWhite(false));
-    };
-  }, []);
   const { data, loading, error } = useQuery(GET_JOB, {
     variables: { id: jobId, locale: language }
   });

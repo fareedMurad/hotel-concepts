@@ -15,6 +15,17 @@
   }
 }
 
+.select {
+  height: auto;
+
+  & > div {
+    & > div {
+      height: 44px;
+      background: $white;
+    }
+  }
+}
+
 .radiogroup {
   padding: 8px 4px 8px 4px;
   border-radius: 4px;

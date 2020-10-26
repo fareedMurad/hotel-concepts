@@ -1,0 +1,18 @@
+@import 'core.scss';
+
+.corporate-menu {
+  position: relative;
+  margin-right: 60px;
+}
+
+.dropdown {
+  left: -80px;
+}
+
+.link {
+  width: 275px;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
