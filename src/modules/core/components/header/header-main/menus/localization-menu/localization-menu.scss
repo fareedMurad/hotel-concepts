@@ -1,37 +1,42 @@
 @import 'core.scss';
 
-.local-menu {
+.localization-menu {
   @include flex($align: center, $justify: space-between);
   @include font(white, 12px, 500, 16px);
   position: relative;
-  cursor: pointer;
   width: 55px;
   padding: 6px 8px;
   font-family: $IBMPlex;
   border: 1px solid white;
   border-radius: 4px;
   transition: none;
+  cursor: pointer;
+
   & > div:first-child {
     margin-left: 3px;
   }
-}
 
-.black {
-  border-color: $primary-gray;
-  color: $primary-gray;
-}
+  &--black {
+    border-color: $primary-gray;
+    color: $primary-gray;
 
-.open {
-  border-bottom: 1px solid transparent;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+    .dropdown {
+      background: $white;
+    }
+  }
+
+  &--open {
+    border-bottom: 1px solid transparent;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 .arrow-rotate {
   transform: rotate(180deg);
 }
 
-.drop-down {
+.dropdown {
   position: absolute;
   top: 27px;
   left: -1px;
@@ -42,15 +47,18 @@
   border-top: 1px solid transparent;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+
+  &--black {
+    border-color: $primary-gray;
+    border-top: 1px solid transparent;
+  }
 }
-.drop-down-black {
-  border-color: $primary-gray;
-  border-top: 1px solid transparent;
-}
+
 .link {
   display: block;
   transition: $transition;
   padding: 8px 0;
+
   &:hover {
     color: $primary-orange;
   }

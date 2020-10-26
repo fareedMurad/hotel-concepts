@@ -1,15 +1,14 @@
 @import 'core.scss';
 
 .nav-title {
-  position: relative;
-  margin-right: 60px;
   @include flex($align: center, $justify: center);
   @include font(white, 16px, 500, 24px);
-
+  position: relative;
   border-bottom: 1px solid white;
   padding-bottom: 4px;
   cursor: pointer;
   transition: $transition;
+
   &:hover {
     color: $primary-orange;
     border-color: $primary-orange;

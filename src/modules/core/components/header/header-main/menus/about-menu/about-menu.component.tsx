@@ -1,24 +1,21 @@
 import * as React from 'react';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { CardDropdown, NavTitle } from '../../components';
+import { useAboutMenuData } from './about-menu.hook';
 import { AboutMenuProps } from './about-menu.props';
 import * as styles from './about-menu.scss';
-import { useAboutMenuData } from './about-menu.hook';
-import { useTranslation } from 'react-i18next';
-import classNames from 'classnames';
-import { useState } from 'react';
-import { NavTitle } from '../../components/nav-title';
-import { NavLink } from 'react-router-dom';
-import { CardDropdown } from '../../components/card-dropdown';
 
 /**
  * Renders AboutMenu
  */
 const AboutMenu: React.FC<AboutMenuProps> = ({ className }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const { aboutMenuLinks } = useAboutMenuData();
+  const { navigation } = useAboutMenuData();
 
   return (
     <div
-      className={styles.abouteMenu}
+      className={styles.aboutMenu}
       onMouseOver={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
     >
@@ -28,14 +25,14 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ className }) => {
           className={styles.dropdown}
           onMouseLeave={() => setShowMenu(false)}
         >
-          {aboutMenuLinks.map(link => (
+          {navigation.map(({ name, to }) => (
             <NavLink
               className={styles.link}
-              key={link.name}
-              to={link.to}
+              key={name}
+              to={to}
               onClick={() => setShowMenu(false)}
             >
-              {link.name}
+              {name}
             </NavLink>
           ))}
         </CardDropdown>

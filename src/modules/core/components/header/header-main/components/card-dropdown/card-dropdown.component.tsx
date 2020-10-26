@@ -9,15 +9,13 @@ const CardDropdown: React.FC<CardDropdownProps> = ({
   className,
   children,
   onMouseLeave
-}) => {
-  return (
-    <div
-      className={classNames(className, styles.card)}
-      onMouseLeave={onMouseLeave}
-    >
-      <div className={classNames(styles.content)}>{children}</div>
-    </div>
-  );
-};
+}) => (
+  <div
+    className={classNames(className, styles.card)}
+    onMouseLeave={onMouseLeave}
+  >
+    <div className={styles.content}>{children}</div>
+  </div>
+);
 
 export { CardDropdown };

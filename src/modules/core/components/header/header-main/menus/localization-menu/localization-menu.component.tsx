@@ -1,13 +1,12 @@
+import { Icon } from '@core/components';
+import { changeLanguage } from '@localization/store';
+import classNames from 'classnames';
 import * as React from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useLocalizationData } from './localization-menu.hook';
 import { LocalizationMenuProps } from './localization-menu.props';
 import * as styles from './localization-menu.scss';
-import { Icon } from '@core/components';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeLanguage } from '@localization/store';
-import { State } from '@app/redux/state';
-import { useLocalizationData } from './localization-menu.hook';
-import { useState } from 'react';
-import classNames from 'classnames';
 
 /**
  * Renders LocalizationMenu
@@ -22,9 +21,9 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
 
   return (
     <div
-      className={classNames(styles.localMenu, {
-        [styles.open]: showMenu,
-        [styles.black]: blackTheme
+      className={classNames(styles.localizationMenu, {
+        [styles.localizationMenuOpen]: showMenu,
+        [styles.localizationMenuBlack]: blackTheme
       })}
       onClick={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
@@ -36,17 +35,17 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({
       />
       {showMenu && (
         <div
-          className={classNames(styles.dropDown, {
-            [styles.dropDownBlack]: blackTheme
+          className={classNames(styles.dropdown, {
+            [styles.dropdownBlack]: blackTheme
           })}
         >
-          {languages.map(el => (
+          {languages.map(({ id, name }) => (
             <div
-              key={el.id}
+              key={id}
               className={styles.link}
-              onClick={() => dispatch(changeLanguage(el.id))}
+              onClick={() => dispatch(changeLanguage(id))}
             >
-              {el.name}
+              {name}
             </div>
           ))}
         </div>

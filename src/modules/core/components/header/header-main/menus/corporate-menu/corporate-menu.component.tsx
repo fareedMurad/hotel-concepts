@@ -1,16 +1,15 @@
 import * as React from 'react';
-import { CardDropdown } from '../../components/card-dropdown';
-import { LinkDropdown } from '../../components/link-dropdown';
-import { NavTitle } from '../../components/nav-title';
 import { CorporateMenuProps } from './corporate-menu.props';
 import * as styles from './corporate-menu.scss';
 import { useState } from 'react';
+import { CardDropdown, LinkDropdown, NavTitle } from '../../components';
 
 /**
  * Renders CorporateMenu
  */
 const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
   const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div
       className={styles.corporateMenu}

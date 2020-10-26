@@ -2,11 +2,9 @@ import * as React from 'react';
 import { LibraryMenuProps } from './library-menu.props';
 import * as styles from './library-menu.scss';
 import { useState } from 'react';
-import { CardDropdown } from '../../components/card-dropdown';
-import { LinkDropdown } from '../../components/link-dropdown';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
-import { NavTitle } from '../../components/nav-title';
+import { CardDropdown, LinkDropdown, NavTitle } from '../../components';
 
 /**
  * Renders LibraryMenu
@@ -14,6 +12,7 @@ import { NavTitle } from '../../components/nav-title';
 const LibraryMenu: React.FC<LibraryMenuProps> = ({ className }) => {
   const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
+
   return (
     <div
       className={styles.libraryMenu}
