@@ -12,7 +12,6 @@ import { put, call, select } from 'redux-saga/effects';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { Preloaders } from '@ui/models';
 import { OnlineCourseSubfilter } from '@app/models/enum';
-import { State } from '../state';
 
 /**
  * programs saga
@@ -120,7 +119,6 @@ class ProgramsSaga {
   /*
    * Saga send request contact us
    */
-
   @Saga(sendRequest)
   public *sendRequest(payload: Payload<typeof sendRequest>, { api }: Context) {
     console.log(payload);

@@ -1,4 +1,5 @@
 import { ScrollToTop } from '@app';
+import { RegistrationModal } from '@auth/modals/registration-modal';
 import { Button, Icon, Preloader } from '@core/components';
 import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
@@ -96,6 +97,7 @@ const Cart: React.FC = () => {
             <CartPlaceholder />
           )}
         </Preloader>
+        <RegistrationModal />
       </div>
     </div>
   );

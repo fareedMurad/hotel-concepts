@@ -1,11 +1,6 @@
 /**
  * Props
  */
-type CartMenuProps = {
-  /**
-   * black theme
-   */
-  blackTheme: boolean;
-};
+type CartMenuProps = {};
 
 export { CartMenuProps };

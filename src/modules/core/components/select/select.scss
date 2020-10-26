@@ -8,6 +8,7 @@
 
 .select-container {
   position: relative;
+  height: 100%;
   width: 100%;
 }
 
@@ -52,7 +53,7 @@
 
 .control {
   @include flex(flex-start, center);
-  height: 44px;
+  height: 100%;
   padding: 12px 8px;
   background: $background;
   border: unset;
@@ -119,6 +120,7 @@
 
 .select {
   position: relative;
+  height: 44px;
   cursor: pointer;
 
   &--focused.select--searchable {

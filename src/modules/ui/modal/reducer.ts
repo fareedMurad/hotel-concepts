@@ -38,7 +38,6 @@ const modal = reducer(new ModalState())
     state.active.push(Modals.bookPreview);
   })
   .on(explorePage, (state, { url }) => {
-    debugger;
     state.readBookUrl = url;
     state.active.push(Modals.explorePage);
   });

@@ -164,8 +164,8 @@ const Routes: React.FC = () => {
                   path={[
                     '/contributors/mentor',
                     '/mentor/:url?/:slug?/:mentorId',
-                    '/program/:slug/mentor/:slug',
-                    '/program/:slug?/:programId?/mentor/:slug?/:mentorId',
+                    '/program/mentor/:slug',
+                    '/program/mentor/:slug?/:mentorId',
                     '/contributors/mentor/:slug?/:mentorId'
                   ]}
                   render={() => (
@@ -177,7 +177,7 @@ const Routes: React.FC = () => {
                   )}
                 />
               )}
-              <Route path='/program/:slug' component={ProgramPage} />
+              <Route path='/program' component={ProgramPage} />
               <Route path='/contributors' component={Contributors} />
               <Route path='/faq' component={Faq} />
               <Route

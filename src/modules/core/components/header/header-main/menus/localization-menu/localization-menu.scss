@@ -1,6 +1,6 @@
 @import 'core.scss';
 
-.localization-menu {
+.local-menu {
   @include flex($align: center, $justify: space-between);
   @include font(white, 12px, 500, 16px);
   position: relative;
@@ -16,15 +16,6 @@
     margin-left: 3px;
   }
 
-  &--black {
-    border-color: $primary-gray;
-    color: $primary-gray;
-
-    .dropdown {
-      background: $white;
-    }
-  }
-
   &--open {
     border-bottom: 1px solid transparent;
     border-bottom-right-radius: 0;
@@ -32,11 +23,7 @@
   }
 }
 
-.arrow-rotate {
-  transform: rotate(180deg);
-}
-
-.dropdown {
+.drop-down {
   position: absolute;
   top: 27px;
   left: -1px;
@@ -47,11 +34,31 @@
   border-top: 1px solid transparent;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
 
-  &--black {
+.black {
+  border-color: $primary-gray;
+  color: $primary-gray;
+  background-color: white;
+  &--dropdown {
     border-color: $primary-gray;
+    background-color: white;
     border-top: 1px solid transparent;
   }
+}
+
+.secondary {
+  border-color: $background;
+  color: $primary-gray;
+  background-color: $background;
+  &--dropdown {
+    border-color: $background;
+    background-color: $background;
+    border-top: 1px solid transparent;
+  }
+}
+.arrow-rotate {
+  transform: rotate(180deg);
 }
 
 .link {

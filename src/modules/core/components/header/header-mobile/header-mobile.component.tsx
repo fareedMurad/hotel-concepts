@@ -8,6 +8,28 @@ import { useBurgerTransition } from './components/burger/burger.animation';
 import classNames from 'classnames';
 import { useHeaderMainData } from '../header-main/hooks';
 import { LocalizationMenu } from '../header-main/menus';
+import { useDispatch } from 'react-redux';
+import { navigate } from '@router/store';
+import { CartMenu } from '../header-main/menus/cart-menu';
+
+/**
+ * Cart Icon render if user added some product to cart
+ */
+
+const CartIcon: React.FC<{ blackTheme: boolean; cartQuantity: number }> = ({
+  blackTheme,
+  cartQuantity
+}) => {
+  const dispatch = useDispatch();
+  return (
+    <div className={styles.cart} onClick={() => dispatch(navigate('/cart'))}>
+      <Icon name='shopping-cart' fill={blackTheme ? 'black' : 'white'} />
+      {cartQuantity > 0 && (
+        <div className={styles.indicator}>{cartQuantity}</div>
+      )}
+    </div>
+  );
+};
 
 /**
  * Renders HeaderMobile
@@ -15,10 +37,11 @@ import { LocalizationMenu } from '../header-main/menus';
 const HeaderMobile: React.FC = () => {
   const [showBurger, setShowBurger] = useState(false);
   const [stickyHeader, setStickyHeader] = useState(false);
+  const { whiteHeader, cartQuantity } = useHeaderMainData();
   const { transition } = useBurgerTransition(showBurger);
   const { pathname } = useLocation();
-  const { whiteHeader } = useHeaderMainData();
 
+  const blackTheme = whiteHeader || stickyHeader;
   /**
    * close burger on url change and handle theme
    */
@@ -34,17 +57,15 @@ const HeaderMobile: React.FC = () => {
   return (
     <div
       className={classNames(styles.headerMobile, {
-        [styles.whiteHeader]: whiteHeader || stickyHeader
+        [styles.whiteHeader]: blackTheme
       })}
     >
       <NavLink className={styles.logo} to={'/'}>
-        <Icon name={whiteHeader || stickyHeader ? 'logo-b' : 'logo'} />
+        <Icon name={blackTheme ? 'logo-b' : 'logo'} />
       </NavLink>
       <div className={styles.controll}>
-        <LocalizationMenu
-          className={styles.localization}
-          blackTheme={whiteHeader || stickyHeader}
-        />
+        {cartQuantity > 0 && <CartMenu />}
+        <LocalizationMenu theme='secondary' />
         <Icon
           name={showBurger ? 'close-modal' : 'burger'}
           onClick={() => setShowBurger(!showBurger)}

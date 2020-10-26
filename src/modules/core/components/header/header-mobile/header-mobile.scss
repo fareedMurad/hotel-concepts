@@ -17,8 +17,8 @@
 }
 
 .controll {
-  @include flex();
-  & > div:first-child {
+  @include flex($align: center);
+  & > div:not(:last-child) {
     margin-right: 20px;
   }
 }

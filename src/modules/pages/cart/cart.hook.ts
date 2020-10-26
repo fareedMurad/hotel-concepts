@@ -2,17 +2,23 @@ import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
 import { getProducts } from '@app/redux/cart';
 import { checkout } from '@app/redux/checkout';
 import { State } from '@app/redux/state';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const useCartData = () => {
   const dispatch = useDispatch();
-  const { selectedProducts, products } = useSelector(
-    (state: State) => state.cart
-  );
+  const {
+    cart: { selectedProducts, products },
+    auth: { authorized }
+  } = useSelector((state: State) => state);
 
-  if (selectedProducts?.length > products?.length) {
-    dispatch(getProducts());
-  }
+  useEffect(() => {
+    if (selectedProducts?.length > products?.length) {
+      dispatch(getProducts());
+    }
+  }, [selectedProducts]);
 
   if (
     selectedProducts?.length !== products?.length ||
@@ -93,7 +99,9 @@ const useCartData = () => {
         path: item.id,
         quantity: item.quantity
       }));
-      dispatch(checkout(items));
+      authorized
+        ? dispatch(checkout(items))
+        : dispatch(showModal(Modals.registration));
     }
   };
 

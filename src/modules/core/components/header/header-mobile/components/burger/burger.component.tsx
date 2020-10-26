@@ -7,6 +7,7 @@ import { Button } from '@core/components/button';
 import { navigate } from '@router/store';
 import { useDispatch } from 'react-redux';
 import { animated } from 'react-spring';
+import { unauthorize } from '@app/redux/auth';
 
 /**
  * Renders Burger
@@ -14,8 +15,8 @@ import { animated } from 'react-spring';
 const Burger: React.FC<any> = ({ transition }) => {
   const { menus, authorized } = useBurgerData();
   const [showMenu, setShowMenu] = useState('');
-
   const dispatch = useDispatch();
+
   return (
     <animated.div style={transition} className={styles.burger}>
       {!authorized && (
@@ -27,11 +28,11 @@ const Burger: React.FC<any> = ({ transition }) => {
           Log in
         </Button>
       )}
-      {menus.map(el => (
+      {menus.map(({ title, menuLinks }) => (
         <BurgerItem
-          key={el.title}
-          title={el.title}
-          menuLinks={el.menuLinks}
+          key={title}
+          title={title}
+          menuLinks={menuLinks}
           showMenu={showMenu}
           setShowMenu={setShowMenu}
         />
@@ -55,6 +56,14 @@ const Burger: React.FC<any> = ({ transition }) => {
       >
         Contact
       </div>
+      {authorized && (
+        <Button
+          onClick={() => dispatch(unauthorize())}
+          className={styles.button}
+        >
+          Log out
+        </Button>
+      )}
     </animated.div>
   );
 };

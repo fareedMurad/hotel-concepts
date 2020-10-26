@@ -1,15 +1,19 @@
 @import 'core.scss';
 
 .programs-catalogue {
+  @include flex($align: stretch, $direction: column);
+  flex: 1;
 }
 
 .title {
   margin-top: 60px;
   margin-bottom: 34px;
   padding-left: $left-offset;
+
   & > div:first-child {
     max-width: 360px;
   }
+
   & > div:nth-child(2) {
     @include font($primary-gray, 18px, 400, 28px);
     margin-top: 18px;

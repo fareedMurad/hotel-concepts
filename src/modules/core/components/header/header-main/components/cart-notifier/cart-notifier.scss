@@ -4,6 +4,7 @@
   position: absolute;
   top: -10px;
   right: -40px;
+  display: none;
   width: 488px;
   padding-top: 50px;
   overflow: hidden;
@@ -19,6 +20,9 @@
     @include font($primary-gray, 18px, 600, normal);
     margin-bottom: 27px;
     font-family: $EBGaramond;
+  }
+  @include desktop() {
+    display: block;
   }
 }
 

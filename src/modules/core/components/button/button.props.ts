@@ -6,10 +6,6 @@ type ButtonProps = React.DetailedHTMLProps<
   HTMLButtonElement
 > & {
   /**
-   * Click handler
-   */
-  onClick?: () => void;
-  /**
    * Is button disabled
    */
   disabled?: boolean;
