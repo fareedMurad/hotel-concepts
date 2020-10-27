@@ -36,8 +36,12 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   const searchParams = new URLSearchParams(history.location.search);
   const programId = searchParams.get('programId');
   const { t } = useTranslation();
-  const { language } = useSelector((state: State) => state.localization);
+  const {
+    localization: { language },
+    cart: { selectedProducts }
+  } = useSelector((state: State) => state);
   const { singleProgram } = useProgramData(language, programId);
+  const inCart = selectedProducts?.some(one => one.path == programId);
 
   return (
     <div className={styles.programPage}>
@@ -66,7 +70,11 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
         <ProgramMaterials data={singleProgram} />
         <Impact loading={false} data={singleProgram} />
         <div className={styles.hr} />
-        <ProgramEnrollNow data={singleProgram} />
+        <ProgramEnrollNow
+          data={singleProgram}
+          programId={programId}
+          inCart={inCart}
+        />
         <ProgramQuote data={singleProgram} />
         <FaqBlock showTitle />
         <PartnerApply

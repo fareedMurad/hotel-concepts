@@ -13,6 +13,14 @@ type EnrollItem = {
  */
 type ProgramEnrollNowProps = {
   data: SingleProgramModel;
+  /**
+   * Program id
+   */
+  programId: string;
+  /**
+   * Is in cart ?
+   */
+  inCart?: boolean;
 };
 
 export { ProgramEnrollNowProps };

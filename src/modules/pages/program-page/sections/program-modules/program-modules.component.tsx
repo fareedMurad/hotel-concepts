@@ -14,7 +14,6 @@ import { useSelector } from 'react-redux';
  */
 const ProgramModules: React.FC<ProgramModulesProps> = ({ data }) => {
   const { language } = useSelector((state: State) => state.localization);
-  console.log(data);
   // const { modulesData, modulesLoading } = useProgramModulesData(
   //   programId,
   //   language

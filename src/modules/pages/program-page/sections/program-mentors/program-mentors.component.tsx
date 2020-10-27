@@ -46,7 +46,6 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
   url,
   modifiedCaption
 }) => {
-  console.log(contributors);
   const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
