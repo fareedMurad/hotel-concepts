@@ -84,7 +84,10 @@ const ModalLogin: React.FC<ModalLoginProps> = ({}) => {
           Need an account?
           <span
             className={styles.signUpLink}
-            onClick={() => dispatch(navigate('/auth/register'))}
+            onClick={() => {
+              dispatch(closeModal(Modals.registration));
+              dispatch(navigate('/auth/register'));
+            }}
           >
             Sign Up
           </span>

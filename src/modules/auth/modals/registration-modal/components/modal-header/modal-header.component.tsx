@@ -5,6 +5,8 @@ import * as styles from './modal-header.scss';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
+import { Modals } from '@ui/models';
+import { closeModal } from '@ui/modal';
 
 /**
  * Renders ModalHeader
@@ -15,7 +17,10 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({}) => {
     <div className={styles.modalHeader}>
       <div className={styles.header}>
         <div
-          onClick={() => dispatch(navigate('/auth/register'))}
+          onClick={() => {
+            dispatch(closeModal(Modals.registration));
+            dispatch(navigate('/auth/register'));
+          }}
           className={styles.link}
         >
           Register
