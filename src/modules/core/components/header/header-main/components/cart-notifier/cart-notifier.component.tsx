@@ -1,4 +1,4 @@
-import { Button } from '@core/components/button';
+import { Button } from '@core/components';
 import * as React from 'react';
 import { animated } from 'react-spring';
 import { useCartNotifierData } from './cart-notifier.hook';
@@ -7,22 +7,22 @@ import * as styles from './cart-notifier.scss';
 /**
  * Render Cart notifier item
  */
-
-const CartNotifierItem: React.FC<any> = ({}) => {
+const CartNotifierItem: React.FC = () => {
   const { addedProduct } = useCartNotifierData();
+  const { name, authors, price } = addedProduct || {};
   const url = addedProduct?.productImage?.file?.url;
 
   return (
     <div className={styles.item}>
       <img className={styles.itemImage} src={url} />
       <div className={styles.description}>
-        <div className={styles.descriptionName}>{addedProduct?.name}</div>
+        <div className={styles.descriptionName}>{name}</div>
         <div className={styles.descriptionAuthor}>
-          {addedProduct?.authors.map(author => (
+          {authors.map(author => (
             <span key={author.id}>{author.name}</span>
           ))}
         </div>
-        <div className={styles.descriptionPrice}>${addedProduct?.price}</div>
+        <div className={styles.descriptionPrice}>${price}</div>
       </div>
     </div>
   );
@@ -33,6 +33,7 @@ const CartNotifierItem: React.FC<any> = ({}) => {
  */
 const CartNotifier: React.FC<any> = ({ transition }) => {
   const { total } = useCartNotifierData();
+
   return (
     <animated.div style={transition} className={styles.cartNotifier}>
       <div className={styles.title}>FREE SHIPPING ON ORDERS OF $35+</div>

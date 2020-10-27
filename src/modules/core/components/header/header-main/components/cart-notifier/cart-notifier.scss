@@ -8,6 +8,7 @@
   width: 488px;
   padding-top: 50px;
   overflow: hidden;
+
   &--footer {
     padding: 0 33px 12px 33px;
     background-color: $white;
@@ -21,6 +22,7 @@
     margin-bottom: 27px;
     font-family: $EBGaramond;
   }
+
   @include desktop() {
     display: block;
   }
