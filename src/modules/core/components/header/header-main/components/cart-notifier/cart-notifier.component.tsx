@@ -1,3 +1,4 @@
+import { ContentType } from '@account/pages/library/models';
 import { Button } from '@core/components';
 import * as React from 'react';
 import { animated } from 'react-spring';
@@ -9,12 +10,14 @@ import * as styles from './cart-notifier.scss';
  */
 const CartNotifierItem: React.FC = () => {
   const { addedProduct } = useCartNotifierData();
-  const { name, authors, price } = addedProduct || {};
+  const { name, authors, price, __typename, courseImage } = addedProduct || {};
+  const isBook = __typename == ContentType.product;
   const url = addedProduct?.productImage?.file?.url;
+  const programImage = courseImage?.file?.url;
 
   return (
     <div className={styles.item}>
-      <img className={styles.itemImage} src={url} />
+      <img className={styles.itemImage} src={isBook ? url : programImage} />
       <div className={styles.description}>
         <div className={styles.descriptionName}>{name}</div>
         <div className={styles.descriptionAuthor}>
