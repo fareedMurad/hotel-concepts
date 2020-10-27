@@ -19,6 +19,7 @@
   @include font($primary-orange, 18px, 600, normal);
   margin-bottom: 13px;
   font-family: $EBGaramond;
+  word-break: break-word;
 }
 
 .create-acc {
@@ -29,13 +30,16 @@
 }
 
 .link {
+  @include font($primary-gray, 18px, 400, 28px);
   display: block;
   padding: 12px 0;
   border-top: 1px solid $light-grey;
   transition: $transition;
+
   &:hover {
     color: $primary-orange;
   }
+
   &:last-child {
     border-bottom: 1px solid $light-grey;
   }

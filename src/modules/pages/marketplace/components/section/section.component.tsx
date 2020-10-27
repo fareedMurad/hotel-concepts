@@ -65,8 +65,10 @@ const Section: React.FC<SectionProps> = ({
   const dispatch = useDispatch();
   const { width } = useWindowSize();
   const responsiveLimit = () => {
-    if (width > 1366) return 4;
-    if (width > 766) return 2;
+    if (width >= 1680) return 5;
+    if (width >= 1366) return 4;
+    if (width >= 1024) return 3;
+    if (width >= 600) return 2;
     return 1;
   };
 

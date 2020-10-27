@@ -31,13 +31,7 @@ const useCartData = () => {
    */
   const cartData = products?.map(item => {
     const itemCopy = JSON.parse(JSON.stringify(item));
-    const {
-      __typename,
-      name,
-      pricing: { price },
-      price: priceWithoutCurrency,
-      id
-    } = itemCopy;
+    const { __typename, name, pricing, price, id } = itemCopy;
 
     const itemFromLocalStorage = selectedProducts.find(
       el => el.path === item.id
@@ -45,10 +39,10 @@ const useCartData = () => {
     const { quantity } = itemFromLocalStorage || {};
 
     //hack for price
-    const hasPrice = Object.keys(price).length > 0;
-    const priceResult = `${hasPrice ? Object.values(price)[0] : 0} ${
-      hasPrice ? CurrenciesesCharacters[Object.keys(price)[0]] : null
-    } `;
+    // const hasPrice = Object.keys(pricing).length > 0;
+    // const priceResult = `${hasPrice ? Object.values(price)[0] : 0} ${
+    //   hasPrice ? CurrenciesesCharacters[Object.keys(price)[0]] : null
+    // } `;
 
     let author = '';
     let imageSource = '';
@@ -70,7 +64,7 @@ const useCartData = () => {
       name,
       author,
       quantity,
-      price: priceResult,
+      price,
       id,
       imageSource
     };
@@ -107,7 +101,8 @@ const useCartData = () => {
 
   return {
     products: cartData,
-    summaryData
+    summaryData,
+    authorized
   };
 };
 

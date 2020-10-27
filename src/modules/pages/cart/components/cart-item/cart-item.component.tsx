@@ -56,8 +56,7 @@ const CartItem: React.FC<CartItemProps> = ({
             />
           </div>
           <div className={styles.descriptionPrice}>
-            {/* {discount && <span>{discount}</span>} */}
-            {price}
+            {/* {discount && <span>{discount}</span>} */}${price}
           </div>
         </div>
       </div>
