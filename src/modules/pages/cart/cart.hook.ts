@@ -1,4 +1,4 @@
-import { ContentType, CurrenciesesCharacters } from '@app/models/enum';
+import { ContentType } from '@app/models/enum';
 import { getProducts } from '@app/redux/cart';
 import { checkout } from '@app/redux/checkout';
 import { State } from '@app/redux/state';
@@ -6,7 +6,6 @@ import { showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cart as cartAction } from '@app/redux/cart';
 
 const useCartData = () => {
   const dispatch = useDispatch();
@@ -71,14 +70,14 @@ const useCartData = () => {
     };
   });
 
-  let totalPriceNumber = products
-    .map(item => item.price)
-    .reduce((accum, cur) => accum + cur);
+  // let totalPriceNumber = products
+  //   .map(item => item.price)
+  //   .reduce((accum, cur) => accum + cur);
 
   // refactor in future
-  const total = `${totalPriceNumber} ${
-    CurrenciesesCharacters[Object.keys(products[0].pricing.price)[0]]
-  }`;
+  // const total = `${totalPriceNumber} ${
+  //   CurrenciesesCharacters[Object.keys(products[0].pricing.price)[0]]
+  // }`;
 
   const summaryData = {
     total: products
@@ -100,10 +99,6 @@ const useCartData = () => {
       dispatch(showModal(Modals.invoiceRequest));
     }
   };
-
-  /*
-   * if user anauthorize show modal
-   */
 
   return {
     products: cartData,
