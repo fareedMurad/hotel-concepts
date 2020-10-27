@@ -1,5 +1,4 @@
 import { ScrollToTop } from '@app';
-import { RegistrationModal } from '@auth/modals/registration-modal';
 import { Button, Icon, Preloader } from '@core/components';
 import { SuccessAlertModal } from '@pages/components/success-alert-modal';
 import { navigate } from '@router/store';
@@ -46,6 +45,7 @@ const Cart: React.FC = () => {
   const { products, summaryData, authorized } = useCartData();
   const { t } = useTranslation();
   const cartQuantity = products?.length;
+
   return (
     <div className={styles.cart}>
       <ScrollToTop />

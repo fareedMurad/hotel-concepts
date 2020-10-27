@@ -13,7 +13,6 @@ import { closeModal } from '@ui/modal';
 
 import { Modals, Preloaders } from '@ui/models';
 import { Formik } from 'formik';
-import { format } from 'path';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { ModalInvoiceRequestProps } from './modal-invoice-request.props';
@@ -23,7 +22,6 @@ import { InvoiceValidationSchema, InvoiceValues } from './models/invoice';
 /**
  * Invoice initial values
  */
-
 const defaultValues: InvoiceValues = {
   name: '',
   email: '',
@@ -36,6 +34,7 @@ const defaultValues: InvoiceValues = {
  */
 const ModalInvoiceRequest: React.FC<ModalInvoiceRequestProps> = ({ total }) => {
   const dispatch = useDispatch();
+
   return (
     <Modal id={Modals.invoiceRequest} className={styles.modalInvoiceRequest}>
       <Preloader id={Preloaders.sendForm}>
@@ -53,7 +52,6 @@ const ModalInvoiceRequest: React.FC<ModalInvoiceRequestProps> = ({ total }) => {
           validationSchema={InvoiceValidationSchema}
           onSubmit={values => {
             dispatch(sendInvoiceRequest(values));
-            console.log(values);
           }}
         >
           {({ handleSubmit }) => (
