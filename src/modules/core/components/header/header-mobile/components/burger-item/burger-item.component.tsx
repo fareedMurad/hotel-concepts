@@ -42,7 +42,7 @@ const BurgerItem: React.FC<BurgerItemProps> = ({
       className={styles.title}
       onClick={() => setShowMenu(showMenu === title ? '' : title)}
     >
-      <div>{title}</div>
+      <div className={showMenu === title && styles.active}>{title}</div>
       <div className={styles.titleIndicator}>
         {showMenu === title ? '-' : '+'}
       </div>

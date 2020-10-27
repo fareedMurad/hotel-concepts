@@ -75,7 +75,7 @@ const useBurgerData = () => {
         },
         {
           link: 'E-library access',
-          to: 'marketplace'
+          to: '/marketplace'
         }
       ]
     },
