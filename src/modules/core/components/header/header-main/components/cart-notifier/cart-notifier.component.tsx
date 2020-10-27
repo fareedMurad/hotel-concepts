@@ -18,7 +18,7 @@ const CartNotifierItem: React.FC = () => {
       <div className={styles.description}>
         <div className={styles.descriptionName}>{name}</div>
         <div className={styles.descriptionAuthor}>
-          {authors.map(author => (
+          {authors?.map(author => (
             <span key={author.id}>{author.name}</span>
           ))}
         </div>
