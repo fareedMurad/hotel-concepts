@@ -8,8 +8,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cart as cartAction } from '@app/redux/cart';
 
-import { isBackgroundWhite } from '@core/components/header/store';
-
 const useCartData = () => {
   const dispatch = useDispatch();
   const {

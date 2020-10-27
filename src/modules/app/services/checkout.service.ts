@@ -1,4 +1,5 @@
 import { CreateSession, OrderSuccess } from '@app/models/fastspring';
+import { InvoiceValues } from '@pages/cart/components/modal-invoice-request/models/invoice';
 import { HttpService } from './config';
 
 class CheckoutService {
@@ -24,6 +25,16 @@ class CheckoutService {
     this.http.request({
       method: 'POST',
       url: '/fastspring/session/success',
+      data
+    });
+
+  /*
+   * Send invoice request
+   */
+  public sendInvoiceRequest = (data: InvoiceValues) =>
+    this.http.request({
+      method: 'POST',
+      url: '/',
       data
     });
 }

@@ -87,6 +87,15 @@ class ProgramsService {
       url: `/contentful/${id}?type=${ContentType.onlineCourse}&locale=${locale}`
     });
   };
+  /*
+   * Send contact-us
+   */
+  public sendForm = data =>
+    this.http.request({
+      method: 'POST',
+      url: '/send',
+      data: data
+    });
 }
 
 export { ProgramsService };

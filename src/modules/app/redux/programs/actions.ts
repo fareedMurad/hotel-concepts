@@ -49,7 +49,7 @@ const getSingleProgram = make('[programs] get single program')
   .stage('success', (payload: SingleProgramModel) => payload);
 
 /*
- * Submit form
+ * Send form
  */
 
 const sendRequest = make('[form submit]').stage(payload => payload);

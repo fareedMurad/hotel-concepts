@@ -50,6 +50,9 @@ enum Preloaders {
   // Uikit
   uikit = 'uikit',
 
+  //Send form
+  sendForm = 'send form',
+
   getVacancies = 'get vacancies'
 }
 

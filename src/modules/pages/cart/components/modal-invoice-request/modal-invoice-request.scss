@@ -1,8 +1,16 @@
 @import 'core.scss';
 
+.form {
+  &--hint {
+    margin-top: 6px;
+  }
+  &--field:not(:first-child) {
+    margin-top: 24px;
+  }
+}
 .modal-invoice-request {
   width: 692px;
-  padding: 0 94px;
+  padding: 0 94px 40px 94px;
 }
 
 .title {
@@ -19,4 +27,14 @@
     margin-left: 14px;
     font-family: $EBGaramond;
   }
+}
+
+.close-modal {
+  position: absolute;
+  right: 30px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 50px;
 }

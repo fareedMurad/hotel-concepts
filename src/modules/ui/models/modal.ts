@@ -7,6 +7,9 @@ enum Modals {
   invoiceRequest = 'invoice request',
   registration = 'registration',
 
+  //success alert
+  success = 'success alert',
+
   contactUs = 'contact us',
 
   // Auth

@@ -1,6 +1,7 @@
 import { ScrollToTop } from '@app';
 import { RegistrationModal } from '@auth/modals/registration-modal';
 import { Button, Icon, Preloader } from '@core/components';
+import { SuccessAlertModal } from '@pages/components/success-alert-modal';
 import { navigate } from '@router/store';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
@@ -98,11 +99,8 @@ const Cart: React.FC = () => {
             <CartPlaceholder />
           )}
         </Preloader>
-<<<<<<< HEAD
         <ModalInvoiceRequest total={summaryData?.total} />
-=======
-        <RegistrationModal />
->>>>>>> 3b1282538b1417481b73259f896e500ae22a3489
+        <SuccessAlertModal />
       </div>
     </div>
   );

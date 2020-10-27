@@ -3,7 +3,8 @@ import { Product } from '@app/models/fastspring';
 import { parseString } from '@core/shared';
 import { handleError } from '@general/store';
 import { navigate } from '@router/store';
-import { Preloaders } from '@ui/models';
+import { closeModal, showModal } from '@ui/modal';
+import { Modals, Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { del } from 'object-path';
@@ -12,7 +13,7 @@ import { call, delay, put, select, take } from 'redux-saga/effects';
 import { getUser } from '../auth';
 import { Context } from '../context';
 import { State } from '../state';
-import { cart, checkCart, getProducts } from './actions';
+import { cart, checkCart, getProducts, sendInvoiceRequest } from './actions';
 
 /**
  * Cart saga
@@ -226,6 +227,29 @@ class CartSaga {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.cart));
+    }
+  }
+
+  /*
+   * Saga send invoice request
+   */
+
+  @Saga(sendInvoiceRequest)
+  public *sendInvoiceRequest(
+    payload: Payload<typeof sendInvoiceRequest>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.sendForm));
+    try {
+      // yield call(api.checkout.sendInvoiceRequest, payload);
+
+      yield delay(2000);
+      yield put(closeModal(Modals.invoiceRequest));
+      yield put(showModal(Modals.success));
+    } catch (error) {
+      yield put(handleError(error.response.data.meassage));
+    } finally {
+      yield put(preloaderStop(Preloaders.sendForm));
     }
   }
 }

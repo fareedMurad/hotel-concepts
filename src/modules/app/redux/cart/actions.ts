@@ -1,6 +1,7 @@
 import { Book } from '@account/pages/library/models';
 import { Program } from '@account/pages/my-programs/models';
 import { Product } from '@app/models/fastspring';
+import { InvoiceValues } from '@pages/cart/components/modal-invoice-request/models/invoice';
 import { ProductModel } from '@pages/product/models/product.model';
 import { make } from 'redux-chill';
 
@@ -47,4 +48,12 @@ const getProducts = make('[cart] get products').stage(
   (products: (Program | Book)[]) => products
 );
 
-export { cart, getProducts, checkCart };
+/*
+ * Send invoice request
+ */
+
+const sendInvoiceRequest = make('[cart] send invoice request').stage(
+  (payload: InvoiceValues) => payload
+);
+
+export { cart, getProducts, checkCart, sendInvoiceRequest };
