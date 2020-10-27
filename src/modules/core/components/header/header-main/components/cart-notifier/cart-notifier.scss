@@ -55,10 +55,12 @@
   @include flex();
   background-color: $white;
   padding: 27px 33px;
+
   &--image {
     width: 150px;
     height: 209px;
     margin-right: 16px;
+    object-fit: cover;
   }
 }
 
