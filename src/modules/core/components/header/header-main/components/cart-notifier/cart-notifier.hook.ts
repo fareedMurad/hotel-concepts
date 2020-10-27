@@ -14,7 +14,7 @@ const useCartNotifierData = () => {
   const total = products
     ?.map(product => ({
       price: product.price,
-      amount: selectedProducts.find(one => one.path == product.id).quantity
+      amount: selectedProducts.find(one => one.path == product.id)?.quantity
     }))
     ?.reduce((acc, cur) => acc + cur.price * cur.amount, 0);
 

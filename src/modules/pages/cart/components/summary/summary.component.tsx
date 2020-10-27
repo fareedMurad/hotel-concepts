@@ -3,19 +3,21 @@ import { SummaryProps } from './summary.props';
 import * as styles from './summary.scss';
 import { Button } from '@core/components';
 import classNames from 'classnames';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
 import { useTranslation } from 'react-i18next';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 
 /**
  * Renders Summary
  */
 const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const { total, estimatedShipping, estimatedTax, onClick, showInvoiceModal } =
     summaryData || {};
   const { user, authorized } = useSelector((state: State) => state.auth);
-
   const isAccountVerified = user ? user.verified : false;
 
   return (
@@ -55,8 +57,12 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
         <Button
           arrow
           className={styles.submit}
-          onClick={onClick}
-          disabled={!authorized && !isAccountVerified}
+          onClick={
+            authorized
+              ? onClick
+              : () => dispatch(showModal(Modals.registration))
+          }
+          // disabled={!authorized && !isAccountVerified}
         >
           Checkout with your account
         </Button>

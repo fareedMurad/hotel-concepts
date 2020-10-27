@@ -3,6 +3,7 @@ import { getUser } from '@app/redux/auth';
 import { checkCart } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { Auth } from '@auth';
+import { RegistrationModal } from '@auth/modals/registration-modal';
 import { Footer, Spinner, Toast } from '@core/components';
 import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderMobile } from '@core/components/header/header-mobile';
@@ -131,6 +132,7 @@ const Routes: React.FC = () => {
       <StickyContainer>
         <div className={styles.routes}>
           {isToastVisible && <Toast />}
+          {!authorized && <RegistrationModal />}
           <div className={styles.header}>
             <HeaderMobile />
             <HeaderSecondary />
