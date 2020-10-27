@@ -1,0 +1,83 @@
+@import 'core.scss';
+
+.container {
+  @include error();
+  position: relative;
+}
+
+.label {
+  margin-bottom: 2px;
+  transition: $transition;
+
+  @include tablet() {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.textarea {
+  @include font($black, 14px, 400);
+  width: 100%;
+  padding: 10px 8px;
+  background: $white;
+  border: 1px solid $white;
+  border-radius: 4px;
+  outline: none;
+  transition: $transition;
+  -webkit-appearance: none;
+  transition: $transition;
+
+  &::placeholder {
+    @include font(#969ba3, 14px, 400);
+
+    @include tablet() {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  @include tablet() {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &--ios {
+    font-size: 14px;
+    transform: scale(1);
+    transform-origin: left top;
+
+    @include tablet() {
+      font-size: 16px;
+    }
+
+    &::placeholder {
+      padding-top: 2px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.12);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+  }
+}
+
+.focused {
+  .textarea {
+    border-color: $primary-orange;
+  }
+  .label {
+    color: $primary-orange;
+  }
+}
+
+.secondary-theme {
+  background-color: $background;
+}

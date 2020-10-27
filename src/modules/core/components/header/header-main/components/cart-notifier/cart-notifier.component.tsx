@@ -40,7 +40,7 @@ const CartNotifier: React.FC<any> = ({ transition }) => {
       <CartNotifierItem />
       <div className={styles.cartNotifierFooter}>
         <div className={styles.cartNotifierTotal}>
-          <span>Total price: </span> <span>${total}</span>
+          <span>ORDER TOTAL: </span> <span>${total}</span>
         </div>
         <Button className={styles.submit} arrow>
           Checkout
