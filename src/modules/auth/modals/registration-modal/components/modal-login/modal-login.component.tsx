@@ -1,4 +1,5 @@
 import { login } from '@app/redux/auth';
+import { ForgotPasswordModal } from '@auth/modals/forgot-password-modal';
 import { loginValidationSchema, LoginValues } from '@auth/models';
 import { Button, Field, FormNew } from '@core/components';
 import { navigate } from '@router/store';
@@ -74,7 +75,6 @@ const ModalLogin: React.FC<ModalLoginProps> = ({}) => {
         <div
           className={styles.forgotPassword}
           onClick={() => {
-            dispatch(closeModal(Modals.registration));
             dispatch(showModal(Modals.forgotPassword));
           }}
         >
@@ -93,6 +93,7 @@ const ModalLogin: React.FC<ModalLoginProps> = ({}) => {
           </span>
         </div>
       </div>
+      <ForgotPasswordModal />
     </div>
   );
 };
