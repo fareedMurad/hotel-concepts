@@ -45,6 +45,12 @@
     }
   }
 }
+
+.comment {
+  & > textarea {
+    min-height: 84px;
+  }
+}
 .close-modal {
   position: absolute;
   right: 30px;

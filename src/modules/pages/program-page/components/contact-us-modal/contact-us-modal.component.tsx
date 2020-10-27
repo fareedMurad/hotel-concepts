@@ -36,6 +36,7 @@ const ContactUsModal: React.FC = () => {
             initialValues={defaultValues}
             onSubmit={values => {
               dispatch(sendRequest(values));
+              console.log(values);
             }}
           >
             {({ handleSubmit }) => (
@@ -79,7 +80,8 @@ const ContactUsModal: React.FC = () => {
                     />
                   </div>
                 </div>
-                <Field.Text
+                <Field.TextArea
+                  className={styles.comment}
                   name='comment'
                   label={t('modal-contact-us.form.comment')}
                   theme='secondary'
