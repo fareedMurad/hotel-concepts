@@ -56,7 +56,7 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
           arrow
           className={styles.submit}
           onClick={onClick}
-          disabled={authorized && !isAccountVerified}
+          disabled={!authorized && !isAccountVerified}
         >
           Checkout with your account
         </Button>

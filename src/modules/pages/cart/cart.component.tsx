@@ -46,7 +46,6 @@ const Cart: React.FC = () => {
   const { products, summaryData, authorized } = useCartData();
   const { t } = useTranslation();
   const cartQuantity = products?.length;
-  console.log(summaryData);
   return (
     <div className={styles.cart}>
       <ScrollToTop />
