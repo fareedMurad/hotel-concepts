@@ -42,18 +42,27 @@ const useBurgerData = () => {
     },
     {
       title: 'Programs',
-      menuLinks: programsLinks
+      menuLinks: [
+        ...programsLinks,
+        {
+          link: 'Learning Approach',
+          to: '/learning-approach',
+          highlighted: true
+        }
+      ]
     },
     {
       title: 'E-library',
       menuLinks: [
         {
           link: 'Individual Subscription',
-          to: ''
+          to: '',
+          highlighted: true
         },
         {
           link: 'Corporate Subscription',
-          to: ''
+          to: '',
+          highlighted: true
         }
       ]
     },

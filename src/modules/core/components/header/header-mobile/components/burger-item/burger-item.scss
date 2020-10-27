@@ -30,3 +30,13 @@
     margin-right: 8px;
   }
 }
+
+.highlighted {
+  color: $primary-orange;
+}
+
+.arrow {
+  color: $primary-orange;
+  flex: 1;
+  text-align: right;
+}

@@ -12,6 +12,7 @@ type BurgerItemProps = {
   menuLinks: {
     link: string;
     to: string;
+    highlighted?: boolean;
   }[];
   /*
    * Show menu

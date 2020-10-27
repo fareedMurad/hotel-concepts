@@ -3,15 +3,27 @@ import { BurgerItemProps } from './burger-item.props';
 import * as styles from './burger-item.scss';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
+import classNames from 'classnames';
 
 /**
  * Menu item
  */
-const MenuItem: React.FC<{ link: string; to: string }> = ({ link, to }) => {
+const MenuItem: React.FC<{
+  link: string;
+  to: string;
+  highlighted?: boolean;
+}> = ({ link, to, highlighted }) => {
   const dispatch = useDispatch();
   return (
     <div className={styles.menuItem} onClick={() => dispatch(navigate(to))}>
-      <div className={styles.menuItemTitle}>{link}</div>
+      <div
+        className={classNames(styles.menuItemTitle, {
+          [styles.highlighted]: highlighted
+        })}
+      >
+        {link}
+      </div>
+      {highlighted && <span className={styles.arrow}>→</span>}
     </div>
   );
 };
@@ -38,7 +50,12 @@ const BurgerItem: React.FC<BurgerItemProps> = ({
     {showMenu === title && (
       <div className={styles.menu}>
         {menuLinks.map(el => (
-          <MenuItem key={el.link} link={el.link} to={el.to} />
+          <MenuItem
+            key={el.link}
+            link={el.link}
+            to={el.to}
+            highlighted={el.highlighted}
+          />
         ))}
       </div>
     )}
