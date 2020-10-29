@@ -2,6 +2,8 @@
  * Unlimited access data
  */
 
+import { useTranslation } from 'react-i18next';
+
 export type CardType = {
   type: 'text' | 'button';
   title?: string;
@@ -12,44 +14,42 @@ export type CardType = {
 };
 
 const useUnlimitedData = () => {
+  const { t } = useTranslation();
   const cards: CardType[] = [
     {
       type: 'text',
-      title: 'Unlimited access to premium content',
-      description:
-        'We are international, we stress the links between politics and business, we are irreverent and we are independent. If it matters in our world we cover it - and cover it well.',
-      highlighted: '20+ new ebooks monthly'
+      title: t('home.unlimited-access.card-one.title'),
+      description: t('home.unlimited-access.card-one.description'),
+      highlighted: t('home.unlimited-access.card-one.highlighted')
     },
     {
       type: 'text',
-      title: ' A unique global perspective',
-      description:
-        'We are international, we stress the links between politics and business, we are irreverent and we are independent.      ',
-      highlighted: 'If it matters in our world we cover it - and cover it well.'
+      title: t('home.unlimited-access.card-two.title'),
+      description: t('home.unlimited-access.card-two.description'),
+      highlighted: t('home.unlimited-access.card-two.description')
     },
     {
       type: 'text',
-      title: ' Information vital for you',
+      title: t('home.unlimited-access.card-three.title'),
       description: '',
-      highlighted: 'Focus on what is essential'
+      highlighted: t('home.unlimited-access.card-three.highlighted')
     },
     {
       type: 'text',
-      title: 'Delivered by world-class experts',
-      description:
-        'We are international, we stress the links between politics and business, we are irreverent and we are independent',
-      highlighted: 'If it matters in our world we cover it - and cover it well.'
+      title: t('home.unlimited-access.card-four.title'),
+      description: t('home.unlimited-access.card-four.description'),
+      highlighted: t('home.unlimited-access.card-four.highlighted')
     },
     {
       type: 'button',
-      title: 'Individual subscription',
-      buttonText: 'Learn more',
+      title: t('home.unlimited-access.card-five.title'),
+      buttonText: t('home.unlimited-access.button-text'),
       navTo: ''
     },
     {
       type: 'button',
-      title: 'Corporate Subscription',
-      buttonText: 'Learn more',
+      title: t('home.unlimited-access.card-six.title'),
+      buttonText: t('home.unlimited-access.button-text'),
       navTo: ''
     }
   ];

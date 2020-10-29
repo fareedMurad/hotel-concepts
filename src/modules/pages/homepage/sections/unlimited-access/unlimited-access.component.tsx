@@ -1,7 +1,8 @@
-import { Button, PreCaption, SectionTitle } from '@core/components';
+import { PreCaption, SectionTitle } from '@core/components';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { UnlimitedCard } from './components/unlimited-card';
-import { CardType, useUnlimitedData } from './unlimited-access.hook';
+import { useUnlimitedData } from './unlimited-access.hook';
 
 import * as styles from './unlimited-access.scss';
 
@@ -9,20 +10,19 @@ import * as styles from './unlimited-access.scss';
  * Renders UnlimitedAccess
  */
 const UnlimitedAccess: React.FC = () => {
+  const { t } = useTranslation();
   const { cards } = useUnlimitedData();
   return (
     <section className={styles.unlimitedAccess}>
       <div className={styles.titleBlock}>
         <div className={styles.wrapper}>
-          <PreCaption>E-books for you</PreCaption>
-          <SectionTitle>Get unlimited access ebooks</SectionTitle>
+          <PreCaption>{t('home.unlimited-access.caprion')}</PreCaption>
+          <SectionTitle>{t('home.unlimited-access.title')}</SectionTitle>
           <div className={styles.titleBlockDescription}>
-            Our Open Access research subscription puts the world’s most
-            comprehensive library of hospitality research and data visualisation
-            at your fingertips.
+            {t('home.unlimited-access.description')}
           </div>
           <div className={styles.titleBlockSubtitle}>
-            Subscription benefits:
+            {t('home.unlimited-access.subtitle')}
           </div>
         </div>
         <img className={styles.image} src={require('img/unlim-img.png')} />

@@ -17,9 +17,9 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
   return (
     <div className={styles.eBooks}>
       <div className={styles.title}>
-        <SectionTitle>New E-books for you</SectionTitle>
-        <div className={styles.titleSubtitle}>Short text about e-books</div>
-        <div className={styles.titleSubtitle}>Short text about e-books</div>
+        <SectionTitle>{t('home.e-books.title')}</SectionTitle>
+        <div className={styles.titleSubtitle}>{t('home.e-books.subtitle')}</div>
+        <div className={styles.titleSubtitle}>{t('home.e-books.subtitle')}</div>
       </div>
       <div className={styles.filters}>
         {filters.map(filter => (
@@ -37,7 +37,7 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
         ))}
       </div>
       <Button className={styles.button} arrow>
-        Explore library
+        {t('home.e-books.button-text')}
       </Button>
     </div>
   );

@@ -16,7 +16,8 @@
 }
 
 .highlighted {
-  @include font($primary-gray, 18px 600, 28px);
+  margin-top: 4px;
+  @include font($primary-gray, 18px, 600, 28px);
 }
 
 .button {
