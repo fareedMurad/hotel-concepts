@@ -1,0 +1,47 @@
+@import 'core.scss';
+
+.check-email {
+  @include flex(flex-start, center, column);
+  margin-top: 34px;
+  width: 80%;
+}
+
+.title {
+  @include font($primary-gray, 48px, 600, 58px);
+  font-family: $EBGaramond;
+}
+
+.divider {
+  width: 80%;
+  height: 1px;
+  background-color: $light-grey;
+  margin: 19.5px 0 42px 0;
+}
+
+.icon {
+  @include flex(center, center);
+  @include size(123px);
+  border-radius: 50%;
+  background-color: #d4d7d9;
+}
+
+.notification {
+  @include font($primary-gray, 24px, 400, 34px);
+  width: 30%;
+  text-align: center;
+}
+
+.email {
+  @include font($primary-gray, 18px, 400, 28px);
+  margin-top: 20px;
+}
+
+.hint {
+  @include font($primary-gray, 12px, 600, 16px);
+  margin-top: 16px;
+}
+
+.button {
+  margin-top: 9.5px;
+  width: 288px;
+}
