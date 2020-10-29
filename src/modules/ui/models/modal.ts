@@ -13,7 +13,8 @@ enum Modals {
   contactUs = 'contact us',
 
   // Auth
-  forgotPassword = 'forgot password'
+  forgotPassword = 'forgot password',
+  newEmail = 'new email'
 }
 
 export { Modals };
