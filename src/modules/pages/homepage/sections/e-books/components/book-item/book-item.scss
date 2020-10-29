@@ -1,5 +1,41 @@
-@import "core.scss";
+@import 'core.scss';
 
 .book-item {
-	
+  @include flex($direction: column, $justify: space-between);
+
+  min-height: 100%;
+}
+
+.image {
+  align-self: center;
+  min-width: 317px;
+  max-height: 434px;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.16);
+}
+
+.title {
+  @include font($primary-gray, 28px, 400, 35px);
+  margin-top: 12px;
+  font-family: $EBGaramond;
+}
+
+.price {
+  @include flex($justify: flex-end);
+  @include font($primary-gray, 28px, 400, 35px);
+  width: 100%;
+  margin-top: 35px;
+  padding-bottom: 4px;
+  font-family: $EBGaramond;
+  border-bottom: 2px solid $light-grey;
+  &--old {
+    text-decoration: line-through;
+    color: $light-grey;
+  }
+}
+
+.sale {
+  margin-left: 20px;
+  color: $primary-orange;
 }

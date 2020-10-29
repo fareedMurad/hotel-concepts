@@ -35,3 +35,24 @@
     }
   }
 }
+
+.books-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  padding: 0 21px 42px 21px;
+  @include tablet() {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include desktop() {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.button {
+  width: 230px;
+  margin: 20px 0px 0 22px;
+  @include desktop() {
+    margin: 42px 0 0 127px;
+  }
+}

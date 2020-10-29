@@ -4,21 +4,16 @@ import { useTranslation } from 'react-i18next';
 import { BookItem } from './components/book-item';
 import { useEBooksData } from './e-books.hook';
 import { EBooksProps } from './e-books.props';
+import { Button } from '@core/components';
 import * as styles from './e-books.scss';
 
 /**
  * Renders EBooks
  */
 const EBooks: React.FC<EBooksProps> = ({}) => {
-  const { filters } = useEBooksData();
+  const { filters, books } = useEBooksData();
   const { t } = useTranslation();
 
-  const book = {
-    image: require('img/mock-books/ebook1.png'),
-    price: '100',
-    sale: '20',
-    title: 'Tactics of Increasing Revenue'
-  };
   return (
     <div className={styles.eBooks}>
       <div className={styles.title}>
@@ -37,8 +32,13 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
         ))}
       </div>
       <div className={styles.booksList}>
-        <BookItem book={book} />
+        {books.map(book => (
+          <BookItem key={book.title} book={book} />
+        ))}
       </div>
+      <Button className={styles.button} arrow>
+        Explore library
+      </Button>
     </div>
   );
 };
