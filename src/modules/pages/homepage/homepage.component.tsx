@@ -20,6 +20,7 @@ import Mentors from '@pages/homepage/sections/mentors/mentors.component';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
 import { EBooks } from './sections/e-books';
+import { UnlimitedAccess } from './sections/unlimited-access';
 /**
  * Renders Homepage
  */
@@ -37,6 +38,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <SupportInfo />
         <OnlineCourses />
         <EBooks />
+        <UnlimitedAccess />
         <Quote />
         <About />
         <TrainingInfo />
