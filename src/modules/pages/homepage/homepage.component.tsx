@@ -37,11 +37,11 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <Intro />
         <SupportInfo />
         <OnlineCourses />
+        <TrainingInfo />
         <EBooks />
         <UnlimitedAccess />
         <Quote />
         <About />
-        <TrainingInfo />
         <Impact
           testimonials={homePageTestimonials}
           loading={homepageTestimonialsLoading}
