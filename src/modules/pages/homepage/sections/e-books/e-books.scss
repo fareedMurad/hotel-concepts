@@ -1,0 +1,37 @@
+@import 'core.scss';
+
+.e-books {
+  padding: 137px 0px 120px 0px;
+}
+
+.title {
+  padding-left: 22px;
+
+  &--subtitle {
+    @include font($primary-gray, 24px, 400, 34px);
+  }
+  @include desktop() {
+    padding-left: 134px;
+  }
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 22px;
+  gap: 10px;
+  margin-top: 50px;
+  @include tablet() {
+    grid-template-columns: repeat(3, max-content);
+  }
+  @include desktop() {
+    grid-template-columns: repeat(5, max-content);
+  }
+
+  &--filter {
+    width: auto;
+    @include desktop() {
+      width: max-content;
+    }
+  }
+}

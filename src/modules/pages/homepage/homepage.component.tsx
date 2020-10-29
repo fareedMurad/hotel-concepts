@@ -19,6 +19,7 @@ import { useHomePageData } from './homepage.hook';
 import Mentors from '@pages/homepage/sections/mentors/mentors.component';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { EBooks } from './sections/e-books';
 /**
  * Renders Homepage
  */
@@ -35,6 +36,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <Intro />
         <SupportInfo />
         <OnlineCourses />
+        <EBooks />
         <Quote />
         <About />
         <TrainingInfo />
