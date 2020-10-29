@@ -59,6 +59,7 @@
   border: unset;
   border-radius: 4px;
   transition: $transition;
+  height: 44px;
 
   & div > div {
     @include font($primary-gray, 16px, 400, 22px);
@@ -120,7 +121,6 @@
 
 .select {
   position: relative;
-  height: 44px;
   cursor: pointer;
 
   &--focused.select--searchable {

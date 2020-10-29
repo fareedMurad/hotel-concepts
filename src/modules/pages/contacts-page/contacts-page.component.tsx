@@ -53,8 +53,8 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
     { label: '3', value: '3' }
   ];
   const genders = [
-    { label: 'Male', value: '1' },
-    { label: 'Female', value: '2' }
+    { label: 'Male', value: 'Male' },
+    { label: 'Female', value: 'Female' }
   ];
 
   return (
@@ -94,8 +94,8 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
               {({ handleSubmit }) => (
                 <Form handleSubmit={handleSubmit} className={styles.form}>
                   <div className={styles.inputGroupA}>
-                    <Select
-                      value=''
+                    <Field.Select
+                      name='type'
                       options={types}
                       placeholder='Enrollment'
                       className={classNames(styles.selectA)}
@@ -110,8 +110,8 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                     />
                   </div>
                   <div className={styles.inputGroupB}>
-                    <Select
-                      value=''
+                    <Field.Select
+                      name='gender'
                       options={genders}
                       placeholder='Mr'
                       className={classNames(styles.selectB)}
@@ -130,14 +130,16 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       placeholder='Doe'
                     />
                   </div>
-                  <div className={styles.textAreaWrapper}>
-                    <div>{t('contacts.form.lable.comment')}</div>
-                    <textarea name='comment' className={styles.textArea} />
-                  </div>
+                  <Field.TextArea
+                    name='comment'
+                    className={styles.textArea}
+                    label={t('contacts.form.lable.comment')}
+                  />
                   <Button
                     className={styles.buttonSend}
                     children={t('contacts.form.button-text')}
                     width={204}
+                    onClick={() => handleSubmit()}
                   />
                 </Form>
               )}
