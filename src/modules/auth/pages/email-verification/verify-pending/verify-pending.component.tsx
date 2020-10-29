@@ -4,6 +4,7 @@ import { Button, Icon, Modal } from '@core/components';
 import { showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { VerifyPendingProps } from './verify-pending-props';
 import * as styles from './verify-pending.scss';
@@ -13,26 +14,25 @@ import * as styles from './verify-pending.scss';
  */
 const VerifyPending: React.FC<VerifyPendingProps> = ({ isNewEmail, token }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   return (
     <div className={styles.checkEmail}>
-      <div className={styles.title}>One more thing…</div>
+      <div className={styles.title}>{t('verify-pending.title')}</div>
       <div className={styles.divider} />
       <div className={styles.icon}>
         <Icon name='verify-email' />
       </div>
       <div className={styles.notification}>
-        'Check your email & click on the link to activate your account
+        {t('verify-pending.notification')}
       </div>
-      <div className={styles.email}>Confirmation email has been sent to:</div>
-      <div className={styles.hint}>
-        Not receiving the email? Check your spam or:
-      </div>
+      <div className={styles.email}> {t('verify-pending.email')}</div>
+      <div className={styles.hint}>{t('verify-pending.hint')}</div>
       <Button
         className={styles.button}
         arrow
         onClick={() => dispatch(verifyEmailResend({ token, isNewEmail }))}
       >
-        Resend confirmation e-mail
+        {t('verify-pending.button-text-resend')}
       </Button>
       <Button
         className={styles.button}
@@ -40,7 +40,7 @@ const VerifyPending: React.FC<VerifyPendingProps> = ({ isNewEmail, token }) => {
         theme='secondary'
         onClick={() => dispatch(showModal(Modals.newEmail))}
       >
-        Enter new e-mail
+        {t('verify-pending.button-text-email')}
       </Button>
       <NewEmailModal />
     </div>
