@@ -122,6 +122,7 @@ class AuthSaga {
 
       const { email } = payload;
       yield put(navigate(`/auth/email-verification/pending/?email=${email}`));
+      debugger;
       yield put(register.success());
     } catch (error) {
       yield put(handleError(error.response.data.message));
