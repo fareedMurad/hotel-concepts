@@ -2,7 +2,8 @@ import { GoogleSignInModel } from '@app/models';
 import { handleError } from '@general/store';
 import { changeLanguage } from '@localization/store';
 import { navigate } from '@router/store';
-import { Preloaders } from '@ui/models';
+import { closeModal } from '@ui/modal';
+import { Modals, Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
@@ -21,7 +22,9 @@ import {
   unauthorize,
   updatePassword,
   verifyEmail,
-  verifyEmailResend
+  verifyEmailResend,
+  confirmationEmailResend,
+  sendNewConfirmationEmail
 } from './actions';
 
 /**
@@ -64,6 +67,7 @@ class AuthSaga {
       yield put(changeLanguage(language));
       yield put(getUser.success(response.data));
       yield put(authorize());
+      debugger;
     } catch (error) {
       if (Boolean(isAuthorized)) {
         yield put(unauthorize());
@@ -116,11 +120,68 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.register, payload);
 
+      const { email } = payload;
+      yield put(navigate(`/auth/email-verification/pending/?email=${email}`));
       yield put(register.success());
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
       yield put(preloaderStop(Preloaders.register));
+    }
+  }
+
+  /**
+   * Saga confirmation email resend
+   */
+
+  @Saga(confirmationEmailResend)
+  public *resendConfirmationEmail(
+    payload: Payload<typeof confirmationEmailResend>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.confirmationEmailResend));
+    try {
+      const data = {
+        email: payload
+      };
+      const response = yield call(api.auth.confirmationEmailResend, data);
+
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'An email has been sent'
+        })
+      );
+    } catch (error) {
+      handleError(error.response.data.message);
+    } finally {
+      yield put(preloaderStop(Preloaders.confirmationEmailResend));
+    }
+  }
+
+  /**
+   * Saga send new confirmation email
+   */
+  @Saga(sendNewConfirmationEmail)
+  public *sendNewConfirmationEmail(
+    payload: Payload<typeof sendNewConfirmationEmail>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.confirmationEmailResend));
+    try {
+      const response = yield call(api.auth.newConfirmationEmailSend, payload);
+
+      yield put(
+        toggleToast({
+          status: 'success',
+          description: 'Please check your new email'
+        })
+      );
+    } catch (error) {
+      handleError(error.response.data.message);
+    } finally {
+      yield put(preloaderStop(Preloaders.confirmationEmailResend));
+      yield put(closeModal(Modals.newEmail));
     }
   }
 
@@ -155,10 +216,12 @@ class AuthSaga {
 
     try {
       const { token, isNewEmail } = payload;
-
+      debugger;
       const response = yield call(api.auth.verifyEmail, token, isNewEmail);
 
       yield put(verifyEmail.success());
+      localStorage.setItem('isAuthorized', 'true');
+      yield put(getUser());
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

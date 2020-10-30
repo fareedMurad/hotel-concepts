@@ -1,9 +1,6 @@
 /**
  * Props
  */
-type VerifyPendingProps = {
-  token?: string;
-  isNewEmail?: boolean;
-};
+type VerifyPendingProps = {};
 
 export { VerifyPendingProps };
