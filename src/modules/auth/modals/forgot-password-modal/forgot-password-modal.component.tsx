@@ -4,7 +4,8 @@ import {
   forgotPasswordValidationSchema,
   ForgotPasswordValues
 } from '@auth/models';
-import { Button, Field, Modal, Preloader } from '@core/components';
+import { Button, Field, Icon, Modal, Preloader } from '@core/components';
+import { navigate } from '@router/store';
 import { closeModal } from '@ui/modal';
 import { Modals, Preloaders } from '@ui/models';
 import { Formik } from 'formik';
@@ -32,12 +33,19 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({}) => {
     <Modal id={Modals.forgotPassword} withOverlay={false}>
       <div className={styles.forgotPasswordModal}>
         <Preloader id={Preloaders.forgotPassword}>
+          <Icon
+            className={styles.close}
+            name='close-modal'
+            onClick={() => dispatch(closeModal(Modals.forgotPassword))}
+          />
           {!passwordRecoverySent ? (
             <Formik
               initialValues={defaultValues}
               validationSchema={forgotPasswordValidationSchema}
               onSubmit={values => {
                 dispatch(forgotPassword(values));
+                passwordRecoverySent &&
+                  dispatch(navigate('/auth/reset-password'));
               }}
             >
               {({ handleSubmit }) => (
