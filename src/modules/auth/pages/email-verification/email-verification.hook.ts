@@ -18,11 +18,10 @@ const useEmailVerificationData = () => {
 
   useEffect(() => {
     const newEmailBoolean = isNewEmail === 'true';
-    debugger;
     dispatch(verifyEmail({ token, isNewEmail: newEmailBoolean }));
   }, []);
 
-  return { emailVerified, token, authorized, isNewEmail: isNewEmail || false };
+  return { emailVerified, authorized };
 };
 
 export { useEmailVerificationData };

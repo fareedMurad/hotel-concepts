@@ -14,7 +14,7 @@ import { VerifySuccess } from './verify-success';
  * Renders EmailVerification
  */
 const EmailVerification: React.FC = () => {
-  const { emailVerified, token, isNewEmail } = useEmailVerificationData();
+  const { emailVerified } = useEmailVerificationData();
   const [pending] = usePrefixedRoutes(['pending']);
 
   return (
