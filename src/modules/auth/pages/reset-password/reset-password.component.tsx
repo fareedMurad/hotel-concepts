@@ -4,6 +4,7 @@ import { ResetPasswordValues } from '@auth/models';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { EmailSent } from './email-sent';
+import { ResetForm } from './reset-form';
 import { useResetPasswordData } from './reset-password.hook';
 import * as styles from './reset-password.scss';
 
@@ -21,9 +22,11 @@ const ResetPassword: React.FC = () => {
   const dispatch = useDispatch();
   const { token } = useResetPasswordData();
 
+  console.log(!!token);
+
   return (
     <div className={styles.resetPassword}>
-      <EmailSent />
+      {!!token ? <ResetForm token={token} /> : <EmailSent />}
 
       {/* <Preloader id={Preloaders.resetPassword}>
         <Formik

@@ -94,14 +94,14 @@ class AuthService {
   /**
    * Reset password
    */
-  public resetPassword = (data: ResetPasswordValues, token: string) =>
+  public resetPassword = (password: string, token: string) =>
     this.http.request({
       method: 'PATCH',
       url: '/auth/password/reset',
       headers: {
         token
       },
-      data
+      data: { password: password }
     });
 
   /**

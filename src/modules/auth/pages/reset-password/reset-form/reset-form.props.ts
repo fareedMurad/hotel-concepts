@@ -1,6 +1,11 @@
 /**
  * Props
  */
-type ResetFormProps = {};
+type ResetFormProps = {
+  /*
+   * token
+   */
+  token: string;
+};
 
 export { ResetFormProps };
