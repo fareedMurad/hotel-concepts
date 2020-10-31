@@ -75,69 +75,73 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
           </div>
         </div>
         <div className={styles.info}>
-          {authorized && (
-            <Icon
-              className={styles.like}
-              name={inWishlist ? 'heart' : 'like'}
-              onClick={() => {
-                const data = { id, page: `/marketplace/${id}` };
+          <div className={styles.section}>
+            {authorized && (
+              <Icon
+                className={styles.like}
+                name={inWishlist ? 'heart' : 'like'}
+                onClick={() => {
+                  const data = { id, page: `/marketplace/${id}` };
 
-                dispatch(
-                  inWishlist
-                    ? removeBookFromWishlist(data)
-                    : addBookToWishlist(data)
-                );
-              }}
-            />
-          )}
-          <div className={styles.caption}>{name}</div>
-          <div className={styles.description}>{previewDescription}</div>
-          <div className={styles.authors}>
-            by
-            {authors?.map((author, index) => (
-              <a
-                className={styles.author}
-                key={index}
-                onClick={() => scrollTo('authors')}
-              >
-                {author.name} {author.surname}
-              </a>
-            ))}
-          </div>
-          <div className={styles.meta}>
-            <div className={styles.languages}>
-              <span className={styles.languagesBold}>Language</span>
-              <span className={styles.languagesList}>{languages}</span>
+                  dispatch(
+                    inWishlist
+                      ? removeBookFromWishlist(data)
+                      : addBookToWishlist(data)
+                  );
+                }}
+              />
+            )}
+            <div className={styles.caption}>{name}</div>
+            <div className={styles.description}>{previewDescription}</div>
+            <div className={styles.authors}>
+              by
+              {authors?.map((author, index) => (
+                <a
+                  className={styles.author}
+                  key={index}
+                  onClick={() => scrollTo('authors')}
+                >
+                  {author.name} {author.surname}
+                </a>
+              ))}
             </div>
-            <div className={styles.published}>
-              <span className={styles.publishedBold}>Published</span>
-              <span className={styles.publishedDate}>
-                {moment(publishDate).format('YYYY')}
-              </span>
-            </div>
-          </div>
-          <div className={styles.highlights}>
-            {highlightsText?.map((highlight, index) => (
-              <div className={styles.highlight} key={index}>
-                {highlight}
+            <div className={styles.meta}>
+              <div className={styles.languages}>
+                <span className={styles.languagesBold}>Language</span>
+                <span className={styles.languagesList}>{languages}</span>
               </div>
-            ))}
+              <div className={styles.published}>
+                <span className={styles.publishedBold}>Published</span>
+                <span className={styles.publishedDate}>
+                  {moment(publishDate).format('YYYY')}
+                </span>
+              </div>
+            </div>
+            <div className={styles.highlights}>
+              {highlightsText?.map((highlight, index) => (
+                <div className={styles.highlight} key={index}>
+                  {highlight}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className={styles.price}>${price}</div>
-          <div className={styles.controls}>
-            <Button
-              className={styles.checkout}
-              arrow={!inCart}
-              disabled={inCart}
-              onClick={() => {
-                !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
-              }}
-            >
-              {inCart ? 'In cart' : 'Add to cart'}
-            </Button>
-            <div className={styles.subscriptionHint}>
-              <div>This book is free with subscription</div>
-              <div>Starting from 10$/month</div>
+          <div className={styles.section}>
+            <div className={styles.price}>${price}</div>
+            <div className={styles.controls}>
+              <Button
+                className={styles.checkout}
+                arrow={!inCart}
+                disabled={inCart}
+                onClick={() => {
+                  !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
+                }}
+              >
+                {inCart ? 'In cart' : 'Add to cart'}
+              </Button>
+              {/* <div className={styles.subscriptionHint}>
+                <div>This book is free with subscription</div>
+                <div>Starting from 10$/month</div>
+              </div> */}
             </div>
           </div>
         </div>

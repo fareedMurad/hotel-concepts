@@ -3,7 +3,6 @@
 .preview {
   @include flex($align: stretch, $direction: column);
   padding: 0 20px 20px 20px;
-
   @include desktop() {
     flex-direction: row;
     align-items: flex-start;
@@ -123,8 +122,10 @@
 }
 
 .info {
+  @include flex($direction: column, $justify: space-between);
   position: relative;
   width: 100%;
+  margin-top: 12px;
   padding: 16px;
   background-color: $background;
   border-radius: 12px;
@@ -134,8 +135,6 @@
   }
 
   @include desktop() {
-    @include flex($justify: space-around, $direction: column);
-    height: auto;
     max-width: 55.5%;
     border-radius: 12px 0 0 12px;
   }
@@ -168,11 +167,10 @@
 
 .description {
   @include font($primary-gray, 16px, 400, normal);
-  margin-top: 12px;
+  height: calc(100vh- 95px);
 
   @include tablet() {
     font-size: 18px;
-    line-height: 28px;
   }
 }
 
@@ -183,7 +181,6 @@
 
   @include tablet() {
     font-size: 18px;
-    line-height: 58px;
   }
 }
 
@@ -242,7 +239,7 @@
 
 .highlights {
   @include flex($align: center, $direction: column);
-  margin-top: 52px;
+  margin-top: 32px;
 
   @include tablet() {
     flex-direction: row;
@@ -288,14 +285,13 @@
   font-family: $EBGaramond;
 
   @include tablet() {
-    margin-top: 50px;
+    margin-top: 0;
   }
 }
 
 .controls {
   @include flex($align: stretch, $direction: column);
-  //to fit 100% height of 1inch display
-  // margin-top: 16px;
+  margin-top: 16px;
 
   @include tablet() {
     flex-direction: row;

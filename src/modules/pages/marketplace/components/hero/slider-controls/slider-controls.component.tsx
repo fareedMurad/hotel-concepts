@@ -25,7 +25,7 @@ const SliderControls: React.FC<SliderControlsProps> = ({
         })}
         onClick={() => previous()}
       >
-        <Icon name='marketplace/arrow' />
+        <Icon className={styles.arrow} name='marketplace/arrow' />
       </div>
       <div
         className={classNames(styles.control, {
@@ -33,7 +33,10 @@ const SliderControls: React.FC<SliderControlsProps> = ({
         })}
         onClick={() => next()}
       >
-        <Icon className={styles.arrowRight} name='marketplace/arrow' />
+        <Icon
+          className={classNames(styles.arrow, styles.arrowRight)}
+          name='marketplace/arrow'
+        />
       </div>
     </div>
   );

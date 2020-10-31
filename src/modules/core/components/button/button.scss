@@ -15,6 +15,7 @@
     font-family: $IBMPlex;
     background: $primary-orange;
     border-color: $primary-orange;
+    border: unset;
   }
 
   &--secondary {
@@ -46,6 +47,7 @@
 
     &:hover {
       border-color: $primary-orange;
+      opacity: 0.1;
       &::before {
         top: unset;
         bottom: 0;

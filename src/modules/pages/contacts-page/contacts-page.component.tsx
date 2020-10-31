@@ -33,6 +33,7 @@ const Card = ({ title, description, href, link }) => (
  * default values
  */
 const defaultValues = {
+  subject: '',
   type: '',
   email: '',
   gender: '',
@@ -48,9 +49,9 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   const { t } = useTranslation();
   const { cardsData, contactsFooterImage } = useContactsPageData();
   const types = [
-    { label: '1', value: '1' },
-    { label: '2', value: '2' },
-    { label: '3', value: '3' }
+    { label: 'Enrollment', value: '1' },
+    { label: 'Enrollment', value: '2' },
+    { label: 'Enrollment', value: '3' }
   ];
   const genders = [
     { label: 'Male', value: '1' },
@@ -94,11 +95,12 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
               {({ handleSubmit }) => (
                 <Form handleSubmit={handleSubmit} className={styles.form}>
                   <div className={styles.inputGroupA}>
-                    <Select
-                      value=''
+                    <Field.Select
+                      name='subject'
                       options={types}
                       placeholder='Enrollment'
-                      className={classNames(styles.selectA)}
+                      label='Subject'
+                      className={classNames(styles.select)}
                       whiteBackground
                     />
                     <Field.Text
@@ -110,11 +112,13 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                     />
                   </div>
                   <div className={styles.inputGroupB}>
-                    <Select
+                    <Field.Select
+                      name='gender'
                       value=''
+                      label='Title'
                       options={genders}
                       placeholder='Mr'
-                      className={classNames(styles.selectB)}
+                      className={classNames(styles.select)}
                       whiteBackground
                     />
                     <Field.Text
@@ -130,10 +134,13 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       placeholder='Doe'
                     />
                   </div>
-                  <div className={styles.textAreaWrapper}>
-                    <div>{t('contacts.form.lable.comment')}</div>
-                    <textarea name='comment' className={styles.textArea} />
-                  </div>
+
+                  <Field.TextArea
+                    name='comment'
+                    className={styles.textArea}
+                    label={t('contacts.form.lable.comment')}
+                  />
+
                   <Button
                     className={styles.buttonSend}
                     children={t('contacts.form.button-text')}

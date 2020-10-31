@@ -24,4 +24,7 @@
   &:hover {
     color: $primary-orange;
   }
+  &:last-child {
+    margin-bottom: -10px;
+  }
 }

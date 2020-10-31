@@ -77,9 +77,10 @@
 .skills {
   @include flex($align: stretch, $direction: column);
   margin-top: 40px;
+  margin-left: 244px;
 
   @include tablet() {
-    margin-top: 110px;
+    margin-top: 0;
   }
 
   &__caption {
@@ -95,7 +96,7 @@
 .skill {
   @include flex($align: center);
   padding: 9.5px 12px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: #f5f1f0;
 
   @include tablet() {

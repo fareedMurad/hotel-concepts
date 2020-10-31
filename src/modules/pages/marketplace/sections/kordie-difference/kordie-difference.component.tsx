@@ -71,6 +71,7 @@ const KordieDifference: React.FC = () => {
           responsive={responsive}
           controls
           controlsClassname={styles.sliderControls}
+          controlClassname={styles.sliderControl}
         >
           {contributors?.map((contributor, index) => (
             <ContributorCard

@@ -15,10 +15,10 @@ const Description: React.FC<DescriptionProps> = ({ data }) => {
       <div className={styles.container}>
         <Title>About</Title>
         <div className={styles.publication}>
-          <div className={styles.publicationCaption}>Publication Date:</div>
-          <div className={styles.publicationDate}>
+          {/* <div className={styles.publicationCaption}>Publication Date:</div> */}
+          {/* <div className={styles.publicationDate}>
             {moment(publishDate).format('MMMM DD, YYYY')}
-          </div>
+          </div> */}
         </div>
         <div className={styles.text}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
@@ -26,14 +26,14 @@ const Description: React.FC<DescriptionProps> = ({ data }) => {
           corrupti blanditiis! Aspernatur quaerat sunt nulla dolores autem?
           Blanditiis, ducimus doloribus? Asperiores?
         </div>
-        <div className={styles.product}>
+        {/* <div className={styles.product}>
           <div className={styles.productCaption}>Product:</div>
           <div className={styles.productName}>{id}</div>
         </div>
         <div className={styles.page}>
           <div className={styles.pageCaption}>Page:</div>
           <div className={styles.pageCount}>{pagesCount}</div>
-        </div>
+        </div> */}
       </div>
       <div className={styles.skills}>
         <div className={styles.skillsCaption}>Skills covered</div>

@@ -9,7 +9,7 @@ type CardDropdownProps = {
   /**
    * ON mouse leave
    */
-  onMouseLeave: () => void;
+  onMouseLeave?: () => void;
 };
 
 export { CardDropdownProps };
