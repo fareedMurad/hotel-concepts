@@ -29,9 +29,8 @@
   flex: 1;
 
   @include desktop() {
-    @media (min-height: 890px) {
-      height: calc(100vh - 120px);
-    }
+    height: calc(100vh - 120px);
+
     flex-direction: row;
     margin-left: 20px;
   }
