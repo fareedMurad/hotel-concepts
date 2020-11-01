@@ -12,10 +12,10 @@ const IncreaseYourCompetitive: React.FC<IncreaseYourCompetitiveProps> = ({}) => 
   return (
     <div className={styles.increaseYourCompetitive}>
       <Icon name='abstract-1' />
-      <SectionTitle>
+      <SectionTitle className={styles.title}>
         {t('for-companies.increase-your-competitive.title')}
       </SectionTitle>
-      <Paragraph className={styles.increaseYourCompetitiveText}>
+      <Paragraph className={styles.text}>
         {t('for-companies.increase-your-competitive.description')}
       </Paragraph>
     </div>

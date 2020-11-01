@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-about {
   margin: 60px 0;
@@ -9,7 +9,7 @@
 .title {
   width: 80%;
   & > div:first-child {
-    @include font($primary-gray, 48px, 500, 58px);
+    @include font($primary-gray, 48px, 600, 58px);
     max-width: 600px;
     font-family: $EBGaramond;
     letter-spacing: -0.48px;
@@ -25,10 +25,13 @@
 .skills-wrapper {
   @include flex($justify: center);
   width: 100%;
+  @include desktop() {
+    @include flex($justify: flex-start);
+    margin-left: 174px;
+  }
 }
 
 .skills {
-  margin-left: -110px;
   margin-top: 24px;
   & > div:first-child {
     @include font($primary-gray, 24px, 400, 26px);

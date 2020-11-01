@@ -3,6 +3,7 @@
 .title {
   @include container();
   @include desktop {
+    padding-top: 20px;
     width: 60%;
   }
 }
@@ -10,7 +11,8 @@
 .cards-container {
   display: grid;
   gap: 19px;
-  margin: 48px 22px 0px 22px;
+  margin: 0 22px;
+  padding: 48px 0 20px 0;
   @include desktop() {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;

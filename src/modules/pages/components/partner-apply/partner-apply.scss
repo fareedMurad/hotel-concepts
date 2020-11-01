@@ -7,8 +7,13 @@
 .container {
   padding: 22px;
   @include desktop() {
-    padding: 55px 134px 50px 134px;
+    padding: 50px 134px 20px 134px;
   }
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .form-wrapper {

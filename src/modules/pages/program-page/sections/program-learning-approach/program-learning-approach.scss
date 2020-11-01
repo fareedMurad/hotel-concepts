@@ -19,19 +19,24 @@
 }
 
 .content {
-  @include flex($justify: center);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
   padding: 0 12px;
+  min-width: 300px;
+  @include tablet() {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include desktop() {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   .item {
     padding: 16px;
     min-height: 208px;
-    min-width: 428px;
-    max-width: 428px;
-    flex: 1;
     border: 1px solid $light-grey;
     border-radius: 6px;
-    margin: 10px;
+    width: 100%;
     & > div:first-child {
       @include font($primary-gray, 24px, 400, 34px);
       max-width: 600px;
@@ -51,9 +56,6 @@
   }
   .title {
     padding: 0 $default-offset;
-  }
-  .item {
-    min-width: 100% !important;
   }
   .button {
     margin-left: $default-offset;

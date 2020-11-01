@@ -112,19 +112,21 @@
 }
 .why-kordie {
   &--title {
-    @include container();
+    padding: 20px;
+    @include desktop() {
+      padding: 20px 134px 0 134px;
+    }
   }
   &__container {
     display: grid;
     grid-template-columns: 1fr;
     margin: 50px 22px;
     @include desktop() {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 672px 1fr;
       grid-template-rows: 1fr;
-      gap: 100px;
     }
     & > div:first-child {
-      justify-self: center;
+      justify-self: flex-start;
     }
     & > div:last-child {
       justify-self: start;
@@ -144,6 +146,7 @@
 .animation {
   @include flex($align: center, $justify: center);
   width: 100%;
+  max-width: 560px;
   background-color: $background;
   border-radius: 8px;
   min-height: 300px;

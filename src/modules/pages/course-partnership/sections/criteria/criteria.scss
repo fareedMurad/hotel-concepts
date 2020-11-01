@@ -24,6 +24,9 @@
       @include tablet() {
         @include font($white, 48px, 600, 58px);
       }
+      @include desktop() {
+        width: 50%;
+      }
     }
   }
 }
