@@ -47,6 +47,19 @@
   }
 }
 
+.icon {
+  @include desktop() {
+    & > div:hover {
+      & > svg > g > circle {
+        stroke: $primary-orange;
+      }
+      & > svg > g > path {
+        fill: $primary-orange;
+      }
+    }
+  }
+}
+
 .logout {
   width: 100%;
   background-color: unset;

@@ -19,6 +19,7 @@ const CartMenu: React.FC<CartMenuProps> = () => {
   return (
     <div className={styles.cart} onClick={() => dispatch(navigate('/cart'))}>
       <Icon
+        className={styles.icon}
         name={
           whiteHeader || isProductInCart
             ? 'shopping-cart'

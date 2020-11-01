@@ -5,11 +5,14 @@
   display: none;
   width: 100%;
   padding: 10px 20px 10px 22px;
-  transition: $transition;
 
   &_navigation {
     @include flex($justify: flex-end, $align: center);
     width: 100%;
+    &--item:hover {
+      color: $primary-orange !important;
+      border-color: $primary-orange !important;
+    }
   }
   @include desktop() {
     @include flex($align: flex-end, $justify: space-between);
