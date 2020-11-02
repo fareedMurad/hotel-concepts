@@ -15,7 +15,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({
   contentType
 }) => {
   return (
-    <a className={styles.downloadButton} download href={url}>
+    <a className={styles.downloadButton} download target='__blank' href={url}>
       <div className={styles.description}>
         <Icon name='download' />
         <div className={styles.descriptionDetails}>

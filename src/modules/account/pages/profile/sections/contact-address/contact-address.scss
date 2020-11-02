@@ -17,10 +17,8 @@
 
 .select {
   height: auto;
-
   & > div {
     & > div {
-      height: 44px;
       background: $white;
     }
   }
