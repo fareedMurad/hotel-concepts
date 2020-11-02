@@ -96,7 +96,7 @@ const Select: React.FC<SelectProps> = ({
         onChange={(option: Option) => {
           onChange(option?.value);
         }}
-        components={Object.setPrototypeOf(components, Select)}
+        components={components}
         className={className}
       />
     </div>
