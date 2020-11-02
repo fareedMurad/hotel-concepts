@@ -100,6 +100,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       placeholder='Enrollment'
                       className={classNames(styles.selectA)}
                       whiteBackground
+                      customStyles={{ container: () => ({ width: '44px' }) }}
                     />
                     <Field.Text
                       name='email'

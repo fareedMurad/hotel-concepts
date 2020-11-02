@@ -54,15 +54,15 @@
 .control {
   @include flex(flex-start, center);
   height: 100%;
-  padding: 12px 8px;
+  //as all fields
+  padding: 7px 8px;
   background: $background;
   border: unset;
   border-radius: 4px;
   transition: $transition;
-  height: 44px;
 
   & div > div {
-    @include font($primary-gray, 16px, 400, 22px);
+    @include font($primary-gray, 14px, 400, 22px);
   }
 }
 
@@ -70,7 +70,7 @@
 .placeholder,
 .search {
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 22px;
   color: $black;
 }

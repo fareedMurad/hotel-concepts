@@ -1,4 +1,5 @@
 import { ControlProps, Option } from '@core/models';
+import { Styles } from 'react-select';
 
 /**
  * Props
@@ -20,6 +21,10 @@ type SelectProps = ControlProps & {
    * Theme
    */
   theme?: 'primary' | 'secondary';
+  /**
+   * custom styles
+   */
+  customStyles?: Styles;
 };
 
 export { SelectProps };
