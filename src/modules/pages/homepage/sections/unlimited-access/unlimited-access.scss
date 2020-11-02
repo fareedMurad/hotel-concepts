@@ -1,0 +1,50 @@
+@import 'core.scss';
+
+.unlimited-access {
+  padding: 0 $default-offset 0 $default-offset;
+  @include desktop() {
+    margin: 0 134px;
+    padding: 0;
+  }
+}
+
+.title-block {
+  @include flex($justify: space-between);
+  &--description {
+    @include font($primary-gray, 24px, 400, 34px);
+    margin-top: 24px;
+  }
+  &--subtitle {
+    @include font($primary-gray, 36px, 600, 46px);
+    margin-top: 32px;
+    font-family: $EBGaramond;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  @include tablet() {
+    width: 60%;
+  }
+}
+
+.image {
+  display: none;
+  width: 296px;
+  height: 381px;
+  background-size: contain;
+  @include tablet() {
+    display: block;
+  }
+}
+
+.description-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 120px;
+  @include desktop() {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 208px 208px 0.5fr;
+  }
+}
