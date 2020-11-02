@@ -4,6 +4,7 @@ import * as styles from './slider-buttons.scss';
 import classNames from 'classnames';
 import { Button } from '@core/components/button';
 import { relative } from 'path';
+import { Icon } from '@core/components/icon';
 
 /**
  * Renders SliderButtons
@@ -50,7 +51,7 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
         className={styles.arrow}
         onClick={() => setCount && setCount(count + 1)}
       >
-        &#8594;
+        <Icon name='slider/arrow-right' />
       </div>
     </button>
   </div>
