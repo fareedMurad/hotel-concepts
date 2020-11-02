@@ -24,14 +24,20 @@
   }
 }
 
+.section {
+  flex: 1;
+  &--price {
+    @include flex($direction: column, $justify: flex-end);
+  }
+}
+
 .container {
   @include flex($align: stretch, $direction: column);
   flex: 1;
 
   @include desktop() {
-    @media (min-height: 890px) {
-      height: calc(100vh - 120px);
-    }
+    height: calc(100vh - 120px);
+
     flex-direction: row;
     margin-left: 20px;
   }
@@ -167,7 +173,6 @@
 
 .description {
   @include font($primary-gray, 16px, 400, normal);
-  height: calc(100vh- 95px);
 
   @include tablet() {
     font-size: 18px;

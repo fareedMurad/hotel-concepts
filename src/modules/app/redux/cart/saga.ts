@@ -113,10 +113,6 @@ class CartSaga {
    * Notification product added
    */
 
-  /*
-   *styles for this should be added
-   */
-
   @Saga(cart.add)
   public *setCurrent(payload: Payload<typeof cart.add>, { api }: Context) {
     const { path } = payload;

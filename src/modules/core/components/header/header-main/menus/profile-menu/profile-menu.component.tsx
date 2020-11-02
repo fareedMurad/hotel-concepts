@@ -30,7 +30,10 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
       onMouseLeave={() => setShowMenu(false)}
       ref={ref}
     >
-      <Icon name={blackTheme ? 'default-avatar-b' : 'default-avatar'} />
+      <Icon
+        className={styles.icon}
+        name={blackTheme ? 'default-avatar-b' : 'default-avatar'}
+      />
 
       {showMenu && (
         <CardDropdown className={styles.dropdown}>
