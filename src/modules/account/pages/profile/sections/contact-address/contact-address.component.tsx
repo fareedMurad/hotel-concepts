@@ -1,4 +1,5 @@
 import { Card } from '@account/components';
+import { countriesOptions } from '@app/dictionary/countries-options';
 import { editContactAddress } from '@app/redux/account';
 import { Button, Field, FormNew, Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
@@ -55,7 +56,12 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
               <Field.Text name='company' label='Company' />
               <Field.Text name='job' label='Job Title' />
               <Field.Text name='city' label='City' />
-              <Field.Text name='country' label='Country' />
+              <Field.Select
+                className={styles.select}
+                options={countriesOptions}
+                name='country'
+                label='Country'
+              />
               <Field.Text name='phone' label='Phone' />
               <Button className={styles.submit} onClick={() => handleSubmit()}>
                 Save

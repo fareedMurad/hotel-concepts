@@ -38,18 +38,14 @@
       &:first-child {
         margin-right: 12px;
       }
-      &:last-child {
-        margin-bottom: 20px;
-      }
+
       /** */
     }
   }
 }
 
 .comment {
-  & > textarea {
-    min-height: 84px;
-  }
+  min-height: 84px;
 }
 .close-modal {
   position: absolute;
