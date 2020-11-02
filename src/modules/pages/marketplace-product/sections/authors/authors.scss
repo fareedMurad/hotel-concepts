@@ -109,7 +109,8 @@
 }
 
 .image {
-  border-radius: 32px;
+  border-radius: 6px;
+  object-fit: cover;
   @include size(200px);
   @include tablet() {
     margin-left: 20px;

@@ -12,6 +12,7 @@ type ExploreProgramsContainerProps = {
     description: string;
     id: string | number;
     link: string;
+    button: string;
   };
 };
 

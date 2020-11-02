@@ -23,6 +23,7 @@
   }
   @include desktop() {
     width: 50%;
+    max-width: 540px;
   }
 }
 

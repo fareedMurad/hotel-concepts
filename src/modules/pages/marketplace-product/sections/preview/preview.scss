@@ -6,7 +6,7 @@
   @include desktop() {
     flex-direction: row;
     align-items: flex-start;
-    padding: 20px 0 0 20px;
+    padding: 0 0 0 20px;
   }
 }
 
@@ -36,7 +36,7 @@
   flex: 1;
 
   @include desktop() {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 100px);
     min-height: 600px;
 
     flex-direction: row;
@@ -245,7 +245,7 @@
 
 .highlights {
   @include flex($align: center, $direction: column);
-  margin-top: 32px;
+  margin-top: 52px;
 
   @include tablet() {
     flex-direction: row;

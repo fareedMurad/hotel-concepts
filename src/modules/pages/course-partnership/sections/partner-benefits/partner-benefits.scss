@@ -25,29 +25,34 @@
   }
 }
 
-.content-list-item {
-  @include font($primary-gray, 28px, 400);
-  @include flex($align: center);
-  position: relative;
-  padding-left: 20px;
+.content-list {
+  &--item {
+    @include font($primary-gray, 28px, 400);
+    @include flex($align: center);
+    position: relative;
+    padding-left: 20px;
+    margin-top: 24px;
+  }
+  &--title {
+    @include font($primary-gray, 28px, 400, 35px);
+    margin-left: 12px;
+    font-family: $EBGaramond;
+  }
+  &--icon {
+    & > div {
+      @include flex(center, center);
+    }
+  }
 }
 
-.list-icon {
-  position: absolute;
-  top: 10px;
-  left: 0;
-}
-.list-title {
-  font-weight: 400;
-}
 .hr {
   width: 100%;
   height: 2px;
   background-color: $hr;
-  margin-top: 40px;
+  margin-top: 48px;
   margin-bottom: 40px;
   @include desktop() {
-    margin-bottom: 100px;
+    margin-bottom: 110px;
   }
 }
 
@@ -58,9 +63,16 @@
   &__description {
     margin-top: 30px;
     font-size: 24px;
+    line-height: 34px;
     @include desktop() {
-      margin-top: 100px;
+      margin-top: 116px;
     }
+  }
+}
+
+.image {
+  @include desktop() {
+    width: 652px;
   }
 }
 
@@ -72,4 +84,6 @@
 .fz {
   width: 80%;
   font-size: 24px;
+  margin: 0;
+  padding: 20px 0;
 }
