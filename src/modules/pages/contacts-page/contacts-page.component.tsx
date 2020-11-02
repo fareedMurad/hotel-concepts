@@ -33,7 +33,7 @@ const Card = ({ title, description, href, link }) => (
  * default values
  */
 const defaultValues = {
-  type: '',
+  subject: '',
   email: '',
   gender: '',
   name: '',
@@ -48,9 +48,9 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   const { t } = useTranslation();
   const { cardsData, contactsFooterImage } = useContactsPageData();
   const types = [
-    { label: '1', value: '1' },
-    { label: '2', value: '2' },
-    { label: '3', value: '3' }
+    { label: 'Enrollment', value: '1' },
+    { label: 'Enrollment', value: '2' },
+    { label: 'Enrollment', value: '3' }
   ];
   const genders = [
     { label: 'Male', value: 'Male' },
@@ -95,10 +95,11 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                 <Form handleSubmit={handleSubmit} className={styles.form}>
                   <div className={styles.inputGroupA}>
                     <Field.Select
-                      name='type'
+                      name='subject'
                       options={types}
                       placeholder='Enrollment'
-                      className={classNames(styles.selectA)}
+                      label='Subject'
+                      className={classNames(styles.select)}
                       whiteBackground
                       customStyles={{ container: () => ({ width: '44px' }) }}
                     />
@@ -113,9 +114,11 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                   <div className={styles.inputGroupB}>
                     <Field.Select
                       name='gender'
+                      value=''
+                      label='Title'
                       options={genders}
                       placeholder='Mr'
-                      className={classNames(styles.selectB)}
+                      className={classNames(styles.select)}
                       whiteBackground
                     />
                     <Field.Text

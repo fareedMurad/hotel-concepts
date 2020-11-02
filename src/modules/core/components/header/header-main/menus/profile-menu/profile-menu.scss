@@ -7,8 +7,10 @@
 
 .dropdown {
   position: absolute;
+  top: 26px;
   left: -95px;
   width: 210px;
+  padding-top: 11px;
 }
 
 .button {
@@ -42,6 +44,19 @@
 
   &:last-child {
     border-bottom: 1px solid $light-grey;
+  }
+}
+
+.icon {
+  @include desktop() {
+    & > div:hover {
+      & > svg > g > circle {
+        stroke: $primary-orange;
+      }
+      & > svg > g > path {
+        fill: $primary-orange;
+      }
+    }
   }
 }
 

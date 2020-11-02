@@ -75,12 +75,8 @@
 }
 
 .skills {
-  @include flex($align: stretch, $direction: column);
-  margin-top: 40px;
-
-  @include tablet() {
-    margin-top: 110px;
-  }
+  @include flex($align: center, $direction: column);
+  margin-top: 30px;
 
   &__caption {
     @include font($primary-gray, 24px, 400, 34px);
@@ -90,12 +86,17 @@
     @include flex($align: stretch, $direction: column);
     margin-top: 16px;
   }
+  @include desktop() {
+    align-content: stretch;
+    margin-top: 40px;
+    margin-left: 244px;
+  }
 }
 
 .skill {
   @include flex($align: center);
   padding: 9.5px 12px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: #f5f1f0;
 
   @include tablet() {

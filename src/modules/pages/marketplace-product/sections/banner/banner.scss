@@ -43,6 +43,7 @@
 }
 
 .container {
+  @include flex($direction: column, $justify: space-between);
   flex: 1;
   margin-top: 40px;
 
@@ -62,7 +63,6 @@
 
   @include tablet() {
     font-size: 18px;
-    line-height: 28px;
   }
 }
 
@@ -73,7 +73,6 @@
 
   @include tablet() {
     font-size: 18px;
-    line-height: 58px;
   }
 }
 
@@ -136,7 +135,7 @@
   font-family: $EBGaramond;
 
   @include tablet() {
-    margin-top: 50px;
+    margin-top: 0;
   }
 }
 

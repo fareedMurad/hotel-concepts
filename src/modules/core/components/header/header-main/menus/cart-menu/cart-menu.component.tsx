@@ -12,15 +12,21 @@ import * as styles from './cart-menu.scss';
  * Renders CartMenu
  */
 const CartMenu: React.FC<CartMenuProps> = () => {
-  const { cartQuantity, isProductInCart, whiteHeader } = useHeaderMainData();
+  const {
+    cartQuantity,
+    isProductInCart,
+    whiteHeader,
+    stickyHeader
+  } = useHeaderMainData();
   const { transition } = useCartMenuAnimation(isProductInCart);
   const dispatch = useDispatch();
 
   return (
     <div className={styles.cart} onClick={() => dispatch(navigate('/cart'))}>
       <Icon
+        className={styles.icon}
         name={
-          whiteHeader || isProductInCart
+          whiteHeader || stickyHeader || isProductInCart
             ? 'shopping-cart'
             : 'shopping-cart-white'
         }

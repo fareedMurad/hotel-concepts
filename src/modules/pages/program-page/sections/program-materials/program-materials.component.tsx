@@ -24,13 +24,7 @@ const ProgramMaterials: React.FC<ProgramMaterialsProps> = ({ data }) => {
           </div>
 
           {data?.additionalMaterials?.materials?.map((item, index) => (
-            <div
-              className={styles.item}
-              key={index}
-              onClick={() => {
-                window.open(item.file.url, '_blank');
-              }}
-            >
+            <div className={styles.item} key={index}>
               {item.title}
             </div>
           ))}

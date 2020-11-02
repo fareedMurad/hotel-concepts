@@ -7,7 +7,8 @@
 
 .dropdown {
   left: -130px;
-  width: 330px;
+  width: 350px;
+  height: 100px;
 }
 
 .link {
@@ -23,5 +24,11 @@
 
   &:hover {
     color: $primary-orange;
+  }
+  &:first-child {
+    margin-top: -4px;
+  }
+  &:last-child {
+    margin-bottom: -11px;
   }
 }

@@ -5,7 +5,7 @@
   background-color: $background;
 }
 .title {
-  @include font($primary-gray, 48px, 500, 58px);
+  @include font($primary-gray, 48px, 600, 58px);
   position: relative;
   margin-bottom: 32px;
   font-family: $EBGaramond;
@@ -23,7 +23,6 @@
   padding: 4px 0;
   background-color: $white;
   border-radius: 8px;
-  cursor: pointer;
   transition: $transition;
   @include font($primary-gray, 18px, 400, 28px);
   font-family: $IBMPlex;
@@ -34,13 +33,6 @@
     padding: 0 12px;
     font-size: 13px;
     color: $primary-orange;
-  }
-  &:hover {
-    background-color: $primary-orange;
-    color: $white;
-    &:before {
-      color: $white;
-    }
   }
 }
 

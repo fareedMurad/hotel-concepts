@@ -1,11 +1,11 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-enroll-now {
   padding: 60px 0;
 }
 
 .title {
-  @include font($primary-gray, 48px, 500, 58px);
+  @include font($primary-gray, 48px, 600, 58px);
   font-family: $EBGaramond;
   margin-bottom: 10px;
   padding-left: $left-offset;
@@ -33,19 +33,19 @@
     &::before {
       @include font($white, 18px, 500, 20px);
       font-family: $IBMPlex;
-      content: "Most Popular";
+      content: 'Most Popular';
       position: absolute;
       top: -28px;
       width: 100%;
       text-align: center;
-      left:0;
-      right:0;
+      left: 0;
+      right: 0;
     }
   }
 }
 
 .top-side {
-  height: 327px;
+  height: 267px;
   @include flex($justify: space-between, $direction: column);
 }
 
@@ -77,8 +77,8 @@
 
 .hr {
   height: 2px;
-  background-color: $hr;
-  margin: $default-offset 0;
+  background-color: $light-grey;
+  margin: 24px 0 14px 0;
 }
 
 .name {

@@ -30,43 +30,47 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
       <div className={styles.box}>
         <img className={styles.image} src={img} />
         <div className={styles.container}>
-          <Title>{name}</Title>
-          <div className={styles.description}>{previewDescription}</div>
-          <div className={styles.authors}>
-            by
-            {authors?.map((author, index) => (
-              <a
-                className={styles.author}
-                key={index}
-                onClick={() => scrollTo('authors')}
-              >
-                {author.name} {author.surname}
-              </a>
-            ))}
-          </div>
-          <div className={styles.meta}>
-            <div className={styles.languages}>
-              <span className={styles.languagesBold}>Language</span>
-              <span className={styles.languagesList}>{languages}</span>
+          <div className={styles.section}>
+            <Title>{name}</Title>
+            <div className={styles.description}>{previewDescription}</div>
+            <div className={styles.authors}>
+              by
+              {authors?.map((author, index) => (
+                <a
+                  className={styles.author}
+                  key={index}
+                  onClick={() => scrollTo('authors')}
+                >
+                  {author.name} {author.surname}
+                </a>
+              ))}
             </div>
-            <div className={styles.published}>
-              <span className={styles.publishedBold}>Published</span>
-              <span className={styles.publishedDate}>
-                {moment(publishDate).format('YYYY')}
-              </span>
+            <div className={styles.meta}>
+              <div className={styles.languages}>
+                <span className={styles.languagesBold}>Language</span>
+                <span className={styles.languagesList}>{languages}</span>
+              </div>
+              <div className={styles.published}>
+                <span className={styles.publishedBold}>Published</span>
+                <span className={styles.publishedDate}>
+                  {moment(publishDate).format('YYYY')}
+                </span>
+              </div>
             </div>
           </div>
-          <div className={styles.price}>${price}</div>
-          <Button
-            className={styles.checkout}
-            arrow={!inCart}
-            disabled={inCart}
-            onClick={() => {
-              !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
-            }}
-          >
-            {inCart ? 'In cart' : 'Add to cart'}
-          </Button>
+          <div className={styles.section}>
+            <div className={styles.price}>${price}</div>
+            <Button
+              className={styles.checkout}
+              arrow={!inCart}
+              disabled={inCart}
+              onClick={() => {
+                !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
+              }}
+            >
+              {inCart ? 'In cart' : 'Add to cart'}
+            </Button>
+          </div>
         </div>
       </div>
     </div>

@@ -5,14 +5,14 @@
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: 10%;
+  bottom: 20%;
 
   @include tablet() {
     bottom: 15%;
   }
 
   @include desktop() {
-    top: 44%;
+    top: 41%;
     left: 54px;
     right: 54px;
     bottom: unset;
@@ -33,6 +33,12 @@
     & > div {
       cursor: not-allowed;
     }
+  }
+}
+
+.arrow {
+  & > div {
+    @include flex(center, center);
   }
 }
 

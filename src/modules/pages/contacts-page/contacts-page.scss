@@ -108,16 +108,22 @@
 
 .input-group {
   &__a {
-    @include flex($align: flex-end);
+    @include flex();
     & > div:first-child {
       width: 40%;
     }
   }
   &__b {
-    @include flex($align: flex-end);
+    @include flex();
     & > div:first-child {
       width: 20%;
     }
+  }
+}
+
+.select {
+  & > label {
+    margin-bottom: 4px;
   }
 }
 

@@ -26,16 +26,17 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
   return (
     <div
       className={styles.profileMenu}
-      onClick={() => setShowMenu(true)}
+      onMouseEnter={() => setShowMenu(true)}
+      onMouseLeave={() => setShowMenu(false)}
       ref={ref}
     >
-      <Icon name={blackTheme ? 'default-avatar-b' : 'default-avatar'} />
+      <Icon
+        className={styles.icon}
+        name={blackTheme ? 'default-avatar-b' : 'default-avatar'}
+      />
 
       {showMenu && (
-        <CardDropdown
-          className={styles.dropdown}
-          onMouseLeave={() => setShowMenu(false)}
-        >
+        <CardDropdown className={styles.dropdown}>
           {authorized ? (
             <div className={styles.userName}>
               Hello, {user.name} {user.surname}

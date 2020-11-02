@@ -93,18 +93,11 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
                 />
               </div>
 
-              <label
-                htmlFor='textarea'
-                className={styles.textAreaLabel}
-                style={{ marginTop: 14 }}
-              >
-                {t('contributors.form.lable.message')}
-              </label>
-              <textarea
-                value={message}
+              <Field.TextArea
+                name='message'
+                label={t('contributors.form.lable.message')}
                 className={styles.textArea}
                 id='textarea'
-                onChange={e => setMessage(e.target.value)}
               />
               <Button
                 onClick={() => handleSubmit()}
