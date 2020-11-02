@@ -23,6 +23,9 @@
   @include tablet() {
     max-width: 61.5%;
   }
+  @include desktop() {
+    max-width: 428px;
+  }
 }
 
 .publication {
@@ -42,7 +45,7 @@
 .text {
   @include font($primary-gray, 18px, 400, 28px);
   margin-top: 24px;
-
+  width: 100%;
   @include tablet() {
     margin-top: 46px;
   }
@@ -75,7 +78,7 @@
 }
 
 .skills {
-  @include flex($align: flex-start, $direction: column);
+  @include flex($align: center, $direction: column);
   margin-top: 30px;
 
   &__caption {
@@ -87,6 +90,7 @@
     margin-top: 16px;
   }
   @include desktop() {
+    align-items: flex-start;
     align-content: stretch;
     margin-top: 15px;
     margin-left: 244px;

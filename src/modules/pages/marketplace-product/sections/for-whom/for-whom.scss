@@ -11,7 +11,10 @@
 .description {
   @include font($primary-gray, 18px, 400, 28px);
   margin-top: 24px;
-  width: 43%;
+  width: 100%;
+  @include desktop() {
+    max-width: 428px;
+  }
 }
 
 .content {
