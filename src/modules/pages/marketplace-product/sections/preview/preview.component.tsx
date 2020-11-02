@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { PreviewProps } from './preview.props';
 import * as styles from './preview.scss';
+import classNames from 'classnames';
 
 /**
  * Renders Preview
@@ -125,7 +126,7 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
               ))}
             </div>
           </div>
-          <div className={styles.section}>
+          <div className={classNames(styles.section, styles.sectionPrice)}>
             <div className={styles.price}>${price}</div>
             <div className={styles.controls}>
               <Button

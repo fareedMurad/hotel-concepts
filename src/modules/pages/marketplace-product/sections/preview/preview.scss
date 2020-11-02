@@ -24,6 +24,13 @@
   }
 }
 
+.section {
+  flex: 1;
+  &--price {
+    @include flex($direction: column, $justify: flex-end);
+  }
+}
+
 .container {
   @include flex($align: stretch, $direction: column);
   flex: 1;
