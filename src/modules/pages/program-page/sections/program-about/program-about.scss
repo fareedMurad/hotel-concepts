@@ -30,7 +30,7 @@
   width: 100%;
   @include desktop() {
     @include flex($justify: flex-start);
-    margin-left: 174px;
+    margin-left: 244px;
   }
 }
 
