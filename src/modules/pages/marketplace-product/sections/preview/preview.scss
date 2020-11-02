@@ -173,7 +173,6 @@
 
 .description {
   @include font($primary-gray, 16px, 400, normal);
-  height: calc(100vh- 95px);
 
   @include tablet() {
     font-size: 18px;
