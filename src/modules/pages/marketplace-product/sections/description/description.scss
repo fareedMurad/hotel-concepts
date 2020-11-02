@@ -6,7 +6,7 @@
   padding: 20px;
 
   @include tablet() {
-    @include flex(space-between, flex-start, row);
+    @include flex(flex-start, flex-start, row);
   }
 
   @include desktop() {
