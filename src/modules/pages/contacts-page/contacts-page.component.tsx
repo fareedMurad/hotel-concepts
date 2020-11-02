@@ -34,7 +34,6 @@ const Card = ({ title, description, href, link }) => (
  */
 const defaultValues = {
   subject: '',
-  type: '',
   email: '',
   gender: '',
   name: '',
@@ -54,8 +53,8 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
     { label: 'Enrollment', value: '3' }
   ];
   const genders = [
-    { label: 'Male', value: '1' },
-    { label: 'Female', value: '2' }
+    { label: 'Male', value: 'Male' },
+    { label: 'Female', value: 'Female' }
   ];
 
   return (
@@ -102,6 +101,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       label='Subject'
                       className={classNames(styles.select)}
                       whiteBackground
+                      customStyles={{ container: () => ({ width: '44px' }) }}
                     />
                     <Field.Text
                       name='email'
@@ -134,17 +134,16 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       placeholder='Doe'
                     />
                   </div>
-
                   <Field.TextArea
                     name='comment'
                     className={styles.textArea}
                     label={t('contacts.form.lable.comment')}
                   />
-
                   <Button
                     className={styles.buttonSend}
                     children={t('contacts.form.button-text')}
                     width={204}
+                    onClick={() => handleSubmit()}
                   />
                 </Form>
               )}
