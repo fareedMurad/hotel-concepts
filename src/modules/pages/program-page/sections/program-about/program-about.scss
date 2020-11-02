@@ -20,6 +20,9 @@
     font-family: $IBMPlex;
     max-width: 440px;
   }
+  @include desktop() {
+    max-width: 428px;
+  }
 }
 
 .skills-wrapper {
