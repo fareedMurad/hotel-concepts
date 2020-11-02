@@ -78,7 +78,7 @@
 
 .slider {
   margin-top: 48px;
-  padding-bottom: 48px;
+  padding-bottom: 40px;
 
   &__controls {
     justify-content: flex-end;
@@ -118,7 +118,6 @@
 
   @include desktop() {
     max-width: 651px;
-    margin-top: 60px;
   }
 
   &__caption {

@@ -45,3 +45,15 @@
     font-size: 14px;
   }
 }
+
+.icon {
+  & > div {
+    @include flex(center, center);
+  }
+  &--right {
+    transform: rotate(180deg);
+    & > div {
+      @include flex(center, center);
+    }
+  }
+}

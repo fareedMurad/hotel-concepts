@@ -6,6 +6,7 @@
   left: 20px;
   right: 20px;
   bottom: 20%;
+  z-index: 2;
 
   @include tablet() {
     bottom: 15%;
@@ -40,8 +41,7 @@
   & > div {
     @include flex(center, center);
   }
-}
-
-.arrow-right {
-  transform: rotate(180deg);
+  &--right {
+    transform: scaleX(-1);
+  }
 }

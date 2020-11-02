@@ -40,7 +40,7 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
         className={styles.arrow}
         onClick={() => setCount && setCount(count - 1)}
       >
-        &#8592;
+        <Icon className={styles.icon} name='arrows/arrow-carusel' />
       </div>
     </button>
     <button
@@ -51,7 +51,7 @@ const SliderButtons: React.FC<SliderButtonsProps> = ({
         className={styles.arrow}
         onClick={() => setCount && setCount(count + 1)}
       >
-        <Icon name='slider/arrow-right' />
+        <Icon className={styles.iconRight} name='arrows/arrow-carusel' />
       </div>
     </button>
   </div>
