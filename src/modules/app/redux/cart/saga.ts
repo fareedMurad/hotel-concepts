@@ -175,7 +175,7 @@ class CartSaga {
       console.log(err);
       yield put(handleError(err.response.data.message));
     }
-    yield delay(6000);
+    yield delay(4000);
     yield put(cart.removing());
     yield delay(1000);
     yield put(cart.removeCurrent());
