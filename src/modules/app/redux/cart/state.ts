@@ -17,7 +17,10 @@ class CartState {
   /**
    * Added product (any should be Program | Book)
    */
-  public addedProduct: any = null;
+  public addedProduct: { product: any; isVisible: boolean } = {
+    product: null,
+    isVisible: false
+  };
   /**
    * is product in cart
    */
