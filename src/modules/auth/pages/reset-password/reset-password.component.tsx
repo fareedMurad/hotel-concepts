@@ -15,8 +15,6 @@ const ResetPassword: React.FC = () => {
   const dispatch = useDispatch();
   const { token } = useResetPasswordData();
 
-  console.log(!!token);
-
   return (
     <div className={styles.resetPassword}>
       {!!token ? <ResetForm token={token} /> : <EmailSent />}
