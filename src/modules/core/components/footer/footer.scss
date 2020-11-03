@@ -114,7 +114,7 @@
 }
 
 .button-submit {
-  @include flex($justify: space-between);
+  @include flex($justify: space-between, $align: center);
   position: relative;
   left: 0;
   top: 10px;

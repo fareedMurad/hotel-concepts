@@ -6,7 +6,7 @@
 
   @include desktop() {
     width: 421px;
-    height: 217px;
+    height: 219px;
   }
 }
 
@@ -30,6 +30,7 @@
 .text {
   @include font($primary-gray, 28px, 400, 35px);
   font-family: $EBGaramond;
+  overflow: auto;
   max-width: 100%;
 }
 

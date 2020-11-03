@@ -3,6 +3,7 @@ import { ButtonProps } from './button.props';
 import * as styles from './button.scss';
 import classNames from 'classnames';
 import { capitalize } from '@core/shared';
+import { Icon } from '../icon';
 
 /**
  * Renders Button
@@ -31,7 +32,12 @@ const Button: React.FC<ButtonProps> = ({
     {...props}
     style={{ width, justifyContent: arrow && 'space-between' }}
   >
-    <div>{children}</div> {arrow && <div className={styles.arrow}>→</div>}
+    <div>{children}</div>{' '}
+    {arrow && (
+      <div className={styles.arrow}>
+        <Icon className={styles.icon} name='arrows/button-arrow' />
+      </div>
+    )}
   </button>
 );
 

@@ -83,3 +83,9 @@
     }
   }
 }
+
+.icon {
+  & > div {
+    @include flex(center, center);
+  }
+}
