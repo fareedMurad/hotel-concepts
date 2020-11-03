@@ -58,6 +58,7 @@ const InsightBlockItem: React.FC<InsightBlockItemProps> = ({
           }}
           children='Read more'
           width='100%'
+          arrow
         />
       </div>
     </div>

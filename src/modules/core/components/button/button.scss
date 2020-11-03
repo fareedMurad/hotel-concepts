@@ -54,6 +54,14 @@
         height: 100%;
         transition: all 170ms cubic-bezier(0.29, 0.04, 0.23, 1);
       }
+      .icon-black {
+        & > div {
+          @include fill(#ffffff);
+        }
+        & > div > svg > g > path:first-child {
+          stroke: #ffff;
+        }
+      }
     }
   }
 
@@ -87,5 +95,14 @@
 .icon {
   & > div {
     @include flex(center, center);
+  }
+}
+
+.icon-black {
+  & > div {
+    @include fill(#3e3e3e);
+  }
+  & > div > svg > g > path:first-child {
+    stroke: #3e3e3e;
   }
 }

@@ -35,7 +35,12 @@ const Button: React.FC<ButtonProps> = ({
     <div>{children}</div>{' '}
     {arrow && (
       <div className={styles.arrow}>
-        <Icon className={styles.icon} name='arrows/button-arrow' />
+        <Icon
+          className={classNames(styles.icon, {
+            [styles.iconBlack]: theme === 'secondary'
+          })}
+          name='arrows/button-arrow'
+        />
       </div>
     )}
   </button>

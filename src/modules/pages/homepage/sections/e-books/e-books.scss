@@ -1,7 +1,8 @@
 @import 'core.scss';
 
 .e-books {
-  padding: 137px 0px 120px 0px;
+  padding: 60px 0px 36px 0px;
+  background-color: $background;
 }
 
 .title {
@@ -46,6 +47,7 @@
   }
   @include desktop() {
     grid-template-columns: repeat(4, 1fr);
+    padding-bottom: 0;
   }
 }
 
