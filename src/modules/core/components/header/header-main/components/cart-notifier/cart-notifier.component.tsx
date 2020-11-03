@@ -39,7 +39,7 @@ const CartNotifier: React.FC<any> = ({ transition }) => {
 
   return (
     <animated.div style={transition} className={styles.cartNotifier}>
-      <div className={styles.title}>FREE SHIPPING ON ORDERS OF $35+</div>
+      <div className={styles.title}>Just added to your cart</div>
       <CartNotifierItem />
       <div className={styles.cartNotifierFooter}>
         <div className={styles.cartNotifierTotal}>

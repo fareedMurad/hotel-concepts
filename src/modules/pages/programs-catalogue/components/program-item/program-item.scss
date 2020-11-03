@@ -56,6 +56,11 @@
   @include font($primary-gray, 36px, 500, 39px);
   font-family: $EBGaramond;
   letter-spacing: -0.48px;
+  transition: $transition;
+  cursor: pointer;
+  &:hover {
+    color: $primary-orange;
+  }
 }
 
 .secondary-info {
@@ -90,7 +95,7 @@
 }
 
 .vhr {
-  color: $light-grey;
+  color: $hr;
   margin: 0 26px;
 }
 

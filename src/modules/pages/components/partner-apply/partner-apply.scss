@@ -7,8 +7,13 @@
 .container {
   padding: 22px;
   @include desktop() {
-    padding: 55px 134px 50px 134px;
+    padding: 50px 134px 20px 134px;
   }
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .form-wrapper {
@@ -18,6 +23,7 @@
   }
   @include desktop() {
     width: 50%;
+    max-width: 540px;
   }
 }
 
@@ -35,7 +41,7 @@
 .hr {
   width: 100%;
   height: 2px;
-  background-color: $light-grey;
+  background-color: $hr;
   margin-top: 20px;
 }
 

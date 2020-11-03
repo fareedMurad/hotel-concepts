@@ -52,3 +52,12 @@
     margin-left: 12px;
   }
 }
+
+.arrow {
+  & > div {
+    @include flex(center, center);
+  }
+  &--right {
+    transform: rotate(180deg);
+  }
+}

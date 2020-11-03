@@ -28,7 +28,7 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
             className={styles.link}
             onClick={() => setShowMenu(false)}
             link='Online programs'
-            to='/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'
+            to='/for-companies'
             image=''
           />
           <LinkDropdown

@@ -99,13 +99,24 @@ const Section: React.FC<SectionProps> = ({
           })}
         </div>
       )}
-      {showMore && (
+      {showMore ? (
         <div
           className={styles.more}
           onClick={() => setLimit(limit + responsiveLimit())}
         >
           <div className={styles.moreCaption}>Show more</div>
           <Icon className={styles.moreIcon} name='marketplace/arrow-right' />
+        </div>
+      ) : (
+        <div
+          className={styles.more}
+          onClick={() => setLimit(0 + responsiveLimit())}
+        >
+          <div className={styles.moreCaption}>Hide</div>
+          <Icon
+            className={classNames(styles.moreIcon, styles.hide)}
+            name='marketplace/arrow-right'
+          />
         </div>
       )}
     </div>

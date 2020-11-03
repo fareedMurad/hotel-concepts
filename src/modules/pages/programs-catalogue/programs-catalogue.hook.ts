@@ -12,7 +12,7 @@ const useProgramsCatalogueData = () => {
     programsData: { selectedCategory, programs, programsTotal }
   } = useSelector((state: State) => state);
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentFilter, setCurrentFilter] = useState('all');
+  const [currentFilters, setCurrentFilters] = useState(['all']);
   const itemsPerPage = 6;
   const totalPages = Math.ceil(programsTotal / itemsPerPage);
 
@@ -31,16 +31,23 @@ const useProgramsCatalogueData = () => {
 
   useEffect(() => {
     dispatch(getSingleCategory({ locale: language, id }));
+  }, [id]);
+
+  //made 2 useEffect (no need to refetch data with category)
+
+  useEffect(() => {
+    const subfilters = currentFilters.join(',');
+    const skipCourses = itemsPerPage * (currentPage - 1);
     dispatch(
       getPrograms({
-        skip: 0,
+        skip: skipCourses,
         limit: itemsPerPage,
         category: id,
         locale: language,
-        subfilters: currentFilter
+        subfilters: subfilters
       })
     );
-  }, [id]);
+  }, [currentFilters, currentPage]);
 
   return {
     id,
@@ -49,10 +56,10 @@ const useProgramsCatalogueData = () => {
     totalPages,
     currentPage,
     itemsPerPage,
-    currentFilter,
+    currentFilters,
     setCurrentPage,
     selectedCategory,
-    setCurrentFilter
+    setCurrentFilters
   };
 };
 

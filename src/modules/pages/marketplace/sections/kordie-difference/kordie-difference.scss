@@ -78,6 +78,7 @@
 
 .slider {
   margin-top: 48px;
+  padding-bottom: 40px;
 
   &__controls {
     justify-content: flex-end;
@@ -89,16 +90,19 @@
 
     @include desktop() {
       margin-left: 336px;
+      bottom: 0;
     }
+  }
+  &__control {
+    border-color: #98a2a8 !important;
   }
 }
 
 .see-all {
   position: absolute;
   left: 0;
-  bottom: 32px;
   width: 204px;
-
+  bottom: 33px;
   @include desktop() {
     left: 114px;
   }
@@ -114,7 +118,6 @@
 
   @include desktop() {
     max-width: 651px;
-    margin-top: 60px;
   }
 
   &__caption {
@@ -151,6 +154,7 @@
 
 .books {
   @include flex($align: stretch, $direction: column);
+  position: relative;
   margin-top: 20px;
 
   @include tablet() {
@@ -202,5 +206,26 @@
 
   &__book {
     width: 100%;
+  }
+}
+
+.decoration {
+  position: absolute;
+  top: 46px;
+  left: -80px;
+  display: none;
+  & > div {
+    @include size(12px);
+    border-radius: 50%;
+  }
+  div:first-child {
+    background-color: $primary-orange;
+    margin-right: 8px;
+  }
+  div:last-child {
+    background-color: #f2e832;
+  }
+  @include desktop() {
+    @include flex();
   }
 }

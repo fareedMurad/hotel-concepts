@@ -57,6 +57,7 @@ const Explore: React.FC<ExploreProps> = ({ data }) => {
         draggable={false}
         swipeable={false}
         controlsTheme='tertiary'
+        controlClassname={styles.sliderControl}
       >
         {coverPhotos?.map(({ file }, index) => (
           <div key={index} className={styles.wrapper}>

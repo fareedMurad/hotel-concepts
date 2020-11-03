@@ -1,0 +1,25 @@
+@import 'core.scss';
+
+.card {
+  padding: 16px;
+  border: 1px solid $light-grey;
+  border-radius: 7px;
+}
+
+.title {
+  @include font($primary-gray, 24px, 400, 34px);
+  margin-bottom: 24px;
+}
+
+.description {
+  @include font($primary-gray, 18px 400, 28px);
+}
+
+.highlighted {
+  margin-top: 4px;
+  @include font($primary-gray, 18px, 600, 28px);
+}
+
+.button {
+  width: 224px;
+}

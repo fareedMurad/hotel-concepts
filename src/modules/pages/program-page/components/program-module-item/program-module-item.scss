@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .program-module-item {
   margin-bottom: 31px;
@@ -102,7 +102,7 @@
 
 .ver-hr {
   margin: 0 20px;
-  color: $light-grey;
+  color: $hr;
 }
 
 @media screen and (max-width: 736px) {

@@ -10,7 +10,7 @@
     "header-main": {
       "link-one": "Programs",
       "link-two": "Store",
-      "link-three": "About Us"
+      "link-three": "About"
     }
   },
   "home": {
@@ -48,6 +48,43 @@
         "title": "Case-based",
         "description": "Immerse yourself in real-world learning. Lessons are brought to life through cases, which put you in the shoes of business leaders. Hear firsthand the challenges they faced, and wrestle with the same issues and imperfect information."
       }
+    },
+    "e-books": {
+      "title": "New E-books for you",
+      "subtitle": "Short text about e-books",
+      "button-text": "Explore library"
+    },
+    "unlimited-access": {
+      "caprion": "E-books for you",
+      "title": "Get unlimited access ebooks",
+      "description": "Our Open Access research subscription puts the world’s most comprehensive library of hospitality research and data visualisation at your fingertips.",
+      "subtitle": "Subscription benefits:",
+      "card-one": {
+        "title": "Unlimited access to premium content",
+        "description": "We are international, we stress the links between politics and business, we are irreverent and we are independent. If it matters in our world we cover it - and cover it well.",
+        "highlighted": "20+ new ebooks monthly."
+      },
+      "card-two": {
+        "title": "A unique global perspective",
+        "description": "We are international, we stress the links between politics and business, we are irreverent and we are independent.",
+        "highlighted": "If it matters in our world we cover it - and cover it well."
+      },
+      "card-three": {
+        "title": "Information vital for you",
+        "highlighted": "Focus on what is essential"
+      },
+      "card-four": {
+        "title": "Delivered by world-class experts",
+        "description": "We are international, we stress the links between politics and business, we are irreverent and we are independent",
+        "highlighted": "If it matters in our world we cover it - and cover it well."
+      },
+      "card-five": {
+        "title": "Individual subscription"
+      },
+      "card-six": {
+        "title": "Corporate Subscription"
+      },
+      "button-text": "Learn more"
     },
     "training-info": {
       "pre-caption": "Systematic Approach",
@@ -119,9 +156,9 @@
         "name": "Name*",
         "specialization": "Specialization*",
         "linkedin": "LinkedIn profile*",
-        "email": "contact e-mail*",
+        "email": "Contact e-mail*",
         "message": "Message",
-        "button-text": "Sentd Request"
+        "button-text": "Send Request"
       },
       "sent-successful": "Your apply successfuly sent"
     }
@@ -324,8 +361,7 @@
         "question2": "What paths are you interested in?",
         "button-text": "Contact me"
       }
-    },
-    "empty-info": "There are no programs with these filters"
+    }
   },
   "article-page": {
     "back-button": "Back",
@@ -683,6 +719,7 @@
     "program-enroll-now": {
       "title": "Enroll now",
       "button-text": "Enroll now",
+      "button-text-contact": "Contact us",
       "sub-title": "Features"
     },
     "program-quote": {
@@ -771,6 +808,49 @@
     "form": {
       "title": "Want to get involved?",
       "subtitle": "We’re always happy to talk if you are interested in becoming a Partner"
+    }
+  },
+  "modal-contact-us": {
+    "title": "Contact us",
+    "caption": "Please fill in the form below and we will get in touch with you shortly",
+    "form": {
+      "name": "Your Name",
+      "email": "Contact E-mail",
+      "company": "Property / Company Name",
+      "website": "Website",
+      "team": "Team size",
+      "interests": "Paths you are interested in",
+      "comment": "Comment",
+      "button-text": "Send Request"
+    },
+    "success-alert": {
+      "title": "Thank you",
+      "hint": "We received your message and will get in touch soon",
+      "button-text": "Download presentation"
+    }
+  },
+  "cart": {
+    "title": "My cart",
+    "precaption": "Items to be delivered electronically",
+    "items": "items",
+    "diviver-caption": "Accepted Payment Methods",
+    "cart-item": {
+      "remove": "Remove",
+      "amount": "Amount"
+    },
+    "summary": {
+      "title": "Order summary",
+      "total": "Total",
+      "shiping": "Estimated shipping",
+      "tax": "Estimated tax",
+      "order": "Order Total",
+      "button-text": "Checkout with your account",
+      "button-text-second": "Checkout as a guest",
+      "hint": "*Proceed to checkout and you will have an oppurnity to create an account at the end"
+    },
+    "placeholder": {
+      "caption": "Your Shopping Cart is empty.",
+      "button-text": "Go to Homepage"
     }
   }
 }

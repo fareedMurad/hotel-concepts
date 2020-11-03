@@ -1,3 +1,4 @@
+import { Icon } from '@core/components/icon';
 import { capitalize } from '@core/shared';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -25,13 +26,16 @@ const Controls: React.FC<ControlsProps> = ({
       className={classNames(styles.button, controlClassname)}
       onClick={() => previous()}
     >
-      &#8592;
+      <Icon className={styles.arrow} name='arrows/arrow-carusel' />
     </div>
     <div
       className={classNames(styles.button, controlClassname)}
       onClick={() => next()}
     >
-      &#8594;
+      <Icon
+        className={classNames(styles.arrow, styles.arrowRight)}
+        name='arrows/arrow-carusel'
+      />
     </div>
   </div>
 );

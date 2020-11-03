@@ -30,12 +30,12 @@
 
 .title {
   @include flex($justify: center);
-  @include font($primary-gray, 18px, 600, normal);
+  @include font($primary-gray, 28px, 400, normal);
   position: relative;
   padding: 19px 0;
   font-family: $EBGaramond;
   text-align: center;
-  background-color: $background;
+  background-color: $white;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   &:after {

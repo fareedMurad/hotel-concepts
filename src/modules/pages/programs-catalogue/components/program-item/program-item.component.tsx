@@ -42,7 +42,14 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
             <div className={styles.info}>
               <div className={styles.type}>{complexityLevel}</div>
               <div className={styles.nameAndLike}>
-                <div className={styles.name}>{name}</div>
+                <div
+                  className={styles.name}
+                  onClick={() =>
+                    dispatch(navigate(`/program/?programId=${id}`))
+                  }
+                >
+                  {name}
+                </div>
                 {authorized && (
                   <div className={styles.iconWrapper}>
                     <Icon

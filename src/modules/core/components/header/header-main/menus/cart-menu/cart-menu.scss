@@ -6,6 +6,14 @@
   z-index: 999999;
 }
 
+.icon {
+  @include desktop() {
+    & > div > svg:hover {
+      fill: $primary-orange;
+    }
+  }
+}
+
 .indicator {
   @include flex(center, center);
   @include size(16px);

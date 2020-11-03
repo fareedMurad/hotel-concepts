@@ -13,7 +13,8 @@ const defaultValues = {
   name: '',
   phone: '',
   email: '',
-  linkedIn: ''
+  linkedIn: '',
+  location: ''
 };
 
 /**
@@ -135,7 +136,8 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                   label='Email*'
                 />
                 <div className={styles.select}>
-                  <Select
+                  <Field.Select
+                    name='location'
                     value={restFormValues.location}
                     options={locations}
                     placeholder='click here to select'

@@ -1,16 +1,20 @@
 @import 'core.scss';
 
 .title {
-  @include container();
+  margin-top: 10px;
+  margin-left: 20px;
   @include desktop {
-    width: 60%;
+    max-width: 460px;
+    padding-top: 20px;
+    margin-left: $left-offset;
   }
 }
 
 .cards-container {
   display: grid;
   gap: 19px;
-  margin: 48px 22px 0px 22px;
+  margin: 0 22px;
+  padding: 48px 0 20px 0;
   @include desktop() {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;

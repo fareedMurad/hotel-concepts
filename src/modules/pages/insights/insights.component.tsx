@@ -13,6 +13,7 @@ import { ScrollToTop } from '@app';
 const Insights: React.FC<InsightsProps> = ({}) => {
   return (
     <React.Suspense fallback={<Spinner />}>
+      <ScrollToTop />
       <div className={styles.insights}>
         <HeroBlock />
         <FeaturedArticles />

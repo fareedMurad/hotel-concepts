@@ -1,6 +1,7 @@
 import { fetchMarketplaceByCategory } from '@app/redux/marketplace';
 import { State } from '@app/redux/state';
 import { Slider } from '@core/components';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -18,15 +19,6 @@ const responsive = {
     items: 1,
     slidesToSlide: 1
   }
-};
-
-/**
- * Scroll into section
- */
-const scrollInto = (id: string) => {
-  const element = document.getElementById(id);
-
-  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
 /**
@@ -72,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
                     [styles.categorySelected]: match
                   })}
                   onClick={() => {
-                    scrollInto(id);
+                    scrollTo(id);
                     dispatch(fetchMarketplaceByCategory(id));
                   }}
                   key={id}

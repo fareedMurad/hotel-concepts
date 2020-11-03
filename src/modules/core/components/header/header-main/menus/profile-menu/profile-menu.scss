@@ -7,8 +7,10 @@
 
 .dropdown {
   position: absolute;
+  top: 26px;
   left: -95px;
   width: 210px;
+  padding-top: 11px;
 }
 
 .button {
@@ -26,7 +28,7 @@
   background-color: unset;
   padding: 11px 9px;
   color: $light-grey;
-  border-color: $light-grey;
+  border: 1px solid $light-grey;
 }
 
 .link {
@@ -45,9 +47,22 @@
   }
 }
 
+.icon {
+  @include desktop() {
+    & > div:hover {
+      & > svg > g > circle {
+        stroke: $primary-orange;
+      }
+      & > svg > g > path {
+        fill: $primary-orange;
+      }
+    }
+  }
+}
+
 .logout {
   width: 100%;
   background-color: unset;
   color: $light-grey;
-  border-color: $light-grey;
+  border: 1px solid $light-grey;
 }
