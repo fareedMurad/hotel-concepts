@@ -9,13 +9,6 @@ import { useResetPasswordData } from './reset-password.hook';
 import * as styles from './reset-password.scss';
 
 /**
- * Default Values
- */
-const defaultValues: ResetPasswordValues = {
-  password: ''
-};
-
-/**
  * Renders ResetPassword
  */
 const ResetPassword: React.FC = () => {
