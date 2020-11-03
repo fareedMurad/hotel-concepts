@@ -119,6 +119,10 @@ const KordieDifference: React.FC = () => {
               to make your learning a pleasure.
             </span>
           </div>
+          <div className={styles.decoration}>
+            <div />
+            <div />
+          </div>
           <div className={styles.booksPreview}>
             <img
               className={styles.booksBook}

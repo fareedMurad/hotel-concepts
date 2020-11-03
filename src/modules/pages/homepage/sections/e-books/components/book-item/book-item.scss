@@ -15,6 +15,16 @@
   box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.16);
 }
 
+.description {
+  @include flex(
+    $align: flex-start,
+    $justify: space-between,
+    $direction: column
+  );
+  height: 158px;
+  width: 100%;
+}
+
 .title {
   @include font($primary-gray, 28px, 400, 35px);
   margin-top: 12px;
@@ -25,7 +35,6 @@
   @include flex($justify: flex-end);
   @include font($primary-gray, 28px, 400, 35px);
   width: 100%;
-  margin-top: 35px;
   padding-bottom: 4px;
   font-family: $EBGaramond;
   border-bottom: 2px solid $light-grey;
