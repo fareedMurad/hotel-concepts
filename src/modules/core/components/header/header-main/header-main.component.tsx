@@ -40,8 +40,8 @@ const HeaderMain: React.FC = () => {
         <LibraryMenu className={className} />
         <CorporateMenu className={className} />
         <AboutMenu className={className} />
-        <CartMenu />
         <ProfileMenu blackTheme={blackTheme} />
+        <CartMenu />
         <LocalizationMenu theme={blackTheme ? 'black' : 'primary'} />
       </div>
     </div>

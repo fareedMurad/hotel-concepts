@@ -71,6 +71,7 @@ const KordieDifference: React.FC = () => {
           responsive={responsive}
           controls
           controlsClassname={styles.sliderControls}
+          controlClassname={styles.sliderControl}
         >
           {contributors?.map((contributor, index) => (
             <ContributorCard
@@ -117,6 +118,10 @@ const KordieDifference: React.FC = () => {
             <span className={styles.booksDescriptionBold}>
               to make your learning a pleasure.
             </span>
+          </div>
+          <div className={styles.decoration}>
+            <div />
+            <div />
           </div>
           <div className={styles.booksPreview}>
             <img

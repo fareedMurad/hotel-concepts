@@ -9,7 +9,7 @@ import * as styles from './catalogue-filters.scss';
  */
 const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({
   filters,
-  currentFilter,
+  currentFilters,
   updateFilters
 }) => (
   <section className={styles.catalogueFilters}>
@@ -19,13 +19,13 @@ const CatalogueFilters: React.FC<CatalogueFiltersProps> = ({
       {filters.map(({ caption, value }, index) => (
         <div
           className={classNames(styles.filterItem, {
-            [styles.checked]: currentFilter === value
+            [styles.checked]: currentFilters.includes(value)
           })}
           key={index}
         >
           <FilterCheckbox
             name={caption}
-            isChecked={currentFilter === value}
+            isChecked={currentFilters.includes(value)}
             onCheck={() => updateFilters(value)}
           />
         </div>

@@ -24,15 +24,13 @@ const ProgramsCatalogue: React.FC = () => {
     totalPages,
     currentPage,
     itemsPerPage,
-    currentFilter,
+    currentFilters,
     setCurrentPage,
     selectedCategory,
-    setCurrentFilter
+    setCurrentFilters
   } = useProgramsCatalogueData();
   const { category } = selectedCategory || {};
   const { name, description, isSubfiltersAllowed } = category || {};
-
-  const skipCourses = itemsPerPage * (currentPage - 1);
 
   const changePage = page => () => {
     setCurrentPage(page);
@@ -40,7 +38,11 @@ const ProgramsCatalogue: React.FC = () => {
   };
 
   const updateFilters = (filter: string) => {
-    setCurrentFilter(filter);
+    setCurrentFilters(prevFilters =>
+      prevFilters.includes(filter)
+        ? prevFilters.filter(el => el !== filter)
+        : [...prevFilters, filter]
+    );
     setCurrentPage(1);
   };
 
@@ -56,7 +58,7 @@ const ProgramsCatalogue: React.FC = () => {
         {isSubfiltersAllowed && (
           <CatalogueFilters
             filters={filters}
-            currentFilter={currentFilter}
+            currentFilters={currentFilters}
             updateFilters={updateFilters}
           />
         )}

@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
   program
 }) => {
-  const { rate, caption, id, description, link } = program;
+  const { rate, caption, id, description, link, button } = program;
   const { t } = useTranslation();
   return (
     <div className={styles.program}>
@@ -25,12 +25,7 @@ const ExploreProgramContainer: React.FC<ExploreProgramsContainerProps> = ({
         {description}
       </Paragraph>
       <Link to={link} className={styles.programBlockBtn}>
-        <Button
-          theme='secondary'
-          width={224}
-          children={t('story-mission.our-mission.button-text')}
-          arrow
-        />
+        <Button theme='secondary' width={224} children={button} arrow />
       </Link>
     </div>
   );

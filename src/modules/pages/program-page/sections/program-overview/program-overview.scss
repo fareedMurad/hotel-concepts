@@ -30,7 +30,7 @@
 }
 
 .title {
-  @include font($primary-gray, 48px, 500, 50px);
+  @include font($primary-gray, 48px, 600, 50px);
   font-family: $EBGaramond;
 }
 

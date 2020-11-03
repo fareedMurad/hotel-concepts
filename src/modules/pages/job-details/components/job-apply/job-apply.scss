@@ -38,7 +38,7 @@
 }
 
 .input {
-  margin-bottom: 25px;
+  margin-bottom: 27px;
   label {
     @include font($primary-gray, 16px, 400, 22px);
   }
@@ -51,7 +51,7 @@
 }
 
 .select {
-  margin-bottom: 25px;
+  margin-bottom: 27px;
   & > div > div > div {
     background-color: $background;
   }

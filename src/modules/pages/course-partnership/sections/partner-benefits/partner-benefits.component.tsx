@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { PartnerBenefitsProps } from './partner-benefits.props';
 import * as styles from './partner-benefits.scss';
-import { Paragraph, Icon, H4, SectionTitle } from '@core/components';
+import { Paragraph, Icon, SectionTitle } from '@core/components';
 import { useMediaPoints } from '@core/shared';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
@@ -33,23 +33,23 @@ const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
         </Paragraph>
         <div className={styles.contentList}>
           <div className={styles.contentListItem}>
-            <Icon className={styles.listIcon} name='list-dot' />
-            <H4 className={styles.listTitle}>
+            <Icon className={styles.contentListIcon} name='list-dot' />
+            <div className={styles.contentListTitle}>
               {t('course-partnership.partner-benefits.list.item1')}
-            </H4>
+            </div>
           </div>
           <div className={styles.contentListItem}>
-            <Icon className={styles.listIcon} name='list-dot' />
-            <H4 className={styles.listTitle}>
+            <Icon className={styles.contentListIcon} name='list-dot' />
+            <div className={styles.contentListTitle}>
               {t('course-partnership.partner-benefits.list.item2')}
-            </H4>
+            </div>
           </div>
           <div className={styles.contentListItem}>
-            <Icon className={styles.listIcon} name='list-dot' />
-            <H4 className={styles.listTitle}>
+            <Icon className={styles.contentListIcon} name='list-dot' />
+            <div className={styles.contentListTitle}>
               {' '}
               {t('course-partnership.partner-benefits.list.item3')}
-            </H4>
+            </div>
           </div>
         </div>
         <div className={styles.hr} />

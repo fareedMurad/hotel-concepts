@@ -5,14 +5,15 @@
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: 10%;
+  bottom: 20%;
+  z-index: 2;
 
   @include tablet() {
     bottom: 15%;
   }
 
   @include desktop() {
-    top: 44%;
+    top: 41%;
     left: 54px;
     right: 54px;
     bottom: unset;
@@ -36,6 +37,11 @@
   }
 }
 
-.arrow-right {
-  transform: rotate(180deg);
+.arrow {
+  & > div {
+    @include flex(center, center);
+  }
+  &--right {
+    transform: scaleX(-1) translateX(-1px);
+  }
 }

@@ -110,6 +110,7 @@
 
 .image {
   border-radius: 6px;
+  object-fit: cover;
   @include size(200px);
   @include tablet() {
     margin-left: 20px;
@@ -137,7 +138,7 @@
 }
 
 .control {
-  border-color: $primary-gray;
+  border-color: #98a2a8 !important;
 }
 
 .see-all {

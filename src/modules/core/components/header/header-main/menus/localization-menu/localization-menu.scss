@@ -21,19 +21,28 @@
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
+  @include desktop() {
+    &:hover {
+      border-color: $primary-orange;
+      border-bottom: 1px solid transparent;
+    }
+  }
 }
 
 .drop-down {
   position: absolute;
-  top: 27px;
+  top: 28px;
   left: -1px;
   width: 55px;
   padding: 0px 8px 6px 8px;
   border: 1px solid white;
-  border-radius: 4px;
-  border-top: 1px solid transparent;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  border-radius: 0;
+  border-top: unset;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  @include desktop {
+    border-color: $primary-orange !important;
+  }
 }
 
 .black {
@@ -43,7 +52,7 @@
   &--dropdown {
     border-color: $primary-gray;
     background-color: white;
-    border-top: 1px solid transparent;
+    border-top: unset;
   }
 }
 

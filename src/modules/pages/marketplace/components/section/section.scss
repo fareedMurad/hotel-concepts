@@ -68,6 +68,10 @@
   }
 }
 
+.hide {
+  transform: rotate(180deg);
+}
+
 // Book styles
 
 .book {

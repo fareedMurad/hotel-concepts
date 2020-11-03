@@ -14,6 +14,7 @@ import { StickyContainer } from 'react-sticky';
 import { Preloaders } from '@ui/models';
 import { Preloader } from '@core/components';
 import { cart } from './redux/cart';
+import Helmet from 'react-helmet';
 
 /**
  * Scroll to top

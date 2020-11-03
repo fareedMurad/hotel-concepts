@@ -8,6 +8,7 @@ import { Footer, Spinner, Toast } from '@core/components';
 import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderMobile } from '@core/components/header/header-mobile';
 import { HeaderSecondary } from '@core/components/header/header-secondary';
+import { BasicHead } from '@core/components/seo/basic-head';
 import { useMediaPoints } from '@core/shared';
 import { Interests } from '@pages';
 import { Cart } from '@pages/cart';
@@ -129,6 +130,7 @@ const Routes: React.FC = () => {
 
   return (
     <Fragment>
+      <BasicHead />
       <StickyContainer>
         <div className={styles.routes}>
           {isToastVisible && <Toast />}

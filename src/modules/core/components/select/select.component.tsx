@@ -57,6 +57,7 @@ const Select: React.FC<SelectProps> = ({
   options,
   className,
   isError,
+  customStyles,
   error,
   value,
   label,
@@ -98,6 +99,7 @@ const Select: React.FC<SelectProps> = ({
         }}
         components={components}
         className={className}
+        styles={customStyles}
       />
     </div>
   );

@@ -15,6 +15,16 @@ const useContributorsData = language => {
           workAt
           from
           experience
+          mentorModalPicture {
+            url(
+              transform: {
+                format: JPG_PROGRESSIVE
+                width: 1600
+                height: 800
+                resizeStrategy: FIT
+              }
+            )
+          }
           mentorPicture {
             url(
               transform: {

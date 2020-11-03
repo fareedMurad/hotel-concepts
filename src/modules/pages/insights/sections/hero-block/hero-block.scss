@@ -13,6 +13,7 @@
   @include desktop() {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
+    height: calc(100vh - 120px);
   }
   @include ipad-p() {
     grid-template: initial;
@@ -38,7 +39,7 @@
 
       border-radius: 8px;
       @include desktop() {
-        height: calc(100vh - 120px);
+        // height: calc(100vh - 120px);
       }
     }
     &__content {

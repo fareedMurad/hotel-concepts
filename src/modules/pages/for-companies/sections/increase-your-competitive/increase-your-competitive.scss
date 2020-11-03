@@ -2,10 +2,17 @@
 
 .increase-your-competitive {
   @include container($top: 120px);
-  &--text {
-    @include font($primary-gray, 24px, 400, 34px);
+}
+
+.title {
+  @include desktop {
+    width: 50%;
   }
+}
+.text {
+  @include font($primary-gray, 24px, 400, 34px);
+
   @include desktop() {
-    width: 80%;
+    width: 74%;
   }
 }

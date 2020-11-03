@@ -1,4 +1,4 @@
-@import "core.scss";
+@import 'core.scss';
 
 .catalogue-filters {
   background-color: $background;
@@ -13,7 +13,7 @@
 
 .hr {
   height: 2px;
-  background-color: $light-grey;
+  background-color: $hr;
   margin: 0 $default-offset;
   margin-top: 24px;
   margin-bottom: 24px;

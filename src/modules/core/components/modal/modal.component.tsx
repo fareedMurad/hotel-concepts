@@ -54,7 +54,7 @@ const Modal: React.FC<ModalProps> = ({
 
   const Content = () => (
     <animated.div
-      style={contetnAnimation}
+      // style={contetnAnimation}
       className={classNames(className, styles.modal, {
         [styles.modalMobile]: mobile
       })}
@@ -67,7 +67,7 @@ const Modal: React.FC<ModalProps> = ({
   if (isActive) {
     return (
       <animated.div
-        style={overlayAnimation}
+        //  style={overlayAnimation}
         className={classNames(styles.overlay, {
           [styles.overlayVisible]: withOverlay
         })}
