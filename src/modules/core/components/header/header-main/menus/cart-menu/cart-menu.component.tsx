@@ -26,6 +26,7 @@ const CartMenu: React.FC<CartMenuProps> = () => {
     <div
       className={styles.cart}
       onClick={() =>
+        cartQuantity &&
         dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier())
       }
     >
