@@ -67,7 +67,6 @@ class AuthSaga {
       yield put(changeLanguage(language));
       yield put(getUser.success(response.data));
       yield put(authorize());
-      debugger;
     } catch (error) {
       if (Boolean(isAuthorized)) {
         yield put(unauthorize());
@@ -122,7 +121,7 @@ class AuthSaga {
 
       const { email } = payload;
       yield put(navigate(`/auth/email-verification/pending/?email=${email}`));
-      debugger;
+
       yield put(register.success());
     } catch (error) {
       yield put(handleError(error.response.data.message));
@@ -217,7 +216,7 @@ class AuthSaga {
 
     try {
       const { token, isNewEmail } = payload;
-      debugger;
+
       const response = yield call(api.auth.verifyEmail, token, isNewEmail);
 
       yield put(verifyEmail.success());
