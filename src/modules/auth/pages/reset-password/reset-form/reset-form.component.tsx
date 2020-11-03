@@ -40,6 +40,7 @@ const ResetForm: React.FC<ResetFormProps> = ({ token }) => {
               name='password'
               label='New Password'
               type='password'
+              placeholder='Enter new password'
             />
             <Field.Text
               className={styles.formField}
@@ -47,6 +48,7 @@ const ResetForm: React.FC<ResetFormProps> = ({ token }) => {
               name='confirmPassword'
               label='Confirm Password'
               type='password'
+              placeholder='Repeat new password'
             />
             <Button
               className={styles.submit}
