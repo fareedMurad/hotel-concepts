@@ -41,6 +41,8 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
     previewDescription
   } = data;
 
+  // console.log(data)
+
   return (
     <div className={styles.preview}>
       <SEO title={name} thumbnail={img} url={window.location.href} />
