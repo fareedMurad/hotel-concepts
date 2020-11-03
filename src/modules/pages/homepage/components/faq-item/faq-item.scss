@@ -1,7 +1,7 @@
 @import 'core.scss';
 
 .faq-item {
-  border-bottom: 2px solid $hr;
+  border-bottom: 2px solid #cbd0d3;
   width: 100%;
 }
 
@@ -29,7 +29,7 @@
     padding-top: 5px;
     transition: transform 0.1s ease-in;
     font-weight: 400;
-    color: $hr;
+    color: #cbd0d3;
   }
   &.opened {
     &::after {
