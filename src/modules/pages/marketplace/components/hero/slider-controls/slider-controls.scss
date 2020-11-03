@@ -42,6 +42,6 @@
     @include flex(center, center);
   }
   &--right {
-    transform: scaleX(-1);
+    transform: scaleX(-1) translateX(-1px);
   }
 }

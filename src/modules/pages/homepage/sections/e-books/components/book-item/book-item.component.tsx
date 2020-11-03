@@ -12,10 +12,12 @@ const BookItem: React.FC<BookItemProps> = ({
   return (
     <div className={styles.bookItem}>
       <img className={styles.image} src={image} />
-      <div className={styles.title}>{title}</div>
-      <div className={styles.price}>
-        <div className={sale && styles.priceOld}>${price}</div>
-        {sale && <div className={styles.sale}>${sale}</div>}
+      <div className={styles.description}>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.price}>
+          <div className={sale && styles.priceOld}>${price}</div>
+          {sale && <div className={styles.sale}>${sale}</div>}
+        </div>
       </div>
     </div>
   );

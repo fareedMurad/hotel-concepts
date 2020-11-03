@@ -19,6 +19,9 @@
     font-family: $IBMPlex;
     max-width: 440px;
   }
+  @include desktop() {
+    width: 428px;
+  }
 }
 
 .roles {

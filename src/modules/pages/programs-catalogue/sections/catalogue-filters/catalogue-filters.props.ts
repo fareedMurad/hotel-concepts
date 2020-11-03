@@ -9,7 +9,7 @@ type CatalogueFiltersProps = {
   /**
    * Current filter
    */
-  currentFilter: string;
+  currentFilters: string[];
   /**
    * On update filter
    */

@@ -154,6 +154,7 @@
 
 .books {
   @include flex($align: stretch, $direction: column);
+  position: relative;
   margin-top: 20px;
 
   @include tablet() {
@@ -205,5 +206,26 @@
 
   &__book {
     width: 100%;
+  }
+}
+
+.decoration {
+  position: absolute;
+  top: 46px;
+  left: -80px;
+  display: none;
+  & > div {
+    @include size(12px);
+    border-radius: 50%;
+  }
+  div:first-child {
+    background-color: $primary-orange;
+    margin-right: 8px;
+  }
+  div:last-child {
+    background-color: #f2e832;
+  }
+  @include desktop() {
+    @include flex();
   }
 }

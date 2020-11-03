@@ -15,7 +15,8 @@
   }
   &__hr {
     width: 38%;
-    height: 1px;
+    height: 2px;
+    background-color: rgba($color: #cbd0d3, $alpha: 0.3);
   }
   &__statistic {
     @include flex($align: stretch);
