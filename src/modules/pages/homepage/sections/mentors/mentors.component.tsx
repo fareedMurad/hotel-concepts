@@ -16,6 +16,7 @@ import { State } from '@app/redux/state';
 import { SectionTitle, Hr, PreCaption } from '@core/components';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -55,6 +56,8 @@ const Mentors: React.FC<MentorsProps> = ({
   const { t } = useTranslation();
 
   const handleClick = () => history.push(`/contributors`);
+
+  const [mentorId, setMentorId] = useState('');
 
   const handleOpenModalMobile = contributor => {
     dispatch(
@@ -109,16 +112,18 @@ const Mentors: React.FC<MentorsProps> = ({
               contributor={contributor}
               key={index}
               onClick={() => {
-                handleOpenModalMobile(contributor);
-                !mobile &&
-                  (dispatch(showModal(Modals.contributor)),
-                  dispatch(toogleContributorModal(true)));
+                setMentorId(contributor.sys.id);
+                // handleOpenModalMobile(contributor);
+                // !mobile &&
+                dispatch(showModal(Modals.contributor));
+                dispatch(toogleContributorModal(true));
               }}
             />
           ))}
         </Slider>
         {contributorModal && (
           <MentorModal
+            mentorId={mentorId}
             hideComponent={() => dispatch(toogleContributorModal(false))}
           />
         )}
