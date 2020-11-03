@@ -5,6 +5,10 @@ import { BookAuthor } from '@account/pages/library/models';
  */
 type BannerProps = {
   /**
+   * User subscription
+   */
+  subscriptionStatus: any;
+  /**
    * Data
    */
   data: {
@@ -13,6 +17,8 @@ type BannerProps = {
     name: string;
     price: number;
     inCart: boolean;
+    isPreorder: boolean;
+    preorderDate: string;
     languages: string;
     publishDate: string;
     authors: BookAuthor[];

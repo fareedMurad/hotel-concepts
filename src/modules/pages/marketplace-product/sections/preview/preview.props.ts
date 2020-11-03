@@ -5,6 +5,10 @@ import { BookAuthor, FileModel } from '@account/pages/library/models';
  */
 type PreviewProps = {
   /**
+   * User subscription
+   */
+  subscriptionStatus: any;
+  /**
    * Data
    */
   data: {
@@ -13,6 +17,8 @@ type PreviewProps = {
     name: string;
     price: number;
     inCart: boolean;
+    isPreorder: boolean;
+    preorderDate: string;
     languages: string;
     authorized: boolean;
     publishDate: string;

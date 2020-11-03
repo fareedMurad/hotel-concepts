@@ -19,7 +19,7 @@ import classNames from 'classnames';
 /**
  * Renders Preview
  */
-const Preview: React.FC<PreviewProps> = ({ data }) => {
+const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
   const history = useHistory();
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -33,6 +33,8 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
     authors,
     languages,
     authorized,
+    isPreorder,
+    preorderDate,
     inWishlist,
     publishDate,
     previewPages,
@@ -40,8 +42,6 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
     availableFormats,
     previewDescription
   } = data;
-
-  // console.log(data)
 
   return (
     <div className={styles.preview}>
@@ -52,8 +52,13 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
       </div>
       <div className={styles.container}>
         <div className={styles.showcase}>
-          <div className={styles.imageWrapper}>
-            <img className={styles.image} src={img} />
+          <div className={styles.showcaseContainer}>
+            <div className={styles.showcasePreview}>
+              <img className={styles.showcaseImage} src={img} />
+              {isPreorder && (
+                <div className={styles.showcaseBanner}>PRE-ORDER</div>
+              )}
+            </div>
           </div>
           <Button
             className={styles.show}
@@ -132,19 +137,31 @@ const Preview: React.FC<PreviewProps> = ({ data }) => {
             <div className={styles.price}>${price}</div>
             <div className={styles.controls}>
               <Button
-                className={styles.checkout}
+                className={classNames(styles.checkout, {
+                  [styles.checkoutPreorder]: isPreorder
+                })}
                 arrow={!inCart}
                 disabled={inCart}
                 onClick={() => {
                   !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
                 }}
               >
-                {inCart ? 'In cart' : 'Add to cart'}
+                {inCart ? 'In cart' : isPreorder ? 'Pre-order' : 'Add to cart'}
               </Button>
-              {/* <div className={styles.subscriptionHint}>
-                <div>This book is free with subscription</div>
-                <div>Starting from 10$/month</div>
-              </div> */}
+              {isPreorder && (
+                <div className={styles.preorder}>
+                  Available for Pre-Order. This item will be available on{' '}
+                  <span className={styles.preorderDate}>
+                    {moment(preorderDate).format('MMMM DD, YYYY')}
+                  </span>
+                </div>
+              )}
+              {/* {!subscriptionStatus && (
+                <div className={styles.subscription}>
+                  <div>This book is free with subscription</div>
+                  <div>Starting from 10$/month</div>
+                </div>
+              )} */}
             </div>
           </div>
         </div>

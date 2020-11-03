@@ -8,6 +8,7 @@ type CartItemProps = {
   price: string;
   imageSource: string;
   id: string;
+  isPreorder: boolean;
 };
 
 export { CartItemProps };

@@ -7,7 +7,7 @@ import { useRouteMatch } from 'react-router';
 const useMarketplaceProductData = () => {
   const dispatch = useDispatch();
   const {
-    auth: { authorized },
+    auth: { authorized, user },
     marketplace: { selectedProduct },
     cart: { selectedProducts }
   } = useSelector((state: State) => state);
@@ -22,6 +22,7 @@ const useMarketplaceProductData = () => {
     forWhom,
     comments,
     languages,
+    isPreorder,
     pagesCount,
     inWishlist,
     coverPhotos,
@@ -30,6 +31,7 @@ const useMarketplaceProductData = () => {
     listOfSkills,
     productImage,
     previewPages,
+    preorderDate,
     highlightsText,
     availableFormats,
     materialsIncluded,
@@ -37,7 +39,6 @@ const useMarketplaceProductData = () => {
     forWhomListOfPositions
   } = selectedProduct || {};
 
-  console.log(selectedProduct);
   const inCart = selectedProducts?.some(one => one.path == id);
 
   /**
@@ -51,9 +52,11 @@ const useMarketplaceProductData = () => {
     authors,
     languages,
     authorized,
+    isPreorder,
     inWishlist,
     publishDate,
     previewPages,
+    preorderDate,
     highlightsText,
     availableFormats,
     previewDescription,
@@ -129,7 +132,9 @@ const useMarketplaceProductData = () => {
     inCart,
     authors,
     languages,
+    isPreorder,
     publishDate,
+    preorderDate,
     highlightsText,
     availableFormats,
     previewDescription,
@@ -151,7 +156,8 @@ const useMarketplaceProductData = () => {
     resultsData,
     feedbackData,
     bannerData,
-    recommendedData
+    recommendedData,
+    subscriptionStatus: user?.subscriptionStatus
   };
 };
 
