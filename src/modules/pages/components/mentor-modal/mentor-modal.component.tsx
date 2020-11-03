@@ -21,6 +21,9 @@ const GET_MENTOR = gql`
       workAt
       position
       linkedIn
+      mentorModalPicture {
+        url
+      }
       mentorPicture {
         url
       }
@@ -48,6 +51,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     surname: '',
     position: '',
     mentorPicture: { url: '' },
+    mentorModalPicture: { url: '' },
     from: '',
     experience: '',
     linkedIn: '',
@@ -65,6 +69,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
         surname: '',
         position: '',
         mentorPicture: { url: '' },
+        mentorModalPicture: { url: '' },
         from: '',
         experience: '',
         linkedIn: '',
@@ -79,6 +84,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     surname,
     position,
     mentorPicture,
+    mentorModalPicture,
     from,
     experience,
     linkedIn,
@@ -94,7 +100,10 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
         historyGoBack={true}
       >
         <div className={styles.modalPerson}>
-          <img src={mentorPicture?.url} className={styles.modalPersonPhoto} />
+          <img
+            src={mentorModalPicture?.url || mentorPicture?.url}
+            className={styles.modalPersonPhoto}
+          />
           <div className={styles.modalPersonWrapper}>
             <div className={styles.contributorInfo}>
               <div className={styles.contributorInfo}>
