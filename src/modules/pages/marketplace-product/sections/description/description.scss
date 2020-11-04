@@ -78,7 +78,7 @@
 }
 
 .skills {
-  @include flex($align: center, $direction: column);
+  @include flex($align: stretch, $direction: column);
   margin-top: 30px;
 
   &__caption {
