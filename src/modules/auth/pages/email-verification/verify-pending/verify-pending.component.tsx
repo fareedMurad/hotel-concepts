@@ -34,7 +34,11 @@ const VerifyPending: React.FC<VerifyPendingProps> = () => {
         <div className={styles.notification}>
           {t('verify-pending.notification')}
         </div>
-        <div className={styles.email}> {t('verify-pending.email')}</div>
+        <div className={styles.email}>
+          {t('verify-pending.email')}
+          <br />
+          {email}
+        </div>
         <div className={styles.hint}>{t('verify-pending.hint')}</div>
         <Button
           className={styles.button}

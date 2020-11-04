@@ -37,12 +37,9 @@
   width: 80%;
   text-align: center;
   margin-top: 32px;
-  @include desktop() {
-    width: 30%;
-  }
 }
 
 .button {
   margin-top: 47px;
-  width: 288px;
+  width: 250px;
 }
