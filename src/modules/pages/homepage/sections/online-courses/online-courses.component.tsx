@@ -69,22 +69,6 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
           </div>
         </Preloader>
       </div>
-      <div className={styles.footer}>
-        <div className={styles.footerTitle}>
-          {t('home.online-courses.footer-title')}
-        </div>
-        <Button
-          onClick={() =>
-            dispatch(
-              navigate(`/programs-catalogue/${selectedCategory.category.id}`)
-            )
-          }
-          className={styles.button}
-          children={t('home.online-courses.button-text')}
-          arrow
-          width={224}
-        />
-      </div>
     </section>
   );
 };

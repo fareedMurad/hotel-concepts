@@ -31,12 +31,16 @@
 
 .info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   row-gap: 16px;
   column-gap: 20px;
   max-width: 450px;
   margin: $default-offset 0;
+  @include tablet() {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 .info-item {
