@@ -9,7 +9,8 @@ import {
   Spinner,
   SectionTitle,
   PreCaption,
-  RichTextDefault
+  RichTextDefault,
+  Icon
 } from '@core/components';
 
 import { useHistory, useParams } from 'react-router';
@@ -79,7 +80,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
     <React.Fragment>
       <ScrollToTop />
       <div onClick={() => history.goBack()} className={styles.back}>
-        <div>&#8592;</div>
+        <Icon name='arrows/arrow-back' className={styles.arrow} />
         <div>Back</div>
       </div>
 

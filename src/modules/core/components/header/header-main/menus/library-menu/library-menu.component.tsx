@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
 import { CardDropdown, LinkDropdown, NavTitle } from '../../components';
+import { Icon } from '@core/components';
 
 /**
  * Renders LibraryMenu
@@ -32,7 +33,8 @@ const LibraryMenu: React.FC<LibraryMenuProps> = ({ className }) => {
               dispatch(navigate('/marketplace'));
             }}
           >
-            Explore <span>&#8594;</span>
+            <div>Explore</div>
+            <Icon name='arrows/arrow-right-primary' className={styles.arrow}/>
           </div>
           <div className={styles.links}>
             <LinkDropdown

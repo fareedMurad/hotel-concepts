@@ -24,6 +24,11 @@
   }
 }
 
+.arrow {
+  position: relative;
+  bottom: 1px;
+}
+
 .section {
   flex: 1;
   &--price {

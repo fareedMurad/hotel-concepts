@@ -4,7 +4,12 @@
   cursor: pointer;
   transition: $transition;
   &--title {
+    @include flex($align: center);
     @include font($primary-gray, 20px, 500, 28px);
+    margin-right: 5px;
+    & > div:first-child {
+      margin-right: 5px;
+    }
   }
   &:hover > div {
     color: $primary-orange !important;
@@ -15,4 +20,9 @@
     min-height: 200px;
     border-radius: 10px;
   }
+}
+
+.arrow {
+  position: relative;
+  bottom: 2px;
 }
