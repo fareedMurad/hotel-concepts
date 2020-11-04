@@ -105,7 +105,7 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
               contributor={contributor}
               key={index}
               onClick={() => {
-                setMentorId(contributor.sys.id);
+                setMentorId(contributor.id);
                 dispatch(showModal(Modals.contributor));
                 dispatch(toogleContributorModal(true));
               }}

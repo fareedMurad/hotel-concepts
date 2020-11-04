@@ -3,7 +3,11 @@
 .check-email {
   @include flex(flex-start, center, column);
   margin-top: 34px;
+  min-height: 100vh;
   width: 80%;
+  @include desktop() {
+    margin-bottom: 0;
+  }
 }
 
 .title {
@@ -27,8 +31,11 @@
 
 .notification {
   @include font($primary-gray, 24px, 400, 34px);
-  width: 30%;
+  width: 80%;
   text-align: center;
+  @include desktop() {
+    width: 30%;
+  }
 }
 
 .email {

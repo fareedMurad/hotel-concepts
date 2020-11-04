@@ -35,7 +35,7 @@ const NewEmailModal: React.FC = ({}) => {
   const { email } = parse(search);
 
   return (
-    <Modal className={styles.modal} id={Modals.newEmail}>
+    <Modal className={styles.newEmailModal} id={Modals.newEmail}>
       <Preloader id={Preloaders.confirmationEmailResend}>
         <Icon
           className={styles.close}
