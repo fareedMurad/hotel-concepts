@@ -50,6 +50,7 @@
 
 .author {
   @include flex($align: stretch, $direction: column-reverse);
+  padding-right: 10px;
 
   @include tablet() {
     @include flex(space-between, stretch, row);
