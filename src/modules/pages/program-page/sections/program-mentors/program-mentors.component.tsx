@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { ProgramMentorsProps } from './program-mentors.props';
 import * as styles from './program-mentors.scss';
 import { Slider } from '@core/components/slider';
@@ -52,14 +53,7 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
   const dispatch = useDispatch();
   const handleClick = () => history.push(`/contributors`);
 
-  const handleOpenModalMobile = contributor => {
-    dispatch(
-      navigate(
-        `contributors/mentor/${contributor.slug}/?&mentorId=${contributor.id}`
-      )
-    );
-    dispatch(showModal(Modals.contributor));
-  };
+  const [mentorId, setMentorId] = useState('');
 
   if (!contributors)
     return <div className={styles.noMentors}>No mentors yet</div>;
@@ -111,22 +105,16 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
               contributor={contributor}
               key={index}
               onClick={() => {
-                mobile
-                  ? handleOpenModalMobile(contributor)
-                  : dispatch(
-                      navigate(
-                        `${url}/${contributor.slug}/?&mentorId=${contributor.id}`
-                      )
-                    );
-                !mobile &&
-                  (dispatch(showModal(Modals.contributor)),
-                  dispatch(toogleContributorModal(true)));
+                setMentorId(contributor.id);
+                dispatch(showModal(Modals.contributor));
+                dispatch(toogleContributorModal(true));
               }}
             />
           ))}
         </Slider>
         {contributorModal && (
           <MentorModal
+            mentorId={mentorId}
             hideComponent={() => dispatch(toogleContributorModal(false))}
           />
         )}

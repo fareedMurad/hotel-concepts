@@ -852,5 +852,18 @@
       "caption": "Your Shopping Cart is empty.",
       "button-text": "Go to Homepage"
     }
+  },
+  "verify-pending": {
+    "title": "One more thing…",
+    "notification": "Check your email & click on the link to activate your account",
+    "email": "Confirmation email has been sent to:",
+    "hint": "Not receiving the email? Check your spam or:",
+    "button-text-resend": " Resend confirmation e-mail",
+    "button-text-email": "Enter new e-mail"
+  },
+  "verify-success": {
+    "title": "Voila!",
+    "notification": "We have successfully verified the account.",
+    "button-text": "Go to home page"
   }
 }

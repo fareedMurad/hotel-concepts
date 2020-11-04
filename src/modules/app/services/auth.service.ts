@@ -94,14 +94,14 @@ class AuthService {
   /**
    * Reset password
    */
-  public resetPassword = (data: ResetPasswordValues, token: string) =>
+  public resetPassword = (password: string, token: string) =>
     this.http.request({
       method: 'PATCH',
       url: '/auth/password/reset',
       headers: {
         token
       },
-      data
+      data: { password: password }
     });
 
   /**
@@ -141,6 +141,30 @@ class AuthService {
     this.http.request({
       method: 'POST',
       url: '/auth/logout'
+    });
+  /*
+   * Confirmation email resend
+   */
+
+  public confirmationEmailResend = (data: { email: string }) =>
+    this.http.request({
+      method: 'POST',
+      url: 'auth/email/verification/resend/email',
+      data
+    });
+
+  /*
+   * New confirmation email send
+   */
+
+  public newConfirmationEmailSend = (data: {
+    oldEmail: string;
+    newEmail: string;
+  }) =>
+    this.http.request({
+      method: 'POST',
+      url: 'auth/email/verification/newemail',
+      data
     });
 }
 
