@@ -28,6 +28,9 @@
     height: auto;
     overflow: unset;
   }
+  @include desktop() {
+    max-height: auto;
+  }
 }
 
 .modal-mobile {
