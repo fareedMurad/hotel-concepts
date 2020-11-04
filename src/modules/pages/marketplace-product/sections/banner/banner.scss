@@ -25,20 +25,36 @@
   }
 }
 
-.image {
-  width: 50%;
-  align-self: center;
+.preview {
+  position: relative;
 
-  @include tablet() {
-    align-self: initial;
-    width: 200px;
-    height: 275px;
-    object-fit: cover;
+  &__image {
+    width: 50%;
+    align-self: center;
+
+    @include tablet() {
+      align-self: initial;
+      width: 200px;
+      height: 275px;
+      object-fit: cover;
+    }
+
+    @include desktop() {
+      width: 240px;
+      height: 368px;
+    }
   }
 
-  @include desktop() {
-    width: 240px;
-    height: 368px;
+  &__banner {
+    @include font($primary-orange, 18px, 500, 28px);
+    @include flex(center, center);
+    position: absolute;
+    top: 20px;
+    left: 0;
+    height: 41px;
+    width: 144px;
+    border-radius: 0 4px 4px 0;
+    background: #f5f1f0;
   }
 }
 
@@ -139,11 +155,48 @@
   }
 }
 
-.checkout {
+.controls {
+  @include flex($align: stretch, $direction: column);
   width: 100%;
   margin-top: 16px;
 
   @include tablet() {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.checkout {
+  width: 100%;
+
+  &--preorder {
+    background: $primary-gray;
+  }
+
+  @include tablet() {
     width: 224px;
+  }
+}
+
+.preorder {
+  @include font(#e57649, 12px, 400, 16px);
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 1px solid #e57649;
+  border-radius: 8px;
+  background: $white;
+  text-align: center;
+
+  &__date {
+    font-weight: 600;
+  }
+
+  @include tablet() {
+    width: 234px;
+    height: 51px;
+    margin-top: 0;
+    margin-left: 20px;
+    text-align: left;
   }
 }

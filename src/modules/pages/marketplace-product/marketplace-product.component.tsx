@@ -25,6 +25,7 @@ import {
 const MarketplaceProduct: React.FC = () => {
   const {
     selectedProduct,
+    subscriptionStatus,
     previewData,
     descriptionData,
     forWhomData,
@@ -41,7 +42,7 @@ const MarketplaceProduct: React.FC = () => {
     <div className={styles.marketplaceProduct}>
       <ScrollToTop />
       <Preloader id={Preloaders.marketplaceProduct}>
-        <Preview data={previewData} />
+        <Preview data={previewData} subscriptionStatus={subscriptionStatus} />
         <Description data={descriptionData} />
         <div className={styles.divider} />
         <ForWhom data={forWhomData} />
@@ -50,7 +51,7 @@ const MarketplaceProduct: React.FC = () => {
         <Authors data={authorsData} />
         <Results data={resultsData} />
         <Feedback data={feedbackData} />
-        <Banner data={bannerData} />
+        <Banner data={bannerData} subscriptionStatus={subscriptionStatus} />
         <Recommended data={recommendedData} />
         <Brochure />
       </Preloader>

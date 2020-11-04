@@ -11,6 +11,7 @@
 
   &__image {
     @include flex($direction: column, $align: center);
+    position: relative;
 
     & > img {
       width: 150px;
@@ -32,6 +33,18 @@
   }
 }
 
+.banner {
+  @include font($primary-orange, 18px, 500, 28px);
+  @include flex(center, center);
+  position: absolute;
+  top: 20px;
+  left: 0;
+  height: 41px;
+  width: 143px;
+  border-radius: 0 4px 4px 0;
+  background: #F5F1F0;
+}
+
 .description {
   @include flex($direction: column, $justify: flex-end);
   flex-grow: 2;
@@ -44,6 +57,7 @@
 
   &--amount {
     @include flex($align: center);
+    margin-top: 8px;
 
     & > input {
       @include flex($align: center, $justify: center);

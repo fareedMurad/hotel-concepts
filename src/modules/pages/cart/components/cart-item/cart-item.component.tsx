@@ -1,7 +1,7 @@
 import { cart } from '@app/redux/cart';
 import * as React from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { CartItemProps } from './cart-item.props';
 import * as styles from './cart-item.scss';
@@ -15,7 +15,8 @@ const CartItem: React.FC<CartItemProps> = ({
   quantity,
   price,
   imageSource,
-  id
+  id,
+  isPreorder
 }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -25,6 +26,7 @@ const CartItem: React.FC<CartItemProps> = ({
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>
         <img src={imageSource} alt='image' />
+        {isPreorder && <div className={styles.banner}>PRE-ORDER</div>}
         <div
           className={styles.remove}
           onClick={() => dispatch(cart.remove(id))}
