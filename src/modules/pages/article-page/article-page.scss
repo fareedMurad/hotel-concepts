@@ -22,7 +22,7 @@
   &_content {
     width: 300px;
     &--date {
-      @include font($hr, 16px, 500, 22px);
+      @include font(#CBD0D3, 16px, 500, 22px);
       margin-top: 12px;
     }
     &--caption {
@@ -39,5 +39,6 @@
     width: 36%;
   }
   height: 2px;
-  background: $hr;
+  background: #CBD0D3;
 }
+

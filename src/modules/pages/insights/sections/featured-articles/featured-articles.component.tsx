@@ -6,7 +6,8 @@ import {
   ButtonFilter,
   Button,
   PreCaption,
-  Spinner
+  Spinner,
+  Icon
 } from '@core/components';
 
 import { ArticleCard } from '@pages/insights/components';
@@ -133,13 +134,15 @@ const FeaturedArticles: React.FC<FeaturedArticlesProps> = ({}) => {
           )
         )}
       </div>
-      <Button
-        className={styles.showMore}
-        children={t('insights.featured-articles.button-text')}
-        arrow
-        onClick={() => setArticlesToSkip(categoryId === 'All' ? 7 : 9)}
-        width={204}
-      />
+      <div>
+        <Button
+          className={styles.showMore}
+          onClick={() => setArticlesToSkip(categoryId === 'All' ? 7 : 9)}
+        >
+          {t('insights.featured-articles.button-text')}
+          <Icon name='arrows/arrow-bottom' className={styles.icon} />
+        </Button>
+      </div>
     </div>
   );
 };

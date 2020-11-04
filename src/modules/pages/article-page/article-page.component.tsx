@@ -24,7 +24,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({}) => {
   const { language } = useSelector((state: State) => state.localization);
 
   const history = useHistory();
-  const { articleId } = useParams();
+  const { articleId } = useParams<{ articleId: string }>();
   const { articleData, articleLoading } = useArticleFirstScreenData(
     articleId,
     language

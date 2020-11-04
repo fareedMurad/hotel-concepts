@@ -20,7 +20,7 @@ const Hr = () => <div className={styles.hr} />;
  * Renders ArticleRichText
  */
 const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
-  const { articleId } = useParams();
+  const { articleId } = useParams<{ articleId: string }>();
   const { language } = useSelector((state: State) => state.localization);
   const {
     firstRichTextData,

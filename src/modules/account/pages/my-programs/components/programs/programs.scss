@@ -17,12 +17,12 @@
   cursor: pointer;
 
   &:not(:first-child) {
-    margin-top: 32px;
+    margin-top: 30px;
   }
 
   @include tablet() {
     @include flex($align: stretch, $direction: row);
-    min-height: 278px;
+    // min-height: 278px;
     max-height: auto;
   }
 }
@@ -37,16 +37,17 @@
 .image {
   width: 100%;
   max-width: 317px;
-  max-height: 240px;
+  max-height: 220px;
   border-radius: 8px;
   object-fit: cover;
 }
 
 .container {
-  @include flex($align: stretch, $direction: column);
+  @include flex($align: stretch, $direction: column, $justify: space-around);
   flex: 1;
   margin: 20px 0 0 0;
   @include tablet() {
+    height: 220px;
     margin: 0 0 0 20px;
   }
 }
@@ -91,6 +92,7 @@
   margin-top: 16px;
 
   @include tablet() {
+    @include flex($align: center);
     margin-top: 24px;
   }
 
@@ -100,11 +102,15 @@
 }
 
 .description {
+  @include font(#3e3e3e, 16px, 400, 22px);
   width: 100%;
   margin-bottom: 80px;
-
+  @include tablet() {
+    width: 84%;
+    margin-bottom: 0;
+  }
   @include desktop() {
-    max-width: 41%;
+    max-width: 50%;
     margin-bottom: 0;
   }
 }
@@ -117,5 +123,7 @@
 
   @include tablet() {
     max-width: 224px;
+    position: relative;
+    bottom: 0px;
   }
 }

@@ -16,7 +16,7 @@ const CartNotifierItem: React.FC = () => {
     product: { name, authors, price, __typename, courseImage, productImage }
   } = addedProduct || {};
   const isBook = __typename == ContentType.product;
-  const { url } = productImage?.file;
+  const url = productImage?.file?.url;
   const programImage = courseImage?.file?.url;
 
   return (
