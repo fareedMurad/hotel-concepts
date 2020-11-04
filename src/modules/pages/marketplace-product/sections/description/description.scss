@@ -89,10 +89,11 @@
     @include flex($align: stretch, $direction: column);
     margin-top: 16px;
   }
+
   @include desktop() {
     align-items: flex-start;
     align-content: stretch;
-    margin-top: 15px;
+    margin-top: 28px;
     margin-left: 244px;
   }
 }
