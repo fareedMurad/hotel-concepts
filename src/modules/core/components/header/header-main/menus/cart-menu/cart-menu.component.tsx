@@ -8,7 +8,8 @@ import { useHeaderMainData } from '../../hooks/header-main.hook';
 import { useCartMenuAnimation } from './cart-menu.animation';
 import { CartMenuProps } from './cart-menu.props';
 import * as styles from './cart-menu.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useClickOutside } from '@core/shared';
 
 /**
  * Renders CartMenu

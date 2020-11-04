@@ -7,9 +7,6 @@ import { animated } from 'react-spring';
 import { useCartNotifierData } from './cart-notifier.hook';
 import * as styles from './cart-notifier.scss';
 import classNames from 'classnames';
-import { useRef } from 'react';
-import { useClickOutside } from '@core/shared';
-import { cart } from '@app/redux/cart';
 
 /**
  * Render Cart notifier item
@@ -40,16 +37,11 @@ const CartNotifierItem: React.FC = () => {
 const CartNotifier: React.FC<any> = ({ transition, isClicked }) => {
   const { total } = useCartNotifierData();
   const dispatch = useDispatch();
-  const ref = useRef();
-
-  useClickOutside(ref, () => {
-    dispatch(cart.removeCurrent());
-  });
 
   const navigateToCartPage = () => dispatch(navigate('/cart'));
 
   return (
-    <animated.div style={transition} className={styles.cartNotifier} ref={ref}>
+    <animated.div style={transition} className={styles.cartNotifier}>
       <div
         className={classNames(styles.title, {
           [styles.withBackground]: isClicked
