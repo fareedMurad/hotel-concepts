@@ -22,7 +22,7 @@
     font-family: $EBGaramond;
   }
   @include desktop() {
-    right: -40px;
+    right: -75px;
     width: 488px;
   }
 }
@@ -48,7 +48,7 @@
     height: 58px;
     background-color: $background;
     @include desktop() {
-      right: 32px;
+      right: 65px;
     }
   }
 }
