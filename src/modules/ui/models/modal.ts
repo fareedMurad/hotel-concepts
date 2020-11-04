@@ -14,7 +14,8 @@ enum Modals {
 
   // Auth
   forgotPassword = 'forgot password',
-  newEmail = 'new email'
+  newEmail = 'new email',
+  passwordChanged = 'password changed'
 }
 
 export { Modals };

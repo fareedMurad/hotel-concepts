@@ -89,7 +89,7 @@ const forgotPassword = make('[auth] forgot password')
  * Reset password
  */
 const resetPassword = make('[auth] reset password')
-  .stage((payload: { values: ResetPasswordValues; token: string }) => payload)
+  .stage((payload: { password: string; token: string }) => payload)
   .stage('success');
 
 /**

@@ -2,7 +2,7 @@ import { GoogleSignInModel } from '@app/models';
 import { handleError } from '@general/store';
 import { changeLanguage } from '@localization/store';
 import { navigate } from '@router/store';
-import { closeModal } from '@ui/modal';
+import { closeModal, showModal } from '@ui/modal';
 import { Modals, Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
@@ -273,6 +273,8 @@ class AuthSaga {
       const response = yield call(api.auth.forgotPassword, payload);
 
       yield put(forgotPassword.success());
+      yield put(closeModal(Modals.forgotPassword));
+      yield put(navigate('/auth/reset-password'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -285,12 +287,12 @@ class AuthSaga {
    */
   @Saga(resetPassword)
   public *resetPassword(
-    { token, values }: Payload<typeof resetPassword>,
+    { token, password }: Payload<typeof resetPassword>,
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.resetPassword));
     try {
-      const response = yield call(api.auth.resetPassword, values, token);
+      const response = yield call(api.auth.resetPassword, password, token);
 
       yield put(
         toggleToast({
@@ -299,7 +301,7 @@ class AuthSaga {
         })
       );
 
-      yield put(navigate('/auth/login'));
+      yield put(showModal(Modals.passwordChanged));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
