@@ -11,6 +11,8 @@ const useCartNotifierData = () => {
   const { addedProduct, products, selectedProducts } = useSelector(
     (state: State) => state.cart
   );
+
+  console.log(products);
   const total = products
     ?.map(product => ({
       price: product.price,

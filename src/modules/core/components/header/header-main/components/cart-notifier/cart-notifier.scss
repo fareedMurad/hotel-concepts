@@ -56,7 +56,7 @@
 .item {
   @include flex();
   background-color: $white;
-  padding: 27px 33px;
+  padding: 27px 33px 12px 33px;
 
   &--image {
     display: none;
@@ -94,6 +94,7 @@
 .hint {
   @include font($primary-gray, 12px, 600, 16px);
   margin-top: 12px;
+  margin-bottom: 8px;
   text-decoration: underline;
   text-align: center;
   cursor: pointer;

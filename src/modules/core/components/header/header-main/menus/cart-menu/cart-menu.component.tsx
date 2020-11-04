@@ -8,6 +8,7 @@ import { useHeaderMainData } from '../../hooks/header-main.hook';
 import { useCartMenuAnimation } from './cart-menu.animation';
 import { CartMenuProps } from './cart-menu.props';
 import * as styles from './cart-menu.scss';
+import { useState } from 'react';
 
 /**
  * Renders CartMenu
@@ -21,14 +22,16 @@ const CartMenu: React.FC<CartMenuProps> = () => {
   } = useHeaderMainData();
   const { transition } = useCartMenuAnimation(isVisible);
   const dispatch = useDispatch();
+  const [showOrderTotal, setShowOrderTotal] = useState(false);
 
   return (
     <div
       className={styles.cart}
-      onClick={() =>
+      onClick={() => {
+        setShowOrderTotal(!showOrderTotal);
         cartQuantity &&
-        dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier())
-      }
+          dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier());
+      }}
     >
       <Icon
         className={styles.icon}
@@ -43,7 +46,13 @@ const CartMenu: React.FC<CartMenuProps> = () => {
       )}
       {transition.map(
         ({ item, props, key }) =>
-          item && <CartNotifier transition={props} key={key} />
+          item && (
+            <CartNotifier
+              transition={props}
+              key={key}
+              showOrderTotal={showOrderTotal}
+            />
+          )
       )}
     </div>
   );
