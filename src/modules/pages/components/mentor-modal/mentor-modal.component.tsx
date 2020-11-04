@@ -35,49 +35,27 @@ const GET_MENTOR = gql`
 /**
  * Renders MentorModal
  */
-const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
+const MentorModal: React.FC<MentorModalProps> = ({
+  hideComponent,
+  mentorId
+}) => {
   const { mobile } = useMediaPoints();
   const { language } = useSelector((state: State) => state.localization);
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const searchParams = new URLSearchParams(history.location.search);
-  const mentorId = searchParams.get('mentorId');
+
   const { data, loading, error } = useQuery(GET_MENTOR, {
     variables: { id: mentorId, locale: language }
   });
-  const [mentor, setMentor] = React.useState({
-    name: '',
-    surname: '',
-    position: '',
-    mentorPicture: { url: '' },
-    mentorModalPicture: { url: '' },
-    from: '',
-    experience: '',
-    linkedIn: '',
-    workAt: ''
-  });
 
-  React.useEffect(() => {
-    if (data) {
-      setMentor(data?.mentor);
-    }
-
-    return () => {
-      setMentor({
-        name: '',
-        surname: '',
-        position: '',
-        mentorPicture: { url: '' },
-        mentorModalPicture: { url: '' },
-        from: '',
-        experience: '',
-        linkedIn: '',
-        workAt: ''
-      });
-    };
-  }, [data]);
-  if (loading) return <div>{mobile && <Spinner />}</div>;
+  if (loading) {
+    return (
+      <Modal id={Modals.contributor} className={styles.modal}>
+        <Spinner />
+      </Modal>
+    );
+  }
 
   const {
     name,
@@ -89,16 +67,19 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
     experience,
     linkedIn,
     workAt
-  } = mentor;
+  } = data?.mentor;
 
   return (
     <React.Fragment>
-      {mobile && <ScrollToTop />}
-      <Modal
-        id={Modals.contributor}
-        className={styles.modal}
-        historyGoBack={true}
-      >
+      <Modal id={Modals.contributor} className={styles.modal}>
+        <Icon
+          name='close-modal'
+          className={styles.modalIcon}
+          onClick={() => {
+            dispatch(closeModal(Modals.contributor));
+            hideComponent();
+          }}
+        />
         <div className={styles.modalPerson}>
           <img
             src={mentorModalPicture?.url || mentorPicture?.url}
@@ -138,17 +119,7 @@ const MentorModal: React.FC<MentorModalProps> = ({ hideComponent }) => {
             </div>
           </div>
         </div>
-        <Icon
-          name='close-modal'
-          className={styles.modalIcon}
-          onClick={() => {
-            dispatch(closeModal(Modals.contributor));
-            hideComponent();
-            history.goBack();
-          }}
-        />
       </Modal>
-      {/* {mobile && <Footer />} */}
     </React.Fragment>
   );
 };

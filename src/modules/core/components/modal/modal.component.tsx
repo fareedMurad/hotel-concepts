@@ -49,7 +49,6 @@ const Modal: React.FC<ModalProps> = ({
     dispatch(toogleContributorModal(false));
     dispatch(toggleBookPreviewModal(false));
     dispatch(toggleBookOverviewModal(false));
-    !mobile && historyGoBack && history.goBack();
   });
 
   const Content = () => (

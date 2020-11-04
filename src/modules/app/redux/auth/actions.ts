@@ -56,11 +56,27 @@ const verifyEmail = make('[auth] verify email')
   .stage('success');
 
 /**
- * Email verification resend
+ * Email verification   resend
  */
 const verifyEmailResend = make('[auth] verify email resend')
   .stage((payload: { token: string; isNewEmail: boolean }) => payload)
   .stage('success');
+
+/**
+ * Confirmation resend  email
+ */
+
+const confirmationEmailResend = make('[auth] resend confirmation email')
+  .stage((payload: string) => payload)
+  .stage('success');
+
+/**
+ * New confirmation email send
+ */
+
+const sendNewConfirmationEmail = make(
+  '[auth] send new confirmation email'
+).stage((payload: { oldEmail: string; newEmail: string }) => payload);
 
 /**
  * Forgot password
@@ -73,7 +89,7 @@ const forgotPassword = make('[auth] forgot password')
  * Reset password
  */
 const resetPassword = make('[auth] reset password')
-  .stage((payload: { values: ResetPasswordValues; token: string }) => payload)
+  .stage((payload: { password: string; token: string }) => payload)
   .stage('success');
 
 /**
@@ -118,5 +134,7 @@ export {
   facebookSignIn,
   chooseInterests,
   verifyEmailResend,
-  changeUserLanguage
+  changeUserLanguage,
+  confirmationEmailResend,
+  sendNewConfirmationEmail
 };

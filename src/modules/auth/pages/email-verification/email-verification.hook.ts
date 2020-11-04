@@ -17,10 +17,11 @@ const useEmailVerificationData = () => {
   const { token, isNewEmail } = parse(search);
 
   useEffect(() => {
-    dispatch(verifyEmail({ token, isNewEmail: Boolean(isNewEmail || false) }));
+    const newEmailBoolean = isNewEmail === 'true';
+    dispatch(verifyEmail({ token, isNewEmail: newEmailBoolean }));
   }, []);
 
-  return { emailVerified, token, authorized, isNewEmail: isNewEmail || false };
+  return { emailVerified, authorized };
 };
 
 export { useEmailVerificationData };

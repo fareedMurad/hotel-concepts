@@ -22,6 +22,7 @@ const auth = reducer(new AuthState())
   })
   .on(unauthorize, state => {
     state.authorized = false;
+    state.emailVerified = false;
   })
   .on(getUser.success, (state, payload) => {
     state.user = payload;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { ContributorsContainerProps } from './contributors-container.props';
 import * as styles from './contributors-container.scss';
 import { H2, Paragraph, PreCaption, SectionTitle, Hr } from '@core/components';
@@ -48,24 +49,15 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const handleOpenModalMobile = contributor => {
-    dispatch(
-      navigate(
-        `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
-      )
-    );
-    dispatch(showModal(Modals.contributor));
-  };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!loading) {
       setContributors(data);
     }
   });
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [itemsPerPage, setItemsPerPage] = React.useState(12);
-
-  console.log(currentPage);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(12);
+  const [mentorId, setMentorId] = useState('');
 
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
@@ -117,10 +109,9 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
                 contributor={contributor}
                 key={index}
                 onClick={() => {
-                  handleOpenModalMobile(contributor);
-                  !mobile &&
-                    (dispatch(showModal(Modals.contributor)),
-                    dispatch(toogleContributorModal(true)));
+                  setMentorId(contributor.sys.id);
+                  dispatch(showModal(Modals.contributor));
+                  dispatch(toogleContributorModal(true));
                 }}
               />
             ))}
@@ -128,6 +119,7 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
         )}
         {contributorModal && (
           <MentorModal
+            mentorId={mentorId}
             hideComponent={() => dispatch(toogleContributorModal(false))}
           />
         )}

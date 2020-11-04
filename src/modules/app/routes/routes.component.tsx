@@ -163,7 +163,7 @@ const Routes: React.FC = () => {
               <Route path='/contact-us' component={ContactsPage} />
               <Route path='/privacy-policy' component={PrivacyPolicy} />
               <Route path='/about-us' component={StoryMission} />
-              {mobile && (
+              {/* {mobile && (
                 <Route
                   path={[
                     '/contributors/mentor',
@@ -180,7 +180,7 @@ const Routes: React.FC = () => {
                     />
                   )}
                 />
-              )}
+              )} */}
               <Route path='/program' component={ProgramPage} />
               <Route path='/contributors' component={Contributors} />
               <Route path='/faq' component={Faq} />
