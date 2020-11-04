@@ -8,6 +8,7 @@
   @include tablet() {
     width: 90vw;
     height: 90vh;
+    max-height: 90vh;
   }
 }
 
@@ -33,6 +34,25 @@
   }
 }
 
+.preview {
+  flex: 1;
+  margin-top: 20px;
+
+  @include desktop() {
+    @include flex(center, center);
+  }
+}
+
 .img {
+  width: 100%;
   object-fit: contain;
+
+  @include tablet() {
+    max-height: 90%;
+  }
+
+  @include desktop() {
+    max-height: 600px;
+    max-width: 40%;
+  }
 }

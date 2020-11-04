@@ -14,12 +14,6 @@ const Description: React.FC<DescriptionProps> = ({ data }) => {
     <div className={styles.description}>
       <div className={styles.container}>
         <Title>About</Title>
-        <div className={styles.publication}>
-          {/* <div className={styles.publicationCaption}>Publication Date:</div> */}
-          {/* <div className={styles.publicationDate}>
-            {moment(publishDate).format('MMMM DD, YYYY')}
-          </div> */}
-        </div>
         <div className={styles.text}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
           eligendi itaque nesciunt asperiores delectus cum laboriosam et odio

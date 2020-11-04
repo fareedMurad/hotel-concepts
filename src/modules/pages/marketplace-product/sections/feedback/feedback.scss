@@ -39,7 +39,9 @@
     padding: 0 10px;
 
     @include desktop() {
-      max-width: 43%;
+      &:nth-child(even) {
+        margin-left: 141px;
+      }
     }
   }
 }
@@ -56,6 +58,10 @@
   @include tablet() {
     font-size: 28px;
     line-height: 35px;
+  }
+
+  @include desktop() {
+    max-width: 421px;
   }
 }
 
