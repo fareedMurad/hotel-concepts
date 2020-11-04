@@ -1,3 +1,4 @@
+import { cart } from '@app/redux/cart';
 import { Button } from '@core/components/button';
 import { navigate } from '@router/store';
 import * as React from 'react';
@@ -11,7 +12,12 @@ import * as styles from './notification.scss';
  */
 const Notification: React.FC<NotificationProps> = ({}) => {
   const dispatch = useDispatch();
-  const navigateToCartPage = () => dispatch(navigate('/cart'));
+  const navigateToCartPage = () => {
+    //close the notifier
+    dispatch(cart.showDropdown());
+    dispatch(navigate('/cart'));
+  };
+
   return (
     <div className={styles.notification}>
       <div className={styles.title}>Just added to your cart</div>
