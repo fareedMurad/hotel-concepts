@@ -2,6 +2,7 @@ import * as React from 'react';
 import { PaginationProps } from './pagination.props';
 import * as styles from './pagination.scss';
 import classNames from 'classnames';
+import { Icon } from '../icon';
 
 /**
  * Renders Pagination
@@ -20,7 +21,7 @@ const Pagination: React.FC<PaginationProps> = ({
           currentPage - 1 > 0 ? currentPage - 1 : currentPage
         )}
       >
-        &larr;
+        <Icon name='arrows/arrow-left' className={styles.arrow} />
       </button>
       {[...Array(countOfPages).keys()].map(page => (
         <button
@@ -40,7 +41,7 @@ const Pagination: React.FC<PaginationProps> = ({
           currentPage + 1 <= countOfPages ? currentPage + 1 : currentPage
         )}
       >
-        &rarr;
+        <Icon name='arrows/arrow-right-b' className={styles.arrow} />
       </button>
     </div>
   );

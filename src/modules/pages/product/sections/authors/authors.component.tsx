@@ -77,7 +77,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
                       : setIndex(index - 1)
                   }
                 >
-                  ←
+                  <Icon name='arrows/arrow-left' />
                 </button>
                 <button
                   className={styles.buttonsArrow}
@@ -87,7 +87,7 @@ const Authors: React.FC<AuthorsProps> = ({ authors }) => {
                       : setIndex(index + 1)
                   }
                 >
-                  →
+                  <Icon name='arrows/button-arrow' />
                 </button>
               </>
             )}

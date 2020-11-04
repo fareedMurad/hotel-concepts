@@ -2,6 +2,7 @@
 
 .button {
   @include flex(center, center);
+  align-items: center !important;
   @include buttonHover();
   position: relative;
   width: fit-content;

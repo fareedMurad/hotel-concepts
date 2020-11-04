@@ -47,7 +47,7 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
     <div className={styles.preview}>
       <SEO title={name} thumbnail={img} url={window.location.href} />
       <div onClick={() => history.goBack()} className={styles.back}>
-        <div>&#8592;</div>
+        <Icon name='arrows/arrow-back' className={styles.arrow}/>
         <div className={styles.backCaption}>{t('product.back')}</div>
       </div>
       <div className={styles.container}>
