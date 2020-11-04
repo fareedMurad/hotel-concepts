@@ -28,6 +28,7 @@ const cartReducer = reducer(new CartState())
   .on(cart.addToNotifier, (state, payload) => {
     state.addedProduct = payload;
     state.isProductInCart = true;
+    state.products = [...state.products, payload.product];
   })
   .on(cart.showNotifier, state => (state.addedProduct.isVisible = true))
   .on(cart.removing, state => (state.isProductInCart = false))

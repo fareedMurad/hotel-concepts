@@ -24,11 +24,11 @@ const CartNotifierItem: React.FC = () => {
       <img className={styles.itemImage} src={isBook ? url : programImage} />
       <div className={styles.description}>
         <div className={styles.descriptionName}>{name}</div>
-        <div className={styles.descriptionAuthor}>
+        {/* <div className={styles.descriptionAuthor}>
           {authors?.map(author => (
             <span key={author.id}>{author.name}</span>
           ))}
-        </div>
+        </div> */}
         <div className={styles.descriptionPrice}>${price}</div>
       </div>
     </div>
@@ -38,9 +38,10 @@ const CartNotifierItem: React.FC = () => {
 /**
  * Renders CartNotifier
  */
-const CartNotifier: React.FC<any> = ({ transition }) => {
+const CartNotifier: React.FC<any> = ({ transition, showOrderTotal }) => {
   const { total } = useCartNotifierData();
   const dispatch = useDispatch();
+  console.log(total);
 
   const navigateToCartPage = () => dispatch(navigate('/cart'));
 
@@ -49,15 +50,19 @@ const CartNotifier: React.FC<any> = ({ transition }) => {
       <div className={styles.title}>Just added to your cart</div>
       <CartNotifierItem />
       <div className={styles.cartNotifierFooter}>
-        <div className={styles.cartNotifierTotal}>
-          <span>ORDER TOTAL: </span> <span>${total}</span>
-        </div>
+        {showOrderTotal && (
+          <div className={styles.cartNotifierTotal}>
+            <span>ORDER TOTAL: </span> <span>${total}</span>
+          </div>
+        )}
         <Button className={styles.submit} arrow onClick={navigateToCartPage}>
           Checkout
         </Button>
-        <div className={styles.hint} onClick={navigateToCartPage}>
-          View Shopping Cart for more options
-        </div>
+        {showOrderTotal && (
+          <div className={styles.hint} onClick={navigateToCartPage}>
+            View Shopping Cart for more options
+          </div>
+        )}
       </div>
     </animated.div>
   );

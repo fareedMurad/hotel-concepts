@@ -13,6 +13,7 @@ class CartState {
   /**
    * List of products
    */
+  // check types
   public products: (Program | Book)[] = [];
   /**
    * Added product (any should be Program | Book)

@@ -40,6 +40,7 @@ const HeaderMobile: React.FC = () => {
   const { whiteHeader, cartQuantity } = useHeaderMainData();
   const { transition } = useBurgerTransition(showBurger);
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
 
   const blackTheme = whiteHeader || stickyHeader;
   /**
@@ -64,7 +65,7 @@ const HeaderMobile: React.FC = () => {
         <Icon name={blackTheme ? 'logo-b' : 'logo'} />
       </NavLink>
       <div className={styles.controll}>
-        {cartQuantity > 0 && <CartMenu />}
+        <CartMenu />
         <LocalizationMenu theme='secondary' />
         <Icon
           name={showBurger ? 'close-modal' : 'burger'}
