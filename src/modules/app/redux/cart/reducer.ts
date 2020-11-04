@@ -32,6 +32,7 @@ const cartReducer = reducer(new CartState())
   })
   .on(cart.showNotifier, state => (state.addedProduct.isVisible = true))
   .on(cart.removing, state => (state.isProductInCart = false))
-  .on(cart.removeCurrent, state => (state.addedProduct.isVisible = false));
+  .on(cart.removeCurrent, state => (state.addedProduct.isVisible = false))
+  .on(cart.showDropdown, (state, payload) => (state.showDropdown = payload));
 
 export { cartReducer as cart };

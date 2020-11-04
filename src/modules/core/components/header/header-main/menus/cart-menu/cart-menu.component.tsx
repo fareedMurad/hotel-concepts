@@ -10,6 +10,7 @@ import { CartMenuProps } from './cart-menu.props';
 import * as styles from './cart-menu.scss';
 import { useState, useRef } from 'react';
 import { useClickOutside } from '@core/shared';
+import { useLocation } from 'react-router';
 
 /**
  * Renders CartMenu
@@ -19,20 +20,25 @@ const CartMenu: React.FC<CartMenuProps> = () => {
     cartQuantity,
     whiteHeader,
     stickyHeader,
-    addedProduct: { isVisible }
+    addedProduct: { isVisible },
+    showDropdown
   } = useHeaderMainData();
-  const { transition } = useCartMenuAnimation(isVisible);
+  const { transition } = useCartMenuAnimation(isVisible || showDropdown);
   const dispatch = useDispatch();
   const [isClicked, setisClicked] = useState(false);
+  const location = useLocation();
+
+  React.useEffect(() => {
+    dispatch(cart.removeCurrent());
+  }, [location]);
 
   return (
     <div
       className={styles.cart}
-      onClick={() => {
-        setisClicked(!isClicked);
-        cartQuantity &&
-          dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier());
-      }}
+      // onClick={() => {
+      //   cartQuantity &&
+      //     dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier());
+      // }}
     >
       <Icon
         className={styles.icon}
@@ -41,6 +47,7 @@ const CartMenu: React.FC<CartMenuProps> = () => {
             ? 'shopping-cart'
             : 'shopping-cart-white'
         }
+        onClick={() => dispatch(cart.showDropdown(true))}
       />
       {cartQuantity > 0 && (
         <div className={styles.indicator}>{cartQuantity}</div>

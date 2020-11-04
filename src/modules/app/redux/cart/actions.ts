@@ -41,6 +41,7 @@ const cart = make('[cart]')
   //
   .stage('showNotifier')
   .stage('removeCurrent')
+  .stage('showDropdown', (payload: boolean) => payload)
   .stage('getMany')
   .stage('remove', (id: string) => id)
   .stage('update', (payload: Product) => payload)
