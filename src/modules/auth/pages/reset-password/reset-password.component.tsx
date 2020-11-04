@@ -18,30 +18,6 @@ const ResetPassword: React.FC = () => {
   return (
     <div className={styles.resetPassword}>
       {!!token ? <ResetForm token={token} /> : <EmailSent />}
-
-      {/* <Preloader id={Preloaders.resetPassword}>
-        <Formik
-          initialValues={defaultValues}
-          validationSchema={resetPasswordValidationSchema}
-          onSubmit={values => {
-            dispatch(resetPassword({ values, token }));
-          }}
-        >
-          {({ handleSubmit }) => (
-            <FormNew className={styles.form} handleSubmit={handleSubmit}>
-              <Field.Text
-                className={styles.input}
-                name='password'
-                label='New password'
-                type='password'
-              />
-              <Button className={styles.submit} onClick={() => handleSubmit()}>
-                Submit
-              </Button>
-            </FormNew>
-          )}
-        </Formik>
-      </Preloader> */}
       <PasswordChangedModal />
     </div>
   );

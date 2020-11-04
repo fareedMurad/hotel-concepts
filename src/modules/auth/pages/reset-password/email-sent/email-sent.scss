@@ -4,6 +4,10 @@
   @include flex(flex-start, center, column);
   max-width: 1100px;
   text-align: center;
+  height: 100vh;
+  @include tablet() {
+    height: auto;
+  }
 }
 
 .title {

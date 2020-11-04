@@ -6,6 +6,9 @@
   min-height: 100vh;
   width: 100%;
   @include tablet() {
+    min-height: auto;
+  }
+  @include tablet() {
     width: 80%;
   }
 }

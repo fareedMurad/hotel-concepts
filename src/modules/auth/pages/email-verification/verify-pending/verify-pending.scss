@@ -5,6 +5,9 @@
   margin-top: 34px;
   min-height: 100vh;
   width: 80%;
+  @include tablet() {
+    min-height: auto;
+  }
   @include desktop() {
     margin-bottom: 0;
   }

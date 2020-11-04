@@ -294,13 +294,6 @@ class AuthSaga {
     try {
       const response = yield call(api.auth.resetPassword, password, token);
 
-      yield put(
-        toggleToast({
-          status: 'success',
-          description: 'Your password was successfully changed'
-        })
-      );
-
       yield put(showModal(Modals.passwordChanged));
     } catch (error) {
       yield put(handleError(error.response.data.message));

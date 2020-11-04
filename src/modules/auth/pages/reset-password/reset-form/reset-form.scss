@@ -2,8 +2,13 @@
 
 .reset-form {
   @include flex(flex-start, center, column);
-  width: 100%;
+  width: 80%;
   max-width: 1100px;
+  min-height: 100vh;
+  @include tablet() {
+    min-height: auto;
+    width: 100%;
+  }
 }
 
 .title {
@@ -20,7 +25,10 @@
 }
 
 .form {
-  width: 504px;
+  width: 100%;
+  @include tablet() {
+    width: 504px;
+  }
   &--field {
     input {
       padding: 12px 10px;

@@ -1,6 +1,7 @@
 import { resetPassword } from '@app/redux/auth';
 import { resetPasswordValidationSchema } from '@auth/models';
-import { Button, Field, FormNew } from '@core/components';
+import { Button, Field, FormNew, Preloader } from '@core/components';
+import { Preloaders } from '@ui/models';
 import { Formik } from 'formik';
 import { values } from 'puppeteer/DeviceDescriptors';
 import * as React from 'react';
@@ -25,41 +26,45 @@ const ResetForm: React.FC<ResetFormProps> = ({ token }) => {
     <div className={styles.resetForm}>
       <div className={styles.title}>Reset your Kordie password</div>
       <div className={styles.divider} />
-      <Formik
-        initialValues={defaultValues}
-        validationSchema={resetPasswordValidationSchema}
-        onSubmit={values => {
-          dispatch(resetPassword({ password: values.password, token: token }));
-        }}
-      >
-        {({ handleSubmit }) => (
-          <FormNew className={styles.form} handleSubmit={handleSubmit}>
-            <Field.Text
-              className={styles.formField}
-              theme='secondary'
-              name='password'
-              label='New Password'
-              type='password'
-              placeholder='Enter new password'
-            />
-            <Field.Text
-              className={styles.formField}
-              theme='secondary'
-              name='confirmPassword'
-              label='Confirm Password'
-              type='password'
-              placeholder='Repeat new password'
-            />
-            <Button
-              className={styles.submit}
-              arrow
-              onClick={() => handleSubmit()}
-            >
-              Reset Password
-            </Button>
-          </FormNew>
-        )}
-      </Formik>
+      <Preloader id={Preloaders.resetPassword}>
+        <Formik
+          initialValues={defaultValues}
+          validationSchema={resetPasswordValidationSchema}
+          onSubmit={values => {
+            dispatch(
+              resetPassword({ password: values.password, token: token })
+            );
+          }}
+        >
+          {({ handleSubmit }) => (
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
+              <Field.Text
+                className={styles.formField}
+                theme='secondary'
+                name='password'
+                label='New Password'
+                type='password'
+                placeholder='Enter new password'
+              />
+              <Field.Text
+                className={styles.formField}
+                theme='secondary'
+                name='confirmPassword'
+                label='Confirm Password'
+                type='password'
+                placeholder='Repeat new password'
+              />
+              <Button
+                className={styles.submit}
+                arrow
+                onClick={() => handleSubmit()}
+              >
+                Reset Password
+              </Button>
+            </FormNew>
+          )}
+        </Formik>
+      </Preloader>
     </div>
   );
 };
