@@ -11,8 +11,8 @@
   font-family: $EBGaramond;
   text-align: center;
   background-color: $white;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   &:after {
     content: '';
     position: absolute;
@@ -36,4 +36,6 @@
 .wrap {
   padding: 12px 35px 33px 35px;
   background-color: $white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
