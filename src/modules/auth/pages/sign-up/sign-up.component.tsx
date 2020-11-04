@@ -8,6 +8,7 @@ import { Preloaders } from '@ui/models';
 import { Formik } from 'formik';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { EmailVerification } from '../email-verification';
 import { useSignUpData } from './sign-up.hook';
 import * as styles from './sign-up.scss';
 
@@ -20,11 +21,7 @@ const SignUp: React.FC = () => {
   const { registered } = useSelector((state: State) => state.auth);
 
   if (registered) {
-    return (
-      <div className={styles.successHint}>
-        Please check your email to verify your account
-      </div>
-    );
+    return <EmailVerification />;
   }
 
   return (

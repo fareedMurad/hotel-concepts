@@ -4,7 +4,8 @@ import {
   forgotPasswordValidationSchema,
   ForgotPasswordValues
 } from '@auth/models';
-import { Button, Field, Modal, Preloader } from '@core/components';
+import { Button, Field, Icon, Modal, Preloader } from '@core/components';
+import { navigate } from '@router/store';
 import { closeModal } from '@ui/modal';
 import { Modals, Preloaders } from '@ui/models';
 import { Formik } from 'formik';
@@ -26,62 +27,59 @@ const defaultValues: ForgotPasswordValues = {
  */
 const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({}) => {
   const dispatch = useDispatch();
-  const { passwordRecoverySent } = useSelector((state: State) => state.auth);
 
   return (
     <Modal id={Modals.forgotPassword} withOverlay={false}>
       <div className={styles.forgotPasswordModal}>
         <Preloader id={Preloaders.forgotPassword}>
-          {!passwordRecoverySent ? (
-            <Formik
-              initialValues={defaultValues}
-              validationSchema={forgotPasswordValidationSchema}
-              onSubmit={values => {
-                dispatch(forgotPassword(values));
-              }}
-            >
-              {({ handleSubmit }) => (
-                <Fragment>
-                  <div className={styles.title}>Reset your password</div>
-                  <div className={styles.content}>
-                    <div className={styles.description}>
-                      Please provide the e-mail address you used when you signed
-                      up for Kordie account.
-                    </div>
-                    <Field.Text
-                      className={styles.input}
-                      name='email'
-                      label='Email'
-                    />
-                    <Button
-                      className={styles.submit}
-                      onClick={() => handleSubmit()}
-                      arrow
-                    >
-                      Send e-mail
-                    </Button>
-                    <div className={styles.back}>
-                      <span>Remeber your password?</span>
-                      <span
-                        className={styles.backLink}
-                        onClick={() =>
-                          dispatch(closeModal(Modals.forgotPassword))
-                        }
-                      >
-                        Log In
-                      </span>
-                    </div>
+          <Icon
+            className={styles.close}
+            name='close-modal'
+            onClick={() => dispatch(closeModal(Modals.forgotPassword))}
+          />
+
+          <Formik
+            initialValues={defaultValues}
+            validationSchema={forgotPasswordValidationSchema}
+            onSubmit={values => {
+              dispatch(forgotPassword(values));
+            }}
+          >
+            {({ handleSubmit }) => (
+              <Fragment>
+                <div className={styles.title}>Reset your password</div>
+                <div className={styles.content}>
+                  <div className={styles.description}>
+                    Please provide the e-mail address you used when you signed
+                    up for Kordie account.
                   </div>
-                </Fragment>
-              )}
-            </Formik>
-          ) : (
-            <div className={styles.success}>
-              <div className={styles.successCaption}>
-                We have sent you an email to update your password
-              </div>
-            </div>
-          )}
+                  <Field.Text
+                    className={styles.input}
+                    name='email'
+                    label='Email'
+                  />
+                  <Button
+                    className={styles.submit}
+                    onClick={() => handleSubmit()}
+                    arrow
+                  >
+                    Send e-mail
+                  </Button>
+                  <div className={styles.back}>
+                    <span>Remeber your password?</span>
+                    <span
+                      className={styles.backLink}
+                      onClick={() =>
+                        dispatch(closeModal(Modals.forgotPassword))
+                      }
+                    >
+                      Log In
+                    </span>
+                  </div>
+                </div>
+              </Fragment>
+            )}
+          </Formik>
         </Preloader>
       </div>
     </Modal>

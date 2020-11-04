@@ -1,7 +1,8 @@
 @import 'core.scss';
 
 .email-verification {
-  @include flex(center, stretch, column);
+  @include flex(flex-start, center, column);
+  margin-top: 100px;
   flex: 1;
 }
 

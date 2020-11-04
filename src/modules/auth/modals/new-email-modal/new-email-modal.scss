@@ -1,0 +1,19 @@
+@import 'core.scss';
+
+.new-email-modal {
+  position: relative;
+  width: 400px;
+  height: auto;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+}
+.field {
+  margin: 20px 0 20px 0;
+}
+
+.submit {
+  width: 100%;
+}

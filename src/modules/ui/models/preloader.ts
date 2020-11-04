@@ -10,6 +10,7 @@ enum Preloaders {
   emailVerification = 'email verification',
   interests = 'interests',
   otp = 'otp',
+  confirmationEmailResend = ' confirmation email resend',
 
   /**
    * Account preloaders
