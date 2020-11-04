@@ -29,10 +29,7 @@ const LinkDropdown: React.FC<LinkDropdownProps> = ({
       <div className={styles.link} onClick={() => dispatch(navigate(to))}>
         <div className={styles.linkTitle}>
           <div>{link}</div>{' '}
-          <Icon
-            name={hover ? 'arrows/arrow-right-primary' : `arrows/arrow-right-b`}
-            className={styles.arrow}
-          />
+          <Icon name={'arrows/arrow-right-primary'} className={styles.arrow} />
         </div>
         <div
           className={styles.linkImage}
