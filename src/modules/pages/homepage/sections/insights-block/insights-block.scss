@@ -4,7 +4,7 @@
   position: relative;
   margin-top: 17px;
   padding: 0 22px;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
 }
 
 .title {
@@ -35,11 +35,15 @@
   overflow: hidden;
   ul {
     margin-bottom: 8px;
+
+    li {
+      width: 545px;
+    }
   }
 }
 
 .controls {
-  padding-left: $left-offset;
+  padding-left: 108px;
 }
 
 @media screen and (max-width: 768px) {

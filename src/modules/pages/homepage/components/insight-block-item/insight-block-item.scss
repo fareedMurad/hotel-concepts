@@ -45,6 +45,7 @@
 }
 
 .button {
+  @include flex($justify: space-between, $align: center);
   height: 44px;
   margin-top: 14px;
   color: $primary-gray;

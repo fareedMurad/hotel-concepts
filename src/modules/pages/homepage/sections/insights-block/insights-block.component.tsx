@@ -37,6 +37,7 @@ const responsiveBreakpoints = {
 /**
  * Renders InsightsBlock
  */
+
 const InsightsBlock: React.FC<InsightsBlockProps> = ({}) => {
   const history = useHistory();
   const handleClick = () => history.push(`/insights`);

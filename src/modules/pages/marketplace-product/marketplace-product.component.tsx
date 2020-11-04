@@ -2,6 +2,7 @@ import { ScrollToTop } from '@app';
 import { Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import * as React from 'react';
+import { useParams } from 'react-router';
 import { useMarketplaceProductData } from './marketplace-product.hook';
 import * as styles from './marketplace-product.scss';
 import {

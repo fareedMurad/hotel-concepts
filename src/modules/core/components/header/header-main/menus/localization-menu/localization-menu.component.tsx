@@ -23,7 +23,6 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
         [styles.black]: theme === 'black',
         [styles.secondary]: theme === 'secondary'
       })}
-      onClick={() => setShowMenu(!showMenu)}
       onMouseEnter={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
     >

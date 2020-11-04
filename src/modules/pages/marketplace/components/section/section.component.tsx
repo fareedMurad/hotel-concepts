@@ -72,6 +72,8 @@ const Section: React.FC<SectionProps> = ({
     return 1;
   };
 
+  console.log(data.length, responsiveLimit());
+
   const [limit, setLimit] = useState(responsiveLimit());
   const showMore = data?.length > limit;
 
@@ -108,16 +110,18 @@ const Section: React.FC<SectionProps> = ({
           <Icon className={styles.moreIcon} name='marketplace/arrow-right' />
         </div>
       ) : (
-        <div
-          className={styles.more}
-          onClick={() => setLimit(0 + responsiveLimit())}
-        >
-          <div className={styles.moreCaption}>Hide</div>
-          <Icon
-            className={classNames(styles.moreIcon, styles.hide)}
-            name='marketplace/arrow-right'
-          />
-        </div>
+        responsiveLimit() < data.length && (
+          <div
+            className={styles.more}
+            onClick={() => setLimit(0 + responsiveLimit())}
+          >
+            <div className={styles.moreCaption}>Hide</div>
+            <Icon
+              className={classNames(styles.moreIcon, styles.hide)}
+              name='marketplace/arrow-right'
+            />
+          </div>
+        )
       )}
     </div>
   );

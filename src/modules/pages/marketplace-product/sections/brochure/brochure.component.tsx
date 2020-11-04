@@ -10,7 +10,7 @@ const Brochure: React.FC<BrochureProps> = ({}) => (
   <div
     className={styles.brochure}
     style={{
-      backgroundImage: `url(${require('img/learning-approach/wcc-1.png')})`
+      backgroundImage: `url(${require('img/banner.png')})`
     }}
   >
     <div className={styles.container}>
