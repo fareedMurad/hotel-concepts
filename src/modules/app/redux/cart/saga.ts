@@ -26,10 +26,48 @@ class CartSaga {
    * Check cart
    */
   @Saga(checkCart)
-  public *checkCart() {
-    const cart = localStorage.getItem('cart');
+  public *checkCart(_, { api }: Context) {
+    const cartFromLS = localStorage.getItem('cart');
 
-    yield put(checkCart.success(JSON.parse(cart)));
+    const cartItems = JSON.parse(cartFromLS);
+
+    yield put(checkCart.success(cartItems));
+
+    const {
+      localization: { language: localizationLanguage },
+      cart: {
+        addedProduct: { product }
+      },
+      auth: { user, authorized }
+    } = yield select((state: State) => state);
+
+    let locale = 'en-US';
+
+    locale = authorized ? user?.language : localizationLanguage;
+
+    if (cartItems.length > 0 && !product) {
+      const lastProduct = cartItems[cartItems.length - 1];
+      const { path } = lastProduct;
+
+      try {
+        const response = yield call(api.marketplace.fetchAnyProductsListByIds, {
+          ids: [path],
+          locale
+        });
+
+        const [productFromResponse] = response.data.items;
+
+        yield put(
+          cart.addToNotifier({
+            product: productFromResponse,
+            isVisible: false
+          })
+        );
+      } catch (err) {
+        console.log(err);
+        yield put(handleError(err.response.data.message));
+      }
+    }
   }
 
   // /**
@@ -130,11 +168,14 @@ class CartSaga {
         locale
       });
 
-      yield put(cart.setCurrent(response.data.items[0]));
+      const [product] = response.data.items;
+
+      yield put(cart.addToNotifier({ product, isVisible: true }));
     } catch (err) {
       console.log(err);
+      yield put(handleError(err.response.data.message));
     }
-    yield delay(3000);
+    yield delay(4000);
     yield put(cart.removing());
     yield delay(1000);
     yield put(cart.removeCurrent());
@@ -206,11 +247,6 @@ class CartSaga {
       } = yield select((state: State) => state);
 
       let locale = 'en-US';
-
-      if (authorized && !user) {
-        yield delay(1000);
-        yield put(getProducts());
-      }
 
       locale = authorized ? user?.language : localizationLanguage;
 

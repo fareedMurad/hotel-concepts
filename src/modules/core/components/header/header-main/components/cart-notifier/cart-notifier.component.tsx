@@ -1,6 +1,8 @@
 import { ContentType } from '@account/pages/library/models';
 import { Button } from '@core/components';
+import { navigate } from '@router/store';
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { animated } from 'react-spring';
 import { useCartNotifierData } from './cart-notifier.hook';
 import * as styles from './cart-notifier.scss';
@@ -10,9 +12,11 @@ import * as styles from './cart-notifier.scss';
  */
 const CartNotifierItem: React.FC = () => {
   const { addedProduct } = useCartNotifierData();
-  const { name, authors, price, __typename, courseImage } = addedProduct || {};
+  const {
+    product: { name, authors, price, __typename, courseImage, productImage }
+  } = addedProduct || {};
   const isBook = __typename == ContentType.product;
-  const url = addedProduct?.productImage?.file?.url;
+  const { url } = productImage?.file;
   const programImage = courseImage?.file?.url;
 
   return (
@@ -36,6 +40,9 @@ const CartNotifierItem: React.FC = () => {
  */
 const CartNotifier: React.FC<any> = ({ transition }) => {
   const { total } = useCartNotifierData();
+  const dispatch = useDispatch();
+
+  const navigateToCartPage = () => dispatch(navigate('/cart'));
 
   return (
     <animated.div style={transition} className={styles.cartNotifier}>
@@ -45,10 +52,12 @@ const CartNotifier: React.FC<any> = ({ transition }) => {
         <div className={styles.cartNotifierTotal}>
           <span>ORDER TOTAL: </span> <span>${total}</span>
         </div>
-        <Button className={styles.submit} arrow>
+        <Button className={styles.submit} arrow onClick={navigateToCartPage}>
           Checkout
         </Button>
-        <div className={styles.hint}>View Shopping Cart for more options</div>
+        <div className={styles.hint} onClick={navigateToCartPage}>
+          View Shopping Cart for more options
+        </div>
       </div>
     </animated.div>
   );

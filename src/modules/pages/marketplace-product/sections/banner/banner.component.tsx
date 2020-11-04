@@ -7,11 +7,12 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
 import * as styles from './banner.scss';
 import { useDispatch } from 'react-redux';
 import { cart } from '@app/redux/cart';
+import classNames from 'classnames';
 
 /**
  * Renders Banner
  */
-const Banner: React.FC<BannerProps> = ({ data }) => {
+const Banner: React.FC<BannerProps> = ({ data, subscriptionStatus }) => {
   const {
     id,
     img,
@@ -20,7 +21,9 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
     inCart,
     authors,
     languages,
+    isPreorder,
     publishDate,
+    preorderDate,
     previewDescription
   } = data;
   const dispatch = useDispatch();
@@ -28,7 +31,10 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
   return (
     <div className={styles.banner}>
       <div className={styles.box}>
-        <img className={styles.image} src={img} />
+        <div className={styles.preview}>
+          <img className={styles.previewImage} src={img} />
+          {isPreorder && <div className={styles.previewBanner}>PRE-ORDER</div>}
+        </div>
         <div className={styles.container}>
           <div className={styles.section}>
             <Title>{name}</Title>
@@ -58,18 +64,28 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className={styles.section}>
-            <div className={styles.price}>${price}</div>
+          <div className={styles.price}>${price}</div>
+          <div className={styles.controls}>
             <Button
-              className={styles.checkout}
+              className={classNames(styles.checkout, {
+                [styles.checkoutPreorder]: isPreorder
+              })}
               arrow={!inCart}
               disabled={inCart}
               onClick={() => {
                 !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
               }}
             >
-              {inCart ? 'In cart' : 'Add to cart'}
+              {inCart ? 'In cart' : isPreorder ? 'Pre-order' : 'Add to cart'}
             </Button>
+            {isPreorder && (
+              <div className={styles.preorder}>
+                Available for Pre-Order. This item will be available on{' '}
+                <span className={styles.preorderDate}>
+                  {moment(preorderDate).format('MMMM DD, YYYY')}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </div>

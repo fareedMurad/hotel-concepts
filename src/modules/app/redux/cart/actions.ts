@@ -32,10 +32,14 @@ const checkCart = make('[cart] check').stage(
  */
 const cart = make('[cart]')
   .stage('add', (product: Product) => product)
-  .stage('setCurrent', (product: Book) => product)
+  .stage(
+    'addToNotifier',
+    (payload: { product: Book; isVisible: boolean }) => payload
+  )
   //this stage needs to prevent removing item before animation ends
   .stage('removing')
   //
+  .stage('showNotifier')
   .stage('removeCurrent')
   .stage('getMany')
   .stage('remove', (id: string) => id)

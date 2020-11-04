@@ -25,11 +25,12 @@ const cartReducer = reducer(new CartState())
   .on(getProducts.success, (state, payload) => {
     state.products = payload;
   })
-  .on(cart.setCurrent, (state, payload) => {
+  .on(cart.addToNotifier, (state, payload) => {
     state.addedProduct = payload;
     state.isProductInCart = true;
   })
+  .on(cart.showNotifier, state => (state.addedProduct.isVisible = true))
   .on(cart.removing, state => (state.isProductInCart = false))
-  .on(cart.removeCurrent, state => (state.addedProduct = null));
+  .on(cart.removeCurrent, state => (state.addedProduct.isVisible = false));
 
 export { cartReducer as cart };
