@@ -78,13 +78,14 @@
   margin-top: 12px;
 
   @include tablet() {
+    margin-top: 8px;
     font-size: 18px;
   }
 }
 
 .authors {
   @include font($primary-gray, 16px, 400, normal);
-  margin-top: 20px;
+  margin-top: 12px;
   font-family: $EBGaramond;
 
   @include tablet() {
@@ -151,7 +152,7 @@
   font-family: $EBGaramond;
 
   @include tablet() {
-    margin-top: 0;
+    margin-top: auto;
   }
 }
 
