@@ -26,6 +26,10 @@ class CartState {
    * is product in cart
    */
   public isProductInCart: boolean = false;
+  /*
+   * show dropdown
+   */
+  public showDropdown: boolean = false;
 }
 
 export { CartState };
