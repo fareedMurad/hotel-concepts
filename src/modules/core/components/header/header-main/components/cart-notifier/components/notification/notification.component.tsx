@@ -16,9 +16,11 @@ const Notification: React.FC<NotificationProps> = ({}) => {
     <div className={styles.notification}>
       <div className={styles.title}>Just added to your cart</div>
       <CartNotifierItem />
-      <Button className={styles.submit} arrow onClick={navigateToCartPage}>
-        Checkout
-      </Button>
+      <div className={styles.wrap}>
+        <Button className={styles.submit} arrow onClick={navigateToCartPage}>
+          Checkout
+        </Button>
+      </div>
     </div>
   );
 };

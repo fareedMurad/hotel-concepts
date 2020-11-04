@@ -10,7 +10,7 @@
   padding: 19px 0;
   font-family: $EBGaramond;
   text-align: center;
-  background-color: $background;
+  background-color: $white;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   &:after {
@@ -31,4 +31,9 @@
 
 .submit {
   width: 100%;
+}
+
+.wrap {
+  padding: 12px 35px 33px 35px;
+  background-color: $white;
 }

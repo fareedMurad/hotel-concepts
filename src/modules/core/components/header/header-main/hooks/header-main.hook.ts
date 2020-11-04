@@ -53,7 +53,8 @@ const useHeaderMainData = () => {
     addedProduct,
     whiteHeader,
     stickyHeader,
-    showDropdown
+    showDropdown,
+    selectedProducts
   };
 };
 export { useHeaderMainData };

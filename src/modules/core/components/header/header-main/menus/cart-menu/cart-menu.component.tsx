@@ -20,8 +20,9 @@ const CartMenu: React.FC<CartMenuProps> = () => {
     cartQuantity,
     whiteHeader,
     stickyHeader,
-    addedProduct: { isVisible },
-    showDropdown
+    addedProduct: { isVisible, product },
+    showDropdown,
+    selectedProducts
   } = useHeaderMainData();
   const { transition } = useCartMenuAnimation(isVisible || showDropdown);
   const dispatch = useDispatch();
@@ -35,19 +36,17 @@ const CartMenu: React.FC<CartMenuProps> = () => {
   return (
     <div
       className={styles.cart}
-      // onClick={() => {
-      //   cartQuantity &&
-      //     dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier());
-      // }}
+      onClick={() => {
+        !!product ? dispatch(cart.showDropdown()) : dispatch(navigate('/cart'));
+      }}
     >
       <Icon
         className={styles.icon}
         name={
-          whiteHeader || stickyHeader || isVisible
+          whiteHeader || stickyHeader || isVisible || showDropdown
             ? 'shopping-cart'
             : 'shopping-cart-white'
         }
-        onClick={() => dispatch(cart.showDropdown(true))}
       />
       {cartQuantity > 0 && (
         <div className={styles.indicator}>{cartQuantity}</div>
