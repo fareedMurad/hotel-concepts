@@ -10,7 +10,7 @@ import { State } from '@app/redux/state';
  * Renders ArticleBgQuote
  */
 const ArticleBgQuote: React.FC = ({}) => {
-  const { articleId } = useParams();
+  const { articleId } = useParams<{ articleId: string }>();
   const { language } = useSelector((state: State) => state.localization);
   const {
     backgroundImageQuoteData,

@@ -70,7 +70,7 @@
     }
   }
   &__button {
-    margin-top: 16px; 
+    margin-top: 16px;
   }
 }
 
@@ -95,8 +95,18 @@
 
 .show-more {
   margin: 30px 22px;
+  width: 204px;
+  & > div:first-child {
+    @include flex($align: center, $justify: space-between);
+    width: 100%;
+  }
   @include desktop() {
-    width: 15%;
     margin: 30px 0px 120px 132px;
+  }
+}
+
+.icon {
+  & > div {
+    @include flex(center, center);
   }
 }
