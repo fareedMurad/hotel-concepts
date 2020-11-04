@@ -22,13 +22,13 @@ const CartMenu: React.FC<CartMenuProps> = () => {
   } = useHeaderMainData();
   const { transition } = useCartMenuAnimation(isVisible);
   const dispatch = useDispatch();
-  const [showOrderTotal, setShowOrderTotal] = useState(false);
+  const [isClicked, setisClicked] = useState(false);
 
   return (
     <div
       className={styles.cart}
       onClick={() => {
-        setShowOrderTotal(!showOrderTotal);
+        setisClicked(!isClicked);
         cartQuantity &&
           dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier());
       }}
@@ -47,11 +47,7 @@ const CartMenu: React.FC<CartMenuProps> = () => {
       {transition.map(
         ({ item, props, key }) =>
           item && (
-            <CartNotifier
-              transition={props}
-              key={key}
-              showOrderTotal={showOrderTotal}
-            />
+            <CartNotifier transition={props} key={key} isClicked={isClicked} />
           )
       )}
     </div>
