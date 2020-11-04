@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { animated } from 'react-spring';
 import { useCartNotifierData } from './cart-notifier.hook';
 import * as styles from './cart-notifier.scss';
+import classNames from 'classnames';
 
 /**
  * Render Cart notifier item
@@ -24,11 +25,6 @@ const CartNotifierItem: React.FC = () => {
       <img className={styles.itemImage} src={isBook ? url : programImage} />
       <div className={styles.description}>
         <div className={styles.descriptionName}>{name}</div>
-        <div className={styles.descriptionAuthor}>
-          {authors?.map(author => (
-            <span key={author.id}>{author.name}</span>
-          ))}
-        </div>
         <div className={styles.descriptionPrice}>${price}</div>
       </div>
     </div>
@@ -38,7 +34,7 @@ const CartNotifierItem: React.FC = () => {
 /**
  * Renders CartNotifier
  */
-const CartNotifier: React.FC<any> = ({ transition }) => {
+const CartNotifier: React.FC<any> = ({ transition, isClicked }) => {
   const { total } = useCartNotifierData();
   const dispatch = useDispatch();
 
@@ -46,18 +42,28 @@ const CartNotifier: React.FC<any> = ({ transition }) => {
 
   return (
     <animated.div style={transition} className={styles.cartNotifier}>
-      <div className={styles.title}>Just added to your cart</div>
+      <div
+        className={classNames(styles.title, {
+          [styles.withBackground]: isClicked
+        })}
+      >
+        Just added to your cart
+      </div>
       <CartNotifierItem />
       <div className={styles.cartNotifierFooter}>
-        <div className={styles.cartNotifierTotal}>
-          <span>ORDER TOTAL: </span> <span>${total}</span>
-        </div>
+        {isClicked && (
+          <div className={styles.cartNotifierTotal}>
+            <span>ORDER TOTAL: </span> <span>${total}</span>
+          </div>
+        )}
         <Button className={styles.submit} arrow onClick={navigateToCartPage}>
           Checkout
         </Button>
-        <div className={styles.hint} onClick={navigateToCartPage}>
-          View Shopping Cart for more options
-        </div>
+        {isClicked && (
+          <div className={styles.hint} onClick={navigateToCartPage}>
+            View Shopping Cart for more options
+          </div>
+        )}
       </div>
     </animated.div>
   );
