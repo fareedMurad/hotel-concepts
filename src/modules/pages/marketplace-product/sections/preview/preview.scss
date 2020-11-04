@@ -209,6 +209,7 @@
 
 .description {
   @include font($primary-gray, 16px, 400, normal);
+  margin-top: 12px;
 
   @include tablet() {
     font-size: 18px;
