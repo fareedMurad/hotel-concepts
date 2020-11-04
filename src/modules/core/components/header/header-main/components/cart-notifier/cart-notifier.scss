@@ -71,8 +71,8 @@
 }
 
 .description {
-  @include flex($direction: column, $justify: space-between);
-  flex: 1;
+  display: grid;
+  grid-template-rows: 5fr 1fr;
 
   &--name {
     @include font($primary-gray, 24px, 400, 34px);
@@ -82,9 +82,7 @@
   }
   &--price {
     @include font($primary-gray, 28px, 400, normal);
-    // position: absolute;
-    // bottom: 0;
-    flex-grow: 2;
+
     font-family: $EBGaramond;
   }
 }

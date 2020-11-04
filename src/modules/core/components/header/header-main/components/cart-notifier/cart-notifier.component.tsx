@@ -24,11 +24,11 @@ const CartNotifierItem: React.FC = () => {
       <img className={styles.itemImage} src={isBook ? url : programImage} />
       <div className={styles.description}>
         <div className={styles.descriptionName}>{name}</div>
-        <div className={styles.descriptionAuthor}>
+        {/* <div className={styles.descriptionAuthor}>
           {authors?.map(author => (
             <span key={author.id}>{author.name}</span>
           ))}
-        </div>
+        </div> */}
         <div className={styles.descriptionPrice}>${price}</div>
       </div>
     </div>
