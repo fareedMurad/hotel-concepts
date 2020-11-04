@@ -7,6 +7,8 @@ import { ProductCategory } from '@app/models/fastspring';
 type Program = {
   id: string;
   name: string;
+  isPreorder: boolean;
+  preorderDate: string;
   description: string;
   price: number;
   pricing: Pricing;

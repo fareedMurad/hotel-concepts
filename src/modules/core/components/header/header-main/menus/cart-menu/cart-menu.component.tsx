@@ -1,3 +1,4 @@
+import { cart } from '@app/redux/cart';
 import { Icon } from '@core/components/icon';
 import { navigate } from '@router/store';
 import * as React from 'react';
@@ -14,19 +15,25 @@ import * as styles from './cart-menu.scss';
 const CartMenu: React.FC<CartMenuProps> = () => {
   const {
     cartQuantity,
-    isProductInCart,
     whiteHeader,
-    stickyHeader
+    stickyHeader,
+    addedProduct: { isVisible }
   } = useHeaderMainData();
-  const { transition } = useCartMenuAnimation(isProductInCart);
+  const { transition } = useCartMenuAnimation(isVisible);
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.cart} onClick={() => dispatch(navigate('/cart'))}>
+    <div
+      className={styles.cart}
+      onClick={() =>
+        cartQuantity &&
+        dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier())
+      }
+    >
       <Icon
         className={styles.icon}
         name={
-          whiteHeader || stickyHeader || isProductInCart
+          whiteHeader || stickyHeader || isVisible
             ? 'shopping-cart'
             : 'shopping-cart-white'
         }

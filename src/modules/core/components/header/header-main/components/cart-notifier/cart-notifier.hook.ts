@@ -18,10 +18,6 @@ const useCartNotifierData = () => {
     }))
     ?.reduce((acc, cur) => acc + cur.price * cur.amount, 0);
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
-
   return { addedProduct, total };
 };
 

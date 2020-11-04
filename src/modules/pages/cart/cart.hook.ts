@@ -31,7 +31,7 @@ const useCartData = () => {
    */
   const cartData = products?.map(item => {
     const itemCopy = JSON.parse(JSON.stringify(item));
-    const { __typename, name, pricing, price, id } = itemCopy;
+    const { __typename, name, pricing, price, id, isPreorder } = itemCopy;
 
     const itemFromLocalStorage = selectedProducts.find(
       el => el.path === item.id
@@ -61,11 +61,12 @@ const useCartData = () => {
     }
 
     return {
+      id,
       name,
+      price,
       author,
       quantity,
-      price,
-      id,
+      isPreorder,
       imageSource
     };
   });

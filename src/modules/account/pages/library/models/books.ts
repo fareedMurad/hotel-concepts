@@ -7,6 +7,8 @@ import { ProductCategory as FastSpringProductCategory } from '@app/models/fastsp
 type Book = {
   id: string;
   name: string;
+  isPreorder: boolean;
+  preorderDate: string;
   pagesCount: number;
   previewDescription: string;
   price: number;
@@ -40,7 +42,6 @@ type Book = {
     title: string;
     file: FileModel;
   };
-
   __typename: FastSpringProductCategory;
 };
 
