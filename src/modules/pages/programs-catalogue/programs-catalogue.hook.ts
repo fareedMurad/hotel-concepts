@@ -47,7 +47,7 @@ const useProgramsCatalogueData = () => {
         subfilters: subfilters
       })
     );
-  }, [currentFilters, currentPage]);
+  }, [currentFilters, currentPage, id]);
 
   return {
     id,
