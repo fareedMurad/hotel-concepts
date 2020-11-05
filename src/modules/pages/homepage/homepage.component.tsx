@@ -13,7 +13,8 @@ import {
   Impact,
   InsightsBlock,
   Socials,
-  Intro
+  Intro,
+  UnlimitedAccessBooks
 } from './sections';
 import { useHomePageData } from './homepage.hook';
 import Mentors from '@pages/homepage/sections/mentors/mentors.component';
@@ -39,8 +40,10 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <OnlineCourses />
         <TrainingInfo />
         <EBooks />
-        <UnlimitedAccess />
-        <Quote />
+        <UnlimitedAccessBooks />
+        {/* <UnlimitedAccess />
+         */}
+        {/* <Quote /> */}
         <About />
         <Impact
           testimonials={homePageTestimonials}
