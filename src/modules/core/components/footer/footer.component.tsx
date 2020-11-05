@@ -14,6 +14,7 @@ import { enviroment } from 'src/environment';
 
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
+import { Icon } from '../icon';
 
 /**
  * validation schema
@@ -70,7 +71,7 @@ const Navigation: React.FC<{
     {socials &&
       socials.map(item => (
         <a href={item.to} className={styles.social} key={item.id}>
-          <img src={require(`img/socials/${item.img}.svg`)} alt='' />
+          <Icon className={styles.socialIcon} name={`socials/${item.img}`} />
         </a>
       ))}
   </div>

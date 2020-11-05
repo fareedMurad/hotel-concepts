@@ -43,6 +43,7 @@
   @include flex(center, center);
   @include size(44px);
   @include min-size(44px);
+  position: relative;
   font-size: 18px;
   border: 1px solid;
   border-radius: 4px;
@@ -51,6 +52,7 @@
   &:last-child {
     margin-left: 12px;
   }
+  @include buttonHover();
 }
 
 .arrow {
