@@ -33,7 +33,7 @@
 }
 
 .description-block {
-  height: 280px;
+  height: 260px;
   padding: 15px;
   @include flex($justify: space-between, $direction: column);
   border-left: 1px solid #98a2a883;

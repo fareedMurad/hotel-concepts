@@ -9,7 +9,7 @@
     padding: 124px 22px 0px 134px;
   }
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 540px;
   column-gap: 142px;
   @media screen and (max-width: 1000px) {
     display: block;
@@ -86,6 +86,7 @@
   background-size: cover;
   background-position: center;
   margin-left: auto;
+  border-radius: 8px;
   @include tablet() {
     @include size(100%);
   }

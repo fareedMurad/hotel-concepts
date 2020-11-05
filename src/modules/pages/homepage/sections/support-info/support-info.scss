@@ -12,10 +12,17 @@
 }
 
 .title {
-  max-width: 600px;
   padding: 22px;
   @include desktop() {
-    padding: 22px 0 22px 134px;
+    padding: 22px 0 22px 0;
+    max-width: 444px;
+    margin-left: 134px;
+  }
+}
+
+.caption {
+  @include desktop() {
+    max-width: 428px;
   }
 }
 
