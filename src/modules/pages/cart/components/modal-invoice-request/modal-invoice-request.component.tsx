@@ -76,6 +76,7 @@ const ModalInvoiceRequest: React.FC<ModalInvoiceRequestProps> = ({ total }) => {
                 theme='secondary'
                 name='number'
                 label='Phone number'
+                type='phone'
               />
               <Field.Select
                 className={styles.formField}
