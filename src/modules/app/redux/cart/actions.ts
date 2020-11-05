@@ -64,4 +64,10 @@ const sendInvoiceRequest = make('[cart] send invoice request').stage(
   (payload: InvoiceValues) => payload
 );
 
-export { cart, getProducts, checkCart, sendInvoiceRequest };
+const cartClear = make('[cart] clear 2').stage('success');
+
+const cartClearCurrent = make('[cart] clear modal current').stage(
+  (id: string) => id
+);
+
+export { cart, getProducts, checkCart, sendInvoiceRequest, cartClear };

@@ -1,5 +1,5 @@
 import { reducer } from 'redux-chill';
-import { cart, getProducts, checkCart } from './actions';
+import { cart, getProducts, checkCart, cartClear } from './actions';
 import { CartState } from './state';
 
 /**
@@ -36,6 +36,10 @@ const cartReducer = reducer(new CartState())
   })
   .on(cart.removing, state => (state.isProductInCart = false))
   .on(cart.removeCurrent, state => (state.addedProduct.isVisible = false))
-  .on(cart.showDropdown, state => (state.showDropdown = !state.showDropdown));
+  .on(cart.showDropdown, state => (state.showDropdown = !state.showDropdown))
+  .on(
+    cartClear.success,
+    state => (state.addedProduct = { product: null, isVisible: false })
+  );
 
 export { cartReducer as cart };

@@ -13,7 +13,7 @@ import { call, delay, put, select, take } from 'redux-saga/effects';
 import { getUser } from '../auth';
 import { Context } from '../context';
 import { State } from '../state';
-import { cart, checkCart, getProducts, sendInvoiceRequest } from './actions';
+import { cart, cartClear, checkCart, getProducts, sendInvoiceRequest } from './actions';
 
 /**
  * Cart saga
@@ -200,6 +200,7 @@ class CartSaga {
     localStorage.setItem(LocalStorageKeys.cart, JSON.stringify([]));
 
     yield put(cart.saveToState([]));
+    yield put(cartClear.success());
   }
   /**
    * Remove from cart
@@ -215,6 +216,7 @@ class CartSaga {
     localStorage.setItem(LocalStorageKeys.cart, JSON.stringify(cartFromLS));
     yield put(cart.saveToState(cartFromLS));
     yield put(getProducts.success(products));
+    yield put(cartClear.success());
   }
 
   /**
