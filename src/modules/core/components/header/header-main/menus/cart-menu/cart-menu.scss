@@ -2,8 +2,30 @@
 
 .cart {
   position: relative;
+  width: 36px;
+  height: 26px;
   margin-right: 20px;
   z-index: 999999;
+}
+
+.box {
+  @include flex(center, center);
+  width: 36px;
+  position: absolute;
+
+  &--active {
+    top: -10px;
+    bottom: -23px;
+    align-items: flex-start;
+    padding-top: 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: $background;
+
+    .indicator {
+      top: 3px;
+    }
+  }
 }
 
 .icon {
@@ -19,10 +41,19 @@
   @include size(16px);
   @include min-size(16px);
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -7px;
+  right: 0px;
   font-size: 12px;
   color: $white;
   background: $primary-orange;
   border-radius: 50%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -22px;
+  background-color: $background;
 }
