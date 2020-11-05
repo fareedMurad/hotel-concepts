@@ -29,7 +29,7 @@
     overflow: unset;
   }
   @include desktop() {
-    max-height: auto;
+    max-height: 100%;
   }
 }
 

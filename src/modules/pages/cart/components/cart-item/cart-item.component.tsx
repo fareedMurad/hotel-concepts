@@ -11,12 +11,12 @@ import * as styles from './cart-item.scss';
  */
 const CartItem: React.FC<CartItemProps> = ({
   name,
-  author,
   quantity,
   price,
   imageSource,
   id,
-  isPreorder
+  isPreorder,
+  productType
 }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -26,7 +26,9 @@ const CartItem: React.FC<CartItemProps> = ({
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>
         <img src={imageSource} alt='image' />
-        {isPreorder && <div className={styles.banner}>PRE-ORDER</div>}
+        {isPreorder && productType === 'Book' && (
+          <div className={styles.banner}>PRE-ORDER</div>
+        )}
         <div
           className={styles.remove}
           onClick={() => dispatch(cart.remove(id))}
@@ -36,8 +38,8 @@ const CartItem: React.FC<CartItemProps> = ({
       </div>
       <div className={styles.cartItemInfo}>
         <div className={styles.cartItemInfoTitle}>{name}</div>
+        <div className={styles.descriptionType}>{productType}</div>
         <div className={styles.description}>
-          <div className={styles.descriptionAuthor}>{author}</div>
           <div className={styles.descriptionAmount}>
             {t('cart.cart-item.amount')}:
             <input
