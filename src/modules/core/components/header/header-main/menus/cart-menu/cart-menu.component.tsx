@@ -48,6 +48,7 @@ const CartMenu: React.FC<CartMenuProps> = () => {
         })}
       >
         <Icon
+          className={styles.icon}
           name={
             whiteHeader || stickyHeader || isVisible || showDropdown
               ? 'shopping-cart'
