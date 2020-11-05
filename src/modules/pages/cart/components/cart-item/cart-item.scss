@@ -39,10 +39,10 @@
   position: absolute;
   top: 20px;
   left: 0;
-  height: 41px;
   width: 143px;
+  height: 41px;
+  background: #f5f1f0;
   border-radius: 0 4px 4px 0;
-  background: #F5F1F0;
 }
 
 .description {
@@ -51,7 +51,7 @@
   height: 100%;
 
   &--author {
-    @include font($light-grey, 18px, 400, 28px);
+    @include font(#b1b8bd, 18px, 400, 28px);
     min-height: 16px;
   }
 
@@ -63,15 +63,15 @@
       @include flex($align: center, $justify: center);
       @include font($light-grey, 18px, 400, 28px);
       margin-left: 30px;
-      width: 80px;
-      height: 40px;
-      border: 1px solid $light-grey;
+      width: 92px;
+      height: 48px;
+      border: 1px solid #b1b8bd;
       text-align: center;
       -webkit-appearance: none;
       outline: none;
 
       &::placeholder {
-        color: $light-grey;
+        color: #b1b8bd;
       }
     }
   }
@@ -82,7 +82,7 @@
     & > span {
       margin-right: 20px;
       text-decoration: line-through;
-      color: $light-grey;
+      color: #b1b8bd;
     }
   }
 }

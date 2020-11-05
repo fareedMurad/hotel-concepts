@@ -834,6 +834,7 @@
     "precaption": "Items to be delivered electronically",
     "items": "items",
     "diviver-caption": "Accepted Payment Methods",
+    "hint": "*Proceed to checkout and you will have an oppurnity to create an account at the end",
     "cart-item": {
       "remove": "Remove",
       "amount": "Amount"

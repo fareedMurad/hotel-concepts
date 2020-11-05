@@ -717,7 +717,7 @@
       "title": "Additional materials"
     },
     "program-enroll-now": {
-      "title": "Enroll now",
+      "title": "Enroll Now",
       "button-text": "Enroll now",
       "button-text-contact": "Contact us",
       "sub-title": "Features"
@@ -834,6 +834,7 @@
     "precaption": "Items to be delivered electronically",
     "items": "items",
     "diviver-caption": "Accepted Payment Methods",
+    "hint": "*Proceed to checkout and you will have an oppurnity to create an account at the end",
     "cart-item": {
       "remove": "Remove",
       "amount": "Amount"
