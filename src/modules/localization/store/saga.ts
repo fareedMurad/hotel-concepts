@@ -25,7 +25,7 @@ class LocalizationSaga {
       }
 
       i18next.changeLanguage(language);
-      window.localStorage.setItem('language', language);
+      window.localStorage.setItem('language-kordie', language);
     } catch (e) {
       yield put(handleError(e.response.data.message));
     } finally {

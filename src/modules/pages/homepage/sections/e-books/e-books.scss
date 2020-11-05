@@ -1,18 +1,21 @@
 @import 'core.scss';
 
 .e-books {
-  padding: 60px 0px 36px 0px;
+  padding: 60px 0px 50px 0px;
   background-color: $background;
 }
 
 .title {
   padding-left: 22px;
-
-  &--subtitle {
-    @include font($primary-gray, 24px, 400, 34px);
-  }
   @include desktop() {
     padding-left: 134px;
+  }
+}
+
+.subtitle {
+  margin-top: 15px;
+  &--text {
+    @include font($primary-gray, 24px, 400, 34px);
   }
 }
 
@@ -21,40 +24,41 @@
   grid-template-columns: repeat(2, 1fr);
   padding: 22px;
   gap: 10px;
-  margin-top: 50px;
+  margin-top: 27px;
   @include tablet() {
     grid-template-columns: repeat(3, max-content);
   }
   @include desktop() {
     grid-template-columns: repeat(5, max-content);
   }
-
-  &--filter {
-    width: auto;
-    @include desktop() {
-      width: max-content;
-    }
-  }
 }
 
 .books-list {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  padding: 0 21px 42px 21px;
+  padding: 28px 22px 42px 22px;
   @include tablet() {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
   @include desktop() {
-    grid-template-columns: repeat(4, 1fr);
     padding-bottom: 0;
   }
 }
 
 .button {
-  width: 230px;
-  margin: 20px 0px 0 22px;
-  @include desktop() {
-    margin: 42px 0 0 127px;
+  &--explore {
+    width: 230px;
+    margin: 20px 0px 0px 22px;
+    padding: 12px 16px;
+    @include desktop() {
+      margin: 33px 0px 0px 127px;
+    }
+  }
+  &--filter {
+    width: auto;
+    @include desktop() {
+      width: max-content;
+    }
   }
 }

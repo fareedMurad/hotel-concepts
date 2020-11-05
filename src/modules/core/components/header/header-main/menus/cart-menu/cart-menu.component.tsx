@@ -1,16 +1,16 @@
 import { cart } from '@app/redux/cart';
 import { Icon } from '@core/components/icon';
 import { navigate } from '@router/store';
+import classNames from 'classnames';
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router';
 import { CartNotifier } from '../../components/cart-notifier';
 import { useHeaderMainData } from '../../hooks/header-main.hook';
 import { useCartMenuAnimation } from './cart-menu.animation';
 import { CartMenuProps } from './cart-menu.props';
 import * as styles from './cart-menu.scss';
-import { useState, useRef } from 'react';
-import { useClickOutside } from '@core/shared';
-import { useLocation } from 'react-router';
 
 /**
  * Renders CartMenu
@@ -29,9 +29,11 @@ const CartMenu: React.FC<CartMenuProps> = () => {
   const [isClicked, setisClicked] = useState(false);
   const location = useLocation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(cart.removeCurrent());
   }, [location]);
+
+  const isActive = showDropdown || isVisible;
 
   return (
     <div
@@ -40,17 +42,22 @@ const CartMenu: React.FC<CartMenuProps> = () => {
         !!product ? dispatch(cart.showDropdown()) : dispatch(navigate('/cart'));
       }}
     >
-      <Icon
-        className={styles.icon}
-        name={
-          whiteHeader || stickyHeader || isVisible || showDropdown
-            ? 'shopping-cart'
-            : 'shopping-cart-white'
-        }
-      />
-      {cartQuantity > 0 && (
-        <div className={styles.indicator}>{cartQuantity}</div>
-      )}
+      <div
+        className={classNames(styles.box, {
+          [styles.boxActive]: isActive
+        })}
+      >
+        <Icon
+          name={
+            whiteHeader || stickyHeader || isVisible || showDropdown
+              ? 'shopping-cart'
+              : 'shopping-cart-white'
+          }
+        />
+        {cartQuantity > 0 && (
+          <div className={styles.indicator}>{cartQuantity}</div>
+        )}
+      </div>
       {transition.map(
         ({ item, props, key }) =>
           item && (

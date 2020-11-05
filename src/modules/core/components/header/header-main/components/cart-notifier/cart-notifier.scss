@@ -2,10 +2,10 @@
 
 .cart-notifier {
   position: absolute;
-  top: -10px;
+  top: 100%;
   right: -134px;
   width: 300px;
-  padding-top: 55px;
+  margin-top: 22px;
   overflow: hidden;
 
   @include desktop() {
@@ -24,20 +24,20 @@
   background-color: $white;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  &:after {
-    content: '';
-    position: absolute;
-    border-radius: 8px;
-    z-index: -1;
-    top: -50px;
-    right: 125px;
-    width: 38px;
-    height: 63px;
-    background-color: $background;
-    @include desktop() {
-      right: 65px;
-    }
-  }
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   border-radius: 8px;
+  //   z-index: -1;
+  //   top: -50px;
+  //   right: 125px;
+  //   width: 38px;
+  //   height: 63px;
+  //   background-color: $background;
+  //   @include desktop() {
+  //     right: 65px;
+  //   }
+  // }
 }
 
 .description {

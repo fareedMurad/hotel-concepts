@@ -51,11 +51,11 @@ const Recommended: React.FC<RecommendedProps> = ({ data }) => {
               file: { url }
             },
             name,
-            pricing: { price }
+            pricing
           } = book;
 
           // Pass here localization value from state in future
-          const parsedPrice = parsePrice('en-US', price);
+          const parsedPrice = parsePrice('en-US', pricing?.price);
 
           return (
             <div className={styles.book} key={index}>
