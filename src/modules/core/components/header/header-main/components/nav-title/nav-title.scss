@@ -12,9 +12,15 @@
   &:hover {
     color: $primary-orange;
     border-color: $primary-orange;
+    .shape {
+      @include fill($primary-orange);
+    }
   }
 }
 
-.arrow {
+.shape {
+  transition: $transition;
   margin-left: 8px;
+  position: relative;
+  bottom: 1px;
 }

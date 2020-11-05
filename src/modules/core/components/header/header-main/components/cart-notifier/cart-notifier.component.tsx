@@ -1,64 +1,32 @@
 import { ContentType } from '@account/pages/library/models';
+import { State } from '@app/redux/state';
 import { Button } from '@core/components';
+import { useClickOutside } from '@core/shared';
 import { navigate } from '@router/store';
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { animated } from 'react-spring';
 import { useCartNotifierData } from './cart-notifier.hook';
 import * as styles from './cart-notifier.scss';
-
-/**
- * Render Cart notifier item
- */
-const CartNotifierItem: React.FC = () => {
-  const { addedProduct } = useCartNotifierData();
-  const {
-    product: { name, authors, price, __typename, courseImage, productImage }
-  } = addedProduct || {};
-  const isBook = __typename == ContentType.product;
-  const { url } = productImage?.file;
-  const programImage = courseImage?.file?.url;
-
-  return (
-    <div className={styles.item}>
-      <img className={styles.itemImage} src={isBook ? url : programImage} />
-      <div className={styles.description}>
-        <div className={styles.descriptionName}>{name}</div>
-        <div className={styles.descriptionAuthor}>
-          {authors?.map(author => (
-            <span key={author.id}>{author.name}</span>
-          ))}
-        </div>
-        <div className={styles.descriptionPrice}>${price}</div>
-      </div>
-    </div>
-  );
-};
+import { CartNotifierItem } from './components/cart-notifier-item';
+import { Dropdown } from './components/dropdown';
+import { Notification } from './components/notification';
+import { useRef } from 'react';
+import { cart } from '@app/redux/cart';
 
 /**
  * Renders CartNotifier
  */
 const CartNotifier: React.FC<any> = ({ transition }) => {
-  const { total } = useCartNotifierData();
-  const dispatch = useDispatch();
-
-  const navigateToCartPage = () => dispatch(navigate('/cart'));
+  const {
+    showDropdown,
+    addedProduct: { isVisible }
+  } = useSelector((state: State) => state.cart);
 
   return (
     <animated.div style={transition} className={styles.cartNotifier}>
-      <div className={styles.title}>Just added to your cart</div>
-      <CartNotifierItem />
-      <div className={styles.cartNotifierFooter}>
-        <div className={styles.cartNotifierTotal}>
-          <span>ORDER TOTAL: </span> <span>${total}</span>
-        </div>
-        <Button className={styles.submit} arrow onClick={navigateToCartPage}>
-          Checkout
-        </Button>
-        <div className={styles.hint} onClick={navigateToCartPage}>
-          View Shopping Cart for more options
-        </div>
-      </div>
+      {showDropdown && <Dropdown />}
+      {isVisible && <Notification />}
     </animated.div>
   );
 };

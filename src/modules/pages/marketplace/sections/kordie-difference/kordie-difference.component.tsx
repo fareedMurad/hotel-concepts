@@ -1,5 +1,5 @@
 import { State } from '@app/redux/state';
-import { Button, Slider } from '@core/components';
+import { Button, Slider, Spinner } from '@core/components';
 import { useMediaPoints } from '@core/shared';
 import { ContributorCard } from '@pages/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
@@ -39,7 +39,6 @@ const KordieDifference: React.FC = () => {
   const { language } = useSelector((state: State) => state.localization);
   const { contributors } = useContributorsData(language);
   const { tablet } = useMediaPoints();
-
   const handleOpenModalMobile = contributor => {
     dispatch(
       navigate(
@@ -48,7 +47,6 @@ const KordieDifference: React.FC = () => {
     );
     dispatch(showModal(Modals.contributor));
   };
-
   return (
     <div className={styles.kordieDifference}>
       <div className={styles.head}>
@@ -65,37 +63,41 @@ const KordieDifference: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className={styles.contributors}>
-        <Slider
-          className={styles.slider}
-          responsive={responsive}
-          controls
-          controlsClassname={styles.sliderControls}
-          controlClassname={styles.sliderControl}
-        >
-          {contributors?.map((contributor, index) => (
-            <ContributorCard
-              // className={styles.contributor}
-              contributor={contributor}
-              onClick={() => {
-                if (tablet) {
-                  dispatch(showModal(Modals.contributor));
-                  dispatch(toogleContributorModal(true));
-                }
-                handleOpenModalMobile(contributor);
-              }}
-              key={index}
-            />
-          ))}
-        </Slider>
-        <Button
-          className={styles.seeAll}
-          arrow
-          onClick={() => dispatch(navigate('/contributors'))}
-        >
-          See All Contributors
-        </Button>
-      </div>
+      {contributors ? (
+        <div className={styles.contributors}>
+          <Slider
+            className={styles.slider}
+            responsive={responsive}
+            controls
+            controlsClassname={styles.sliderControls}
+            controlClassname={styles.sliderControl}
+          >
+            {contributors?.map((contributor, index) => (
+              <ContributorCard
+                // className={styles.contributor}
+                contributor={contributor}
+                onClick={() => {
+                  if (tablet) {
+                    dispatch(showModal(Modals.contributor));
+                    dispatch(toogleContributorModal(true));
+                  }
+                  handleOpenModalMobile(contributor);
+                }}
+                key={index}
+              />
+            ))}
+          </Slider>
+          <Button
+            className={styles.seeAll}
+            arrow
+            onClick={() => dispatch(navigate('/contributors'))}
+          >
+            See All Contributors
+          </Button>
+        </div>
+      ) : (
+        <Spinner />
+      )}
       <div className={styles.descriptions}>
         <div className={styles.topics}>
           <div className={styles.topicsCaption}>Timely topics</div>

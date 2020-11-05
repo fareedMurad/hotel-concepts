@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { VacancyProps } from './vacancy.props';
 import * as styles from './vacancy.scss';
-import { Button } from '@core/components';
+import { Button, Icon } from '@core/components';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +18,7 @@ const Vacancy: React.FC<VacancyProps> = ({ id, title, description }) => {
       </div>
       <NavLink to={`/jobs/job-details/${id}`} className={styles.details}>
         <div>{t('jobs-list.vacancy.button-text')}</div>
-        <div>&#8594;</div>
+        <Icon name='arrows/arrow-right-b' className={styles.arrow}/>
       </NavLink>
     </div>
   );

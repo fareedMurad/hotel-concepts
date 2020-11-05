@@ -46,6 +46,9 @@
 .button {
   @include flex($justify: space-between);
   width: 224px;
+  & > div:first-child {
+    align-items: center;
+  }
 }
 
 .btn-container {
@@ -73,6 +76,9 @@
   height: 2px;
   background-color: $hr;
   margin-top: 24px;
+  @include tablet(){
+    margin-top: 27.5px;
+  }
 }
 
 .info-block {

@@ -13,7 +13,7 @@ import * as styles from './feedback.scss';
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 1,
+    items: 2,
     slidesToSlide: 1
   },
   tablet: {

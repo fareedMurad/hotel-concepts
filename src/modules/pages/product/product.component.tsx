@@ -75,7 +75,9 @@ const Product: React.FC<ProductProps> = ({}) => {
 
       <div className={styles.header} />
       <div onClick={() => history.goBack()} className={styles.back}>
-        <div>&#8592;</div>
+        <div>
+          <Icon name='arrow-left' />
+        </div>
         <div>{t('product.back')}</div>
       </div>
       <div className={styles.productReview}>

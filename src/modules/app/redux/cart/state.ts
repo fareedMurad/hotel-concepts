@@ -13,6 +13,7 @@ class CartState {
   /**
    * List of products
    */
+  // check types
   public products: (Program | Book)[] = [];
   /**
    * Added product (any should be Program | Book)
@@ -25,6 +26,10 @@ class CartState {
    * is product in cart
    */
   public isProductInCart: boolean = false;
+  /*
+   * show dropdown
+   */
+  public showDropdown: boolean = false;
 }
 
 export { CartState };

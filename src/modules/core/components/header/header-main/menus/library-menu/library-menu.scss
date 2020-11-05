@@ -40,6 +40,7 @@
 .links {
   @include flex();
   margin-top: 30px;
+  margin-bottom: 10px;
 
   &--link {
     width: 275px;
@@ -48,4 +49,10 @@
       margin-right: 28px;
     }
   }
+}
+
+.arrow {
+  position: relative;
+  left: 12px;
+  bottom: 2px;
 }

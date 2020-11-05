@@ -24,6 +24,11 @@
   }
 }
 
+.arrow {
+  position: relative;
+  bottom: 1px;
+}
+
 .section {
   flex: 1;
   &--price {
@@ -38,6 +43,7 @@
   @include desktop() {
     height: calc(100vh - 100px);
     min-height: 600px;
+    max-height: 700px;
 
     flex-direction: row;
     margin-left: 20px;
@@ -204,6 +210,7 @@
 
 .description {
   @include font($primary-gray, 16px, 400, normal);
+  margin-top: 12px;
 
   @include tablet() {
     font-size: 18px;

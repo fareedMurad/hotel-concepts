@@ -1,0 +1,33 @@
+@import 'core.scss';
+
+.item {
+  @include flex();
+  background-color: $white;
+  padding: 27px 33px 12px 33px;
+
+  &--image {
+    display: none;
+    width: 150px;
+    height: 209px;
+    margin-right: 16px;
+    object-fit: cover;
+    @include desktop() {
+      display: block;
+    }
+  }
+}
+
+.description {
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+
+  &--name {
+    @include font($primary-gray, 24px, 400, 34px);
+  }
+
+  &--price {
+    @include font($primary-gray, 28px, 400, normal);
+
+    font-family: $EBGaramond;
+  }
+}

@@ -4,6 +4,7 @@ import * as styles from './burger-item.scss';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
 import classNames from 'classnames';
+import { Icon } from '@core/components';
 
 /**
  * Menu item
@@ -23,7 +24,9 @@ const MenuItem: React.FC<{
       >
         {link}
       </div>
-      {highlighted && <span className={styles.arrow}>→</span>}
+      {highlighted && (
+        <Icon name='arrows/arrow-right-primary' className={styles.arrow} />
+      )}
     </div>
   );
 };

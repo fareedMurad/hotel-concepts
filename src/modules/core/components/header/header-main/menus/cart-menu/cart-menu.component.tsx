@@ -8,6 +8,9 @@ import { useHeaderMainData } from '../../hooks/header-main.hook';
 import { useCartMenuAnimation } from './cart-menu.animation';
 import { CartMenuProps } from './cart-menu.props';
 import * as styles from './cart-menu.scss';
+import { useState, useRef } from 'react';
+import { useClickOutside } from '@core/shared';
+import { useLocation } from 'react-router';
 
 /**
  * Renders CartMenu
@@ -17,23 +20,30 @@ const CartMenu: React.FC<CartMenuProps> = () => {
     cartQuantity,
     whiteHeader,
     stickyHeader,
-    addedProduct: { isVisible }
+    addedProduct: { isVisible, product },
+    showDropdown,
+    selectedProducts
   } = useHeaderMainData();
-  const { transition } = useCartMenuAnimation(isVisible);
+  const { transition } = useCartMenuAnimation(isVisible || showDropdown);
   const dispatch = useDispatch();
+  const [isClicked, setisClicked] = useState(false);
+  const location = useLocation();
+
+  React.useEffect(() => {
+    dispatch(cart.removeCurrent());
+  }, [location]);
 
   return (
     <div
       className={styles.cart}
-      onClick={() =>
-        cartQuantity &&
-        dispatch(isVisible ? cart.removeCurrent() : cart.showNotifier())
-      }
+      onClick={() => {
+        !!product ? dispatch(cart.showDropdown()) : dispatch(navigate('/cart'));
+      }}
     >
       <Icon
         className={styles.icon}
         name={
-          whiteHeader || stickyHeader || isVisible
+          whiteHeader || stickyHeader || isVisible || showDropdown
             ? 'shopping-cart'
             : 'shopping-cart-white'
         }
@@ -43,7 +53,9 @@ const CartMenu: React.FC<CartMenuProps> = () => {
       )}
       {transition.map(
         ({ item, props, key }) =>
-          item && <CartNotifier transition={props} key={key} />
+          item && (
+            <CartNotifier transition={props} key={key} isClicked={isClicked} />
+          )
       )}
     </div>
   );

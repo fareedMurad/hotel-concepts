@@ -12,6 +12,7 @@ import * as styles from './explore-page-modal.scss';
 const ExplorePageModal: React.FC = () => {
   const dispatch = useDispatch();
   const { readBookUrl } = useSelector((state: State) => state.ui.modal);
+
   return (
     <Modal className={styles.modal} id={Modals.explorePage} withOverlay>
       <div className={styles.header}>
@@ -23,7 +24,9 @@ const ExplorePageModal: React.FC = () => {
           X
         </div>
       </div>
-      <img className={styles.img} src={readBookUrl} />
+      <div className={styles.preview}>
+        <img className={styles.img} src={readBookUrl} />
+      </div>
     </Modal>
   );
 };
