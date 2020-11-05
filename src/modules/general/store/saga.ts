@@ -16,7 +16,7 @@ class GeneralSaga {
   public *startup() {
     yield spawn(this.run);
     const cookieBanner = localStorage.getItem('kordieCookieBanner');
-    const language = window.localStorage.getItem('language');
+    const language = window.localStorage.getItem('language-kordie');
 
     yield put(setupLocalization(language || Language.en));
 

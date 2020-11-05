@@ -8,3 +8,4 @@ export * from './quote';
 export * from './socials';
 export * from './support-info';
 export * from './training-info';
+export * from './unlimited-access-books';
