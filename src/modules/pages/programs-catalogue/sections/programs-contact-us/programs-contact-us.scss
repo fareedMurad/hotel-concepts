@@ -69,8 +69,9 @@
   padding: 0 10px;
   border: none;
   border-radius: 6px;
+  background-color: $white;
   &:focus {
-    border: 1px solid $light-grey;
+    border: 1px solid $primary-orange;
     outline: none;
   }
 }

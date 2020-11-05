@@ -19,7 +19,7 @@ const useProgramsData = () => {
   const fetchPrograms = item => {
     const params = {
       category: item.category.id,
-      limit: 6,
+      limit: 3,
       skip: 0,
       locale: language,
       subfilters: OnlineCourseSubfilter.all

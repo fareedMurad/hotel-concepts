@@ -25,8 +25,7 @@ const Dropdown: React.FC = () => {
   const navigateToCartPage = () => dispatch(navigate('/cart'));
   return (
     <div ref={ref}>
-      <div className={styles.title}>Just added to your cart</div>
-      <CartNotifierItem />
+      <CartNotifierItem className={styles.item} />
       <div className={styles.dropdownFooter}>
         <div className={styles.dropdownTotal}>
           <span>ORDER TOTAL: </span> <span>${total}</span>

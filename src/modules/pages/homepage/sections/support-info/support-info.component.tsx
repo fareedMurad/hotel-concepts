@@ -16,7 +16,9 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
     <section className={styles.supportInfo}>
       <div className={styles.titleWrapper}>
         <div className={styles.title}>
-          <SectionTitle>{t('home.support-info.title')}</SectionTitle>
+          <SectionTitle className={styles.caption}>
+            {t('home.support-info.title')}
+          </SectionTitle>
           <Hr className={styles.hr} />
           <div className={styles.subtitle}>
             {t('home.support-info.sub-title')}

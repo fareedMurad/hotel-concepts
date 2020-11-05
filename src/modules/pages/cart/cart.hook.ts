@@ -46,16 +46,19 @@ const useCartData = () => {
 
     let author = '';
     let imageSource = '';
+    let productType = '';
 
     switch (__typename) {
       case ContentType.product: {
         author = itemCopy?.authors?.map(author => author.name).join(' ');
         imageSource = itemCopy?.productImage?.file?.url;
+        productType = 'Book';
         break;
       }
       case ContentType.onlineCourse: {
         author = ' ';
         imageSource = itemCopy?.courseImage?.file?.url;
+        productType = 'Program';
         break;
       }
     }
@@ -67,6 +70,7 @@ const useCartData = () => {
       author,
       quantity,
       isPreorder,
+      productType,
       imageSource
     };
   });

@@ -3,6 +3,8 @@ import { Button } from '@core/components';
 import { Icon } from '@core/components/icon';
 import { useClickOutside } from '@core/shared';
 import { navigate } from '@router/store';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useRef, useState } from 'react';
@@ -68,10 +70,9 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
               className={styles.link}
               key={title}
               to={to}
-              onClick={
-                () => {}
-                // !authorized && dispatch(showModal(Modals.registration))
-              }
+              onClick={() => {
+                !authorized && dispatch(showModal(Modals.registration));
+              }}
             >
               {title}
             </NavLink>

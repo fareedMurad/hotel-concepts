@@ -73,7 +73,7 @@ const Summary: React.FC<SummaryProps> = ({ className, summaryData }) => {
             onClick={showInvoiceModal}
             theme='secondary'
           >
-            Checkout as a guest
+            Request invoice
           </Button>
         )}
       </div>

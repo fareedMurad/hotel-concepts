@@ -37,7 +37,7 @@ class ProgramsSaga {
 
       const params = {
         skip: 0,
-        limit: 6,
+        limit: 3,
         category: id,
         locale: language,
         subfilters: OnlineCourseSubfilter.all
