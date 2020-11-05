@@ -30,7 +30,7 @@
       "sub-title": "Contextualised and personalised hospitality learning at your fingertips.",
       "no-corses-caprion": "We haven't added courses to this category yet. Please come back later!",
       "footer-title": "Can’t you find course for you in this category?",
-      "button-text": "See more corses"
+      "button-text": "Explore all Focused programs"
     },
     "about": {
       "pre-caption": "Online Learning",
@@ -52,10 +52,10 @@
     "e-books": {
       "title": "New E-books for you",
       "subtitle": "Short text about e-books",
-      "button-text": "Explore library"
+      "button-text": "Explore the library"
     },
     "unlimited-access": {
-      "caprion": "E-books for you",
+      "caption": "E-books for you",
       "title": "Get unlimited access ebooks",
       "description": "Our Open Access research subscription puts the world’s most comprehensive library of hospitality research and data visualisation at your fingertips.",
       "subtitle": "Subscription benefits:",
@@ -79,7 +79,7 @@
         "highlighted": "If it matters in our world we cover it - and cover it well."
       },
       "card-five": {
-        "title": "Individual subscription"
+        "title": "Individual Subscription"
       },
       "card-six": {
         "title": "Corporate Subscription"

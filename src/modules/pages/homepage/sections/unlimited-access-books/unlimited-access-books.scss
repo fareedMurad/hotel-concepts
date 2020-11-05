@@ -1,0 +1,96 @@
+@import 'core.scss';
+
+.unlimited-access-books {
+  padding: 50px 22px;
+  @include tablet() {
+    padding: 124px 22px 0px 22px;
+  }
+  @include desktop() {
+    padding: 124px 22px 0px 134px;
+  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 142px;
+  @media screen and (max-width: 1000px) {
+    display: block;
+    grid-template-columns: initial;
+  }
+}
+
+.header {
+  &--caption {
+    @include font($primary-orange, 18px, 500);
+  }
+  &--title {
+    @include font($primary-gray, 48px, 600);
+    font-family: $EBGaramond;
+    margin-top: 12px;
+  }
+  &--description {
+    @include font($primary-gray, 18px, 400, 28px);
+    margin-top: 21px;
+    @include tablet() {
+      width: 400px;
+    }
+  }
+}
+
+.content {
+  &--title {
+    @include font($primary-gray, 28px, 400);
+    font-family: $EBGaramond;
+    margin-top: 41px;
+  }
+}
+
+.list {
+  display: grid;
+  gap: 41px;
+  margin-top: 35px;
+}
+
+.item {
+  @include flex($align: center);
+  &--caption {
+    @include font($primary-gray, 18px, 400);
+    margin-left: 12px;
+  }
+  &--icon {
+    @include size(6px);
+    background: $primary-orange;
+  }
+}
+
+.navigation {
+  display: grid;
+  column-gap: 32px;
+  margin-top: 36px;
+  @include tablet() {
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+
+.link {
+  @include font($primary-orange, 18px, 500);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.aside {
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+.image {
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  margin-left: auto;
+  @include tablet() {
+    @include size(100%);
+  }
+  @include desktop() {
+    width: 540px;
+    height: 595px;
+  }
+}

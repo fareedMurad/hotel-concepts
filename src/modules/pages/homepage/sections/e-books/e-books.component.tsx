@@ -18,13 +18,19 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
     <div className={styles.eBooks}>
       <div className={styles.title}>
         <SectionTitle>{t('home.e-books.title')}</SectionTitle>
-        <div className={styles.titleSubtitle}>{t('home.e-books.subtitle')}</div>
-        <div className={styles.titleSubtitle}>{t('home.e-books.subtitle')}</div>
+        <div className={styles.subtitle}>
+          <div className={styles.subtitleText}>
+            {t('home.e-books.subtitle')}
+          </div>
+          <div className={styles.subtitleText}>
+            {t('home.e-books.subtitle')}
+          </div>
+        </div>
       </div>
       <div className={styles.filters}>
         {filters.map(filter => (
           <ButtonFilter
-            className={styles.filtersFilter}
+            className={styles.buttonFilter}
             key={filter}
             title={filter}
             onClick={() => {}}
@@ -36,7 +42,7 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
           <BookItem key={book.title} book={book} />
         ))}
       </div>
-      <Button className={styles.button} arrow>
+      <Button className={styles.buttonExplore} arrow>
         {t('home.e-books.button-text')}
       </Button>
     </div>

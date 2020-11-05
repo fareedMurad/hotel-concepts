@@ -5,7 +5,8 @@ import {
   ButtonFilter,
   Button,
   SectionTitle,
-  Preloader
+  Preloader,
+  Icon
 } from '@core/components';
 import { CourseItem } from '@pages/homepage/components/course-item';
 import { navigate } from '@router/store';
@@ -15,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
 
 import { Preloaders } from '@ui/models';
+import { Link } from 'react-router-dom';
 
 /**
  * Renders OnlineCourses
@@ -67,6 +69,12 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
               ))}
             </div>
           </div>
+          <Link to='/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'>
+            <Button className={styles.buttonExplore}>
+              <div>{t('home.online-courses.button-text')}</div>
+              <Icon name='arrows/arrow-right-b' />
+            </Button>
+          </Link>
         </Preloader>
       </div>
     </section>
