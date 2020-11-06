@@ -109,7 +109,6 @@ class ProgramsSaga {
 
     try {
       const response = yield call(api.programs.getSingleProgram, payload);
-      console.log(response);
       yield put(getSingleProgram.success(response.data));
     } catch (err) {
       console.log(err);
