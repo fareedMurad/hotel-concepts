@@ -25,8 +25,9 @@
   max-height: 80vh;
   overflow: auto;
   @include tablet() {
+    max-height: unset;
     height: auto;
-    overflow: unset;
+    overflow: auto;
   }
   @include desktop() {
     max-height: 100%;
