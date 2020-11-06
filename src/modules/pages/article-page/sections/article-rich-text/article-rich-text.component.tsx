@@ -56,7 +56,6 @@ const ArticleRichText: React.FC<ArticleRichTextProps> = ({}) => {
       ),
       [BLOCKS.QUOTE]: (node, children) => <blockquote>"{children}"</blockquote>,
       [BLOCKS.EMBEDDED_ASSET]: node => {
-        console.log(node);
         return (
           <img
             src={firstRichTextData?.links?.assets?.block[0]?.url}

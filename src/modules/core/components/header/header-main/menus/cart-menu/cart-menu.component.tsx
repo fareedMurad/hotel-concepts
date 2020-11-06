@@ -39,6 +39,10 @@ const CartMenu: React.FC<CartMenuProps> = () => {
     <div
       className={styles.cart}
       onClick={() => {
+        // when we show notifier we disable cart click
+        if (isVisible) {
+          return;
+        }
         !!product ? dispatch(cart.showDropdown()) : dispatch(navigate('/cart'));
       }}
     >

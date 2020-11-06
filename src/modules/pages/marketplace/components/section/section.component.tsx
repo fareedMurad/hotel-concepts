@@ -72,8 +72,6 @@ const Section: React.FC<SectionProps> = ({
     return 1;
   };
 
-  console.log(data.length, responsiveLimit());
-
   const [limit, setLimit] = useState(responsiveLimit());
   const showMore = data?.length > limit;
 
