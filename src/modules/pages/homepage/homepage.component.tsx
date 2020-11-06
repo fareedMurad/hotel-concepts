@@ -51,7 +51,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         />
         <Mentors contributors={contributors} loading={loading} url='mentor' />
         <FaqBlock showTitle />
-        <InsightsBlock />
+        {/* <InsightsBlock /> */}
         <Socials />
         {/* <Footer /> */}
       </div>
