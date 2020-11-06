@@ -1,3 +1,4 @@
+import { handleNotifierCart } from '@app/redux/cart';
 import { Icon } from '@core/components';
 import { changeLanguage } from '@localization/store';
 import classNames from 'classnames';
@@ -12,9 +13,14 @@ import * as styles from './localization-menu.scss';
  * Renders LocalizationMenu
  */
 const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
-  const { languages, selectedLanguage } = useLocalizationData();
+  const { languages, selectedLanguage, showDropdown } = useLocalizationData();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+
+  const hideCartOnHover = () => {
+    showDropdown && dispatch(handleNotifierCart.hideModal());
+    setShowMenu(true);
+  };
 
   return (
     <div
@@ -23,7 +29,7 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
         [styles.black]: theme === 'black',
         [styles.secondary]: theme === 'secondary'
       })}
-      onMouseEnter={() => setShowMenu(true)}
+      onMouseEnter={() => hideCartOnHover()}
       onMouseLeave={() => setShowMenu(false)}
     >
       {selectedLanguage.name}{' '}

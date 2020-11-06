@@ -9,7 +9,7 @@ import { CardDropdown, LinkDropdown, NavTitle } from '../../components';
  */
 const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
   const [showMenu, setShowMenu] = useState(false);
-
+  
   return (
     <div
       className={styles.corporateMenu}
