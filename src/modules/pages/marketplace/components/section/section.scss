@@ -82,6 +82,12 @@
   background: #f5f1f0;
   border-radius: 6px;
   cursor: pointer;
+  transition: $transition;
+  &:hover {
+    .name {
+      text-decoration: underline;
+    }
+  }
 }
 
 .like {

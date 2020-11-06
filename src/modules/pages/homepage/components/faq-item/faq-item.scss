@@ -3,6 +3,12 @@
 .faq-item {
   border-bottom: 2px solid #cbd0d3;
   width: 100%;
+
+  &:hover {
+    .indicator {
+      background-color: #0000001c;
+    }
+  }
 }
 
 .name {
@@ -23,7 +29,9 @@
   border-radius: 50%;
   margin-right: 16px;
   min-width: 34px;
-  &::after {
+  transition: $transition;
+
+  &:after {
     @include flex($align: center, $justify: center);
     content: '+';
     padding-top: 5px;

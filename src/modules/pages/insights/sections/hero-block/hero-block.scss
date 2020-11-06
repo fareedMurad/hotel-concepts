@@ -125,6 +125,7 @@
   @include size(100%);
   min-height: 270px;
   margin-bottom: 10px;
+  transition: $transition;
   @include tablet() {
     margin-bottom: 0px;
   }
@@ -159,6 +160,19 @@
     border-radius: 4px;
     @include tablet() {
       @include font($primary-gray, 16px, 400, 22px);
+    }
+  }
+  &:hover {
+    &__captions {
+      text-decoration: underline;
+    }
+  }
+}
+
+.secondary-card {
+  &:hover {
+    .titles {
+      text-decoration: underline;
     }
   }
 }
