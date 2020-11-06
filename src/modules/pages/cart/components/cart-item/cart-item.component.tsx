@@ -1,4 +1,4 @@
-import { cart } from '@app/redux/cart';
+import { removeProductFromCart, updateProductCart } from '@app/redux/cart';
 import * as React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -31,7 +31,7 @@ const CartItem: React.FC<CartItemProps> = ({
         )}
         <div
           className={styles.remove}
-          onClick={() => dispatch(cart.remove(id))}
+          onClick={() => dispatch(removeProductFromCart(id))}
         >
           {t('cart.cart-item.remove')}
         </div>
@@ -51,7 +51,10 @@ const CartItem: React.FC<CartItemProps> = ({
 
                 setValue(filteredValue);
                 dispatch(
-                  cart.update({ path: id, quantity: Number(filteredValue) })
+                  updateProductCart({
+                    path: id,
+                    quantity: Number(filteredValue)
+                  })
                 );
               }}
               type='text'

@@ -1,4 +1,4 @@
-import { cart } from '@app/redux/cart';
+import { handleNotifierCart } from '@app/redux/cart';
 import { Button } from '@core/components/button';
 import { navigate } from '@router/store';
 import * as React from 'react';
@@ -14,7 +14,7 @@ const Notification: React.FC<NotificationProps> = ({}) => {
   const dispatch = useDispatch();
   const navigateToCartPage = () => {
     //close the notifier
-    dispatch(cart.showDropdown());
+    dispatch(handleNotifierCart.defaultClick());
     dispatch(navigate('/cart'));
   };
 

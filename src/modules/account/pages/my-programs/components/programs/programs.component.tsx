@@ -2,7 +2,7 @@ import {
   addProgramToWishlist,
   removeProgramFromWishlist
 } from '@app/redux/account';
-import { cart } from '@app/redux/cart';
+import { addProductToCart } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { Button, Icon } from '@core/components';
 import { navigate } from '@router/store';
@@ -74,7 +74,7 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
                 arrow
                 onClick={e => {
                   e.stopPropagation();
-                  dispatch(cart.add({ path: id, quantity: 1 }));
+                  dispatch(addProductToCart({ path: id, quantity: 1 }));
                 }}
               >
                 Add to cart
