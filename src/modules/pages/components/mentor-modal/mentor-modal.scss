@@ -82,7 +82,7 @@
 
 .modal {
   width: 100%;
-
+  position: relative;
   @include tablet() {
     position: absolute;
     width: 80vw;
@@ -159,9 +159,9 @@
     top: 15px;
     right: 15px;
     @include tablet() {
-      display: block;
-      top: 0;
-      right: -40px;
+      z-index: 999999;
+      top: 15px;
+      right: 15px;
     }
   }
 }
