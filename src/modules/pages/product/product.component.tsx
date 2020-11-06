@@ -14,8 +14,6 @@ import { useClickOutside } from '@core/shared';
 import { SEO } from '@core/components/seo/seo.component';
 import { ShareSocial } from '@core/components/share';
 import { ProductDescription } from './sections/product-description';
-
-import { Enroll, ProgramResults } from '@pages/program-page/sections';
 import { Brochure } from '@pages/for-companies/sections';
 import { MaterialsIncluded } from './sections/materials-included';
 import { ExplorePages } from './sections/explore-pages';

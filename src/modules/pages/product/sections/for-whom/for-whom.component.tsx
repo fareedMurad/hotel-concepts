@@ -3,7 +3,6 @@ import { ForWhomProps } from './for-whom.props';
 import * as styles from './for-whom.scss';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
-import { useEnrollData } from '@pages/program-page/sections/enroll/enroll.hook';
 import { Spinner } from '@core/components';
 import { title } from 'process';
 import { gql, useQuery } from '@apollo/client';
