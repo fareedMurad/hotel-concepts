@@ -172,6 +172,9 @@ class AuthSaga {
       const response = yield call(api.auth.newConfirmationEmailSend, payload);
 
       yield put(
+        navigate(`/auth/email-verification/pending/?email=${payload.newEmail}`)
+      );
+      yield put(
         toggleToast({
           status: 'success',
           description: 'Please check your new email'
@@ -213,7 +216,7 @@ class AuthSaga {
   @Saga(verifyEmail)
   public *verifyEmail(payload: Payload<typeof verifyEmail>, { api }: Context) {
     yield put(preloaderStart(Preloaders.emailVerification));
-
+    const isAuthorized = localStorage.getItem('isAuthorized') == 'true';
     try {
       const { token, isNewEmail } = payload;
 
@@ -223,7 +226,9 @@ class AuthSaga {
       localStorage.setItem('isAuthorized', 'true');
       yield put(getUser());
     } catch (error) {
-      yield put(handleError(error.response.data.message));
+      if (isAuthorized) {
+        yield put(handleError(error.response.data.message));
+      }
     } finally {
       yield put(preloaderStop(Preloaders.emailVerification));
     }

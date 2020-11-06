@@ -17,7 +17,7 @@ const PasswordChangedModal: React.FC<PasswordChangedModalProps> = ({}) => {
       <div className={styles.content}>
         <Icon
           className={styles.close}
-          name='close-modal'
+          name='closeoutline'
           onClick={() => dispatch(closeModal(Modals.passwordChanged))}
         />
         <div className={styles.title}>Your password has been changed</div>
