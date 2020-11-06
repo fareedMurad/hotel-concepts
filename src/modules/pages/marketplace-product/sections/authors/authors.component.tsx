@@ -42,7 +42,7 @@ const Authors: React.FC<AuthorsProps> = ({ data }) => {
       <Slider
         className={styles.slider}
         controls
-        controlsTheme='secondary'
+        controlsTheme='tertiary'
         controlsClassname={styles.controls}
         controlClassname={styles.control}
         responsive={responsive}

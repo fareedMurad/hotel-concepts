@@ -13,6 +13,10 @@
   margin-right: 24px;
   min-width: 34px;
   margin-top: 16px;
+  transition: $transition;
+  &:hover {
+    background-color: #0000001c;
+  }
   &::after {
     display: flex;
     align-items: center;
@@ -76,7 +80,7 @@
   height: 2px;
   background-color: $hr;
   margin-top: 24px;
-  @include tablet(){
+  @include tablet() {
     margin-top: 27.5px;
   }
 }

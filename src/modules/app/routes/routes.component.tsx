@@ -126,7 +126,7 @@ const Routes: React.FC = () => {
       <StickyContainer>
         <div className={styles.routes}>
           {isToastVisible && <Toast />}
-          {!authorized && <RegistrationModal />}
+          <RegistrationModal />
           <div className={styles.header}>
             <HeaderMobile />
             <HeaderSecondary />
