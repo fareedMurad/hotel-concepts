@@ -223,9 +223,8 @@ class CartSaga {
   ) {
     yield put(preloaderStart(Preloaders.sendForm));
     try {
-      // yield call(api.checkout.sendInvoiceRequest, payload);
+      yield call(api.checkout.sendInvoiceRequest, payload);
 
-      yield delay(2000);
       yield put(closeModal(Modals.invoiceRequest));
       yield put(showModal(Modals.success));
     } catch (error) {

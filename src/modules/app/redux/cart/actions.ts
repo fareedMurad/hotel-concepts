@@ -2,7 +2,6 @@ import { Book } from '@account/pages/library/models';
 import { Program } from '@account/pages/my-programs/models';
 import { Product } from '@app/models/fastspring';
 import { InvoiceValues } from '@pages/cart/components/modal-invoice-request/models/invoice';
-import { ProductModel } from '@pages/product/models/product.model';
 import { make } from 'redux-chill';
 
 /**

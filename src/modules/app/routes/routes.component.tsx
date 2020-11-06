@@ -92,11 +92,7 @@ const Marketplace = lazy(() =>
     default: Marketplace
   }))
 );
-const Product = lazy(() =>
-  import('src/modules/pages').then(({ Product }) => ({
-    default: Product
-  }))
-);
+
 const CoursePartnership = lazy(() =>
   import('src/modules/pages').then(({ CoursePartnership }) => ({
     default: CoursePartnership
@@ -189,10 +185,7 @@ const Routes: React.FC = () => {
               <Route path='/for-companies' component={ForCompanies} />
               <Route path='/marketplace/:id' component={MarketplaceProduct} />
               <Route path='/marketplace' component={Marketplace} />
-              <Route
-                path='/category/:categorySlug/product/:id'
-                component={Product}
-              />
+
               <Route path='/course-partnership' component={CoursePartnership} />
               <Route exact={mobile} path='/' component={Homepage} />
               <Route path='*' component={NotFound} />

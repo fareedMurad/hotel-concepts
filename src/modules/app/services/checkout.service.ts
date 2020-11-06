@@ -34,7 +34,7 @@ class CheckoutService {
   public sendInvoiceRequest = (data: InvoiceValues) =>
     this.http.request({
       method: 'POST',
-      url: '/',
+      url: '/invoice',
       data
     });
 }
