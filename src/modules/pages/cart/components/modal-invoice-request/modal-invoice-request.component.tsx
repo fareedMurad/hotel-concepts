@@ -26,7 +26,7 @@ const defaultValues: InvoiceValues = {
   name: '',
   email: '',
   country: '',
-  number: ''
+  phone: ''
 };
 
 /**
@@ -74,7 +74,7 @@ const ModalInvoiceRequest: React.FC<ModalInvoiceRequestProps> = ({ total }) => {
               <Field.Text
                 className={styles.formField}
                 theme='secondary'
-                name='number'
+                name='phone'
                 label='Phone number'
                 type='phone'
               />

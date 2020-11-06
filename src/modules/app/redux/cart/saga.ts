@@ -1,3 +1,4 @@
+import { invoiceRequestModel } from '@app/models';
 import { LocalStorageKeys } from '@app/models/enum';
 import { Product } from '@app/models/fastspring';
 import { handleError } from '@general/store';
@@ -7,6 +8,7 @@ import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
 import { call, delay, put, select } from 'redux-saga/effects';
+import { string } from 'yup';
 import { Context } from '../context';
 import { State } from '../state';
 import {
@@ -222,8 +224,18 @@ class CartSaga {
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.sendForm));
+
+    const productsIds = yield select((state: State) =>
+      state.cart.products.map(el => el.id)
+    );
+
+    const data: invoiceRequestModel = {
+      ...payload,
+      products: productsIds,
+      total: Number(productsIds.length)
+    };
     try {
-      yield call(api.checkout.sendInvoiceRequest, payload);
+      yield call(api.checkout.sendInvoiceRequest, data);
 
       yield put(closeModal(Modals.invoiceRequest));
       yield put(showModal(Modals.success));
