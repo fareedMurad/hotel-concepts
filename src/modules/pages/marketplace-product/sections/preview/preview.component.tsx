@@ -83,7 +83,7 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
           </div>
         </div>
         <div className={styles.info}>
-          <div className={styles.section}>
+          <div>
             {authorized && (
               <Icon
                 className={styles.like}
@@ -125,15 +125,15 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
                 </span>
               </div>
             </div>
-            <div className={styles.highlights}>
-              {highlightsText?.map((highlight, index) => (
-                <div className={styles.highlight} key={index}>
-                  {highlight}
-                </div>
-              ))}
-            </div>
           </div>
-          <div className={classNames(styles.section, styles.sectionPrice)}>
+          <div className={styles.highlights}>
+            {highlightsText?.map((highlight, index) => (
+              <div className={styles.highlight} key={index}>
+                {highlight}
+              </div>
+            ))}
+          </div>
+          <div>
             <div className={styles.price}>${price}</div>
             <div className={styles.controls}>
               <Button

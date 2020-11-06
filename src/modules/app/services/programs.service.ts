@@ -93,7 +93,7 @@ class ProgramsService {
   public sendForm = data =>
     this.http.request({
       method: 'POST',
-      url: '/send',
+      url: '/enterprise',
       data: data
     });
 }

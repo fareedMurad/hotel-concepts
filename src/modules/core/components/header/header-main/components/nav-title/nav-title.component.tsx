@@ -17,7 +17,6 @@ const NavTitle: React.FC<NavTitleProps> = ({ className, title }) => {
   const hideCartOnHover = () => {
     showDropdown && dispatch(handleNotifierCart.hideModal());
   };
-  console.log(showDropdown);
   return (
     <div
       className={classNames(className, styles.navTitle)}
