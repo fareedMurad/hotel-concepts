@@ -3,7 +3,10 @@ import { State } from '@app/redux/state';
 import { useSelector } from 'react-redux';
 
 const useLocalizationData = () => {
-  const { language } = useSelector((state: State) => state.localization);
+  const {
+    localization: { language },
+    cart: { showDropdown }
+  } = useSelector((state: State) => state);
   const languages = [
     {
       id: Language.en,
@@ -21,7 +24,7 @@ const useLocalizationData = () => {
 
   const selectedLanguage = languages.find(el => el.id === language);
 
-  return { languages, selectedLanguage };
+  return { languages, selectedLanguage, showDropdown };
 };
 
 export { useLocalizationData };
