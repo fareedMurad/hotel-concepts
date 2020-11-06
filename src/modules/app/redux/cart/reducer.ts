@@ -37,9 +37,15 @@ const cartReducer = reducer(new CartState())
   .on(cart.removing, state => (state.isProductInCart = false))
   .on(cart.removeCurrent, state => (state.addedProduct.isVisible = false))
   .on(cart.showDropdown, state => (state.showDropdown = !state.showDropdown))
-  .on(
-    cartClear.success,
-    state => (state.addedProduct = { product: null, isVisible: false })
-  );
+  .on(cartClear.success, state => {
+    if (state.selectedProducts.length === 0 || state.products.length === 0) {
+      state.addedProduct = { product: null, isVisible: false };
+    } else {
+      state.addedProduct = {
+        product: state.products[state.products.length - 1],
+        isVisible: false
+      };
+    }
+  });
 
 export { cartReducer as cart };

@@ -45,7 +45,6 @@ const Cart: React.FC = () => {
   const { products, summaryData, authorized } = useCartData();
   const { t } = useTranslation();
   const cartQuantity = products?.length;
-  console.log(products);
 
   return (
     <div className={styles.cart}>

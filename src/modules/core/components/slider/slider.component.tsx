@@ -42,6 +42,8 @@ const Slider: React.FC<SliderProps> = ({
   controlsClassname,
   controlsTheme,
   controlClassname,
+  count,
+  setCount,
   ...props
 }) => (
   <Carousel
@@ -57,6 +59,8 @@ const Slider: React.FC<SliderProps> = ({
           className={controlsClassname}
           theme={controlsTheme}
           controlClassname={controlClassname}
+          count={count}
+          setCount={setCount}
         />
       ) : (
         customButtonGroup

@@ -15,7 +15,7 @@ const CartNotifierItem: React.FC<{ className?: string }> = ({ className }) => {
   const isBook = __typename == ContentType.product;
   const url = productImage?.file?.url;
   const programImage = courseImage?.file?.url;
-
+  
   return (
     <div className={classNames(styles.item, className)}>
       <img className={styles.itemImage} src={isBook ? url : programImage} />

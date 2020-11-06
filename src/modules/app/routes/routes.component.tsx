@@ -107,11 +107,6 @@ const Homepage = lazy(() =>
     default: Homepage
   }))
 );
-const ProgramPage = lazy(() =>
-  import('src/modules/pages').then(({ ProgramPage }) => ({
-    default: ProgramPage
-  }))
-);
 
 /**
  * Renders Routes
@@ -181,7 +176,6 @@ const Routes: React.FC = () => {
                   )}
                 />
               )} */}
-              <Route path='/program' component={ProgramPage} />
               <Route path='/contributors' component={Contributors} />
               <Route path='/faq' component={Faq} />
               <Route

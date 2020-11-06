@@ -13,7 +13,13 @@ import { call, delay, put, select, take } from 'redux-saga/effects';
 import { getUser } from '../auth';
 import { Context } from '../context';
 import { State } from '../state';
-import { cart, cartClear, checkCart, getProducts, sendInvoiceRequest } from './actions';
+import {
+  cart,
+  cartClear,
+  checkCart,
+  getProducts,
+  sendInvoiceRequest
+} from './actions';
 
 /**
  * Cart saga
@@ -56,7 +62,6 @@ class CartSaga {
         });
 
         const [productFromResponse] = response.data.items;
-
         yield put(
           cart.addToNotifier({
             product: productFromResponse,
@@ -256,9 +261,18 @@ class CartSaga {
         ids: selectedProducts.map((item: Product) => item.path),
         locale
       });
+      const fetchedProducts = response.data.items;
+      const validOrderedProducts = [];
 
-      yield put(getProducts.success(response.data.items));
-    } catch (error) {
+      for (let i = 0; i < selectedProducts.length; i++) {
+        const foundProduct = fetchedProducts.find(
+          item => item.id === selectedProducts[i].path
+        );
+        validOrderedProducts.push(foundProduct);
+      }
+
+      yield put(getProducts.success(validOrderedProducts));
+    } catch (error) { 
       console.log(error);
       yield put(handleError(error.response.data.message));
     } finally {

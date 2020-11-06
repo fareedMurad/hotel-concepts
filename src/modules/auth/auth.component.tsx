@@ -21,7 +21,6 @@ import { Modals } from '@ui/models';
 const Auth: React.FC = () => {
   const {} = useAuthData();
   const { active: activeModal } = useSelector((state: State) => state.ui.modal);
-  console.log(activeModal);
   const [
     login,
     register,

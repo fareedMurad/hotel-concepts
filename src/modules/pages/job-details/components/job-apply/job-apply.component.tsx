@@ -77,7 +77,6 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             ...restFormValues
           };
           sendEmail(formData);
-          console.log(formData);
         }}
         validationSchema={jobDetailsValidationSchema}
       >
