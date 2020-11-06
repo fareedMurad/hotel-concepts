@@ -92,6 +92,14 @@ type SliderProps = CarouselProps & {
    * Control classname
    */
   controlClassname?: string;
+  /*
+   * Count
+   */
+  count?: number;
+  /*
+   * set count
+   */
+  setCount?: (count) => void;
 };
 
 export { SliderProps };

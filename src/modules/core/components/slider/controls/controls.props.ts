@@ -20,6 +20,14 @@ type ControlsProps = CarouselButtonGroupProps & {
    * Control classname
    */
   controlClassname?: string;
+  /*
+   * Count
+   */
+  count?: number;
+  /*
+   * Set count
+   */
+  setCount?: (count) => void;
 };
 
 export { ControlsProps };
