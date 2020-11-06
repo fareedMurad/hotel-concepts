@@ -1,3 +1,4 @@
+import { interestsOptions } from '@app/dictionary/interests-options';
 import { sendRequest } from '@app/redux/programs';
 import { Button, Field, Form, Icon, Modal, Preloader } from '@core/components';
 import { SuccessAlertModal } from '@pages/components/success-alert-modal';
@@ -7,6 +8,7 @@ import { Formik } from 'formik';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router';
 import * as styles from './contact-us-modal.scss';
 import {
   ContactUsModalValidationSchema,
@@ -61,7 +63,7 @@ const ContactUsModal: React.FC = () => {
                     <Field.Select
                       name='teamSize'
                       label={t('modal-contact-us.form.team')}
-                      options={[]}
+                      options={[{ value: '1', label: '1' }]}
                       //   theme='secondary'
                     />
                   </div>
@@ -74,7 +76,7 @@ const ContactUsModal: React.FC = () => {
                     <Field.Select
                       name='interests'
                       label={t('modal-contact-us.form.interests')}
-                      options={[]}
+                      options={interestsOptions}
                       theme='secondary'
                       className={styles.select}
                     />

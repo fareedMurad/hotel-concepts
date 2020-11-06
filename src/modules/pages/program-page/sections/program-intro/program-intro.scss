@@ -98,6 +98,9 @@
   top: 120px;
   left: $default-offset;
   @include fill(#ffff);
+  path {
+    stroke: #ffff;
+  }
 }
 
 @media screen and (max-width: 768px) {

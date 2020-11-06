@@ -1,4 +1,5 @@
 import { ContentType } from '@account/pages/library/models';
+import { EnterpriseModel } from '@app/models/enterprise';
 import { HttpService } from './config';
 
 class ProgramsService {
@@ -90,7 +91,7 @@ class ProgramsService {
   /*
    * Send contact-us
    */
-  public sendForm = data =>
+  public sendForm = (data: EnterpriseModel) =>
     this.http.request({
       method: 'POST',
       url: '/enterprise',

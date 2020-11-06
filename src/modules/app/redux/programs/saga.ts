@@ -1,3 +1,4 @@
+import { EnterpriseModel } from '@app/models/enterprise';
 import { Saga, Payload } from 'redux-chill';
 import {
   getPrograms,
@@ -14,6 +15,7 @@ import { Modals, Preloaders } from '@ui/models';
 import { OnlineCourseSubfilter } from '@app/models/enum';
 import { handleError } from '@general/store';
 import { closeModal, showModal } from '@ui/modal';
+import { State } from '../state';
 
 /**
  * programs saga
@@ -124,9 +126,15 @@ class ProgramsSaga {
   public *sendRequest(payload: Payload<typeof sendRequest>, { api }: Context) {
     yield put(preloaderStart(Preloaders.sendForm));
     try {
-      // yield call(api.programs.sendForm, payload);
+      const programId = yield select(
+        (state: State) => state.programsData.singleProgram.id
+      );
+      const data: EnterpriseModel = {
+        ...payload,
+        program: programId
+      };
+      yield call(api.programs.sendForm, data);
 
-      yield delay(2000);
       yield put(closeModal(Modals.contactUs));
       yield put(showModal(Modals.success));
     } catch (error) {
