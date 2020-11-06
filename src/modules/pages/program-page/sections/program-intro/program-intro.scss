@@ -1,0 +1,125 @@
+@import 'core.scss';
+
+.program-intro {
+  @include heroImage();
+  @include imageOverlay();
+  @include flex($justify: center, $direction: column);
+  position: relative;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-left: $left-offset;
+  padding-right: $default-offset;
+
+  @include ipad-p() {
+    height: calc(100vh - 30px);
+  }
+
+  @include ipad-l() {
+    height: calc(100vh - 30px);
+  }
+
+  @include desktop() {
+    min-height: 720px;
+  }
+}
+
+.video {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 735px;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.watch-button {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+
+  @include tablet() {
+    bottom: 150px;
+  }
+}
+
+.title {
+  z-index: 2;
+  & > div:first-child {
+    @include font($white, 60px, 600, 70px);
+    max-width: 600px;
+    font-family: $EBGaramond;
+    letter-spacing: -0.48px;
+  }
+  & > div:nth-child(2) {
+    @include font($white, 24px, 400, 34px);
+    max-width: 550px;
+    margin-top: 16px;
+  }
+}
+
+.scroll-button {
+  position: absolute;
+  bottom: 15px;
+}
+
+.page-navigator {
+  @include flex($justify: space-between);
+  position: absolute;
+  z-index: 2;
+  bottom: 36px;
+  left: $default-offset;
+  right: $default-offset;
+  background-color: $white;
+  height: 84px;
+  border-radius: 6px;
+  padding: 20px 10px;
+}
+
+.button {
+  cursor: pointer;
+  @include flex($justify: space-between, $align: center);
+  position: relative;
+  flex: 1;
+  height: 100%;
+  margin: 0 5px;
+  @include buttonHover;
+}
+
+.back-button {
+  position: absolute;
+  top: 120px;
+  left: $default-offset;
+}
+
+@media screen and (max-width: 768px) {
+  .program-intro {
+    padding-left: $default-offset;
+  }
+  .back-button {
+    position: absolute;
+    top: 120px;
+    left: $default-offset;
+  }
+  .title {
+    & > div:first-child {
+      @include font($white, 40px, 500, 50px);
+    }
+    & > div:nth-child(2) {
+      @include font($white, 20px, 400, 30px);
+    }
+  }
+}
+
+@media screen and (max-width: 853px) {
+  .page-navigator {
+    display: none;
+  }
+}

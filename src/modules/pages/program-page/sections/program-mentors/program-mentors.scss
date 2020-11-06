@@ -1,0 +1,79 @@
+@import 'core.scss';
+
+@import 'core.scss';
+
+.mentors {
+  background-color: $background;
+  padding: 60px 22px;
+  &__modified {
+    padding: 35px 22px 60px 22px;
+  }
+}
+
+.title {
+  padding-left: 112px;
+
+  &--modified {
+    & > div:first-child {
+      position: relative;
+      &::before {
+        content: url('../../../../../assets/img/text-decorator.svg');
+        position: absolute;
+        top: -56px;
+      }
+    }
+  }
+  & > div:nth-child(3) {
+    @include font($primary-gray, 18px, 400, 26px);
+    max-width: 450px;
+    margin-top: 15px;
+    margin-bottom: 48px;
+  }
+}
+
+.slider {
+  @include flex($justify: space-between, $align: center);
+  position: relative;
+  padding-bottom: 80px;
+  overflow: hidden;
+  ul {
+    margin-bottom: 8px;
+  }
+}
+
+.controls {
+  padding-left: $left-offset;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    padding: 0 $default-offset;
+  }
+
+  .controls {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .controls {
+    margin-left: -15px;
+  }
+}
+
+.pre-caption {
+  @include font($primary-orange, 18px, 500);
+  font-family: $IBMPlex;
+}
+
+.no-mentors {
+  width: 100%;
+  text-align: center;
+}
+
+.hr {
+  max-width: 450px;
+  margin-top: 17px;
+  margin-bottom: 17px;
+  background-color: #cbd0d3;
+}

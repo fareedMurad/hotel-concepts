@@ -1,0 +1,47 @@
+@import 'core.scss';
+
+.program-materials {
+  padding: 70px $left-offset 38px $left-offset;
+  background-color: $background;
+}
+.title {
+  @include font($primary-gray, 48px, 600, 58px);
+  position: relative;
+  margin-bottom: 32px;
+  font-family: $EBGaramond;
+  &::before {
+    content: url('../../../../../assets/img/text-decorator.svg');
+    position: absolute;
+    top: -44px;
+  }
+}
+
+.item {
+  width: 540px;
+  min-height: 47px;
+  margin-bottom: 20px;
+  padding: 4px 0;
+  background-color: $white;
+  border-radius: 8px;
+  transition: $transition;
+  @include font($primary-gray, 18px, 400, 28px);
+  font-family: $IBMPlex;
+  @include flex($align: center);
+  &:before {
+    content: '■';
+    margin-bottom: 3px;
+    padding: 0 12px;
+    font-size: 13px;
+    color: $primary-orange;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .program-materials {
+    padding: $default-offset;
+    padding-top: 50px;
+  }
+  .item {
+    width: 100%;
+  }
+}

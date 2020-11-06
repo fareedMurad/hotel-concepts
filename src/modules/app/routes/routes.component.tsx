@@ -13,6 +13,7 @@ import { useMediaPoints } from '@core/shared';
 import { Interests } from '@pages';
 import { Cart } from '@pages/cart';
 import { MarketplaceProduct } from '@pages/marketplace-product';
+import { ProgramPage } from '@pages/program-page';
 import { toogleContributorModal } from '@ui/modal';
 import { Uikit } from '@uikit';
 import * as React from 'react';
@@ -185,7 +186,7 @@ const Routes: React.FC = () => {
               <Route path='/for-companies' component={ForCompanies} />
               <Route path='/marketplace/:id' component={MarketplaceProduct} />
               <Route path='/marketplace' component={Marketplace} />
-
+              <Route path='/program' component={ProgramPage} />
               <Route path='/course-partnership' component={CoursePartnership} />
               <Route exact={mobile} path='/' component={Homepage} />
               <Route path='*' component={NotFound} />

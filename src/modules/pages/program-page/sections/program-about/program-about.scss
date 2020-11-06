@@ -1,0 +1,91 @@
+@import 'core.scss';
+
+.program-about {
+  margin: 60px 0;
+  padding-left: $left-offset;
+  display: flex;
+}
+
+.title {
+  width: 80%;
+  & > div:first-child {
+    @include font($primary-gray, 48px, 600, 58px);
+    max-width: 600px;
+    font-family: $EBGaramond;
+    letter-spacing: -0.48px;
+  }
+  & > div:nth-child(2) {
+    @include font($primary-gray, 18px, 400, 28px);
+    margin: 24px 0px;
+    font-family: $IBMPlex;
+    max-width: 440px;
+  }
+  @include desktop() {
+    max-width: 428px;
+  }
+}
+
+.skills-wrapper {
+  @include flex($justify: center);
+  width: 100%;
+  @include desktop() {
+    @include flex($justify: flex-start);
+    margin-left: 244px;
+  }
+}
+
+.skills {
+  margin-top: 24px;
+  & > div:first-child {
+    @include font($primary-gray, 24px, 400, 26px);
+    max-width: 600px;
+    font-family: $IBMPlex;
+    margin-bottom: 16px;
+  }
+  .item {
+    @include flex($align: center);
+    @include font($primary-gray, 18px, 400, 28px);
+    background-color: $background;
+    border-radius: 6px;
+    width: 205px;
+    height: 47px;
+    margin-bottom: 12px;
+    &:before {
+      content: '■';
+      padding: 0 15px;
+      color: $primary-orange;
+      font-size: 13px;
+      margin-bottom: 1px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .skills {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .program-about {
+    padding: 0 $default-offset;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .program-about {
+    flex-direction: column;
+  }
+  .title {
+    width: 100%;
+  }
+  .skills {
+    width: 100%;
+    .item {
+      width: 100%;
+    }
+  }
+  .skills-wrapper {
+    justify-content: flex-start;
+  }
+}
