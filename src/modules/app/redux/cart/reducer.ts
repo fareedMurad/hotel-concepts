@@ -33,10 +33,10 @@ const cartReducer = reducer(new CartState())
   .on(handleNotifierCart.showModal, state => {
     state.addedProduct.isVisible = true;
   })
-  .on(
-    handleNotifierCart.hideModal,
-    state => (state.addedProduct.isVisible = false)
-  )
+  .on(handleNotifierCart.hideModal, state => {
+    state.addedProduct.isVisible = false;
+    state.showDropdown = false;
+  })
   .on(
     handleNotifierCart.defaultClick,
     state => (state.showDropdown = !state.showDropdown)
@@ -50,6 +50,7 @@ const cartReducer = reducer(new CartState())
    */
   .on(resetCartState.success, state => {
     if (state.selectedProducts.length === 0 || state.products.length === 0) {
+      state.showDropdown = false;
       state.addedProduct = { product: null, isVisible: false };
     } else {
       state.addedProduct = {

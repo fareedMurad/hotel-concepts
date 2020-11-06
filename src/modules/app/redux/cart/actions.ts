@@ -21,7 +21,7 @@ const addProductToCart = make('[cart] add product to cart').stage(
 /**
  * Handle notifier when cart added
  */
-const handleNotifierCart = make('[cart] handle notifier on product added')
+const handleNotifierCart = make('[cart] handle notifier')
   .stage((payload: { product: Book; isVisible: boolean }) => payload)
   .stage('showModal')
   .stage('removingProduct')
