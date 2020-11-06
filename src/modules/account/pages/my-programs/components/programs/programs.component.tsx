@@ -2,7 +2,7 @@ import {
   addProgramToWishlist,
   removeProgramFromWishlist
 } from '@app/redux/account';
-import { cart } from '@app/redux/cart';
+import { addProductToCart } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { Button, Icon } from '@core/components';
 import { navigate } from '@router/store';
@@ -10,6 +10,7 @@ import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { ProgramProps, ProgramsProps } from './programs.props';
 import * as styles from './programs.scss';
 
@@ -33,12 +34,7 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
   } = program || {};
 
   return (
-    <div
-      className={styles.program}
-      onClick={() => {
-        dispatch(navigate(`/program/?programId=${id}`));
-      }}
-    >
+    <div className={styles.program}>
       {fromWishlist && (
         <Icon
           className={styles.like}
@@ -57,7 +53,9 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
       <img className={styles.image} src={url} alt={url} />
       <div className={styles.container}>
         <div className={styles.complexity}>{complexityLevel}</div>
-        <div className={styles.title}>{name}</div>
+        <Link className={styles.title} to={`/program/?programId=${id}`}>
+          {name}
+        </Link>
         <div className={styles.meta}>
           <div>{weeks} weeks</div>
           <div className={styles.metaSprints}>{sprints} sprints</div>
@@ -74,7 +72,7 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
                 arrow
                 onClick={e => {
                   e.stopPropagation();
-                  dispatch(cart.add({ path: id, quantity: 1 }));
+                  dispatch(addProductToCart({ path: id, quantity: 1 }));
                 }}
               >
                 Add to cart

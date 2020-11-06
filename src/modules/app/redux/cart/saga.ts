@@ -1,19 +1,27 @@
+import { invoiceRequestModel } from '@app/models';
 import { LocalStorageKeys } from '@app/models/enum';
 import { Product } from '@app/models/fastspring';
-import { parseString } from '@core/shared';
 import { handleError } from '@general/store';
-import { navigate } from '@router/store';
 import { closeModal, showModal } from '@ui/modal';
 import { Modals, Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { toggleToast } from '@ui/toast';
-import { del } from 'object-path';
-import { Payload, run, Saga } from 'redux-chill';
-import { call, delay, put, select, take } from 'redux-saga/effects';
-import { getUser } from '../auth';
+import { Payload, Saga } from 'redux-chill';
+import { call, delay, put, select } from 'redux-saga/effects';
+import { string } from 'yup';
 import { Context } from '../context';
 import { State } from '../state';
-import { cart, cartClear, checkCart, getProducts, sendInvoiceRequest } from './actions';
+import {
+  addProductToCart,
+  checkCart,
+  getProducts,
+  handleNotifierCart,
+  removeProductFromCart,
+  resetCartState,
+  sendInvoiceRequest,
+  updateCartState,
+  updateProductCart
+} from './actions';
 
 /**
  * Cart saga
@@ -56,9 +64,8 @@ class CartSaga {
         });
 
         const [productFromResponse] = response.data.items;
-
         yield put(
-          cart.addToNotifier({
+          handleNotifierCart({
             product: productFromResponse,
             isVisible: false
           })
@@ -69,64 +76,11 @@ class CartSaga {
       }
     }
   }
-
-  // /**
-  //  * Add to cart
-  //  */
-  // @Saga(addToCart)
-  // public *addToCart({ id }: Payload<typeof addToCart>) {
-  //   const cart = localStorage.getItem('cart');
-
-  //   if (cart?.length > 0) {
-  //     const parsed = JSON.parse(cart);
-
-  //     if (parsed.includes(id)) return;
-
-  //     const newArr = [...parsed, id];
-  //     localStorage.setItem('cart', JSON.stringify(newArr));
-  //   } else {
-  //     localStorage.setItem('cart', JSON.stringify([id]));
-  //   }
-  //   try {
-  //     yield put(addToCart.success({ id }));
-  //     yield put(
-  //       toggleToast({
-  //         status: 'success',
-  //         description: 'Item was added to cart'
-  //       })
-  //     );
-  //   } catch (error) {
-  //     yield put(handleError(error.response.data.message));
-  //   }
-  // }
-
-  // /**
-  //  * Remove from cart
-  //  */
-  // @Saga(removeFromCart)
-  // public *removeFromCart({ id }: Payload<typeof removeFromCart>) {
-  //   const cart = localStorage.getItem('cart');
-  //   yield put(preloaderStart(Preloaders.cart));
-
-  //   try {
-  //     const parsed = JSON.parse(cart);
-  //     const filtered = parsed.filter(item => item != id);
-
-  //     localStorage.setItem('cart', JSON.stringify(filtered));
-
-  //     yield put(removeFromCart.success({ id }));
-  //   } catch (error) {
-  //     yield put(handleError(error.response.data.message));
-  //   } finally {
-  //     yield put(preloaderStop(Preloaders.cart));
-  //   }
-  // }
-
   /**
    * Add to cart
    */
-  @Saga(cart.add)
-  public *add(payload: Payload<typeof cart.add>) {
+  @Saga(addProductToCart)
+  public *add(payload: Payload<typeof addProductToCart>) {
     const cartFromLS = this.getCartFromLS();
 
     const exists = cartFromLS.find(item => item.path === payload.path);
@@ -138,21 +92,22 @@ class CartSaga {
           description: 'Book already exists in your cart'
         })
       );
-      yield put(cart.saveToState(cartFromLS));
+      yield put(updateCartState(cartFromLS));
       return;
     }
     cartFromLS.push(payload);
 
     localStorage.setItem(LocalStorageKeys.cart, JSON.stringify(cartFromLS));
-    yield put(cart.saveToState(cartFromLS));
+    yield put(updateCartState(cartFromLS));
   }
-
   /**
    * Notification product added
    */
-
-  @Saga(cart.add)
-  public *setCurrent(payload: Payload<typeof cart.add>, { api }: Context) {
+  @Saga(addProductToCart)
+  public *setCurrent(
+    payload: Payload<typeof addProductToCart>,
+    { api }: Context
+  ) {
     const { path } = payload;
     const {
       localization: { language: localizationLanguage },
@@ -170,43 +125,31 @@ class CartSaga {
 
       const [product] = response.data.items;
 
-      yield put(cart.addToNotifier({ product, isVisible: true }));
+      yield put(handleNotifierCart({ product, isVisible: true }));
     } catch (err) {
       console.log(err);
       yield put(handleError(err.response.data.message));
     }
-    yield delay(4000);
-    yield put(cart.removing());
+    yield delay(3000);
+    yield put(handleNotifierCart.removingProduct());
     yield delay(1000);
-    yield put(cart.removeCurrent());
+    yield put(handleNotifierCart.hideModal());
   }
-
-  /**
-   * Get many from cart
-   */
-  @Saga(cart.getMany)
-  public *getMany() {
-    const cartFromLS = this.getCartFromLS();
-
-    yield put(cart.saveToState(cartFromLS));
-  }
-
   /**
    * Clear cart
    */
-
-  @Saga(cart.clear)
+  @Saga(resetCartState)
   public *clear() {
     localStorage.setItem(LocalStorageKeys.cart, JSON.stringify([]));
 
-    yield put(cart.saveToState([]));
-    yield put(cartClear.success());
+    yield put(updateCartState([]));
+    yield put(resetCartState.success());
   }
   /**
    * Remove from cart
    */
-  @Saga(cart.remove)
-  public *remove(payload: Payload<typeof cart.remove>) {
+  @Saga(removeProductFromCart)
+  public *remove(payload: Payload<typeof removeProductFromCart>) {
     let cartFromLS = this.getCartFromLS();
     let { products } = yield select((state: State) => state.cart);
 
@@ -214,16 +157,15 @@ class CartSaga {
     products = products.filter(item => item.id !== payload);
 
     localStorage.setItem(LocalStorageKeys.cart, JSON.stringify(cartFromLS));
-    yield put(cart.saveToState(cartFromLS));
+    yield put(updateCartState(cartFromLS));
     yield put(getProducts.success(products));
-    yield put(cartClear.success());
+    yield put(resetCartState.success());
   }
-
   /**
    * Update item in cart
    */
-  @Saga(cart.update)
-  public *update(payload: Payload<typeof cart.update>) {
+  @Saga(updateProductCart)
+  public *update(payload: Payload<typeof updateProductCart>) {
     let cartFromLS = this.getCartFromLS();
 
     cartFromLS = cartFromLS.map(item =>
@@ -231,9 +173,8 @@ class CartSaga {
     );
 
     localStorage.setItem(LocalStorageKeys.cart, JSON.stringify(cartFromLS));
-    yield put(cart.saveToState(cartFromLS));
+    yield put(updateCartState(cartFromLS));
   }
-
   /**
    * Get products by ids
    */
@@ -256,8 +197,17 @@ class CartSaga {
         ids: selectedProducts.map((item: Product) => item.path),
         locale
       });
+      const fetchedProducts = response.data.items;
+      const validOrderedProducts = [];
 
-      yield put(getProducts.success(response.data.items));
+      for (let i = 0; i < selectedProducts.length; i++) {
+        const foundProduct = fetchedProducts.find(
+          item => item.id === selectedProducts[i].path
+        );
+        validOrderedProducts.push(foundProduct);
+      }
+
+      yield put(getProducts.success(validOrderedProducts));
     } catch (error) {
       console.log(error);
       yield put(handleError(error.response.data.message));
@@ -265,21 +215,28 @@ class CartSaga {
       yield put(preloaderStop(Preloaders.cart));
     }
   }
-
   /*
    * Saga send invoice request
    */
-
   @Saga(sendInvoiceRequest)
   public *sendInvoiceRequest(
     payload: Payload<typeof sendInvoiceRequest>,
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.sendForm));
-    try {
-      // yield call(api.checkout.sendInvoiceRequest, payload);
 
-      yield delay(2000);
+    const productsIds = yield select((state: State) =>
+      state.cart.products.map(el => el.id)
+    );
+
+    const data: invoiceRequestModel = {
+      ...payload,
+      products: productsIds,
+      total: Number(productsIds.length)
+    };
+    try {
+      yield call(api.checkout.sendInvoiceRequest, data);
+
       yield put(closeModal(Modals.invoiceRequest));
       yield put(showModal(Modals.success));
     } catch (error) {

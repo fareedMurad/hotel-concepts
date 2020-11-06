@@ -3,7 +3,7 @@ import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { Title } from '@pages/marketplace-product/components';
 import classNames from 'classnames';
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FeedbackProps } from './feedback.props';
 import * as styles from './feedback.scss';
 
@@ -13,7 +13,7 @@ import * as styles from './feedback.scss';
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 2,
+    items: 1,
     slidesToSlide: 1
   },
   tablet: {
@@ -64,6 +64,10 @@ const CustomDot: React.FC<any> = ({ onClick, ...rest }) => {
 const Feedback: React.FC<FeedbackProps> = ({ data }) => {
   const { comments } = data || {};
   const [count, setCount] = useState(1);
+  useEffect(() => {
+    count < 1 && setCount(1);
+    count > comments?.length && setCount(comments?.length);
+  }, [count]);
 
   return (
     <div className={styles.feedback}>
@@ -77,16 +81,11 @@ const Feedback: React.FC<FeedbackProps> = ({ data }) => {
         controlsTheme='secondary'
         controlsClassname={styles.controls}
         controlClassname={styles.control}
-        customButtonGroup={
-          <SliderButtons
-            className={styles.commentsCountControls}
-            count={count}
-            setCount={setCount}
-          />
-        }
-        showDots={false}
+        showDots={true}
         customDot={<CustomDot items={comments} />}
         dotListClass={styles.dots}
+        count={count}
+        setCount={setCount}
       >
         {comments?.map(({ id, name, text, companyName, photo }) => (
           <div className={styles.container} key={id}>
@@ -105,9 +104,9 @@ const Feedback: React.FC<FeedbackProps> = ({ data }) => {
           </div>
         ))}
       </Slider>
-      {/* <div className={styles.commentsCount}>
+      <div className={styles.commentsCount}>
         {count} of {comments?.length}
-      </div> */}
+      </div>
     </div>
   );
 };

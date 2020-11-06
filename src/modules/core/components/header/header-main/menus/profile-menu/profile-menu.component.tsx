@@ -1,4 +1,5 @@
 import { unauthorize } from '@app/redux/auth';
+import { handleNotifierCart } from '@app/redux/cart';
 import { Button } from '@core/components';
 import { Icon } from '@core/components/icon';
 import { useClickOutside } from '@core/shared';
@@ -20,15 +21,19 @@ import * as styles from './profile-menu.scss';
  */
 const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const { links, authorized, user } = useProfileMenuData();
+  const { links, authorized, user, showDropdown } = useProfileMenuData();
   const dispatch = useDispatch();
   const ref = useRef();
   useClickOutside(ref, () => setShowMenu(false));
 
+  const hideCartOnHover = () => {
+    showDropdown && dispatch(handleNotifierCart.hideModal());
+    setShowMenu(true);
+  };
   return (
     <div
       className={styles.profileMenu}
-      onMouseEnter={() => setShowMenu(true)}
+      onMouseEnter={() => hideCartOnHover()}
       onMouseLeave={() => setShowMenu(false)}
       ref={ref}
     >

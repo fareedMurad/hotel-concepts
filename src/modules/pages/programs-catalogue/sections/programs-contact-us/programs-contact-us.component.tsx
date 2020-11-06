@@ -1,10 +1,23 @@
 import * as React from 'react';
 import { ProgramsContactUsProps } from './programs-contact-us.props';
 import * as styles from './programs-contact-us.scss';
-import { Button } from '@core/components';
+import { Button, Field, FormNew } from '@core/components';
 import classNames from 'classnames';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
+import { Formik } from 'formik';
+
+/**
+ * default values for form
+ */
+const defaultValues = {
+  name: '',
+  email: '',
+  website: '',
+  employees: '',
+  interest: ''
+};
+
 /**
  * Get hero image
  */
@@ -21,27 +34,8 @@ const GET_HERO_IMAGE = gql`
 const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
   reduceMargin
 }) => {
-  const formInitValue = {
-    name: '',
-    email: '',
-    website: '',
-    employees: '',
-    interest: ''
-  };
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
-
-  const [formValues, setFormValue] = React.useState(formInitValue || {});
-
-  const changeTextValue = (event: any) =>
-    setFormValue({
-      ...formValues,
-      [event.target.name]: event.target.value
-    });
-
-  const submitHandler = (event: any) => {
-    event.preventDefault();
-  };
 
   return (
     <React.Fragment>
@@ -54,89 +48,54 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
           <div>{t('programs-catalogue.form.title')}</div>
           <div>{t('programs-catalogue.sub-title')}</div>
         </div>
-        <form className={styles.contactForm} onSubmit={submitHandler}>
-          <div className={styles.inputGroup}>
-            <div className={styles.inputTitle}>
-              {t('programs-catalogue.form.lable.name')}
-            </div>
-            <input
-              name='name'
-              onChange={changeTextValue}
-              type='text'
-              className={styles.inputField}
-            />
-          </div>
-
-          <div className={styles.inputGroup}>
-            <div className={styles.inputTitle}>
-              {t('programs-catalogue.form.lable.email')}
-            </div>
-            <input
-              name='email'
-              onChange={changeTextValue}
-              type='text'
-              className={styles.inputField}
-            />
-          </div>
-
-          <div className={styles.inputGroup}>
-            <div className={styles.inputTitle}>
-              {t('programs-catalogue.form.lable.website')}
-            </div>
-            <input
-              name='website'
-              onChange={changeTextValue}
-              type='text'
-              className={styles.inputField}
-            />
-          </div>
-
-          <div
-            className={classNames(
-              styles.inputSelectContainer,
-              styles.inputGroup
-            )}
-          >
-            <select
-              name='employees'
-              onChange={changeTextValue}
-              className={classNames(styles.inputField, styles.inputSelect)}
-            >
-              <option value=''>
-                {t('programs-catalogue.form.lable.question1')}
-              </option>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-            </select>
-          </div>
-
-          <div
-            className={classNames(
-              styles.inputSelectContainer,
-              styles.inputGroup
-            )}
-          >
-            <select
-              name='interest'
-              onChange={changeTextValue}
-              className={classNames(styles.inputField, styles.inputSelect)}
-            >
-              <option value=''>
-                {t('programs-catalogue.form.lable.question2')}
-              </option>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-            </select>
-          </div>
-          <Button
-            type='submit'
-            className={styles.button}
-            children={t('programs-catalogue.form.lable.button-text')}
-            arrow
-          />
-        </form>
+        <Formik
+          initialValues={defaultValues}
+          validationSchema={null}
+          onSubmit={values => {
+            console.log(values);
+          }}
+        >
+          {({ handleSubmit }) => (
+            <FormNew className={styles.form} handleSubmit={handleSubmit}>
+              <div className={styles.textInputs}>
+                <Field.Text name='name' label='Name' className={styles.field} />
+                <Field.Text
+                  name='email'
+                  label='Email'
+                  className={styles.field}
+                />
+                <Field.Text
+                  name='website'
+                  label='Website'
+                  className={styles.field}
+                />
+              </div>
+              <Field.Select
+                name='employees'
+                options={[{ label: '', value: '' }]}
+                placeholder='How many employees need training?'
+                className={styles.select}
+                whiteBackground
+                value='How many employees need training?'
+              />
+              <Field.Select
+                name='interest'
+                options={[{ label: '', value: '' }]}
+                placeholder='What paths are you interestedins?'
+                className={styles.select}
+                whiteBackground
+                value='What paths are you interestedins?'
+              />
+              <Button
+                className={styles.submit}
+                arrow
+                onClick={() => handleSubmit()}
+              >
+                Contact Us
+              </Button>
+            </FormNew>
+          )}
+        </Formik>
       </div>
       <div
         className={styles.footer}

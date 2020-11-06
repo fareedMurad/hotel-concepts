@@ -13,7 +13,9 @@ const Controls: React.FC<ControlsProps> = ({
   controlClassname,
   theme,
   next,
-  previous
+  previous,
+  setCount,
+  count
 }) => (
   <div
     className={classNames(
@@ -24,13 +26,19 @@ const Controls: React.FC<ControlsProps> = ({
   >
     <div
       className={classNames(styles.button, controlClassname)}
-      onClick={() => previous()}
+      onClick={() => {
+        previous();
+        setCount && setCount(count - 1);
+      }}
     >
       <Icon className={styles.arrow} name='arrows/arrow-carusel' />
     </div>
     <div
       className={classNames(styles.button, controlClassname)}
-      onClick={() => next()}
+      onClick={() => {
+        next();
+        setCount && setCount(count + 1);
+      }}
     >
       <Icon
         className={classNames(styles.arrow, styles.arrowRight)}

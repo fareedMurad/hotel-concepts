@@ -42,9 +42,8 @@
 
   @include desktop() {
     height: calc(100vh - 100px);
-    min-height: 650px;
+    min-height: 600px;
     max-height: 700px;
-
     flex-direction: row;
     margin-left: 20px;
   }
@@ -84,6 +83,10 @@
     height: 100%;
     width: 100%;
     border-radius: 6px;
+    @include desktop() {
+      width: 314px;
+      height: 482px;
+    }
   }
 
   &__banner {
@@ -282,7 +285,6 @@
 
 .highlights {
   @include flex($align: center, $direction: column);
-  margin-top: 52px;
 
   @include tablet() {
     flex-direction: row;

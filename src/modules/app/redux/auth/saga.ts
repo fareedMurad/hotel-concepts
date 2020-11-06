@@ -98,7 +98,7 @@ class AuthSaga {
           description: 'Logged in'
         })
       );
-
+      yield put(closeModal(Modals.registration));
       newUser
         ? yield put(navigate('/interests'))
         : yield put(navigate('/account/profile'));

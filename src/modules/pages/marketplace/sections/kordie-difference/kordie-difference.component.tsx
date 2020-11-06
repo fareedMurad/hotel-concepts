@@ -1,7 +1,7 @@
 import { State } from '@app/redux/state';
 import { Button, Slider, Spinner } from '@core/components';
 import { useMediaPoints } from '@core/shared';
-import { ContributorCard } from '@pages/components';
+import { ContributorCard, MentorModal } from '@pages/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { navigate } from '@router/store';
 import { showModal, toogleContributorModal } from '@ui/modal';
@@ -9,7 +9,7 @@ import { Modals } from '@ui/models';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as styles from './kordie-difference.scss';
-
+import { useState } from 'react';
 /**
  * Slider responsive
  */
@@ -39,14 +39,8 @@ const KordieDifference: React.FC = () => {
   const { language } = useSelector((state: State) => state.localization);
   const { contributors } = useContributorsData(language);
   const { tablet } = useMediaPoints();
-  const handleOpenModalMobile = contributor => {
-    dispatch(
-      navigate(
-        `/contributors/mentor/${contributor.slug}?mentorId=${contributor.sys.id}`
-      )
-    );
-    dispatch(showModal(Modals.contributor));
-  };
+  const [mentorId, setMentorId] = useState('');
+  const { contributorModal } = useSelector((state: State) => state.ui.modal);
   return (
     <div className={styles.kordieDifference}>
       <div className={styles.head}>
@@ -77,16 +71,20 @@ const KordieDifference: React.FC = () => {
                 // className={styles.contributor}
                 contributor={contributor}
                 onClick={() => {
-                  if (tablet) {
-                    dispatch(showModal(Modals.contributor));
-                    dispatch(toogleContributorModal(true));
-                  }
-                  handleOpenModalMobile(contributor);
+                  setMentorId(contributor.sys.id);
+                  dispatch(showModal(Modals.contributor));
+                  dispatch(toogleContributorModal(true));
                 }}
                 key={index}
               />
             ))}
           </Slider>
+          {contributorModal && (
+            <MentorModal
+              mentorId={mentorId}
+              hideComponent={() => dispatch(toogleContributorModal(false))}
+            />
+          )}
           <Button
             className={styles.seeAll}
             arrow

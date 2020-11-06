@@ -1,4 +1,4 @@
-import { cart } from '@app/redux/cart';
+import { handleNotifierCart } from '@app/redux/cart';
 import { Icon } from '@core/components/icon';
 import { navigate } from '@router/store';
 import classNames from 'classnames';
@@ -30,7 +30,7 @@ const CartMenu: React.FC<CartMenuProps> = () => {
   const location = useLocation();
 
   useEffect(() => {
-    dispatch(cart.removeCurrent());
+    dispatch(handleNotifierCart.hideModal());
   }, [location]);
 
   const isActive = showDropdown || isVisible;
@@ -39,7 +39,13 @@ const CartMenu: React.FC<CartMenuProps> = () => {
     <div
       className={styles.cart}
       onClick={() => {
-        !!product ? dispatch(cart.showDropdown()) : dispatch(navigate('/cart'));
+        // when we show notifier we disable cart click
+        if (isVisible) {
+          return;
+        }
+        !!product
+          ? dispatch(handleNotifierCart.defaultClick())
+          : dispatch(navigate('/cart'));
       }}
     >
       <div

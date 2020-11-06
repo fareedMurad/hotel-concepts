@@ -12,8 +12,6 @@ export * from './jobs-list';
 export * from './learning-approach';
 export * from './marketplace';
 export * from './privacy-policy';
-export * from './product';
-export * from './program-page';
 export * from './programs-catalogue';
 export * from './story-mission';
 export * from './interests';

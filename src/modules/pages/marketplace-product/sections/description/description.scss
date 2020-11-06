@@ -24,6 +24,7 @@
     max-width: 61.5%;
   }
   @include desktop() {
+    min-width: 540px;
     max-width: 428px;
   }
 }
@@ -44,11 +45,7 @@
 
 .text {
   @include font($primary-gray, 18px, 400, 28px);
-  margin-top: 24px;
   width: 100%;
-  @include tablet() {
-    margin-top: 24px;
-  }
 }
 
 .product {
@@ -61,6 +58,19 @@
   }
   &__name {
     margin-left: 8px;
+  }
+}
+
+.publish {
+  @include font($primary-gray, 16px, 400, normal);
+  margin-top: 20px;
+  margin-bottom: 47px;
+
+  &__caption {
+    font-weight: 500;
+  }
+  &__date {
+    font-weight: 400;
   }
 }
 
@@ -93,8 +103,8 @@
   @include desktop() {
     align-items: flex-start;
     align-content: stretch;
-    margin-top: 28px;
-    margin-left: 244px;
+    margin-top: 104px;
+    margin-left: 132px;
   }
 }
 

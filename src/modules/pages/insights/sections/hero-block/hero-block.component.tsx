@@ -9,8 +9,12 @@ import { useMediaPoints } from '@core/shared';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import classNames from 'classnames';
 
-const HeroCard = ({ firstScreenArticle }) => {
+const HeroCard: React.FC<{ className?: string; firstScreenArticle: any }> = ({
+  firstScreenArticle,
+  className
+}) => {
   if (!firstScreenArticle) return <Spinner />;
   const history = useHistory();
   const {
@@ -20,7 +24,7 @@ const HeroCard = ({ firstScreenArticle }) => {
     articleImage: { url }
   } = firstScreenArticle;
   return (
-    <div className={styles.card}>
+    <div className={classNames(styles.card, className)}>
       <div
         className={styles.cardImage}
         style={{
@@ -36,7 +40,7 @@ const HeroCard = ({ firstScreenArticle }) => {
         </div>
 
         <div
-          className={styles.cardCaptions}
+          className={classNames(styles.cardCaptions, styles.titles)}
           onClick={() => history.push(`/insights/article/${id}`)}
         >
           {title}
@@ -86,10 +90,16 @@ const HeroBlock: React.FC<HeroBlockProps> = ({}) => {
         )}
       </div>
       <div className={styles.heroSubmain}>
-        <HeroCard firstScreenArticle={firstScreenArticles[0]} />
+        <HeroCard
+          className={styles.secondaryCard}
+          firstScreenArticle={firstScreenArticles[0]}
+        />
 
         {firstScreenArticles.length > 0 && (
-          <HeroCard firstScreenArticle={firstScreenArticles[1]} />
+          <HeroCard
+            className={styles.secondaryCard}
+            firstScreenArticle={firstScreenArticles[1]}
+          />
         )}
       </div>
     </div>

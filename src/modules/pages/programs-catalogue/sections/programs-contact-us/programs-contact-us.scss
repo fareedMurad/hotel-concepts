@@ -40,17 +40,32 @@
   overflow: hidden;
 }
 
-.button {
-  @include flex($justify: space-between);
-  width: 230px;
-  margin-top: 10px;
-}
-
-.contact-form {
-  @include flex($justify: space-between);
+.form {
   max-width: 750px;
   padding-left: $left-offset;
   flex-wrap: wrap;
+}
+
+.textInputs {
+  @include flex();
+  margin-bottom: 15px;
+}
+
+.select {
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.field {
+  &:not(:last-child) {
+    margin-right: 15px;
+    flex: 1;
+  }
+}
+
+.submit {
+  width: 224px;
 }
 
 .input-title {

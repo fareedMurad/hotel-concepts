@@ -6,7 +6,7 @@
   padding: 20px;
 
   @include desktop() {
-    padding: 30px 229px 120px 134px;
+    padding: 0px 229px 80px 134px;
   }
 }
 
@@ -31,22 +31,14 @@
     @include flex(space-between, stretch);
 
     @include tablet() {
-      margin-bottom: 108px;
-    }
-  }
-
-  &__item {
-    @include desktop() {
-      &:nth-child(even) {
-        margin-left: 141px;
-      }
+      margin-bottom: 138px;
     }
   }
 }
 
 .container {
   @include flex($justify: space-between, $align: stretch, $direction: column);
-  height: 100%;
+  min-height: 217px;
 }
 
 .description {
@@ -59,7 +51,7 @@
   }
 
   @include desktop() {
-    max-width: 421px;
+    max-width: 764px;
   }
 }
 
@@ -120,13 +112,13 @@
 }
 
 .comments-count {
+  display: none;
   position: absolute;
-  top: 380px;
-  left: 110px;
 
-  @include tablet() {
-    top: 344px;
-    left: 170px;
+  @include desktop() {
+    display: block;
+    bottom: 174px;
+    left: 200px;
   }
   &--controls {
     position: absolute;
@@ -137,13 +129,17 @@
 
 .dots {
   @include flex();
+  bottom: 50px;
   position: absolute;
-  bottom: 97px;
+
   justify-content: flex-start !important;
   width: 100%;
   margin-bottom: 0px !important;
   & > div:last-child {
     margin-right: 0;
+  }
+  @include desktop() {
+    bottom: 97px;
   }
 }
 

@@ -1,4 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
+
 import { useTranslation } from 'react-i18next';
 
 const useContactsPageData = () => {
@@ -8,7 +9,7 @@ const useContactsPageData = () => {
       id: 1,
       title: t('contacts.cards.card-one.title'),
       description: t('contacts.cards.card-one.description'),
-      href: '/',
+      href: 'https://kordie.zendesk.com/hc/en-us',
       link: 'Help Center'
     },
     {

@@ -1,5 +1,11 @@
 import { reducer } from 'redux-chill';
-import { cart, getProducts, checkCart, cartClear } from './actions';
+import {
+  getProducts,
+  checkCart,
+  handleNotifierCart,
+  updateCartState,
+  resetCartState
+} from './actions';
 import { CartState } from './state';
 
 /**
@@ -9,37 +15,49 @@ const cartReducer = reducer(new CartState())
   .on(checkCart.success, (state, payload) => {
     state.selectedProducts = payload;
   })
-  // .on(addToCart.success, (state, { id }) => {
-  //   const match = state.selectedProducts.some(one => one == id);
-
-  //   match
-  //     ? state.selectedProducts.filter(one => one != id)
-  //     : state.selectedProducts.push(id);
-  // })
-  // .on(removeFromCart.success, (state, { id }) => {
-  //   state.selectedProducts.filter(item => item != id);
-  // })
-  .on(cart.saveToState, (state, payload) => {
+  .on(updateCartState, (state, payload) => {
     state.selectedProducts = payload;
   })
   .on(getProducts.success, (state, payload) => {
     state.products = payload;
   })
-  .on(cart.addToNotifier, (state, payload) => {
+  /**
+   * Handle notifier modal cart
+   */
+  .on(handleNotifierCart, (state, payload) => {
     state.addedProduct = payload;
     state.showDropdown = false;
     state.isProductInCart = true;
     state.products = [...state.products, payload.product];
   })
-  .on(cart.showNotifier, state => {
+  .on(handleNotifierCart.showModal, state => {
     state.addedProduct.isVisible = true;
   })
-  .on(cart.removing, state => (state.isProductInCart = false))
-  .on(cart.removeCurrent, state => (state.addedProduct.isVisible = false))
-  .on(cart.showDropdown, state => (state.showDropdown = !state.showDropdown))
+  .on(handleNotifierCart.hideModal, state => {
+    state.addedProduct.isVisible = false;
+    state.showDropdown = false;
+  })
   .on(
-    cartClear.success,
-    state => (state.addedProduct = { product: null, isVisible: false })
-  );
+    handleNotifierCart.defaultClick,
+    state => (state.showDropdown = !state.showDropdown)
+  )
+  .on(
+    handleNotifierCart.removingProduct,
+    state => (state.isProductInCart = false)
+  )
+  /**
+   * Handle product for notirfier on remove from cart
+   */
+  .on(resetCartState.success, state => {
+    if (state.selectedProducts.length === 0 || state.products.length === 0) {
+      state.showDropdown = false;
+      state.addedProduct = { product: null, isVisible: false };
+    } else {
+      state.addedProduct = {
+        product: state.products[state.products.length - 1],
+        isVisible: false
+      };
+    }
+  });
 
 export { cartReducer as cart };

@@ -2,7 +2,6 @@ import { Book } from '@account/pages/library/models';
 import { Program } from '@account/pages/my-programs/models';
 import { Product } from '@app/models/fastspring';
 import { InvoiceValues } from '@pages/cart/components/modal-invoice-request/models/invoice';
-import { ProductModel } from '@pages/product/models/product.model';
 import { make } from 'redux-chill';
 
 /**
@@ -12,42 +11,43 @@ const checkCart = make('[cart] check').stage(
   'success',
   (payload: Product[]) => payload
 );
-
-// /**
-//  * Add to cart
-//  */
-// const addToCart = make('[cart] add product')
-//   .stage((payload: Product) => payload)
-//   .stage('success', (payload: Product) => payload);
-
-// /**
-//  * Remove from cart
-//  */
-// const removeFromCart = make('[cart] remove product')
-//   .stage((payload: { id: string }) => payload)
-//   .stage('success', (payload: { id: string }) => payload);
-
 /**
- * Cart add, get, remove, update
+ * Add product to cart
  */
-const cart = make('[cart]')
-  .stage('add', (product: Product) => product)
-  .stage(
-    'addToNotifier',
-    (payload: { product: Book; isVisible: boolean }) => payload
-  )
-  //this stage needs to prevent removing item before animation ends
-  .stage('removing')
-  //
-  .stage('showNotifier')
-  .stage('removeCurrent')
-  .stage('showDropdown')
-  .stage('getMany')
-  .stage('remove', (id: string) => id)
-  .stage('update', (payload: Product) => payload)
-  .stage('clear')
-  .stage('saveToState', (product: Product[]) => product);
-
+const addProductToCart = make('[cart] add product to cart').stage(
+  (product: Product) => product
+);
+/**
+ * Handle notifier when cart added
+ */
+const handleNotifierCart = make('[cart] handle notifier')
+  .stage((payload: { product: Book; isVisible: boolean }) => payload)
+  .stage('showModal')
+  .stage('removingProduct')
+  .stage('hideModal')
+  .stage('defaultClick');
+/**
+ * Remove product from cart
+ */
+const removeProductFromCart = make('[cart] remove product from cart').stage(
+  (id: string) => id
+);
+/**
+ * Update product cart
+ */
+const updateProductCart = make('[cart] update product in cart').stage(
+  (payload: Product) => payload
+);
+/**
+ * Update cart state
+ */
+const updateCartState = make('[cart] update cart state').stage(
+  (product: Product[]) => product
+);
+/**
+ * Reset cart state
+ */
+const resetCartState = make('[cart] reset cart state').stage('success');
 /**
  * Get cart products
  */
@@ -55,19 +55,21 @@ const getProducts = make('[cart] get products').stage(
   'success',
   (products: (Program | Book)[]) => products
 );
-
 /*
  * Send invoice request
  */
-
 const sendInvoiceRequest = make('[cart] send invoice request').stage(
   (payload: InvoiceValues) => payload
 );
 
-const cartClear = make('[cart] clear 2').stage('success');
-
-const cartClearCurrent = make('[cart] clear modal current').stage(
-  (id: string) => id
-);
-
-export { cart, getProducts, checkCart, sendInvoiceRequest, cartClear };
+export {
+  getProducts,
+  checkCart,
+  sendInvoiceRequest,
+  addProductToCart,
+  removeProductFromCart,
+  handleNotifierCart,
+  updateProductCart,
+  updateCartState,
+  resetCartState
+};

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
 import { showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
-import { cart } from '@app/redux/cart';
+import { addProductToCart } from '@app/redux/cart/actions';
 
 /**
  * Renders ProgramEnrollNow
@@ -81,7 +81,9 @@ const ProgramEnrollNow: React.FC<ProgramEnrollNowProps> = ({
                       onClick={() =>
                         isEnterprise
                           ? dispatch(showModal(Modals.contactUs))
-                          : dispatch(cart.add({ path: programId, quantity: 1 }))
+                          : dispatch(
+                              addProductToCart({ path: programId, quantity: 1 })
+                            )
                       }
                     />
                   )}

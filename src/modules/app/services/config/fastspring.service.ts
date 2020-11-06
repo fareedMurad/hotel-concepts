@@ -1,5 +1,5 @@
 import { OrderSuccess, StoreBuilder } from '@app/models/fastspring';
-import { cart } from '@app/redux/cart/actions';
+import { resetCartState } from '@app/redux/cart/actions';
 import { enviroment } from '@env';
 import { HttpService } from '.';
 import { CheckoutService } from '../checkout.service';
@@ -59,7 +59,7 @@ class FastSpringService {
     console.log('onPopUpClosed', data);
     if (data as OrderSuccess) {
       this.checkout.acknowledgeSessionSuccess(data);
-      this.reduxStore.dispatch(cart.clear());
+      this.reduxStore.dispatch(resetCartState());
     }
   };
 }

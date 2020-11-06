@@ -13,6 +13,7 @@ import { useMediaPoints } from '@core/shared';
 import { Interests } from '@pages';
 import { Cart } from '@pages/cart';
 import { MarketplaceProduct } from '@pages/marketplace-product';
+import { ProgramPage } from '@pages/program-page';
 import { toogleContributorModal } from '@ui/modal';
 import { Uikit } from '@uikit';
 import * as React from 'react';
@@ -92,11 +93,7 @@ const Marketplace = lazy(() =>
     default: Marketplace
   }))
 );
-const Product = lazy(() =>
-  import('src/modules/pages').then(({ Product }) => ({
-    default: Product
-  }))
-);
+
 const CoursePartnership = lazy(() =>
   import('src/modules/pages').then(({ CoursePartnership }) => ({
     default: CoursePartnership
@@ -105,11 +102,6 @@ const CoursePartnership = lazy(() =>
 const Homepage = lazy(() =>
   import('src/modules/pages').then(({ Homepage }) => ({
     default: Homepage
-  }))
-);
-const ProgramPage = lazy(() =>
-  import('src/modules/pages').then(({ ProgramPage }) => ({
-    default: ProgramPage
   }))
 );
 
@@ -134,7 +126,7 @@ const Routes: React.FC = () => {
       <StickyContainer>
         <div className={styles.routes}>
           {isToastVisible && <Toast />}
-          {!authorized && <RegistrationModal />}
+          <RegistrationModal />
           <div className={styles.header}>
             <HeaderMobile />
             <HeaderSecondary />
@@ -181,7 +173,6 @@ const Routes: React.FC = () => {
                   )}
                 />
               )} */}
-              <Route path='/program' component={ProgramPage} />
               <Route path='/contributors' component={Contributors} />
               <Route path='/faq' component={Faq} />
               <Route
@@ -195,10 +186,7 @@ const Routes: React.FC = () => {
               <Route path='/for-companies' component={ForCompanies} />
               <Route path='/marketplace/:id' component={MarketplaceProduct} />
               <Route path='/marketplace' component={Marketplace} />
-              <Route
-                path='/category/:categorySlug/product/:id'
-                component={Product}
-              />
+              <Route path='/program' component={ProgramPage} />
               <Route path='/course-partnership' component={CoursePartnership} />
               <Route exact={mobile} path='/' component={Homepage} />
               <Route path='*' component={NotFound} />
