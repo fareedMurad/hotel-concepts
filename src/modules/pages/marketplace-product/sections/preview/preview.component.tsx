@@ -1,6 +1,6 @@
 import { Button, Icon, Preloader } from '@core/components';
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
-import { cart } from '@app/redux/cart';
+import { addProductToCart } from '@app/redux/cart';
 import { SEO } from '@core/components/seo/seo.component';
 import { ShareSocial } from '@core/components/share';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
@@ -47,7 +47,7 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
     <div className={styles.preview}>
       <SEO title={name} thumbnail={img} url={window.location.href} />
       <div onClick={() => history.goBack()} className={styles.back}>
-        <Icon name='arrows/arrow-back' className={styles.arrow}/>
+        <Icon name='arrows/arrow-back' className={styles.arrow} />
         <div className={styles.backCaption}>{t('product.back')}</div>
       </div>
       <div className={styles.container}>
@@ -143,7 +143,8 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
                 arrow={!inCart}
                 disabled={inCart}
                 onClick={() => {
-                  !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
+                  !inCart &&
+                    dispatch(addProductToCart({ path: id, quantity: 1 }));
                 }}
               >
                 {inCart ? 'In cart' : isPreorder ? 'Pre-order' : 'Add to cart'}

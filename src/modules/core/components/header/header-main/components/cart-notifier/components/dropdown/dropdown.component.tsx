@@ -7,7 +7,6 @@ import { CartNotifierItem } from '../cart-notifier-item';
 import { Button } from '@core/components/button';
 import { useRef } from 'react';
 import { useClickOutside } from '@core/shared';
-import { cart } from '@app/redux/cart';
 
 /**
  * Renders Dropdown

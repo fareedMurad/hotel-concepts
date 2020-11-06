@@ -6,7 +6,7 @@ import { BannerProps } from './banner.props';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import * as styles from './banner.scss';
 import { useDispatch } from 'react-redux';
-import { cart } from '@app/redux/cart';
+import { addProductToCart } from '@app/redux/cart';
 import classNames from 'classnames';
 
 /**
@@ -73,7 +73,8 @@ const Banner: React.FC<BannerProps> = ({ data, subscriptionStatus }) => {
               arrow={!inCart}
               disabled={inCart}
               onClick={() => {
-                !inCart && dispatch(cart.add({ path: id, quantity: 1 }));
+                !inCart &&
+                  dispatch(addProductToCart({ path: id, quantity: 1 }));
               }}
             >
               {inCart ? 'In cart' : isPreorder ? 'Pre-order' : 'Add to cart'}
