@@ -56,7 +56,14 @@ const Navigation: React.FC<{
     <div className={styles.navigationCaption}>{caption}</div>
     <div className={styles.navigationLinks}>
       {navigation.map((link, idx) => {
-        const { caption, to, ...rest } = link;
+        const { caption, to, target, ...rest } = link;
+
+        if (target)
+          return (
+            <a href={target} target={'__blanc'}>
+              {caption}
+            </a>
+          );
 
         return (
           <NavLink
