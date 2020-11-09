@@ -5,6 +5,8 @@ import { Formik } from 'formik';
 import { Form, Field, Button } from '@core/components';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { sendForm } from '@app/redux/form';
 
 /**
  * Renders InsightsForm
@@ -27,6 +29,8 @@ const InsightsForm: React.FC<InsightsFormProps> = ({}) => {
       .catch(err => err.data);
     return setSent(true);
   };
+
+  const dispatch = useDispatch();
   return (
     <aside className={styles.aside}>
       <div>
@@ -38,7 +42,13 @@ const InsightsForm: React.FC<InsightsFormProps> = ({}) => {
         ) : (
           <Formik
             initialValues={{ email: '' }}
-            onSubmit={email => subscribe(email)}
+            onSubmit={email => {
+              const payload = {
+                subject: `Form 'Subscribe'`,
+                data: email
+              };
+              dispatch(sendForm(payload));
+            }}
           >
             {({ handleSubmit }) => (
               <Form handleSubmit={handleSubmit} className={styles.form}>

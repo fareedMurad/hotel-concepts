@@ -71,16 +71,17 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
             </React.Fragment>
           )}
           {links.map(({ to, title }) => (
-            <NavLink
+            <a
               className={styles.link}
               key={title}
-              to={to}
               onClick={() => {
-                !authorized && dispatch(showModal(Modals.registration));
+                !authorized
+                  ? dispatch(showModal(Modals.registration))
+                  : dispatch(navigate(to));
               }}
             >
               {title}
-            </NavLink>
+            </a>
           ))}
           {authorized && (
             <Button

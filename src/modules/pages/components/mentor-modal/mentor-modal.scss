@@ -89,7 +89,10 @@
     margin: 0;
   }
   @include desktop() {
-    width: 50vw;
+    width: 60vw;
+    max-width: 867px;
+    height: 70vh;
+    max-height: 495px;
   }
   & > div:first-child {
     @include flex($align: stretch, $direction: column);
@@ -123,7 +126,6 @@
     max-height: 100%;
     margin: 0;
     @include tablet() {
-      max-height: 400px;
       &:after {
         content: '';
         position: absolute;

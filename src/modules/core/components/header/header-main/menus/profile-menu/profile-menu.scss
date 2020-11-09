@@ -36,6 +36,7 @@
   display: block;
   padding: 12px 0;
   border-top: 1px solid $light-grey;
+  cursor: pointer;
   transition: $transition;
 
   &:hover {

@@ -6,3 +6,4 @@ export * from './subscription.service';
 export * from './library.service';
 export * from './programs.service';
 export * from './marketplace.service';
+export * from './form.service';

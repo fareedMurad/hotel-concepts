@@ -107,15 +107,15 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
               onClick={() => {
                 setMentorId(contributor.id);
                 dispatch(showModal(Modals.contributor));
-                dispatch(toogleContributorModal(true));
+                // dispatch(toogleContributorModal(true));
               }}
             />
           ))}
         </Slider>
-        {contributorModal && (
+        {mentorId && (
           <MentorModal
             mentorId={mentorId}
-            hideComponent={() => dispatch(toogleContributorModal(false))}
+            // hideComponent={() => dispatch(toogleContributorModal(false))}
           />
         )}
       </section>

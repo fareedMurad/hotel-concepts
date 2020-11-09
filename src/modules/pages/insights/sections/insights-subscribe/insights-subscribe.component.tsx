@@ -5,6 +5,8 @@ import { H2, Form, Field, Button, Tabs, PreCaption } from '@core/components';
 import { Formik } from 'formik';
 import { useMediaPoints } from '@core/shared';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { sendForm } from '@app/redux/form';
 
 /**
  * Renders InsightsSubscribe
@@ -12,6 +14,7 @@ import { useTranslation } from 'react-i18next';
 const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
   const { tablet } = useMediaPoints();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.insightsSubscribe}>
@@ -23,7 +26,11 @@ const InsightsSubscribe: React.FC<InsightsSubscribeProps> = ({}) => {
         <Formik
           initialValues={{ email: '', subscribeType: '0' }}
           onSubmit={values => {
-            console.log(values);
+            const payload = {
+              subject: `Form 'Insights Subscribe'`,
+              data: values
+            };
+            dispatch(sendForm(payload));
             // dispatch(action(values));
           }}
           // validationSchema={} add later

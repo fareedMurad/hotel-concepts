@@ -116,15 +116,14 @@ const Mentors: React.FC<MentorsProps> = ({
                 // handleOpenModalMobile(contributor);
                 // !mobile &&
                 dispatch(showModal(Modals.contributor));
-                dispatch(toogleContributorModal(true));
               }}
             />
           ))}
         </Slider>
-        {contributorModal && (
+        {mentorId && (
           <MentorModal
             mentorId={mentorId}
-            hideComponent={() => dispatch(toogleContributorModal(false))}
+            // hideComponent={() => dispatch(toogleContributorModal(false))}
           />
         )}
       </section>

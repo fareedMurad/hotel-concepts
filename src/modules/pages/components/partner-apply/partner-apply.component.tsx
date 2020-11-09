@@ -14,6 +14,8 @@ import {
 import { Formik } from 'formik';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { sendForm } from '@app/redux/form';
 
 /**
  * Default values
@@ -31,6 +33,8 @@ const defaultValues = {
 const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
   const [focused, setFocused] = React.useState(false);
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.partnerApply} id='get-involved'>
       <div className={styles.container}>
@@ -40,7 +44,11 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
           <Formik
             initialValues={defaultValues}
             onSubmit={values => {
-              console.log(values);
+              const payload = {
+                subject: `Form 'Got questions?'`,
+                data: values
+              };
+              dispatch(sendForm(payload));
             }}
             // validationSchema={jobDetailsValidationSchema}
           >
@@ -86,10 +94,9 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                   />
 
                   <Button
-                    // onClick={() => {
-                    //   handleSubmit(), validateForm();
-                    // }}
-                    //
+                    onClick={() => {
+                      handleSubmit();
+                    }}
                     className={styles.buttonSubmit}
                     type='submit'
                     children={t('program-page.partner-apply.button-text')}

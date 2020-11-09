@@ -15,6 +15,8 @@ import { enviroment } from 'src/environment';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '../icon';
+import { sendForm } from '@app/redux/form';
+import { useDispatch } from 'react-redux';
 
 /**
  * validation schema
@@ -92,6 +94,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
   const { data, loading, error } = useQuery(CATEGORIES);
   const [sent, setSent] = React.useState(false);
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (!loading) {
@@ -127,7 +130,11 @@ const Footer: React.FC<FooterProps> = ({}) => {
             <Formik
               initialValues={{ email: '' }}
               onSubmit={values => {
-                subscribe(values.email);
+                const payload = {
+                  subject: `Form 'Subscribe'`,
+                  data: values
+                };
+                dispatch(sendForm(payload));
               }}
               validationSchema={validationSchema}
             >

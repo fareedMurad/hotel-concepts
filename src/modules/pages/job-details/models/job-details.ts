@@ -1,21 +1,10 @@
+import { JobDetailsFormValues } from './../../../app/models/form';
 import * as yup from 'yup';
-
-/**
- * Uikit form values
- */
-type jobDetailsValues = {
-  email: string;
-  // accept: boolean;
-  name: string;
-  phone: string;
-  location: string;
-  linkedIn: string;
-};
 
 /**
  * Uikit form validation schema
  */
-const jobDetailsValidationSchema = yup.object<jobDetailsValues>().shape({
+const jobDetailsValidationSchema = yup.object<JobDetailsFormValues>().shape({
   name: yup.string().label('Full Name*'),
 
   linkedIn: yup.string().label('LinkedIn'),
@@ -30,4 +19,4 @@ const jobDetailsValidationSchema = yup.object<jobDetailsValues>().shape({
   location: yup.string().label('Location*')
 });
 
-export { jobDetailsValues, jobDetailsValidationSchema };
+export { jobDetailsValidationSchema };

@@ -3,6 +3,8 @@ import { State } from '@app/redux/state';
 import { Icon } from '@core/components';
 import { useWindowSize } from '@core/shared';
 import { navigate } from '@router/store';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useState } from 'react';
@@ -28,22 +30,22 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
 
   return (
     <div className={classNames(styles.book, className)} onClick={onClick}>
-      {authorized && (
-        <Icon
-          className={styles.like}
-          name={inWishlist ? 'heart' : 'like'}
-          onClick={event => {
-            event.stopPropagation();
-            const data = { id, page: '/marketplace' };
+      <Icon
+        className={styles.like}
+        name={inWishlist ? 'heart' : 'like'}
+        onClick={event => {
+          event.stopPropagation();
+          const data = { id, page: '/marketplace' };
+          authorized
+            ? dispatch(
+                inWishlist
+                  ? removeBookFromWishlist(data)
+                  : addBookToWishlist(data)
+              )
+            : dispatch(showModal(Modals.registration));
+        }}
+      />
 
-            dispatch(
-              inWishlist
-                ? removeBookFromWishlist(data)
-                : addBookToWishlist(data)
-            );
-          }}
-        />
-      )}
       <img className={styles.image} src={url} alt={url} />
       <div className={styles.divider} />
       <div className={styles.price}>${price}</div>

@@ -13,7 +13,7 @@ import {
 } from '@ui/modal';
 import { useMediaPoints, useClickOutside } from '@core/shared';
 import { useHistory } from 'react-router';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, useTransition } from 'react-spring';
 
 /**
  * Renders Modal
@@ -27,9 +27,11 @@ const Modal: React.FC<ModalProps> = ({
   historyGoBack,
   ...props
 }) => {
-  const contetnAnimation = useSpring({
-    from: { transform: 'scale(0.8)' },
-    to: { transform: 'scale(1)' }
+  const { active } = useSelector((state: State) => state.ui.modal);
+  const contetnAnimation = useTransition(active[0] === id, null, {
+    from: { transform: 'translateY(-100vh)' },
+    enter: { transform: 'translateY(0)' },
+    leave: { transform: 'scale(0.8)' }
   });
   const overlayAnimation = useSpring({
     from: { opacity: 0 },
@@ -37,7 +39,7 @@ const Modal: React.FC<ModalProps> = ({
   });
   const dispatch = useDispatch();
   const { mobile } = useMediaPoints();
-  const { active } = useSelector((state: State) => state.ui.modal);
+
   const isActive =
     'isActive' in props ? props.isActive : active.some(one => one == id);
   const modalRef = useRef();
@@ -46,14 +48,17 @@ const Modal: React.FC<ModalProps> = ({
   useClickOutside(modalRef, () => {
     dispatch(closeModal(id));
     onClose && onClose();
-    dispatch(toogleContributorModal(false));
+    // dispatch(toogleContributorModal(false));
     dispatch(toggleBookPreviewModal(false));
     dispatch(toggleBookOverviewModal(false));
   });
 
   const Content = () => (
+    // <React.Fragment>
+    //   {contetnAnimation.map(({ item, props, key }) => (
     <animated.div
-      // style={contetnAnimation}
+      // key={key}
+      // style={props}
       className={classNames(className, styles.modal, {
         [styles.modalMobile]: mobile
       })}
@@ -61,12 +66,13 @@ const Modal: React.FC<ModalProps> = ({
     >
       <div className={styles.content}>{children}</div>
     </animated.div>
+    //   ))}
+    // </React.Fragment>
   );
-
   if (isActive) {
     return (
       <animated.div
-        //  style={overlayAnimation}
+        // style={overlayAnimation}
         className={classNames(styles.overlay, {
           [styles.overlayVisible]: withOverlay
         })}

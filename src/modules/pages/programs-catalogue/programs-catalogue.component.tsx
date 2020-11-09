@@ -49,6 +49,7 @@ const ProgramsCatalogue: React.FC = () => {
   return (
     <div className={styles.programsCatalogue}>
       <ScrollToTop />
+
       <Preloader id={Preloaders.categories}>
         <CatalogueHeader title={name} description={description} />
         <div className={styles.title}>

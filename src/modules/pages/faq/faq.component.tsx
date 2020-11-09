@@ -15,6 +15,19 @@ import { Formik } from 'formik';
 import { FaqBlock } from '@pages/components';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { FAQFormValues } from '@app/models/form';
+import { FAQFormValidationSchema } from './faq.model';
+import { sendForm } from '@app/redux/form';
+
+/**
+ * Init values
+ */
+const initialValues: FAQFormValues = {
+  name: '',
+  email: '',
+  message: ''
+};
+
 /**
  * Renders Faq
  */
@@ -41,8 +54,15 @@ const Faq: React.FC<FaqProps> = ({}) => {
           </div>
           <div className={styles.form}>
             <Formik
-              initialValues={{ name: '', email: '', comment: '' }}
-              onSubmit={values => console.log(values)}
+              initialValues={initialValues}
+              onSubmit={values => {
+                const payload = {
+                  subject: `Form 'FAQ'`,
+                  data: values
+                };
+                dispatch(sendForm(payload));
+              }}
+              validationSchema={FAQFormValidationSchema}
             >
               {({ handleSubmit }) => (
                 <Form>

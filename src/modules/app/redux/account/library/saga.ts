@@ -124,6 +124,8 @@ class LibrarySaga {
         ContentType.product
       );
       yield put(handle(isLibrary ? response.data : id));
+      yield put(removeBookFromWishlist.success(response.data));
+
       yield put(
         toggleToast({
           status: 'success',

@@ -7,6 +7,7 @@ import { LibraryService } from '../library.service';
 import { ProgramsService } from '../programs.service';
 import { CheckoutService } from '../checkout.service';
 import { MarketplaceService } from '../marketplace.service';
+import { FormService } from '../form.service';
 
 class ApiService {
   /**
@@ -27,6 +28,7 @@ class ApiService {
   public library = new LibraryService(this.http);
   public programs = new ProgramsService(this.http);
   public marketplace = new MarketplaceService(this.http);
+  public form = new FormService(this.http);
 }
 
 export { ApiService };

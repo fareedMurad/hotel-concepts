@@ -8,6 +8,8 @@ import { useJobDetailsData } from '@pages/job-details/job-details.hook';
 import classNames from 'classnames';
 import axios, { AxiosResponse } from 'axios';
 import { enviroment } from 'src/environment';
+import { sendForm } from '@app/redux/form';
+import { useDispatch } from 'react-redux';
 
 const defaultValues = {
   name: '',
@@ -30,6 +32,8 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
     location: '',
     files: []
   });
+
+  const dispatch = useDispatch();
 
   const sendEmail = async formData => {
     let fileUrls: AxiosResponse[] = await Promise.all(
@@ -76,7 +80,12 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             ...values,
             ...restFormValues
           };
-          sendEmail(formData);
+          const payload = {
+            subject: `Form 'Job apply'`,
+            data: formData,
+            files: restFormValues
+          };
+          dispatch(sendForm(payload));
         }}
         validationSchema={jobDetailsValidationSchema}
       >

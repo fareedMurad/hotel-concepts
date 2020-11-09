@@ -111,16 +111,15 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
                 onClick={() => {
                   setMentorId(contributor.sys.id);
                   dispatch(showModal(Modals.contributor));
-                  dispatch(toogleContributorModal(true));
                 }}
               />
             ))}
           </section>
         )}
-        {contributorModal && (
+        {mentorId && (
           <MentorModal
             mentorId={mentorId}
-            hideComponent={() => dispatch(toogleContributorModal(false))}
+            // hideComponent={() => dispatch(toogleContributorModal(false))}
           />
         )}
       </div>

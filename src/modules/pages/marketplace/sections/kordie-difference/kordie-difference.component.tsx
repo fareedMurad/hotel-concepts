@@ -73,16 +73,16 @@ const KordieDifference: React.FC = () => {
                 onClick={() => {
                   setMentorId(contributor.sys.id);
                   dispatch(showModal(Modals.contributor));
-                  dispatch(toogleContributorModal(true));
+                  // dispatch(toogleContributorModal(true));
                 }}
                 key={index}
               />
             ))}
           </Slider>
-          {contributorModal && (
+          {mentorId && (
             <MentorModal
               mentorId={mentorId}
-              hideComponent={() => dispatch(toogleContributorModal(false))}
+              // hideComponent={() => dispatch(toogleContributorModal(false))}
             />
           )}
           <Button
