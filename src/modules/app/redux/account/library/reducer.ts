@@ -18,6 +18,10 @@ const library = reducer(new LibraryState())
   })
   .on(removeBookFromWishlist.library, (state, payload) => {
     state.wishlist = payload;
-  });
+  })
+  .on(
+    removeBookFromWishlist.success,
+    (state, payload) => (state.wishlist = payload)
+  );
 
 export { library };

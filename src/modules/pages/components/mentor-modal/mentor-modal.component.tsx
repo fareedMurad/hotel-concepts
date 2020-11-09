@@ -35,26 +35,20 @@ const GET_MENTOR = gql`
 /**
  * Renders MentorModal
  */
-const MentorModal: React.FC<MentorModalProps> = ({
-  hideComponent,
-  mentorId
-}) => {
-  const { mobile } = useMediaPoints();
+const MentorModal: React.FC<MentorModalProps> = ({ mentorId }) => {
   const { language } = useSelector((state: State) => state.localization);
 
   const dispatch = useDispatch();
   const history = useHistory();
+
+  console.log('render');
 
   const { data, loading, error } = useQuery(GET_MENTOR, {
     variables: { id: mentorId, locale: language }
   });
 
   if (loading) {
-    return (
-      <Modal id={Modals.contributor} className={styles.modal}>
-        <Spinner />
-      </Modal>
-    );
+    return <Spinner />;
   }
 
   const {
@@ -77,7 +71,6 @@ const MentorModal: React.FC<MentorModalProps> = ({
           className={styles.modalIcon}
           onClick={() => {
             dispatch(closeModal(Modals.contributor));
-            hideComponent();
           }}
         />
         <div className={styles.modalPerson}>

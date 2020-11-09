@@ -2,7 +2,7 @@ import * as React from 'react';
 import { HomepageProps } from './homepage.props';
 import * as styles from './homepage.scss';
 import { Footer, Spinner } from '@core/components';
-import { FaqBlock } from '@pages/components';
+import { FaqBlock, MentorModal } from '@pages/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import {
   SupportInfo,
