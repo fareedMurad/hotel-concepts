@@ -56,7 +56,11 @@ const Faq: React.FC<FaqProps> = ({}) => {
             <Formik
               initialValues={initialValues}
               onSubmit={values => {
-                dispatch(sendForm(values));
+                const payload = {
+                  subject: `Form 'FAQ'`,
+                  data: values
+                };
+                dispatch(sendForm(payload));
               }}
               validationSchema={FAQFormValidationSchema}
             >

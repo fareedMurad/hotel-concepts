@@ -7,6 +7,8 @@ import axios from 'axios';
 import { contributorsApplyValidationSchema } from '@pages/contributors/models';
 import { enviroment } from 'src/environment';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { sendForm } from '@app/redux/form';
 
 /**
  * default values
@@ -42,6 +44,8 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
     return setSent(true);
   };
 
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.becomeContributing}>
       <div className={styles.wrapper}>
@@ -57,8 +61,11 @@ const BecomeContributing: React.FC<BecomeContributingProps> = ({}) => {
         <Formik
           initialValues={defaultValues}
           onSubmit={values => {
-            sendContributorApplyEmail(values, message);
-            console.log(values);
+            const payload = {
+              subject: `Form 'Become Contributiong'`,
+              data: values
+            };
+            dispatch(sendForm(payload));
           }}
           validationSchema={contributorsApplyValidationSchema}
         >

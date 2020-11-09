@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { useTranslation } from 'react-i18next';
+import { sendForm } from '@app/redux/form';
 
 const Card = ({ title, description, href, link }) => (
   <div className={styles.card}>
@@ -89,7 +90,13 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
           <main>
             <Formik
               initialValues={defaultValues}
-              onSubmit={values => console.log(values)}
+              onSubmit={values => {
+                const payload = {
+                  subject: `Form 'Want to get involved?'`,
+                  data: values
+                };
+                dispatch(sendForm(payload));
+              }}
             >
               {({ handleSubmit }) => (
                 <Form handleSubmit={handleSubmit} className={styles.form}>

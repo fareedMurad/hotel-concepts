@@ -10,7 +10,7 @@ class FormService {
   public sendForm = (data: FormModel) =>
     this.http.request({
       method: 'POST',
-      url: '/',
+      url: '/submit-form',
       data: data
     });
 }

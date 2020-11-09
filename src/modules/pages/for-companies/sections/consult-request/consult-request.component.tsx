@@ -4,6 +4,8 @@ import * as styles from './consult-request.scss';
 import { Paragraph, H2, Field, Icon, Button, Select } from '@core/components';
 import { Formik, Form } from 'formik';
 import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { sendForm } from '@app/redux/form';
 /**
  * Form default values
  */
@@ -27,60 +29,78 @@ const quantity = [
 /**
  * Renders ConsultRequest
  */
-const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => (
-  <div id='consult-request' className={styles.container}>
-    <div className={styles.consultRequest}>
-      <Paragraph className={styles.orange}>Not sure where to begin?</Paragraph>
-      <H2>Request consult</H2>
-      <Formik
-        initialValues={defaultValues}
-        onSubmit={values => {
-          console.log(values);
-        }}
-        // validationSchema={jobDetailsValidationSchema}
-      >
-        {({ handleSubmit, validateForm }) => (
-          <Form>
-            <div className={styles.formSection}>
-              <div className={styles.mainField}>
-                <Field.Text name='name' className={styles.input} label='Name' />
-                <Field.Text
-                  name='email'
-                  className={styles.input}
-                  label='Email'
-                />
-                <Field.Text
-                  name='website'
-                  className={styles.input}
-                  label='Website'
+const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => {
+  const dispatch = useDispatch();
+  return (
+    <div id='consult-request' className={styles.container}>
+      <div className={styles.consultRequest}>
+        <Paragraph className={styles.orange}>
+          Not sure where to begin?
+        </Paragraph>
+        <H2>Request consult</H2>
+        <Formik
+          initialValues={defaultValues}
+          onSubmit={values => {
+            const payload = {
+              subject: `Form 'Consult Request'`,
+              data: values
+            };
+            dispatch(sendForm(payload));
+          }}
+          // validationSchema={jobDetailsValidationSchema}
+        >
+          {({ handleSubmit, validateForm }) => (
+            <Form>
+              <div className={styles.formSection}>
+                <div className={styles.mainField}>
+                  <Field.Text
+                    name='name'
+                    className={styles.input}
+                    label='Name'
+                  />
+                  <Field.Text
+                    name='email'
+                    className={styles.input}
+                    label='Email'
+                  />
+                  <Field.Text
+                    name='website'
+                    className={styles.input}
+                    label='Website'
+                  />
+                </div>
+                <div className={styles.select}>
+                  <Select
+                    value=''
+                    options={quantity}
+                    placeholder='How many employees need training?'
+                    className={classNames(styles.input)}
+                    whiteBackground
+                  />
+                </div>
+                <div className={styles.select}>
+                  <Select
+                    value=''
+                    options={quantity}
+                    placeholder='What paths are you interested in?'
+                    className={classNames(styles.input)}
+                    label=''
+                    whiteBackground
+                  />
+                </div>
+                <Button
+                  children='Contact me'
+                  arrow
+                  width={230}
+                  onClick={() => handleSubmit()}
                 />
               </div>
-              <div className={styles.select}>
-                <Select
-                  value=''
-                  options={quantity}
-                  placeholder='How many employees need training?'
-                  className={classNames(styles.input)}
-                  whiteBackground
-                />
-              </div>
-              <div className={styles.select}>
-                <Select
-                  value=''
-                  options={quantity}
-                  placeholder='What paths are you interested in?'
-                  className={classNames(styles.input)}
-                  label=''
-                  whiteBackground
-                />
-              </div>
-              <Button children='Contact me' arrow width={230} />
-            </div>
-          </Form>
-        )}
-      </Formik>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export { ConsultRequest };

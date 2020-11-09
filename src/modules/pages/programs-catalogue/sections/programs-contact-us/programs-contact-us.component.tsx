@@ -6,6 +6,8 @@ import classNames from 'classnames';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { sendForm } from '@app/redux/form';
 
 /**
  * default values for form
@@ -36,6 +38,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
 }) => {
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+  const dispatch = useDispatch();
 
   return (
     <React.Fragment>
@@ -52,7 +55,11 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
           initialValues={defaultValues}
           validationSchema={null}
           onSubmit={values => {
-            console.log(values);
+            const payload = {
+              subject: `Form 'Contact Us'`,
+              data: values
+            };
+            dispatch(sendForm(payload));
           }}
         >
           {({ handleSubmit }) => (

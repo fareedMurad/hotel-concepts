@@ -1,5 +1,5 @@
 import { handleError } from '@general/store/actions';
-import { put } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import { Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
@@ -17,6 +17,7 @@ class FormSaga {
   public *sendForm(payload: Payload<typeof sendForm>, { api }: Context) {
     yield put(preloaderStart(Preloaders.sendForm));
     try {
+      yield call(api.form.sendForm, payload);
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

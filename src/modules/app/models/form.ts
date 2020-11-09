@@ -74,10 +74,16 @@ export type FAQFormValues = {
 
 //make dynamic type set
 
-export type FormModel =
-  | JobDetailsFormValues
-  | ContactUsFormValues
-  | ProgramCatalogueFormValues
-  | AboutUsFormValues
-  | ContributorsApplyValues
-  | FAQFormValues;
+// export type FormModel =
+//   | JobDetailsFormValues
+//   | ContactUsFormValues
+//   | ProgramCatalogueFormValues
+//   | AboutUsFormValues
+//   | ContributorsApplyValues
+//   | FAQFormValues;
+
+export type FormModel = {
+  subject: string;
+  data: any;
+  files?: any;
+};
