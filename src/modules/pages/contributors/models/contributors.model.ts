@@ -1,15 +1,8 @@
+import { ContributorsApplyValues } from './../../../app/models/form';
 import * as yup from 'yup';
 
-type contributorsApplyValues = {
-  name: string;
-  specialization: string;
-  linkedIn: string;
-  email: string;
-  message: string;
-};
-
 const contributorsApplyValidationSchema = yup
-  .object<contributorsApplyValues>()
+  .object<ContributorsApplyValues>()
   .shape({
     name: yup
       .string()
