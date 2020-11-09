@@ -5,7 +5,8 @@ import {
 import { State } from '@app/redux/state';
 import { Button, Icon, Preloader } from '@core/components';
 import { navigate } from '@router/store';
-import { Preloaders } from '@ui/models';
+import { showModal } from '@ui/modal';
+import { Modals, Preloaders } from '@ui/models';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProgramItemProps } from './program-item.props';
@@ -50,23 +51,23 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
                 >
                   {name}
                 </div>
-                {authorized && (
-                  <div className={styles.iconWrapper}>
-                    <Icon
-                      className={styles.like}
-                      name={inWishlist ? 'heart' : 'like'}
-                      onClick={event => {
-                        const data = { id, preloader: Preloaders.categories };
 
-                        dispatch(
-                          inWishlist
-                            ? removeProgramFromWishlist(data)
-                            : addProgramToWishlist(data)
-                        );
-                      }}
-                    />
-                  </div>
-                )}
+                <div className={styles.iconWrapper}>
+                  <Icon
+                    className={styles.like}
+                    name={inWishlist ? 'heart' : 'like'}
+                    onClick={event => {
+                      const data = { id, preloader: Preloaders.categories };
+                      authorized
+                        ? dispatch(
+                            inWishlist
+                              ? removeProgramFromWishlist(data)
+                              : addProgramToWishlist(data)
+                          )
+                        : dispatch(showModal(Modals.registration));
+                    }}
+                  />
+                </div>
               </div>
               <div className={styles.secondaryInfo}>
                 {weeks} weeks

@@ -21,7 +21,7 @@ const ListItem = ({ data }) => {
 const UnlimitedAccessBooks: React.FC<UnlimitedAccessBooksProps> = ({}) => {
   const { dataList, imageUrl } = useUnlimitedAccessBooksData();
   const { t } = useTranslation();
-  
+
   return (
     <div className={styles.unlimitedAccessBooks}>
       <main>
@@ -38,7 +38,7 @@ const UnlimitedAccessBooks: React.FC<UnlimitedAccessBooksProps> = ({}) => {
         </header>
         <div className={styles.content}>
           <div className={styles.contentTitle}>
-            {t('home.unlimited-access.card-one.title')}
+            {t('home.unlimited-access.subtitle')}
           </div>
           <div className={styles.list}>
             {dataList.map(item => (
@@ -48,10 +48,10 @@ const UnlimitedAccessBooks: React.FC<UnlimitedAccessBooksProps> = ({}) => {
         </div>
         <div className={styles.navigation}>
           <Link to='' className={styles.link}>
-            {t('home.unlimited-access.card-five.title')}
+            {t('home.unlimited-access.link-one')}
           </Link>
           <Link to='' className={styles.link}>
-            {t('home.unlimited-access.card-six.title')}
+            {t('home.unlimited-access.link-two')}
           </Link>
         </div>
       </main>

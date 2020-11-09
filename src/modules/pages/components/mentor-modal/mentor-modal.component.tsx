@@ -106,7 +106,6 @@ const MentorModal: React.FC<MentorModalProps> = ({
 
         <div className={styles.modalContent}>
           <div className={styles.modalContentWrapper}>
-            <div className={styles.modalContentCaption}>Experience</div>
             <div className={styles.modalContentDescription}>
               {experience ? (
                 <ReactMarkdown

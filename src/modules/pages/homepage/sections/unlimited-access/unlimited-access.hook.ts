@@ -18,25 +18,25 @@ const useUnlimitedData = () => {
   const cards: CardType[] = [
     {
       type: 'text',
-      title: t('home.unlimited-access.card-one.title'),
+      title: t('home.unlimited-access.item-one.title'),
       description: t('home.unlimited-access.card-one.description'),
       highlighted: t('home.unlimited-access.card-one.highlighted')
     },
     {
       type: 'text',
-      title: t('home.unlimited-access.card-two.title'),
+      title: t('home.unlimited-access.item-two.title'),
       description: t('home.unlimited-access.card-two.description'),
       highlighted: t('home.unlimited-access.card-two.description')
     },
     {
       type: 'text',
-      title: t('home.unlimited-access.card-three.title'),
+      title: t('home.unlimited-access.item-three.title'),
       description: '',
       highlighted: t('home.unlimited-access.card-three.highlighted')
     },
     {
       type: 'text',
-      title: t('home.unlimited-access.card-four.title'),
+      title: t('home.unlimited-access.item-four.title'),
       description: t('home.unlimited-access.card-four.description'),
       highlighted: t('home.unlimited-access.card-four.highlighted')
     },

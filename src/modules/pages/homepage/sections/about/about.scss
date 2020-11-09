@@ -19,7 +19,7 @@
   }
   & > div:nth-child(3) {
     @include font($primary-gray, 24px, 400, 34px);
-    margin-bottom: 38px;
+    margin-bottom: 32px;
   }
 }
 
@@ -65,4 +65,9 @@
   .item {
     min-height: 200px;
   }
+}
+
+.button {
+  width: 230px;
+  margin-bottom: 24px;
 }

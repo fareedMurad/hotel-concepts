@@ -36,6 +36,7 @@
       "pre-caption": "Online Learning",
       "title": "What’s unique about Cordie?",
       "sub-title": "We have the critical factors to deliver real results.",
+      "button-text": "Learn more about us",
       "card-one": {
         "title": "Get real much-needed skills",
         "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
@@ -59,31 +60,12 @@
       "title": "Get unlimited access ebooks",
       "description": "Our Open Access research subscription puts the world’s most comprehensive library of hospitality research and data visualisation at your fingertips.",
       "subtitle": "Subscription benefits:",
-      "card-one": {
-        "title": "Unlimited access to premium content",
-        "description": "We are international, we stress the links between politics and business, we are irreverent and we are independent. If it matters in our world we cover it - and cover it well.",
-        "highlighted": "20+ new ebooks monthly."
-      },
-      "card-two": {
-        "title": "A unique global perspective",
-        "description": "We are international, we stress the links between politics and business, we are irreverent and we are independent.",
-        "highlighted": "If it matters in our world we cover it - and cover it well."
-      },
-      "card-three": {
-        "title": "Information vital for you",
-        "highlighted": "Focus on what is essential"
-      },
-      "card-four": {
-        "title": "Delivered by world-class experts",
-        "description": "We are international, we stress the links between politics and business, we are irreverent and we are independent",
-        "highlighted": "If it matters in our world we cover it - and cover it well."
-      },
-      "card-five": {
-        "title": "Individual Subscription"
-      },
-      "card-six": {
-        "title": "Corporate Subscription"
-      },
+      "item-one": "Unlimited access to premium content",
+      "item-two": "Delivered by world-class experts",
+      "item-three": "Information vital for you",
+      "item-four": "A unique global perspective",
+      "link-one": "Individual Subscription",
+      "link-two": "Corporate Subscription",
       "button-text": "Learn more"
     },
     "training-info": {
