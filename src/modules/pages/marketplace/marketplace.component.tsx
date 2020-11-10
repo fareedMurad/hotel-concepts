@@ -23,7 +23,7 @@ const Marketplace: React.FC = () => {
   return (
     <div className={styles.marketplace}>
       {isCookieBanner && <CookieBanner />}
-      <Preloader id={Preloaders.marketplace}>
+      <Preloader cover id={Preloaders.marketplace}>
         <Hero categories={categories} slider={slider} />
         <Products categories={categories} />
         <KordieDifference />

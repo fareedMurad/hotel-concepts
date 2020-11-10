@@ -6,14 +6,10 @@ import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
 import { useHistory } from 'react-router';
 import { showModal, toogleContributorModal } from '@ui/modal';
-import { Modals } from '@ui/models';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { MentorModal } from '@pages/components/mentor-modal';
-import { navigate } from '@router/store';
-import { useMediaPoints } from '@core/shared';
 import { ContributorCard } from '@pages/components';
 import { Spinner } from '@core/components/spinner';
-import { State } from '@app/redux/state';
 import { SectionTitle, Hr, PreCaption } from '@core/components';
 import classNames from 'classnames';
 
@@ -47,9 +43,7 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
   url,
   modifiedCaption
 }) => {
-  const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
-  const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
   const handleClick = () => history.push(`/contributors`);
 
@@ -105,19 +99,12 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
               contributor={contributor}
               key={index}
               onClick={() => {
-                setMentorId(contributor.id);
-                dispatch(showModal(Modals.contributor));
-                // dispatch(toogleContributorModal(true));
+                dispatch(toogleContributorModal(contributor.id));
               }}
             />
           ))}
         </Slider>
-        {mentorId && (
-          <MentorModal
-            mentorId={mentorId}
-            // hideComponent={() => dispatch(toogleContributorModal(false))}
-          />
-        )}
+        <MentorModal />
       </section>
     </React.Suspense>
   );

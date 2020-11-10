@@ -7,9 +7,9 @@ class ModalState {
    */
   public active: any[] = [];
   /**
-   * Contributor modal
+   * Contributor Id
    */
-  public contributorModal: boolean = false;
+  public contributorId: string = null;
   /*
    *  Book overview modal
    */

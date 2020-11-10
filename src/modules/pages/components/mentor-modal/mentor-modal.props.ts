@@ -1,8 +1,6 @@
 /**
  * Props
  */
-type MentorModalProps = {
-  mentorId: string;
-};
+type MentorModalProps = {};
 
 export { MentorModalProps };

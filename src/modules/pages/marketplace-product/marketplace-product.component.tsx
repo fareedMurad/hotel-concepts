@@ -41,7 +41,7 @@ const MarketplaceProduct: React.FC = () => {
   return (
     <div className={styles.marketplaceProduct}>
       <ScrollToTop />
-      <Preloader id={Preloaders.marketplaceProduct}>
+      <Preloader cover id={Preloaders.marketplaceProduct}>
         <Preview data={previewData} subscriptionStatus={subscriptionStatus} />
         <Description data={descriptionData} />
         <div className={styles.divider} />

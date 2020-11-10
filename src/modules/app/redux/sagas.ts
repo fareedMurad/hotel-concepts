@@ -14,6 +14,7 @@ import { MarketplaceSaga } from './marketplace';
 import { ProgramsSaga } from './programs/saga';
 import { CartSaga } from './cart';
 import { FormSaga } from './form/saga';
+import { ModalSaga } from '@ui/modal/saga';
 
 /**
  * App sagas
@@ -32,7 +33,8 @@ const sagas = [
   new AccountProgramsSaga(),
   new ProgramsSaga(),
   new CartSaga(),
-  new FormSaga()
+  new FormSaga(),
+  new ModalSaga()
 ];
 
 export { sagas };

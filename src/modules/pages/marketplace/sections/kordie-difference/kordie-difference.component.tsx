@@ -5,11 +5,10 @@ import { ContributorCard, MentorModal } from '@pages/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { navigate } from '@router/store';
 import { showModal, toogleContributorModal } from '@ui/modal';
-import { Modals } from '@ui/models';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as styles from './kordie-difference.scss';
-import { useState } from 'react';
+
 /**
  * Slider responsive
  */
@@ -38,9 +37,7 @@ const KordieDifference: React.FC = () => {
   const dispatch = useDispatch();
   const { language } = useSelector((state: State) => state.localization);
   const { contributors } = useContributorsData(language);
-  const { tablet } = useMediaPoints();
-  const [mentorId, setMentorId] = useState('');
-  const { contributorModal } = useSelector((state: State) => state.ui.modal);
+
   return (
     <div className={styles.kordieDifference}>
       <div className={styles.head}>
@@ -71,20 +68,13 @@ const KordieDifference: React.FC = () => {
                 // className={styles.contributor}
                 contributor={contributor}
                 onClick={() => {
-                  setMentorId(contributor.sys.id);
-                  dispatch(showModal(Modals.contributor));
-                  // dispatch(toogleContributorModal(true));
+                  dispatch(toogleContributorModal(contributor.sys.id));
                 }}
                 key={index}
               />
             ))}
           </Slider>
-          {mentorId && (
-            <MentorModal
-              mentorId={mentorId}
-              // hideComponent={() => dispatch(toogleContributorModal(false))}
-            />
-          )}
+          <MentorModal />
           <Button
             className={styles.seeAll}
             arrow
