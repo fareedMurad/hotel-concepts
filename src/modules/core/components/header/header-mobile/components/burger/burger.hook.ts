@@ -21,6 +21,7 @@ const useBurgerData = () => {
   const menus = [
     {
       title: 'Profile',
+      height: 386,
       menuLinks: [
         {
           link: 'My account',
@@ -42,6 +43,7 @@ const useBurgerData = () => {
     },
     {
       title: 'Programs',
+      height: 546,
       menuLinks: [
         ...programsLinks,
         {
@@ -53,6 +55,7 @@ const useBurgerData = () => {
     },
     {
       title: 'E-library',
+      height: 226,
       menuLinks: [
         {
           link: 'Individual Subscription',
@@ -68,6 +71,7 @@ const useBurgerData = () => {
     },
     {
       title: 'Corporate solutions',
+      height: 226,
       menuLinks: [
         {
           link: 'Online programs',
@@ -81,6 +85,7 @@ const useBurgerData = () => {
     },
     {
       title: 'About',
+      height: 226,
       menuLinks: [
         {
           link: 'About us',

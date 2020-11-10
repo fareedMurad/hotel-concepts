@@ -22,6 +22,7 @@ type BurgerItemProps = {
    * Set visible menu
    */
   setShowMenu: (menu: string) => void;
+  height: number;
 };
 
 export { BurgerItemProps };
