@@ -68,8 +68,12 @@ class FormService {
     }
     bodyData.delete('cv');
     bodyData.delete('cover');
-    bodyData.append('cv', cv);
-    bodyData.append('cover', cover);
+    if (cv) {
+      bodyData.append('cv', cv);
+    }
+    if (cover) {
+      bodyData.append('cover', cover);
+    }
 
     return this.http.request({
       method: 'POST',

@@ -23,11 +23,11 @@ const ProgramContacUsValidationSchema = yup
       .required(),
     teamSize: yup
       .string()
-      .label('Name')
+      .label('Employees')
       .required(),
     interests: yup
       .string()
-      .label('Name')
+      .label('Interests')
       .required()
   });
 

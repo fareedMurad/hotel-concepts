@@ -42,11 +42,26 @@ const ContactUsModalValidationSchema = yup.object().shape<ContactUsModalModel>({
     .required('Email is required')
     .label('Contact E-mail')
     .trim(),
-  company: yup.string().label('Property / Company Name'),
-  website: yup.string(),
-  teamSize: yup.string(),
-  interests: yup.string(),
-  comment: yup.string()
+  company: yup
+    .string()
+    .label('Property / Company Name')
+    .required(),
+  website: yup
+    .string()
+    .required()
+    .label('Website'),
+  teamSize: yup
+    .string()
+    .required()
+    .label('Team size'),
+  interests: yup
+    .string()
+    .required()
+    .label('Interests'),
+  comment: yup
+    .string()
+    .required()
+    .label('Comment')
 });
 
 export { defaultValues, ContactUsModalValidationSchema };

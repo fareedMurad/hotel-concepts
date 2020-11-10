@@ -1,17 +1,16 @@
 import * as React from 'react';
-import { ArticlePageProps } from './article-page.props';
 import * as styles from './article-page.scss';
-import { useHistory, useParams } from 'react-router';
 import { H2, Paragraph, Button, Footer, Spinner, Icon } from '@core/components';
-import { ScrollToTop } from '@app';
-import { useArticleFirstScreenData } from './hooks/article-first-screen.hook';
-import Moment from 'react-moment';
-import { ArticleIntro } from './sections/article-intro';
-import { ArticleRichText } from './sections/article-rich-text';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { useTranslation } from 'react-i18next';
+import { useHistory, useParams } from 'react-router';
+import { ArticleIntro } from './sections/article-intro';
+import { ArticlePageProps } from './article-page.props';
+import { ArticleRichText } from './sections/article-rich-text';
+import Moment from 'react-moment';
+import { ScrollToTop } from '@app';
 import { State } from '@app/redux/state';
+import { useArticleFirstScreenData } from './hooks/article-first-screen.hook';
+import { useTranslation } from 'react-i18next';
 import { launch } from 'puppeteer';
 /**
  * HR

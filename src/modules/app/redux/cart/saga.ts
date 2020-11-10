@@ -223,10 +223,11 @@ class CartSaga {
     { api }: Context
   ) {
     yield put(preloaderStart(Preloaders.sendForm));
-
-    const productsIds = yield select((state: State) =>
-      state.cart.products.map(el => el.name)
+    const { selectedProducts, products } = yield select(
+      (state: State) => state.cart
     );
+
+    const productsIds = products.map(el => el.name);
 
     const data: invoiceRequestModel = {
       ...payload,

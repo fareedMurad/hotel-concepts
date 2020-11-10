@@ -43,11 +43,11 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
         <Formik
           initialValues={defaultValues}
           onSubmit={values => {
-            if (cv === null || cover === null) {
-              setLetterError(true);
-              setCvError(true);
-              return;
-            }
+            // if (cv === null || cover === null) {
+            //   setLetterError(true);
+            //   setCvError(true);
+            //   return;
+            // }
 
             const formData = {
               ...values,

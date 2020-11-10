@@ -24,7 +24,8 @@ const Text: React.FC<TextProps> = ({
   ref,
   isError,
   theme,
-  autoComplete
+  autoComplete,
+  errorClassName
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -71,7 +72,9 @@ const Text: React.FC<TextProps> = ({
         }}
         autoComplete={autoComplete}
       />
-      {isError && <div className={styles.error}>{error}</div>}
+      {isError && (
+        <div className={classNames(styles.error, errorClassName)}>{error}</div>
+      )}
     </div>
   );
 };

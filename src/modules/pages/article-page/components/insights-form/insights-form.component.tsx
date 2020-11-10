@@ -45,7 +45,12 @@ const InsightsForm: React.FC<InsightsFormProps> = ({}) => {
           >
             {({ handleSubmit }) => (
               <Form handleSubmit={handleSubmit} className={styles.form}>
-                <Field.Text type='email' label='Email' name='email' />
+                <Field.Text
+                  type='email'
+                  label='Email'
+                  name='email'
+                  errorClassName={styles.error}
+                />
                 <Button
                   className={styles.button}
                   onClick={() => handleSubmit()}

@@ -11,6 +11,7 @@ import { sendForm } from '@app/redux/form';
 import { ProgramCatalogueFormValues } from '@app/models';
 import { Preloaders } from '@ui/models';
 import { FormResultModal } from '@pages/components/form-result-modal';
+import { ProgramContacUsValidationSchema } from './models';
 
 /**
  * default values for form
@@ -61,7 +62,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
           </div>
           <Formik
             initialValues={defaultValues}
-            validationSchema={null}
+            validationSchema={ProgramContacUsValidationSchema}
             onSubmit={values => {
               const payload = {
                 subject: `Form 'Contact Us'`,
