@@ -38,10 +38,14 @@ const ContactUsModal: React.FC = () => {
             validationSchema={ContactUsModalValidationSchema}
             initialValues={defaultValues}
             onSubmit={values => {
-              dispatch(sendForm(values));
+              const data = {
+                subject: "Form 'Contact us modal'",
+                data: values
+              };
+              dispatch(sendForm(data));
             }}
           >
-            {({ handleSubmit }) => (
+            {({ handleSubmit, values }) => (
               <Form className={styles.form}>
                 <Field.Text
                   name='name'
@@ -91,7 +95,10 @@ const ContactUsModal: React.FC = () => {
                 <Button
                   className={styles.submit}
                   arrow
-                  onClick={() => handleSubmit()}
+                  onClick={() => {
+                    handleSubmit();
+                    console.log(values);
+                  }}
                 >
                   {t('modal-contact-us.form.button-text')}
                 </Button>

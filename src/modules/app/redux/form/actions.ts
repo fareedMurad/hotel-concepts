@@ -15,6 +15,7 @@ import { make } from 'redux-chill';
  */
 
 const sendForm = make('[Form] send form')
+  .stage(payload => payload)
   .stage('contactUs', (payload: ContactUsFormValues) => payload)
   .stage('jobDetails', (payload: JobDetailsFormValues) => payload)
   .stage('programCatalogue', (payload: ProgramCatalogueFormValues) => payload)
