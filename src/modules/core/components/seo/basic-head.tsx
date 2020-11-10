@@ -6,22 +6,10 @@ const BasicHead: React.FC = () => {
     <Helmet>
       <title>Kordie</title>
       <link
-        rel='apple-touch-icon'
-        sizes='180x180'
-        href={`${require('img/fav/apple-touch-icon.png')}`}
-      />
-
-      <link
         rel='icon'
         type='image/png'
-        sizes='32x32'
-        href={`${require('img/fav/favicon-32x32.png')}`}
-      />
-      <link
-        rel='icon'
-        type='image/png'
-        sizes='16x16'
-        href={`${require('img/fav/favicon-16x16.png')}`}
+        sizes='72x72'
+        href={`${require('img/fav-primary/kordie_favicon_72_72.svg')}`}
       />
     </Helmet>
   );
