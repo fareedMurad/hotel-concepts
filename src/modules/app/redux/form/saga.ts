@@ -13,6 +13,21 @@ class FormSaga {
   /*
    * Send subscription form
    */
+  @Saga(sendForm)
+  public *sendFormBasic(payload: Payload<typeof sendForm>, { api }: Context) {
+    yield put(preloaderStart(Preloaders.sendForm));
+    try {
+      yield call(api.form.sendForm, payload);
+      yield put(showModal(Modals.success));
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.sendForm));
+    }
+  }
+  /**
+   * Form subscription
+   */
   @Saga(sendForm.subscription)
   public *sendForm(payload: Payload<typeof sendForm>, { api }: Context) {
     yield put(preloaderStart(Preloaders.formSubscription));

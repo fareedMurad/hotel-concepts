@@ -41,7 +41,7 @@ const ContactUsModalValidationSchema = yup.object().shape<ContactUsModalModel>({
     .string()
     .required('Email is required')
     .label('Contact E-mail')
-    .trim(),
+    .email(),
   company: yup
     .string()
     .label('Property / Company Name')
