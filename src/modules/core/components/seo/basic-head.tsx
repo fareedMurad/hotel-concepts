@@ -10,7 +10,6 @@ const BasicHead: React.FC = () => {
 
   useEffect(() => {
     setDarkTheme(window.matchMedia('(prefers-color-scheme: dark)'));
-    console.log(window.matchMedia('(prefers-color-scheme: dark)'));
   }, []);
 
   return (

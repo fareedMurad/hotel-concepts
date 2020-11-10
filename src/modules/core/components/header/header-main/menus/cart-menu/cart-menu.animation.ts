@@ -1,3 +1,4 @@
+import { useSpring } from 'react-spring';
 /*
  * Animation for cart notifier
  */

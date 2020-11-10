@@ -26,6 +26,8 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ className }) => {
         <CardDropdown
           className={styles.dropdown}
           onMouseLeave={() => setShowMenu(false)}
+          height={650}
+          open={showMenu}
         >
           {programsData?.map(program => (
             <div

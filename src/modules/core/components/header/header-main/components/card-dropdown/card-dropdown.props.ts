@@ -10,6 +10,11 @@ type CardDropdownProps = {
    * ON mouse leave
    */
   onMouseLeave?: () => void;
+  /*
+   *
+   */
+  height?: number;
+  open?: boolean;
 };
 
 export { CardDropdownProps };
