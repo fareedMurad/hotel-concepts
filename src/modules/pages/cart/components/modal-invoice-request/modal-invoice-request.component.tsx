@@ -26,7 +26,8 @@ const defaultValues: InvoiceValues = {
   name: '',
   email: '',
   country: '',
-  phone: ''
+  phone: '',
+  total: ''
 };
 
 /**
@@ -51,7 +52,7 @@ const ModalInvoiceRequest: React.FC<ModalInvoiceRequestProps> = ({ total }) => {
           initialValues={defaultValues}
           validationSchema={InvoiceValidationSchema}
           onSubmit={values => {
-            dispatch(sendInvoiceRequest(values));
+            dispatch(sendInvoiceRequest({ ...values, total }));
           }}
         >
           {({ handleSubmit }) => (
