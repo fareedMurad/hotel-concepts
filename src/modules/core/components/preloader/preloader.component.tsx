@@ -15,6 +15,7 @@ const Preloader: React.FC<PreloaderProps> = ({
   className,
   thickness,
   size,
+  cover,
   ...props
 }) => {
   const { active } = useSelector((state: State) => state.ui.preloader);
@@ -25,7 +26,9 @@ const Preloader: React.FC<PreloaderProps> = ({
     return (
       <React.Fragment>
         <div
-          className={classNames(styles.overlay, className)}
+          className={classNames(styles.overlay, className, {
+            [styles.cover]: cover
+          })}
           {...omit(props, 'isActive')}
         >
           <div

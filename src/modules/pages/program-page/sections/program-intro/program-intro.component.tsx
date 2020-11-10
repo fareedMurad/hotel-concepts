@@ -72,7 +72,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
   const previewUrl = data?.previewVideo.video.file.url;
 
   return (
-    <Preloader id={Preloaders.programs}>
+    <Preloader cover id={Preloaders.programs}>
       <section
         className={styles.programIntro}
         style={{ backgroundImage: `url(${data?.heroImage.file.url})` }}

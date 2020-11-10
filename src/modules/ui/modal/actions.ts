@@ -19,7 +19,7 @@ const closeModal = make('[ui] close modal').stage((id: any | any[]) => ({
  * Contributor modal
  */
 const toogleContributorModal = make('[ui] open contributor').stage(
-  (payload: boolean) => payload
+  (payload: string) => payload
 );
 
 /*

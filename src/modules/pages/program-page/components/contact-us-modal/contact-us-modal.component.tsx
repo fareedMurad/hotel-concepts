@@ -38,7 +38,6 @@ const ContactUsModal: React.FC = () => {
             initialValues={defaultValues}
             onSubmit={values => {
               dispatch(sendRequest(values));
-              console.log(values);
             }}
           >
             {({ handleSubmit }) => (

@@ -50,7 +50,7 @@ const ProgramsCatalogue: React.FC = () => {
     <div className={styles.programsCatalogue}>
       <ScrollToTop />
 
-      <Preloader id={Preloaders.categories}>
+      <Preloader cover id={Preloaders.categories}>
         <CatalogueHeader title={name} description={description} />
         <div className={styles.title}>
           <SectionTitle>{t('programs-catalogue.title')}</SectionTitle>
