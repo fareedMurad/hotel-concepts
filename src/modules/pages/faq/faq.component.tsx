@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { FaqProps } from './faq.props';
 import * as styles from './faq.scss';
-
 import {
   Footer,
   H3,
@@ -9,15 +7,19 @@ import {
   Form,
   Button,
   PreCaption,
-  SectionTitle
+  SectionTitle,
+  Preloader
 } from '@core/components';
-import { Formik } from 'formik';
+import { FAQFormValidationSchema } from './models/validation';
+import { FAQFormValues } from '@app/models/form';
 import { FaqBlock } from '@pages/components';
+import { FaqProps } from './faq.props';
+import { Formik } from 'formik';
+import { Preloaders } from '@ui/models';
+import { sendForm } from '@app/redux/form';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { FAQFormValues } from '@app/models/form';
-import { FAQFormValidationSchema } from './faq.model';
-import { sendForm } from '@app/redux/form';
+import { FormResultModal } from '@pages/components/form-result-modal';
 
 /**
  * Init values
@@ -25,7 +27,8 @@ import { sendForm } from '@app/redux/form';
 const initialValues: FAQFormValues = {
   name: '',
   email: '',
-  message: ''
+  comment: '',
+  accept: false
 };
 
 /**
@@ -42,61 +45,63 @@ const Faq: React.FC<FaqProps> = ({}) => {
       </div>
       <FaqBlock className={styles.faqWrapper} showTitle={false} />
       <footer className={styles.footer}>
-        <div className={styles.footerContent}>
-          <div>
-            <PreCaption>
-              {t('faq.form.question')}{' '}
-              <span style={{ textDecoration: 'underline' }}>email</span>
-            </PreCaption>
-          </div>
-          <div>
-            <H3 className={styles.h3}>{t('faq.form.title')}</H3>
-          </div>
-          <div className={styles.form}>
-            <Formik
-              initialValues={initialValues}
-              onSubmit={values => {
-                const payload = {
-                  subject: `Form 'FAQ'`,
-                  data: values
-                };
-                dispatch(sendForm(payload));
-              }}
-              validationSchema={FAQFormValidationSchema}
-            >
-              {({ handleSubmit }) => (
-                <Form>
-                  <div className={styles.formInputs}>
-                    <Field.Text name='name' label={t('faq.form.lable.name')} />
-                    <Field.Text
-                      name='email'
-                      type='email'
-                      label={t('faq.form.lable.email')}
+        <Preloader id={Preloaders.sendForm} className={styles.preloader}>
+          <div className={styles.footerContent}>
+            <div>
+              <PreCaption>
+                {t('faq.form.question')}{' '}
+                <span style={{ textDecoration: 'underline' }}>email</span>
+              </PreCaption>
+            </div>
+            <div>
+              <H3 className={styles.h3}>{t('faq.form.title')}</H3>
+            </div>
+            <div className={styles.form}>
+              <Formik
+                initialValues={initialValues}
+                onSubmit={values => {
+                  dispatch(sendForm.faq(values));
+                }}
+                validationSchema={FAQFormValidationSchema}
+              >
+                {({ handleSubmit }) => (
+                  <Form>
+                    <div className={styles.formInputs}>
+                      <Field.Text
+                        name='name'
+                        label={t('faq.form.lable.name')}
+                      />
+                      <Field.Text
+                        name='email'
+                        type='email'
+                        label={t('faq.form.lable.email')}
+                      />
+                    </div>
+                    <Field.TextArea
+                      name='comment'
+                      className={styles.textArea}
+                      label={t('faq.form.lable.comment')}
                     />
-                  </div>
-                  <div className={styles.textAreaWrapper}>
-                    <div>{t('faq.form.lable.comment')}</div>
-                    <textarea name='comment' className={styles.textArea} />
-                  </div>
-
-                  <div className={styles.submitForm}>
-                    <Field.Checkbox
-                      name='accept'
-                      label={t('faq.form.lable.accept-terms')}
-                    />
-                    <Button
-                      onClick={() => handleSubmit()}
-                      className={styles.submitButton}
-                      children={t('faq.form.lable.button-text')}
-                      arrow
-                    />
-                  </div>
-                </Form>
-              )}
-            </Formik>
+                    <div className={styles.submitForm}>
+                      <Field.Checkbox
+                        name='accept'
+                        label={t('faq.form.lable.accept-terms')}
+                      />
+                      <Button
+                        onClick={() => handleSubmit()}
+                        className={styles.submitButton}
+                        children={t('faq.form.lable.button-text')}
+                        arrow
+                      />
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            </div>
           </div>
-        </div>
+        </Preloader>
       </footer>
+      <FormResultModal />
       {/* <Footer /> */}
     </div>
   );

@@ -1,25 +1,26 @@
 import * as React from 'react';
-import { ContactsPageProps } from './contacts-page.props';
 import * as styles from './contacts-page.scss';
 import {
-  H2,
   Paragraph,
   Form,
   Field,
-  Select,
   Button,
   PreCaption,
-  Footer,
-  SectionTitle
+  SectionTitle,
+  Preloader
 } from '@core/components';
-import { useContactsPageData } from './contacts-page.hook';
+import { ContactUsFormValues } from '@app/models';
+import { ContactsPageProps } from './contacts-page.props';
+import { ContactsUsValidationSchema } from './models/validation';
+import { FormResultModal } from '@pages/components/form-result-modal';
 import { Formik } from 'formik';
-import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import { useTranslation } from 'react-i18next';
+import { Preloaders } from '@ui/models';
+import classNames from 'classnames';
 import { sendForm } from '@app/redux/form';
+import { useContactsPageData } from './contacts-page.hook';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const Card = ({ title, description, href, link }) => (
   <div className={styles.card}>
@@ -33,10 +34,10 @@ const Card = ({ title, description, href, link }) => (
 /**
  * default values
  */
-const defaultValues = {
+const defaultValues: ContactUsFormValues = {
   subject: '',
   email: '',
-  gender: '',
+  title: '',
   name: '',
   surname: '',
   comment: ''
@@ -48,6 +49,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { cardsData, contactsFooterImage } = useContactsPageData();
+
   const types = [
     { label: 'Enrollment', value: '1' },
     { label: 'Enrollment', value: '2' },
@@ -88,91 +90,91 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
             {t('contacts.form.sub-title')}
           </div>
           <main>
-            <Formik
-              initialValues={defaultValues}
-              onSubmit={values => {
-                const payload = {
-                  subject: `Form 'Want to get involved?'`,
-                  data: values
-                };
-                dispatch(sendForm(payload));
-              }}
-            >
-              {({ handleSubmit }) => (
-                <Form handleSubmit={handleSubmit} className={styles.form}>
-                  <div className={styles.inputGroupA}>
-                    <Field.Select
-                      name='subject'
-                      options={types}
-                      placeholder='Enrollment'
-                      label='Subject'
-                      className={classNames(styles.select)}
-                      whiteBackground
-                      customStyles={{ container: () => ({ width: '44px' }) }}
-                    />
-                    <Field.Text
-                      name='email'
-                      type='email'
-                      label={t('contacts.form.lable.email')}
-                      className={styles.inputEmail}
-                      placeholder='example@gmail.com'
-                    />
-                  </div>
-                  <div className={styles.inputGroupB}>
-                    <Field.Select
-                      name='gender'
-                      value=''
-                      label='Title'
-                      options={genders}
-                      placeholder='Mr'
-                      className={classNames(styles.select)}
-                      whiteBackground
-                    />
-                    <Field.Text
-                      name='name'
-                      label={t('contacts.form.lable.name')}
-                      className={styles.inputName}
-                      placeholder='John'
-                    />
-                    <Field.Text
-                      name='surname'
-                      label={t('contacts.form.lable.surname')}
-                      className={styles.inputSurname}
-                      placeholder='Doe'
-                    />
-                  </div>
-                  <Field.TextArea
-                    name='comment'
-                    className={styles.textArea}
-                    label={t('contacts.form.lable.comment')}
-                  />
-                  <Button
-                    className={styles.buttonSend}
-                    children={t('contacts.form.button-text')}
-                    width={204}
-                    onClick={() => handleSubmit()}
-                  />
-                </Form>
-              )}
-            </Formik>
-            <Paragraph className={styles.footerCaption}>
-              {t('contacts.form.terms-one')}{' '}
-              <Link
-                to='/privacy-policy'
-                style={{
-                  color: '#ff6634',
-                  textDecoration: 'underline',
-                  fontWeight: 500
+            <Preloader id={Preloaders.sendForm}>
+              <Formik
+                initialValues={defaultValues}
+                onSubmit={values => {
+                  dispatch(sendForm.contactUs(values));
                 }}
+                validationSchema={ContactsUsValidationSchema}
               >
-                {t('contacts.form.p-p')}
-              </Link>{' '}
-              {t('contacts.form.terms-two')}
-            </Paragraph>
+                {({ handleSubmit }) => (
+                  <Form handleSubmit={handleSubmit} className={styles.form}>
+                    <div className={styles.inputGroupA}>
+                      <Field.Select
+                        name='subject'
+                        options={types}
+                        placeholder='Enrollment'
+                        label='Subject'
+                        className={classNames(styles.select)}
+                        whiteBackground
+                        customStyles={{ container: () => ({ width: '44px' }) }}
+                      />
+                      <Field.Text
+                        name='email'
+                        type='email'
+                        label={t('contacts.form.lable.email')}
+                        className={styles.inputEmail}
+                        placeholder='example@gmail.com'
+                      />
+                    </div>
+                    <div className={styles.inputGroupB}>
+                      <Field.Select
+                        name='title'
+                        value=''
+                        label='Title'
+                        options={genders}
+                        placeholder='Mr'
+                        className={classNames(styles.select)}
+                        whiteBackground
+                      />
+                      <Field.Text
+                        name='name'
+                        label={t('contacts.form.lable.name')}
+                        className={styles.inputName}
+                        placeholder='John'
+                      />
+                      <Field.Text
+                        name='surname'
+                        label={t('contacts.form.lable.surname')}
+                        className={styles.inputSurname}
+                        placeholder='Doe'
+                      />
+                    </div>
+                    <Field.TextArea
+                      name='comment'
+                      className={styles.textArea}
+                      label={t('contacts.form.lable.comment')}
+                    />
+                    <Button
+                      className={styles.buttonSend}
+                      children={t('contacts.form.button-text')}
+                      width={204}
+                      onClick={() => handleSubmit()}
+                    />
+                  </Form>
+                )}
+              </Formik>
+              <Paragraph className={styles.footerCaption}>
+                {t('contacts.form.terms-one')}{' '}
+                <Link
+                  to='/privacy-policy'
+                  style={{
+                    color: '#ff6634',
+                    textDecoration: 'underline',
+                    fontWeight: 500
+                  }}
+                >
+                  {t('contacts.form.p-p')}
+                </Link>{' '}
+                {t('contacts.form.terms-two')}
+              </Paragraph>
+            </Preloader>
           </main>
         </div>
         <img src={contactsFooterImage} className={styles.footerImg} />
       </footer>
+      <FormResultModal />
       {/* <Footer /> */}
     </div>
   );

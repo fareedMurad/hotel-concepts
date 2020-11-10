@@ -4,10 +4,8 @@ import { ContributorsContainerProps } from './contributors-container.props';
 import * as styles from './contributors-container.scss';
 import { H2, Paragraph, PreCaption, SectionTitle, Hr } from '@core/components';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
-import { Modals } from '@ui/models';
 import { useDispatch, useSelector } from 'react-redux';
-import { showModal, toogleContributorModal } from '@ui/modal/actions';
-import { navigate } from '@router/store';
+import { toogleContributorModal } from '@ui/modal/actions';
 import { useMediaPoints } from '@core/shared';
 import { MentorModal } from '@pages/components/mentor-modal';
 import { ContributorCard } from '@pages/components/contributor-card';
@@ -46,7 +44,6 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   const { contributors: data, loading } = useContributorsData(language);
   const [contributors, setContributors] = React.useState([]);
   const { mobile } = useMediaPoints();
-  const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -57,7 +54,6 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
-  const [mentorId, setMentorId] = useState('');
 
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
@@ -109,19 +105,14 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
                 contributor={contributor}
                 key={index}
                 onClick={() => {
-                  setMentorId(contributor.sys.id);
-                  dispatch(showModal(Modals.contributor));
+                  dispatch(toogleContributorModal(contributor.sys.id));
                 }}
               />
             ))}
           </section>
         )}
-        {mentorId && (
-          <MentorModal
-            mentorId={mentorId}
-            // hideComponent={() => dispatch(toogleContributorModal(false))}
-          />
-        )}
+
+        <MentorModal />
       </div>
       {!mobile && (
         <div className={styles.pagination}>

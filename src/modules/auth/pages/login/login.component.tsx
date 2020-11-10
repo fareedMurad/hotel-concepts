@@ -30,14 +30,14 @@ const Login: React.FC = () => {
   return (
     <div className={styles.login}>
       <ScrollToTop />
-      <Preloader id={Preloaders.login}>
+      <Preloader cover id={Preloaders.login}>
         <AuthHeader />
         <Fragment>
           <Formik
             initialValues={defaultValues}
             validationSchema={loginValidationSchema}
             onSubmit={values => {
-              dispatch(login(values));
+              dispatch(login({ data: values }));
             }}
           >
             {({ handleSubmit }) => (

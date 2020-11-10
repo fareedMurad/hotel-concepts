@@ -85,7 +85,7 @@ class AuthSaga {
     yield put(preloaderStart(Preloaders.login));
 
     try {
-      const response = yield call(api.auth.login, payload);
+      const response = yield call(api.auth.login, payload.data);
       const user = yield call(api.auth.getUser);
       const {
         data: { newUser }
@@ -101,7 +101,7 @@ class AuthSaga {
       yield put(closeModal(Modals.registration));
       newUser
         ? yield put(navigate('/interests'))
-        : yield put(navigate('/account/profile'));
+        : yield put(navigate(payload.from != '/cart' && '/account/profile'));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
@@ -330,13 +330,15 @@ class AuthSaga {
    * Sign in with google
    */
   @Saga(googleSignIn)
-  public *googleSignIn({ tokenId }: GoogleSignInModel, { api }: Context) {
+  public *googleSignIn(
+    payload: Payload<typeof googleSignIn>,
+    { api }: Context
+  ) {
     yield put(preloaderStart(Preloaders.login));
 
     const data = {
-      token: tokenId
+      token: payload.data.tokenId
     };
-
     try {
       const response = yield call(api.auth.googleSignIn, data);
       yield put(getUser());
@@ -346,9 +348,11 @@ class AuthSaga {
         data: { newUser }
       } = response;
 
+      yield put(closeModal(Modals.registration));
+
       newUser
         ? yield put(navigate('/interests'))
-        : yield put(navigate('/account/profile'));
+        : yield put(navigate(payload.from != '/cart' && '/account/profile'));
 
       yield put(
         toggleToast({
@@ -373,7 +377,7 @@ class AuthSaga {
   ) {
     yield put(preloaderStart(Preloaders.login));
 
-    if (!payload?.accessToken) {
+    if (!payload?.data.accessToken) {
       yield put(
         handleError(
           'Unable to sign in with Facebook. Please try another authorisation method'
@@ -384,7 +388,7 @@ class AuthSaga {
     }
 
     const data = {
-      token: payload.accessToken
+      token: payload.data.accessToken
     };
 
     try {
@@ -396,9 +400,11 @@ class AuthSaga {
         data: { newUser }
       } = response;
 
+      yield put(closeModal(Modals.registration));
+
       newUser
         ? yield put(navigate('/interests'))
-        : yield put(navigate('/account/profile'));
+        : yield put(navigate(payload.from != '/cart' && '/account/profile'));
 
       yield put(
         toggleToast({

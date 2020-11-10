@@ -28,13 +28,14 @@ const Burger: React.FC<any> = ({ transition }) => {
           Log in
         </Button>
       )}
-      {menus.map(({ title, menuLinks }) => (
+      {menus.map(({ title, menuLinks, height }) => (
         <BurgerItem
           key={title}
           title={title}
           menuLinks={menuLinks}
           showMenu={showMenu}
           setShowMenu={setShowMenu}
+          height={height}
         />
       ))}
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { CheckboxGroupProps, CheckboxProps } from './checkbox.props';
 import * as styles from './checkbox.scss';
+import { CheckboxGroupProps, CheckboxProps } from './checkbox.props';
 import { Icon } from '../icon';
-import classNames from 'classnames';
 import { Label } from '../label';
+import classNames from 'classnames';
 
 /**
  * Renders Checkbox

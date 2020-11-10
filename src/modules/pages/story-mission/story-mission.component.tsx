@@ -1,4 +1,5 @@
-import { ScrollToTop } from '@app';
+import * as React from 'react';
+import * as styles from './story-mission.scss';
 import {
   Button,
   HeroSubtitle,
@@ -6,15 +7,14 @@ import {
   Paragraph,
   SectionTitle
 } from '@core/components';
-import { scrollTo } from '@core/helpers/scroll-to.helper';
-import { PartnerApply } from '@pages/components';
-import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import { HeroCaption } from './components';
 import { ManagingHospitality, OurMissionVision } from './sections';
+import { HeroCaption } from './components';
 import { OurFoundingValues } from './sections/our-founding-values';
+import { PartnerApply } from '@pages/components';
+import { ScrollToTop } from '@app';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useStoryMissionData } from './story-mission.hook';
-import * as styles from './story-mission.scss';
+import { useTranslation } from 'react-i18next';
 
 const Hr = () => <div className={styles.hr} />;
 /**

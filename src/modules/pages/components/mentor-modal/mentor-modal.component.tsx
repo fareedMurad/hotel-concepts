@@ -35,20 +35,31 @@ const GET_MENTOR = gql`
 /**
  * Renders MentorModal
  */
-const MentorModal: React.FC<MentorModalProps> = ({ mentorId }) => {
-  const { language } = useSelector((state: State) => state.localization);
+const MentorModal: React.FC<MentorModalProps> = () => {
+  const {
+    localization: { language },
+    ui: {
+      modal: { contributorId }
+    }
+  } = useSelector((state: State) => state);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log('render');
-
   const { data, loading, error } = useQuery(GET_MENTOR, {
-    variables: { id: mentorId, locale: language }
+    variables: { id: contributorId, locale: language }
   });
 
+  if (!contributorId) {
+    return null;
+  }
+
   if (loading) {
-    return <Spinner />;
+    return (
+      <div className={styles.spinnerOverlay}>
+        <Spinner />;
+      </div>
+    );
   }
 
   const {
@@ -87,7 +98,8 @@ const MentorModal: React.FC<MentorModalProps> = ({ mentorId }) => {
                 className={styles.contributorDetails}
                 style={{ fontWeight: 500 }}
               >
-                {workAt}, {position}
+                {workAt}
+                <br /> {position}
               </div>
               <div className={styles.contributorDetails}>{from}</div>
             </div>

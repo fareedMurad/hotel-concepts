@@ -1,4 +1,4 @@
-import { User } from '@app/models';
+import { User, GoogleSignInModel } from '@app/models';
 import {
   ForgotPasswordValues,
   GoogleSignInValues,
@@ -31,7 +31,7 @@ const getUser = make('[auth] get user').stage(
  * Login
  */
 const login = make('[auth] login')
-  .stage((payload: LoginValues) => payload)
+  .stage((payload: { data: LoginValues; from?: string }) => payload)
   .stage('success');
 
 /**
@@ -103,14 +103,14 @@ const updatePassword = make('[auth] update password')
  * Sign-in with google
  */
 const googleSignIn = make('[auth] sign-in with google')
-  .stage((payload: GoogleSignInValues) => payload)
+  .stage((payload: { data: GoogleSignInModel; from?: string }) => payload)
   .stage('success');
 
 /**
  * Sign in with facebook
  */
 const facebookSignIn = make('[auth] sign-in with facebook')
-  .stage((payload: any) => payload)
+  .stage((payload: { data: any; from?: string }) => payload)
   .stage('success');
 
 /**

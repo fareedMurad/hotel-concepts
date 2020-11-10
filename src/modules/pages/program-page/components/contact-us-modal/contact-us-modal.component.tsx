@@ -1,19 +1,20 @@
-import { interestsOptions } from '@app/dictionary/interests-options';
-import { sendRequest } from '@app/redux/programs';
-import { Button, Field, Form, Icon, Modal, Preloader } from '@core/components';
-import { SuccessAlertModal } from '@pages/components/success-alert-modal';
-import { closeModal } from '@ui/modal';
-import { Modals, Preloaders } from '@ui/models';
-import { Formik } from 'formik';
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { useHistory, useParams } from 'react-router';
 import * as styles from './contact-us-modal.scss';
+import { Button, Field, Form, Icon, Modal, Preloader } from '@core/components';
 import {
   ContactUsModalValidationSchema,
   defaultValues
 } from './models/contact-us-modal.model';
+import { Modals, Preloaders } from '@ui/models';
+import { useHistory, useParams } from 'react-router';
+import { Formik } from 'formik';
+import { SuccessAlertModal } from '@pages/components/success-alert-modal';
+import { closeModal } from '@ui/modal';
+import { interestsOptions } from '@app/dictionary/interests-options';
+import { sendForm } from '@app/redux/form';
+import { sendRequest } from '@app/redux/programs';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders ContactUsModal
@@ -37,11 +38,14 @@ const ContactUsModal: React.FC = () => {
             validationSchema={ContactUsModalValidationSchema}
             initialValues={defaultValues}
             onSubmit={values => {
-              dispatch(sendRequest(values));
-              console.log(values);
+              const data = {
+                subject: "Form 'Contact us modal'",
+                data: values
+              };
+              dispatch(sendForm(data));
             }}
           >
-            {({ handleSubmit }) => (
+            {({ handleSubmit, values }) => (
               <Form className={styles.form}>
                 <Field.Text
                   name='name'
@@ -91,7 +95,10 @@ const ContactUsModal: React.FC = () => {
                 <Button
                   className={styles.submit}
                   arrow
-                  onClick={() => handleSubmit()}
+                  onClick={() => {
+                    handleSubmit();
+                    console.log(values);
+                  }}
                 >
                   {t('modal-contact-us.form.button-text')}
                 </Button>

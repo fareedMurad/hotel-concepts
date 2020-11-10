@@ -126,12 +126,12 @@ class ProgramsSaga {
   public *sendRequest(payload: Payload<typeof sendRequest>, { api }: Context) {
     yield put(preloaderStart(Preloaders.sendForm));
     try {
-      const programId = yield select(
-        (state: State) => state.programsData.singleProgram.id
+      const programName = yield select(
+        (state: State) => state.programsData.singleProgram.name
       );
       const data: EnterpriseModel = {
         ...payload,
-        program: programId
+        program: programName
       };
       yield call(api.programs.sendForm, data);
 

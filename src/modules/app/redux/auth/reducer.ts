@@ -38,10 +38,10 @@ const auth = reducer(new AuthState())
     state.passwordRecoverySent = true;
   })
   .on(googleSignIn, (state, payload) => {
-    state.googleSignInData = payload;
+    state.googleSignInData = payload.data;
   })
   .on(facebookSignIn, (state, payload) => {
-    state.facebookSignInData = payload;
+    state.facebookSignInData = payload.data;
   })
   .on(changeUserLanguage, (state, payload) => {
     if (state.user !== null) {

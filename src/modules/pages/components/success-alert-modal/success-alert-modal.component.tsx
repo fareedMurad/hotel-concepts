@@ -1,11 +1,11 @@
-import { Button, Icon, Modal } from '@core/components';
-import { closeModal } from '@ui/modal';
-import { Modals } from '@ui/models';
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { SuccessAlertModalProps } from './success-alert-modal.props';
 import * as styles from './success-alert-modal.scss';
+import { Button, Icon, Modal } from '@core/components';
+import { Modals } from '@ui/models';
+import { SuccessAlertModalProps } from './success-alert-modal.props';
+import { closeModal } from '@ui/modal';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders SuccessAlertModal
@@ -13,6 +13,7 @@ import * as styles from './success-alert-modal.scss';
 const SuccessAlertModal: React.FC<SuccessAlertModalProps> = ({}) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  
   return (
     <Modal id={Modals.success} className={styles.successAlertModal}>
       <Icon

@@ -1,11 +1,11 @@
-import { withField } from '@core/shared/formik';
 import { Checkbox, CheckboxGroup } from '../checkbox';
-import { Text } from '../text';
-import { Switch } from '../switch';
-import { Select } from '../select';
-import { Tabs } from '../tabs';
 import { Radio, RadioGroup } from '../radio';
+import { Select } from '../select';
+import { Switch } from '../switch';
+import { Tabs } from '../tabs';
+import { Text } from '../text';
 import { Textarea } from '../textarea';
+import { withField } from '@core/shared/formik';
 
 /**
  * Group of wrapped components, with props provided according formik context

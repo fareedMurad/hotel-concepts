@@ -1,22 +1,21 @@
 import * as React from 'react';
-import { FooterProps } from './footer.props';
 import * as styles from './footer.scss';
-import { H2 } from '../typography';
-import { Button } from '../button';
-import { NavLink, Link } from 'react-router-dom';
-import { useFooterData } from './footer.hook';
-import { Formik } from 'formik';
-import { Form } from '../form-old';
-import { Field } from '../field';
-import { gql, useQuery } from '@apollo/client';
-import axios from 'axios';
-import { enviroment } from 'src/environment';
-
 import * as yup from 'yup';
-import { useTranslation } from 'react-i18next';
+import { NavLink, Link } from 'react-router-dom';
+import { gql, useQuery } from '@apollo/client';
+import { Button } from '../button';
+import { Field } from '../field';
+import { FooterProps } from './footer.props';
+import { Form } from '../form-old';
+import { FormResultSubscriptionModal } from '@pages/components/form-result-modal/form-result-subscription-modal';
+import { Formik } from 'formik';
 import { Icon } from '../icon';
+import { Preloader } from '../preloader';
+import { Preloaders } from '@ui/models';
 import { sendForm } from '@app/redux/form';
 import { useDispatch } from 'react-redux';
+import { useFooterData } from './footer.hook';
+import { useTranslation } from 'react-i18next';
 
 /**
  * validation schema
@@ -92,7 +91,6 @@ const Footer: React.FC<FooterProps> = ({}) => {
   const [categories, setCategories] = React.useState([]);
   const { weprovideLinks, moreLinks, socials } = useFooterData();
   const { data, loading, error } = useQuery(CATEGORIES);
-  const [sent, setSent] = React.useState(false);
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -101,97 +99,84 @@ const Footer: React.FC<FooterProps> = ({}) => {
       setCategories(data.courseCategoryCollection.items);
     }
   });
-  const subscribe = async email => {
-    await axios(`${enviroment.apiUrl}/send-email`, {
-      method: 'post',
-      data: {
-        email_address: email,
-        status: 'pending'
-      }
-    })
-      .then(res => res)
-      .catch(err => err.data);
-    return setSent(true);
-  };
 
   return (
-    <div className={styles.footer} id='footer'>
-      <div className={styles.content}>
-        <section className={styles.subscribe}>
-          <div className={styles.title}>
-            <div>{t('footer.form.title')}</div>
-            <div>{t('footer.form.description')}</div>
-          </div>
-          {sent ? (
-            <div className={styles.notificationMessage}>
-              {t('footer.form.notification-message')}
+    <React.Fragment>
+      <FormResultSubscriptionModal />
+      <div className={styles.footer} id='footer'>
+        <div className={styles.content}>
+          <section className={styles.subscribe}>
+            <div className={styles.title}>
+              <div>{t('footer.form.title')}</div>
+              <div>{t('footer.form.description')}</div>
             </div>
-          ) : (
-            <Formik
-              initialValues={{ email: '' }}
-              onSubmit={values => {
-                const payload = {
-                  subject: `Form 'Subscribe'`,
-                  data: values
-                };
-                dispatch(sendForm(payload));
-              }}
-              validationSchema={validationSchema}
-            >
-              {({ handleSubmit }) => (
-                <Form handleSubmit={handleSubmit}>
-                  <div className={styles.submitForm}>
-                    <Field.Text
-                      name='email'
-                      label='E-mail'
-                      type='email'
-                      className={styles.formInput}
-                    />
-                    <Button
-                      onClick={() => handleSubmit()}
-                      className={styles.buttonSubmit}
-                      type='submit'
-                      children={t('footer.form.button-text')}
-                      arrow
-                      width={176}
-                    />
-                  </div>
-                </Form>
-              )}
-            </Formik>
-          )}
-        </section>
-        <section className={styles.navigation}>
-          <Navigation
-            caption={t('footer.navigation.programs')}
-            navigation={categories}
-          />
-          <Navigation
-            caption={t('footer.navigation.about')}
-            navigation={weprovideLinks}
-          />
-          <Navigation
-            caption={t('footer.navigation.support')}
-            navigation={moreLinks}
-            socials={socials}
-          />
-        </section>
+            <Preloader id={Preloaders.formSubscription}>
+              <Formik
+                initialValues={{ email: '' }}
+                onSubmit={values => {
+                  const payload = {
+                    subject: `Form 'Subscribe'`,
+                    data: { email: values.email }
+                  };
+                  dispatch(sendForm.subscription(payload));
+                }}
+                validationSchema={validationSchema}
+              >
+                {({ handleSubmit }) => (
+                  <Form handleSubmit={handleSubmit}>
+                    <div className={styles.submitForm}>
+                      <Field.Text
+                        name='email'
+                        label='E-mail'
+                        type='email'
+                        className={styles.formInput}
+                      />
+                      <Button
+                        onClick={() => handleSubmit()}
+                        className={styles.buttonSubmit}
+                        type='submit'
+                        children={t('footer.form.button-text')}
+                        arrow
+                        width={176}
+                      />
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            </Preloader>
+          </section>
+          <section className={styles.navigation}>
+            <Navigation
+              caption={t('footer.navigation.programs')}
+              navigation={categories}
+            />
+            <Navigation
+              caption={t('footer.navigation.about')}
+              navigation={weprovideLinks}
+            />
+            <Navigation
+              caption={t('footer.navigation.support')}
+              navigation={moreLinks}
+              socials={socials}
+            />
+          </section>
+        </div>
+        <div className={styles.hr} />
+        <footer className={styles.copyrights}>
+          <div className={styles.copyrightInfo}>
+            {t('footer.copyrights.info')}
+          </div>
+          <div className={styles.copyrightsLinkContainer}>
+            <Link to='/privacy-policy' className={styles.policy}>
+              {t('footer.copyrights.p-p')}
+            </Link>
+            <Link to='/' className={styles.terms}>
+              {t('footer.copyrights.terms')}
+            </Link>
+          </div>
+        </footer>
       </div>
-      <div className={styles.hr} />
-      <footer className={styles.copyrights}>
-        <div className={styles.copyrightInfo}>
-          {t('footer.copyrights.info')}
-        </div>
-        <div className={styles.copyrightsLinkContainer}>
-          <Link to='/privacy-policy' className={styles.policy}>
-            {t('footer.copyrights.p-p')}
-          </Link>
-          <Link to='/' className={styles.terms}>
-            {t('footer.copyrights.terms')}
-          </Link>
-        </div>
-      </footer>
-    </div>
+    </React.Fragment>
   );
 };
 

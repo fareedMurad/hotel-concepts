@@ -32,6 +32,10 @@ type TextProps = ControlProps & {
    * Theme
    */
   theme?: 'primary' | 'secondary';
+  /**
+   * Erorr class name
+   */
+  errorClassName?: string;
 };
 
 export { TextProps };

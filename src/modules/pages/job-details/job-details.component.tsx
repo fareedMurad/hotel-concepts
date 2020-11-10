@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { JobDetailsProps } from './job-details.props';
 import * as styles from './job-details.scss';
-import { JobApply } from './components/job-apply';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import {
   Paragraph,
   H3,
@@ -12,14 +11,14 @@ import {
   RichTextDefault,
   Icon
 } from '@core/components';
-
-import { useHistory, useParams } from 'react-router';
 import { gql, useQuery } from '@apollo/client';
-import { ScrollToTop } from '@app';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router';
+import { JobApply } from './components/job-apply';
+import { JobDetailsProps } from './job-details.props';
+import { ScrollToTop } from '@app';
 import { State } from '@app/redux/state';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 /**
  * query job
  */
@@ -43,7 +42,7 @@ const GET_JOB = gql`
 const JobDetails: React.FC<JobDetailsProps> = ({}) => {
   const history = useHistory();
   const { language } = useSelector((state: State) => state.localization);
-  const { id: jobId } = useParams();
+  const { id: jobId } = useParams<{ id: string }>();
   const dispatch = useDispatch();
   const { data, loading, error } = useQuery(GET_JOB, {
     variables: { id: jobId, locale: language }
