@@ -1,30 +1,30 @@
+import { Modals, Preloaders } from '@ui/models';
 import { Payload, Saga } from 'redux-chill';
-import { all, call, delay, put } from 'redux-saga/effects';
+import { all, call, put } from 'redux-saga/effects';
 import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { Context } from '../context';
-import { Modals, Preloaders } from '@ui/models';
 import { handleError } from '@general/store/actions';
 import { sendForm } from './actions';
 import { showModal } from '@ui/modal';
-import { JobDetailsFormValues } from '@app/models';
 /**
  * form saga
  */
 class FormSaga {
   /*
-   * Send form saga
+   * Send subscription form
    */
-  // @Saga(sendForm)
-  // public *sendForm(payload: Payload<typeof sendForm>, { api }: Context) {
-  //   yield put(preloaderStart(Preloaders.sendForm));
-  //   try {
-  //     yield call(api.form.sendForm, payload);
-  //   } catch (error) {
-  //     yield put(handleError(error.response.data.message));
-  //   } finally {
-  //     yield put(preloaderStop(Preloaders.sendForm));
-  //   }
-  // }
+  @Saga(sendForm.subscription)
+  public *sendForm(payload: Payload<typeof sendForm>, { api }: Context) {
+    yield put(preloaderStart(Preloaders.formSubscription));
+    try {
+      yield call(api.form.sendForm, payload);
+      yield put(showModal(Modals.formResultSubscription));
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.formSubscription));
+    }
+  }
   /**
    * Consult request
    */

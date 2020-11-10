@@ -44,8 +44,8 @@ export type ProgramCatalogueFormValues = {
   name: string;
   email: string;
   website: string;
-  interes: string;
-  employeesAmount: string;
+  interests: string;
+  teamSize: string;
 };
 
 /**

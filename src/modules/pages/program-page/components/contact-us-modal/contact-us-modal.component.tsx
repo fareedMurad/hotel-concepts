@@ -1,4 +1,5 @@
 import { interestsOptions } from '@app/dictionary/interests-options';
+import { sendForm } from '@app/redux/form';
 import { sendRequest } from '@app/redux/programs';
 import { Button, Field, Form, Icon, Modal, Preloader } from '@core/components';
 import { SuccessAlertModal } from '@pages/components/success-alert-modal';
@@ -37,7 +38,7 @@ const ContactUsModal: React.FC = () => {
             validationSchema={ContactUsModalValidationSchema}
             initialValues={defaultValues}
             onSubmit={values => {
-              dispatch(sendRequest(values));
+              dispatch(sendForm(values));
             }}
           >
             {({ handleSubmit }) => (

@@ -22,6 +22,10 @@ const sendForm = make('[Form] send form')
   .stage('contributorsApply', (payload: ContributorsApplyValues) => payload)
   .stage('faq', (payload: FAQFormValues) => payload)
   .stage('consultRequest', (payload: ConsultRequestFormValues) => payload)
+  .stage(
+    'subscription',
+    (payload: { subject: string; data: { email: string } }) => payload
+  )
   .stage('success');
 
 export { sendForm };

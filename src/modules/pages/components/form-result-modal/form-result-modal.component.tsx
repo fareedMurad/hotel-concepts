@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as styles from './form-result-modal.scss';
-import { Modal, Icon } from '@core/components';
 import { FormResultModalProps } from './form-result-modal.props';
-import { Modals } from '@ui/models';
-import { closeModal } from '@ui/modal';
+import { Icon } from '@core/components/icon';
+import { Modal } from '@core/components/modal/modal.component';
+import { Modals } from '@ui/models/modal';
+import { closeModal } from '@ui/modal/actions';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 /**
  * Renders FormResultModal
  */
-const FormResultModal: React.FC<FormResultModalProps> = ({}) => {
+const FormResultModal: React.FC<FormResultModalProps> = ({ subscription }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const history = useHistory();
@@ -19,15 +20,21 @@ const FormResultModal: React.FC<FormResultModalProps> = ({}) => {
 
   const message = () => {
     if (pathname.includes('contributors')) {
-      return 'Thank you! Your request has been submitted. We will get back to you soon';
+      return 'Your request has been submitted. We will get back to you soon';
     }
     if (pathname.includes('about-us')) {
-      return 'Thank you! Your request has been submitted. We will get in touch soon';
+      return 'Your request has been submitted. We will get in touch soon';
     }
     if (pathname.includes('for-companies')) {
-      return 'Thank you! Your request has been submitted. We will get in touch soon';
+      return 'Your request has been submitted. We will get in touch soon';
     }
-    return 'Thank you! Your request has been submitted. We will get in touch soon';
+    if (pathname.includes('insights')) {
+      return 'Thanks for subscribing to our insights';
+    }
+    if (subscription) {
+      return 'Thanks for subscribing to our newsletter';
+    }
+    return 'Your request has been submitted. We will get in touch soon';
   };
 
   return (
@@ -46,6 +53,10 @@ const FormResultModal: React.FC<FormResultModalProps> = ({}) => {
       </div>
     </Modal>
   );
+};
+
+FormResultModal.defaultProps = {
+  subscription: false
 };
 
 export { FormResultModal };

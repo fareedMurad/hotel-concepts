@@ -53,6 +53,7 @@ enum Preloaders {
 
   //Send form
   sendForm = 'send form',
+  formSubscription = 'formSubscription',
 
   getVacancies = 'get vacancies'
 }

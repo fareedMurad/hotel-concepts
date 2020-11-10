@@ -1,6 +1,7 @@
 /**
-* form state
-*/
-class FormState { }
+ * form state
+ */
+class FormState {
+}
 
-export { FormState }
+export { FormState };
