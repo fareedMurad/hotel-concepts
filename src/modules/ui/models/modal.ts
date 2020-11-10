@@ -9,7 +9,7 @@ enum Modals {
 
   //success alert
   success = 'success alert',
-
+  formResult = 'formResult',
   contactUs = 'contact us',
 
   // Auth

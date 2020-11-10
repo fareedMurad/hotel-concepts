@@ -1,5 +1,5 @@
-import { ContributorsApplyValues } from './../../../app/models/form';
 import * as yup from 'yup';
+import { ContributorsApplyValues } from './../../../app/models/form';
 
 const contributorsApplyValidationSchema = yup
   .object<ContributorsApplyValues>()
@@ -12,16 +12,21 @@ const contributorsApplyValidationSchema = yup
       .string()
       .label('Specialization*')
       .required(),
-    linkedIn: yup
+    linkedInUrl: yup
       .string()
       .label('LinkedIn profile*')
-      .required(),
+      .required()
+      .test('match', 'LinkedIn link is not correct', value => {
+        if (value) {
+          return value.includes('linkedin.com/in/') ? true : false;
+        }
+      }),
     email: yup
       .string()
       .email()
       .label('Contact e-mail*')
       .required(),
-    message: yup.string()
+    comment: yup.string()
   });
 
 export { contributorsApplyValidationSchema };

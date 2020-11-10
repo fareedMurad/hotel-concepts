@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as styles from './about.scss';
-import { useAboutData } from './about.hook';
 import { Button, PreCaption, SectionTitle } from '@core/components';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
+import { useAboutData } from './about.hook';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders About

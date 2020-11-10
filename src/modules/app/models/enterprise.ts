@@ -1,12 +1,12 @@
 type EnterpriseModel = {
-  name: 'string';
-  email: 'string';
-  company: 'string';
-  website: 'string';
-  teamSize: 'string';
-  interests: 'string';
-  comment: 'string';
-  program: 'string';
+  name: string;
+  email: string;
+  website: string;
+  company: string;
+  comment: string;
+  program: string;
+  teamSize: string;
+  interests: string;
 };
 
 export { EnterpriseModel };

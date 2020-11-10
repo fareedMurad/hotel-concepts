@@ -225,18 +225,18 @@ class CartSaga {
   ) {
     yield put(preloaderStart(Preloaders.sendForm));
 
-    const productsNames = yield select((state: State) =>
+    const productsIds = yield select((state: State) =>
       state.cart.products.map(el => el.name)
     );
 
     const data: invoiceRequestModel = {
       ...payload,
-      products: productsNames,
-      total: Number(productsNames.length)
+      products: productsIds,
+      total: Number(payload.total)
     };
+    
     try {
       yield call(api.checkout.sendInvoiceRequest, data);
-
       yield put(closeModal(Modals.invoiceRequest));
       yield put(showModal(Modals.success));
     } catch (error) {

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { PartnerApplyProps } from './partner-apply.props';
 import * as styles from './partner-apply.scss';
 import {
   H2,
@@ -9,107 +8,100 @@ import {
   Field,
   Icon,
   Select,
-  SectionTitle
+  SectionTitle,
+  Preloader
 } from '@core/components';
+import { FAQFormValidationSchema } from '@pages/faq/models/validation';
+import { FAQFormValues } from '@app/models';
+import { FormResultModal } from '../form-result-modal';
 import { Formik } from 'formik';
-import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { PartnerApplyProps } from './partner-apply.props';
+import { Preloaders } from '@ui/models';
 import { sendForm } from '@app/redux/form';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Default values
  */
 
-const defaultValues = {
+const defaultValues: FAQFormValues = {
   name: '',
   email: '',
-  comment: ''
+  comment: '',
+  accept: false
 };
 /**
  * Renders PartnerApply
  */
 
 const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
-  const [focused, setFocused] = React.useState(false);
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   return (
     <div className={styles.partnerApply} id='get-involved'>
       <div className={styles.container}>
-        <div className={styles.formWrapper}>
-          <SectionTitle className={styles.formTitle}>{title}</SectionTitle>
-          <Paragraph className={styles.paragraph}>{subtitle} </Paragraph>
-          <Formik
-            initialValues={defaultValues}
-            onSubmit={values => {
-              const payload = {
-                subject: `Form 'Got questions?'`,
-                data: values
-              };
-              dispatch(sendForm(payload));
-            }}
-            // validationSchema={jobDetailsValidationSchema}
-          >
-            {({ handleSubmit, validateForm }) => (
-              <Form handleSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.formSection}>
-                  <div className={styles.formSectionMainInfo}>
-                    <Field.Text
-                      name='name'
-                      className={styles.name}
-                      label={t('program-page.partner-apply.lable.name')}
-                      placeholder='John'
-                    />
-                    <Field.Text
-                      name='phone'
-                      className={styles.email}
-                      label={t('program-page.partner-apply.lable.email')}
-                      placeholder='example@gmail.com'
-                    />
-                  </div>
-                  <div
-                    className={classNames(styles.comment, {
-                      [styles.commentFocused]: focused
-                    })}
-                  >
-                    <label htmlFor='comment' className={styles.label}>
-                      Comment
-                    </label>
-                    <textarea
-                      id='comment'
-                      name={t('program-page.partner-apply.lable.comment')}
-                      className={styles.input}
-                      onFocus={() => setFocused(true)}
-                      onBlur={() => setFocused(false)}
+        <Preloader id={Preloaders.sendForm}>
+          <div className={styles.formWrapper}>
+            <SectionTitle className={styles.formTitle}>{title}</SectionTitle>
+            <Paragraph className={styles.paragraph}>{subtitle} </Paragraph>
+            <Formik
+              initialValues={defaultValues}
+              onSubmit={values => {
+                dispatch(sendForm.faq(values));
+              }}
+              validationSchema={FAQFormValidationSchema}
+            >
+              {({ handleSubmit }) => (
+                <Form handleSubmit={handleSubmit} className={styles.form}>
+                  <div className={styles.formSection}>
+                    <div className={styles.formSectionMainInfo}>
+                      <Field.Text
+                        name='name'
+                        className={styles.name}
+                        label={t('program-page.partner-apply.lable.name')}
+                        placeholder='John'
+                      />
+                      <Field.Text
+                        name='email'
+                        className={styles.email}
+                        label={t('program-page.partner-apply.lable.email')}
+                        placeholder='example@gmail.com'
+                      />
+                    </div>
+                    <Field.TextArea
+                      name='comment'
+                      label='Comment'
+                      className={styles.textarea}
                     />
                   </div>
-                </div>
 
-                <div className={styles.send}>
-                  <Field.Checkbox
-                    name='accept'
-                    label={t('program-page.partner-apply.lable.accept')}
-                  />
+                  <div className={styles.send}>
+                    <Field.Checkbox
+                      name='accept'
+                      label={t('program-page.partner-apply.lable.accept')}
+                    />
 
-                  <Button
-                    onClick={() => {
-                      handleSubmit();
-                    }}
-                    className={styles.buttonSubmit}
-                    type='submit'
-                    children={t('program-page.partner-apply.button-text')}
-                    arrow
-                    width={204}
-                  />
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
-        {/* <div className={styles.hr} /> */}
+                    <Button
+                      onClick={() => {
+                        handleSubmit();
+                      }}
+                      className={styles.buttonSubmit}
+                      type='submit'
+                      children={t('program-page.partner-apply.button-text')}
+                      arrow
+                      width={204}
+                    />
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </div>
+          {/* <div className={styles.hr} /> */}
+        </Preloader>
       </div>
+      <FormResultModal />
     </div>
   );
 };
