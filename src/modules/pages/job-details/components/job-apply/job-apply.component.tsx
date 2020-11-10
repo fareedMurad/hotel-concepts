@@ -60,7 +60,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             setCv(null);
             setLetter(null);
           }}
-          // validationSchema={jobDetailsValidationSchema}
+          validationSchema={jobDetailsValidationSchema}
         >
           {({ handleSubmit }) => (
             <Form handleSubmit={handleSubmit}>

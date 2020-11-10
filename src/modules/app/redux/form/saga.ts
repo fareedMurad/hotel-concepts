@@ -14,17 +14,17 @@ class FormSaga {
   /*
    * Send form saga
    */
-  @Saga(sendForm)
-  public *sendForm(payload: Payload<typeof sendForm>, { api }: Context) {
-    yield put(preloaderStart(Preloaders.sendForm));
-    try {
-      yield call(api.form.sendForm, payload);
-    } catch (error) {
-      yield put(handleError(error.response.data.message));
-    } finally {
-      yield put(preloaderStop(Preloaders.sendForm));
-    }
-  }
+  // @Saga(sendForm)
+  // public *sendForm(payload: Payload<typeof sendForm>, { api }: Context) {
+  //   yield put(preloaderStart(Preloaders.sendForm));
+  //   try {
+  //     yield call(api.form.sendForm, payload);
+  //   } catch (error) {
+  //     yield put(handleError(error.response.data.message));
+  //   } finally {
+  //     yield put(preloaderStop(Preloaders.sendForm));
+  //   }
+  // }
   /**
    * Consult request
    */

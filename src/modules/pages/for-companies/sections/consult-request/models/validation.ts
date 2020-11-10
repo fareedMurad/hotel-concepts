@@ -17,9 +17,18 @@ const ConsultRequestValidationSchema = yup
       .email()
       .required()
       .label('Email'),
-    website: yup.string().label('Website'),
-    teamSize: yup.string().label('Name'),
-    interests: yup.string().label('Name')
+    website: yup
+      .string()
+      .label('Website')
+      .required(),
+    teamSize: yup
+      .string()
+      .label('Name')
+      .required(),
+    interests: yup
+      .string()
+      .label('Name')
+      .required()
   });
 
 export { ConsultRequestValidationSchema };

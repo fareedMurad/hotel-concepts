@@ -1,16 +1,5 @@
-import { invoiceRequestModel } from '@app/models';
-import { LocalStorageKeys } from '@app/models/enum';
-import { Product } from '@app/models/fastspring';
-import { handleError } from '@general/store';
-import { closeModal, showModal } from '@ui/modal';
 import { Modals, Preloaders } from '@ui/models';
-import { preloaderStart, preloaderStop } from '@ui/preloader';
-import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
-import { call, delay, put, select } from 'redux-saga/effects';
-import { string } from 'yup';
-import { Context } from '../context';
-import { State } from '../state';
 import {
   addProductToCart,
   checkCart,
@@ -22,6 +11,16 @@ import {
   updateCartState,
   updateProductCart
 } from './actions';
+import { call, delay, put, select } from 'redux-saga/effects';
+import { closeModal, showModal } from '@ui/modal';
+import { preloaderStart, preloaderStop } from '@ui/preloader';
+import { Context } from '../context';
+import { LocalStorageKeys } from '@app/models/enum';
+import { Product } from '@app/models/fastspring';
+import { State } from '../state';
+import { handleError } from '@general/store';
+import { invoiceRequestModel } from '@app/models';
+import { toggleToast } from '@ui/toast';
 
 /**
  * Cart saga
@@ -234,7 +233,7 @@ class CartSaga {
       products: productsIds,
       total: Number(payload.total)
     };
-    
+
     try {
       yield call(api.checkout.sendInvoiceRequest, data);
       yield put(closeModal(Modals.invoiceRequest));

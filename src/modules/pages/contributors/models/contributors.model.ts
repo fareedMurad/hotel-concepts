@@ -26,7 +26,7 @@ const contributorsApplyValidationSchema = yup
       .email()
       .label('Contact e-mail*')
       .required(),
-    comment: yup.string()
+    comment: yup.string().required()
   });
 
 export { contributorsApplyValidationSchema };

@@ -11,7 +11,7 @@ const FAQFormValidationSchema = yup.object().shape<FAQFormValues>({
     .string()
     .required()
     .label('Name'),
-  comment: yup.string(),
+  comment: yup.string().required(),
   accept: yup
     .boolean()
     .required()
