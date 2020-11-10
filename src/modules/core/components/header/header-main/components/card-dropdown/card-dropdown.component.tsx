@@ -17,13 +17,11 @@ const CardDropdown: React.FC<CardDropdownProps> = ({
   const expand = useTransition(open, null, {
     from: {
       opacity: '0',
-      transform: 'translate3d(0px, 15px, 0px)',
-      paddingTop: '15px'
+      transform: 'translate3d(0px, 15px, 0px)'
     },
     enter: {
       opacity: '1',
-      transform: 'translate3d(0px, 0px, 0px)',
-      paddingTop: '10px'
+      transform: 'translate3d(0px, 0px, 0px)'
     }
     // leave: { transform: 'translate3d(0,0,0)' }
   });
@@ -39,6 +37,7 @@ const CardDropdown: React.FC<CardDropdownProps> = ({
           className={classNames(className, styles.card)}
           onMouseLeave={onMouseLeave}
         >
+          <div className={styles.helper} />
           <div className={styles.content}>{children}</div>
         </animated.div>
       ))}
