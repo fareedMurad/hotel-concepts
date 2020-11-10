@@ -36,6 +36,7 @@ module.exports = {
     'dot-notation': 'warn',
     'jsx-quotes': ['warn', 'prefer-single'],
     'valid-typeof': 'warn',
+    'sort-imports': 'warn',
     '@typescript-eslint/member-ordering': [
       'warn',
       {

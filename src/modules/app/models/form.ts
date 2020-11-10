@@ -5,14 +5,22 @@
 /**
  * Job aply form type
  */
+export type ConsultRequestFormValues = {
+  name: string;
+  email: string;
+  website: string;
+  teamSize: string;
+  interests: string;
+};
 
 export type JobDetailsFormValues = {
-  email: string;
-  // accept: boolean;
   name: string;
   phone: string;
+  email: string;
   location: string;
-  linkedIn: string;
+  linkedInUrl: string;
+  cv: any;
+  cover: any;
 };
 
 /**
@@ -20,10 +28,10 @@ export type JobDetailsFormValues = {
  */
 
 export type ContactUsFormValues = {
-  subject: string;
-  email: string;
-  title: string;
   name: string;
+  title: string;
+  email: string;
+  subject: string;
   surname: string;
   comment: string;
 };
@@ -36,8 +44,8 @@ export type ProgramCatalogueFormValues = {
   name: string;
   email: string;
   website: string;
-  employeesAmount: string;
   interes: string;
+  employeesAmount: string;
 };
 
 /**
@@ -56,10 +64,10 @@ export type AboutUsFormValues = {
 
 export type ContributorsApplyValues = {
   name: string;
-  specialization: string;
-  linkedIn: string;
   email: string;
-  message: string;
+  comment: string;
+  linkedInUrl: string;
+  specialization: string;
 };
 
 /**
@@ -69,7 +77,8 @@ export type ContributorsApplyValues = {
 export type FAQFormValues = {
   name: string;
   email: string;
-  message: string;
+  comment: string;
+  accept: boolean;
 };
 
 //make dynamic type set
@@ -83,7 +92,7 @@ export type FAQFormValues = {
 //   | FAQFormValues;
 
 export type FormModel = {
-  subject: string;
   data: any;
   files?: any;
+  subject: string;
 };

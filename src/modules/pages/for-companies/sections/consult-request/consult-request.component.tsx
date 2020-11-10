@@ -1,19 +1,34 @@
 import * as React from 'react';
-import { ConsultRequestProps } from './consult-request.props';
 import * as styles from './consult-request.scss';
-import { Paragraph, H2, Field, Icon, Button, Select } from '@core/components';
+import {
+  Button,
+  Paragraph,
+  H2,
+  Field,
+  Icon,
+  Select,
+  Preloader
+} from '@core/components';
 import { Formik, Form } from 'formik';
+import { ConsultRequestFormValues } from '@app/models';
+import { ConsultRequestProps } from './consult-request.props';
+import { ConsultRequestValidationSchema } from './models';
+import { FormResultModal } from '@pages/components/form-result-modal';
+import { Preloaders } from '@ui/models';
+import { SuccessAlertModal } from '@pages/components/success-alert-modal';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
 import { sendForm } from '@app/redux/form';
+import { useDispatch } from 'react-redux';
 /**
  * Form default values
  */
 
-const defaultValues = {
+const defaultValues: ConsultRequestFormValues = {
   name: '',
-  phone: '',
-  email: ''
+  email: '',
+  website: '',
+  teamSize: '',
+  interests: ''
 };
 
 /**
@@ -34,71 +49,72 @@ const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => {
   return (
     <div id='consult-request' className={styles.container}>
       <div className={styles.consultRequest}>
-        <Paragraph className={styles.orange}>
-          Not sure where to begin?
-        </Paragraph>
-        <H2>Request consult</H2>
-        <Formik
-          initialValues={defaultValues}
-          onSubmit={values => {
-            const payload = {
-              subject: `Form 'Consult Request'`,
-              data: values
-            };
-            dispatch(sendForm(payload));
-          }}
-          // validationSchema={jobDetailsValidationSchema}
-        >
-          {({ handleSubmit, validateForm }) => (
-            <Form>
-              <div className={styles.formSection}>
-                <div className={styles.mainField}>
-                  <Field.Text
-                    name='name'
-                    className={styles.input}
-                    label='Name'
-                  />
-                  <Field.Text
-                    name='email'
-                    className={styles.input}
-                    label='Email'
-                  />
-                  <Field.Text
-                    name='website'
-                    className={styles.input}
-                    label='Website'
+        <Preloader id={Preloaders.sendForm} className={styles.preloader}>
+          <Paragraph className={styles.orange}>
+            Not sure where to begin?
+          </Paragraph>
+          <H2>Request consult</H2>
+          <Formik
+            initialValues={defaultValues}
+            onSubmit={values => {
+              dispatch(sendForm.consultRequest(values));
+            }}
+            validationSchema={ConsultRequestValidationSchema}
+          >
+            {({ handleSubmit }) => (
+              <Form>
+                <div className={styles.formSection}>
+                  <div className={styles.mainField}>
+                    <Field.Text
+                      name='name'
+                      className={styles.input}
+                      label='Name'
+                    />
+                    <Field.Text
+                      name='email'
+                      className={styles.input}
+                      label='Email'
+                    />
+                    <Field.Text
+                      name='website'
+                      className={styles.input}
+                      label='Website'
+                    />
+                  </div>
+                  <div className={styles.select}>
+                    <Field.Select
+                      name='teamSize'
+                      value=''
+                      options={quantity}
+                      placeholder='How many employees need training?'
+                      className={classNames(styles.input)}
+                      whiteBackground
+                    />
+                  </div>
+                  <div className={styles.select}>
+                    <Field.Select
+                      name='interests'
+                      value=''
+                      options={quantity}
+                      placeholder='What paths are you interested in?'
+                      className={classNames(styles.input)}
+                      label=''
+                      whiteBackground
+                    />
+                  </div>
+                  <Button
+                    children='Contact me'
+                    arrow
+                    width={230}
+                    onClick={() => handleSubmit()}
                   />
                 </div>
-                <div className={styles.select}>
-                  <Select
-                    value=''
-                    options={quantity}
-                    placeholder='How many employees need training?'
-                    className={classNames(styles.input)}
-                    whiteBackground
-                  />
-                </div>
-                <div className={styles.select}>
-                  <Select
-                    value=''
-                    options={quantity}
-                    placeholder='What paths are you interested in?'
-                    className={classNames(styles.input)}
-                    label=''
-                    whiteBackground
-                  />
-                </div>
-                <Button
-                  children='Contact me'
-                  arrow
-                  width={230}
-                  onClick={() => handleSubmit()}
-                />
-              </div>
-            </Form>
-          )}
-        </Formik>
+              </Form>
+            )}
+          </Formik>
+        </Preloader>
       </div>
+      <FormResultModal />
     </div>
   );
 };

@@ -101,6 +101,7 @@ const Select: React.FC<SelectProps> = ({
         className={className}
         styles={customStyles}
       />
+      {isError && <div className={styles.error}>{error}</div>}
     </div>
   );
 };
