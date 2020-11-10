@@ -14,6 +14,7 @@ import {
 import { useMediaPoints, useClickOutside } from '@core/shared';
 import { useHistory } from 'react-router';
 import { useSpring, animated, useTransition } from 'react-spring';
+import { useState } from 'react';
 
 /**
  * Renders Modal
@@ -28,11 +29,11 @@ const Modal: React.FC<ModalProps> = ({
   ...props
 }) => {
   const { active } = useSelector((state: State) => state.ui.modal);
-  const contetnAnimation = useTransition(active[0] === id, null, {
-    from: { transform: 'translateY(-100vh)' },
-    enter: { transform: 'translateY(0)' },
-    leave: { transform: 'scale(0.8)' }
-  });
+
+  React.useEffect(() => {
+    console.log('changed');
+  }, [id]);
+
   const overlayAnimation = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 }
@@ -45,6 +46,11 @@ const Modal: React.FC<ModalProps> = ({
   const modalRef = useRef();
   const history = useHistory();
 
+  const contetnAnimation = useSpring({
+    from: { transform: 'translateY(-100vh)' },
+    to: { transform: 'translateY(0)' }
+  });
+
   useClickOutside(modalRef, () => {
     dispatch(closeModal(id));
     onClose && onClose();
@@ -54,11 +60,8 @@ const Modal: React.FC<ModalProps> = ({
   });
 
   const Content = () => (
-    // <React.Fragment>
-    //   {contetnAnimation.map(({ item, props, key }) => (
     <animated.div
-      // key={key}
-      // style={props}
+      style={contetnAnimation}
       className={classNames(className, styles.modal, {
         [styles.modalMobile]: mobile
       })}
@@ -66,24 +69,23 @@ const Modal: React.FC<ModalProps> = ({
     >
       <div className={styles.content}>{children}</div>
     </animated.div>
-    //   ))}
-    // </React.Fragment>
   );
-  if (isActive) {
-    return (
+
+  return (
+    isActive && (
       <animated.div
-        // style={overlayAnimation}
+        style={overlayAnimation}
         className={classNames(styles.overlay, {
           [styles.overlayVisible]: withOverlay
         })}
       >
         <Content />
       </animated.div>
-    );
-  }
-
-  return null;
+    )
+  );
 };
+
+// return null;
 
 /**
  * Default props

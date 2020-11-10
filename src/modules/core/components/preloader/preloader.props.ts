@@ -24,6 +24,10 @@ type PreloaderProps = React.HTMLAttributes<HTMLDivElement> & {
    * Border thickness
    */
   thickness?: number;
+  /*
+   * Overlay cover screen
+   */
+  cover?: boolean;
 };
 
 export { PreloaderProps };

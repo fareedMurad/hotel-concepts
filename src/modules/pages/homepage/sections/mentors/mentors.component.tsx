@@ -51,7 +51,6 @@ const Mentors: React.FC<MentorsProps> = ({
 }) => {
   const { mobile, tablet } = useMediaPoints();
   const history = useHistory();
-  const { contributorModal } = useSelector((state: State) => state.ui.modal);
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -112,20 +111,12 @@ const Mentors: React.FC<MentorsProps> = ({
               contributor={contributor}
               key={index}
               onClick={() => {
-                setMentorId(contributor.sys.id);
-                // handleOpenModalMobile(contributor);
-                // !mobile &&
-                dispatch(showModal(Modals.contributor));
+                dispatch(toogleContributorModal(contributor.sys.id));
               }}
             />
           ))}
         </Slider>
-        {mentorId && (
-          <MentorModal
-            mentorId={mentorId}
-            // hideComponent={() => dispatch(toogleContributorModal(false))}
-          />
-        )}
+        <MentorModal />
       </section>
     </React.Suspense>
   );

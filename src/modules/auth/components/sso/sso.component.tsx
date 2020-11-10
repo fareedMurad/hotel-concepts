@@ -7,6 +7,7 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { useDispatch } from 'react-redux';
 import { facebookSignIn, googleSignIn } from '@app/redux/auth';
+import { useLocation } from 'react-router';
 
 const FacebookIcon: React.FC = () => (
   <img src={require(`img/facebook-icon.svg`)} alt='facebook' />
@@ -18,6 +19,7 @@ const FacebookIcon: React.FC = () => (
 const Sso: React.FC<SsoProps> = ({ className, isLogin }) => {
   const dispatch = useDispatch();
   const { googleClientId, facebookAppId } = enviroment || {};
+  const { pathname } = useLocation();
 
   return (
     <div className={classNames(styles.sso, className)}>
@@ -38,7 +40,7 @@ const Sso: React.FC<SsoProps> = ({ className, isLogin }) => {
           cookiePolicy='single_host_origin'
           onFailure={err => console.log(err)}
           onSuccess={(data: any) => {
-            dispatch(googleSignIn(data));
+            dispatch(googleSignIn({ data: data, from: pathname }));
           }}
         />
       </div>
@@ -53,7 +55,7 @@ const Sso: React.FC<SsoProps> = ({ className, isLogin }) => {
           isMobile={false}
           disableMobileRedirect
           callback={data => {
-            dispatch(facebookSignIn(data));
+            dispatch(facebookSignIn({ data: data, from: pathname }));
           }}
         />
       </div>

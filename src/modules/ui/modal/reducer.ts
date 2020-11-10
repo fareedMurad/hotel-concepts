@@ -27,7 +27,7 @@ const modal = reducer(new ModalState())
   })
   .on(
     toogleContributorModal,
-    (state, payload) => (state.contributorModal = payload)
+    (state, payload) => (state.contributorId = payload)
   )
   .on(
     toggleBookOverviewModal,

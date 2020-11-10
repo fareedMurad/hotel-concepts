@@ -31,7 +31,7 @@ const ModalLogin: React.FC<ModalLoginProps> = ({}) => {
         initialValues={defaultValues}
         validationSchema={loginValidationSchema}
         onSubmit={values => {
-          dispatch(login(values));
+          dispatch(login({ data: values, from: '/cart' }));
         }}
       >
         {({ handleSubmit }) => (

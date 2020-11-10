@@ -4,6 +4,14 @@
   @include flex(center, center);
   flex: 1;
 }
+.cover {
+  position: absolute;
+  z-index: 99999999999;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
 
 .preloader {
   position: relative;
