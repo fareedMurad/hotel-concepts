@@ -1,7 +1,7 @@
 import { Icon } from '@core/components';
 import classNames from 'classnames';
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import * as styles from './header-main.scss';
 import { useHeaderMainData } from './hooks/header-main.hook';
 import {
@@ -24,6 +24,8 @@ const HeaderMain: React.FC = () => {
   const className = classNames(styles.headerMainNavigationItem, {
     [styles.invertedHeader]: blackTheme
   });
+  const { pathname } = useLocation();
+  const match = pathname === '/about-us';
 
   return (
     <div
@@ -33,7 +35,7 @@ const HeaderMain: React.FC = () => {
       className={styles.headerMain}
     >
       <NavLink className={styles.logo} to='/'>
-        <Icon name={blackTheme ? 'logo-b' : 'logo'} />
+        <Icon name={blackTheme || match ? 'logo-b' : 'logo'} />
       </NavLink>
       <div className={styles.headerMainNavigation}>
         <ProgramsMenu className={className} />

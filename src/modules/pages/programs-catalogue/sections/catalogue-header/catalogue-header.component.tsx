@@ -4,11 +4,14 @@ import * as styles from './catalogue-header.scss';
 import { ScrollButton } from '@core/components/scroll-button';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router';
 
 const GET_CATEGORY_INFO = gql`
-  {
-    asset(id: "4ErSQZq6E96W3ZfjU9LKN7") {
-      url
+  query($id: String!) {
+    courseCategory(id: $id) {
+      coverImage {
+        url
+      }
     }
   }
 `;
@@ -19,9 +22,12 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
   title,
   description
 }) => {
+  const { id: categoryId } = useParams<{ id: string }>();
   const { t } = useTranslation();
-  const { data, loading, error } = useQuery(GET_CATEGORY_INFO);
-  const catalogueHeroImage = data?.asset?.url;
+  const { data, loading, error } = useQuery(GET_CATEGORY_INFO, {
+    variables: { id: categoryId }
+  });
+  const catalogueHeroImage = data?.courseCategory?.coverImage?.url;
 
   return (
     <section

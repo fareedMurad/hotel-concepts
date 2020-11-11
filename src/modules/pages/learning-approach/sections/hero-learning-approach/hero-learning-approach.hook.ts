@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 const useHeroLearningApproachData = () => {
   const GET_HERO_IMAGE = gql`
     {
-      asset(id: "17ZH29S9Eo67M4Q4exNUwF") {
+      asset(id: "fCPRPqEYmHu6n2u0vxuD7") {
         url
       }
     }

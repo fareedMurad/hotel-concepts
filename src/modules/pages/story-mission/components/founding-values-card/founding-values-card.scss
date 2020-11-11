@@ -6,7 +6,8 @@
   border-radius: 8px;
   &__img {
     width: 100%;
-    height: 288px;
+    height: 342px;
+    object-fit: cover;
   }
   &__title {
     @include font($white, 24px, 600, 48px);
@@ -27,6 +28,7 @@
     @include font($primary-gray, 18px, 400, 28px);
     padding: 20px;
     font-family: $IBMPlex;
+    padding-bottom: 36px;
   }
 }
 
@@ -42,10 +44,4 @@
   right: 0;
   width: 100%;
   border-radius: 8px;
-  background-image: linear-gradient(
-    180deg,
-    rgba(62, 62, 62, 0) 0%,
-    rgba(62, 62, 62, 0.87) 100%
-  );
-  height: 288px;
 }

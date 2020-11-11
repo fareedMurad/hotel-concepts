@@ -16,10 +16,17 @@
 .card-list {
   display: grid;
   margin: 0 22px;
-  gap: 20px;
+  column-gap: 26px;
+  row-gap: 78px;
   @include tablet() {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+  }
+  @include desktop() {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-left: 134px;
+    margin-right: 134px;
   }
   & > div {
     justify-self: center;

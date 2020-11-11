@@ -47,7 +47,7 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
       <section className={styles.wrapper}>
         <div className={styles.wccCards}>
           <WorldClassCard
-            img={'learning-approach/wcc-1'}
+            img={'learning-approach/card-1'}
             title={t(
               'learning-approach.word-class-cards.wcc1.cards.card1.sub-title'
             )}
@@ -56,7 +56,16 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
             )}
           />
           <WorldClassCard
-            img={'learning-approach/wcc-2'}
+            img={'learning-approach/card-2'}
+            title={t(
+              'learning-approach.word-class-cards.wcc1.cards.card2.sub-title'
+            )}
+            description={t(
+              'learning-approach.word-class-cards.wcc1.cards.card2.description'
+            )}
+          />
+          <WorldClassCard
+            img={'learning-approach/card-3'}
             title={t(
               'learning-approach.word-class-cards.wcc1.cards.card2.sub-title'
             )}
