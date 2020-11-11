@@ -98,8 +98,10 @@
 }
 
 .image {
-  width: 132px;
-  height: 203px;
+  // width: 132px;
+  // height: 203px;
+  width: 200px;
+  height: 300px;
   padding-bottom: 20px;
   align-self: center;
   object-fit: cover;
@@ -129,6 +131,6 @@
   @include tablet() {
     margin-top: 20px;
     font-size: 28px;
-    line-height: 46px;
+    line-height: 40px;
   }
 }
