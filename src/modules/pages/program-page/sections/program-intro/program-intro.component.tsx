@@ -1,6 +1,7 @@
 import { State } from '@app/redux/state';
 import { Button, Preloader } from '@core/components';
 import { BackButton } from '@core/components/back-button';
+import { SEO } from '@core/components/seo/seo.component';
 import { WatchButton } from '@core/components/watch-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
@@ -73,6 +74,11 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
 
   return (
     <Preloader cover id={Preloaders.programs}>
+      <SEO
+        title={data?.name}
+        thumbnail={data?.heroImage.file.url}
+        url={window.location.href}
+      />
       <section
         className={styles.programIntro}
         style={{ backgroundImage: `url(${data?.heroImage.file.url})` }}

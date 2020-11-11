@@ -83,6 +83,7 @@
     height: 100%;
     width: 100%;
     border-radius: 6px;
+    box-shadow: 0px 10px 25px rgba($color: #000000, $alpha: 0.18);
     @include desktop() {
       width: 314px;
       height: 482px;
@@ -98,7 +99,7 @@
     height: 41px;
     width: 144px;
     border-radius: 0 4px 4px 0;
-    background: #f5f1f0;
+    background: #ffff;
   }
 }
 
