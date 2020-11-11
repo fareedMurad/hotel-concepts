@@ -37,8 +37,9 @@ const CardDropdown: React.FC<CardDropdownProps> = ({
           className={classNames(className, styles.card)}
           onMouseLeave={onMouseLeave}
         >
-          <div className={styles.helper} />
-          <div className={styles.content}>{children}</div>
+          <div className={styles.content}>
+            {children} <div className={styles.helper} />
+          </div>
         </animated.div>
       ))}
     </>
