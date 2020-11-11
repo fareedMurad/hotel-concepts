@@ -19,6 +19,7 @@ const useMarketplaceProductData = () => {
     price,
     results,
     authors,
+    details,
     forWhom,
     comments,
     languages,
@@ -38,6 +39,7 @@ const useMarketplaceProductData = () => {
     previewDescription,
     forWhomListOfPositions
   } = selectedProduct || {};
+  console.log(selectedProduct);
 
   const inCart = selectedProducts?.some(one => one.path == id);
 
@@ -68,6 +70,7 @@ const useMarketplaceProductData = () => {
    */
   const descriptionData = {
     id,
+    details,
     pagesCount,
     publishDate,
     listOfSkills

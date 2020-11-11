@@ -8,7 +8,7 @@ import { Title } from '@pages/marketplace-product/components';
  * Renders Description
  */
 const Description: React.FC<DescriptionProps> = ({ data }) => {
-  const { id, publishDate, listOfSkills, pagesCount } = data || {};
+  const { id, publishDate, listOfSkills, pagesCount, details } = data || {};
 
   return (
     <div className={styles.description}>
@@ -24,19 +24,17 @@ const Description: React.FC<DescriptionProps> = ({ data }) => {
           </div>
         </div>
         <div className={styles.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          eligendi itaque nesciunt asperiores delectus cum laboriosam et odio
-          corrupti blanditiis! Aspernatur quaerat sunt nulla dolores autem?
-          Blanditiis, ducimus doloribus? Asperiores?
+          {/**temporary */}
+          {details?.content[0].content[0].value}
         </div>
-        <div className={styles.product}>
+        {/* <div className={styles.product}>
           <div className={styles.productCaption}>Product:</div>
           <div className={styles.productName}>{id}</div>
-        </div>
-        <div className={styles.page}>
+        </div> */}
+        {/* <div className={styles.page}>
           <div className={styles.pageCaption}>Page:</div>
           <div className={styles.pageCount}>{pagesCount}</div>
-        </div>
+        </div> */}
       </div>
       <div className={styles.skills}>
         <div className={styles.skillsCaption}>Skills covered</div>
