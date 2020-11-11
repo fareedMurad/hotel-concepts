@@ -5,7 +5,7 @@ import { preloaderStart, preloaderStop } from '@ui/preloader';
 import { Context } from '../context';
 import { handleError } from '@general/store/actions';
 import { sendForm } from './actions';
-import { showModal } from '@ui/modal';
+import { closeModal, showModal } from '@ui/modal';
 /**
  * form saga
  */
@@ -18,6 +18,7 @@ class FormSaga {
     yield put(preloaderStart(Preloaders.sendForm));
     try {
       yield call(api.form.sendForm, payload);
+      yield put(closeModal(Modals.contactUs));
       yield put(showModal(Modals.success));
     } catch (error) {
       yield put(handleError(error.response.data.message));
