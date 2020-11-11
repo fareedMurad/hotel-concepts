@@ -16,7 +16,7 @@
   display: block;
   transition: $transition;
 
-  &:not(:last-child) {
+  &:first-child {
     margin-bottom: 8px;
     padding-bottom: 8px;
     border-bottom: 1px solid $light-grey;
