@@ -71,9 +71,11 @@
 
     @include tablet() {
       margin-top: 0;
-      margin-left: 112px;
       border-right: 2px solid rgba(#98a2a8, 0.3);
     }
+  }
+  @include tablet() {
+    margin-left: 112px;
   }
 
   // &:nth-child(2) {
@@ -96,7 +98,7 @@
 
   &__value {
     margin-top: 10px;
-
+    @include font($primary-gray, 18px, 400, 28px);
     @include tablet() {
       margin-top: 14px;
     }

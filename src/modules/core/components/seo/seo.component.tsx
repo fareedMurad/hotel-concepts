@@ -6,7 +6,7 @@ const SEO: React.FC<SEOProps> = ({ title, thumbnail, url }) => {
   return (
     <React.Fragment>
       <Helmet>
-        <title>{title}</title>
+        <title>{`${title} | Kordie`}</title>
         <meta property='og:type' content='website' />
         <meta property='og:title' content={title} />
         <meta property='og:image' content={thumbnail} />

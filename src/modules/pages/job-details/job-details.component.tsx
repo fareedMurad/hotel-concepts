@@ -19,6 +19,7 @@ import { JobDetailsProps } from './job-details.props';
 import { ScrollToTop } from '@app';
 import { State } from '@app/redux/state';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { SEO } from '@core/components/seo/seo.component';
 /**
  * query job
  */
@@ -78,6 +79,11 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
   return (
     <React.Fragment>
       <ScrollToTop />
+      <SEO
+        title={`Apply for Job ${job.name}`}
+        thumbnail={''}
+        url={window.location.href}
+      />
       <div onClick={() => history.goBack()} className={styles.back}>
         <Icon name='arrows/arrow-back' className={styles.arrow} />
         <div>Back</div>
