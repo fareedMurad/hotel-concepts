@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { CriteriaProps } from './criteria.props';
 import * as styles from './criteria.scss';
 import { H2, Icon, Paragraph, SectionTitle, Hr } from '@core/components';
 import { gql, useQuery } from '@apollo/client';
+import { CriteriaProps } from './criteria.props';
 import { useTranslation } from 'react-i18next';
 
 const GET_HERO_IMAGE = gql`
   {
-    asset(id: "7pCESbECH6qeh9RXgpf8aA") {
+    asset(id: "7eVMq7LiRlH1pThYYIlsYa") {
       url
     }
   }

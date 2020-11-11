@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const GET_HERO_IMAGE = gql`
   {
-    asset(id: "4VQYvPFaUzF0IlADKqNW6E") {
+    asset(id: "xTtGe8ZnCwtdPyit9P2VZ") {
       url
     }
   }
@@ -25,7 +25,7 @@ const PartnerBenefits: React.FC<PartnerBenefitsProps> = ({}) => {
   return (
     <div className={styles.partnerBenefits}>
       <div className={styles.content}>
-        <SectionTitle>
+        <SectionTitle className={styles.sectionTitle}>
           {t('course-partnership.partner-benefits.title')}
         </SectionTitle>
         <Paragraph className={styles.paragraph}>

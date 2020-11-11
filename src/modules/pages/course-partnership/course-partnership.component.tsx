@@ -1,5 +1,3 @@
-import { ScrollToTop } from '@app';
-import { PartnerApply } from '@pages/components';
 import * as React from 'react';
 import * as styles from './course-partnership.scss';
 import {
@@ -9,6 +7,8 @@ import {
   PartnerBenefits,
   PartneringForSuccess
 } from './sections';
+import { PartnerApply } from '@pages/components';
+import { ScrollToTop } from '@app';
 
 /**
  * Renders Course
