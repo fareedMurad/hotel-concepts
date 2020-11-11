@@ -1,16 +1,16 @@
+import * as React from 'react';
+import * as styles from './section.scss';
+import { BookProps, SectionProps } from './section.props';
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
-import { State } from '@app/redux/state';
+import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '@core/components';
-import { useWindowSize } from '@core/shared';
+import { Modals } from '@ui/models';
+import { State } from '@app/redux/state';
+import classNames from 'classnames';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
-import { Modals } from '@ui/models';
-import classNames from 'classnames';
-import * as React from 'react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BookProps, SectionProps } from './section.props';
-import * as styles from './section.scss';
+import { useWindowSize } from '@core/shared';
 
 /**
  * Renders single book
@@ -94,7 +94,10 @@ const Section: React.FC<SectionProps> = ({
             return (
               <Book
                 book={book}
-                onClick={() => dispatch(navigate(`/marketplace/${id}`))}
+                onClick={() => {
+                  // #non-clickable
+                  // dispatch(navigate(`/marketplace/${id}`))
+                }}
                 key={id}
               />
             );

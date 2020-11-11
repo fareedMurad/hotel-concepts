@@ -167,12 +167,17 @@ const Footer: React.FC<FooterProps> = ({}) => {
             {t('footer.copyrights.info')}
           </div>
           <div className={styles.copyrightsLinkContainer}>
-            <Link to='/privacy-policy' className={styles.policy}>
+            {/* #non-clickable */}
+
+            {/* <Link to='/privacy-policy' className={styles.policy}>
               {t('footer.copyrights.p-p')}
             </Link>
             <Link to='/' className={styles.terms}>
               {t('footer.copyrights.terms')}
-            </Link>
+            </Link> */}
+
+            <div className={styles.policy}>{t('footer.copyrights.p-p')}</div>
+            <div className={styles.terms}>{t('footer.copyrights.terms')}</div>
           </div>
         </footer>
       </div>

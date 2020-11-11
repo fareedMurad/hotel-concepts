@@ -1,13 +1,13 @@
-import { handleNotifierCart } from '@app/redux/cart';
+import * as React from 'react';
+import * as styles from './localization-menu.scss';
 import { Icon } from '@core/components';
+import { LocalizationMenuProps } from './localization-menu.props';
 import { changeLanguage } from '@localization/store';
 import classNames from 'classnames';
-import * as React from 'react';
-import { useState } from 'react';
+import { handleNotifierCart } from '@app/redux/cart';
 import { useDispatch } from 'react-redux';
 import { useLocalizationData } from './localization-menu.hook';
-import { LocalizationMenuProps } from './localization-menu.props';
-import * as styles from './localization-menu.scss';
+import { useState } from 'react';
 
 /**
  * Renders LocalizationMenu
@@ -48,7 +48,13 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
             <div
               key={id}
               className={styles.link}
-              onClick={() => dispatch(changeLanguage(id))}
+              onClick={() => {
+                // #non-clickable
+                if (name === 'esp') {
+                  return;
+                }
+                dispatch(changeLanguage(id));
+              }}
             >
               {name}
             </div>

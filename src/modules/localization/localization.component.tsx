@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { LocalizationProps } from './localization.props';
 import { I18nextProvider, useTranslation } from 'react-i18next';
-import i18next from 'i18next';
-
-import { createContext } from 'react';
 import { rtlLanguages, Direction } from './models';
+import { LocalizationProps } from './localization.props';
+import { createContext } from 'react';
+import i18next from 'i18next';
 
 /**
  * Direction context

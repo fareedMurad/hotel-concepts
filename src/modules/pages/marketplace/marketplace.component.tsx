@@ -1,11 +1,11 @@
+import * as React from 'react';
+import * as styles from './marketplace.scss';
+import { CookieBanner, Hero } from './components';
+import { Faq, KordieDifference, Products, Reading } from './sections';
 import { Preloader } from '@core/components';
 import { Preloaders } from '@ui/models';
-import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import { CookieBanner, Hero } from './components';
 import { useMarketplaceData } from './marketplace.hook';
-import * as styles from './marketplace.scss';
-import { Faq, KordieDifference, Products, Reading } from './sections';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Renders Marketplace

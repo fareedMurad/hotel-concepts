@@ -1,7 +1,7 @@
-import { Section } from '@pages/marketplace/components';
 import * as React from 'react';
-import { ProductsProps } from './products.props';
 import * as styles from './products.scss';
+import { ProductsProps } from './products.props';
+import { Section } from '@pages/marketplace/components';
 
 /**
  * Renders Products
