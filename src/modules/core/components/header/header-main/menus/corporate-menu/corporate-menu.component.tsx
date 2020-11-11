@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { CorporateMenuProps } from './corporate-menu.props';
 import * as styles from './corporate-menu.scss';
-import { useState } from 'react';
 import { CardDropdown, LinkDropdown, NavTitle } from '../../components';
+import { CorporateMenuProps } from './corporate-menu.props';
+import { useState } from 'react';
 
 /**
  * Renders CorporateMenu
  */
 const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
   const [showMenu, setShowMenu] = useState(false);
-  
+
   return (
     <div
       className={styles.corporateMenu}
@@ -26,16 +26,19 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
         >
           <LinkDropdown
             className={styles.link}
-            onClick={() => setShowMenu(false)}
+            // #non-clickable
+            // onClick={() => setShowMenu(false)}
             link='Online programs'
-            to='/for-companies'
+            // to='/for-companies'
+            to=''
             image=''
           />
           <LinkDropdown
             className={styles.link}
-            onClick={() => setShowMenu(false)}
+            // onClick={() => setShowMenu(false)}
             link='E-library Access'
-            to='/marketplace'
+            // to='/marketplace'
+            to=''
             image=''
           />
         </CardDropdown>

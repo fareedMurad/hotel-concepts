@@ -1,16 +1,16 @@
+import * as React from 'react';
+import * as styles from './program-item.scss';
+import { Button, Icon, Preloader } from '@core/components';
+import { Modals, Preloaders } from '@ui/models';
 import {
   addProgramToWishlist,
   removeProgramFromWishlist
 } from '@app/redux/account';
-import { State } from '@app/redux/state';
-import { Button, Icon, Preloader } from '@core/components';
-import { navigate } from '@router/store';
-import { showModal } from '@ui/modal';
-import { Modals, Preloaders } from '@ui/models';
-import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProgramItemProps } from './program-item.props';
-import * as styles from './program-item.scss';
+import { State } from '@app/redux/state';
+import { navigate } from '@router/store';
+import { showModal } from '@ui/modal';
 
 /**
  * Renders ProgramItem
@@ -45,8 +45,10 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
               <div className={styles.nameAndLike}>
                 <div
                   className={styles.name}
-                  onClick={() =>
-                    dispatch(navigate(`/program/?programId=${id}`))
+                  onClick={
+                    () => {}
+                    // #non-clickable
+                    // dispatch(navigate(`/program/?programId=${id}`))
                   }
                 >
                   {name}
@@ -83,7 +85,8 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
         <div className={styles.buttonContainer}>
           <Button
             onClick={() => {
-              dispatch(navigate(`/program/?programId=${id}`));
+              // #non-clickable
+              // dispatch(navigate(`/program/?programId=${id}`));
             }}
             className={styles.button}
             children='Find out more'

@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { HomepageProps } from './homepage.props';
 import * as styles from './homepage.scss';
-import { Footer, Spinner } from '@core/components';
 import { FaqBlock, MentorModal } from '@pages/components';
-import { useContributorsData } from '@pages/contributors/contributor.hook';
+import { Footer, Spinner } from '@core/components';
 import {
   SupportInfo,
   OnlineCourses,
@@ -16,12 +14,13 @@ import {
   Intro,
   UnlimitedAccessBooks
 } from './sections';
-import { useHomePageData } from './homepage.hook';
-import Mentors from '@pages/homepage/sections/mentors/mentors.component';
-import { useSelector } from 'react-redux';
-import { State } from '@app/redux/state';
 import { EBooks } from './sections/e-books';
-import { UnlimitedAccess } from './sections/unlimited-access';
+import { HomepageProps } from './homepage.props';
+import Mentors from '@pages/homepage/sections/mentors/mentors.component';
+import { State } from '@app/redux/state';
+import { useContributorsData } from '@pages/contributors/contributor.hook';
+import { useHomePageData } from './homepage.hook';
+import { useSelector } from 'react-redux';
 /**
  * Renders Homepage
  */
