@@ -94,7 +94,7 @@
   }
   &__caption {
     // text-align: justify;
-    @include font($primary-gray, 16px, 500, 22px);
+    @include font($primary-gray, 16px, 400, 22px);
     width: 100%;
     margin-top: 28px;
     @include desktop() {
