@@ -46,16 +46,18 @@
   }
 
   @include desktop() {
+    display: grid;
+    grid-template-columns: 312px 312px 1fr;
     justify-content: space-around;
     align-items: center;
     margin-top: 0;
-    margin-left: 140px;
+    margin-left: 60px;
   }
 }
 
 .meta {
   @include flex($align: stretch, $direction: column);
-
+  margin-left: 20px;
   &:not(:first-child) {
     margin-top: 16px;
 
@@ -69,7 +71,7 @@
 
     @include tablet() {
       margin-top: 0;
-      padding-right: 53px;
+      margin-left: 112px;
       border-right: 2px solid rgba(#98a2a8, 0.3);
     }
   }

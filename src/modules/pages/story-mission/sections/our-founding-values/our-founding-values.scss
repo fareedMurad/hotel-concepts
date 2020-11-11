@@ -18,7 +18,7 @@
   margin: 0 22px;
   gap: 20px;
   @include tablet() {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
   }
   & > div {
