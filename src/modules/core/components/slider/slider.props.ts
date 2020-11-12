@@ -100,6 +100,8 @@ type SliderProps = CarouselProps & {
    * set count
    */
   setCount?: (count) => void;
+
+  transitionDuration: number;
 };
 
 export { SliderProps };

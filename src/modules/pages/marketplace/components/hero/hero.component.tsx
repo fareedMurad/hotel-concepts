@@ -1,7 +1,9 @@
+import { useQuery } from '@apollo/client';
 import { fetchMarketplaceByCategory } from '@app/redux/marketplace';
 import { State } from '@app/redux/state';
-import { Slider } from '@core/components';
+import { Slider, Spinner } from '@core/components';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { gql } from 'apollo-boost';
 import classNames from 'classnames';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { HeroProps } from './hero.props';
 import * as styles from './hero.scss';
 import { SliderControls } from './slider-controls';
+import { SliderItem } from './slider-item';
 
 /**
  * Slider responsive
@@ -21,13 +24,33 @@ const responsive = {
   }
 };
 
+//temporary query data for slider
+
+const SLIDERDATA = gql`
+  {
+    marketplaceBackgroundCarouselCollection {
+      items {
+        title
+        description
+        image {
+          url
+        }
+      }
+    }
+  }
+`;
 /**
  * Renders Hero
  */
 const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
+  const { data, loading, error } = useQuery(SLIDERDATA);
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { selectedCategory } = useSelector((state: State) => state.marketplace);
+  console.log(data);
+  if (loading) return <Spinner />;
+
+  const sliderData = data?.marketplaceBackgroundCarouselCollection?.items;
 
   return (
     <div className={styles.hero}>
@@ -35,46 +58,42 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
         className={styles.slider}
         responsive={responsive}
         itemClass={styles.slide}
-        customButtonGroup={<SliderControls />}
+        // customButtonGroup={<SliderControls />}
+        autoPlay
+        autoPlaySpeed={3000}
+        infinite
+        transitionDuration={1000}
       >
-        {slider?.map(({ url }, index) => (
-          <div
-            className={styles.image}
-            style={{ backgroundImage: `url(${url})` }}
-            key={index}
-          />
+        {sliderData?.map((item, index) => (
+          <SliderItem item={item} />
         ))}
       </Slider>
       <div className={styles.overlay}>
-        <div className={styles.info}>
-          <div className={styles.title}>{t('marketplace.title')}</div>
-          <div className={styles.description}>
-            {t('marketplace.description')}
-          </div>
-        </div>
         <div className={styles.categories}>
-          {categories.map(({ category: { category, id }, total }) => {
-            const match = selectedCategory?.id == id;
-            const isNotEmpty = total > 0;
+          {categories
+            .filter((el, idx) => idx < 5)
+            .map(({ category: { category, id }, total }) => {
+              const match = selectedCategory?.id == id;
+              const isNotEmpty = total > 0;
 
-            return (
-              isNotEmpty && (
-                <div
-                  className={classNames(styles.category, {
-                    [styles.categorySelected]: match
-                  })}
-                  onClick={() => {
-                    scrollTo(id);
-                    dispatch(fetchMarketplaceByCategory(id));
-                  }}
-                  key={id}
-                >
-                  <div className={styles.categoryCaption}>{category}</div>
-                  <div className={styles.categoryAmount}>({total})</div>
-                </div>
-              )
-            );
-          })}
+              return (
+                isNotEmpty && (
+                  <div
+                    className={classNames(styles.category, {
+                      [styles.categorySelected]: match
+                    })}
+                    onClick={() => {
+                      scrollTo(id);
+                      dispatch(fetchMarketplaceByCategory(id));
+                    }}
+                    key={id}
+                  >
+                    <div className={styles.categoryCaption}>{category}</div>
+                    <div className={styles.categoryAmount}>({total})</div>
+                  </div>
+                )
+              );
+            })}
         </div>
       </div>
     </div>
