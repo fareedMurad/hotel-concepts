@@ -28,7 +28,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
    */
 
   const minutes = Math.floor(duration / 60);
-  const seconds = duration - minutes * 60;
+  const seconds = ('0' + (duration - minutes * 60)).slice(-2);
 
   return (
     <div
