@@ -54,7 +54,9 @@ const CartMenu: React.FC<CartMenuProps> = () => {
         })}
       >
         <Icon
-          className={styles.icon}
+          className={classNames(styles.icon, {
+            [styles.active]: isClicked
+          })}
           name={
             whiteHeader || stickyHeader || isVisible || showDropdown
               ? 'shopping-cart'

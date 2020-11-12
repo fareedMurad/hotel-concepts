@@ -26,8 +26,6 @@ const CardDropdown: React.FC<CardDropdownProps> = ({
     // leave: { transform: 'translate3d(0,0,0)' }
   });
 
-  console.log(open);
-
   return (
     <>
       {expand.map(({ props, key }) => (
