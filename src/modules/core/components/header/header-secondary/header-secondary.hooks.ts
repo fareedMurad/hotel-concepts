@@ -9,7 +9,7 @@ const useMenuData = () => {
     },
     {
       name: t('header.header-secondary.link-three'),
-      path: '/insights'
+      path: '/course-partnership'
     },
 
     {

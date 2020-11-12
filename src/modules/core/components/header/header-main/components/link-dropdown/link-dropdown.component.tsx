@@ -43,7 +43,11 @@ const LinkDropdown: React.FC<LinkDropdownProps> = ({
         <div
           className={styles.linkImage}
           //hardcoded image
-          style={{ backgroundImage: `url(${require('img/header-image.png')})` }}
+          style={{
+            backgroundImage: `url(${
+              image ? image : require('img/header-image.png')
+            })`
+          }}
         />
       </div>
     </div>

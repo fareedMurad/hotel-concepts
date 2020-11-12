@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as styles from './learning-approach.scss';
-import { Footer } from '@core/components';
 import {
   WhatWeTeach,
   HowWeTeach,
@@ -8,6 +7,7 @@ import {
   OurMaterials,
   ReadingMaterials
 } from './sections';
+import { Footer } from '@core/components';
 import { FooterHeroLearningApproach } from './sections/footer-hero-learning-approach';
 import { HeroLearningApproach } from './sections/hero-learning-approach';
 import { MeetKordie } from './sections/meet-kordie';

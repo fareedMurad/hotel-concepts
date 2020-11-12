@@ -50,7 +50,7 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
               className={styles.link}
               onClick={() => {
                 // #non-clickable
-                if (name === 'esp') {
+                if (name === 'ES') {
                   return;
                 }
                 dispatch(changeLanguage(id));
