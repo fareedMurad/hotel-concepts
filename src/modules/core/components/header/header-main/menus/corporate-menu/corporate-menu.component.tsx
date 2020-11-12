@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as styles from './corporate-menu.scss';
 import { CardDropdown, LinkDropdown, NavTitle } from '../../components';
 import { CorporateMenuProps } from './corporate-menu.props';
+import { useCorporateImage } from '../library-menu/library-menu.hook';
+import { useIntroData } from '@pages/for-companies/sections/intro/intro.hook';
 import { useState } from 'react';
 
 /**
@@ -9,7 +11,8 @@ import { useState } from 'react';
  */
 const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
   const [showMenu, setShowMenu] = useState(false);
-
+  const { introData } = useIntroData();
+  const { corporateImage } = useCorporateImage();
   return (
     <div
       className={styles.corporateMenu}
@@ -31,15 +34,15 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
             link='Online programs'
             // to='/for-companies'
             to=''
-            image=''
+            image={introData}
           />
           <LinkDropdown
             className={styles.link}
             // onClick={() => setShowMenu(false)}
-            link='E-library Access'
+            link='Digital Library Access'
             // to='/marketplace'
             to=''
-            image=''
+            image={corporateImage}
           />
         </CardDropdown>
       )}

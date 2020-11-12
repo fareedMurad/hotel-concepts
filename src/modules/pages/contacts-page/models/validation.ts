@@ -27,7 +27,7 @@ const ContactsUsValidationSchema = yup.object<ContactUsFormValues>().shape({
     .label('Surname'),
   comment: yup
     .string()
-    .label('Comment')
+    .label('Message')
     .required()
 });
 

@@ -1,10 +1,10 @@
 {
   "header": {
     "header-secondary": {
-      "link-one": "Mentors&Co-authors",
+      "link-one": "Mentors & Authors",
       "link-two": "Learning Approach",
-      "link-three": "Insights",
-      "link-four": "Contacts",
+      "link-three": "Partnerships",
+      "link-four": "Contact",
       "link-five": "For corporated clients"
     },
     "header-main": {
@@ -155,15 +155,15 @@
       },
       "card-two": {
         "title": "Feedback",
-        "description": "If you need help using Kordie just press the “support” button at the bottom right of every course page."
+        "description": "If you need help using Kordie website just press the “Support” button at the bottom right of every page."
       },
       "card-three": {
         "title": "Media Enquiries",
-        "description": "Please send an email to:"
+        "description": "To request Kordie to participate in an interview or another project please contact us at"
       },
       "card-four": {
-        "title": "Community Manager",
-        "description": "For quick answers to common questions, try our FAQ"
+        "title": "Partnerships",
+        "description": "Together with our partners, we improve the skills of hospitality teams across the world and create one of a kind educational content. To get involved drop us a line at"
       }
     },
     "form": {
@@ -175,7 +175,7 @@
         "email": "E-mail",
         "name": "Name",
         "surname": "Surname",
-        "comment": "Comment"
+        "comment": "Message"
       },
       "button-text": "Send",
       "terms-one": " Kordie takes your privacy very seriously. We may process your personal information for carefully considered and specific purposes which are in our interests and enable us to enhance the services we provide, but which we believe also benefit our customers. View our",
@@ -313,7 +313,7 @@
       "terms": "Terms and Conditions"
     },
     "navigation": {
-      "programs": "Explore Programs",
+      "programs": "Online Programs",
       "about": "About",
       "support": "Support"
     },

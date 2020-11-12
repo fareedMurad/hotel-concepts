@@ -58,15 +58,23 @@ const Navigation: React.FC<{
     <div className={styles.navigationLinks}>
       {navigation.map((link, idx) => {
         const { caption, to, target, ...rest } = link;
-
+        //#non clickable
+        const exceptions = ['Help & FAQ', 'Help Center'];
+        const isException = exceptions.includes(caption);
         if (target)
-          return (
+          return isException ? (
+            <div style={{ display: 'inline' }}>{caption}</div>
+          ) : (
             <a href={target} target={'__blanc'}>
               {caption}
             </a>
           );
 
-        return (
+        return isException ? (
+          <div style={{ display: 'inline' }}>
+            {rest.name ? rest.name : caption}
+          </div>
+        ) : (
           <NavLink
             key={idx}
             to={rest.sys ? `/programs-catalogue/${rest.sys.id}` : to}
