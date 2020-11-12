@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({
   const { active } = useSelector((state: State) => state.ui.modal);
 
   React.useEffect(() => {
-    console.log('changed');
+    // console.log('changed');
   }, [id]);
 
   const overlayAnimation = useSpring({

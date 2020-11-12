@@ -23,7 +23,7 @@ const CoursePartnership: React.FC = () => (
     <Criteria />
     <PartnerApply
       title='Want to get involved?'
-      subtitle='We’re always happy to talk if you are interested in becoming a Partner'
+      subtitle='If you’re interested in becoming a partner, want more information or have further questions please drop us a message'
     />
     {/* <Footer /> */}
   </div>

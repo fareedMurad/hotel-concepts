@@ -22,7 +22,6 @@ import { useDispatch } from 'react-redux';
 /**
  * Form default values
  */
-
 const defaultValues: ConsultRequestFormValues = {
   name: '',
   email: '',
@@ -35,12 +34,28 @@ const defaultValues: ConsultRequestFormValues = {
  * Options for select
  */
 
-const quantity = [
-  { label: '1', value: '1' },
-  { label: '2', value: '2' },
-  { label: '3', value: '3' }
+const interestsSelect = [
+  { label: 'Focused Programs', value: 'Focused Programs' },
+  {
+    label: 'Digital Transformation Programs',
+    value: 'Digital Transformation Programs'
+  },
+  {
+    label: 'Essential Soft Skills Programs',
+    value: 'Essential Soft Skills Programs'
+  },
+  { label: 'Leadership Programs', value: 'Leadership Programs' },
+  { label: 'Managing Covid-10 Programs', value: 'Managing Covid-10 Programs' },
+  { label: 'Other', value: 'Other' }
 ];
 
+const teamsizeSelect = [
+  { label: 'Less than 10 employees', value: 'Less than 10 employees' },
+  { label: '11-25 employees', value: '11-25 employees' },
+  { label: '22-50 employees', value: '22-50 employees' },
+  { label: '50-100 employees', value: '50-100 employees' },
+  { label: '100+ employees', value: '100+ employees' }
+];
 /**
  * Renders ConsultRequest
  */
@@ -53,7 +68,7 @@ const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => {
           <Paragraph className={styles.orange}>
             Not sure where to begin?
           </Paragraph>
-          <H2>Request consult</H2>
+          <H2>Sign up for a consultation</H2>
           <Formik
             initialValues={defaultValues}
             onSubmit={values => {
@@ -68,24 +83,24 @@ const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => {
                     <Field.Text
                       name='name'
                       className={styles.input}
-                      label='Name'
+                      label='Full Name*'
                     />
                     <Field.Text
                       name='email'
                       className={styles.input}
-                      label='Email'
+                      label='Email*'
                     />
                     <Field.Text
                       name='website'
                       className={styles.input}
-                      label='Website'
+                      label='Company Name*'
                     />
                   </div>
                   <div className={styles.select}>
                     <Field.Select
                       name='teamSize'
                       value=''
-                      options={quantity}
+                      options={teamsizeSelect}
                       placeholder='How many employees need training?'
                       className={classNames(styles.input)}
                       whiteBackground
@@ -95,7 +110,7 @@ const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => {
                     <Field.Select
                       name='interests'
                       value=''
-                      options={quantity}
+                      options={interestsSelect}
                       placeholder='What paths are you interested in?'
                       className={classNames(styles.input)}
                       label=''
@@ -103,7 +118,7 @@ const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => {
                     />
                   </div>
                   <Button
-                    children='Contact me'
+                    children='Submit'
                     arrow
                     width={230}
                     onClick={() => handleSubmit()}

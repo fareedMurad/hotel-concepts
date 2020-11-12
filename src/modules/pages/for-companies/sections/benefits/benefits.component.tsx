@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
  */
 const Benefits: React.FC<BenefitsProps> = ({}) => {
   const { t } = useTranslation();
-  const { cardsText, benefitsImage } = useBenefitsCards();
+  const { cardsText, benefitsImage, cardsText2 } = useBenefitsCards();
 
   return (
     <div className={styles.benefits}>
@@ -27,7 +27,7 @@ const Benefits: React.FC<BenefitsProps> = ({}) => {
           <H3 className={styles.benefitsTitle}>
             {t('for-companies.benefits.for-employees.title')}
           </H3>
-          {cardsText.map(card => (
+          {cardsText2.map(card => (
             <BenefitsCard key={card.id} text={card.text} />
           ))}
         </div>

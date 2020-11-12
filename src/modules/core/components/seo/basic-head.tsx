@@ -11,8 +11,6 @@ const BasicHead: React.FC = () => {
 
   const { pathname } = useLocation();
 
-  console.log(pathname);
-
   const [title, setTitle] = useState('Kordie');
 
   useEffect(() => {

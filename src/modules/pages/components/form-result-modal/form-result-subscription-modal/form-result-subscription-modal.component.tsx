@@ -17,7 +17,6 @@ const FormResultSubscriptionModal: React.FC<FormResultSubscriptionModalProps> = 
   const { t } = useTranslation();
   const history = useHistory();
   const { pathname } = history.location;
-  console.log(pathname);
   const message = pathname.includes('insights') ? 'insights' : 'newsletter';
   return (
     <Modal

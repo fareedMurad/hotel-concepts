@@ -1,12 +1,30 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { State } from '@app/redux/state';
+import { fetchMarketplace } from '@app/redux/marketplace';
+import { useEffect } from 'react';
 /*
  * E-book section data
  */
 
 const useEBooksData = () => {
+  const dispatch = useDispatch();
+  const {
+    marketplace: { categories, slider }
+  } = useSelector((state: State) => state);
+
+  useEffect(() => {
+    dispatch(fetchMarketplace());
+  }, []);
+
+  const categoriesList = categories.map(i => ({
+    category: i.category,
+    count: i.total
+  }));
+
   const filters = [
     'Social Media',
     'CRM',
-    'Rvenue menegment',
+    'Revenue management',
     'Trends',
     'Coming soon'
   ];
@@ -38,7 +56,7 @@ const useEBooksData = () => {
     }
   ];
 
-  return { filters, books };
+  return { filters, books, categories };
 };
 
 export { useEBooksData };

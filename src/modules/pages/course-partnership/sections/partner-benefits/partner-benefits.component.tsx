@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { PartnerBenefitsProps } from './partner-benefits.props';
 import * as styles from './partner-benefits.scss';
 import { Paragraph, Icon, SectionTitle } from '@core/components';
-import { useMediaPoints } from '@core/shared';
 import { gql, useQuery } from '@apollo/client';
+import { PartnerBenefitsProps } from './partner-benefits.props';
+import { useMediaPoints } from '@core/shared';
 import { useTranslation } from 'react-i18next';
 
 const GET_HERO_IMAGE = gql`
