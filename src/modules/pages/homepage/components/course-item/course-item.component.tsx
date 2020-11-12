@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { CourseItemProps } from './course-item.props';
 import * as styles from './course-item.scss';
 import { Button } from '@core/components';
-import { useHistory } from 'react-router-dom';
+import { CourseItemProps } from './course-item.props';
 import Img from 'react-cool-img';
+import { useHistory } from 'react-router-dom';
 /**
  * Renders CourseItem
  */
@@ -47,7 +47,8 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
               </div>
             </div>
             <Button
-              onClick={handleClick(id, slug)}
+              // #non-clickable
+              // onClick={handleClick(id, slug)}
               className={styles.button}
               children='Explore Program'
               width='100%'

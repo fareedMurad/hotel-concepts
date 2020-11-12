@@ -1,10 +1,9 @@
-import { Icon } from '@core/components';
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { useUnlimitedAccessBooksData } from './unlimited-access-books.hook';
-import { UnlimitedAccessBooksProps } from './unlimited-access-books.props';
 import * as styles from './unlimited-access-books.scss';
+import { Link } from 'react-router-dom';
+import { UnlimitedAccessBooksProps } from './unlimited-access-books.props';
+import { useTranslation } from 'react-i18next';
+import { useUnlimitedAccessBooksData } from './unlimited-access-books.hook';
 
 const ListItem = ({ data }) => {
   const { caption } = data;

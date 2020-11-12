@@ -1,5 +1,3 @@
-import { ScrollToTop } from '@app';
-import { PartnerApply } from '@pages/components';
 import * as React from 'react';
 import * as styles from './course-partnership.scss';
 import {
@@ -9,6 +7,8 @@ import {
   PartnerBenefits,
   PartneringForSuccess
 } from './sections';
+import { PartnerApply } from '@pages/components';
+import { ScrollToTop } from '@app';
 
 /**
  * Renders Course
@@ -23,7 +23,7 @@ const CoursePartnership: React.FC = () => (
     <Criteria />
     <PartnerApply
       title='Want to get involved?'
-      subtitle='We’re always happy to talk if you are interested in becoming a Partner'
+      subtitle='If you’re interested in becoming a partner, want more information or have further questions please drop us a message'
     />
     {/* <Footer /> */}
   </div>

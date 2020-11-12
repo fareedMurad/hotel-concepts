@@ -2,25 +2,30 @@
 
 .catalogue-header {
   @include heroImage();
-  background-position: right;
-  @include tablet(){
+  // background-position: right;
+  @include tablet() {
     background-position: center;
   }
-  @include imageOverlay();
   @include flex($align: stretch, $direction: column, $justify: center);
   position: relative;
+
+  width: 100%;
   z-index: 1;
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
   min-height: 500px;
+  @include desktop() {
+    width: 101%;
+    right: 2px;
+  }
   @include ipad-p() {
     height: calc(100vh - 30px);
-    background-position: right;
+    background-position: center;
   }
   @include ipad-l() {
     height: calc(100vh - 30px);
-    background-position: right;
+    background-position: center;
   }
 }
 

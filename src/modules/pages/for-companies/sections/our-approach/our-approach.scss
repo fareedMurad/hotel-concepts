@@ -5,14 +5,18 @@
 }
 
 .image {
-  @include flex(center, center);
+  @include flex(flex-start, center);
   height: 581px;
   @include heroImage();
+  padding-left: 20px;
+  @include desktop() {
+    padding-left: 134px;
+  }
 }
 
 .content {
   width: 100%;
-  text-align: center;
+  text-align: left;
   @include tablet() {
     width: 40%;
   }

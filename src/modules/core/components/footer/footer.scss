@@ -53,10 +53,11 @@
     @include flex($align: stretch, $direction: column);
     width: 33%;
     margin-top: 13px;
-    & > a {
+    & > * {
       @include font($primary-gray, 16px, 400, 22px);
       width: 180px;
       margin-bottom: 13px;
+      cursor: pointer;
       &:hover {
         text-decoration: underline;
         color: $primary-orange;

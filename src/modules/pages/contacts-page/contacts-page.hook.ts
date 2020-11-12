@@ -15,28 +15,26 @@ const useContactsPageData = () => {
     {
       id: 2,
       title: t('contacts.cards.card-two.title'),
-      description: t('contacts.cards.card-two.description'),
-      href: 'mailto:support@cordie.co',
-      link: 'support@cordie.co'
+      description: t('contacts.cards.card-two.description')
     },
     {
       id: 3,
       title: t('contacts.cards.card-three.title'),
       description: t('contacts.cards.card-three.description'),
-      href: 'mailto:support@cordie.co',
-      link: 'support@cordie.co'
+      href: 'mailto:team@kordie.com',
+      link: 'team@kordie.com'
     },
     {
       id: 4,
       title: t('contacts.cards.card-four.title'),
       description: t('contacts.cards.card-four.description'),
-      href: 'mailto:support@cordie.co',
-      link: 'support@cordie.co'
+      href: 'mailto:mariam@kordie.com',
+      link: 'mariam@kordie.com'
     }
   ];
   const GET_HERO_IMAGE = gql`
     {
-      asset(id: "4PeOoO6jJEQmcZxv4WSUqq") {
+      asset(id: "oU5cS4QpeqOuAtztBQpOt") {
         url
       }
     }

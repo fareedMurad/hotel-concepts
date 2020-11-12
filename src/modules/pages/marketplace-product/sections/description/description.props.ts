@@ -10,6 +10,7 @@ type DescriptionProps = {
     publishDate: string;
     listOfSkills: string[];
     pagesCount: number;
+    details: any;
   };
 };
 

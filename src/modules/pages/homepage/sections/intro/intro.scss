@@ -3,7 +3,6 @@
 .intro {
   height: 100vh;
   @include flex($justify: center, $direction: column);
-  @include imageOverlay();
   @include container();
   @include heroImage();
   min-height: 500px;

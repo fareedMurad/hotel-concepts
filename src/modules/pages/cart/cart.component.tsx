@@ -1,16 +1,16 @@
-import { ScrollToTop } from '@app';
+import * as React from 'react';
+import * as styles from './cart.scss';
 import { Button, Icon, Preloader } from '@core/components';
+import { CartItem, Summary } from './components';
+import { Fragment } from 'react';
+import { ModalInvoiceRequest } from './components/modal-invoice-request';
+import { Preloaders } from '@ui/models';
+import { ScrollToTop } from '@app';
 import { SuccessAlertModal } from '@pages/components/success-alert-modal';
 import { navigate } from '@router/store';
-import { Preloaders } from '@ui/models';
-import * as React from 'react';
-import { Fragment } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { useCartData } from './cart.hook';
-import * as styles from './cart.scss';
-import { CartItem, Summary } from './components';
-import { ModalInvoiceRequest } from './components/modal-invoice-request';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Placeholder

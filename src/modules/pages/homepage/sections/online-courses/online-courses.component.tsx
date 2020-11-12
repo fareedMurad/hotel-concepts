@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { OnlineCoursesProps } from './online-courses.props';
 import * as styles from './online-courses.scss';
 import {
   ButtonFilter,
@@ -8,13 +7,13 @@ import {
   Preloader,
   Icon
 } from '@core/components';
-import { CourseItem } from '@pages/homepage/components/course-item';
-import { navigate } from '@router/store';
 import { useDispatch, useSelector } from 'react-redux';
+import { CourseItem } from '@pages/homepage/components/course-item';
+import { OnlineCoursesProps } from './online-courses.props';
+import { navigate } from '@router/store';
 import { useProgramsData } from './hooks';
 import { useTranslation } from 'react-i18next';
 import { State } from '@app/redux/state';
-
 import { Preloaders } from '@ui/models';
 import { Link } from 'react-router-dom';
 

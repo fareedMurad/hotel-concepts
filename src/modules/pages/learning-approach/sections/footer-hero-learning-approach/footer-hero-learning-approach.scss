@@ -11,22 +11,14 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  background: rgb(0, 0, 0);
-  background-size: cover;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.24077380952380953) 41%,
-    rgba(255, 255, 255, 0.07746848739495793) 100%
-  );
 }
 
 .hero-content {
-  @include flex($align: center, $justify: center, $direction: column);
+  @include flex($align: flex-start, $justify: center, $direction: column);
 
   height: 100%;
-  margin: 0 auto;
-  text-align: center;
+  margin-left: $default-offset;
+
   &--title {
     @include font($white, 36px, 400, 46px);
     font-family: $EBGaramond;
@@ -34,8 +26,11 @@
   &--description {
     @include font($white, 24px, 400, 34px);
     margin: 30px 0px;
+    font-family: $IBMPlex;
   }
   @include desktop() {
     width: 30%;
+    margin-left: $left-offset;
+    max-width: 360px;
   }
 }

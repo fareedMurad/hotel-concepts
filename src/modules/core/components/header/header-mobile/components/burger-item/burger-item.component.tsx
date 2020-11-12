@@ -69,8 +69,9 @@ const BurgerItem: React.FC<BurgerItemProps> = ({
           {menuLinks.map(el => (
             <MenuItem
               key={el.link}
+              // #non-clickable
               link={el.link}
-              to={el.to}
+              to={title === 'Corporate solutions' ? '/' : el.to}
               highlighted={el.highlighted}
             />
           ))}
