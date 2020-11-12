@@ -59,7 +59,7 @@ const Navigation: React.FC<{
       {navigation.map((link, idx) => {
         const { caption, to, target, ...rest } = link;
         //#non clickable
-        const exceptions = ['Help & FAQ', 'Help Center'];
+        const exceptions = ['FAQ', 'Help Center'];
         const isException = exceptions.includes(caption);
         if (target)
           return isException ? (
