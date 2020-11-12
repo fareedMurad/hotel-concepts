@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { CatalogueHeaderProps } from './catalogue-header.props';
 import * as styles from './catalogue-header.scss';
-import { ScrollButton } from '@core/components/scroll-button';
 import { gql, useQuery } from '@apollo/client';
-import { useTranslation } from 'react-i18next';
+import { CatalogueHeaderProps } from './catalogue-header.props';
+import { ScrollButton } from '@core/components/scroll-button';
 import { useParams } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 const GET_CATEGORY_INFO = gql`
   query($id: String!) {

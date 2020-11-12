@@ -33,9 +33,8 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ className }) => {
             <div
               key={program.sys.id}
               onClick={() => {
-                // #nonclickable
-                // dispatch(navigate(`/programs-catalogue/${program.sys.id}`));
-                // setShowMenu(false);
+                dispatch(navigate(`/programs-catalogue/${program.sys.id}`));
+                setShowMenu(false);
               }}
               className={styles.program}
             >
@@ -45,7 +44,7 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ className }) => {
           ))}
           <LinkDropdown
             className={styles.link}
-            // onClick={() => setShowMenu(false)}
+            onClick={() => setShowMenu(false)}
             link='Learning approach'
             to='/learning-approach'
             image='img/header-image.png'
