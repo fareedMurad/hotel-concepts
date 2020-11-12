@@ -55,9 +55,10 @@ const UnlimitedAccessBooks: React.FC<UnlimitedAccessBooksProps> = ({}) => {
         </div>
       </main>
       <aside className={styles.aside}>
-        <div
+        <img
           className={styles.image}
-          style={{ backgroundImage: `url(${imageUrl})` }}
+          src={imageUrl}
+          // style={{ backgroundImage: `url(${imageUrl})` }}
         />
       </aside>
 
