@@ -42,7 +42,9 @@
 
 .form {
   max-width: 750px;
-  padding-left: $left-offset;
+  @include tablet() {
+    padding-left: $left-offset;
+  }
   flex-wrap: wrap;
 }
 

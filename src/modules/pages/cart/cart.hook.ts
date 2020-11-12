@@ -1,11 +1,11 @@
-import { ContentType } from '@app/models/enum';
-import { getProducts } from '@app/redux/cart';
-import { checkout } from '@app/redux/checkout';
-import { State } from '@app/redux/state';
-import { showModal } from '@ui/modal';
-import { Modals } from '@ui/models';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ContentType } from '@app/models/enum';
+import { Modals } from '@ui/models';
+import { State } from '@app/redux/state';
+import { checkout } from '@app/redux/checkout';
+import { getProducts } from '@app/redux/cart';
+import { showModal } from '@ui/modal';
+import { useEffect } from 'react';
 
 const useCartData = () => {
   const dispatch = useDispatch();
