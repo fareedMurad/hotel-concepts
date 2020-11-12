@@ -1,13 +1,10 @@
+import { Book } from "@account/pages/library/models";
+
 /**
  * Props
  */
 type BookItemProps = {
-  book: {
-    image: string;
-    title: string;
-    price: string | number;
-    sale: string | number;
-  };
+  book: Book;
 };
 
 export { BookItemProps };
