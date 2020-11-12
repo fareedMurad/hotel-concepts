@@ -14,7 +14,7 @@ const useMarketplaceData = () => {
   useEffect(() => {
     dispatch(fetchMarketplace());
   }, []);
-  debugger;
+
   return {
     categories,
     slider,

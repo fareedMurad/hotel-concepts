@@ -30,6 +30,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
     showDropdown && dispatch(handleNotifierCart.hideModal());
     setShowMenu(true);
   };
+  console.log(showMenu);
   return (
     <div
       className={styles.profileMenu}
@@ -38,7 +39,9 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
       ref={ref}
     >
       <Icon
-        className={styles.icon}
+        className={classNames(styles.icon, {
+          [styles.active]: showMenu
+        })}
         name={blackTheme ? 'default-avatar-b' : 'default-avatar'}
       />
 

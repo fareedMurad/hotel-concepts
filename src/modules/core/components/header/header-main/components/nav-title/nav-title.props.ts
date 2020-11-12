@@ -10,6 +10,10 @@ type NavTitleProps = {
    * title
    */
   title: string;
+  /*
+   * show menu
+   */
+  showMenu: boolean;
 };
 
 export { NavTitleProps };

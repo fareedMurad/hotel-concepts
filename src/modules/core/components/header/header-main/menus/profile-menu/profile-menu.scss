@@ -67,3 +67,16 @@
   color: $light-grey;
   border: 1px solid $light-grey;
 }
+
+.active {
+  @include desktop() {
+    & > div {
+      & > svg > g > circle {
+        stroke: $primary-orange !important;
+      }
+      & > svg > g > path {
+        fill: $primary-orange !important;
+      }
+    }
+  }
+}

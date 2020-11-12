@@ -54,6 +54,13 @@
   border-radius: 50%;
 }
 
+.active {
+  @include desktop() {
+    & > div > svg {
+      fill: $primary-orange;
+    }
+  }
+}
 .overlay {
   position: absolute;
   top: 0;

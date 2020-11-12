@@ -24,7 +24,11 @@ const LibraryMenu: React.FC<LibraryMenuProps> = ({ className }) => {
       onMouseOver={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
     >
-      <NavTitle className={className} title='Digital Library' />
+      <NavTitle
+        className={className}
+        title='Digital Library'
+        showMenu={showMenu}
+      />
       {showMenu && (
         <CardDropdown
           className={styles.dropdown}
