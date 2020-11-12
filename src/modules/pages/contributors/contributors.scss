@@ -4,7 +4,6 @@
   height: 100vh;
   &-img {
     @include flex($align: stretch, $justify: center, $direction: column);
-    @include imageOverlay();
     width: 101%;
     right: 2px;
     height: 100vh;

@@ -25,7 +25,8 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
     productImage: {
       file: { url }
     },
-    inWishlist
+    inWishlist,
+    isPreorder
   } = book || {};
 
   return (
@@ -45,8 +46,12 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
             : dispatch(showModal(Modals.registration));
         }}
       />
-
-      <img className={styles.image} src={url} alt={url} />
+      <div className={styles.bookContainer}>
+        <div className={styles.bookContainerImage}>
+          {isPreorder && <div className={styles.preorder}>PRE-ORDER</div>}
+          <img className={styles.image} src={url} alt={url}></img>
+        </div>
+      </div>
       <div className={styles.divider} />
       <div className={styles.price}>${price}</div>
       <div className={styles.name}>{name}</div>
