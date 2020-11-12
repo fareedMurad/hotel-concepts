@@ -37,6 +37,11 @@ const Reading: React.FC = () => (
     </div>
     <div className={styles.preview}>
       <img
+        className={styles.mockup}
+        src={require('img/marketplace/mockup.png')}
+        alt='mockup'
+      />
+      {/* <img
         className={classNames(styles.previewImage, styles.previewImageEbook)}
         src={require('img/marketplace/preview1.png')}
         alt='preview1'
@@ -55,7 +60,7 @@ const Reading: React.FC = () => (
         className={classNames(styles.previewImage, styles.previewImageLaptop)}
         src={require('img/marketplace/preview4.png')}
         alt='preview4'
-      />
+      /> */}
     </div>
   </div>
 );
