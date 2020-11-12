@@ -117,15 +117,16 @@
   },
   "contributors": {
     "hero": {
-      "title": "Programs Mentors & Co-authors",
-      "sub-title": "Our faculty members are internationally recognised hospitality leaders whom we are proud to work with.",
+      "title": "Instructors, Authors & Mentors",
+      "sub-title": "Our teaching experts are internationally recognised hospitality leaders whom we are proud to work with",
       "button-text": "Contact us",
       "scroll": "Scroll"
     },
     "contributors-container": {
-      "pre-caption": "Contributors",
-      "title": "Meet the experts",
-      "description": "Cordie participants can benefit from a wide spectrum of experts with diverse backgrounds. Our expert team are knowledge creators and industry leaders at the cutting edge of their fields.",
+      "pre-caption": "Discover the diversity of our expert leaders",
+      "title": "Meet the Faculty",
+      "description": "Kordie’s faculty excel in developing content that inspires, supports and challenges hospitality professionals. In an open and collaborative environment, our team of diverse backgrounds, talents and cultures stands at the frontiers of new knowledge creation that is both rigorous and relevant.",
+      "description2": "Our award winning instructors team from 31 countries spans a range of disciplines from hospitality digital marketing and digital transformation to revenue management and strategy.",
       "experts": "Teaching Experts",
       "nationalities": "Nationalities"
     },
