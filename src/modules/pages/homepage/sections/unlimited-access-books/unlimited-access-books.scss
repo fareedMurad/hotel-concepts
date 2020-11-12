@@ -82,16 +82,18 @@
   }
 }
 .image {
-  background: transparent;
-  background-size: cover;
-  background-position: center;
+  // background: transparent;
+  // background-size: cover;
+  // background-position: center;
+  object-fit: contain;
   margin-left: auto;
   border-radius: 8px;
   @include tablet() {
     @include size(100%);
   }
   @include desktop() {
-    width: 540px;
-    height: 595px;
+    transform: scale(1.3);
+    // width: 540px;
+    // height: 595px;
   }
 }

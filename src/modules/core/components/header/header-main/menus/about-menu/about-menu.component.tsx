@@ -25,16 +25,20 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ className }) => {
           className={styles.dropdown}
           onMouseLeave={() => setShowMenu(false)}
         >
-          {navigation.map(({ name, to }) => (
-            <NavLink
-              className={styles.link}
-              key={name}
-              to={to}
-              onClick={() => setShowMenu(false)}
-            >
-              {name}
-            </NavLink>
-          ))}
+          {navigation.map(({ name, to }) => {
+            return name === 'About us' ? (
+              <div className={styles.link}>{name}</div>
+            ) : (
+              <NavLink
+                className={styles.link}
+                key={name}
+                to={to}
+                onClick={() => setShowMenu(false)}
+              >
+                {name}
+              </NavLink>
+            );
+          })}
         </CardDropdown>
       )}
     </div>
