@@ -7,6 +7,7 @@ import { LibraryMenuProps } from './library-menu.props';
 import { navigate } from '@router/store';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * Renders LibraryMenu
@@ -30,17 +31,16 @@ const LibraryMenu: React.FC<LibraryMenuProps> = ({ className }) => {
           className={styles.dropdown}
           onMouseLeave={() => setShowMenu(false)}
         >
-          <div
+          <Link
+            to='/marketplace'
             className={styles.dropdownTitle}
             onClick={() => {
-              // #non-clickable
-              // setShowMenu(false);
-              // dispatch(navigate('/marketplace'));
+              setShowMenu(false);
             }}
           >
             <div>Explore digital collections</div>
             <Icon name='arrows/arrow-right-primary' className={styles.arrow} />
-          </div>
+          </Link>
           <div className={styles.links}>
             <LinkDropdown
               className={styles.linksLink}

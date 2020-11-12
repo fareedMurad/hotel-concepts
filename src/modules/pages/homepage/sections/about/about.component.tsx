@@ -23,7 +23,8 @@ const About: React.FC = () => {
         <Button
           className={styles.button}
           arrow
-          onClick={() => dispatch(navigate('/about-us'))}
+          // #non-clickable
+          // onClick={() => dispatch(navigate('/about-us'))}
         >
           {t('home.about.button-text')}
         </Button>

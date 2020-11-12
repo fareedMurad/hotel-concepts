@@ -54,7 +54,7 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
               <ButtonFilter
                 className={styles.buttonFilter}
                 key={index}
-                title={`${category.category} ${total}`}
+                title={`${category.category}`}
                 onClick={() => {
                   setActiveFilter(category.category);
                 }}

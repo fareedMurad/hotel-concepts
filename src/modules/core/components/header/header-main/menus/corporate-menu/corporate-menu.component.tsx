@@ -39,7 +39,7 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
             className={styles.link}
             onClick={() => setShowMenu(false)}
             link='Digital Library Access'
-            to='/marketplace'
+            to=''
             image={corporateImage}
           />
         </CardDropdown>
