@@ -123,6 +123,7 @@ class AuthSaga {
       yield put(navigate(`/auth/email-verification/pending/?email=${email}`));
 
       yield put(register.success());
+      yield put(closeModal(Modals.registration));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
