@@ -6,7 +6,7 @@ const useEBooksData = () => {
   const filters = [
     'Social Media',
     'CRM',
-    'Rvenue menegment',
+    'Revenue management',
     'Trends',
     'Coming soon'
   ];
