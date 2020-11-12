@@ -11,6 +11,7 @@ import { animated, useSpring, useTransition } from 'react-spring';
 const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
   const { data } = useExperiencesAssignmentData();
   const [section, setSection] = React.useState(data[0]);
+  const [index, setIndex] = React.useState(1);
 
   console.log(section);
 
@@ -20,6 +21,14 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
     leave: { opacity: 0 },
     config: { duration: 1000 }
   });
+
+  React.useEffect(() => {
+    index === data.length - 1 && setIndex(0);
+    setTimeout(() => {
+      index < data.length - 1 && setIndex(index + 1);
+      setSection(data[index]);
+    }, 3000);
+  }, [section]);
 
   return (
     <div className={styles.experiencedAssignment}>
