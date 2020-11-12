@@ -30,18 +30,16 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
           <LinkDropdown
             className={styles.link}
             // #non-clickable
-            // onClick={() => setShowMenu(false)}
+            onClick={() => setShowMenu(false)}
             link='Online programs'
-            // to='/for-companies'
-            to=''
+            to='/for-companies'
             image={introData}
           />
           <LinkDropdown
             className={styles.link}
-            // onClick={() => setShowMenu(false)}
+            onClick={() => setShowMenu(false)}
             link='Digital Library Access'
-            // to='/marketplace'
-            to=''
+            to='/marketplace'
             image={corporateImage}
           />
         </CardDropdown>

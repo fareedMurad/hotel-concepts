@@ -13,15 +13,13 @@ import * as styles from './e-books.scss';
 const EBooks: React.FC<EBooksProps> = ({}) => {
   const { filters, books } = useEBooksData();
   const { t } = useTranslation();
+  const [activeFilter, setActiveFilter] = React.useState('');
 
   return (
     <div className={styles.eBooks}>
       <div className={styles.title}>
         <SectionTitle>{t('home.e-books.title')}</SectionTitle>
         <div className={styles.subtitle}>
-          <div className={styles.subtitleText}>
-            {t('home.e-books.subtitle')}
-          </div>
           <div className={styles.subtitleText}>
             {t('home.e-books.subtitle')}
           </div>
@@ -33,7 +31,10 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
             className={styles.buttonFilter}
             key={filter}
             title={filter}
-            onClick={() => {}}
+            onClick={() => {
+              setActiveFilter(filter);
+            }}
+            active={filter === activeFilter}
           />
         ))}
       </div>
