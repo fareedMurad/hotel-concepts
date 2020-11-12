@@ -116,9 +116,10 @@
     }
     margin: 31px 0px 0px 22px;
     background: #f5f1f0;
-    width: 336px;
     height: 44px;
+    width: 85%;
     @include tablet() {
+      width: 336px;
       margin: 31px 0px 0px 113px;
     }
   }
