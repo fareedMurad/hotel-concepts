@@ -32,7 +32,7 @@ const FooterHeroLearningApproach: React.FC<HeroBottomProps> = ({}) => {
             className={styles.heroContentButton}
             children={t('learning-approach.footer-hero.button-text')}
             arrow
-            onClick={() => dispatch(navigate('/insights'))}
+            // onClick={() => dispatch(navigate('/insights'))}
             width={204}
           />
         </div>

@@ -42,6 +42,7 @@ const Slider: React.FC<SliderProps> = ({
   controlsClassname,
   controlsTheme,
   controlClassname,
+  transitionDuration,
   count,
   setCount,
   ...props
@@ -52,7 +53,9 @@ const Slider: React.FC<SliderProps> = ({
     draggable={draggable}
     swipeable={swipeable}
     infinite={infinite}
+    autoPlay={autoPlay}
     keyBoardControl={keyBoardControl}
+    transitionDuration={transitionDuration}
     customButtonGroup={
       controls ? (
         <Controls
