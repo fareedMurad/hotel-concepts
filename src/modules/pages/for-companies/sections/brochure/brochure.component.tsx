@@ -35,9 +35,13 @@ const Brochure: React.FC<BrochureProps> = ({}) => {
             {t('for-companies.brochure.description')}
           </Paragraph>
           <div className={styles.downloadButton}>
-            <a href='http://www.africau.edu/images/default/sample.pdf' download>
+            {/* <a href='http://www.africau.edu/images/default/sample.pdf' download>
               <DownloadButton caption='Brochure' filetype='PDF' size='15mb' />
-            </a>
+            </a> */}
+            {/* #non clickable */}
+            <div style={{ display: 'inline' }}>
+              <DownloadButton caption='Brochure' filetype='PDF' size='15mb' />
+            </div>
           </div>
         </div>
       </div>
