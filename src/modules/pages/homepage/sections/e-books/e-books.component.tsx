@@ -22,9 +22,6 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
           <div className={styles.subtitleText}>
             {t('home.e-books.subtitle')}
           </div>
-          <div className={styles.subtitleText}>
-            {t('home.e-books.subtitle')}
-          </div>
         </div>
       </div>
       <div className={styles.filters}>
@@ -34,6 +31,7 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
             key={filter}
             title={filter}
             onClick={() => {}}
+            active={filter === 'Coming soon'}
           />
         ))}
       </div>

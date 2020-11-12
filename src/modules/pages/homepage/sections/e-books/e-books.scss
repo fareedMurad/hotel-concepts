@@ -16,6 +16,9 @@
   margin-top: 15px;
   &--text {
     @include font($primary-gray, 24px, 400, 34px);
+    @include tablet(){
+      width: 50%;
+    }
   }
 }
 
