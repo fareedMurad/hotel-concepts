@@ -11,24 +11,30 @@ import { closeModal } from '@ui/modal';
 /**
  * Renders ModalHeader
  */
-const ModalHeader: React.FC<ModalHeaderProps> = ({}) => {
-  const dispatch = useDispatch();
+const ModalHeader: React.FC<ModalHeaderProps> = ({
+  setActiveModal,
+  avtiveModal
+}) => {
   return (
     <div className={styles.modalHeader}>
       <div className={styles.header}>
         <div
           onClick={() => {
-            dispatch(closeModal(Modals.registration));
-            dispatch(navigate('/auth/register'));
+            setActiveModal('register');
           }}
-          className={styles.link}
+          className={classNames(styles.link, {
+            [styles.linkActive]: avtiveModal === 'register'
+          })}
         >
           Register
         </div>
         <div
           className={classNames(styles.link, {
-            [styles.linkActive]: true
+            [styles.linkActive]: avtiveModal === 'login'
           })}
+          onClick={() => {
+            setActiveModal('login');
+          }}
         >
           Log in
         </div>

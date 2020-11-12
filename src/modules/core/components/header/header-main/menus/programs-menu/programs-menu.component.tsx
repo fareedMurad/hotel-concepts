@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { navigate } from '@router/store';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { ProgramsMenuProps } from './programs-menu.props';
 import * as styles from './programs-menu.scss';
-import { useHeaderMainData } from '../../hooks';
 import { CardDropdown, LinkDropdown, NavTitle } from '../../components';
+import { ProgramsMenuProps } from './programs-menu.props';
+import { navigate } from '@router/store';
+import { useDispatch } from 'react-redux';
+import { useHeaderMainData } from '../../hooks';
+import { useState } from 'react';
+import { useHeroLearningApproachData } from '@pages/learning-approach/sections/hero-learning-approach/hero-learning-approach.hook';
 
 /**
  * Renders ProgramsMenu
@@ -14,14 +15,14 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ className }) => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const { programsData } = useHeaderMainData();
-
+  const { heroLearningApproachData } = useHeroLearningApproachData();
   return (
     <div
       className={styles.programsMenu}
       onMouseOver={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
     >
-      <NavTitle className={className} title='Programs' />
+      <NavTitle className={className} title='Online Programs' />
       {showMenu && (
         <CardDropdown
           className={styles.dropdown}
@@ -47,7 +48,7 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ className }) => {
             onClick={() => setShowMenu(false)}
             link='Learning approach'
             to='/learning-approach'
-            image='img/header-image.png'
+            image={heroLearningApproachData}
           />
         </CardDropdown>
       )}

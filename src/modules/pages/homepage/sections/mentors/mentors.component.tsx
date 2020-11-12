@@ -1,22 +1,22 @@
 import * as React from 'react';
-import { MentorsProps } from './mentors.props';
 import * as styles from './mentors.scss';
+import { SectionTitle, Hr, PreCaption } from '@core/components';
+import { showModal, toogleContributorModal } from '@ui/modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { ContributorCard } from '@pages/components';
+import { MentorModal } from '@pages/components/mentor-modal';
+import { MentorsProps } from './mentors.props';
+import { Modals } from '@ui/models';
 import { Slider } from '@core/components/slider';
 import { SliderButtons } from '@core/components/slider/slider-buttons';
-import { useHistory } from 'react-router';
-import { showModal, toogleContributorModal } from '@ui/modal';
-import { Modals } from '@ui/models';
-import { useDispatch, useSelector } from 'react-redux';
-import { MentorModal } from '@pages/components/mentor-modal';
-import { navigate } from '@router/store';
-import { useMediaPoints } from '@core/shared';
-import { ContributorCard } from '@pages/components';
 import { Spinner } from '@core/components/spinner';
 import { State } from '@app/redux/state';
-import { SectionTitle, Hr, PreCaption } from '@core/components';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
+import { navigate } from '@router/store';
+import { useHistory } from 'react-router';
+import { useMediaPoints } from '@core/shared';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const responsiveBreakpoints = {
   largeDesktop: {

@@ -1,15 +1,18 @@
 import * as React from 'react';
-import { CorporateMenuProps } from './corporate-menu.props';
 import * as styles from './corporate-menu.scss';
-import { useState } from 'react';
 import { CardDropdown, LinkDropdown, NavTitle } from '../../components';
+import { CorporateMenuProps } from './corporate-menu.props';
+import { useCorporateImage } from '../library-menu/library-menu.hook';
+import { useIntroData } from '@pages/for-companies/sections/intro/intro.hook';
+import { useState } from 'react';
 
 /**
  * Renders CorporateMenu
  */
 const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
   const [showMenu, setShowMenu] = useState(false);
-  
+  const { introData } = useIntroData();
+  const { corporateImage } = useCorporateImage();
   return (
     <div
       className={styles.corporateMenu}
@@ -26,17 +29,20 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
         >
           <LinkDropdown
             className={styles.link}
-            onClick={() => setShowMenu(false)}
+            // #non-clickable
+            // onClick={() => setShowMenu(false)}
             link='Online programs'
-            to='/for-companies'
-            image=''
+            // to='/for-companies'
+            to=''
+            image={introData}
           />
           <LinkDropdown
             className={styles.link}
-            onClick={() => setShowMenu(false)}
-            link='E-library Access'
-            to='/marketplace'
-            image=''
+            // onClick={() => setShowMenu(false)}
+            link='Digital Library Access'
+            // to='/marketplace'
+            to=''
+            image={corporateImage}
           />
         </CardDropdown>
       )}

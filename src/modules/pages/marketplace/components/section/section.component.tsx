@@ -1,16 +1,16 @@
+import * as React from 'react';
+import * as styles from './section.scss';
+import { BookProps, SectionProps } from './section.props';
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
-import { State } from '@app/redux/state';
+import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '@core/components';
-import { useWindowSize } from '@core/shared';
+import { Modals } from '@ui/models';
+import { State } from '@app/redux/state';
+import classNames from 'classnames';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
-import { Modals } from '@ui/models';
-import classNames from 'classnames';
-import * as React from 'react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BookProps, SectionProps } from './section.props';
-import * as styles from './section.scss';
+import { useWindowSize } from '@core/shared';
 
 /**
  * Renders single book
@@ -25,7 +25,8 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
     productImage: {
       file: { url }
     },
-    inWishlist
+    inWishlist,
+    isPreorder
   } = book || {};
 
   return (
@@ -45,8 +46,12 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
             : dispatch(showModal(Modals.registration));
         }}
       />
-
-      <img className={styles.image} src={url} alt={url} />
+      <div className={styles.bookContainer}>
+        <div className={styles.bookContainerImage}>
+          {isPreorder && <div className={styles.preorder}>PRE-ORDER</div>}
+          <img className={styles.image} src={url} alt={url}></img>
+        </div>
+      </div>
       <div className={styles.divider} />
       <div className={styles.price}>${price}</div>
       <div className={styles.name}>{name}</div>
@@ -94,7 +99,10 @@ const Section: React.FC<SectionProps> = ({
             return (
               <Book
                 book={book}
-                onClick={() => dispatch(navigate(`/marketplace/${id}`))}
+                onClick={() => {
+                  // #non-clickable
+                  // dispatch(navigate(`/marketplace/${id}`))
+                }}
                 key={id}
               />
             );

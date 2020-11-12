@@ -2,7 +2,6 @@
 
 .hero {
   &__block {
-    @include imageOverlay();
     @include flex($align: stretch, $direction: column, $justify: center);
     @include container();
     @include heroImage();

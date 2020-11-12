@@ -4,8 +4,8 @@
   height: 100vh;
   &-img {
     @include flex($align: stretch, $justify: center, $direction: column);
-    @include imageOverlay();
-    width: 100%;
+    width: 101%;
+    right: 2px;
     height: 100vh;
     @include heroImage();
     min-height: 500px;
@@ -20,6 +20,10 @@
     @include container();
     & > div:nth-child(2) {
       margin: 24px 0px;
+
+      @include tablet() {
+        width: 430px;
+      }
     }
     @include desktop() {
       width: 80%;

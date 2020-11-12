@@ -10,11 +10,11 @@ const useLocalizationData = () => {
   const languages = [
     {
       id: Language.en,
-      name: 'eng'
+      name: 'EN'
     },
     {
       id: Language.es,
-      name: 'esp'
+      name: 'ES'
     }
     // {
     //   id: Language.ru,

@@ -40,7 +40,7 @@ const useContributorsData = language => {
           }
         }
       }
-      asset(id: "1jbOWs6i1nmxoA6u5Vcebf") {
+      asset(id: "2YtAx6uGTgFt8HPVrVb7C1") {
         url
       }
     }

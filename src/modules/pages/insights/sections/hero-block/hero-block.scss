@@ -23,8 +23,6 @@
 .hero {
   &__main {
     @include size(100%);
-    background-color: dimgrey;
-    border-radius: 6px;
     position: relative;
     margin-bottom: 10px;
     @include tablet() {
@@ -47,7 +45,9 @@
       @include size(100%);
       padding: 20px;
       @include desktop() {
-        padding-left: 108px;
+        padding-left: 70px;
+        position: relative;
+        bottom: 160px;
       }
       & > div:first-child {
         @include font(#cbd0d3, 24px, 600, 46px);
@@ -71,6 +71,7 @@
         @include tablet() {
           margin-bottom: 0px;
           @include font($white, 24px, 400, 34px);
+          width: 50%;
         }
       }
     }

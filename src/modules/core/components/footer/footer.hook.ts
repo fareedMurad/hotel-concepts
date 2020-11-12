@@ -29,15 +29,15 @@ const useFooterData = () => {
   const moreLinks = [
     { id: 1, caption: t('footer.links.more-links.help'), to: '/faq' },
     {
-      id: 2,
-      caption: t('footer.links.more-links.contact-us'),
-      to: '/contact-us'
-    },
-    {
       id: 3,
       caption: t('footer.links.more-links.help-center'),
       to: '',
       target: 'https://kordie.zendesk.com/hc/en-us'
+    },
+    {
+      id: 2,
+      caption: t('footer.links.more-links.contact-us'),
+      to: '/contact-us'
     }
   ];
 

@@ -74,6 +74,28 @@
 
 // Book styles
 
+.book-container {
+  @include flex(center, center);
+
+  width: 100%;
+  &--image {
+    position: relative;
+  }
+}
+
+.preorder {
+  @include font($primary-orange, 14px, 500, normal);
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100px;
+  text-align: center;
+  padding: 8px 10px 8px 10px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: white;
+}
+
 .book {
   @include flex($align: stretch, $direction: column);
   position: relative;
@@ -98,11 +120,15 @@
 }
 
 .image {
-  width: 132px;
-  height: 203px;
-  padding-bottom: 20px;
+  // width: 132px;
+  // height: 203px;
+  width: 200px;
+  height: 300px;
+  margin-bottom: 20px;
   align-self: center;
   object-fit: cover;
+  box-shadow: 0px 10px 25px rgba($color: #707070, $alpha: 0.5);
+  border-radius: 4px;
 }
 
 .divider {
@@ -116,7 +142,7 @@
   width: fit-content;
   padding: 8px 12px;
   font-family: $EBGaramond;
-  border-radius: 4px;
+  border-radius: 6px;
   background: $white;
 }
 
@@ -128,7 +154,7 @@
 
   @include tablet() {
     margin-top: 20px;
-    font-size: 36px;
-    line-height: 46px;
+    font-size: 28px;
+    line-height: 40px;
   }
 }

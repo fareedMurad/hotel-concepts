@@ -23,8 +23,8 @@ const GET_PREVIEW_VIDEO = gql`
         }
       }
     }
-    asset(id: "17ZH29S9Eo67M4Q4exNUwF") {
-      url(transform: { format: JPG_PROGRESSIVE, quality: 75 })
+    asset(id: "6djYSzv9wpZRp6f9T8zgue") {
+      url
     }
   }
 `;

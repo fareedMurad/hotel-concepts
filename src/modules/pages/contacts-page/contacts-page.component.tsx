@@ -51,13 +51,17 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
   const { cardsData, contactsFooterImage } = useContactsPageData();
 
   const types = [
-    { label: 'Enrollment', value: '1' },
-    { label: 'Enrollment', value: '2' },
-    { label: 'Enrollment', value: '3' }
+    { label: 'Online Programs', value: 'Online Programs' },
+    { label: 'Digital Library', value: 'Digital Library' },
+    { label: 'Corporate Solutions', value: 'Corporate Solutions' },
+    { label: 'Partnerships', value: 'Partnerships' },
+    { label: 'Help', value: 'Help' },
+    { label: 'Other', value: 'Other' }
   ];
   const genders = [
-    { label: 'Male', value: 'Male' },
-    { label: 'Female', value: 'Female' }
+    { label: 'Mr', value: 'Mr' },
+    { label: 'Ms', value: 'Ms' },
+    { label: 'Miss', value: 'Miss' }
   ];
 
   return (
@@ -104,7 +108,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       <Field.Select
                         name='subject'
                         options={types}
-                        placeholder='Enrollment'
+                        placeholder='Select subject...'
                         label='Subject'
                         className={classNames(styles.select)}
                         whiteBackground
@@ -156,8 +160,8 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                 )}
               </Formik>
               <Paragraph className={styles.footerCaption}>
-                {t('contacts.form.terms-one')}{' '}
-                <Link
+                {t('contacts.form.terms-one')} {/* #non-clickable */}
+                {/* <Link
                   to='/privacy-policy'
                   style={{
                     color: '#ff6634',
@@ -166,7 +170,18 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                   }}
                 >
                   {t('contacts.form.p-p')}
-                </Link>{' '}
+                </Link>{' '} */}
+                <div
+                  style={{
+                    color: '#ff6634',
+                    textDecoration: 'underline',
+                    fontWeight: 500,
+                    display: 'inline',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {t('contacts.form.p-p')}
+                </div>{' '}
                 {t('contacts.form.terms-two')}
               </Paragraph>
             </Preloader>

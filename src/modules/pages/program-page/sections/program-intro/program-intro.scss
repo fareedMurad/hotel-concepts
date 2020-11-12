@@ -2,7 +2,6 @@
 
 .program-intro {
   @include heroImage();
-  @include imageOverlay();
   @include flex($justify: center, $direction: column);
   position: relative;
   height: 100vh;

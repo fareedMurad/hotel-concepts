@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { HeroProps } from './course-partnership-hero.props';
 import * as styles from './course-partnership-hero.scss';
 import { Button, HeroTitle, HeroSubtitle } from '@core/components';
+import { HeroProps } from './course-partnership-hero.props';
 import { ScrollButton } from '@core/components/scroll-button';
 import { useCoursePartnershipHeroData } from './course-partnership-hero.hook';
 import { useTranslation } from 'react-i18next';

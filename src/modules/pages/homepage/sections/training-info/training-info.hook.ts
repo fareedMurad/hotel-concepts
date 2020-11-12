@@ -15,7 +15,7 @@ const useTrainingInfoData = () => {
 
   const GET_HERO_IMAGE = gql`
     {
-      asset(id: "1bPAJVNaN21ZmBR5gaxqKh") {
+      asset(id: "3rniPZ6PNTr2w1me4TqAMx") {
         url
       }
     }

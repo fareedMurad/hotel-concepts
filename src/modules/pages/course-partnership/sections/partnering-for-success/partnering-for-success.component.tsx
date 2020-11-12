@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { PartneringForSuccessProps } from './partnering-for-success.props';
 import * as styles from './partnering-for-success.scss';
 import { Icon, H2, Paragraph, SectionTitle } from '@core/components';
+import { PartneringForSuccessProps } from './partnering-for-success.props';
 import { useTranslation } from 'react-i18next';
 
 /**

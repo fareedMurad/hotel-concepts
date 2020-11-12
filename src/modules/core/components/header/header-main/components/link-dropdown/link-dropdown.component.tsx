@@ -1,10 +1,10 @@
-import { navigate } from '@router/store';
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
-import { LinkDropdownProps } from './link-dropdown.props';
 import * as styles from './link-dropdown.scss';
-import classNames from 'classnames';
 import { Icon } from '@core/components';
+import { LinkDropdownProps } from './link-dropdown.props';
+import classNames from 'classnames';
+import { navigate } from '@router/store';
+import { useDispatch } from 'react-redux';
 
 /**
  * Renders LinkDropdown
@@ -26,7 +26,16 @@ const LinkDropdown: React.FC<LinkDropdownProps> = ({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <div className={styles.link} onClick={() => dispatch(navigate(to))}>
+      <div
+        className={styles.link}
+        onClick={() => {
+          // #non-clickable temp solution
+          if (!to) {
+            return;
+          }
+          dispatch(navigate(to));
+        }}
+      >
         <div className={styles.linkTitle}>
           <div>{link}</div>{' '}
           <Icon name={'arrows/arrow-right-primary'} className={styles.arrow} />
@@ -34,7 +43,11 @@ const LinkDropdown: React.FC<LinkDropdownProps> = ({
         <div
           className={styles.linkImage}
           //hardcoded image
-          style={{ backgroundImage: `url(${require('img/header-image.png')})` }}
+          style={{
+            backgroundImage: `url(${
+              image ? image : require('img/header-image.png')
+            })`
+          }}
         />
       </div>
     </div>

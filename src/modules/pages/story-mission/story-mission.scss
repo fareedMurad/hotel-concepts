@@ -9,6 +9,9 @@
     position: relative;
     width: 100%;
     height: 100%;
+    @include desktop() {
+      align-items: flex-start;
+    }
   }
   &-content {
     @include container();
@@ -24,6 +27,21 @@
     & > div:nth-child(2) {
       margin: 24px 0px;
       // width: 50%;
+    }
+    &--description {
+      @include font($primary-gray, 19px, 400, 27px);
+      @include desktop() {
+        width: 310px;
+      }
+    }
+    &--title {
+      @include font($primary-gray, 49px, 600, 70px);
+    }
+
+    @include desktop() {
+      margin-top: 221px;
+      padding-left: 0;
+      margin-left: 91px;
     }
   }
   &--bar {

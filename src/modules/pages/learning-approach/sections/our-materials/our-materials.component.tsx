@@ -23,7 +23,9 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
 
   return (
     <div className={styles.ourMaterials}>
-      <SectionTitle className={styles.title}>Our materials</SectionTitle>
+      <SectionTitle className={styles.title}>
+        {t('learning-approach.our-materials.heading')}
+      </SectionTitle>
       <Caption rate='1.0' title={t('learning-approach.our-materials.title')} />
       <div className={styles.videoCards}>
         {videoLecturessData.map((video, index) => {

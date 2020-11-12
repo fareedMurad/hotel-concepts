@@ -13,7 +13,7 @@ const Card = ({ card, rate }) => {
     sys: { id },
     name,
     description
-  } = card;
+  } = card || {};
 
   return (
     <div className={styles.card}>
@@ -36,12 +36,9 @@ const Card = ({ card, rate }) => {
 const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
   const { t } = useTranslation();
   const { language } = useSelector((state: State) => state.localization);
-  const {
-    filtersCategoriesData,
-    filtersCategoriesLoading
-  } = useWhatWeTeachData(language);
+  const { cards, loading } = useWhatWeTeachData(language);
 
-  if (filtersCategoriesLoading) return <Spinner />;
+  if (!cards || loading) return <Spinner />;
 
   return (
     <div className={styles.whatWeTeach}>
@@ -49,8 +46,8 @@ const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
         {t('learning-approach.what-we-teach.title')}
       </H2>
       <main className={styles.cardContainer}>
-        {filtersCategoriesData.map((card, index) => (
-          <Card card={card} key={index} rate={index} />
+        {cards?.map((card, index) => (
+          <Card card={card} key={card?.name} rate={index} />
         ))}
       </main>
     </div>

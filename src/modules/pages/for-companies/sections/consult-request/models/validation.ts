@@ -11,7 +11,7 @@ const ConsultRequestValidationSchema = yup
     name: yup
       .string()
       .required()
-      .label('Name'),
+      .label('Full Name'),
     email: yup
       .string()
       .email()
@@ -19,15 +19,15 @@ const ConsultRequestValidationSchema = yup
       .label('Email'),
     website: yup
       .string()
-      .label('Website')
+      .label('Company Name')
       .required(),
     teamSize: yup
       .string()
-      .label('Name')
+      .label('Team size')
       .required(),
     interests: yup
       .string()
-      .label('Name')
+      .label('Interests')
       .required()
   });
 

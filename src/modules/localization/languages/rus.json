@@ -1,10 +1,10 @@
 {
   "header": {
     "header-secondary": {
-      "link-one": "Mentors&Co-authors",
+      "link-one": "Mentors & Authors",
       "link-two": "Learning Approach",
-      "link-three": "Insights",
-      "link-four": "Contacts",
+      "link-three": "Partnerships",
+      "link-four": "Contact",
       "link-five": "For corporated clients"
     },
     "header-main": {
@@ -117,15 +117,16 @@
   },
   "contributors": {
     "hero": {
-      "title": "Programs Mentors & Co-authors",
-      "sub-title": "Our faculty members are internationally recognised hospitality leaders whom we are proud to work with.",
+      "title": "Instructors, Authors & Mentors",
+      "sub-title": "Our teaching experts are internationally recognised hospitality leaders whom we are proud to work with",
       "button-text": "Contact us",
       "scroll": "Scroll"
     },
     "contributors-container": {
-      "pre-caption": "Contributors",
-      "title": "Meet the experts",
-      "description": "Cordie participants can benefit from a wide spectrum of experts with diverse backgrounds. Our expert team are knowledge creators and industry leaders at the cutting edge of their fields.",
+      "pre-caption": "Discover the diversity of our expert leaders",
+      "title": "Meet the Faculty",
+      "description": "Kordie’s faculty excel in developing content that inspires, supports and challenges hospitality professionals. In an open and collaborative environment, our team of diverse backgrounds, talents and cultures stands at the frontiers of new knowledge creation that is both rigorous and relevant.",
+      "description2": "Our award winning instructors team from 31 countries spans a range of disciplines from hospitality digital marketing and digital transformation to revenue management and strategy.",
       "experts": "Teaching Experts",
       "nationalities": "Nationalities"
     },
@@ -155,15 +156,15 @@
       },
       "card-two": {
         "title": "Feedback",
-        "description": "If you need help using Kordie just press the “support” button at the bottom right of every course page."
+        "description": "If you need help using Kordie website just press the “Support” button at the bottom right of every page."
       },
       "card-three": {
         "title": "Media Enquiries",
-        "description": "Please send an email to:"
+        "description": "To request Kordie to participate in an interview or another project please contact us at"
       },
       "card-four": {
-        "title": "Community Manager",
-        "description": "For quick answers to common questions, try our FAQ"
+        "title": "Partnerships",
+        "description": "Together with our partners, we improve the skills of hospitality teams across the world and create one of a kind educational content. To get involved drop us a line at"
       }
     },
     "form": {
@@ -175,7 +176,7 @@
         "email": "E-mail",
         "name": "Name",
         "surname": "Surname",
-        "comment": "Comment"
+        "comment": "Message"
       },
       "button-text": "Send",
       "terms-one": " Kordie takes your privacy very seriously. We may process your personal information for carefully considered and specific purposes which are in our interests and enable us to enhance the services we provide, but which we believe also benefit our customers. View our",
@@ -209,6 +210,10 @@
           },
           "card2": {
             "sub-title": "Relevant approach to education",
+            "description": "Programs developed with a combination of best practices in best traditional hospitality education and most innovative e-learning approaches and technology."
+          },
+          "card3": {
+            "sub-title": "Hospitality Focus",
             "description": "Programs developed with a combination of best practices in best traditional hospitality education and most innovative e-learning approaches and technology."
           }
         }
@@ -309,7 +314,7 @@
       "terms": "Terms and Conditions"
     },
     "navigation": {
-      "programs": "Explore Programs",
+      "programs": "Online Programs",
       "about": "About",
       "support": "Support"
     },
@@ -322,7 +327,7 @@
         "jobs": "Jobs"
       },
       "more-links": {
-        "help": "Help & FAQ",
+        "help": "FAQ",
         "contact-us": "Contact Us",
         "help-center": "Help Center"
       }
@@ -362,14 +367,14 @@
   },
   "course-partnership": {
     "hero": {
-      "title": "Program Partnership whith Kordie",
-      "description": "Combining Kordie’ expertise with the insights of industry leaders",
+      "title": "Become a Content Partner and Build with Us",
+      "description": "Combining Kordie expertise with industry leaders’ insights to train the next generation of hospitality professionals",
       "button-text": "Contact us",
       "scroll": "Scroll"
     },
     "partnering-for-success": {
       "title": "Partnering for Success",
-      "description": "Kordie is proud to partner with a select number of organisations, partnerships which allow us to provide  access to exclusive knowledge and practice for specific sectors."
+      "description": "Kordie is proud to partner with a select number of organisations and established industry professionals to provide access to new generation knowledge and practice for specific hospitality sectors."
     },
     "how-program": {
       "title": "How Program Partnership works?",
@@ -389,7 +394,7 @@
         },
         "card3": {
           "title": "Hospitality  Professionals",
-          "description": "Specialist with high-profile expertise in different hospitality segments."
+          "description": "Specialists with high-profile expertise in different hospitality segments and passion for their field."
         },
         "card4": {
           "title": "Industry Leaders",
@@ -433,7 +438,7 @@
         "title": "Benefits for organisation",
         "list": {
           "item1": "Improve employee retention - show long-term commitment to your staff by investing in their personal development. Benefit from higher levels of motivation and stronger personal connections to the business.",
-          "item2": "Address organisational challenges .",
+          "item2": "Address organisational challenges.",
           "item3": "Increase your competitive advantage with new knowledge and practices."
         }
       },

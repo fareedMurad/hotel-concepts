@@ -53,7 +53,9 @@ const StoryMission: React.FC = () => {
           className={styles.headerImg}
         >
           <div className={styles.headerContent}>
-            <HeroTitle>{t('story-mission.title')}</HeroTitle>
+            <HeroTitle className={styles.headerContentTitle}>
+              {t('story-mission.title')}
+            </HeroTitle>
             <HeroSubtitle className={styles.headerContentDescription}>
               {t('story-mission.description')}
             </HeroSubtitle>
