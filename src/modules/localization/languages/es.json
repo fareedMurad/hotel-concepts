@@ -327,7 +327,7 @@
         "jobs": "Jobs"
       },
       "more-links": {
-        "help": "Help & FAQ",
+        "help": "FAQ",
         "contact-us": "Contact Us",
         "help-center": "Help Center"
       }
@@ -367,14 +367,14 @@
   },
   "course-partnership": {
     "hero": {
-      "title": "Program Partnership whith Kordie",
-      "description": "Combining Kordie’ expertise with the insights of industry leaders",
+      "title": "Become a Content Partner and Build with Us",
+      "description": "Combining Kordie expertise with industry leaders’ insights to train the next generation of hospitality professionals",
       "button-text": "Contact us",
       "scroll": "Scroll"
     },
     "partnering-for-success": {
       "title": "Partnering for Success",
-      "description": "Kordie is proud to partner with a select number of organisations, partnerships which allow us to provide  access to exclusive knowledge and practice for specific sectors."
+      "description": "Kordie is proud to partner with a select number of organisations and established industry professionals to provide access to new generation knowledge and practice for specific hospitality sectors."
     },
     "how-program": {
       "title": "How Program Partnership works?",
@@ -394,7 +394,7 @@
         },
         "card3": {
           "title": "Hospitality  Professionals",
-          "description": "Specialist with high-profile expertise in different hospitality segments."
+          "description": "Specialists with high-profile expertise in different hospitality segments and passion for their field."
         },
         "card4": {
           "title": "Industry Leaders",
@@ -438,7 +438,7 @@
         "title": "Benefits for organisation",
         "list": {
           "item1": "Improve employee retention - show long-term commitment to your staff by investing in their personal development. Benefit from higher levels of motivation and stronger personal connections to the business.",
-          "item2": "Address organisational challenges .",
+          "item2": "Address organisational challenges.",
           "item3": "Increase your competitive advantage with new knowledge and practices."
         }
       },

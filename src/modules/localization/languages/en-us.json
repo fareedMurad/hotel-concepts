@@ -327,7 +327,7 @@
         "jobs": "Jobs"
       },
       "more-links": {
-        "help": "Help & FAQ",
+        "help": "FAQ",
         "contact-us": "Contact Us",
         "help-center": "Help Center"
       }
@@ -367,14 +367,14 @@
   },
   "course-partnership": {
     "hero": {
-      "title": "Program Partnership whith Kordie",
-      "description": "Combining Kordie’ expertise with the insights of industry leaders",
+      "title": "Become a Content Partner and Build with Us",
+      "description": "Combining Kordie expertise with industry leaders’ insights to train the next generation of hospitality professionals",
       "button-text": "Contact us",
       "scroll": "Scroll"
     },
     "partnering-for-success": {
       "title": "Partnering for Success",
-      "description": "Kordie is proud to partner with a select number of organisations, partnerships which allow us to provide  access to exclusive knowledge and practice for specific sectors."
+      "description": "Kordie is proud to partner with a select number of organisations and established industry professionals to provide access to new generation knowledge and practice for specific hospitality sectors."
     },
     "how-program": {
       "title": "How Program Partnership works?",
@@ -394,7 +394,7 @@
         },
         "card3": {
           "title": "Hospitality  Professionals",
-          "description": "Specialist with high-profile expertise in different hospitality segments."
+          "description": "Specialists with high-profile expertise in different hospitality segments and passion for their field."
         },
         "card4": {
           "title": "Industry Leaders",
@@ -404,21 +404,21 @@
     },
     "partner-benefits": {
       "title": "Benefits of becoming a Partner",
-      "description": " As Curriculum Partners, co-developing programs, companies receive an incredible platform to:",
+      "description": "As Curriculum Partners companies and individuals receive a platform to:",
       "list": {
         "item1": "Build brand visibility",
         "item2": "Showcase subject matter expertise",
         "item3": "Enhance thought leadership"
       },
-      "paragraph1": "This also contributes to nurturing a  uniquely qualified talent pipeline, and  encourages product andoffering usage.",
-      "paragraph2": " For students, this represents an unrivalled opportunity to learn the most-cutting edge skills  from the brands leading the industry and address real-world situations through cross-disciplinary collaboration."
+      "paragraph1": "Build educational content that is reflective of the work that you do in the industry, receive a tangible outcome, help professionals across the world pursue their opportunities, get jobs and inspire many more people.",
+      "paragraph2": "Whether you are an organisation or a professional we will help you build an educational content that has a transformational effect on student’s lives. You will get to inspire, instruct, educate people that would never get to see you in real life or have an opportunity to otherwise access this knowledge."
     },
     "criteria": {
       "title": " What criteria do you need to meet to be a Kordie partner?",
       "cards": {
-        "card1": "Demonstrable expertise in an area of knowledge related to hospitality industry",
-        "card2": "A commitment to advancing and democratising hospitality education",
-        "card3": "Substantial experience and reputation"
+        "card1": "5+ years of demonstrated expertise in an area of knowledge related to hospitality industry",
+        "card2": "A commitment to advancing and democratising top-quality hospitality education",
+        "card3": "Having a growth mindset and passion for the field"
       }
     }
   },
@@ -438,7 +438,7 @@
         "title": "Benefits for organisation",
         "list": {
           "item1": "Improve employee retention - show long-term commitment to your staff by investing in their personal development. Benefit from higher levels of motivation and stronger personal connections to the business.",
-          "item2": "Address organisational challenges .",
+          "item2": "Address organisational challenges.",
           "item3": "Increase your competitive advantage with new knowledge and practices."
         }
       },
@@ -671,9 +671,9 @@
       "sub-title": "Whether you are an individual or an organisation/group, looking for a programme, get in touch and we can help find the best solution for you.",
       "button-text": "Send",
       "lable": {
-        "name": "Name",
-        "email": "E-mail",
-        "comment": "Comment",
+        "name": "Full Name",
+        "email": "Email Address",
+        "comment": "Message",
         "accept": "Accept Terms & Conditions"
       }
     },

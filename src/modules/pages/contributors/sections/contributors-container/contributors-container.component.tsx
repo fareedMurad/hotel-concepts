@@ -79,10 +79,13 @@ const ContributorsContainer: React.FC<ContributorsContainerProps> = ({}) => {
           <Paragraph className={styles.headingParagraph}>
             {t('contributors.contributors-container.description')}
           </Paragraph>
+          <Paragraph className={styles.headingParagraph}>
+            {t('contributors.contributors-container.description2')}
+          </Paragraph>
           <Hr className={styles.headingHr} />
           <div className={styles.headingStatistic}>
             <div>
-              <H2>{contributors.length}+</H2>
+              <H2>55+</H2>
               <div className={styles.headingCaption}>
                 {t('contributors.contributors-container.experts')}
               </div>
