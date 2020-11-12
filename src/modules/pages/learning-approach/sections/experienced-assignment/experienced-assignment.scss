@@ -7,19 +7,23 @@
 .container {
   @include flex($align: center, $direction: column-reverse);
   padding: 22px;
+  position: relative;
   @include desktop() {
     @include flex($align: center);
     padding: 22px 134px;
   }
 }
 
+.list {
+  width: 300px;
+}
+
 .slider {
-  position: relative;
   width: 100%;
-  height: 250px;
+  height: 316px;
   text-align: center;
   @include desktop() {
-    width: 30%;
+    width: 300px;
     margin-right: 25px;
     text-align: initial;
   }
@@ -33,27 +37,43 @@
   }
   &__list {
     margin-top: 13px;
+    width: 100%;
+    & > div:not(:first-child) {
+      margin-top: 12px;
+    }
     @include tablet() {
       margin-top: 30px;
     }
-    &--item {
-      @include font($primary-gray, 18px, 400, 28px);
-      margin-bottom: 8px;
-      font-family: $IBMPlex;
-    }
   }
   &__buttons {
-    @include flex($align: center, $justify: center);
+    @include flex();
     position: absolute;
-    bottom: 0;
+    bottom: 47px;
     width: 100%;
     margin-top: 30px;
+    left: 249px;
     & > div {
       @include size(18px);
       margin-right: 16px;
       border-radius: 8px;
     }
   }
+  &--item {
+    @include tablet() {
+      @include flex();
+    }
+  }
+  &--image {
+    margin-left: 40px;
+    display: none;
+    @include tablet() {
+      display: block;
+    }
+  }
+}
+
+.leftblock {
+  width: 335px;
 }
 
 .image {

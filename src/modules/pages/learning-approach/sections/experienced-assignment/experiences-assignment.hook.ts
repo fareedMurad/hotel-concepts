@@ -25,7 +25,8 @@ const useExperiencesAssignmentData = () => {
             'learning-approach.experiancess-assignment.slides.slide1.list.caption3'
           )
         }
-      ]
+      ],
+      image: 'slide-1'
     },
     {
       id: 2,
@@ -51,7 +52,8 @@ const useExperiencesAssignmentData = () => {
             'learning-approach.experiancess-assignment.slides.slide2.list.caption3'
           )
         }
-      ]
+      ],
+      image: 'slide-2'
     },
     {
       id: 3,
@@ -75,7 +77,8 @@ const useExperiencesAssignmentData = () => {
             'learning-approach.experiancess-assignment.slides.slide3.list.caption3'
           )
         }
-      ]
+      ],
+      image: 'slide-3'
     }
   ];
 
