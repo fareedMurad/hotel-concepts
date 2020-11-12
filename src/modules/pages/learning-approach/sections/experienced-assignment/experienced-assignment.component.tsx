@@ -13,8 +13,6 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
   const [section, setSection] = React.useState(data[0]);
   const [index, setIndex] = React.useState(1);
 
-  console.log(section);
-
   const transition = useTransition(section, item => item.id, {
     from: { position: 'absolute', opacity: 0 },
     enter: { opacity: 1 },

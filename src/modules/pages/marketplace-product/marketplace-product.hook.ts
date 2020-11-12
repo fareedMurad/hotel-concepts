@@ -39,7 +39,6 @@ const useMarketplaceProductData = () => {
     previewDescription,
     forWhomListOfPositions
   } = selectedProduct || {};
-  console.log(selectedProduct);
 
   const inCart = selectedProducts?.some(one => one.path == id);
 
