@@ -22,7 +22,11 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ className }) => {
       onMouseOver={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
     >
-      <NavTitle className={className} title='Online Programs' />
+      <NavTitle
+        showMenu={showMenu}
+        className={className}
+        title='Online Programs'
+      />
       {showMenu && (
         <CardDropdown
           className={styles.dropdown}

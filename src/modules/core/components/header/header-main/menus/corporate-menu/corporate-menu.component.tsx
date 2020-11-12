@@ -19,7 +19,11 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
       onMouseOver={() => setShowMenu(true)}
       onMouseLeave={() => setShowMenu(false)}
     >
-      <NavTitle className={className} title='Corporate Solutions' />
+      <NavTitle
+        showMenu={showMenu}
+        className={className}
+        title='Corporate Solutions'
+      />
       {showMenu && (
         <CardDropdown
           className={styles.dropdown}

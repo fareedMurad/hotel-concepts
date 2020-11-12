@@ -24,3 +24,12 @@
   position: relative;
   bottom: 1px;
 }
+
+.active {
+  color: $primary-orange !important;
+  border-color: $primary-orange !important;
+}
+
+.active-triangel {
+  @include fill($primary-orange);
+}
