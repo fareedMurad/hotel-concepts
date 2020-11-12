@@ -4,6 +4,7 @@ import * as styles from './experienced-assignment.scss';
 import { useExperiencesAssignmentData } from './experiences-assignment.hook';
 import { Icon } from '@core/components';
 import { animated, useSpring, useTransition } from 'react-spring';
+import { useDebounce } from './debounce';
 
 /**
  * Renders ExperiencedAssignment
@@ -11,7 +12,10 @@ import { animated, useSpring, useTransition } from 'react-spring';
 const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
   const { data } = useExperiencesAssignmentData();
   const [section, setSection] = React.useState(data[0]);
+  const [isAutoplay, setAutoplay] = React.useState(true);
   const [index, setIndex] = React.useState(1);
+
+  // const debouncedValue = useDebounce(isAutoplay, 5000);
 
   const transition = useTransition(section, item => item.id, {
     from: { position: 'absolute', opacity: 0 },
@@ -20,13 +24,23 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
     config: { duration: 1000 }
   });
 
-  React.useEffect(() => {
-    index === data.length - 1 && setIndex(0);
-    setTimeout(() => {
-      index < data.length - 1 && setIndex(index + 1);
-      setSection(data[index]);
-    }, 4000);
-  }, [section]);
+  // React.useEffect(() => {
+  //   let timeout;
+  //   if (isAutoplay) {
+  //     index === data.length - 1 && setIndex(0);
+  //     timeout = setTimeout(() => {
+  //       index < data.length - 1 && setIndex(index + 1);
+  //       setSection(data[index]);
+  //     }, 4000);
+  //   } else
+  //     return () => {
+  //       clearTimeout(timeout);
+  //     };
+  // }, [section, isAutoplay]);
+
+  // React.useEffect(() => {
+  //   setAutoplay(true);
+  // }, [debouncedValue]);
 
   return (
     <div className={styles.experiencedAssignment}>
@@ -42,8 +56,8 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
                 <div className={styles.leftblock}>
                   <div className={styles.sliderTitle}>{section.title}</div>
                   <div className={styles.sliderList}>
-                    {item.list.map(el => {
-                      return <div key={item.id + item.title}>{el.caption}</div>;
+                    {item.list.map((el, idx) => {
+                      return <div key={idx}>{el.caption}</div>;
                     })}
                   </div>
                 </div>
@@ -65,7 +79,10 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
             return (
               <Icon
                 name={activeSlider ? 'ellipse-active' : 'ellipse-default'}
-                onClick={() => setSection(data[index])}
+                onClick={() => {
+                  // setAutoplay(false);
+                  setSection(data[index]);
+                }}
                 key={item.title}
               />
             );
