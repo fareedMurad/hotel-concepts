@@ -59,7 +59,7 @@ const Navigation: React.FC<{
       {navigation.map((link, idx) => {
         const { caption, to, target, ...rest } = link;
         //#non clickable
-        const exceptions = ['FAQ', 'Help Center'];
+        const exceptions = ['FAQ', 'Help Center', 'Company'];
         const isException = exceptions.includes(caption);
         if (target)
           return isException ? (
@@ -86,9 +86,12 @@ const Navigation: React.FC<{
     </div>
     {socials &&
       socials.map(item => (
-        <a href={item.to} className={styles.social} key={item.id}>
+        // <a href={item.to} className={styles.social} key={item.id}>
+        //   <Icon className={styles.socialIcon} name={`socials/${item.img}`} />
+        // </a>
+        <div className={styles.social} key={item.id}>
           <Icon className={styles.socialIcon} name={`socials/${item.img}`} />
-        </a>
+        </div>
       ))}
   </div>
 );
