@@ -233,62 +233,60 @@
     "cards": {
       "card-one": {
         "title": "Test & Quizzes",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "One of the most powerful learning tool to test and apply your knowledge in an engaging and interactive way."
       },
       "card-two": {
-        "title": "Literature",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "title": "Reading Materials",
+        "description": "All of our reading materials not only relevant, rigorous and exclusive but also beautifully design to make your reading a pleasure."
       },
       "card-three": {
         "title": "Practical Assignments",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "Our practical assignments are based on real-world cases and assess by mentors to provide you with individual feedback, tips and recommendations."
       },
       "card-four": {
         "title": "Video Materials",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "We use interactive and instructor-led videos to enhance the overall learning experience and give a deeper explanation for certain concepts or provide students with easy-to-follow visuals that are simply not communicated as well by text."
       },
       "card-five": {
         "title": "Case Studies",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "We use case study method to teach our students analyse hospitality-specific business problems and develop solutions from a leadership perspective."
       },
       "card-six": {
         "title": "Q&A",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "With mentorship system applied across all of our courses you can always submit a particular course-related question and receive an answer within hours."
       },
       "card-seven": {
         "title": "Access to coaching sessions",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "Coaching feature allows you to create coaching sessions during your courses. During such sessions a specified coach will support and advise you to achieve your professional goals."
       }
     },
     "experiancess-assignment": {
       "slides": {
         "slide1": {
-          "title": "Experienced assignment reviewers",
+          "title": "Experienced assignment reviewer",
           "list": {
-            "caption1": "Practical tips and industry best practices",
-            "caption2": "Personalised feedback",
-            "caption3": "Additional suggested resources to improve"
+            "caption1": "We make sure you always have",
+            "caption2": "- personalised feedback",
+            "caption3": "- practical tips and industry best practices",
+            "caption4": "- additional suggested resources to improve"
           }
         },
         "slide2": {
-          "title": "Experienced assignment reviewers",
+          "title": "Mentor Support",
           "list": {
-            "caption1": "Personalised",
-            "caption2": "Practical tips and industry best",
-            "caption3": "Additional suggested resources to improve"
+            "caption1": "Our knowledgeable mentors guide your learning and are focused on answering your questions, motivating you and keeping you on track."
           }
         },
         "slide3": {
-          "title": "Experienced assignment reviewers",
+          "title": "The help you need when you need it",
           "list": {
-            "caption1": "Personalised feedback",
-            "caption2": "Practical tips",
-            "caption3": "Additional suggested resources to improve"
+            "caption1": "Reach out to our mentors 24/7 and have your coding questions answered quickly so you can keep learning"
           }
         }
       }
     },
     "our-materials": {
+      "heading": "Explore some of our materials",
       "title": "Video Lectures"
     },
     "reading-materials": {
