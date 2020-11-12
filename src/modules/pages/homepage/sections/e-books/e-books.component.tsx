@@ -8,6 +8,8 @@ import { Button } from '@core/components';
 import * as styles from './e-books.scss';
 import { Book } from '@account/pages/library/models';
 import { MarketplaceCategory } from '@pages/marketplace/models';
+import { navigate } from '@router/store';
+import { useDispatch } from 'react-redux';
 
 type categorymodel = {
   category: MarketplaceCategory;
@@ -19,6 +21,7 @@ type categorymodel = {
  */
 const EBooks: React.FC<EBooksProps> = ({}) => {
   const { filters, books, categories } = useEBooksData();
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = React.useState('Digital Marketing');
   const [currentBooks, setCurrentBooks] = React.useState<categorymodel>(null);
@@ -69,7 +72,11 @@ const EBooks: React.FC<EBooksProps> = ({}) => {
             return <BookItem key={index} book={book} />;
           })}
       </div>
-      <Button className={styles.buttonExplore} arrow>
+      <Button
+        className={styles.buttonExplore}
+        arrow
+        onClick={() => dispatch(navigate('/marketplace'))}
+      >
         {t('home.e-books.button-text')}
       </Button>
     </div>
