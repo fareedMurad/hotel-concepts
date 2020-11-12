@@ -27,7 +27,7 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
     setTimeout(() => {
       index < data.length - 1 && setIndex(index + 1);
       setSection(data[index]);
-    }, 3000);
+    }, 4000);
   }, [section]);
 
   return (
@@ -38,14 +38,14 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
             return (
               <animated.div
                 className={styles.sliderItem}
-                key={item.id + item.image}
+                key={key}
                 style={props}
               >
                 <div className={styles.leftblock}>
                   <div className={styles.sliderTitle}>{section.title}</div>
                   <div className={styles.sliderList}>
                     {item.list.map(el => {
-                      return <div key={item.id}>{el.caption}</div>;
+                      return <div key={item.id + item.title}>{el.caption}</div>;
                     })}
                   </div>
                 </div>
