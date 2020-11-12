@@ -4,10 +4,10 @@ const useCoursePartnershipHook = () => {
   const { t } = useTranslation();
   const cardsData = [
     {
-      id: 1,
-      title: t('course-partnership.how-become-partner.cards.card1.title'),
+      id: 3,
+      title: t('course-partnership.how-become-partner.cards.card3.title'),
       description: t(
-        'course-partnership.how-become-partner.cards.card1.description'
+        'course-partnership.how-become-partner.cards.card3.description'
       )
     },
     {
@@ -18,17 +18,17 @@ const useCoursePartnershipHook = () => {
       )
     },
     {
-      id: 3,
-      title: t('course-partnership.how-become-partner.cards.card3.title'),
-      description: t(
-        'course-partnership.how-become-partner.cards.card3.description'
-      )
-    },
-    {
       id: 4,
       title: t('course-partnership.how-become-partner.cards.card4.title'),
       description: t(
         'course-partnership.how-become-partner.cards.card4.description'
+      )
+    },
+    {
+      id: 1,
+      title: t('course-partnership.how-become-partner.cards.card1.title'),
+      description: t(
+        'course-partnership.how-become-partner.cards.card1.description'
       )
     }
   ];

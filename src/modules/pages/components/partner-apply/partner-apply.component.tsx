@@ -72,7 +72,7 @@ const PartnerApply: React.FC<PartnerApplyProps> = ({ title, subtitle }) => {
                     </div>
                     <Field.TextArea
                       name='comment'
-                      label='Comment'
+                      label='Message'
                       className={styles.textarea}
                     />
                   </div>

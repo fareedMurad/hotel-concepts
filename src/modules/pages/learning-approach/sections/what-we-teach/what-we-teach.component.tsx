@@ -14,11 +14,11 @@ const Card = ({ card, rate }) => {
     name,
     description
   } = card || {};
-
+  const rename = name.includes('Covid') ? 'Managing Covid-19' : name;
   return (
     <div className={styles.card}>
       <div className={styles.cardRate}>{rate + 1}.0</div>
-      <div className={styles.cardCaption}>{name}</div>
+      <div className={styles.cardCaption}>{rename}</div>
       <div className={styles.cardDescription}>{description}</div>
       <Link to={`/programs-catalogue/${id}`}>
         <Button

@@ -11,19 +11,23 @@ const useFooterData = () => {
     {
       id: 2,
       caption: t('footer.links.we-provide-links.education-system'),
-      to: '/learning-approach'
+      to: '/contributors'
     },
     {
       id: 3,
       caption: t('footer.links.we-provide-links.for-corporated-client'),
-      to: '/for-companies'
+      to: '/learning-approach'
     },
     {
       id: 4,
       caption: t('footer.links.we-provide-links.programs-partnership'),
-      to: '/course-partnership'
+      to: '/for-companies'
     },
-    { id: 5, caption: t('footer.links.we-provide-links.jobs'), to: '/jobs' }
+    {
+      id: 5,
+      caption: t('footer.links.we-provide-links.jobs'),
+      to: '/course-partnership'
+    }
   ];
 
   const moreLinks = [
