@@ -58,7 +58,7 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
         className={styles.slider}
         responsive={responsive}
         itemClass={styles.slide}
-        // customButtonGroup={<SliderControls />}
+        customButtonGroup={<SliderControls />}
         autoPlay
         autoPlaySpeed={3000}
         infinite

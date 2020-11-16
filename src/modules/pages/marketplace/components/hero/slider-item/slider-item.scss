@@ -63,4 +63,9 @@
   color: white;
   margin-top: 33px;
   border-color: white;
+  &:hover {
+    color: $primary-gray;
+    background-color: white;
+    border-color: white;
+  }
 }
