@@ -73,7 +73,7 @@ const Cart: React.FC = () => {
                 <Summary summaryData={summaryData} />
               </div>
               <div className={styles.alternatives}>
-                <div className={styles.hint}>{t('cart.hint')}</div>
+                {/* <div className={styles.hint}>{t('cart.hint')}</div> */}
                 <div className={styles.divider}>
                   <span className={styles.dividerLine} />
                   <div className={styles.dividerCaption}>
