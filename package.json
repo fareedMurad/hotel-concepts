@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run update:module:paths && webpack-dev-server --config ./webpack/webpack.server.js",
-    "build:prod": "npm run update:module:paths && cross-env NODE_ENV=production webpack --mode=production --config ./webpack/webpack.prod.js",
+    "build:prod": "npm run update:module:paths && cross-env NODE_ENV=prod webpack --mode=production --config ./webpack/webpack.prod.js",
     "build:dev": "npm run update:module:paths && cross-env NODE_ENV=dev webpack --mode=production --config ./webpack/webpack.prod.js",
     "build:uat": "npm run update:module:paths && cross-env NODE_ENV=uat webpack --mode=production --config ./webpack/webpack.prod.js",
     "test": "cross-env TESTING=true jest -all --coverage --config=\"./tests/config/jest.config.js\"",
