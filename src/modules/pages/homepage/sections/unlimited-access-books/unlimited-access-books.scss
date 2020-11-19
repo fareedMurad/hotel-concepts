@@ -2,6 +2,7 @@
 
 .unlimited-access-books {
   padding: 50px 22px;
+  overflow-x: hidden;
   @include tablet() {
     padding: 124px 22px 0px 22px;
   }
