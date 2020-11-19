@@ -4,6 +4,7 @@
   @include flex($align: stretch, $direction: column);
   @include footerMargin;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .header {
