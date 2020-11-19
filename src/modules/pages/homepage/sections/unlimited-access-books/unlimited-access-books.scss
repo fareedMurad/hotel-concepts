@@ -8,6 +8,7 @@
   @include desktop() {
     padding: 124px 22px 0px 134px;
   }
+
   display: grid;
   grid-template-columns: 1fr 540px;
   column-gap: 142px;

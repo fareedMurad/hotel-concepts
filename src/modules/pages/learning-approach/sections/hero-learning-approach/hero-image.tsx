@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHeroLearningApproachData } from './hero-learning-approach.hook';
 
-const LazyBackground = () => {
+const LazyBackground = ({ className, children }) => {
+  //REFACOR!!!!
   const {
     heroLearningApproachData,
     reducedImage
@@ -25,27 +26,20 @@ const LazyBackground = () => {
 
   return (
     <div
+      className={className}
       style={
         isImageLoaded
           ? {
-              backgroundImage: `url(${image})`,
-              width: '100%',
-              height: '100%',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundImage: `url(${image})`
             }
           : {
               backgroundImage: `url(${image})`,
-              width: '100%',
-              height: '100%',
-              filter: 'blur(20px)',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              filter: 'blur(20px)'
             }
       }
-    />
+    >
+      {children}
+    </div>
   );
 };
 
