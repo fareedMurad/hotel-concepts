@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { useHeroLearningApproachData } from './hero-learning-approach.hook';
+import { LazyBackgroundProps } from './lazy-background.props';
 
-const LazyBackground = ({ className, children }) => {
-  //REFACOR!!!!
-  const {
-    heroLearningApproachData,
-    reducedImage
-  } = useHeroLearningApproachData();
-
+const LazyBackground: React.FC<LazyBackgroundProps> = ({
+  reducedImage,
+  className,
+  mainImage,
+  children
+}) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [image, setImage] = useState(reducedImage);
 
   useEffect(() => {
-    if (reducedImage && !heroLearningApproachData) {
+    if (reducedImage && !mainImage) {
       setImage(reducedImage);
       return;
     }
     const imageLoader = new Image();
-    imageLoader.src = heroLearningApproachData;
+    imageLoader.src = mainImage;
     imageLoader.onload = () => {
-      setImage(heroLearningApproachData);
+      setImage(mainImage);
       setIsImageLoaded(true);
     };
-  }, [heroLearningApproachData, reducedImage]);
+  }, [mainImage, reducedImage]);
 
   return (
     <div
