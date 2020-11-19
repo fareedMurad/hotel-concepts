@@ -54,9 +54,13 @@ const useBurgerData = () => {
       ]
     },
     {
-      title: 'E-library',
-      height: 226,
+      title: 'Digital Library',
+      height: 284,
       menuLinks: [
+        {
+          link: 'Explore digital collections',
+          to: '/marketplace'
+        },
         {
           link: 'Individual Subscription',
           to: '',
@@ -78,7 +82,7 @@ const useBurgerData = () => {
           to: '/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'
         },
         {
-          link: 'E-library access',
+          link: 'Digital Library Access',
           to: '/marketplace'
         }
       ]

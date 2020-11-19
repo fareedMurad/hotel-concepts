@@ -101,7 +101,7 @@ const Section: React.FC<SectionProps> = ({
                 book={book}
                 onClick={() => {
                   // #non-clickable
-                  // dispatch(navigate(`/marketplace/${id}`))
+                  dispatch(navigate(`/marketplace/${id}`));
                 }}
                 key={id}
               />

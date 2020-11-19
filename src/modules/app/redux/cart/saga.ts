@@ -196,7 +196,12 @@ class CartSaga {
         ids: selectedProducts.map((item: Product) => item.path),
         locale
       });
+
+      if (response.data.items.lenghth < 0) {
+        return;
+      }
       const fetchedProducts = response.data.items;
+
       const validOrderedProducts = [];
 
       for (let i = 0; i < selectedProducts.length; i++) {
@@ -206,7 +211,11 @@ class CartSaga {
         validOrderedProducts.push(foundProduct);
       }
 
-      yield put(getProducts.success(validOrderedProducts));
+      const filteredeProducts = validOrderedProducts.filter(
+        product => product !== undefined || null
+      );
+
+      yield put(getProducts.success(filteredeProducts));
     } catch (error) {
       console.log(error);
       yield put(handleError(error.response.data.message));
