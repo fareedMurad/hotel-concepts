@@ -60,7 +60,7 @@ uat:
 prod:
   stage: build
   only:
-    - prod
+    - master
   before_script:
     - apt-get update -qy
     - apt-get -y install zip unzip
