@@ -76,11 +76,12 @@ const Intro: React.FC<IntroProps> = ({}) => {
     scrollTo('online-courses');
   };
   return (
-    <LazyBackground
-      className={styles.intro}
-      reducedImageId='3Zo3vWDWqh98sLg0qx1Ho8'
-      fullImageId='6djYSzv9wpZRp6f9T8zgue'
-    >
+    <section className={styles.intro}>
+      <LazyBackground
+        className={styles.background}
+        reducedImageId='3Zo3vWDWqh98sLg0qx1Ho8'
+        fullImageId='6djYSzv9wpZRp6f9T8zgue'
+      />
       <HeroTitle>{t('home.hero.hero-title')}</HeroTitle>
       <HeroSubtitle className={styles.subtitle}>
         {t('home.hero.hero-subtitle')}
@@ -125,7 +126,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         text={t('home.hero.scroll')}
         className={styles.scrollButton}
       />
-    </LazyBackground>
+    </section>
   );
 };
 
