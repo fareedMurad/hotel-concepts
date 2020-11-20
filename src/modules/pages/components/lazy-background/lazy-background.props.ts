@@ -10,11 +10,11 @@ type LazyBackgroundProps = {
   /*
    * Reduce image
    */
-  reducedImage: string;
+  reducedImageId: string;
   /*
    * Main image
    */
-  mainImage: string;
+  fullImageId: string;
 };
 
 export { LazyBackgroundProps };

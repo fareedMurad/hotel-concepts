@@ -21,8 +21,8 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
     <div className={styles.hero}>
       <LazyBackground
         className={styles.image}
-        reducedImage={reducedImage}
-        mainImage={heroLearningApproachData}
+        reducedImageId='33zlz89QUmqCUxfAEvgSFu'
+        fullImageId='wsal0kfBcI5dB1icnLUQu'
       >
         <main className={styles.heroContent}>
           <HeroTitle className={styles.heroCaption}>

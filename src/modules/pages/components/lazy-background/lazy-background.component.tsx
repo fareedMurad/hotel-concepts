@@ -1,27 +1,35 @@
 import React, { useState, useEffect } from 'react';
+import { useLazyBackgroundData } from './lazy-background.hook';
 import { LazyBackgroundProps } from './lazy-background.props';
 
 const LazyBackground: React.FC<LazyBackgroundProps> = ({
-  reducedImage,
+  reducedImageId,
+  fullImageId,
   className,
-  mainImage,
   children
 }) => {
+  const { fullImage, reducedImage } = useLazyBackgroundData(
+    reducedImageId,
+    fullImageId
+  );
+
+  console.log(fullImage);
+
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [image, setImage] = useState(reducedImage);
 
   useEffect(() => {
-    if (reducedImage && !mainImage) {
+    if (reducedImage && !fullImage) {
       setImage(reducedImage);
       return;
     }
     const imageLoader = new Image();
-    imageLoader.src = mainImage;
+    imageLoader.src = fullImage;
     imageLoader.onload = () => {
-      setImage(mainImage);
+      setImage(fullImage);
       setIsImageLoaded(true);
     };
-  }, [mainImage, reducedImage]);
+  }, [fullImage, reducedImage]);
 
   return (
     <div
