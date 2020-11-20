@@ -21,7 +21,8 @@ const useCartData = () => {
   }, [selectedProducts]);
 
   if (
-    selectedProducts?.length !== products?.length ||
+    // selectedProducts?.length !== products?.length ||
+    products.includes(undefined) ||
     selectedProducts?.length === 0
   )
     return { cartData: null, summaryData: null };
@@ -85,11 +86,14 @@ const useCartData = () => {
   // }`;
 
   const summaryData = {
-    total: products
-      ?.map(product => ({
-        price: product.price,
-        amount: selectedProducts.find(one => one.path == product.id).quantity
-      }))
+    total: cartData
+      ?.map(product => {
+        console.log(product);
+        return {
+          price: product.price,
+          amount: selectedProducts.find(one => one.path == product.id).quantity
+        };
+      })
       ?.reduce((acc, cur) => acc + cur.price * cur.amount, 0),
     estimatedShipping: 'Free',
     estimatedTax: '0.00',

@@ -7,11 +7,12 @@ import { useProgramsMenuData } from './programs.hook';
 const useHeaderMainData = () => {
   const {
     localization: { language },
-    cart: { selectedProducts, addedProduct, showDropdown }
+    cart: { products, addedProduct, showDropdown, selectedProducts }
   } = useSelector((state: State) => state);
   const { programsData } = useProgramsMenuData(language);
   const { pathname } = useLocation();
-  const cartQuantity = selectedProducts?.length;
+  const cartQuantity = products.filter(product => product !== undefined || null)
+    .length;
   const [whiteHeader, setWhiteHeader] = useState(false);
   const [stickyHeader, setStickyHeader] = useState(false);
 
