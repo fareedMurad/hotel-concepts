@@ -20,7 +20,10 @@ import Mentors from '@pages/homepage/sections/mentors/mentors.component';
 import { State } from '@app/redux/state';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { useHomePageData } from './homepage.hook';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { SubscribeModal } from '@pages/components/subscribe-modal';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 /**
  * Renders Homepage
  */
@@ -30,6 +33,12 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
   const { homePageTestimonials, homepageTestimonialsLoading } = useHomePageData(
     language
   );
+
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
+  }, []);
 
   return (
     <React.Suspense fallback={<Spinner />}>
@@ -54,6 +63,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <Socials />
         {/* <Footer /> */}
       </div>
+      <SubscribeModal />
     </React.Suspense>
   );
 };

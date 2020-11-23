@@ -1,0 +1,21 @@
+@import 'core.scss';
+
+.subscribe-modal {
+  @include flex(center, center);
+  position: relative;
+  width: 400px;
+  height: auto;
+}
+
+.title {
+  text-align: center;
+}
+.close-modal {
+  position: absolute;
+  right: 10px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 20px;
+}
