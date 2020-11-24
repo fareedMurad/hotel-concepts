@@ -6,11 +6,13 @@ import { ScrollButton } from '@core/components/scroll-button';
 import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
+import { __Directive } from 'graphql';
 
 const GET_CATEGORY_INFO = gql`
   query($id: String!) {
     courseCategory(id: $id) {
       coverImage {
+        url
         sys {
           id
         }
@@ -39,10 +41,11 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
 
   return (
     <section className={styles.catalogueHeader}>
-      <LazyBackground
+      <div
         className={styles.background}
-        fullImageId={data?.courseCategory?.coverImage?.sys.id}
-        reducedImageId={data?.courseCategory?.reducedImage?.sys.id}
+        style={{
+          backgroundImage: `url(${catalogueHeroImage})`
+        }}
       />
       <div className={styles.title}>
         <div>{title}</div>
