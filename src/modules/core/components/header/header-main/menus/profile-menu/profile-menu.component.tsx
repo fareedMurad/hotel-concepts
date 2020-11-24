@@ -30,7 +30,6 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
     showDropdown && dispatch(handleNotifierCart.hideModal());
     setShowMenu(true);
   };
-  console.log(showMenu);
   return (
     <div
       className={styles.profileMenu}

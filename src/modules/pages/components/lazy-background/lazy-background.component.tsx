@@ -13,8 +13,6 @@ const LazyBackground: React.FC<LazyBackgroundProps> = ({
     fullImageId
   );
 
-  console.log(fullImage);
-
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [image, setImage] = useState(reducedImage);
 
@@ -40,8 +38,7 @@ const LazyBackground: React.FC<LazyBackgroundProps> = ({
               backgroundImage: `url(${image})`
             }
           : {
-              backgroundImage: `url(${image})`,
-              filter: 'blur(20px)'
+              backgroundImage: `url(${image})`
             }
       }
     >

@@ -36,9 +36,9 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
 
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
-  }, []);
+  // React.useEffect(() => {
+  //   setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
+  // }, []);
 
   return (
     <React.Suspense fallback={<Spinner />}>

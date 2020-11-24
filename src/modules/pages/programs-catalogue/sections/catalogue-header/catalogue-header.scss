@@ -30,6 +30,8 @@
 
 .background {
   @include heroBackground();
+  width: 100%;
+  height: 100vh;
 }
 
 .title {
