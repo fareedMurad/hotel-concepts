@@ -19,11 +19,11 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
 
   return (
     <div className={styles.hero}>
-       <LazyBackground
-        className={styles.background}
+      <LazyBackground
+        className={styles.image}
         fullImageId={'wsal0kfBcI5dB1icnLUQu'}
         reducedImageId={'33zlz89QUmqCUxfAEvgSFu'}
-      />
+      >
         <main className={styles.heroContent}>
           <HeroTitle className={styles.heroCaption}>
             {t('learning-approach.hero.title')}
@@ -36,7 +36,7 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
           text={t('learning-approach.hero.scroll')}
           className={styles.arrow}
         />
-      </div>
+      </LazyBackground>
     </div>
   );
 };

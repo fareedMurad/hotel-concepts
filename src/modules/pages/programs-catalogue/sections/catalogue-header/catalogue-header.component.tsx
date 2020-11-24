@@ -41,11 +41,10 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
 
   return (
     <section className={styles.catalogueHeader}>
-      <div
+      <LazyBackground
         className={styles.background}
-        style={{
-          backgroundImage: `url(${catalogueHeroImage})`
-        }}
+        reducedImageId={data?.courseCategory?.reducedImage?.sys?.id}
+        fullImageId={data?.courseCategory?.coverImage?.sys?.id}
       />
       <div className={styles.title}>
         <div>{title}</div>
