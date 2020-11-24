@@ -56,7 +56,6 @@ class FastSpringService {
   public store: StoreBuilder;
 
   private onPopUpClosed = data => {
-    console.log('onPopUpClosed', data);
     if (data as OrderSuccess) {
       this.checkout.acknowledgeSessionSuccess(data);
       this.reduxStore.dispatch(resetCartState());

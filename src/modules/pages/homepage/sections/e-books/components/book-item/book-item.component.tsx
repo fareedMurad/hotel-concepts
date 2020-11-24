@@ -13,7 +13,7 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
     name,
     price
   } = book;
-  console.log(book);
+
   return (
     <div className={styles.bookItem}>
       <img className={styles.image} src={url} />

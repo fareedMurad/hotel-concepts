@@ -13,8 +13,6 @@ const LazyBackground: React.FC<LazyBackgroundProps> = ({
     fullImageId
   );
 
-  console.log(fullImage);
-
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [image, setImage] = useState(reducedImage);
 
