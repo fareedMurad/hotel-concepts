@@ -19,12 +19,11 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
 
   return (
     <div className={styles.hero}>
-      <div
-        className={styles.image}
-        style={{
-          backgroundImage: `url(${heroLearningApproachData})`
-        }}
-      >
+       <LazyBackground
+        className={styles.background}
+        fullImageId={'wsal0kfBcI5dB1icnLUQu'}
+        reducedImageId={'33zlz89QUmqCUxfAEvgSFu'}
+      />
         <main className={styles.heroContent}>
           <HeroTitle className={styles.heroCaption}>
             {t('learning-approach.hero.title')}

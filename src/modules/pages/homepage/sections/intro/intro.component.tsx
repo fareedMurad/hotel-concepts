@@ -77,11 +77,10 @@ const Intro: React.FC<IntroProps> = ({}) => {
   };
   return (
     <section className={styles.intro}>
-      <div
+      <LazyBackground
         className={styles.background}
-        style={{
-          backgroundImage: `url(${data?.asset.url})`
-        }}
+        reducedImageId='3Zo3vWDWqh98sLg0qx1Ho8'
+        fullImageId='6djYSzv9wpZRp6f9T8zgue'
       />
       <HeroTitle>{t('home.hero.hero-title')}</HeroTitle>
       <HeroSubtitle className={styles.subtitle}>
