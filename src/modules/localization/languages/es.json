@@ -23,7 +23,7 @@
     },
     "support-info": {
       "title": "We support  the future generation  of hospitality industry",
-      "sub-title": "While there is much talk of machines replacing people in the workplace, at Cordie we believe that the centrality of technology makes human development all the more crucial."
+      "sub-title": "While there is much talk of machines replacing people in the workplace, at Kordie we believe that the centrality of technology makes human development all the more crucial."
     },
     "online-courses": {
       "title": "Online courses for you",
@@ -34,7 +34,7 @@
     },
     "about": {
       "pre-caption": "Online Learning",
-      "title": "What’s unique about Cordie?",
+      "title": "What’s unique about Kordie?",
       "sub-title": "We have the critical factors to deliver real results.",
       "button-text": "Learn more about us",
       "card-one": {
@@ -51,7 +51,7 @@
       }
     },
     "e-books": {
-      "title": "New E-books for you",
+      "title": "Kordie Digital Publishing",
       "subtitle": "We publish the best thinking and practices in the areas of operational excellence, digital transformation, strategy, and human resources.",
       "button-text": "Explore the library"
     },
@@ -84,7 +84,7 @@
     },
     "impact": {
       "pre-caption": "Options",
-      "title": "Cordie Impact"
+      "title": "Kordie Impact"
     },
     "mentors": {
       "title": "Meet mentors & Coauthors",
@@ -92,7 +92,7 @@
       "button-text": "See All Contributors"
     },
     "cordie-insights": {
-      "title": "Cordie Insights",
+      "title": "Kordie Insights",
       "sub-title": "Make the most of your learning experience",
       "button-text": "Read All Insights"
     },
@@ -234,62 +234,60 @@
     "cards": {
       "card-one": {
         "title": "Test & Quizzes",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "One of the most powerful learning tool to test and apply your knowledge in an engaging and interactive way."
       },
       "card-two": {
-        "title": "Literature",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "title": "Reading Materials",
+        "description": "All of our reading materials not only relevant, rigorous and exclusive but also beautifully design to make your reading a pleasure."
       },
       "card-three": {
         "title": "Practical Assignments",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "Our practical assignments are based on real-world cases and assess by mentors to provide you with individual feedback, tips and recommendations."
       },
       "card-four": {
         "title": "Video Materials",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "We use interactive and instructor-led videos to enhance the overall learning experience and give a deeper explanation for certain concepts or provide students with easy-to-follow visuals that are simply not communicated as well by text."
       },
       "card-five": {
         "title": "Case Studies",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "We use case study method to teach our students analyse hospitality-specific business problems and develop solutions from a leadership perspective."
       },
       "card-six": {
         "title": "Q&A",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "With mentorship system applied across all of our courses you can always submit a particular course-related question and receive an answer within hours."
       },
       "card-seven": {
         "title": "Access to coaching sessions",
-        "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem."
+        "description": "Coaching feature allows you to create coaching sessions during your courses. During such sessions a specified coach will support and advise you to achieve your professional goals."
       }
     },
     "experiancess-assignment": {
       "slides": {
         "slide1": {
-          "title": "Experienced assignment reviewers",
+          "title": "Experienced assignment reviewer",
           "list": {
-            "caption1": "Personalised feedback",
-            "caption2": "Practical tips and industry best practices",
-            "caption3": "Additional suggested resources to improve"
+            "caption1": "We make sure you always have",
+            "caption2": "- personalised feedback",
+            "caption3": "- practical tips and industry best practices",
+            "caption4": "- additional suggested resources to improve"
           }
         },
         "slide2": {
-          "title": "Experienced assignment",
+          "title": "Mentor Support",
           "list": {
-            "caption1": "Personalised",
-            "caption2": "Practical tips and industry best",
-            "caption3": "Additional suggested resources to improve"
+            "caption1": "Our knowledgeable mentors guide your learning and are focused on answering your questions, motivating you and keeping you on track."
           }
         },
         "slide3": {
-          "title": "Experienced",
+          "title": "The help you need when you need it",
           "list": {
-            "caption1": "Personalised feedback",
-            "caption2": "Practical tips",
-            "caption3": "Additional suggested resources to improve"
+            "caption1": "Reach out to our mentors 24/7 and have your coding questions answered quickly so you can keep learning"
           }
         }
       }
     },
     "our-materials": {
+      "heading": "Explore some of our materials",
       "title": "Video Lectures"
     },
     "reading-materials": {
@@ -404,21 +402,21 @@
     },
     "partner-benefits": {
       "title": "Benefits of becoming a Partner",
-      "description": " As Curriculum Partners, co-developing programs, companies receive an incredible platform to:",
+      "description": "As Curriculum Partners companies and individuals receive a platform to:",
       "list": {
         "item1": "Build brand visibility",
         "item2": "Showcase subject matter expertise",
         "item3": "Enhance thought leadership"
       },
-      "paragraph1": "This also contributes to nurturing a  uniquely qualified talent pipeline, and  encourages product andoffering usage.",
-      "paragraph2": " For students, this represents an unrivalled opportunity to learn the most-cutting edge skills  from the brands leading the industry and address real-world situations through cross-disciplinary collaboration."
+      "paragraph1": "Build educational content that is reflective of the work that you do in the industry, receive a tangible outcome, help professionals across the world pursue their opportunities, get jobs and inspire many more people.",
+      "paragraph2": "Whether you are an organisation or a professional we will help you build an educational content that has a transformational effect on student’s lives. You will get to inspire, instruct, educate people that would never get to see you in real life or have an opportunity to otherwise access this knowledge."
     },
     "criteria": {
       "title": " What criteria do you need to meet to be a Kordie partner?",
       "cards": {
-        "card1": "Demonstrable expertise in an area of knowledge related to hospitality industry",
-        "card2": "A commitment to advancing and democratising hospitality education",
-        "card3": "Substantial experience and reputation"
+        "card1": "5+ years of demonstrated expertise in an area of knowledge related to hospitality industry",
+        "card2": "A commitment to advancing and democratising top-quality hospitality education",
+        "card3": "Having a growth mindset and passion for the field"
       }
     }
   },
@@ -524,7 +522,7 @@
   "insights": {
     "hero": {
       "pre-caption": "New",
-      "title": "Cordie Insights",
+      "title": "Kordie Insights",
       "description": "Talks recommended just for you, delivered to your inbox.",
       "scroll": "Scroll"
     },
@@ -662,7 +660,7 @@
     },
     "feedback": {
       "caption": "Feedback",
-      "title": "Cordie Impact"
+      "title": "Kordie Impact"
     }
   },
   "program-page": {
@@ -671,9 +669,9 @@
       "sub-title": "Whether you are an individual or an organisation/group, looking for a programme, get in touch and we can help find the best solution for you.",
       "button-text": "Send",
       "lable": {
-        "name": "Name",
-        "email": "E-mail",
-        "comment": "Comment",
+        "name": "Full Name",
+        "email": "Email Address",
+        "comment": "Message",
         "accept": "Accept Terms & Conditions"
       }
     },
@@ -854,5 +852,14 @@
     "title": "Voila!",
     "notification": "We have successfully verified the account.",
     "button-text": "Go to home page"
+  },
+  "subscribe-modal": {
+    "title": "Сutting-edge hospitality learning.",
+    "caption": "Real-life. Practical. Fully online.",
+    "description": "Kordie is currently in beta. Although you can explore our website and get to know us, our products are not available for purchase yet.",
+    "sub-title": "Be the first to know when we launch and get your very special offer",
+    "hint": "(don’t worry, that’s all we’ll email you about)",
+    "bitton-text": "Sign Up",
+    "placeholder": "Enter your email address"
   }
 }

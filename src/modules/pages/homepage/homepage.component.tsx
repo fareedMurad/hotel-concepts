@@ -28,18 +28,23 @@ import { Modals } from '@ui/models';
  * Renders Homepage
  */
 const Homepage: React.FC<HomepageProps> = ({}) => {
-  const { language } = useSelector((state: State) => state.localization);
+  const {
+    localization: { language },
+    form: { showSubscribeModal }
+  } = useSelector((state: State) => state);
   const { contributors, loading } = useContributorsData(language);
   const { homePageTestimonials, homepageTestimonialsLoading } = useHomePageData(
     language
   );
+  //temporary
 
   const dispatch = useDispatch();
 
-  // React.useEffect(() => {
-  //   setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
-  // }, []);
-
+  React.useEffect(() => {
+    if (showSubscribeModal) {
+      setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
+    }
+  }, [showSubscribeModal]);
   return (
     <React.Suspense fallback={<Spinner />}>
       <div className={styles.homepage}>

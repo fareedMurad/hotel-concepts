@@ -852,5 +852,14 @@
     "title": "Voila!",
     "notification": "We have successfully verified the account.",
     "button-text": "Go to home page"
+  },
+  "subscribe-modal": {
+    "title": "Сutting-edge hospitality learning.",
+    "caption": "Real-life. Practical. Fully online.",
+    "description": "Kordie is currently in beta. Although you can explore our website and get to know us, our products are not available for purchase yet.",
+    "sub-title": "Be the first to know when we launch and get your very special offer",
+    "hint": "(don’t worry, that’s all we’ll email you about)",
+    "bitton-text": "Sign Up",
+    "placeholder": "Enter your email address"
   }
 }

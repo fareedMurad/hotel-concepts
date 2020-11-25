@@ -27,6 +27,7 @@ const sendForm = make('[Form] send form')
     'subscription',
     (payload: { subject: string; data: { email: string } }) => payload
   )
+  .stage('subscribeBeta', (payload: { email: string }) => payload)
   .stage('success');
 
 export { sendForm };
