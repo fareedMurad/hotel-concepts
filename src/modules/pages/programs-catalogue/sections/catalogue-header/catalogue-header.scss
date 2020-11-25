@@ -2,7 +2,6 @@
 
 .catalogue-header {
   @include heroImage();
-  // background-position: right;
   @include tablet() {
     background-position: center;
   }
@@ -27,6 +26,12 @@
     height: calc(100vh - 30px);
     background-position: center;
   }
+}
+
+.background {
+  @include heroBackground();
+  width: 100%;
+  height: 100vh;
 }
 
 .title {

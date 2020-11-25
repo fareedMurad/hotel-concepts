@@ -10,6 +10,7 @@ import { useHistory } from 'react-router';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
+import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 
 /**
  *  preview video query
@@ -74,12 +75,13 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const scrollToEnroll = () => {
     scrollTo('online-courses');
   };
-
   return (
-    <section
-      className={styles.intro}
-      style={{ backgroundImage: `url(${data?.asset?.url})` }}
-    >
+    <section className={styles.intro}>
+      <LazyBackground
+        className={styles.background}
+        reducedImageId='3Zo3vWDWqh98sLg0qx1Ho8'
+        fullImageId='6djYSzv9wpZRp6f9T8zgue'
+      />
       <HeroTitle>{t('home.hero.hero-title')}</HeroTitle>
       <HeroSubtitle className={styles.subtitle}>
         {t('home.hero.hero-subtitle')}

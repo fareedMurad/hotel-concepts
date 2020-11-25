@@ -88,7 +88,6 @@ const useCartData = () => {
   const summaryData = {
     total: cartData
       ?.map(product => {
-        console.log(product);
         return {
           price: product.price,
           amount: selectedProducts.find(one => one.path == product.id).quantity

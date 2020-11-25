@@ -16,10 +16,6 @@ const Dropdown: React.FC = () => {
   const dispatch = useDispatch();
 
   const ref = useRef();
-  // useClickOutside(ref, () => {
-  //   dispatch(cart.showDropdown(false));
-  //   console.log('hello');
-  // });
 
   const navigateToCartPage = () => dispatch(navigate('/cart'));
   return (

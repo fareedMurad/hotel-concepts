@@ -41,6 +41,34 @@ class FormSaga {
       yield put(preloaderStop(Preloaders.formSubscription));
     }
   }
+
+  /**
+   * Subscribe Beta
+   */
+  @Saga(sendForm.subscribeBeta)
+  public *sendSubscribeBeta(
+    payload: Payload<typeof sendForm.subscribeBeta>,
+    { api }: Context
+  ) {
+    yield put(preloaderStart(Preloaders.sendForm));
+    try {
+      const response = yield call(
+        api.form.sendSubscribeBetaSpecialOffer,
+        payload
+      );
+      /**
+       * Effects
+       */
+
+      const effects = [put(showModal(Modals.formResult))];
+      yield all(effects);
+      yield put(closeModal(Modals.subscribe));
+    } catch (error) {
+      yield put(handleError(error.response.data.message));
+    } finally {
+      yield put(preloaderStop(Preloaders.sendForm));
+    }
+  }
   /**
    * Consult request
    */

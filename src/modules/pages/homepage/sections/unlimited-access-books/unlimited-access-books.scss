@@ -2,13 +2,13 @@
 
 .unlimited-access-books {
   padding: 50px 22px;
-  overflow-x: hidden;
   @include tablet() {
     padding: 124px 22px 0px 22px;
   }
   @include desktop() {
     padding: 124px 22px 0px 134px;
   }
+
   display: grid;
   grid-template-columns: 1fr 540px;
   column-gap: 142px;
@@ -90,6 +90,7 @@
   object-fit: contain;
   margin-left: auto;
   border-radius: 8px;
+  overflow-x: hidden;
   @include tablet() {
     @include size(100%);
   }
