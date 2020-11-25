@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { OurMaterialsProps } from './our-materials.props';
 import * as styles from './our-materials.scss';
-import { Caption, VideoCard } from '@pages/components';
+import { AnimatedCaption, VideoCard } from '@pages/components';
 import { Spinner, SectionTitle } from '@core/components';
 import { useVideoLecturesData } from './our-materials.hook';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { useToggleAnimate } from '@pages/learning-approach/toggle-animation.hook';
+import { useAnimation } from '@pages/learning-approach/animations/animations.hook';
+import { animated } from 'react-spring';
 
 /**
  * Renders OurMaterials
@@ -17,18 +20,26 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
     language
   );
   const { t } = useTranslation();
+  const ref = React.useRef();
+  const { toggle } = useToggleAnimate(ref);
+  const { cardAnimation, titleAnimation } = useAnimation(toggle);
 
-  if (videoLecturesLoading) return <Spinner />;
+  // if (videoLecturesLoading) return <Spinner />;
   const getVideoId = url => url.split('/').pop();
 
   return (
-    <div className={styles.ourMaterials}>
-      <SectionTitle className={styles.title}>
-        {t('learning-approach.our-materials.heading')}
-      </SectionTitle>
-      <Caption rate='1.0' title={t('learning-approach.our-materials.title')} />
-      <div className={styles.videoCards}>
-        {videoLecturessData.map((video, index) => {
+    <div className={styles.ourMaterials} ref={ref}>
+      <animated.div style={titleAnimation}>
+        <SectionTitle className={styles.title}>
+          {t('learning-approach.our-materials.heading')}
+        </SectionTitle>
+      </animated.div>
+      <AnimatedCaption
+        rate='1.0'
+        title={t('learning-approach.our-materials.title')}
+      />
+      <animated.div className={styles.videoCards} style={cardAnimation}>
+        {videoLecturessData?.map((video, index) => {
           const {
             vimeoUrl,
             customTitle,
@@ -44,7 +55,7 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
             />
           );
         })}
-      </div>
+      </animated.div>
     </div>
   );
 };

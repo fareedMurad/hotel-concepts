@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ReadingMaterialsProps } from './reading-materials.props';
 import * as styles from './reading-materials.scss';
-import { Caption, DownloadButton } from '@pages/components';
+import { AnimatedCaption, DownloadButton } from '@pages/components';
 import { Spinner } from '@core/components';
 import { useReadingMaterialsData } from './reading-materials.hook';
 import { fileSize } from '@core/shared/formaters';
@@ -18,7 +18,7 @@ const ReadingMaterials: React.FC<ReadingMaterialsProps> = ({}) => {
 
   return (
     <div className={styles.readingMaterials}>
-      <Caption
+      <AnimatedCaption
         rate='2.0'
         title={t('learning-approach.reading-materials.title')}
       />

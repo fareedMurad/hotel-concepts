@@ -11,7 +11,7 @@ const useToggleAnimate = element => {
   useEffect(() => {
     const elementPos = element?.current.offsetTop;
     console.log(elementPos);
-    if (elementPos - window.pageYOffset + 200 < y) {
+    if (elementPos - window.innerHeight / 2 < y) {
       setToggle(true);
     } else {
       setToggle(false);
