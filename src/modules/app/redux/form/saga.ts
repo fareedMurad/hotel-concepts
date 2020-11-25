@@ -61,7 +61,6 @@ class FormSaga {
        */
 
       const effects = [put(showModal(Modals.formResult))];
-      console.log(effects);
       yield all(effects);
       yield put(closeModal(Modals.subscribe));
     } catch (error) {
