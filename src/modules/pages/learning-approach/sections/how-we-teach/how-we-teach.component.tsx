@@ -5,6 +5,9 @@ import { useHowWeTeachData } from './how-we-teach.hook';
 import { Caption } from '@pages/components';
 import { H1, SectionTitle } from '@core/components';
 import { useTranslation } from 'react-i18next';
+import { useAnimation } from '@pages/learning-approach/animations/animations.hook';
+import { useToggleAnimate } from '@pages/learning-approach/toggle-animation.hook';
+import { animated } from 'react-spring';
 
 /**
  * Instrument and Tools Card
@@ -32,13 +35,17 @@ const WorldClassCard = ({ img, title, description }) => (
  */
 const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
   const { t } = useTranslation();
+  const ref = React.useRef();
   const { data } = useHowWeTeachData();
-
+  const { toggle } = useToggleAnimate(ref);
+  const { titleAnimation } = useAnimation(toggle);
   return (
-    <div className={styles.howWeTeach}>
-      <SectionTitle className={styles.title}>
-        {t('learning-approach.how-we-teach.title')}
-      </SectionTitle>
+    <div className={styles.howWeTeach} ref={ref}>
+      <animated.div style={titleAnimation}>
+        <SectionTitle className={styles.title}>
+          {t('learning-approach.how-we-teach.title')}
+        </SectionTitle>
+      </animated.div>
       <Caption
         className={styles.captionWrapper}
         rate='1.0'

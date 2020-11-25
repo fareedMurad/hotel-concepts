@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { useToggleAnimate } from '@pages/learning-approach/toggle-animation.hook';
+import { animated, useSpring, config } from 'react-spring';
 
 const Card = ({ card, rate }) => {
   const {
@@ -37,19 +39,32 @@ const WhatWeTeach: React.FC<WhatWeTeachProps> = ({}) => {
   const { t } = useTranslation();
   const { language } = useSelector((state: State) => state.localization);
   const { cards, loading } = useWhatWeTeachData(language);
+  const ref = React.useRef();
+  const { toggle } = useToggleAnimate(ref);
 
-  if (!cards || loading) return <Spinner />;
+  const animateTitle = useSpring({
+    opacity: toggle ? 1 : 0,
+    transform: toggle ? 'translateX(0)' : 'translateX(-100px)'
+  });
+  const animatedCards = useSpring({
+    opacity: toggle ? 1 : 0,
+    config: config.molasses
+  });
+
+  // if (!cards || loading) return <Spinner />;
 
   return (
-    <div className={styles.whatWeTeach}>
-      <H2 className={styles.caption}>
-        {t('learning-approach.what-we-teach.title')}
-      </H2>
-      <main className={styles.cardContainer}>
+    <div className={styles.whatWeTeach} ref={ref}>
+      <animated.div style={animateTitle}>
+        <H2 className={styles.caption}>
+          {t('learning-approach.what-we-teach.title')}
+        </H2>
+      </animated.div>
+      <animated.main className={styles.cardContainer} style={animatedCards}>
         {cards?.map((card, index) => (
           <Card card={card} key={card?.name} rate={index} />
         ))}
-      </main>
+      </animated.main>
     </div>
   );
 };
