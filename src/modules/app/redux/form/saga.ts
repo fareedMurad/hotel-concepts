@@ -52,17 +52,18 @@ class FormSaga {
   ) {
     yield put(preloaderStart(Preloaders.sendForm));
     try {
-      console.log('fire');
       const response = yield call(
         api.form.sendSubscribeBetaSpecialOffer,
         payload
       );
-
       /**
        * Effects
        */
+
       const effects = [put(showModal(Modals.formResult))];
+      console.log(effects);
       yield all(effects);
+      yield put(closeModal(Modals.subscribe));
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {
