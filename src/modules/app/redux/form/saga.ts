@@ -59,10 +59,12 @@ class FormSaga {
       /**
        * Effects
        */
-
-      const effects = [put(showModal(Modals.formResult))];
+      const effects = [
+        put(closeModal(Modals.subscribe)),
+        put(showModal(Modals.subscribeSuccess))
+      ];
       yield all(effects);
-      yield put(closeModal(Modals.subscribe));
+      yield;
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

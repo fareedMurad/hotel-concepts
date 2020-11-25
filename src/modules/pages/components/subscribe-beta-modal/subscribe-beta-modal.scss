@@ -1,0 +1,33 @@
+@import 'core.scss';
+
+.modal {
+  @include flex(stretch, stretch, column);
+  text-align: center;
+  position: relative;
+  @include desktop {
+    width: 793px !important;
+    height: 399px !important;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.success {
+  @include flex(center, center, column);
+  height: 100%;
+  &--title {
+    @include font($primary-orange, 49px, 600, 58px);
+    font-family: $EBGaramond;
+    text-align: center;
+  }
+  &--hint {
+    @include font($primary-gray, 24px, 400, 28px);
+    text-align: center;
+    margin: 14px auto 39px auto;
+    width: 90%;
+  }
+}

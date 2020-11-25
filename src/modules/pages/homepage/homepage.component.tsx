@@ -24,6 +24,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SubscribeModal } from '@pages/components/subscribe-modal';
 import { showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
+import { FormResultModal } from '@pages/components/form-result-modal';
+import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
 /**
  * Renders Homepage
  */
@@ -69,6 +71,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         {/* <Footer /> */}
       </div>
       <SubscribeModal />
+      <SubscribeBetaSuccessModal />
     </React.Suspense>
   );
 };
