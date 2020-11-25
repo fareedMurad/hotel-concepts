@@ -12,8 +12,7 @@ const useAnimation = toggle => {
   });
 
   const cardAnimation = useSpring({
-    opacity: toggle ? 1 : 0,
-    config: config.molasses
+    opacity: toggle ? 1 : 0
   });
 
   return {
