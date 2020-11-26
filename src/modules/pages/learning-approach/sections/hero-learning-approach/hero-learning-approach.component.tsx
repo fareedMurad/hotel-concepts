@@ -24,9 +24,9 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
         fullImageId={'wsal0kfBcI5dB1icnLUQu'}
         reducedImageId={'33zlz89QUmqCUxfAEvgSFu'}
       >
-        <div className={styles.geometry}>
+        {/* <div className={styles.geometry}>
           <Icon name={'geometry/learning-approach'} />
-        </div>
+        </div> */}
         <main className={styles.heroContent}>
           <HeroTitle className={styles.heroCaption}>
             {t('learning-approach.hero.title')}
