@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HeroProps } from './hero-learning-approach.props';
 import * as styles from './hero-learning-approach.scss';
-import { HeroTitle, HeroSubtitle } from '@core/components';
+import { HeroTitle, HeroSubtitle, Icon } from '@core/components';
 import { ScrollButton } from '@core/components/scroll-button';
 import { useHeroLearningApproachData } from './hero-learning-approach.hook';
 import { useTranslation } from 'react-i18next';
@@ -24,6 +24,9 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
         fullImageId={'wsal0kfBcI5dB1icnLUQu'}
         reducedImageId={'33zlz89QUmqCUxfAEvgSFu'}
       >
+        <div className={styles.geometry}>
+          <Icon name={'geometry/learning-approach'} />
+        </div>
         <main className={styles.heroContent}>
           <HeroTitle className={styles.heroCaption}>
             {t('learning-approach.hero.title')}
