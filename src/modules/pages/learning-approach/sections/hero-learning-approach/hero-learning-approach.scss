@@ -21,6 +21,12 @@
   }
 }
 
+.temp {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  z-index: 9999999;
+}
 .image {
   @include flex($align: stretch, $justify: center, $direction: column);
   @include heroImage();
