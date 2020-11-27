@@ -31,7 +31,7 @@ const useStoryMissionData = () => {
   ];
   const GET_HERO_IMAGE = gql`
     {
-      asset(id: "uU2tYenzz0uQ28oeGCq4l") {
+      asset(id: "4WPjMUv6ztHBms70QmOpAf") {
         url
       }
     }
