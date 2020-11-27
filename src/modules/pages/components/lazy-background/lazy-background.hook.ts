@@ -21,7 +21,7 @@ const useLazyBackgroundData = (reducedImageId: string, fullImageId: string) => {
   const { data: reducedImage } = useQuery(GET_REDUCED_IMAGE, {
     variables: { id: reducedImageId }
   });
-  const { data: fullImage } = useQuery(GET_REDUCED_IMAGE, {
+  const { data: fullImage } = useQuery(GET_FULL_IMAGE, {
     variables: { id: fullImageId }
   });
 

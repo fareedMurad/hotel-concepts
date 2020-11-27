@@ -17,8 +17,6 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
   } = useHeroLearningApproachData();
   const { t } = useTranslation();
 
-  const [toggleImage, set] = React.useState(false);
-
   return (
     <div className={styles.hero}>
       <LazyBackground
