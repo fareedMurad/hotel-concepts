@@ -53,7 +53,7 @@ const App: React.FC<AppProps> = ({ children, history, store }) => {
     const set = () =>
       setInterval(e => {
         setLoading(false);
-      }, 5000);
+      }, 4000);
     window.onload = () => {
       set();
     };

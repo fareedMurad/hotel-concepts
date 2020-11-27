@@ -5,7 +5,7 @@ import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { ScrollButton } from '@core/components/scroll-button';
-import { Button, HeroTitle, HeroSubtitle } from '@core/components';
+import { Button, HeroTitle, HeroSubtitle, Icon } from '@core/components';
 import { useHistory } from 'react-router';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
@@ -82,6 +82,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         reducedImageId='66irZmdgA5S8BupmvbH5JP'
         fullImageId='6oIzq8MMdwwqj2AhgpqIlx'
       />
+      <Icon className={styles.geometry} name='geometry/Home_page' />
       <HeroTitle>{t('home.hero.hero-title')}</HeroTitle>
       <HeroSubtitle className={styles.subtitle}>
         {t('home.hero.hero-subtitle')}

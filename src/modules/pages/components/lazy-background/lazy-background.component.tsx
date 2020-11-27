@@ -45,7 +45,6 @@ const LazyBackground: React.FC<LazyBackgroundProps> = ({
       }
     >
       {children}
-      <Icon className={styles.geometry} name='geometry/Home_page' />
     </div>
   );
 };
