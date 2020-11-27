@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom';
 import { ErrorBoundary } from '@core/components/error-boundary';
 import { StickyContainer } from 'react-sticky';
 import { StartUpPreloader } from './components/start-up-preloader';
+import { setInterval } from 'timers';
 
 /**
  * Scroll to top
@@ -49,9 +50,13 @@ const App: React.FC<AppProps> = ({ children, history, store }) => {
   const [loading, setLoading] = React.useState(true);
 
   React.useLayoutEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 5000);
+    const set = () =>
+      setInterval(e => {
+        setLoading(false);
+      }, 5000);
+    window.onload = () => {
+      set();
+    };
   }, []);
   return (
     <Provider store={store}>

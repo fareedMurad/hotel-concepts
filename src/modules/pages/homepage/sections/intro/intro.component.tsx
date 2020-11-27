@@ -79,8 +79,8 @@ const Intro: React.FC<IntroProps> = ({}) => {
     <section className={styles.intro}>
       <LazyBackground
         className={styles.background}
-        reducedImageId='3Zo3vWDWqh98sLg0qx1Ho8'
-        fullImageId='6djYSzv9wpZRp6f9T8zgue'
+        reducedImageId='66irZmdgA5S8BupmvbH5JP'
+        fullImageId='6oIzq8MMdwwqj2AhgpqIlx'
       />
       <HeroTitle>{t('home.hero.hero-title')}</HeroTitle>
       <HeroSubtitle className={styles.subtitle}>
