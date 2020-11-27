@@ -21,54 +21,24 @@ const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
 
   return (
     <div className={styles.hero}>
-      <Button className={styles.temp} onClick={() => set(!toggleImage)}>
-        {toggleImage
-          ? 'Change image current:[grouped]'
-          : 'Change image current:[with SVG]'}
-      </Button>
-      {toggleImage ? (
-        <LazyBackground
-          className={styles.image}
-          fullImageId={'wsal0kfBcI5dB1icnLUQu'}
-          reducedImageId={'33zlz89QUmqCUxfAEvgSFu'}
-        >
-          <main className={styles.heroContent}>
-            <HeroTitle className={styles.heroCaption}>
-              {t('learning-approach.hero.title')}
-            </HeroTitle>
-            <HeroSubtitle className={styles.heroDescription}>
-              {t('learning-approach.hero.description')}
-            </HeroSubtitle>
-          </main>
-          <ScrollButton
-            text={t('learning-approach.hero.scroll')}
-            className={styles.arrow}
-          />
-        </LazyBackground>
-      ) : (
-        <LazyBackground
-          className={styles.image}
-          fullImageId={'1Xh52D8yAy5jSkjVnrW8S1'}
-          reducedImageId={'7dcwD5Us9xoMyX6I9yZWt4'}
-        >
-          <div className={styles.geometry}>
-            <Icon name={'geometry/learning-approach'} />
-          </div>
-
-          <main className={styles.heroContent}>
-            <HeroTitle className={styles.heroCaption}>
-              {t('learning-approach.hero.title')}
-            </HeroTitle>
-            <HeroSubtitle className={styles.heroDescription}>
-              {t('learning-approach.hero.description')}
-            </HeroSubtitle>
-          </main>
-          <ScrollButton
-            text={t('learning-approach.hero.scroll')}
-            className={styles.arrow}
-          />
-        </LazyBackground>
-      )}
+      <LazyBackground
+        className={styles.image}
+        fullImageId={'wsal0kfBcI5dB1icnLUQu'}
+        reducedImageId={'33zlz89QUmqCUxfAEvgSFu'}
+      >
+        <main className={styles.heroContent}>
+          <HeroTitle className={styles.heroCaption}>
+            {t('learning-approach.hero.title')}
+          </HeroTitle>
+          <HeroSubtitle className={styles.heroDescription}>
+            {t('learning-approach.hero.description')}
+          </HeroSubtitle>
+        </main>
+        <ScrollButton
+          text={t('learning-approach.hero.scroll')}
+          className={styles.arrow}
+        />
+      </LazyBackground>
     </div>
   );
 };
