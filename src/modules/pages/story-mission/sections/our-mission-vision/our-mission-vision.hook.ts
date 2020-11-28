@@ -33,7 +33,7 @@ const useOurMissionVisionData = () => {
   const GET_HERO_IMAGE = gql`
     {
       asset(id: "793M49f7fryCPIowy5PuJA") {
-        url
+        url(transform: { format: WEBP })
       }
     }
   `;
