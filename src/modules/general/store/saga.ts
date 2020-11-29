@@ -1,9 +1,15 @@
 import { Language } from '@app/models/enum';
+import { useBrowserVersion } from '@core/helpers/browser-version';
 import { setupLocalization } from '@localization/store';
 import { toggleToast } from '@ui/toast';
 import { Payload, Saga } from 'redux-chill';
 import { all, put, spawn, take } from 'redux-saga/effects';
-import { handleError, startup, toggleCookieBanner } from './actions';
+import {
+  checkBrowserVersion,
+  handleError,
+  startup,
+  toggleCookieBanner
+} from './actions';
 
 /**
  * General app methods
@@ -18,7 +24,13 @@ class GeneralSaga {
     const cookieBanner = localStorage.getItem('kordieCookieBanner');
     const language = window.localStorage.getItem('language-kordie');
 
-    console.log(window.navigator.userAgent);
+    const { name, version } = useBrowserVersion();
+    const payload = {
+      name: name,
+      version: version
+    };
+
+    yield put(checkBrowserVersion(payload));
 
     yield put(setupLocalization(language || Language.en));
 

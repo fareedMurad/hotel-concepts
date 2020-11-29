@@ -63,15 +63,17 @@ const Navigation: React.FC<{
         const isException = exceptions.includes(caption);
         if (target)
           return isException ? (
-            <div style={{ display: 'inline' }}>{caption}</div>
+            <div key={caption} style={{ display: 'inline' }}>
+              {caption}
+            </div>
           ) : (
-            <a href={target} target={'__blanc'}>
+            <a key={caption} href={target} target={'__blanc'}>
               {caption}
             </a>
           );
 
         return isException ? (
-          <div style={{ display: 'inline' }}>
+          <div key={caption} style={{ display: 'inline' }}>
             {rest.name ? rest.name : caption}
           </div>
         ) : (

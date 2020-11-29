@@ -18,5 +18,11 @@ const handleError = make('[general] handle error').stage(
 const toggleCookieBanner = make('[general] toggle cookie banner').stage(
   (payload: boolean) => payload
 );
+/*
+ * Check browser version
+ */
+const checkBrowserVersion = make('[general] check browser version').stage(
+  (payload: { name: string; version: string }) => payload
+);
 
-export { startup, handleError, toggleCookieBanner };
+export { startup, handleError, toggleCookieBanner, checkBrowserVersion };
