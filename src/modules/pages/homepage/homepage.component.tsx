@@ -68,7 +68,6 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <FaqBlock showTitle />
         {/* <InsightsBlock /> */}
         <Socials />
-        {/* <Footer /> */}
       </div>
       <SubscribeModal />
       <SubscribeBetaSuccessModal />

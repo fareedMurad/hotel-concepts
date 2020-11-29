@@ -18,6 +18,8 @@ class GeneralSaga {
     const cookieBanner = localStorage.getItem('kordieCookieBanner');
     const language = window.localStorage.getItem('language-kordie');
 
+    console.log(window.navigator.userAgent);
+
     yield put(setupLocalization(language || Language.en));
 
     if (!cookieBanner && cookieBanner != 'false') {

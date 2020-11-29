@@ -50,12 +50,8 @@ const App: React.FC<AppProps> = ({ children, history, store }) => {
   const [loading, setLoading] = React.useState(true);
 
   React.useLayoutEffect(() => {
-    const set = () =>
-      setInterval(e => {
-        setLoading(false);
-      }, 4000);
     window.onload = () => {
-      set();
+      setLoading(false);
     };
   }, []);
   return (

@@ -11,18 +11,15 @@ import { LazyBackground } from '@pages/components/lazy-background/lazy-backgroun
  * Renders Hero
  */
 const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
-  const {
-    heroLearningApproachData,
-    reducedImage
-  } = useHeroLearningApproachData();
+  const { fullImageId, reducedImageId } = useHeroLearningApproachData();
   const { t } = useTranslation();
 
   return (
     <div className={styles.hero}>
       <LazyBackground
         className={styles.image}
-        fullImageId={'wsal0kfBcI5dB1icnLUQu'}
-        reducedImageId={'33zlz89QUmqCUxfAEvgSFu'}
+        reducedImageId={reducedImageId}
+        fullImageId={fullImageId}
       >
         <main className={styles.heroContent}>
           <HeroTitle className={styles.heroCaption}>

@@ -27,7 +27,9 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ className }) => {
         >
           {navigation.map(({ name, to }) => {
             return name === 'About us' ? (
-              <div className={styles.link}>{name}</div>
+              <div key={name} className={styles.link}>
+                {name}
+              </div>
             ) : (
               <NavLink
                 className={styles.link}

@@ -1,28 +1,33 @@
 import { gql, useQuery } from '@apollo/client';
 
 const useHeroLearningApproachData = () => {
-  const GET_REDUCED_IMAGE = gql`
+  const GET_IMAGE_ID = gql`
     {
-      asset(id: "33zlz89QUmqCUxfAEvgSFu") {
-        url
+      heroImagesCollection(where: { page: "Learning approach" }) {
+        items {
+          page
+          fullImage {
+            url
+            sys {
+              id
+            }
+          }
+          reducedImage {
+            sys {
+              id
+            }
+          }
+        }
       }
     }
   `;
 
-  const GET_HERO_IMAGE = gql`
-    {
-      asset(id: "wsal0kfBcI5dB1icnLUQu") {
-        url
-      }
-    }
-  `;
-  const { data: reducedImage } = useQuery(GET_REDUCED_IMAGE);
-
-  const { data: mainImage } = useQuery(GET_HERO_IMAGE);
+  const { data } = useQuery(GET_IMAGE_ID);
 
   return {
-    heroLearningApproachData: mainImage?.asset?.url,
-    reducedImage: reducedImage?.asset?.url
+    fullImageId: data?.heroImagesCollection?.items[0].fullImage.sys.id,
+    reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id,
+    heroLearningApproachData: data?.heroImagesCollection?.items[0].fullImage.url
   };
 };
 
