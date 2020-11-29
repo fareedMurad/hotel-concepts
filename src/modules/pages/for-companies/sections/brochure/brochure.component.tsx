@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const GET_HERO_IMAGE = gql`
   {
     asset(id: "2FueaT0TE4alWItwWMFtz6") {
-      url
+      url(transform: { format: WEBP })
     }
   }
 `;

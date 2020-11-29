@@ -30,7 +30,7 @@ const defaultValues: ProgramCatalogueFormValues = {
 const GET_HERO_IMAGE = gql`
   {
     asset(id: "172ajOUFQrMpose4jteiQF") {
-      url
+      url(transform: { format: WEBP })
     }
   }
 `;

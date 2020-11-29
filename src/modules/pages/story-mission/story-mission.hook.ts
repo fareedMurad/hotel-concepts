@@ -31,6 +31,7 @@ const useStoryMissionData = () => {
   ];
   const GET_IMAGES_ID = gql`
     {
+<<<<<<< HEAD
       heroImagesCollection(where: { page: "About-us" }) {
         items {
           fullImage {
@@ -44,6 +45,10 @@ const useStoryMissionData = () => {
             }
           }
         }
+=======
+      asset(id: "4WPjMUv6ztHBms70QmOpAf") {
+        url(transform: { format: WEBP })
+>>>>>>> 1a60b7a6e073e588b6528714e542fbdc549198b2
       }
     }
   `;
