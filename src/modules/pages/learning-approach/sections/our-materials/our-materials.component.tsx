@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { OurMaterialsProps } from './our-materials.props';
 import * as styles from './our-materials.scss';
-import { AnimatedCaption, VideoCard } from '@pages/components';
+import { Caption, VideoCard } from '@pages/components';
 import { Spinner, SectionTitle } from '@core/components';
 import { useVideoLecturesData } from './our-materials.hook';
 import { useTranslation } from 'react-i18next';
@@ -20,25 +20,18 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
     language
   );
   const { t } = useTranslation();
-  const ref = React.useRef();
-  const { toggle } = useToggleAnimate(ref);
-  const { cardAnimation, titleAnimation } = useAnimation(toggle);
 
   // if (videoLecturesLoading) return <Spinner />;
   const getVideoId = url => url.split('/').pop();
 
   return (
-    <div className={styles.ourMaterials} ref={ref}>
-      <animated.div style={titleAnimation}>
-        <SectionTitle className={styles.title}>
-          {t('learning-approach.our-materials.heading')}
-        </SectionTitle>
-      </animated.div>
-      <AnimatedCaption
-        rate='1.0'
-        title={t('learning-approach.our-materials.title')}
-      />
-      <animated.div className={styles.videoCards} style={cardAnimation}>
+    <div className={styles.ourMaterials}>
+      <SectionTitle className={styles.title}>
+        {t('learning-approach.our-materials.heading')}
+      </SectionTitle>
+
+      <Caption rate='1.0' title={t('learning-approach.our-materials.title')} />
+      <div className={styles.videoCards}>
         {videoLecturessData?.map((video, index) => {
           const {
             vimeoUrl,
@@ -55,7 +48,7 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
             />
           );
         })}
-      </animated.div>
+      </div>
     </div>
   );
 };

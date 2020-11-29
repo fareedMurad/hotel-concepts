@@ -24,42 +24,38 @@ const WorldClassCard = ({ img, title, description }) => (
  */
 const Cards: React.FC<CardsProps> = ({}) => {
   const { t } = useTranslation();
-  const ref = React.useRef();
-  const { toggle } = useToggleAnimate(ref);
-  const { cardAnimation } = useAnimation(toggle);
+
   return (
     <section className={styles.wrapper}>
-      <animated.div style={cardAnimation}>
-        <div className={styles.wccCards} ref={ref}>
-          <WorldClassCard
-            img={'learning-approach/card-1'}
-            title={t(
-              'learning-approach.word-class-cards.wcc1.cards.card1.sub-title'
-            )}
-            description={t(
-              'learning-approach.word-class-cards.wcc1.cards.card1.description'
-            )}
-          />
-          <WorldClassCard
-            img={'learning-approach/card-2'}
-            title={t(
-              'learning-approach.word-class-cards.wcc1.cards.card2.sub-title'
-            )}
-            description={t(
-              'learning-approach.word-class-cards.wcc1.cards.card2.description'
-            )}
-          />
-          <WorldClassCard
-            img={'learning-approach/card-3'}
-            title={t(
-              'learning-approach.word-class-cards.wcc1.cards.card2.sub-title'
-            )}
-            description={t(
-              'learning-approach.word-class-cards.wcc1.cards.card2.description'
-            )}
-          />
-        </div>
-      </animated.div>
+      <div className={styles.wccCards}>
+        <WorldClassCard
+          img={'learning-approach/card-1'}
+          title={t(
+            'learning-approach.word-class-cards.wcc1.cards.card1.sub-title'
+          )}
+          description={t(
+            'learning-approach.word-class-cards.wcc1.cards.card1.description'
+          )}
+        />
+        <WorldClassCard
+          img={'learning-approach/card-2'}
+          title={t(
+            'learning-approach.word-class-cards.wcc1.cards.card2.sub-title'
+          )}
+          description={t(
+            'learning-approach.word-class-cards.wcc1.cards.card2.description'
+          )}
+        />
+        <WorldClassCard
+          img={'learning-approach/card-3'}
+          title={t(
+            'learning-approach.word-class-cards.wcc1.cards.card2.sub-title'
+          )}
+          description={t(
+            'learning-approach.word-class-cards.wcc1.cards.card2.description'
+          )}
+        />
+      </div>
     </section>
   );
 };

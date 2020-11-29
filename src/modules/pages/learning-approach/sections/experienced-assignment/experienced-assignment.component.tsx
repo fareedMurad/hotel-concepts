@@ -16,9 +16,6 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
   const [section, setSection] = React.useState(data[0]);
   const ref = React.useRef();
 
-  const { toggle } = useToggleAnimate(ref);
-  const { cardAnimation } = useAnimation(toggle);
-
   const transition = useTransition(section, item => item.id, {
     from: { position: 'absolute', opacity: 0 },
     enter: { opacity: 1 },
@@ -28,11 +25,7 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
 
   return (
     <div className={styles.experiencedAssignment}>
-      <animated.main
-        className={styles.container}
-        style={cardAnimation}
-        ref={ref}
-      >
+      <main className={styles.container}>
         <div className={styles.slider}>
           {transition.map(({ item, key, props }) => {
             return (
@@ -76,7 +69,7 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
             );
           })}
         </div>
-      </animated.main>
+      </main>
     </div>
   );
 };
