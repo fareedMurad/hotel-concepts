@@ -29,17 +29,32 @@ const useStoryMissionData = () => {
       anchor: 'values'
     }
   ];
-  const GET_HERO_IMAGE = gql`
+  const GET_IMAGES_ID = gql`
     {
-      asset(id: "uU2tYenzz0uQ28oeGCq4l") {
-        url
+      heroImagesCollection(where: { page: "About-us" }) {
+        items {
+          fullImage {
+            sys {
+              id
+            }
+          }
+          reducedImage {
+            sys {
+              id
+            }
+          }
+        }
       }
     }
   `;
 
-  const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+  const { data, loading, error } = useQuery(GET_IMAGES_ID);
 
-  return { anchors, storyMissionHeroImage: data?.asset?.url };
+  return {
+    anchors,
+    fullImageId: data?.heroImagesCollection?.items[0].fullImage.sys.id,
+    reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id
+  };
 };
 
 export { useStoryMissionData };

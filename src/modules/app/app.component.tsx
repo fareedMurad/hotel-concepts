@@ -11,9 +11,8 @@ import { client } from './graphql/apollo-client';
 import { useLocation } from 'react-router-dom';
 import { ErrorBoundary } from '@core/components/error-boundary';
 import { StickyContainer } from 'react-sticky';
-import { Preloaders } from '@ui/models';
-import { Preloader } from '@core/components';
-import Helmet from 'react-helmet';
+import { StartUpPreloader } from './components/start-up-preloader';
+import { setInterval } from 'timers';
 
 /**
  * Scroll to top
@@ -47,22 +46,32 @@ const Content: React.FC = ({ children }) => {
 /**
  * Renders App
  */
-const App: React.FC<AppProps> = ({ children, history, store }) => (
-  <Provider store={store}>
-    <ApolloProvider client={client}>
-      <ErrorBoundary history={history}>
-        <Content>
-          <Localization>
-            <StickyContainer>
-              <Router history={history}>
-                <div>{children}</div>
-              </Router>
-            </StickyContainer>
-          </Localization>
-        </Content>
-      </ErrorBoundary>
-    </ApolloProvider>
-  </Provider>
-);
+const App: React.FC<AppProps> = ({ children, history, store }) => {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useLayoutEffect(() => {
+    window.onload = () => {
+      setLoading(false);
+    };
+  }, []);
+  return (
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <ErrorBoundary history={history}>
+          {loading && <StartUpPreloader />}
+          <Content>
+            <Localization>
+              <StickyContainer>
+                <Router history={history}>
+                  <div>{children}</div>
+                </Router>
+              </StickyContainer>
+            </Localization>
+          </Content>
+        </ErrorBoundary>
+      </ApolloProvider>
+    </Provider>
+  );
+};
 
 export { App, ScrollToTop };

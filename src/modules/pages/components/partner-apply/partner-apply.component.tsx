@@ -29,7 +29,8 @@ const defaultValues: FAQFormValues = {
   name: '',
   email: '',
   comment: '',
-  accept: false
+  accept: false,
+  subject: 'Kordie.com - Partnership Page'
 };
 /**
  * Renders PartnerApply

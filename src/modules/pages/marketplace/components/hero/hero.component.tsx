@@ -47,7 +47,6 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { selectedCategory } = useSelector((state: State) => state.marketplace);
-  console.log(data);
   if (loading) return <Spinner />;
 
   const sliderData = data?.marketplaceBackgroundCarouselCollection?.items;

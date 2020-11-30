@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="262.17" height="384.01" viewBox="0 0 524.93 768.108">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Контур_233" data-name="Контур 233" d="M0,373.266H524.4V-394.842H0Z" transform="translate(0 394.842)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Сгруппировать_510" data-name="Сгруппировать 510" transform="translate(712.617 2905.26)">
+    <g id="Сгруппировать_497" data-name="Сгруппировать 497" transform="translate(-712.617 -2905.26)" clip-path="url(#clip-path)">
+      <g id="Сгруппировать_495" data-name="Сгруппировать 495" transform="translate(266.617 460.36)">
+        <path id="Контур_231" data-name="Контур 231" d="M0,149.079l45.572-51.13L0,46.821,45.572-4.309,0-55.438l45.572-51.128L0-157.7" transform="translate(0 157.696)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Сгруппировать_496" data-name="Сгруппировать 496" transform="translate(0.69 290.102)">
+        <path id="Контур_232" data-name="Контур 232" d="M0,182.066c85.708,85.708,224.669,85.71,310.377,0s85.7-224.669,0-310.377S85.708-214.016,0-128.31" transform="translate(0 192.59)" fill="none" stroke="#ff6634" stroke-width="3"/>
+      </g>
+    </g>
+    <g id="Сгруппировать_498" data-name="Сгруппировать 498" transform="translate(-698.27 -2660.054)">
+      <path id="Контур_234" data-name="Контур 234" d="M0,166.382,342.382-176" transform="translate(0 176)" fill="none" stroke="#fff" stroke-width="3"/>
+    </g>
+    <g id="Сгруппировать_500" data-name="Сгруппировать 500" transform="translate(-712.617 -2905.26)" clip-path="url(#clip-path)">
+      <g id="Сгруппировать_499" data-name="Сгруппировать 499" transform="translate(143.874 0.688)">
+        <path id="Контур_235" data-name="Контур 235" d="M0,166.382,342.382-176" transform="translate(0 176)" fill="none" stroke="#fff" stroke-width="3"/>
+      </g>
+    </g>
+    <g id="Сгруппировать_501" data-name="Сгруппировать 501" transform="translate(-293.763 -2666.369)">
+      <path id="Контур_237" data-name="Контур 237" d="M0,0V66.142" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+    <g id="Сгруппировать_502" data-name="Сгруппировать 502" transform="translate(-326.833 -2633.297)">
+      <path id="Контур_238" data-name="Контур 238" d="M0,0H66.142" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+    <g id="Сгруппировать_503" data-name="Сгруппировать 503" transform="translate(-386.935 -2510.731)">
+      <path id="Контур_239" data-name="Контур 239" d="M96.1,114.416V-121.03L-101.651-3.307Z" transform="translate(101.651 121.03)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+    <path id="Контур_240" data-name="Контур 240" d="M0,373.266H524.4V-394.842H0Z" transform="translate(-712.617 -2510.418)" fill="none"/>
+  </g>
+</svg>

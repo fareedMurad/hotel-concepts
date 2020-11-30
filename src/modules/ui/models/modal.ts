@@ -6,6 +6,8 @@ enum Modals {
   explorePage = 'explore-page',
   invoiceRequest = 'invoice request',
   registration = 'registration',
+  subscribe = 'subscribe',
+  subscribeSuccess = 'subscribe success',
 
   //success alert
   success = 'success alert',

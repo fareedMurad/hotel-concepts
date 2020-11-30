@@ -15,6 +15,7 @@ import { ScrollToTop } from '@app';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useStoryMissionData } from './story-mission.hook';
 import { useTranslation } from 'react-i18next';
+import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 
 const Hr = () => <div className={styles.hr} />;
 /**
@@ -39,17 +40,16 @@ const Anchor: React.FC<{ anchor: string; rate: string; caption: string }> = ({
  * Renders StoryMission
  */
 const StoryMission: React.FC = () => {
-  const { anchors, storyMissionHeroImage } = useStoryMissionData();
+  const { anchors, fullImageId, reducedImageId } = useStoryMissionData();
   const { t } = useTranslation();
 
   return (
     <div className={styles.storyMission}>
       <ScrollToTop />
       <header className={styles.header}>
-        <div
-          style={{
-            backgroundImage: `url(${storyMissionHeroImage})`
-          }}
+        <LazyBackground
+          fullImageId={fullImageId}
+          reducedImageId={reducedImageId}
           className={styles.headerImg}
         >
           <div className={styles.headerContent}>
@@ -81,7 +81,7 @@ const StoryMission: React.FC = () => {
               />
             </div>
           </div>
-        </div>
+        </LazyBackground>
       </header>
       <HeroCaption
         id='overview'

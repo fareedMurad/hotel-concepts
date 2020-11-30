@@ -5,7 +5,7 @@ const useCorporateImage = () => {
   const GET_HERO_IMAGE = gql`
     {
       asset(id: "47twvwAFXZtD82gCTCKVQi") {
-        url
+        url(transform: { format: WEBP })
       }
     }
   `;
@@ -20,7 +20,7 @@ const useIndividualImage = () => {
   const GET_HERO_IMAGE = gql`
     {
       asset(id: "4ZSBUgDf6sltc51wg0D9Y1") {
-        url
+        url(transform: { format: WEBP })
       }
     }
   `;

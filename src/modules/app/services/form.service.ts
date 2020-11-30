@@ -47,6 +47,16 @@ class FormService {
       url: '/question',
       data: data
     });
+
+  /**
+   * Subscribe beta special offer
+   */
+  public sendSubscribeBetaSpecialOffer = (data: { email: string }) =>
+    this.http.request({
+      method: 'POST',
+      url: '/subscribe',
+      data: data
+    });
   /**
    * Send faq
    */
@@ -56,6 +66,7 @@ class FormService {
       url: '/contact',
       data: data
     });
+
   /**
    * Send faq
    */
