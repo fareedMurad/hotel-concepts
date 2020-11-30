@@ -128,10 +128,9 @@ const Footer: React.FC<FooterProps> = ({}) => {
                 initialValues={{ email: '' }}
                 onSubmit={values => {
                   const payload = {
-                    subject: `Form 'Subscribe'`,
-                    data: { email: values.email }
+                    email: values.email
                   };
-                  dispatch(sendForm.subscription(payload));
+                  dispatch(sendForm.subscribeBeta(payload));
                 }}
                 validationSchema={validationSchema}
               >
