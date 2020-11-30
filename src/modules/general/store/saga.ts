@@ -23,7 +23,6 @@ class GeneralSaga {
     yield spawn(this.run);
     const cookieBanner = localStorage.getItem('kordieCookieBanner');
     const language = window.localStorage.getItem('language-kordie');
-
     const { name, version } = useBrowserVersion();
     const payload = {
       name: name,

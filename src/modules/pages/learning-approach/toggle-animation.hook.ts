@@ -6,11 +6,8 @@ const useToggleAnimate = element => {
   const [toggle, setToggle] = useState(false);
   const { x, y } = useWindowScroll();
 
-  console.log(y);
-
   useEffect(() => {
     const elementPos = element?.current.offsetTop;
-    console.log(elementPos);
     if (elementPos - window.innerHeight / 2 < y) {
       setToggle(true);
     } else {

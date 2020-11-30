@@ -14,6 +14,18 @@ import { FormResultModal } from '@pages/components/form-result-modal';
 import { ProgramContacUsValidationSchema } from './models';
 
 /**
+ * Team size
+ */
+
+const teamsizeSelect = [
+  { label: 'Less than 10 employees', value: 'Less than 10 employees' },
+  { label: '11-25 employees', value: '11-25 employees' },
+  { label: '22-50 employees', value: '22-50 employees' },
+  { label: '50-100 employees', value: '50-100 employees' },
+  { label: '100+ employees', value: '100+ employees' }
+];
+
+/**
  * default values for form
  */
 const defaultValues: ProgramCatalogueFormValues = {
@@ -58,7 +70,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
         <Preloader id={Preloaders.sendForm}>
           <div className={styles.title}>
             <div>{t('programs-catalogue.form.title')}</div>
-            <div>{t('programs-catalogue.sub-title')}</div>
+            <div>{t('programs-catalogue.form.description')}</div>
           </div>
           <Formik
             initialValues={defaultValues}
@@ -92,7 +104,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                 </div>
                 <Field.Select
                   name='teamSize'
-                  options={teamsize}
+                  options={teamsizeSelect}
                   placeholder='How many employees need training?'
                   className={styles.select}
                   whiteBackground
@@ -111,7 +123,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                   arrow
                   onClick={() => handleSubmit()}
                 >
-                  Contact Us
+                  Contact Me
                 </Button>
               </FormNew>
             )}

@@ -9,7 +9,7 @@ import * as styles from './subscribe-beta-modal.scss';
 /**
  * Renders SubscribeBetaModal
  */
-const SubscribeBetaSuccessModal: React.FC<SubscribeBetaModalProps> = ({}) => {
+const SubscribeBetaSuccessModal = React.memo<SubscribeBetaModalProps>(() => {
   const dispatch = useDispatch();
   return (
     <Modal id={Modals.subscribeSuccess} className={styles.modal}>
@@ -26,6 +26,6 @@ const SubscribeBetaSuccessModal: React.FC<SubscribeBetaModalProps> = ({}) => {
       </div>
     </Modal>
   );
-};
+});
 
 export { SubscribeBetaSuccessModal };
