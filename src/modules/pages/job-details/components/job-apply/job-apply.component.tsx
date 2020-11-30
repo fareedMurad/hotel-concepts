@@ -12,20 +12,20 @@ import { sendForm } from '@app/redux/form';
 import { useDispatch } from 'react-redux';
 import { useJobDetailsData } from '@pages/job-details/job-details.hook';
 
-const defaultValues: JobDetailsFormValues = {
-  name: '',
-  phone: '',
-  email: '',
-  linkedInUrl: '',
-  location: '',
-  cv: '',
-  cover: ''
-};
-
 /**
  * Renders JobForm
  */
 const JobApply: React.FC<JobApplyProps> = ({ job }) => {
+  const defaultValues: JobDetailsFormValues = {
+    name: '',
+    phone: '',
+    email: '',
+    linkedInUrl: '',
+    location: job.location,
+    cv: '',
+    cover: ''
+  };
+
   const inputLetter = React.useRef<HTMLInputElement>();
   const inputCv = React.useRef<HTMLInputElement>();
   const { locations } = useJobDetailsData();
@@ -59,6 +59,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             setCvError(false);
             setCv(null);
             setLetter(null);
+            console.log(values);
           }}
           validationSchema={jobDetailsValidationSchema}
         >
@@ -124,13 +125,20 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                     label='Email*'
                   />
                   <div className={styles.select}>
-                    <Field.Select
+                    {/* <Field.Select
                       name='location'
-                      value=''
+                      value={}
                       options={locations}
                       placeholder='click here to select'
                       className={styles.input}
                       label='Location*'
+                    /> */}
+                    <Field.Text
+                      className={styles.input}
+                      name='location'
+                      value={job.location}
+                      label='Location*'
+                      disabled
                     />
                   </div>
 
@@ -174,7 +182,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                 placeholder='LinkedIn'
                 type='text'
                 className={styles.inputBottom}
-                label='LinkedIn'
+                label='LinkedIn*'
               />
               <Button
                 onClick={() => {

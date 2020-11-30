@@ -338,7 +338,7 @@
     "empty-info": "There are no programs with these filters",
     "form": {
       "title": "Contact Us",
-      "description": "Whether you are an individual or an organisation/group, looking for a program, get in touch and we can help find the best solution for you.",
+      "description": "Whether you are an individua or an organisation/group, looking for a program, get in touchand we can help find the best solution for you.",
       "lable": {
         "name": "Name",
         "email": "E-mail",
@@ -852,5 +852,14 @@
     "title": "Voila!",
     "notification": "We have successfully verified the account.",
     "button-text": "Go to home page"
+  },
+  "subscribe-modal": {
+    "title": "Сutting-edge hospitality learning.",
+    "caption": "Real-life. Practical. Fully online.",
+    "description": "Kordie is currently in beta. Although you can explore our website and get to know us, our products are not available for purchase yet.",
+    "sub-title": "Be the first to know when we launch and get your very special offer",
+    "hint": "(don’t worry, that’s all we’ll email you about)",
+    "bitton-text": "Sign Up",
+    "placeholder": "Enter your email address"
   }
 }

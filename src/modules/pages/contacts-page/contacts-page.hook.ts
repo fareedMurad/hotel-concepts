@@ -35,7 +35,7 @@ const useContactsPageData = () => {
   const GET_HERO_IMAGE = gql`
     {
       asset(id: "oU5cS4QpeqOuAtztBQpOt") {
-        url
+        url(transform: { format: WEBP })
       }
     }
   `;

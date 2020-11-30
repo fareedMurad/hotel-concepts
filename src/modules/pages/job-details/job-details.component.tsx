@@ -101,8 +101,8 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
         <section className={styles.sectionB}>
           <H3 className={styles.titleOrange}>Apply for this job</H3>
           <Paragraph className={styles.description}>
-            If you would like to take this module <br /> separately from a
-            program, please contact us
+            If you would like to apply for this job,
+            <br /> please fill the application form.
           </Paragraph>
         </section>
         <JobApply job={job} />

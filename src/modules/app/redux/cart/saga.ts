@@ -52,7 +52,7 @@ class CartSaga {
 
     locale = authorized ? user?.language : localizationLanguage;
 
-    if (cartItems.length > 0 && !product) {
+    if (cartItems?.length > 0 && !product) {
       const lastProduct = cartItems[cartItems.length - 1];
       const { path } = lastProduct;
 

@@ -17,7 +17,8 @@ const FAQFormValidationSchema = yup.object().shape<FAQFormValues>({
     .required()
     .test('bol', 'You should accept T&C to continue', value => {
       return value ? true : false;
-    })
+    }),
+  subject: yup.string()
 });
 
 export { FAQFormValidationSchema };

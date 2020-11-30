@@ -5,7 +5,7 @@ const useUnlimitedAccessBooksData = () => {
   const GET_IMAGE = gql`
     query {
       asset(id: "4OHwbsXoxvWvFyQnYPHYzm") {
-        url
+        url(transform: { format: WEBP })
       }
     }
   `;

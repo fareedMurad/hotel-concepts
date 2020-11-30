@@ -79,6 +79,7 @@ export type FAQFormValues = {
   email: string;
   comment: string;
   accept: boolean;
+  subject: string;
 };
 
 //make dynamic type set

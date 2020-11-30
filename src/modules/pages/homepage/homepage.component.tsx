@@ -20,16 +20,34 @@ import Mentors from '@pages/homepage/sections/mentors/mentors.component';
 import { State } from '@app/redux/state';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import { useHomePageData } from './homepage.hook';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { SubscribeModal } from '@pages/components/subscribe-modal';
+import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import { FormResultModal } from '@pages/components/form-result-modal';
+import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
+import { getAssetUrl } from '@core/shared';
 /**
  * Renders Homepage
  */
 const Homepage: React.FC<HomepageProps> = ({}) => {
-  const { language } = useSelector((state: State) => state.localization);
+  const {
+    localization: { language },
+    form: { showSubscribeModal }
+  } = useSelector((state: State) => state);
   const { contributors, loading } = useContributorsData(language);
   const { homePageTestimonials, homepageTestimonialsLoading } = useHomePageData(
     language
   );
+  //temporary
+
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    if (showSubscribeModal) {
+      setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
+    }
+  }, [showSubscribeModal]);
 
   return (
     <React.Suspense fallback={<Spinner />}>
@@ -52,8 +70,9 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <FaqBlock showTitle />
         {/* <InsightsBlock /> */}
         <Socials />
-        {/* <Footer /> */}
       </div>
+      <SubscribeModal />
+      <SubscribeBetaSuccessModal />
     </React.Suspense>
   );
 };

@@ -1,4 +1,6 @@
+import { Spinner } from '@core/components';
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { BookItemProps } from './book-item.props';
 import * as styles from './book-item.scss';
 
@@ -13,10 +15,24 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
     name,
     price
   } = book;
-  console.log(book);
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageLoader = new Image();
+    imageLoader.src = url;
+    imageLoader.onload = () => {
+      setIsLoaded(true);
+    };
+  }, []);
+
   return (
     <div className={styles.bookItem}>
-      <img className={styles.image} src={url} />
+      {isLoaded ? (
+        <img className={styles.image} src={url} />
+      ) : (
+        <Spinner className={styles.spiner} />
+      )}
       <div className={styles.content}>
         <div className={styles.bookTitle}>{name}</div>
         <div className={styles.bookPrice}>
