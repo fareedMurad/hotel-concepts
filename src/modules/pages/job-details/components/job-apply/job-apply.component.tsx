@@ -138,6 +138,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                       name='location'
                       value={job.location}
                       label='Location*'
+                      disabled
                     />
                   </div>
 
@@ -181,7 +182,7 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
                 placeholder='LinkedIn'
                 type='text'
                 className={styles.inputBottom}
-                label='LinkedIn'
+                label='LinkedIn*'
               />
               <Button
                 onClick={() => {

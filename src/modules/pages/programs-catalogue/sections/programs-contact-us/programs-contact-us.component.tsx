@@ -25,6 +25,21 @@ const teamsizeSelect = [
   { label: '100+ employees', value: '100+ employees' }
 ];
 
+const interestsSelect = [
+  { label: 'Focused Programs', value: 'Focused Programs' },
+  {
+    label: 'Digital Transformation Programs',
+    value: 'Digital Transformation Programs'
+  },
+  {
+    label: 'Essential Soft Skills Programs',
+    value: 'Essential Soft Skills Programs'
+  },
+  { label: 'Leadership Programs', value: 'Leadership Programs' },
+  { label: 'Managing Covid-10 Programs', value: 'Managing Covid-10 Programs' },
+  { label: 'Other', value: 'Other' }
+];
+
 /**
  * default values for form
  */
@@ -55,11 +70,6 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
   const dispatch = useDispatch();
-  const teamsize = [
-    { label: '1', value: '1' },
-    { label: '2', value: '2' },
-    { label: '3', value: '3' }
-  ];
   return (
     <React.Fragment>
       <div
@@ -112,7 +122,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                 />
                 <Field.Select
                   name='interests'
-                  options={teamsize}
+                  options={interestsSelect}
                   placeholder='What paths are you interestedins?'
                   className={styles.select}
                   whiteBackground
