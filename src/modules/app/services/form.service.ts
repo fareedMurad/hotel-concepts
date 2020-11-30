@@ -66,6 +66,7 @@ class FormService {
       url: '/contact',
       data: data
     });
+
   /**
    * Send faq
    */

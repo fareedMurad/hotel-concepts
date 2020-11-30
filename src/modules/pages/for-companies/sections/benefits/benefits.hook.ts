@@ -34,7 +34,7 @@ const useBenefitsCards = () => {
   const GET_HERO_IMAGE = gql`
     {
       asset(id: "40XS345qKFZ39LULGh1Qoi") {
-        url
+        url(transform: { format: WEBP })
       }
     }
   `;

@@ -6,6 +6,7 @@ import { ScrollButton } from '@core/components/scroll-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useIntroData } from './intro.hook';
 import { useTranslation } from 'react-i18next';
+import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 
 /**
  * Renders Intro
@@ -15,12 +16,13 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const ScrollToEnroll = () => {
     scrollTo('consult-request');
   };
-  const { introData } = useIntroData();
+  const { reducedImageId, fullImageId } = useIntroData();
 
   return (
-    <div
+    <LazyBackground
+      fullImageId={fullImageId}
+      reducedImageId={reducedImageId}
       className={styles.intro}
-      style={{ backgroundImage: `url(${introData})` }}
     >
       <main className={styles.introContent}>
         <HeroTitle className={styles.introCaption}>
@@ -40,7 +42,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         text={t('for-companies.intro.scroll')}
         className={styles.arrow}
       />
-    </div>
+    </LazyBackground>
   );
 };
 

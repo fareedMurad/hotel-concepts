@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import { Spinner } from '@core/components/spinner';
 import { State } from '@app/redux/state';
 import { useSelector } from 'react-redux';
+import { SubscribeModal } from '../subscribe-modal';
+import { SubscribeBetaSuccessModal } from '../subscribe-beta-modal';
 
 /**
  * Renders FaqBlock
