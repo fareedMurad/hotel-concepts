@@ -1,6 +1,8 @@
+import { Icon } from '@core/components';
 import React, { useState, useEffect } from 'react';
 import { useLazyBackgroundData } from './lazy-background.hook';
 import { LazyBackgroundProps } from './lazy-background.props';
+import * as styles from './lazy-background.scss';
 
 const LazyBackground: React.FC<LazyBackgroundProps> = ({
   reducedImageId,

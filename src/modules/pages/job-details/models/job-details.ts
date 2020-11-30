@@ -34,10 +34,7 @@ const jobDetailsValidationSchema = yup.object<JobDetailsFormValues>().shape({
     .label('Email*')
     .email()
     .required(),
-  location: yup
-    .string()
-    .label('Location*')
-    .required(),
+  location: yup.string().label('Location*'),
   cv: yup.string(),
   cover: yup.string()
 });

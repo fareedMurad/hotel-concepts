@@ -12,7 +12,6 @@ const GET_CATEGORY_INFO = gql`
   query($id: String!) {
     courseCategory(id: $id) {
       coverImage {
-        url
         sys {
           id
         }

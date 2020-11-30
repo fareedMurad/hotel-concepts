@@ -14,6 +14,33 @@ import { FormResultModal } from '@pages/components/form-result-modal';
 import { ProgramContacUsValidationSchema } from './models';
 
 /**
+ * Team size
+ */
+
+const teamsizeSelect = [
+  { label: 'Less than 10 employees', value: 'Less than 10 employees' },
+  { label: '11-25 employees', value: '11-25 employees' },
+  { label: '22-50 employees', value: '22-50 employees' },
+  { label: '50-100 employees', value: '50-100 employees' },
+  { label: '100+ employees', value: '100+ employees' }
+];
+
+const interestsSelect = [
+  { label: 'Focused Programs', value: 'Focused Programs' },
+  {
+    label: 'Digital Transformation Programs',
+    value: 'Digital Transformation Programs'
+  },
+  {
+    label: 'Essential Soft Skills Programs',
+    value: 'Essential Soft Skills Programs'
+  },
+  { label: 'Leadership Programs', value: 'Leadership Programs' },
+  { label: 'Managing Covid-10 Programs', value: 'Managing Covid-10 Programs' },
+  { label: 'Other', value: 'Other' }
+];
+
+/**
  * default values for form
  */
 const defaultValues: ProgramCatalogueFormValues = {
@@ -30,7 +57,7 @@ const defaultValues: ProgramCatalogueFormValues = {
 const GET_HERO_IMAGE = gql`
   {
     asset(id: "172ajOUFQrMpose4jteiQF") {
-      url
+      url(transform: { format: WEBP })
     }
   }
 `;
@@ -43,11 +70,6 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
   const dispatch = useDispatch();
-  const teamsize = [
-    { label: '1', value: '1' },
-    { label: '2', value: '2' },
-    { label: '3', value: '3' }
-  ];
   return (
     <React.Fragment>
       <div
@@ -58,7 +80,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
         <Preloader id={Preloaders.sendForm}>
           <div className={styles.title}>
             <div>{t('programs-catalogue.form.title')}</div>
-            <div>{t('programs-catalogue.sub-title')}</div>
+            <div>{t('programs-catalogue.form.description')}</div>
           </div>
           <Formik
             initialValues={defaultValues}
@@ -92,7 +114,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                 </div>
                 <Field.Select
                   name='teamSize'
-                  options={teamsize}
+                  options={teamsizeSelect}
                   placeholder='How many employees need training?'
                   className={styles.select}
                   whiteBackground
@@ -100,7 +122,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                 />
                 <Field.Select
                   name='interests'
-                  options={teamsize}
+                  options={interestsSelect}
                   placeholder='What paths are you interestedins?'
                   className={styles.select}
                   whiteBackground
@@ -111,7 +133,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                   arrow
                   onClick={() => handleSubmit()}
                 >
-                  Contact Us
+                  Contact Me
                 </Button>
               </FormNew>
             )}

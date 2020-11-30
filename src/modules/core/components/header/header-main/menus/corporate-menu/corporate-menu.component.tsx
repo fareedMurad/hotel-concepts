@@ -11,7 +11,7 @@ import { useState } from 'react';
  */
 const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const { introData } = useIntroData();
+  const { fullImageUrl } = useIntroData();
   const { corporateImage } = useCorporateImage();
   return (
     <div
@@ -37,7 +37,7 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
             onClick={() => setShowMenu(false)}
             link='Online programs'
             to='/for-companies'
-            image={introData}
+            image={fullImageUrl}
           />
           <LinkDropdown
             className={styles.link}

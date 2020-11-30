@@ -28,6 +28,11 @@ type ModalProps = {
    * onClose
    */
   onClose?: () => void;
+
+  /*
+   * No reset animation
+   */
+  noReset?: boolean;
 };
 
 export { ModalProps };

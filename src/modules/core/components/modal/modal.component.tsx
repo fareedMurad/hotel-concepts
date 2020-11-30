@@ -26,6 +26,7 @@ const Modal: React.FC<ModalProps> = ({
   withOverlay,
   onClose,
   historyGoBack,
+  noReset,
   ...props
 }) => {
   const { active } = useSelector((state: State) => state.ui.modal);
@@ -42,9 +43,12 @@ const Modal: React.FC<ModalProps> = ({
   const modalRef = useRef();
   const history = useHistory();
 
+  console.log('fire');
+
   const contetnAnimation = useSpring({
     from: { transform: 'translateY(-100vh)' },
-    to: { transform: 'translateY(0)' }
+    to: { transform: 'translateY(0)' },
+    reset: noReset ? false : true
   });
 
   useClickOutside(modalRef, () => {

@@ -7,6 +7,9 @@ import { useVideoLecturesData } from './our-materials.hook';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { useToggleAnimate } from '@pages/learning-approach/toggle-animation.hook';
+import { useAnimation } from '@pages/learning-approach/animations/animations.hook';
+import { animated } from 'react-spring';
 
 /**
  * Renders OurMaterials
@@ -18,7 +21,7 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
   );
   const { t } = useTranslation();
 
-  if (videoLecturesLoading) return <Spinner />;
+  // if (videoLecturesLoading) return <Spinner />;
   const getVideoId = url => url.split('/').pop();
 
   return (
@@ -26,9 +29,10 @@ const OurMaterials: React.FC<OurMaterialsProps> = ({}) => {
       <SectionTitle className={styles.title}>
         {t('learning-approach.our-materials.heading')}
       </SectionTitle>
+
       <Caption rate='1.0' title={t('learning-approach.our-materials.title')} />
       <div className={styles.videoCards}>
-        {videoLecturessData.map((video, index) => {
+        {videoLecturessData?.map((video, index) => {
           const {
             vimeoUrl,
             customTitle,

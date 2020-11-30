@@ -24,6 +24,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SubscribeModal } from '@pages/components/subscribe-modal';
 import { showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
+import { FormResultModal } from '@pages/components/form-result-modal';
+import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
+import { getAssetUrl } from '@core/shared';
 /**
  * Renders Homepage
  */
@@ -45,6 +48,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
       setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
     }
   }, [showSubscribeModal]);
+
   return (
     <React.Suspense fallback={<Spinner />}>
       <div className={styles.homepage}>
@@ -66,9 +70,9 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <FaqBlock showTitle />
         {/* <InsightsBlock /> */}
         <Socials />
-        {/* <Footer /> */}
       </div>
       <SubscribeModal />
+      <SubscribeBetaSuccessModal />
     </React.Suspense>
   );
 };

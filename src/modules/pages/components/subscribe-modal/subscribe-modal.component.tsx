@@ -40,7 +40,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = () => {
   };
   const dispatch = useDispatch();
   return (
-    <Modal className={styles.subscribeModal} id={Modals.subscribe}>
+    <Modal className={styles.subscribeModal} id={Modals.subscribe} noReset>
       <Preloader id={Preloaders.sendForm}>
         <div className={styles.modalContent}>
           <Icon
