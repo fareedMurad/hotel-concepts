@@ -8,10 +8,20 @@
 .image {
   width: 100%;
   height: auto;
-  max-height: 280px;
+  // max-height: 280px;
   object-fit: fill;
   border-radius: 7px;
   box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.16);
+  @include desktop() {
+    @include aspect-ratio(216, 280);
+  }
+}
+
+.spiner {
+  @include flex(center, center);
+  width: 100%;
+  height: auto;
+  min-height: 280px;
 }
 
 .content {

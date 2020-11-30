@@ -5,6 +5,8 @@ import { useExperiencesAssignmentData } from './experiences-assignment.hook';
 import { Icon } from '@core/components';
 import { animated, useSpring, useTransition } from 'react-spring';
 import { useDebounce } from './debounce';
+import { useAnimation } from '@pages/learning-approach/animations/animations.hook';
+import { useToggleAnimate } from '@pages/learning-approach/toggle-animation.hook';
 
 /**
  * Renders ExperiencedAssignment
@@ -12,10 +14,7 @@ import { useDebounce } from './debounce';
 const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
   const { data } = useExperiencesAssignmentData();
   const [section, setSection] = React.useState(data[0]);
-  const [isAutoplay, setAutoplay] = React.useState(true);
-  const [index, setIndex] = React.useState(1);
-
-  // const debouncedValue = useDebounce(isAutoplay, 5000);
+  const ref = React.useRef();
 
   const transition = useTransition(section, item => item.id, {
     from: { position: 'absolute', opacity: 0 },
@@ -23,24 +22,6 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
     leave: { opacity: 0 },
     config: { duration: 1000 }
   });
-
-  // React.useEffect(() => {
-  //   let timeout;
-  //   if (isAutoplay) {
-  //     index === data.length - 1 && setIndex(0);
-  //     timeout = setTimeout(() => {
-  //       index < data.length - 1 && setIndex(index + 1);
-  //       setSection(data[index]);
-  //     }, 4000);
-  //   } else
-  //     return () => {
-  //       clearTimeout(timeout);
-  //     };
-  // }, [section, isAutoplay]);
-
-  // React.useEffect(() => {
-  //   setAutoplay(true);
-  // }, [debouncedValue]);
 
   return (
     <div className={styles.experiencedAssignment}>

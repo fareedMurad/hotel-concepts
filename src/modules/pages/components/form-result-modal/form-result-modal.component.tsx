@@ -31,9 +31,17 @@ const FormResultModal: React.FC<FormResultModalProps> = ({ subscription }) => {
     if (pathname.includes('insights')) {
       return 'Thanks for subscribing to our insights';
     }
+    if (pathname.includes('jobs')) {
+      return 'Thank you! Your application has been received.';
+    }
     if (subscription) {
       return 'Thanks for subscribing to our newsletter';
     }
+
+    if (pathname.includes('/')) {
+      return 'Thank you for sign up';
+    }
+
     return 'Your request has been submitted. We will get in touch soon';
   };
 

@@ -5,14 +5,15 @@ import Popup from 'reactjs-popup';
 import ReactPlayer from 'react-player';
 import { WatchButton } from '@core/components/watch-button';
 import { ScrollButton } from '@core/components/scroll-button';
-import { Button, HeroTitle, HeroSubtitle } from '@core/components';
+import { Button, HeroTitle, HeroSubtitle, Icon } from '@core/components';
 import { useHistory } from 'react-router';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
+import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 
 /**
- *  preview video query
+ *  preview video & hero image query
  */
 const GET_PREVIEW_VIDEO = gql`
   {
@@ -23,8 +24,20 @@ const GET_PREVIEW_VIDEO = gql`
         }
       }
     }
-    asset(id: "6djYSzv9wpZRp6f9T8zgue") {
-      url
+    heroImagesCollection(where: { page: "Home" }) {
+      items {
+        page
+        fullImage {
+          sys {
+            id
+          }
+        }
+        reducedImage {
+          sys {
+            id
+          }
+        }
+      }
     }
   }
 `;
@@ -46,10 +59,17 @@ const Intro: React.FC<IntroProps> = ({}) => {
     }
     if (!loading) {
       const previewVideoUrl =
-        data.homePagePreviewVideoCollection.items[0].video.url;
+        data?.homePagePreviewVideoCollection?.items[0].video.url;
       setPreviewVideo(previewVideoUrl);
     }
   }, [videoRef, data, loading]);
+
+  // Hero images ids
+  const fullImageId = data?.heroImagesCollection?.items[0].fullImage.sys.id;
+  const reducedImageId =
+    data?.heroImagesCollection?.items[0].reducedImage.sys.id;
+
+  console.log(reducedImageId);
 
   const playVideo = () => {
     if (video) {
@@ -74,12 +94,13 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const scrollToEnroll = () => {
     scrollTo('online-courses');
   };
-
   return (
-    <section
-      className={styles.intro}
-      style={{ backgroundImage: `url(${data?.asset?.url})` }}
-    >
+    <section className={styles.intro}>
+      <LazyBackground
+        className={styles.background}
+        reducedImageId={reducedImageId}
+        fullImageId={fullImageId}
+      />
       <HeroTitle>{t('home.hero.hero-title')}</HeroTitle>
       <HeroSubtitle className={styles.subtitle}>
         {t('home.hero.hero-subtitle')}

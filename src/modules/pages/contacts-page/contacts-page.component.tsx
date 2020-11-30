@@ -37,7 +37,7 @@ const Card = ({ title, description, href, link }) => (
 const defaultValues: ContactUsFormValues = {
   subject: '',
   email: '',
-  title: '',
+  title: 'Mr',
   name: '',
   surname: '',
   comment: ''
@@ -125,7 +125,7 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                     <div className={styles.inputGroupB}>
                       <Field.Select
                         name='title'
-                        value=''
+                        value={defaultValues.title}
                         label='Title'
                         options={genders}
                         placeholder='Mr'

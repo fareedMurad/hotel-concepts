@@ -45,12 +45,12 @@ const Burger: React.FC<any> = ({ transition }) => {
       >
         Mentors & Co-authors
       </div>
-      <div
+      {/* <div
         className={styles.link}
         onClick={() => dispatch(navigate('/insights'))}
       >
         Insights
-      </div>
+      </div> */}
       <div
         className={styles.link}
         onClick={() => dispatch(navigate('/contact-us'))}

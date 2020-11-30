@@ -1,4 +1,5 @@
 import { Icon } from '@core/components';
+import { useMediaPoints } from '@core/shared';
 import classNames from 'classnames';
 import * as React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -27,6 +28,9 @@ const HeaderMain: React.FC = () => {
   const { pathname } = useLocation();
   const match = pathname === '/about-us';
 
+  //remove in future
+  const { mobile } = useMediaPoints();
+
   return (
     <div
       style={{
@@ -35,7 +39,11 @@ const HeaderMain: React.FC = () => {
       className={styles.headerMain}
     >
       <NavLink className={styles.logo} to='/'>
-        <Icon name={blackTheme || match ? 'logo-b' : 'logo'} />
+        {mobile ? (
+          <Icon name={blackTheme || match ? 'logo-b' : 'logo'} />
+        ) : (
+          <Icon name={blackTheme || match ? 'logo-b' : 'logo-copy'} />
+        )}
       </NavLink>
       <div className={styles.headerMainNavigation}>
         <ProgramsMenu className={className} />

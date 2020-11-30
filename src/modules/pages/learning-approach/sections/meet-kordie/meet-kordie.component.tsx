@@ -3,6 +3,9 @@ import { MeetKordieProps } from './meet-kordie.props';
 import * as styles from './meet-kordie.scss';
 import { Icon, H2, Paragraph, SectionTitle } from '@core/components';
 import { useTranslation } from 'react-i18next';
+import { useToggleAnimate } from '@pages/learning-approach/toggle-animation.hook';
+import { animated } from 'react-spring';
+import { useAnimation } from '@pages/learning-approach/animations/animations.hook';
 
 /**
  * Renders MeetKordie

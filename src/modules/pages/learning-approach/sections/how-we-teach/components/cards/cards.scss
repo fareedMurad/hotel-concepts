@@ -1,0 +1,46 @@
+@import 'core.scss';
+
+.wrapper {
+  margin: 38px 22px 0px 22px;
+}
+
+.wcc-cards {
+  @include flex($justify: stretch, $direction: column);
+  width: 100%;
+  @include desktop() {
+    @include flex($justify: stretch);
+    width: 50%;
+  }
+}
+
+.wcc {
+  &__image {
+    width: 100%;
+    height: auto;
+    background: $hr;
+    border-radius: 8px;
+    min-height: 188px;
+    @include tablet() {
+      min-height: 251px;
+      width: auto;
+    }
+  }
+  &__card {
+    width: 100%;
+    margin-bottom: 12px;
+    @include desktop() {
+      margin-bottom: 0;
+      margin-right: 20px;
+    }
+  }
+  &__text {
+    &--title {
+      @include font($primary-gray, 24px, 400, 34px);
+      margin-top: 32px;
+    }
+    &--description {
+      @include font($primary-gray, 18px, 400, 28px);
+      margin-top: 16px;
+    }
+  }
+}

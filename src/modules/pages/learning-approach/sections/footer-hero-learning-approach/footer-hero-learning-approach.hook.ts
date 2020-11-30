@@ -4,7 +4,7 @@ const useFooterHeroLearningApproachData = () => {
   const GET_HERO_IMAGE = gql`
     {
       asset(id: "Uk2eJ9BZBP50u1XFFhR3u") {
-        url
+        url(transform: { format: WEBP })
       }
     }
   `;

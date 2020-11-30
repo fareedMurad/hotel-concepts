@@ -5,18 +5,20 @@ import { HeroProps } from './course-partnership-hero.props';
 import { ScrollButton } from '@core/components/scroll-button';
 import { useCoursePartnershipHeroData } from './course-partnership-hero.hook';
 import { useTranslation } from 'react-i18next';
+import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 
 /**
  * Renders Hero
  */
 const CoursePartnershipHero: React.FC<HeroProps> = ({}) => {
-  const { coursePartnershipHeroData } = useCoursePartnershipHeroData();
+  const { reducedImageId, fullImageId } = useCoursePartnershipHeroData();
   const { t } = useTranslation();
 
   return (
-    <div
+    <LazyBackground
       className={styles.hero}
-      style={{ backgroundImage: `url(${coursePartnershipHeroData})` }}
+      reducedImageId={reducedImageId}
+      fullImageId={fullImageId}
     >
       <main className={styles.heroContent}>
         <HeroTitle className={styles.heroCaption}>
@@ -38,7 +40,7 @@ const CoursePartnershipHero: React.FC<HeroProps> = ({}) => {
         text={t('course-partnership.hero.scroll')}
         className={styles.arrow}
       />
-    </div>
+    </LazyBackground>
   );
 };
 
