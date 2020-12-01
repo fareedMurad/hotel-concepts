@@ -29,7 +29,6 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
     language
   );
 
-  console.log(fullImageId);
   return (
     <div className={styles.contributors}>
       <header className={styles.header}>
