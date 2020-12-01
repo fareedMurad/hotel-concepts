@@ -6,20 +6,25 @@ import { ScrollButton } from '@core/components/scroll-button';
 import { useHeroLearningApproachData } from './hero-learning-approach.hook';
 import { useTranslation } from 'react-i18next';
 import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
+import { useMediaPoints } from '@core/shared';
 
 /**
  * Renders Hero
  */
 const HeroLearningApproach: React.FC<HeroProps> = ({}) => {
-  const { fullImageId, reducedImageId } = useHeroLearningApproachData();
+  const {
+    fullImageId,
+    reducedImageId,
+    mobileImageId
+  } = useHeroLearningApproachData();
   const { t } = useTranslation();
-
+  const { mobile } = useMediaPoints();
   return (
     <div className={styles.hero}>
       <LazyBackground
         className={styles.image}
         reducedImageId={reducedImageId}
-        fullImageId={fullImageId}
+        fullImageId={mobile ? mobileImageId : fullImageId}
       >
         <main className={styles.heroContent}>
           <HeroTitle className={styles.heroCaption}>

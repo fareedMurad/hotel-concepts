@@ -16,6 +16,11 @@ const useIntroData = () => {
               id
             }
           }
+          mobileCoverImage {
+            sys {
+              id
+            }
+          }
         }
       }
     }
@@ -25,7 +30,8 @@ const useIntroData = () => {
   return {
     fullImageId: data?.heroImagesCollection?.items[0].fullImage.sys.id,
     fullImageUrl: data?.heroImagesCollection?.items[0].fullImage.url,
-    reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id
+    reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id,
+    mobileImageId: data?.heroImagesCollection?.items[0].mobileCoverImage.sys.id
   };
 };
 

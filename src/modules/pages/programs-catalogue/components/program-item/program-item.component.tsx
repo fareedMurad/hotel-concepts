@@ -11,6 +11,7 @@ import { ProgramItemProps } from './program-item.props';
 import { State } from '@app/redux/state';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
+import { queryImageUrl } from '@core/shared';
 
 /**
  * Renders ProgramItem
@@ -31,15 +32,24 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
       file: { url }
     }
   } = program;
+
   const dispatch = useDispatch();
-  const { authorized } = useSelector((state: State) => state.auth);
+  const {
+    auth: { authorized },
+    general: {
+      browserVersion: { name: browserName, version: browserVersion }
+    }
+  } = useSelector((state: State) => state);
+
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const imageSrc = oldSafari ? url : queryImageUrl(url);
 
   return (
     <React.Fragment>
       <div className={styles.programItem}>
         <div className={styles.container}>
           <Preloader id={Preloaders.programs}>
-            <img src={url} alt='' />
+            <img src={imageSrc} alt='' />
             <div className={styles.info}>
               <div className={styles.type}>{complexityLevel}</div>
               <div className={styles.nameAndLike}>

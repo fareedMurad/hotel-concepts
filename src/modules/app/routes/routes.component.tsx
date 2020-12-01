@@ -4,18 +4,15 @@ import { checkCart } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { Auth } from '@auth';
 import { RegistrationModal } from '@auth/modals/registration-modal';
-import { Footer, Preloader, Spinner, Toast } from '@core/components';
+import { Footer, Spinner, Toast } from '@core/components';
 import { HeaderMain } from '@core/components/header/header-main';
 import { HeaderMobile } from '@core/components/header/header-mobile';
 import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { BasicHead } from '@core/components/seo/basic-head';
-import { useMediaPoints } from '@core/shared';
 import { Interests } from '@pages';
 import { Cart } from '@pages/cart';
 import { MarketplaceProduct } from '@pages/marketplace-product';
 import { ProgramPage } from '@pages/program-page';
-import { toogleContributorModal } from '@ui/modal';
-import { Preloaders } from '@ui/models';
 import { Uikit } from '@uikit';
 import * as React from 'react';
 import { Fragment, lazy, useEffect } from 'react';
@@ -112,7 +109,6 @@ const Homepage = lazy(() =>
 const Routes: React.FC = () => {
   const { isToastVisible } = useSelector((state: State) => state.ui.toast);
   const { authorized } = useSelector((state: State) => state.auth);
-  const { mobile } = useMediaPoints();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -189,7 +185,7 @@ const Routes: React.FC = () => {
               <Route path='/marketplace' component={Marketplace} />
               <Route path='/program' component={ProgramPage} />
               <Route path='/course-partnership' component={CoursePartnership} />
-              <Route exact={mobile} path='/' component={Homepage} />
+              <Route path='/' component={Homepage} />
               <Route path='*' component={NotFound} />
             </Switch>
           </React.Suspense>

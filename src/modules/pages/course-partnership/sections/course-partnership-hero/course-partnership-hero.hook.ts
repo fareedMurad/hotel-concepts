@@ -16,6 +16,11 @@ const useCoursePartnershipHeroData = () => {
               id
             }
           }
+          mobileCoverImage {
+            sys {
+              id
+            }
+          }
         }
       }
     }
@@ -24,7 +29,8 @@ const useCoursePartnershipHeroData = () => {
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
   return {
     fullImageId: data?.heroImagesCollection?.items[0].fullImage.sys.id,
-    reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id
+    reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id,
+    mobileImageId: data?.heroImagesCollection?.items[0].mobileCoverImage.sys.id
   };
 };
 

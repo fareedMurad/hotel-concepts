@@ -1,6 +1,9 @@
+import { State } from '@app/redux/state';
 import { Spinner } from '@core/components';
+import { queryImageUrl } from '@core/shared';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { BookItemProps } from './book-item.props';
 import * as styles from './book-item.scss';
 
@@ -17,6 +20,11 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
   } = book;
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const {
+    general: {
+      browserVersion: { name: browserName, version: browserVersion }
+    }
+  } = useSelector((state: State) => state);
 
   useEffect(() => {
     const imageLoader = new Image();
@@ -26,10 +34,13 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
     };
   }, []);
 
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const imageSrc = oldSafari ? url : queryImageUrl(url);
+
   return (
     <div className={styles.bookItem}>
       {isLoaded ? (
-        <img className={styles.image} src={url} />
+        <img className={styles.image} src={imageSrc} />
       ) : (
         <Spinner className={styles.spiner} />
       )}

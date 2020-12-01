@@ -2,23 +2,21 @@
 
 .hero {
   @include container();
-  @include flex($align: center);
+  @include heroImage();
+  @include imageOverlay();
+  @include flex();
   position: relative;
   width: 100%;
   height: 100vh;
-  @include heroImage();
+  @include tablet() {
+    @include flex($align: center);
+    background-color: initial;
+  }
   @include desktop() {
     padding: 0px 89px !important;
   }
   min-height: 500px;
 
-  &-description {
-    margin-top: 25px;
-    width: auto;
-    @include desktop {
-      width: 428px;
-    }
-  }
   @include ipad-p() {
     height: calc(100vh - 30px);
   }
@@ -28,14 +26,28 @@
   &--content {
     position: relative;
     bottom: 80px;
+    align-self: flex-end;
+    padding-bottom: 20%;
+    @include tablet() {
+      align-self: flex-start;
+      margin-top: 240px;
+    }
   }
   &--caption {
     font-size: 49px;
+    font-weight: 600;
+    width: 80%;
+    @include desktop() {
+      width: 60%;
+    }
   }
   &--description {
     font-size: 19px;
-    width: 50%;
+    width: 80%;
     margin-top: 14px;
+    @include tablet() {
+      width: 50%;
+    }
   }
 }
 
