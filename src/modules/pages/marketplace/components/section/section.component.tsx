@@ -10,14 +10,19 @@ import classNames from 'classnames';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
 import { useState } from 'react';
-import { useWindowSize } from '@core/shared';
+import { queryImageUrl, useWindowSize } from '@core/shared';
 
 /**
  * Renders single book
  */
 const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
   const dispatch = useDispatch();
-  const { authorized } = useSelector((state: State) => state.auth);
+  const {
+    auth: { authorized },
+    general: {
+      browserVersion: { name: browserName, version: browserVersion }
+    }
+  } = useSelector((state: State) => state);
   const {
     id,
     name,
@@ -28,6 +33,8 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
     inWishlist,
     isPreorder
   } = book || {};
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const imageSrc = oldSafari ? url : queryImageUrl(url);
 
   return (
     <div className={classNames(styles.book, className)} onClick={onClick}>
@@ -49,7 +56,7 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
       <div className={styles.bookContainer}>
         <div className={styles.bookContainerImage}>
           {isPreorder && <div className={styles.preorder}>PRE-ORDER</div>}
-          <img className={styles.image} src={url} alt={url}></img>
+          <img className={styles.image} src={imageSrc} alt={url}></img>
         </div>
       </div>
       <div className={styles.divider} />
@@ -95,7 +102,6 @@ const Section: React.FC<SectionProps> = ({
         >
           {data.slice(0, limit).map(book => {
             const { id } = book || {};
-
             return (
               <Book
                 book={book}

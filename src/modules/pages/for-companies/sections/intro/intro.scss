@@ -1,9 +1,10 @@
 @import 'core.scss';
 
 .intro {
-  @include flex($justify: center, $align: flex-end, $direction: column);
+  @include flex($justify: center, $align: flex-start, $direction: column);
   @include container();
   @include heroImage();
+  @include imageOverlay();
   position: relative;
   height: 100vh;
   padding-left: 22px;
@@ -11,6 +12,10 @@
   box-sizing: border-box;
   overflow: hidden;
   min-height: 500px;
+  @include tablet() {
+    @include flex($justify: center, $align: flex-end, $direction: column);
+    background-color: initial;
+  }
   &-description {
     margin-top: 25px;
     font-family: $IBMPlex;
@@ -24,11 +29,11 @@
   @include ipad-l() {
     height: calc(100vh - 30px);
   }
-  background-position: -100px;
   @include tablet() {
     background-position: center;
   }
   &__content {
+    width: 70%;
     @include desktop() {
       width: 50%;
     }

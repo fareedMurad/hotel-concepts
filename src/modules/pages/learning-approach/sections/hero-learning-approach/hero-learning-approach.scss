@@ -3,6 +3,7 @@
 .hero {
   &-content {
     @include container();
+    transform: translateY(80px);
     @include desktop() {
       width: 70%;
     }
@@ -18,6 +19,9 @@
   &-description {
     width: 100%;
     margin-top: 25px;
+    @include desktop() {
+      width: 67%;
+    }
   }
 }
 
@@ -30,8 +34,12 @@
 .image {
   @include flex($align: stretch, $justify: center, $direction: column);
   @include heroImage();
+  @include imageOverlay();
   width: 100%;
   height: 100vh;
+  @include tablet() {
+    background-color: initial;
+  }
 }
 
 .geometry {
