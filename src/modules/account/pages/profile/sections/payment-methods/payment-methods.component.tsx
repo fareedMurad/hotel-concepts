@@ -34,7 +34,6 @@ const PaymentMethods: React.FC<PaymentMethodsProps> = ({ className }) => {
           initialValues={defaultValues}
           onSubmit={values => {
             dispatch(editPaymentMethods(values));
-            console.log(values);
           }}
         >
           {({ handleSubmit }) => (

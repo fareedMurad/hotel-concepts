@@ -61,7 +61,6 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
     // 'Focused Programs': 'flex-end',
     // 'Digital Transformation': 'flex-end'
   }[title];
-  
   const mobileImage = mobile && data?.courseCategory?.coverMobileImage.sys.id;
   const reducedImage = data?.courseCategory?.reducedImage?.sys?.id;
   const fullImage = data?.courseCategory?.coverImage?.sys?.id;

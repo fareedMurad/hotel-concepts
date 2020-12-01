@@ -17,13 +17,6 @@
   }
   min-height: 500px;
 
-  &-description {
-    margin-top: 25px;
-    width: auto;
-    @include desktop {
-      width: 428px;
-    }
-  }
   @include ipad-p() {
     height: calc(100vh - 30px);
   }
@@ -43,12 +36,18 @@
   &--caption {
     font-size: 49px;
     font-weight: 600;
+    width: 80%;
+    @include desktop() {
+      width: 60%;
+    }
   }
   &--description {
     font-size: 19px;
-
-    width: 50%;
+    width: 80%;
     margin-top: 14px;
+    @include tablet() {
+      width: 50%;
+    }
   }
 }
 

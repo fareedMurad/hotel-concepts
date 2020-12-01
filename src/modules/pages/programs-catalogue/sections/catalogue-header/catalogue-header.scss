@@ -45,7 +45,7 @@
   transform: translateY(110px);
   & > div:first-child {
     max-width: 500px;
-    @include font($white, 60px, 500, 70px);
+    @include font($white, 60px, 500, 50px);
     font-family: $EBGaramond;
     letter-spacing: -0.48px;
     @include tablet() {
@@ -60,10 +60,10 @@
     margin-top: 22px;
     @include font($white, 24px, 400, 34px);
     @include tablet() {
-      width: 60%;
+      width: 90%;
     }
     @include desktop() {
-      width: 30%;
+      width: 60%;
     }
   }
 }
