@@ -1,7 +1,5 @@
 import { useQuery } from '@apollo/client';
 import { gql } from 'apollo-boost';
-import { resolve } from 'dns';
-import { useEffect, useState } from 'react';
 
 /**
  * Download blob as file
@@ -19,6 +17,7 @@ const downloadBlob = (blob: Blob, name: string) => {
  * Get image url
  */
 const getAssetUrl = (id: string) => {
+  const imageId = id.split('/')[4];
   const getReducedImage = gql`
     query($id: String!) {
       asset(id: $id) {
@@ -28,19 +27,19 @@ const getAssetUrl = (id: string) => {
   `;
 
   const { data: reducedImage } = useQuery(getReducedImage, {
-    variables: { id: id }
+    variables: { id: imageId }
   });
 
   const getImage = gql`
     query($id: String!) {
       asset(id: $id) {
-        url(transform: { format: WEBP })
+        url
       }
     }
   `;
 
   const { data, loading, error } = useQuery(getImage, {
-    variables: { id: id }
+    variables: { id: imageId }
   });
 
   return {
@@ -49,4 +48,37 @@ const getAssetUrl = (id: string) => {
   };
 };
 
-export { downloadBlob, getAssetUrl };
+/**
+ * Query image url
+ */
+const queryImageUrl = (id: string) => {
+  const imageId = id.split('/')[4];
+
+  const getReducedImage = gql`
+    query($id: String!) {
+      asset(id: $id) {
+        url(transform: { quality: 50 })
+      }
+    }
+  `;
+
+  const { data: reducedImage } = useQuery(getReducedImage, {
+    variables: { id: imageId }
+  });
+
+  const getWebpImage = gql`
+    query($id: String!) {
+      asset(id: $id) {
+        url(transform: { format: WEBP })
+      }
+    }
+  `;
+
+  const { data, loading, error } = useQuery(getWebpImage, {
+    variables: { id: imageId }
+  });
+
+  return data?.asset?.url;
+};
+
+export { downloadBlob, getAssetUrl, queryImageUrl };
