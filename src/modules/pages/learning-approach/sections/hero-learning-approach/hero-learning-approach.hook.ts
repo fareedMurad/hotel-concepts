@@ -17,6 +17,11 @@ const useHeroLearningApproachData = () => {
               id
             }
           }
+          mobileCoverImage {
+            sys {
+              id
+            }
+          }
         }
       }
     }
@@ -27,7 +32,9 @@ const useHeroLearningApproachData = () => {
   return {
     fullImageId: data?.heroImagesCollection?.items[0].fullImage.sys.id,
     reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id,
-    heroLearningApproachData: data?.heroImagesCollection?.items[0].fullImage.url
+    heroLearningApproachData:
+      data?.heroImagesCollection?.items[0].fullImage.url,
+    mobileImageId: data?.heroImagesCollection?.items[0].mobileCoverImage.sys.id
   };
 };
 
