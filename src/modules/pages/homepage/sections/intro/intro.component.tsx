@@ -77,8 +77,6 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const reducedImageId =
     data?.heroImagesCollection?.items[0].reducedImage.sys.id;
 
-  console.log(reducedImageId);
-
   const playVideo = () => {
     if (video) {
       video.play();
