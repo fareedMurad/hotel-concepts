@@ -4,6 +4,9 @@ import { Button } from '@core/components';
 import { CourseItemProps } from './course-item.props';
 import Img from 'react-cool-img';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { State } from '@app/redux/state';
+import { queryImageUrl } from '@core/shared';
 /**
  * Renders CourseItem
  */
@@ -20,10 +23,12 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
       file: { url }
     }
   } = course;
+  const {
+    browserVersion: { name: browserName, version: browserVersion }
+  } = useSelector((state: State) => state.general);
 
-  const history = useHistory();
-  const handleClick = (id, slug) => () =>
-    history.push(`/program/?programId=${id}`);
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const imageSrc = oldSafari ? url : queryImageUrl(url);
 
   return (
     <div className={styles.courseItem}>
@@ -31,7 +36,7 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
         <div className={styles.header}>
           {/* <img src={url} alt='' /> */}
           <Img
-            src={url}
+            src={imageSrc}
             alt='Online course'
             placeholder={require('img/placeholder')}
           />

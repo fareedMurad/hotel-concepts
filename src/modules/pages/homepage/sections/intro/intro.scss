@@ -5,6 +5,7 @@
   @include flex($justify: center, $direction: column);
   @include container();
   @include heroImage();
+
   min-height: 500px;
   // padding-left: $left-offset;
   // padding-right: $default-offset;
@@ -19,6 +20,7 @@
 }
 
 .background {
+  @include imageOverlay();
   position: absolute;
   top: 0;
   width: 100%;
@@ -28,6 +30,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  @include tablet() {
+    background-color: initial;
+  }
 }
 
 .video {
@@ -67,18 +72,8 @@
 }
 
 .title {
-  & > div:first-child {
-    @include font($white, 40px, 500, 50px);
-  }
-  & > div:nth-child(2) {
-    @include font($white, 20px, 400, 30px);
-  }
+  width: auto;
   @include desktop() {
-    & > div:first-child {
-      @include font($white, 50px, 500, 52px);
-    }
-    & > div:nth-child(2) {
-      @include font($white, 20px, 400, 22px);
-    }
+    width: 40%;
   }
 }

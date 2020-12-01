@@ -43,6 +43,11 @@ const useStoryMissionData = () => {
               id
             }
           }
+          mobileCoverImage {
+            sys {
+              id
+            }
+          }
         }
       }
     }
@@ -53,7 +58,8 @@ const useStoryMissionData = () => {
   return {
     anchors,
     fullImageId: data?.heroImagesCollection?.items[0].fullImage.sys.id,
-    reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id
+    reducedImageId: data?.heroImagesCollection?.items[0].reducedImage.sys.id,
+    mobileImageId: data?.heroImagesCollection?.items[0].mobileCoverImage.sys.id
   };
 };
 

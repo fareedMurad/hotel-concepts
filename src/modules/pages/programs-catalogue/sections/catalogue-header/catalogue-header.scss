@@ -2,12 +2,9 @@
 
 .catalogue-header {
   @include heroImage();
-  @include tablet() {
-    background-position: center;
-  }
-  @include flex($align: stretch, $direction: column, $justify: center);
+  @include flex();
   position: relative;
-
+  padding-bottom: 113px;
   width: 100%;
   z-index: 1;
   height: 100vh;
@@ -26,27 +23,48 @@
     height: calc(100vh - 30px);
     background-position: center;
   }
+  @include tablet() {
+    background-position: center;
+  }
 }
 
 .background {
   @include heroBackground();
+  @include imageOverlay();
   width: 100%;
   height: 100vh;
+  @include tablet() {
+    background-color: initial;
+  }
 }
 
 .title {
   padding-left: $left-offset;
   padding-right: $default-offset;
+  width: 50%;
+  transform: translateY(110px);
   & > div:first-child {
     max-width: 500px;
-    @include font($white, 60px, 500, 70px);
+    @include font($white, 60px, 500, 50px);
     font-family: $EBGaramond;
     letter-spacing: -0.48px;
+    @include tablet() {
+      width: 30%;
+    }
+    @include desktop() {
+      width: 40%;
+    }
   }
   & > div:nth-child(2) {
     max-width: 880px;
     margin-top: 22px;
     @include font($white, 24px, 400, 34px);
+    @include tablet() {
+      width: 90%;
+    }
+    @include desktop() {
+      width: 60%;
+    }
   }
 }
 
@@ -60,10 +78,10 @@
   .title {
     padding: 0 $default-offset;
     & > div:first-child {
-      @include font($white, 44px, 400, 46px);
+      @include font($white, 49px, 600, 46px);
     }
     & > div:nth-child(2) {
-      @include font($white, 18px, 400, 22px);
+      @include font($white, 19px, 400, 27px);
     }
   }
   .scroll-button {

@@ -9,6 +9,8 @@ import { useContributorsData } from './contributor.hook';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
+import { useMediaPoints } from '@core/shared';
+import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 
 /**
  * Renders Contributors
@@ -22,16 +24,17 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const { contributorsHeroImage } = useContributorsData(language);
+  const { mobile } = useMediaPoints();
+  const { fullImageId, reducedImageId, mobileImageId } = useContributorsData(
+    language
+  );
 
   return (
     <div className={styles.contributors}>
       <header className={styles.header}>
-        <div
-          style={{
-            backgroundImage: `url(${contributorsHeroImage})`
-          }}
+        <LazyBackground
+          reducedImageId={reducedImageId}
+          fullImageId={mobile ? mobileImageId : fullImageId}
           className={styles.headerImg}
         >
           <div className={styles.headerContent}>
@@ -49,7 +52,7 @@ const Contributors: React.FC<ContributorsProps> = ({}) => {
             text={t('contributors.hero.scroll')}
             className={styles.headerScroll}
           />
-        </div>
+        </LazyBackground>
       </header>
       <main>
         <ContributorsContainer />
