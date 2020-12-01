@@ -11,6 +11,7 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
 import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
+import { useMediaPoints } from '@core/shared';
 
 /**
  *  preview video & hero image query
@@ -37,6 +38,11 @@ const GET_PREVIEW_VIDEO = gql`
             id
           }
         }
+        mobileCoverImage {
+          sys {
+            id
+          }
+        }
       }
     }
   }
@@ -52,7 +58,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const [videoPromise, setVideoPromise] = React.useState<Promise<any>>(null);
   const { data, loading, error } = useQuery(GET_PREVIEW_VIDEO);
   const { t } = useTranslation();
-
+  const { mobile } = useMediaPoints();
   React.useEffect(() => {
     if (videoRef.current) {
       setVideo(videoRef.current);
@@ -65,6 +71,8 @@ const Intro: React.FC<IntroProps> = ({}) => {
   }, [videoRef, data, loading]);
 
   // Hero images ids
+  const mobileImageId =
+    mobile && data?.heroImagesCollection?.items[0].mobileCoverImage.sys.id;
   const fullImageId = data?.heroImagesCollection?.items[0].fullImage.sys.id;
   const reducedImageId =
     data?.heroImagesCollection?.items[0].reducedImage.sys.id;
@@ -99,9 +107,12 @@ const Intro: React.FC<IntroProps> = ({}) => {
       <LazyBackground
         className={styles.background}
         reducedImageId={reducedImageId}
-        fullImageId={fullImageId}
+        fullImageId={mobileImageId || fullImageId}
       />
-      <HeroTitle>{t('home.hero.hero-title')}</HeroTitle>
+
+      <HeroTitle className={styles.title}>
+        {t('home.hero.hero-title')}
+      </HeroTitle>
       <HeroSubtitle className={styles.subtitle}>
         {t('home.hero.hero-subtitle')}
       </HeroSubtitle>
@@ -112,6 +123,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
         arrow
         width={230}
       />
+
       <Popup
         contentStyle={{
           border: 'none',

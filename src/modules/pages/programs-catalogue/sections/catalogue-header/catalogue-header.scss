@@ -3,7 +3,6 @@
 .catalogue-header {
   @include heroImage();
   @include flex();
-
   position: relative;
   padding-bottom: 113px;
   width: 100%;
@@ -42,14 +41,15 @@
 .title {
   padding-left: $left-offset;
   padding-right: $default-offset;
-  width: 60%;
+  width: 50%;
+  transform: translateY(110px);
   & > div:first-child {
     max-width: 500px;
     @include font($white, 60px, 500, 70px);
     font-family: $EBGaramond;
     letter-spacing: -0.48px;
     @include tablet() {
-      width: 50%;
+      width: 30%;
     }
     @include desktop() {
       width: 40%;
@@ -63,7 +63,7 @@
       width: 60%;
     }
     @include desktop() {
-      width: 80%;
+      width: 30%;
     }
   }
 }
@@ -78,10 +78,10 @@
   .title {
     padding: 0 $default-offset;
     & > div:first-child {
-      @include font($white, 44px, 600, 46px);
+      @include font($white, 49px, 600, 46px);
     }
     & > div:nth-child(2) {
-      @include font($white, 18px, 400, 22px);
+      @include font($white, 19px, 400, 27px);
     }
   }
   .scroll-button {

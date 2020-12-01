@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 import { __Directive } from 'graphql';
 import { useMediaPoints } from '@core/shared';
+import { HeroTitle, HeroSubtitle } from '@core/components';
 
 const GET_CATEGORY_INFO = gql`
   query($id: String!) {
@@ -54,8 +55,11 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
     }
   );
 
+  //check heading position
   const titlePosition = {
-    'Essential Soft Skills': 'flex-end'
+    // 'Essential Soft Skills': 'flex-end',
+    // 'Focused Programs': 'flex-end',
+    // 'Digital Transformation': 'flex-end'
   }[title];
 
   console.log(titlePosition);
@@ -75,8 +79,8 @@ const CatalogueHeader: React.FC<CatalogueHeaderProps> = ({
         className={styles.title}
         style={{ alignSelf: (mobile && titlePosition) || 'center' }}
       >
-        <div>{title}</div>
-        <div>{description}</div>
+        <HeroTitle>{title}</HeroTitle>
+        <HeroSubtitle>{description}</HeroSubtitle>
       </div>
       <ScrollButton
         text={t('programs-catalogue.scroll')}
