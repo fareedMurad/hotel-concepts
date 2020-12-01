@@ -5,37 +5,50 @@
   height: 100vh;
   &-img {
     @include heroImage();
-    @include flex($align: center);
+    padding-top: 173px;
+    padding-left: 20px;
     position: relative;
     width: 100%;
     height: 100%;
+    background-position-x: 60%;
+    @include imageOverlay();
+    @include tablet() {
+      @include flex($align: center);
+      background-color: initial;
+      padding-top: 0;
+      padding-left: 0;
+    }
     @include desktop() {
       align-items: flex-start;
     }
   }
   &-content {
     @include container();
-    width: 100%;
-    margin-top: 300px;
+    width: 410px;
+    margin-top: 100px;
     @include iphone7() {
       margin: 0;
     }
     @include tablet() {
       // margin-top: calc(100vh - 570px);
       // width: 49%;
+      margin-top: 300px;
     }
     & > div:nth-child(2) {
       margin: 24px 0px;
       // width: 50%;
     }
     &--description {
-      @include font($primary-gray, 19px, 400, 27px);
-      @include desktop() {
-        width: 310px;
+      @include font(white, 19px, 400, 27px);
+      @include tablet() {
+        color: $primary-gray;
       }
     }
     &--title {
-      @include font($primary-gray, 49px, 600, 70px);
+      @include font(white, 49px, 600, 70px);
+      @include tablet() {
+        color: $primary-gray;
+      }
     }
 
     @include desktop() {
