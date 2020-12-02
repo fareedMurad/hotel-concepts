@@ -37,7 +37,6 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
   const {
     auth: { authorized },
     general: {
-<<<<<<< HEAD
       browserVersion: { name: browserName, version }
     }
   } = useSelector((state: State) => state);
@@ -45,14 +44,6 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
   const imageSrc = oldSafari
     ? `${url}?h=500&w=900`
     : `${url}?q=80&fm=webp&h=500&w=900`;
-=======
-      browserVersion: { name: browserName, version: browserVersion }
-    }
-  } = useSelector((state: State) => state);
-
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
-  const imageSrc = oldSafari ? url : queryImageUrl(url);
->>>>>>> 0402ee5f60a7c76448cf93f0dc3d9127a2f42a7f
 
   return (
     <React.Fragment>
