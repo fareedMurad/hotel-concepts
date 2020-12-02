@@ -1,13 +1,14 @@
 import { State } from '@app/redux/state';
-import { Spinner } from '@core/components';
+import { Modal, Spinner } from '@core/components';
 import { FaqBlock } from '@pages/components';
 import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
 import { SubscribeModal } from '@pages/components/subscribe-modal';
 import { useContributorsData } from '@pages/contributors/contributor.hook';
 import Mentors from '@pages/homepage/sections/mentors/mentors.component';
-import { showModal } from '@ui/modal';
+import { closeModal, showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import * as React from 'react';
+import { ConsoleView } from 'react-device-detect';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHomePageData } from './homepage.hook';
 import { HomepageProps } from './homepage.props';
@@ -40,9 +41,13 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if (showSubscribeModal) {
-      setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
-    }
+    window.addEventListener('load', () => {
+      dispatch(showModal(Modals.subscribe));
+    });
+    return () =>
+      window.removeEventListener('load', () => {
+        dispatch(closeModal(Modals.subscribe));
+      });
   }, [showSubscribeModal]);
 
   return (
