@@ -14,41 +14,6 @@ const downloadBlob = (blob: Blob, name: string) => {
 };
 
 /**
- * Get image url
- */
-const getAssetUrl = (id: string) => {
-  const imageId = id.split('/')[4];
-  const getReducedImage = gql`
-    query($id: String!) {
-      asset(id: $id) {
-        url(transform: { format: WEBP })
-      }
-    }
-  `;
-
-  const { data: reducedImage } = useQuery(getReducedImage, {
-    variables: { id: imageId }
-  });
-
-  const getImage = gql`
-    query($id: String!) {
-      asset(id: $id) {
-        url
-      }
-    }
-  `;
-
-  const { data, loading, error } = useQuery(getImage, {
-    variables: { id: imageId }
-  });
-
-  return {
-    reducedUrl: reducedImage?.asset?.url,
-    normalUrl: data?.asset?.url
-  };
-};
-
-/**
  * Query image url
  */
 const queryImageUrl = (id: string) => {
@@ -81,4 +46,4 @@ const queryImageUrl = (id: string) => {
   return data?.asset?.url;
 };
 
-export { downloadBlob, getAssetUrl, queryImageUrl };
+export { downloadBlob, queryImageUrl };
