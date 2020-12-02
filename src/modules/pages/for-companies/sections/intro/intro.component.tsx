@@ -7,6 +7,7 @@ import { scrollTo } from '@core/helpers/scroll-to.helper';
 import { useIntroData } from './intro.hook';
 import { useTranslation } from 'react-i18next';
 import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
+import { useMediaPoints } from '@core/shared';
 
 /**
  * Renders Intro
@@ -16,11 +17,12 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const ScrollToEnroll = () => {
     scrollTo('consult-request');
   };
-  const { reducedImageId, fullImageId } = useIntroData();
+  const { reducedImageId, fullImageId, mobileImageId } = useIntroData();
+  const { mobile } = useMediaPoints();
 
   return (
     <LazyBackground
-      fullImageId={fullImageId}
+      fullImageId={mobile ? mobileImageId : fullImageId}
       reducedImageId={reducedImageId}
       className={styles.intro}
     >

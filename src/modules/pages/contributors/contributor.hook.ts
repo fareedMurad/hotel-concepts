@@ -40,8 +40,31 @@ const useContributorsData = language => {
           }
         }
       }
-      asset(id: "2YtAx6uGTgFt8HPVrVb7C1") {
-        url
+    }
+  `;
+
+  const GET_IMAGE_ID = gql`
+    {
+      heroImagesCollection(where: { page: "Mentors" }) {
+        items {
+          page
+          fullImage {
+            url
+            sys {
+              id
+            }
+          }
+          reducedImage {
+            sys {
+              id
+            }
+          }
+          mobileCoverImage {
+            sys {
+              id
+            }
+          }
+        }
       }
     }
   `;
@@ -50,10 +73,15 @@ const useContributorsData = language => {
     variables: { locale: language }
   });
 
+  const { data: image } = useQuery(GET_IMAGE_ID);
+
   return {
     contributors: data?.mentorCollection?.items,
     loading,
-    contributorsHeroImage: data?.asset?.url
+    contributorsHeroImage: data?.asset?.url,
+    fullImageId: image?.heroImagesCollection?.items[0].fullImage.sys.id,
+    reducedImageId: image?.heroImagesCollection?.items[0].reducedImage.sys.id,
+    mobileImageId: image?.heroImagesCollection?.items[0].mobileCoverImage.sys.id
   };
 };
 

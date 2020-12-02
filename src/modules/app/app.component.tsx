@@ -47,18 +47,18 @@ const Content: React.FC = ({ children }) => {
  * Renders App
  */
 const App: React.FC<AppProps> = ({ children, history, store }) => {
-  const [loading, setLoading] = React.useState(true);
+  // const [loading, setLoading] = React.useState(true);
 
-  React.useLayoutEffect(() => {
-    window.onload = () => {
-      setLoading(false);
-    };
-  }, []);
+  // React.useLayoutEffect(() => {
+  //   window.onload = () => {
+  //     setLoading(false);
+  //   };
+  // }, []);
   return (
     <Provider store={store}>
       <ApolloProvider client={client}>
         <ErrorBoundary history={history}>
-          {loading && <StartUpPreloader />}
+          {/* {loading && <StartUpPreloader />} */}
           <Content>
             <Localization>
               <StickyContainer>
