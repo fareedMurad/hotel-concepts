@@ -41,7 +41,7 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
   return (
     <div className={styles.bookItem}>
       {isLoaded ? (
-        <img className={styles.image} src={`${imageSrc}&h=500&w=300`} />
+        <img className={styles.image} src={imageSrc} />
       ) : (
         <Spinner className={styles.spiner} />
       )}
