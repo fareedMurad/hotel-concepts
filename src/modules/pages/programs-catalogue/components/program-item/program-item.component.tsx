@@ -32,24 +32,32 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
     }
   } = program;
   const dispatch = useDispatch();
-  const { authorized } = useSelector((state: State) => state.auth);
+  const {
+    auth: { authorized },
+    general: {
+      browserVersion: { name: browserName, version }
+    }
+  } = useSelector((state: State) => state);
+  const oldSafari = browserName === 'Safari' && version < '14';
+  const imageSrc = oldSafari
+    ? `${url}?h=500&w=900`
+    : `${url}?q=80&fm=webp&h=500&w=900`;
 
   return (
     <React.Fragment>
       <div className={styles.programItem}>
         <div className={styles.container}>
           <Preloader id={Preloaders.programs}>
-            <img src={url} alt='' />
+            <img src={imageSrc} alt='' />
             <div className={styles.info}>
               <div className={styles.type}>{complexityLevel}</div>
               <div className={styles.nameAndLike}>
                 <div
                   className={styles.name}
-                  onClick={
-                    () => {}
+                  onClick={() => {
                     // #non-clickable
-                    // dispatch(navigate(`/program/?programId=${id}`))
-                  }
+                    dispatch(navigate(`/program/?programId=${id}`));
+                  }}
                 >
                   {name}
                 </div>

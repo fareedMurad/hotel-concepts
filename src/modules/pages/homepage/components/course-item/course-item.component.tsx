@@ -4,10 +4,17 @@ import { Button } from '@core/components';
 import { CourseItemProps } from './course-item.props';
 import Img from 'react-cool-img';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { State } from '@app/redux/state';
 /**
  * Renders CourseItem
  */
 const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
+  const {
+    browserVersion: { name: browserName, version }
+  } = useSelector((state: State) => state.general);
+  const oldSafari = browserName === 'Safari' && version < '14';
+
   const {
     name,
     price,
@@ -25,13 +32,17 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
   const handleClick = (id, slug) => () =>
     history.push(`/program/?programId=${id}`);
 
+  const imageSrc = oldSafari
+    ? `${url}?h=500&w=900`
+    : `${url}?q=80&fm=webp&h=500&w=900`;
+
   return (
     <div className={styles.courseItem}>
       <div className={styles.card}>
         <div className={styles.header}>
           {/* <img src={url} alt='' /> */}
           <Img
-            src={url}
+            src={imageSrc}
             alt='Online course'
             placeholder={require('img/placeholder')}
           />
