@@ -1,23 +1,28 @@
-import * as React from 'react';
-import * as styles from './section.scss';
-import { BookProps, SectionProps } from './section.props';
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
-import { useDispatch, useSelector } from 'react-redux';
-import { Icon } from '@core/components';
-import { Modals } from '@ui/models';
 import { State } from '@app/redux/state';
-import classNames from 'classnames';
+import { Icon } from '@core/components';
+import { useWindowSize } from '@core/shared';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import classNames from 'classnames';
+import * as React from 'react';
 import { useState } from 'react';
-import { useWindowSize } from '@core/shared';
+import { useDispatch, useSelector } from 'react-redux';
+import { BookProps, SectionProps } from './section.props';
+import * as styles from './section.scss';
 
 /**
  * Renders single book
  */
 const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
   const dispatch = useDispatch();
-  const { authorized } = useSelector((state: State) => state.auth);
+  const {
+    auth: { authorized },
+    general: {
+      browserVersion: { name: browserName, version: browserVersion }
+    }
+  } = useSelector((state: State) => state);
   const {
     id,
     name,
@@ -28,6 +33,10 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
     inWishlist,
     isPreorder
   } = book || {};
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const imageSrc = oldSafari
+    ? `${url}?h=500&w=300`
+    : `${url}?h=500&w=300&fm=webp`;
 
   return (
     <div className={classNames(styles.book, className)} onClick={onClick}>
@@ -49,7 +58,7 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
       <div className={styles.bookContainer}>
         <div className={styles.bookContainerImage}>
           {isPreorder && <div className={styles.preorder}>PRE-ORDER</div>}
-          <img className={styles.image} src={url} alt={url}></img>
+          <img className={styles.image} src={imageSrc} alt={url}></img>
         </div>
       </div>
       <div className={styles.divider} />
@@ -95,7 +104,6 @@ const Section: React.FC<SectionProps> = ({
         >
           {data.slice(0, limit).map(book => {
             const { id } = book || {};
-
             return (
               <Book
                 book={book}

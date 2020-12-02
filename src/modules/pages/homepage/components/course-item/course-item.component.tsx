@@ -11,11 +11,6 @@ import { State } from '@app/redux/state';
  */
 const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
   const {
-    browserVersion: { name: browserName, version }
-  } = useSelector((state: State) => state.general);
-  const oldSafari = browserName === 'Safari' && version < '14';
-
-  const {
     name,
     price,
     weeks,
@@ -27,11 +22,10 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
       file: { url }
     }
   } = course;
-
-  const history = useHistory();
-  const handleClick = (id, slug) => () =>
-    history.push(`/program/?programId=${id}`);
-
+  const {
+    browserVersion: { name: browserName, version: browserVersion }
+  } = useSelector((state: State) => state.general);
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
   const imageSrc = oldSafari
     ? `${url}?h=500&w=900`
     : `${url}?q=80&fm=webp&h=500&w=900`;

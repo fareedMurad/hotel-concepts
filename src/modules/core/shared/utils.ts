@@ -1,7 +1,5 @@
 import { useQuery } from '@apollo/client';
 import { gql } from 'apollo-boost';
-import { resolve } from 'dns';
-import { useEffect, useState } from 'react';
 
 /**
  * Download blob as file
@@ -16,22 +14,24 @@ const downloadBlob = (blob: Blob, name: string) => {
 };
 
 /**
- * Get image url
+ * Query image url
  */
-const getAssetUrl = (id: string) => {
+const queryImageUrl = (id: string) => {
+  const imageId = id.split('/')[4];
+
   const getReducedImage = gql`
     query($id: String!) {
       asset(id: $id) {
-        url(transform: { format: WEBP })
+        url(transform: { quality: 50 })
       }
     }
   `;
 
   const { data: reducedImage } = useQuery(getReducedImage, {
-    variables: { id: id }
+    variables: { id: imageId }
   });
 
-  const getImage = gql`
+  const getWebpImage = gql`
     query($id: String!) {
       asset(id: $id) {
         url(transform: { format: WEBP })
@@ -39,14 +39,11 @@ const getAssetUrl = (id: string) => {
     }
   `;
 
-  const { data, loading, error } = useQuery(getImage, {
-    variables: { id: id }
+  const { data, loading, error } = useQuery(getWebpImage, {
+    variables: { id: imageId }
   });
 
-  return {
-    reducedUrl: reducedImage?.asset?.url,
-    normalUrl: data?.asset?.url
-  };
+  return data?.asset?.url;
 };
 
-export { downloadBlob, getAssetUrl };
+export { downloadBlob, queryImageUrl };
