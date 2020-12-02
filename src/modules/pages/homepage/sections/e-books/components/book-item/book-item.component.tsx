@@ -24,11 +24,6 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
       browserVersion: { name: browserName, version: browserVersion }
     }
   } = useSelector((state: State) => state);
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
-
-  const imageSrc = oldSafari
-    ? `${url}?h=500&w=300`
-    : `${url}?h=500&w=300&fm=webp`;
 
   useEffect(() => {
     const imageLoader = new Image();
@@ -37,6 +32,11 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
       setIsLoaded(true);
     };
   }, []);
+
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const imageSrc = oldSafari
+    ? `${url}?h=500&w=300`
+    : `${url}?h=500&w=300&fm=webp`;
 
   return (
     <div className={styles.bookItem}>

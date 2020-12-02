@@ -42,7 +42,9 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
 
   React.useEffect(() => {
     window.addEventListener('load', () => {
-      dispatch(showModal(Modals.subscribe));
+      setTimeout(() => {
+        dispatch(showModal(Modals.subscribe));
+      }, 3000);
     });
     return () =>
       window.removeEventListener('load', () => {
