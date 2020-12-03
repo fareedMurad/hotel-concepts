@@ -3,7 +3,9 @@
 .registration-modal {
   position: relative;
   width: 692px;
-  padding: 6px 73px 20px 73px;
+  @include desktop() {
+    padding: 6px 73px 20px 73px;
+  }
 }
 
 .close-modal {
