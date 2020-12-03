@@ -33,6 +33,10 @@ type ModalProps = {
    * No reset animation
    */
   noReset?: boolean;
+  /*
+   * Animate
+   */
+  animate?: boolean;
 };
 
 export { ModalProps };

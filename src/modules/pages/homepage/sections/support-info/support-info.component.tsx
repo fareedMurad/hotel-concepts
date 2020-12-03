@@ -4,6 +4,12 @@ import * as styles from './support-info.scss';
 import { useSupportInfoData } from './support-info.hook';
 import { SectionTitle, Hr } from '@core/components';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { State } from '@app/redux/state';
+import { showModal, closeModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import { SubscribeModal } from '@pages/components/subscribe-modal';
+import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
 
 /**
  * Renders SupportInfo
@@ -11,6 +17,24 @@ import { useTranslation } from 'react-i18next';
 const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
   const { data } = useSupportInfoData();
   const { t } = useTranslation();
+
+  /**
+   * Handle subscribe modal
+   */
+
+  const {
+    localization: { language },
+    form: { showSubscribeModal }
+  } = useSelector((state: State) => state);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        dispatch(showModal(Modals.subscribe));
+      }, 3000);
+    });
+  }, []);
 
   return (
     <section className={styles.supportInfo}>
@@ -32,6 +56,8 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
           </div>
         ))}
       </div>
+      <SubscribeModal />
+      <SubscribeBetaSuccessModal />
     </section>
   );
 };

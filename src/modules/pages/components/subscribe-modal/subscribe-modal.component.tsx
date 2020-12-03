@@ -14,13 +14,13 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { SubscribeModalProps } from './subscribe-modal.props';
 import * as styles from './subscribe-modal.scss';
-import { useState } from 'react';
+
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { sendForm } from '@app/redux/form';
 import { useTranslation } from 'react-i18next';
-import { useUnlimitedAccessBooksData } from '@pages/homepage/sections/unlimited-access-books/unlimited-access-books.hook';
 import { useMediaPoints } from '@core/shared';
+import { gql, useQuery } from '@apollo/client';
 
 const validationSchema = yup.object<{ email: string }>().shape({
   email: yup
@@ -30,19 +30,34 @@ const validationSchema = yup.object<{ email: string }>().shape({
     .required()
 });
 
+const GET_IMAGE = gql`
+  query {
+    asset(id: "4OHwbsXoxvWvFyQnYPHYzm") {
+      url(transform: { format: WEBP })
+    }
+  }
+`;
+
 /**
  * Renders SubscribeModal
  */
 const SubscribeModal: React.FC<SubscribeModalProps> = () => {
-  const { imageUrl } = useUnlimitedAccessBooksData();
+  const { data, loading, error } = useQuery(GET_IMAGE);
+
+  const imageUrl = data?.asset?.url;
   const { t } = useTranslation();
   const { mobile } = useMediaPoints();
   const initValues = {
     email: ''
   };
   const dispatch = useDispatch();
+  console.log('anim');
   return (
-    <Modal className={styles.subscribeModal} id={Modals.subscribe}>
+    <Modal
+      className={styles.subscribeModal}
+      id={Modals.subscribe}
+      animate={false}
+    >
       <Preloader id={Preloaders.sendForm}>
         <div className={styles.modalContent}>
           <Icon
