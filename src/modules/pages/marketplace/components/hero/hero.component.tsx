@@ -46,10 +46,17 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
   const { data, loading, error } = useQuery(SLIDERDATA);
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { selectedCategory } = useSelector((state: State) => state.marketplace);
-  if (loading) return <Spinner />;
+  const {
+    marketplace: { selectedCategory },
+    general: {
+      browserVersion: { name: browserName, version: browserVersion }
+    }
+  } = useSelector((state: State) => state);
 
-  const sliderData = data?.marketplaceBackgroundCarouselCollection?.items;
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+
+  if (loading) return <Spinner />;
+  const response = data?.marketplaceBackgroundCarouselCollection?.items;
 
   return (
     <div className={styles.hero}>
@@ -63,8 +70,8 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
         infinite
         transitionDuration={1000}
       >
-        {sliderData?.map((item, index) => (
-          <SliderItem item={item} />
+        {response?.map((item, index) => (
+          <SliderItem item={item} key={index} isOldSafari={oldSafari} />
         ))}
       </Slider>
       <div className={styles.overlay}>
