@@ -40,7 +40,9 @@
     }
     &--description {
       @include font(white, 19px, 400, 27px);
+      width: 80%;
       @include tablet() {
+        width: auto;
         color: $primary-gray;
       }
     }
