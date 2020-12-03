@@ -43,7 +43,7 @@
   }
   &-button {
     position: absolute;
-    width: auto;
+    width: 80%;
     bottom: 36px;
     @include desktop() {
       width: 311px;

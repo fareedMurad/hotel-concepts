@@ -10,8 +10,10 @@
 }
 .modal-invoice-request {
   width: 692px;
-  padding: 0 94px 40px 94px;
   position: relative;
+  @include desktop() {
+    padding: 0 94px 40px 94px;
+  }
 }
 
 .title {

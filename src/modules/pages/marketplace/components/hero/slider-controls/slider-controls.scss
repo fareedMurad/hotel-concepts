@@ -2,6 +2,7 @@
 
 .slider-controls {
   @include flex(space-between, center);
+  display: none;
   position: absolute;
   left: 20px;
   right: 20px;
@@ -13,6 +14,7 @@
   }
 
   @include desktop() {
+    display: block;
     top: 41%;
     left: 54px;
     right: 54px;

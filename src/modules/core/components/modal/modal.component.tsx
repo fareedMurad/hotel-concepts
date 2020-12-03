@@ -4,7 +4,7 @@ import * as styles from './modal.scss';
 import classNames from 'classnames';
 import { useRef } from 'react';
 import { State } from '@app/redux/state';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import {
   closeModal,
   toogleContributorModal,
@@ -29,7 +29,10 @@ const Modal: React.FC<ModalProps> = ({
   noReset,
   ...props
 }) => {
-  const { active } = useSelector((state: State) => state.ui.modal);
+  const active = useSelector(
+    (state: State) => state.ui.modal.active,
+    shallowEqual
+  );
 
   const overlayAnimation = useSpring({
     from: { opacity: 0 },
@@ -46,6 +49,7 @@ const Modal: React.FC<ModalProps> = ({
   const contetnAnimation = useSpring({
     from: { transform: 'translateY(-100vh)' },
     to: { transform: 'translateY(0)' },
+
     reset: noReset ? false : true
   });
 

@@ -1,11 +1,6 @@
 /**
  * form state
  */
-class FormState {
-  /*
-   * Show subscribe modal
-   */
-  showSubscribeModal: boolean = true;
-}
+class FormState {}
 
 export { FormState };

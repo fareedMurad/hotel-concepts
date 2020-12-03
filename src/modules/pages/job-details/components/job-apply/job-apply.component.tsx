@@ -59,7 +59,6 @@ const JobApply: React.FC<JobApplyProps> = ({ job }) => {
             setCvError(false);
             setCv(null);
             setLetter(null);
-            console.log(values);
           }}
           validationSchema={jobDetailsValidationSchema}
         >

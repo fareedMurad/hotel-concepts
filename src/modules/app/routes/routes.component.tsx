@@ -11,6 +11,7 @@ import { HeaderSecondary } from '@core/components/header/header-secondary';
 import { BasicHead } from '@core/components/seo/basic-head';
 import { Interests } from '@pages';
 import { Cart } from '@pages/cart';
+import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
 import { MarketplaceProduct } from '@pages/marketplace-product';
 import { ProgramPage } from '@pages/program-page';
 import { Uikit } from '@uikit';
@@ -192,6 +193,7 @@ const Routes: React.FC = () => {
           <Footer />
         </div>
       </StickyContainer>
+      <SubscribeBetaSuccessModal />
     </Fragment>
   );
 };

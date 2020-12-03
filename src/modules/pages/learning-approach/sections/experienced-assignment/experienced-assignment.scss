@@ -51,11 +51,14 @@
     bottom: 47px;
     width: 100%;
     margin-top: 30px;
-    left: 249px;
+    left: 40%;
     & > div {
       @include size(18px);
       margin-right: 16px;
       border-radius: 8px;
+    }
+    @include tablet() {
+      left: 249px;
     }
   }
   &--item {

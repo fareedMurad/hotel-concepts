@@ -4,10 +4,13 @@
 }
 
 .image {
-  height: 100vh;
+  height: 150vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  @include desktop() {
+    height: 100vh;
+  }
 }
 
 .overlay {
@@ -19,17 +22,17 @@
 }
 
 .info {
+  @include flex(center, center, column);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 20px;
-  right: 20px;
-  width: 80%;
+  //left: 20px;
+  //right: 20px;
+  margin: 0 auto;
+  width: 100%;
   text-align: center;
 
   @include desktop() {
-    @include flex(center, center);
-    flex-direction: column;
     left: 134px;
     right: unset;
     width: 40%;
