@@ -5,9 +5,6 @@ import { reducer } from 'redux-chill';
 /**
  * form state
  */
-const form = reducer(new FormState()).on(
-  sendForm.subscribeBeta,
-  state => (state.showSubscribeModal = false)
-);
+const form = reducer(new FormState());
 
 export { form };

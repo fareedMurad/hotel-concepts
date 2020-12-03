@@ -54,6 +54,7 @@
   font-family: $EBGaramond;
   letter-spacing: -0.48px;
   @include desktop() {
+    @include font($white, 49px, 600, 57px);
     width: 60%;
   }
 }

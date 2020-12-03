@@ -31,7 +31,7 @@
 .title {
   @include font($primary-orange, 48px, 600, 58px);
   margin-top: 26px;
-  width: 80%;
+  width: 100%;
   @include tablet() {
     width: initial;
   }
@@ -45,6 +45,7 @@
 
 .description {
   @include font($primary-gray, 24px, 400, 34px);
+
   max-width: 630px;
   margin-top: 29px;
 }
@@ -95,5 +96,12 @@
     bottom: 80px;
     right: 8px;
     display: block;
+  }
+}
+
+.image {
+  width: 100%;
+  @include desktop() {
+    width: 547px;
   }
 }

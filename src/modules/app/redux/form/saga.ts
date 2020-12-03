@@ -64,7 +64,7 @@ class FormSaga {
         put(showModal(Modals.subscribeSuccess))
       ];
       yield all(effects);
-      yield;
+      localStorage.setItem('subscribed-kordie', 'true');
     } catch (error) {
       yield put(handleError(error.response.data.message));
     } finally {

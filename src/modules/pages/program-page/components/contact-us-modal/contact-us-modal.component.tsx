@@ -97,7 +97,6 @@ const ContactUsModal: React.FC = () => {
                   arrow
                   onClick={() => {
                     handleSubmit();
-                    console.log(values);
                   }}
                 >
                   {t('modal-contact-us.form.button-text')}
