@@ -1,6 +1,5 @@
 import { State } from '@app/redux/state';
 import { Spinner } from '@core/components';
-import { queryImageUrl } from '@core/shared';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -28,14 +27,16 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
 
   useEffect(() => {
     const imageLoader = new Image();
-    imageLoader.src = url;
+    imageLoader.src = imageSrc;
     imageLoader.onload = () => {
       setIsLoaded(true);
     };
   }, []);
 
   const oldSafari = browserName === 'Safari' && browserVersion < '14';
-  const imageSrc = oldSafari ? url : queryImageUrl(url);
+  const imageSrc = oldSafari
+    ? `${url}?h=500&w=300`
+    : `${url}?h=500&w=300&fm=webp`;
 
   return (
     <div className={styles.bookItem}>

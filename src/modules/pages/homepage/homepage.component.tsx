@@ -1,32 +1,29 @@
+import { State } from '@app/redux/state';
+import { Modal, Spinner } from '@core/components';
+import { FaqBlock } from '@pages/components';
+import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
+import { SubscribeModal } from '@pages/components/subscribe-modal';
+import { useContributorsData } from '@pages/contributors/contributor.hook';
+import Mentors from '@pages/homepage/sections/mentors/mentors.component';
+import { closeModal, showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
 import * as React from 'react';
+import { ConsoleView } from 'react-device-detect';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHomePageData } from './homepage.hook';
+import { HomepageProps } from './homepage.props';
 import * as styles from './homepage.scss';
-import { FaqBlock, MentorModal } from '@pages/components';
-import { Footer, Spinner } from '@core/components';
 import {
-  SupportInfo,
-  OnlineCourses,
-  Quote,
   About,
-  TrainingInfo,
   Impact,
-  InsightsBlock,
-  Socials,
   Intro,
+  OnlineCourses,
+  Socials,
+  SupportInfo,
+  TrainingInfo,
   UnlimitedAccessBooks
 } from './sections';
 import { EBooks } from './sections/e-books';
-import { HomepageProps } from './homepage.props';
-import Mentors from '@pages/homepage/sections/mentors/mentors.component';
-import { State } from '@app/redux/state';
-import { useContributorsData } from '@pages/contributors/contributor.hook';
-import { useHomePageData } from './homepage.hook';
-import { useDispatch, useSelector } from 'react-redux';
-import { SubscribeModal } from '@pages/components/subscribe-modal';
-import { showModal } from '@ui/modal';
-import { Modals } from '@ui/models';
-import { FormResultModal } from '@pages/components/form-result-modal';
-import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
-import { getAssetUrl } from '@core/shared';
 /**
  * Renders Homepage
  */
@@ -44,9 +41,15 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if (showSubscribeModal) {
-      setTimeout(() => dispatch(showModal(Modals.subscribe)), 2000);
-    }
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        dispatch(showModal(Modals.subscribe));
+      }, 3000);
+    });
+    return () =>
+      window.removeEventListener('load', () => {
+        dispatch(closeModal(Modals.subscribe));
+      });
   }, [showSubscribeModal]);
 
   return (
