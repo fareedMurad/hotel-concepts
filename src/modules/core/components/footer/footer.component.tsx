@@ -7,7 +7,6 @@ import { Button } from '../button';
 import { Field } from '../field';
 import { FooterProps } from './footer.props';
 import { Form } from '../form-old';
-import { FormResultSubscriptionModal } from '@pages/components/form-result-modal/form-result-subscription-modal';
 import { Formik } from 'formik';
 import { Icon } from '../icon';
 import { Preloader } from '../preloader';
@@ -16,6 +15,7 @@ import { sendForm } from '@app/redux/form';
 import { useDispatch } from 'react-redux';
 import { useFooterData } from './footer.hook';
 import { useTranslation } from 'react-i18next';
+import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal/subscribe-beta-modal.component';
 
 /**
  * validation schema
@@ -115,7 +115,6 @@ const Footer: React.FC<FooterProps> = ({}) => {
 
   return (
     <React.Fragment>
-      <FormResultSubscriptionModal />
       <div className={styles.footer} id='footer'>
         <div className={styles.content}>
           <section className={styles.subscribe}>

@@ -63,8 +63,18 @@
 }
 
 .send {
-  @include flex($justify: space-between, $align: center);
+  @include flex($justify: space-between, $align: center, $direction: column);
   margin-top: 12px;
+  @include desktop() {
+    @include flex($justify: space-between, $align: center);
+  }
+}
+
+.button-submit {
+  margin-top: 12px;
+  @include desktop() {
+    margin-top: 0;
+  }
 }
 
 .comment {

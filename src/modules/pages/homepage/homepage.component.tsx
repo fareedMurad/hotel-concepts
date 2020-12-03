@@ -24,8 +24,7 @@ import { EBooks } from './sections/e-books';
  */
 const Homepage: React.FC<HomepageProps> = ({}) => {
   const {
-    localization: { language },
-    form: { showSubscribeModal }
+    localization: { language }
   } = useSelector((state: State) => state);
   const { contributors, loading } = useContributorsData(language);
   const { homePageTestimonials, homepageTestimonialsLoading } = useHomePageData(

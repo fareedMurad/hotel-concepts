@@ -9,7 +9,6 @@ import { State } from '@app/redux/state';
 import { showModal, closeModal } from '@ui/modal';
 import { Modals } from '@ui/models';
 import { SubscribeModal } from '@pages/components/subscribe-modal';
-import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-modal';
 
 /**
  * Renders SupportInfo
@@ -17,21 +16,21 @@ import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-moda
 const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
   const { data } = useSupportInfoData();
   const { t } = useTranslation();
+  const isSubscribed = localStorage.getItem('subscribed-kordie');
 
   /**
    * Handle subscribe modal
    */
 
   const {
-    localization: { language },
-    form: { showSubscribeModal }
+    localization: { language }
   } = useSelector((state: State) => state);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     window.addEventListener('load', () => {
       setTimeout(() => {
-        dispatch(showModal(Modals.subscribe));
+        !isSubscribed && dispatch(showModal(Modals.subscribe));
       }, 3000);
     });
   }, []);
@@ -57,7 +56,6 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
         ))}
       </div>
       <SubscribeModal />
-      <SubscribeBetaSuccessModal />
     </section>
   );
 };

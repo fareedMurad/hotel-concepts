@@ -140,7 +140,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                   placeholder='What paths are you interestedins?'
                   className={styles.select}
                   whiteBackground
-                  value='What paths are you interestedins?'
+                  value='What paths are you interested in?'
                 />
                 <Button
                   className={styles.submit}

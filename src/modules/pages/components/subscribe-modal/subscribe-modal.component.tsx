@@ -51,7 +51,6 @@ const SubscribeModal: React.FC<SubscribeModalProps> = () => {
     email: ''
   };
   const dispatch = useDispatch();
-  console.log('anim');
   return (
     <Modal
       className={styles.subscribeModal}
