@@ -3,29 +3,47 @@
 .hero {
   @include flex($align: stretch, $direction: column);
   position: relative;
-  height: 100vh;
+  height: 150vh;
+  @include desktop() {
+    height: 100vh;
+  }
 }
 
 .slider {
-  height: 100%;
+  height: 150vh;
   overflow-y: hidden;
   margin-bottom: 0;
+  @include desktop() {
+    height: 100%;
+  }
 
   ul {
-    height: 100%;
+    height: 150vh;
+    @include desktop() {
+      height: 100%;
+    }
   }
 }
 
 .slide {
-  height: 100%;
+  height: 150vh;
+  @include desktop() {
+    height: 100%;
+  }
 }
 
 .image {
-  height: 100%;
+  height: 150vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   filter: brightness(0.7);
+  @include desktop() {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 .overlay {
