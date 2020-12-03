@@ -1,11 +1,20 @@
 import { gql, useQuery } from '@apollo/client';
+import { State } from '@app/redux/state';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const useUnlimitedAccessBooksData = () => {
+  const {
+    general: {
+      browserVersion: { name: browserName, version: browserVersion }
+    }
+  } = useSelector((state: State) => state);
+
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
   const GET_IMAGE = gql`
     query {
       asset(id: "4OHwbsXoxvWvFyQnYPHYzm") {
-        url(transform: { format: WEBP })
+        url
       }
     }
   `;
@@ -19,7 +28,9 @@ const useUnlimitedAccessBooksData = () => {
     { id: 3, caption: t('home.unlimited-access.item-four') }
   ];
 
-  return { dataList, imageUrl: data?.asset?.url };
+  const imageUrl = oldSafari ? data?.asset?.url : `${data?.asset?.url}?fm=webp`;
+
+  return { dataList, imageUrl: imageUrl };
 };
 
 export { useUnlimitedAccessBooksData };

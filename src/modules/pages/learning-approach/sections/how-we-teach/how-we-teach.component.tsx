@@ -1,14 +1,11 @@
+import { SectionTitle } from '@core/components';
+import { Caption } from '@pages/components';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Cards } from './components/cards';
+import { useHowWeTeachData } from './how-we-teach.hook';
 import { HowWeTeachProps } from './how-we-teach.props';
 import * as styles from './how-we-teach.scss';
-import { useHowWeTeachData } from './how-we-teach.hook';
-import { Caption } from '@pages/components';
-import { H1, SectionTitle } from '@core/components';
-import { useTranslation } from 'react-i18next';
-import { useAnimation } from '@pages/learning-approach/animations/animations.hook';
-import { useToggleAnimate } from '@pages/learning-approach/toggle-animation.hook';
-import { animated } from 'react-spring';
-import { Cards } from './components/cards';
 
 /**
  * Instrument and Tools Card

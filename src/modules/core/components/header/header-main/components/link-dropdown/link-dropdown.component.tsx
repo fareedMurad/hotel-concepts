@@ -4,7 +4,8 @@ import { Icon } from '@core/components';
 import { LinkDropdownProps } from './link-dropdown.props';
 import classNames from 'classnames';
 import { navigate } from '@router/store';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { State } from '@app/redux/state';
 
 /**
  * Renders LinkDropdown
@@ -19,6 +20,14 @@ const LinkDropdown: React.FC<LinkDropdownProps> = ({
   const dispatch = useDispatch();
   const [hover, setHover] = React.useState(false);
 
+  const {
+    general: {
+      browserVersion: { name: browserName, version: browserVersion }
+    }
+  } = useSelector((state: State) => state);
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+
+  const url = oldSafari ? `${image}?fm=png` : `${image}?fm=webp`;
   return (
     <div
       className={classNames(className, styles.link)}
@@ -44,7 +53,7 @@ const LinkDropdown: React.FC<LinkDropdownProps> = ({
           className={styles.linkImage}
           //hardcoded image
           style={{
-            backgroundImage: `url(${image})`
+            backgroundImage: `url(${url})`
           }}
         />
       </div>
