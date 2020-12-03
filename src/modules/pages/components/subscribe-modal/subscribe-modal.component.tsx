@@ -20,6 +20,7 @@ import * as yup from 'yup';
 import { sendForm } from '@app/redux/form';
 import { useTranslation } from 'react-i18next';
 import { useUnlimitedAccessBooksData } from '@pages/homepage/sections/unlimited-access-books/unlimited-access-books.hook';
+import { useMediaPoints } from '@core/shared';
 
 const validationSchema = yup.object<{ email: string }>().shape({
   email: yup
@@ -35,12 +36,13 @@ const validationSchema = yup.object<{ email: string }>().shape({
 const SubscribeModal: React.FC<SubscribeModalProps> = () => {
   const { imageUrl } = useUnlimitedAccessBooksData();
   const { t } = useTranslation();
+  const { mobile } = useMediaPoints();
   const initValues = {
     email: ''
   };
   const dispatch = useDispatch();
   return (
-    <Modal className={styles.subscribeModal} id={Modals.subscribe} noReset>
+    <Modal className={styles.subscribeModal} id={Modals.subscribe}>
       <Preloader id={Preloaders.sendForm}>
         <div className={styles.modalContent}>
           <Icon
@@ -51,7 +53,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = () => {
             }}
           />
           <div className={styles.text}>
-            <Icon className={styles.logo} name='logo' />
+            {!mobile && <Icon className={styles.logo} name='logo' />}
             <H1 className={styles.title}>{t('subscribe-modal.title')}</H1>
             <div className={styles.caption}>{t('subscribe-modal.caption')}</div>
             <div className={styles.description}>
@@ -80,7 +82,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = () => {
                     className={styles.submit}
                     onClick={() => handleSubmit()}
                   >
-                    Subscribe
+                    Sign Up
                   </Button>
                 </FormNew>
               )}
