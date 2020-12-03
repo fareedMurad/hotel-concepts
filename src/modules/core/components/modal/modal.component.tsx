@@ -27,7 +27,6 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   historyGoBack,
   noReset,
-  animate,
   ...props
 }) => {
   const active = useSelector(
