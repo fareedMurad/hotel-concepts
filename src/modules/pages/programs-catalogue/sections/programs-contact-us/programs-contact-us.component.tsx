@@ -137,7 +137,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                 <Field.Select
                   name='interests'
                   options={interestsSelect}
-                  placeholder='What paths are you interestedins?'
+                  placeholder='What paths are you interested in?'
                   className={styles.select}
                   whiteBackground
                   value='What paths are you interested in?'
