@@ -11,6 +11,7 @@ import { ProgramItemProps } from './program-item.props';
 import { State } from '@app/redux/state';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
+import { queryImageUrl } from '@core/shared';
 
 /**
  * Renders ProgramItem
