@@ -8,7 +8,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  @include desktop() {
+  @include tablet() {
     height: 100vh;
   }
 }
@@ -25,17 +25,19 @@
   @include flex(center, center, column);
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-30%);
   //left: 20px;
   //right: 20px;
   margin: 0 auto;
   width: 100%;
   text-align: center;
+  padding: 0 10%;
 
   @include desktop() {
     left: 134px;
     right: unset;
     width: 40%;
+    transform: translateY(-50%);
   }
 }
 

@@ -21,7 +21,7 @@ const useCorporateImage = () => {
 
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
   return {
-    corporateImage: oldSafari ? data?.asset?.url : `${data?.asset?.url}?fm=webp`
+    corporateImage: oldSafari ? data?.asset?.url : `${data?.asset?.url}`
   };
 };
 
@@ -42,9 +42,7 @@ const useIndividualImage = () => {
 
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
   return {
-    individualImage: oldSafari
-      ? data?.asset?.url
-      : `${data?.asset?.url}?fm=webp`
+    individualImage: oldSafari ? data?.asset?.url : `${data?.asset?.url}`
   };
 };
 
