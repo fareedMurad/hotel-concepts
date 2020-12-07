@@ -1,6 +1,5 @@
 import { State } from '@app/redux/state';
 import { Spinner } from '@core/components';
-import { queryImageUrl } from '@core/shared';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
