@@ -6,12 +6,14 @@ import classNames from 'classnames';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { sendForm } from '@app/redux/form';
 import { ProgramCatalogueFormValues } from '@app/models';
 import { Preloaders } from '@ui/models';
 import { FormResultModal } from '@pages/components/form-result-modal';
 import { ProgramContacUsValidationSchema } from './models';
+import { State } from '@app/redux/state';
+import { checkBrowserVersion } from '@general/store';
 
 /**
  * Team size
@@ -57,7 +59,7 @@ const defaultValues: ProgramCatalogueFormValues = {
 const GET_HERO_IMAGE = gql`
   {
     asset(id: "172ajOUFQrMpose4jteiQF") {
-      url(transform: { format: WEBP })
+      url
     }
   }
 `;
@@ -69,7 +71,19 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
 }) => {
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
+  const {
+    general: {
+      browserVersion: { name: browserName, version: browserVersion }
+    }
+  } = useSelector((state: State) => state);
+  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+
+  const heroImageUrl = oldSafari
+    ? `url(${data?.asset?.url})`
+    : `url(${data?.asset?.url}?fm=webp)`;
+
   const dispatch = useDispatch();
+
   return (
     <React.Fragment>
       <div
@@ -123,10 +137,10 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                 <Field.Select
                   name='interests'
                   options={interestsSelect}
-                  placeholder='What paths are you interestedins?'
+                  placeholder='What paths are you interested in?'
                   className={styles.select}
                   whiteBackground
-                  value='What paths are you interestedins?'
+                  value='What paths are you interested in?'
                 />
                 <Button
                   className={styles.submit}
@@ -143,7 +157,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
       </div>
       <div
         className={styles.footer}
-        style={{ backgroundImage: `url(${data?.asset?.url})` }}
+        style={{ backgroundImage: heroImageUrl }}
       />
     </React.Fragment>
   );

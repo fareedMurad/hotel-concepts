@@ -1,16 +1,16 @@
-import * as React from 'react';
-import * as styles from './section.scss';
-import { BookProps, SectionProps } from './section.props';
 import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
-import { useDispatch, useSelector } from 'react-redux';
-import { Icon } from '@core/components';
-import { Modals } from '@ui/models';
 import { State } from '@app/redux/state';
-import classNames from 'classnames';
+import { Icon } from '@core/components';
+import { useWindowSize } from '@core/shared';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import classNames from 'classnames';
+import * as React from 'react';
 import { useState } from 'react';
-import { queryImageUrl, useWindowSize } from '@core/shared';
+import { useDispatch, useSelector } from 'react-redux';
+import { BookProps, SectionProps } from './section.props';
+import * as styles from './section.scss';
 
 /**
  * Renders single book
@@ -34,7 +34,9 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
     isPreorder
   } = book || {};
   const oldSafari = browserName === 'Safari' && browserVersion < '14';
-  const imageSrc = oldSafari ? url : queryImageUrl(url);
+  const imageSrc = oldSafari
+    ? `${url}?h=500&w=300`
+    : `${url}?h=500&w=300&fm=webp`;
 
   return (
     <div className={classNames(styles.book, className)} onClick={onClick}>
@@ -107,7 +109,7 @@ const Section: React.FC<SectionProps> = ({
                 book={book}
                 onClick={() => {
                   // #non-clickable
-                  dispatch(navigate(`/marketplace/${id}`));
+                  // dispatch(navigate(`/marketplace/${id}`));
                 }}
                 key={id}
               />

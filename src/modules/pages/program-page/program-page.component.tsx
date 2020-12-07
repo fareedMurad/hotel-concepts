@@ -40,6 +40,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
     localization: { language },
     cart: { selectedProducts }
   } = useSelector((state: State) => state);
+
   const { singleProgram } = useProgramData(language, programId);
   const inCart = selectedProducts?.some(one => one.path == programId);
 

@@ -19,8 +19,14 @@ import * as styles from './program-intro.scss';
  * Renders ProgramIntro
  */
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
-  const { language } = useSelector((state: State) => state.localization);
+  const {
+    localization: { language },
+    general: {
+      browserVersion: { name, version }
+    }
+  } = useSelector((state: State) => state);
   const { navButtons } = useProgramIntroData();
+  const oldSafari = name === 'Safari' && version < '14';
 
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [previewVideo, setPreviewVideo] = React.useState('');
@@ -62,6 +68,27 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
     }
   };
 
+  const url = data?.heroImage.file.url;
+
+  const imageSrc = oldSafari ? `${url}?h=900&w=1440` : `${url}?fm=webp`;
+  const reducedImage = `${imageSrc}&h=500&w=500&q=60`;
+  const fullImage = `${imageSrc}&h=900&w=1440`;
+
+  const [image, setImage] = React.useState(reducedImage);
+
+  React.useEffect(() => {
+    if (reducedImage && !fullImage) {
+      setImage(reducedImage);
+      return;
+    }
+    const imageLoader = new Image();
+    imageLoader.src = fullImage;
+    imageLoader.onload = () => {
+      setImage(fullImage);
+      //  setIsImageLoaded(true);
+    };
+  }, [fullImage, reducedImage]);
+
   const getVideoId = url => url?.split('/').pop();
   /**
    * convert duration
@@ -81,7 +108,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
       />
       <section
         className={styles.programIntro}
-        style={{ backgroundImage: `url(${data?.heroImage.file.url})` }}
+        style={{ backgroundImage: `url(${image})` }}
       >
         <BackButton className={styles.backButton} />
         <div className={styles.title}>

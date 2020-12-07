@@ -1,15 +1,13 @@
+import { State } from '@app/redux/state';
+import { ButtonFilter, H2 } from '@core/components';
+import { Spinner } from '@core/components/spinner';
+import { FaqItem } from '@pages/homepage/components/faq-item';
+import classNames from 'classnames';
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 import { FaqBlockProps } from './faq-block.props';
 import * as styles from './faq-block.scss';
 import { useFaqData } from './faq.hook';
-import { ButtonFilter, H2 } from '@core/components';
-import { FaqItem } from '@pages/homepage/components/faq-item';
-import classNames from 'classnames';
-import { Spinner } from '@core/components/spinner';
-import { State } from '@app/redux/state';
-import { useSelector } from 'react-redux';
-import { SubscribeModal } from '../subscribe-modal';
-import { SubscribeBetaSuccessModal } from '../subscribe-beta-modal';
 
 /**
  * Renders FaqBlock

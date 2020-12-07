@@ -11,7 +11,6 @@ import { ProgramItemProps } from './program-item.props';
 import { State } from '@app/redux/state';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
-import { queryImageUrl } from '@core/shared';
 
 /**
  * Renders ProgramItem
@@ -37,12 +36,13 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
   const {
     auth: { authorized },
     general: {
-      browserVersion: { name: browserName, version: browserVersion }
+      browserVersion: { name: browserName, version }
     }
   } = useSelector((state: State) => state);
-
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
-  const imageSrc = oldSafari ? url : queryImageUrl(url);
+  const oldSafari = browserName === 'Safari' && version < '14';
+  const imageSrc = oldSafari
+    ? `${url}?h=500&w=900`
+    : `${url}?q=80&fm=webp&h=500&w=900`;
 
   return (
     <React.Fragment>
@@ -58,7 +58,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
                   onClick={
                     () => {}
                     // #non-clickable
-                    // dispatch(navigate(`/program/?programId=${id}`))
+                    //dispatch(navigate(`/program/?programId=${id}`));
                   }
                 >
                   {name}

@@ -14,8 +14,17 @@
 }
 
 .main-field {
-  @include flex(flex-start, flex-start, row);
+  @include flex(flex-start, flex-start, column);
   margin-bottom: 25px;
+  & > div:not(:first-child) {
+    margin-top: 12px;
+  }
+  @include desktop() {
+    @include flex(flex-start, flex-start, row);
+    & > div:not(:first-child) {
+      margin-top: 0;
+    }
+  }
 }
 
 .select {

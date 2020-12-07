@@ -1,17 +1,16 @@
+import { gql, useQuery } from '@apollo/client';
+import { Button, HeroSubtitle, HeroTitle } from '@core/components';
+import { ScrollButton } from '@core/components/scroll-button';
+import { WatchButton } from '@core/components/watch-button';
+import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { useMediaPoints } from '@core/shared';
+import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
+import ReactPlayer from 'react-player';
+import Popup from 'reactjs-popup';
 import { IntroProps } from './intro.props';
 import * as styles from './intro.scss';
-import Popup from 'reactjs-popup';
-import ReactPlayer from 'react-player';
-import { WatchButton } from '@core/components/watch-button';
-import { ScrollButton } from '@core/components/scroll-button';
-import { Button, HeroTitle, HeroSubtitle, Icon } from '@core/components';
-import { useHistory } from 'react-router';
-import { scrollTo } from '@core/helpers/scroll-to.helper';
-import { gql, useQuery } from '@apollo/client';
-import { useTranslation } from 'react-i18next';
-import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
-import { useMediaPoints } from '@core/shared';
 
 /**
  *  preview video & hero image query
@@ -59,6 +58,10 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const { data, loading, error } = useQuery(GET_PREVIEW_VIDEO);
   const { t } = useTranslation();
   const { mobile } = useMediaPoints();
+
+  /**
+   * Handle video
+   */
   React.useEffect(() => {
     if (videoRef.current) {
       setVideo(videoRef.current);
