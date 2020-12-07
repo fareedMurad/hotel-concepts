@@ -35,6 +35,9 @@ const SLIDERDATA = gql`
         image {
           url
         }
+        mobileImage {
+          url
+        }
       }
     }
   }

@@ -114,7 +114,9 @@
   border-radius: 4px;
   transition: $transition;
   cursor: pointer;
-
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   @include tablet() {
     width: fit-content;
     margin: 10px;

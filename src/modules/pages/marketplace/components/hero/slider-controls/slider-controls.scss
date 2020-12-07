@@ -1,7 +1,6 @@
 @import 'core.scss';
 
 .slider-controls {
-  @include flex(space-between, center);
   display: none;
   position: absolute;
   left: 20px;
@@ -14,7 +13,7 @@
   }
 
   @include desktop() {
-    display: block;
+    @include flex(space-between, center);
     top: 41%;
     left: 54px;
     right: 54px;
