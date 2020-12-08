@@ -2,7 +2,7 @@
  * List option
  */
 type Option = {
-  label: string | number;
+  label: string;
   value: any;
 };
 

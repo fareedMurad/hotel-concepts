@@ -1,169 +1,117 @@
 @import 'core.scss';
 
-.value-container {
-  @include flex(flex-start, center);
-  flex: 1;
-  height: 100%;
-}
-
-.select-container {
-  position: relative;
-  height: 100%;
+.select {
+  @include flex();
   width: 100%;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: white;
+  &--focused {
+    .box {
+      border-color: $primary-orange;
+    }
+
+    .label {
+      color: $primary-orange;
+    }
+  }
+
+  &--disabled {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    cursor: not-allowed;
+  }
+
+  &--error {
+    .box {
+      border-color: red;
+    }
+  }
+  &--secondary {
+    background-color: #f5f1f0;
+  }
 }
 
-.dropdown {
+.box {
+  @include flex($align: center);
+  position: relative;
+  width: 100%;
+  border: 0.5px solid transparent;
+  border-radius: 4px;
+  transition: $transition;
+}
+
+.control {
+  @include flex($align: stretch);
+  min-height: 40px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.value {
+  @include font(#333333, 16px, 400, 22px);
+  padding: 10px 8px;
+  flex: 1;
+  font-family: $IBMPlex;
+}
+
+.search-input {
+  @include font(#333333, 14px, 400, 20px);
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0px 8px;
+  border-radius: 4px;
+}
+
+.indicator {
+  @include flex(center, center);
+  margin-left: auto;
+  padding: 10px;
+  & > div > div {
+    @include flex(center, center);
+  }
+
+  &__arrow {
+    transform: rotate(0);
+    transition: $transition;
+
+    &--reversed {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.placeholder {
+  @include font(#333333, 14px, 400, 20px);
+  padding: 20px;
+  text-align: center;
+}
+
+.menu {
   position: absolute;
   z-index: 50;
   top: 100%;
   left: 0;
   right: 0;
   width: 100%;
-  max-height: 200px;
+  max-height: 144px;
+  margin-top: 4px;
   background: $white;
-  overflow-y: auto;
   box-shadow: 0 0 20px 0 rgba($black, 0.1);
-  border-radius: 0 4px 4px;
+  border-radius: 4px;
   overflow-y: auto;
 }
 
 .option {
-  padding: 10px;
-  font-size: 16px;
-  color: $black;
-  background: $background;
+  @include font(#333333, 14px, 400, 20px);
+  font-family: $IBMPlex;
+  padding: 14px 16px;
+  background: $white;
   transition: $transition;
-  &:hover,
-  &--selected {
-    color: $white;
-    background: $primary-orange;
-  }
-}
-
-.menu-list {
-  max-height: 130px;
-}
-
-.select--white {
-  .control {
-    width: 100%;
-    background: $white;
-  }
-}
-
-.control {
-  @include flex(flex-start, center);
-  height: 100%;
-  //as all fields
-  padding: 7px 8px;
-  background: $background;
-  border: unset;
-  border-radius: 4px;
-  transition: $transition;
-
-  & div > div {
-    @include font($primary-gray, 16px, 400, 22px);
-  }
-}
-
-.single-value,
-.placeholder,
-.search {
-  width: 100%;
-  font-size: 16px;
-  line-height: 22px;
-  color: $black;
-}
-
-.search {
-  background: none;
-  outline: none;
-  border: none;
-  &--hidden {
-    width: 0;
-    height: 0;
-  }
-}
-
-// .placeholder,
-// .single-value,
-// .option {
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-// }
-
-.controls {
-  @include flex(center, center);
-
-  width: 20px;
-  height: 100%;
-}
-
-.no-options {
-  @extend .option;
-}
-
-.controls-arrow {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-
-  border-top: 20px solid #f00;
-  &--reversed {
-    transform: rotate(180deg);
-  }
-  &__icon {
-    // @include icon(6px, $black);
-  }
-}
-
-.select {
-  position: relative;
   cursor: pointer;
 
-  &--focused.select--searchable {
-    .single-value,
-    .placeholder {
-      display: none;
-    }
+  &:hover,
+  &--selected {
+    background: #f2f2f2;
   }
-
-  &--disabled {
-    .control {
-      background: $gray;
-      cursor: not-allowed;
-    }
-
-    .single-value,
-    .placeholder,
-    .search {
-      color: #acb6c3;
-    }
-    .controls-arrow {
-      opacity: 0.3;
-    }
-  }
-}
-
-.label {
-  @include font($primary-gray, 14px, 400);
-
-  @include tablet() {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-.error {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: block;
-  text-align: right;
-  width: 100%;
-  font-size: 11px;
-  color: #ff0000;
-  transform: translateY(calc(100% + 0.2rem));
 }

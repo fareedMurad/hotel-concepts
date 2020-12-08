@@ -33,7 +33,7 @@ const validationSchema = yup.object<{ email: string }>().shape({
 const GET_IMAGE = gql`
   query {
     asset(id: "4OHwbsXoxvWvFyQnYPHYzm") {
-      url(transform: { format: WEBP })
+      url(transform: { format: PNG, quality: 80 })
     }
   }
 `;

@@ -7,9 +7,6 @@ import { useVideoLecturesData } from './our-materials.hook';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { State } from '@app/redux/state';
-import { useToggleAnimate } from '@pages/learning-approach/toggle-animation.hook';
-import { useAnimation } from '@pages/learning-approach/animations/animations.hook';
-import { animated } from 'react-spring';
 
 /**
  * Renders OurMaterials

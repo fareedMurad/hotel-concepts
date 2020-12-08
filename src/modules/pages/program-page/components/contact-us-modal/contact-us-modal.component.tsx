@@ -16,6 +16,14 @@ import { sendRequest } from '@app/redux/programs';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
+const teamsizeSelect = [
+  { label: 'Less than 10 employees', value: 'Less than 10 employees' },
+  { label: '11-25 employees', value: '11-25 employees' },
+  { label: '22-50 employees', value: '22-50 employees' },
+  { label: '50-100 employees', value: '50-100 employees' },
+  { label: '100+ employees', value: '100+ employees' }
+];
+
 /**
  * Renders ContactUsModal
  */
@@ -67,8 +75,9 @@ const ContactUsModal: React.FC = () => {
                     <Field.Select
                       name='teamSize'
                       label={t('modal-contact-us.form.team')}
-                      options={[{ value: '1', label: '1' }]}
-                      //   theme='secondary'
+                      options={teamsizeSelect}
+                      theme='secondary'
+                      defaultLabel={teamsizeSelect[0].label}
                     />
                   </div>
                   <div className={styles.formSectionContainer}>
@@ -83,6 +92,7 @@ const ContactUsModal: React.FC = () => {
                       options={interestsOptions}
                       theme='secondary'
                       className={styles.select}
+                      defaultLabel={interestsOptions[0].label}
                     />
                   </div>
                 </div>
