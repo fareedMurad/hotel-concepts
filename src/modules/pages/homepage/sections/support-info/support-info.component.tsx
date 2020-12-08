@@ -19,6 +19,10 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
   const isSubscribed = localStorage.getItem('subscribed-kordie');
 
   /**
+   * Put modal here to avoid unnesessary rerenders
+   */
+
+  /**
    * Handle subscribe modal
    */
 

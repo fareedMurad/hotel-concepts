@@ -80,7 +80,7 @@ const ModalInvoiceRequest: React.FC<ModalInvoiceRequestProps> = ({ total }) => {
                 type='phone'
               />
               <Field.Select
-                className={styles.formField}
+                labelClassname={styles.label}
                 theme='secondary'
                 options={countriesOptions}
                 name='country'

@@ -21,10 +21,22 @@ type SelectProps = ControlProps & {
    * Theme
    */
   theme?: 'primary' | 'secondary';
-  /**
-   * custom styles
+  /*
+   * Alow search
    */
-  customStyles?: Styles;
+  allowSearch?: boolean;
+  /*
+   * Label className
+   */
+  labelClassname?: string;
+  /*
+   * constrol className
+   */
+  controlClassname?: string;
+  /*
+   * Default value
+   */
+  defaultLabel?: string;
 };
 
 export { SelectProps };

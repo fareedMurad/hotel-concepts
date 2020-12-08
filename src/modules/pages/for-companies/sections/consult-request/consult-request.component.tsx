@@ -99,22 +99,17 @@ const ConsultRequest: React.FC<ConsultRequestProps> = ({}) => {
                   <div className={styles.select}>
                     <Field.Select
                       name='teamSize'
-                      value=''
                       options={teamsizeSelect}
-                      placeholder='How many employees need training?'
+                      defaultLabel='How many employees need training?'
                       className={classNames(styles.input)}
-                      whiteBackground
                     />
                   </div>
                   <div className={styles.select}>
                     <Field.Select
                       name='interests'
-                      value=''
                       options={interestsSelect}
-                      placeholder='What paths are you interested in?'
+                      defaultLabel='What paths are you interested in?'
                       className={classNames(styles.input)}
-                      label=''
-                      whiteBackground
                     />
                   </div>
                   <Button
