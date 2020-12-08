@@ -44,8 +44,8 @@ const components: Partial<typeof Components> = {
   NoOptionsMessage: props => (
     <div className={styles.noOptions}>
       {props.selectProps.inputValue
-        ? 'Збігів не знайдено'
-        : 'Опцій не знайдено'}
+        ? 'No matches were found'
+        : 'No options were found'}
     </div>
   )
 };
