@@ -131,16 +131,14 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
                   options={teamsizeSelect}
                   placeholder='How many employees need training?'
                   className={styles.select}
-                  whiteBackground
-                  value='How many employees need training?'
+                  defaultLabel='How many employees need training?'
                 />
                 <Field.Select
                   name='interests'
                   options={interestsSelect}
                   placeholder='What paths are you interested in?'
                   className={styles.select}
-                  whiteBackground
-                  value='What paths are you interested in?'
+                  defaultLabel='What paths are you interested in?'
                 />
                 <Button
                   className={styles.submit}

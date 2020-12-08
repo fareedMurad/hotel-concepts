@@ -73,9 +73,6 @@ const images = ({ optimize = true } = {}) => ({
                   },
                   gifsicle: {
                     interlaced: false
-                  },
-                  webp: {
-                    quality: 75
                   }
                 }
               : {}

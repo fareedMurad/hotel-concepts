@@ -108,11 +108,10 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                       <Field.Select
                         name='subject'
                         options={types}
-                        placeholder='Select subject...'
+                        defaultLabel={types[0].label}
                         label='Subject'
                         className={classNames(styles.select)}
-                        whiteBackground
-                        customStyles={{ container: () => ({ width: '44px' }) }}
+                        labelClassname={styles.label}
                       />
                       <Field.Text
                         name='email'
@@ -125,12 +124,10 @@ const ContactsPage: React.FC<ContactsPageProps> = ({}) => {
                     <div className={styles.inputGroupB}>
                       <Field.Select
                         name='title'
-                        value={defaultValues.title}
+                        defaultLabel={types[0].label}
                         label='Title'
                         options={genders}
-                        placeholder='Mr'
-                        className={classNames(styles.select)}
-                        whiteBackground
+                        labelClassname={styles.label}
                       />
                       <Field.Text
                         name='name'
