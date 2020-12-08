@@ -40,7 +40,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <iframe
         ref={videoPlayer}
         src={`https://player.vimeo.com/video/${videoId}`}
-        allowFullScreen
         hidden
       />
       <div className={styles.controls}>
@@ -66,8 +65,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
           <ReactPlayer
             light
             url={`https://player.vimeo.com/video/${videoId}`}
-            controls
             style={{ margin: 'auto', maxWidth: '100%' }}
+            stopOnUnmount
+            playing
           />
         </Popup>
       </div>
