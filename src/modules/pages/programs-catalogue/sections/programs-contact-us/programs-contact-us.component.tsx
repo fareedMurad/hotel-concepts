@@ -76,7 +76,7 @@ const ProgramsContactUs: React.FC<ProgramsContactUsProps> = ({
       browserVersion: { name: browserName, version: browserVersion }
     }
   } = useSelector((state: State) => state);
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
 
   const heroImageUrl = oldSafari
     ? `url(${data?.asset?.url})`
