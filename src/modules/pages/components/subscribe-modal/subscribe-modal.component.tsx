@@ -30,27 +30,20 @@ const validationSchema = yup.object<{ email: string }>().shape({
     .required()
 });
 
-const GET_IMAGE = gql`
-  query {
-    asset(id: "4OHwbsXoxvWvFyQnYPHYzm") {
-      url(transform: { format: PNG, quality: 80 })
-    }
-  }
-`;
+// const GET_IMAGE = gql`
+//   query {
+//     asset(id: "4OHwbsXoxvWvFyQnYPHYzm") {
+//       url(transform: { format: PNG, quality: 80 })
+//     }
+//   }
+// `;
 
 /**
  * Renders SubscribeModal
  */
 const SubscribeModal: React.FC<SubscribeModalProps> = () => {
-  const { data, loading, error } = useQuery(GET_IMAGE);
-  const imageUrl = data?.asset?.url;
-  /**
-   * force set image Safari issue
-   */
-  const [image, setImage] = React.useState();
-  React.useEffect(() => {
-    setImage(imageUrl);
-  }, [data]);
+  // const { data, loading, error } = useQuery(GET_IMAGE);
+  // const imageUrl = data?.asset?.url;
 
   const { t } = useTranslation();
   const { mobile } = useMediaPoints();
@@ -108,7 +101,13 @@ const SubscribeModal: React.FC<SubscribeModalProps> = () => {
           </div>
 
           <aside className={styles.aside}>
-            <img className={styles.image} src={image} width={447} />
+            <img
+              className={styles.image}
+              src={
+                'https://images.ctfassets.net/qgx3dmmccd7u/4OHwbsXoxvWvFyQnYPHYzm/9f721139858a04f78fe2064e1cb35f98/mock.png'
+              }
+              width={447}
+            />
           </aside>
         </div>
       </Preloader>
