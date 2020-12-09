@@ -7,6 +7,7 @@ import { navigate } from '@router/store';
 import { showModal, toogleContributorModal } from '@ui/modal';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useKordieDifferenceData } from './kordie-difference.hook';
 import * as styles from './kordie-difference.scss';
 
 /**
@@ -37,6 +38,7 @@ const KordieDifference: React.FC = () => {
   const dispatch = useDispatch();
   const { language } = useSelector((state: State) => state.localization);
   const { contributors } = useContributorsData(language);
+  const { books } = useKordieDifferenceData();
 
   return (
     <div className={styles.kordieDifference}>
@@ -114,16 +116,15 @@ const KordieDifference: React.FC = () => {
             <div />
           </div>
           <div className={styles.booksPreview}>
-            <img
-              className={styles.booksBook}
-              src={require('img/marketplace/book1')}
-              alt='book1'
-            />
-            <img
-              className={styles.booksBook}
-              src={require('img/marketplace/book2')}
-              alt='book2'
-            />
+            {books?.map(({ previewImage, document }) => (
+              <a key={previewImage.url} href={document.url} target='__blank'>
+                <img
+                  className={styles.booksBook}
+                  src={`${previewImage?.url}?q=90&h=500&w=300`}
+                  alt={previewImage?.title}
+                />
+              </a>
+            ))}
           </div>
         </div>
       </div>

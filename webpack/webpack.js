@@ -62,15 +62,15 @@ const images = ({ optimize = true } = {}) => ({
             'image-webpack-loader',
             optimize
               ? {
-                  mozjpeg: {
-                    progressive: true,
-                    quality: 65
-                  },
+                  // mozjpeg: {
+                  //   progressive: true,
+                  //   quality: 65
+                  // },
                   optipng: {},
-                  pngquant: {
-                    quality: [0.65, 0.9],
-                    speed: 4
-                  },
+                  // pngquant: {
+                  //   quality: [0.65, 0.9],
+                  //   speed: 4
+                  // },
                   gifsicle: {
                     interlaced: false
                   }
