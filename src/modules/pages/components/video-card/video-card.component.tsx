@@ -67,6 +67,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
             url={`https://player.vimeo.com/video/${videoId}`}
             style={{ margin: 'auto', maxWidth: '100%' }}
             stopOnUnmount
+            controls
             playing
           />
         </Popup>

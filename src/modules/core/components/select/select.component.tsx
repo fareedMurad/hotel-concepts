@@ -94,8 +94,6 @@ const Select: React.FC<SelectProps> = ({
     }
   }, [handledSearch]);
 
-  console.log(isError);
-
   return (
     <div>
       {label && (
