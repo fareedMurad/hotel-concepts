@@ -20,7 +20,7 @@
     margin-top: 25px;
     font-family: $IBMPlex;
     @include desktop() {
-      @include font(#000000, 19px, 400, 27px);
+      @include font(#3e3e3e, 19px, 400, 27px);
     }
   }
   @include ipad-p() {
@@ -40,7 +40,7 @@
   }
   &--caption {
     @include desktop() {
-      @include font(#000000, 49px, 600, 57px);
+      @include font(#3e3e3e, 49px, 600, 57px);
       margin-top: 200px;
       width: auto;
     }
