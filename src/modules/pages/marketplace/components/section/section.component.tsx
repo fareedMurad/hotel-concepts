@@ -34,7 +34,6 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
     isPreorder
   } = book || {};
 
-  console.log(browserVersion);
   const oldSafari = browserName === 'Safari' && browserVersion <= '14';
   const imageSrc = oldSafari
     ? `${url}?h=500&w=300`
