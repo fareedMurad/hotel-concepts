@@ -49,7 +49,7 @@ const useContactsPageData = () => {
   `;
 
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
   const imageUrl = oldSafari ? data?.asset?.url : `${data?.asset?.url}?fm=webp`;
   return {
     contactsFooterImage: imageUrl,

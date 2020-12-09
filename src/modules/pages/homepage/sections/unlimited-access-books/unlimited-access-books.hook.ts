@@ -10,7 +10,7 @@ const useUnlimitedAccessBooksData = () => {
     }
   } = useSelector((state: State) => state);
 
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
   const GET_IMAGE = gql`
     query {
       asset(id: "4OHwbsXoxvWvFyQnYPHYzm") {

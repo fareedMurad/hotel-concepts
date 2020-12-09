@@ -56,7 +56,7 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
     }
   } = useSelector((state: State) => state);
 
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
 
   if (loading) return <Spinner />;
   const response = data?.marketplaceBackgroundCarouselCollection?.items;

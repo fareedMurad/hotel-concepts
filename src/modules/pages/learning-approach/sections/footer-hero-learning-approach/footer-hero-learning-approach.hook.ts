@@ -9,7 +9,7 @@ const useFooterHeroLearningApproachData = () => {
     }
   } = useSelector((state: State) => state);
 
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
 
   const GET_HERO_IMAGE = gql`
     {
