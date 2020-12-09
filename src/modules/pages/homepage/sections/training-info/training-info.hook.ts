@@ -10,7 +10,7 @@ const useTrainingInfoData = () => {
       browserVersion: { name: browserName, version: browserVersion }
     }
   } = useSelector((state: State) => state);
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
 
   const trainingData = [
     t('home.training-info.training-data.title-one'),

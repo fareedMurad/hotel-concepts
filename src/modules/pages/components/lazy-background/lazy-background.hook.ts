@@ -8,7 +8,7 @@ const useLazyBackgroundData = (reducedImageId: string, fullImageId: string) => {
     (state: State) => state.general.browserVersion
   );
 
-  const oldSafari = name === 'Safari' && version < '14';
+  const oldSafari = name === 'Safari' && version <= '14';
 
   const GET_REDUCED_IMAGE = gql`
     query($id: String!) {

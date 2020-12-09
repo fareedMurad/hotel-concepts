@@ -9,7 +9,7 @@ const useBenefitsCards = () => {
       browserVersion: { name: browserName, version: browserVersion }
     }
   } = useSelector((state: State) => state);
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
 
   const { t } = useTranslation();
   const cardsText = [
@@ -50,7 +50,6 @@ const useBenefitsCards = () => {
   const { data, loading, error } = useQuery(GET_HERO_IMAGE);
 
   const imageUrl = oldSafari ? data?.asset?.url : `${data?.asset?.url}?fm=webp`;
-
 
   return { cardsText, benefitsImage: imageUrl, cardsText2 };
 };

@@ -25,7 +25,7 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
   const {
     browserVersion: { name: browserName, version: browserVersion }
   } = useSelector((state: State) => state.general);
-  const oldSafari = browserName === 'Safari' && browserVersion < '14';
+  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
   const imageSrc = oldSafari
     ? `${url}?h=500&w=900`
     : `${url}?q=80&fm=webp&h=500&w=900`;

@@ -39,7 +39,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
       browserVersion: { name: browserName, version }
     }
   } = useSelector((state: State) => state);
-  const oldSafari = browserName === 'Safari' && version < '14';
+  const oldSafari = browserName === 'Safari' && version <= '14';
   const imageSrc = oldSafari
     ? `${url}?h=500&w=900`
     : `${url}?q=80&fm=webp&h=500&w=900`;

@@ -43,14 +43,22 @@ const GET_IMAGE = gql`
  */
 const SubscribeModal: React.FC<SubscribeModalProps> = () => {
   const { data, loading, error } = useQuery(GET_IMAGE);
-
   const imageUrl = data?.asset?.url;
+  /**
+   * force set image Safari issue
+   */
+  const [image, setImage] = React.useState();
+  React.useEffect(() => {
+    setImage(imageUrl);
+  }, [data]);
+
   const { t } = useTranslation();
   const { mobile } = useMediaPoints();
   const initValues = {
     email: ''
   };
   const dispatch = useDispatch();
+
   return (
     <Modal className={styles.subscribeModal} id={Modals.subscribe}>
       <Preloader id={Preloaders.sendForm}>
@@ -63,7 +71,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = () => {
             }}
           />
           <div className={styles.text}>
-            {!mobile && <Icon className={styles.logo} name='logo' />}
+            {!mobile && <Icon className={styles.logo} name='logo-b' />}
             <H1 className={styles.title}>{t('subscribe-modal.title')}</H1>
             <div className={styles.caption}>{t('subscribe-modal.caption')}</div>
             <div className={styles.description}>
@@ -100,7 +108,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = () => {
           </div>
 
           <aside className={styles.aside}>
-            <img className={styles.image} src={imageUrl} width={447} />
+            <img className={styles.image} src={image} width={447} />
           </aside>
         </div>
       </Preloader>
