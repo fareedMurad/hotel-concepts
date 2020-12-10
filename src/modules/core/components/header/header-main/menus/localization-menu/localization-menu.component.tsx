@@ -8,12 +8,14 @@ import { handleNotifierCart } from '@app/redux/cart';
 import { useDispatch } from 'react-redux';
 import { useLocalizationData } from './localization-menu.hook';
 import { useState } from 'react';
+import { useClickOutside } from '@core/shared';
 
 /**
  * Renders LocalizationMenu
  */
 const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
   const { languages, selectedLanguage, showDropdown } = useLocalizationData();
+  const ref = React.useRef();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -22,8 +24,13 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
     setShowMenu(true);
   };
 
+  useClickOutside(ref, () => {
+    setShowMenu(false);
+  });
+
   return (
     <div
+      ref={ref}
       className={classNames(styles.localMenu, {
         [styles.localMenuOpen]: showMenu,
         [styles.black]: theme === 'black',
@@ -31,6 +38,7 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
       })}
       onMouseEnter={() => hideCartOnHover()}
       onMouseLeave={() => setShowMenu(false)}
+      onClick={() => hideCartOnHover()}
     >
       {selectedLanguage.name}{' '}
       <Icon
