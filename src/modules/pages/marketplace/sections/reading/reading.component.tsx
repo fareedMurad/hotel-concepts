@@ -60,7 +60,7 @@ const Reading: React.FC = () => {
       <div className={styles.preview}>
         <img
           className={styles.mockup}
-          src={`${image?.url}?q=90&w=1400`}
+          src={`${image?.url}?w=3000`}
           alt={image?.title}
         />
       </div>
