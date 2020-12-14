@@ -36,7 +36,7 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
 
   const oldSafari = browserName === 'Safari' && browserVersion <= '14';
   const imageSrc = oldSafari
-    ? `${url}?h=500&w=300`
+    ? `${url}?h=600&w=300`
     : `${url}?h=500&w=300&fm=webp`;
 
   return (
