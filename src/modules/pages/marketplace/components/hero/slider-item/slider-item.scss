@@ -34,6 +34,7 @@
   padding: 0 10%;
 
   @include desktop() {
+    padding: 0 14%;
     left: 5%;
     right: unset;
     width: 60%;
