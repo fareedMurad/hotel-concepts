@@ -37,13 +37,13 @@ const Impact: React.FC<ImpactProps> = ({ testimonials, loading, data }) => {
 
   return (
     <section className={styles.impact}>
-      <div className={styles.title}>
+      {/* <div className={styles.title}>
         <PreCaption className={styles.preCaption}>
           {t('home.impact.pre-caption')}
         </PreCaption>
         <SectionTitle>{t('home.impact.title')}</SectionTitle>
-      </div>
-      <Slider
+      </div> */}
+      {/* <Slider
         containerClass={styles.slider}
         draggable={false}
         swipeable={false}
@@ -85,7 +85,7 @@ const Impact: React.FC<ImpactProps> = ({ testimonials, loading, data }) => {
                 />
               );
             })}
-      </Slider>
+      </Slider> */}
     </section>
   );
 };
