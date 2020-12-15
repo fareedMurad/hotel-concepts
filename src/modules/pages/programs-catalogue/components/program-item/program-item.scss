@@ -150,3 +150,16 @@
     max-width: 500px;
   }
 }
+
+.price {
+  display: inline-block;
+
+  &--old {
+    text-decoration: line-through;
+    color: $light-grey;
+  }
+  &--new {
+    margin-left: 7px;
+    color: $primary-orange;
+  }
+}

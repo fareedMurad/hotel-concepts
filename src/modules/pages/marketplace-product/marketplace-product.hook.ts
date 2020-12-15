@@ -16,8 +16,8 @@ const useMarketplaceProductData = () => {
   } = useRouteMatch<{ id: string }>();
   const {
     name,
-    price,
     results,
+    pricing,
     authors,
     details,
     forWhom,
@@ -48,8 +48,8 @@ const useMarketplaceProductData = () => {
   const previewData = {
     id,
     name,
-    price,
     inCart,
+    pricing,
     authors,
     languages,
     authorized,
@@ -130,8 +130,8 @@ const useMarketplaceProductData = () => {
   const bannerData = {
     id,
     name,
-    price,
     inCart,
+    pricing,
     authors,
     languages,
     isPreorder,

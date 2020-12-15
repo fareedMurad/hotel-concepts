@@ -1,3 +1,4 @@
+import { usePrice } from '@core/shared/hooks/use-price';
 import { getProducts } from '@app/redux/cart';
 import { State } from '@app/redux/state';
 import { useEffect } from 'react';
@@ -12,10 +13,21 @@ const useCartNotifierData = () => {
     (state: State) => state.cart
   );
 
-  const total = products
-    ?.map(product => ({
-      price: product.price,
-      amount: selectedProducts.find(one => one.path == product.id)?.quantity
+  const prices = products.map(({ pricing, id: productId }) => {
+    const discountProcent = pricing.quantityDiscounts
+      ? pricing.quantityDiscounts[1]
+      : null;
+    const { discountPrice } = usePrice(pricing?.price.USD, discountProcent);
+    return {
+      productId,
+      price: discountPrice || pricing.price.USD
+    };
+  });
+
+  const total = prices
+    ?.map(({ price, productId }) => ({
+      price,
+      amount: selectedProducts.find(one => one.path == productId)?.quantity
     }))
     ?.reduce((acc, cur) => acc + cur.price * cur.amount, 0);
 

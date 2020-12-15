@@ -11,6 +11,7 @@ import { ProgramItemProps } from './program-item.props';
 import { State } from '@app/redux/state';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
+import { usePrice } from '@core/shared/hooks/use-price';
 
 /**
  * Renders ProgramItem
@@ -27,10 +28,17 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
     description,
     complexityLevel,
     inWishlist,
+    pricing,
     courseImage: {
       file: { url }
     }
   } = program;
+
+  const discountProcent = pricing?.quantityDiscounts
+    ? pricing?.quantityDiscounts[1]
+    : null;
+
+  const { discountPrice } = usePrice(pricing?.price.USD, discountProcent);
 
   const dispatch = useDispatch();
   const {
@@ -86,7 +94,14 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
                 <span className={styles.vhr}>|</span>
                 {sprints} sprints
                 <span className={styles.vhr}>|</span>
-                {price}$
+                <div className={styles.price}>
+                  <span className={discountPrice && styles.priceOld}>
+                    $ {price}
+                  </span>
+                  {discountPrice && (
+                    <span className={styles.priceNew}>$ {discountPrice}</span>
+                  )}
+                </div>
               </div>
               <div className={styles.description}>{description}</div>
             </div>
@@ -96,7 +111,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
           <Button
             onClick={() => {
               // #non-clickable
-              // dispatch(navigate(`/program/?programId=${id}`));
+              dispatch(navigate(`/program/?programId=${id}`));
             }}
             className={styles.button}
             children='Find out more'
