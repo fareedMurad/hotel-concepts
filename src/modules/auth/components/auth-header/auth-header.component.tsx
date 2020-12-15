@@ -1,10 +1,10 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import * as styles from './auth-header.scss';
+import { AuthHeaderProps } from './auth-header.props';
 import { NavLink } from 'react-router-dom';
 import { Sso } from '../sso';
+import classNames from 'classnames';
 import { useAuthHeaderData } from './auth-header.hook';
-import { AuthHeaderProps } from './auth-header.props';
-import * as styles from './auth-header.scss';
 
 /**
  * Renders AuthHeader
@@ -37,7 +37,7 @@ const AuthHeader: React.FC<AuthHeaderProps> = ({ className }) => {
         Build skills for today, tomorrow, and beyond. Education to future-proof
         your career.
       </div>
-      <Sso className={styles.socials} isLogin={isLogin} />
+      <Sso className={styles.socials} usersAction={isLogin} />
       <div className={styles.separator}>
         <span className={styles.separatorLine} />
         <span className={styles.separatorCaption}>Or</span>

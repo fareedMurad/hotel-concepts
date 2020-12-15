@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { SsoProps } from './sso.props';
 import * as styles from './sso.scss';
-import { enviroment } from 'src/environment';
-import classNames from 'classnames';
-import GoogleLogin from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
-import { useDispatch } from 'react-redux';
 import { facebookSignIn, googleSignIn } from '@app/redux/auth';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+import { SsoProps } from './sso.props';
+import classNames from 'classnames';
+import { enviroment } from 'src/environment';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 
 const FacebookIcon: React.FC = () => (
@@ -16,10 +16,11 @@ const FacebookIcon: React.FC = () => (
 /**
  * Renders Sso
  */
-const Sso: React.FC<SsoProps> = ({ className, isLogin }) => {
+const Sso: React.FC<SsoProps> = ({ className, usersAction }) => {
   const dispatch = useDispatch();
   const { googleClientId, facebookAppId } = enviroment || {};
   const { pathname } = useLocation();
+  const renderCaption = usersAction === 'login' ? 'Sign in' : 'Sign up';
 
   return (
     <div className={classNames(styles.sso, className)}>
@@ -32,7 +33,7 @@ const Sso: React.FC<SsoProps> = ({ className, isLogin }) => {
               disabled={renderProps.disabled}
               className={styles.customLogIn}
             >
-              {isLogin ? 'Sign in' : 'Sign up'} with Google
+              {renderCaption} with Google
               <img src={require(`img/google-icon.svg`)} />
             </button>
           )}
@@ -48,7 +49,7 @@ const Sso: React.FC<SsoProps> = ({ className, isLogin }) => {
         <FacebookLogin
           appId={facebookAppId}
           fields='name,email,picture'
-          textButton={`${isLogin ? 'Sign in' : 'Sign up'} with Facebook`}
+          textButton={`${renderCaption} with Facebook`}
           cssClass={styles.customLogIn}
           icon={<FacebookIcon />}
           scope='public_profile,email'

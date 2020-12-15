@@ -1,11 +1,11 @@
-import { Card } from '@account/components';
-import { Button, Preloader } from '@core/components';
-import { Preloaders } from '@ui/models';
 import * as React from 'react';
+import * as styles from './subscription.scss';
+import { Button, Preloader } from '@core/components';
+import { Card } from '@account/components';
+import { Preloaders } from '@ui/models';
+import { SubscriptionTimeProps } from './subscription.props';
 import { useDispatch } from 'react-redux';
 import { useSubscriptionData } from './subscription.hook';
-import { SubscriptionTimeProps } from './subscription.props';
-import * as styles from './subscription.scss';
 
 /**
  * Renders Subscription time section

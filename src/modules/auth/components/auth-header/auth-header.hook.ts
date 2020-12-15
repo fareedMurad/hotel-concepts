@@ -5,7 +5,8 @@ const useAuthHeaderData = () => {
     location: { pathname }
   } = useHistory();
 
-  const isLogin = pathname == '/auth/login';
+  const isLogin: 'login' | 'register' =
+    pathname == '/auth/login' ? 'login' : 'register';
 
   return { isLogin };
 };
