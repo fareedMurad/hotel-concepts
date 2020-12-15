@@ -1,13 +1,13 @@
-import { Icon, Modal, Preloader } from '@core/components';
-import { closeModal } from '@ui/modal';
-import { Modals, Preloaders } from '@ui/models';
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import * as styles from './registration-modal.scss';
+import { Icon, Modal, Preloader } from '@core/components';
+import { Modals, Preloaders } from '@ui/models';
 import { ModalHeader } from './components/modal-header';
 import { ModalLogin } from './components/modal-login';
-import * as styles from './registration-modal.scss';
-import { useState } from 'react';
 import { ModalSignup } from './components/modal-signup';
+import { closeModal } from '@ui/modal';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 /**
  * Renders RegistrationModal
@@ -27,7 +27,7 @@ const RegistrationModal: React.FC = () => {
           />
           <ModalHeader
             setActiveModal={setActiveModal}
-            avtiveModal={activeModal}
+            activeModal={activeModal}
           />
           {activeModal === 'login' ? <ModalLogin /> : <ModalSignup />}
         </Preloader>

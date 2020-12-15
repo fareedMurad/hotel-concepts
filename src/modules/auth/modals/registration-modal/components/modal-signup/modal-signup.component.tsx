@@ -1,13 +1,13 @@
+import * as React from 'react';
+import * as styles from './modal-signup.scss';
+import { FormNew, Button, Field } from '@core/components';
+import { Formik } from 'formik';
+import { ModalSignupProps } from './modal-signup.props';
+import { defaultValues } from '@pages/program-page/components/contact-us-modal/models/contact-us-modal.model';
 import { register } from '@app/redux/auth';
 import { registerValidationSchema } from '@auth/models';
-import { useSignUpData } from '@auth/pages/sign-up/sign-up.hook';
-import { FormNew, Button, Field } from '@core/components';
-import { defaultValues } from '@pages/program-page/components/contact-us-modal/models/contact-us-modal.model';
-import { Formik } from 'formik';
-import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { ModalSignupProps } from './modal-signup.props';
-import * as styles from './modal-signup.scss';
+import { useSignUpData } from '@auth/pages/sign-up/sign-up.hook';
 
 /**
  * Renders ModalSignup
