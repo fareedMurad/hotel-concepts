@@ -15,6 +15,7 @@ import { useHistory } from 'react-router';
 import { PreviewProps } from './preview.props';
 import * as styles from './preview.scss';
 import classNames from 'classnames';
+import { usePrice } from '@core/shared/hooks/use-price';
 
 /**
  * Renders Preview
@@ -28,8 +29,8 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
     id,
     img,
     name,
-    price,
     inCart,
+    pricing,
     authors,
     languages,
     authorized,
@@ -42,6 +43,14 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
     availableFormats,
     previewDescription
   } = data;
+
+  const price = pricing?.price.USD;
+
+  const discountProcent = pricing?.quantityDiscounts
+    ? pricing?.quantityDiscounts[1]
+    : null;
+
+  const { discountPrice } = usePrice(price, discountProcent);
 
   return (
     <div className={styles.preview}>
@@ -134,7 +143,14 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
             ))}
           </div>
           <div>
-            <div className={styles.price}>${price}</div>
+            <div className={styles.price}>
+              <span className={discountPrice && styles.priceOld}>
+                $ {price}
+              </span>
+              {discountPrice && (
+                <span className={styles.priceNew}>$ {discountPrice}</span>
+              )}
+            </div>
             <div className={styles.controls}>
               <Button
                 className={classNames(styles.checkout, {

@@ -1,8 +1,13 @@
 type Pricing = {
   quantityBehavior: string;
   quantityDefault: number;
-  price: any;
+  price: {
+    USD: number;
+  };
   dateLimitsEnabled: boolean;
+  quantityDiscounts: {
+    [key: number]: number;
+  };
   cancellation: {
     interval: string;
     intervalLength: number;

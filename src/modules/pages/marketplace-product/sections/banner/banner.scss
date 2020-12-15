@@ -151,6 +151,16 @@
   margin-top: 30px;
   font-family: $EBGaramond;
 
+  &--old {
+    text-decoration: line-through;
+    color: $light-grey;
+  }
+
+  &--new {
+    color: $primary-orange;
+    margin-left: 12px;
+  }
+
   @include tablet() {
     margin-top: auto;
   }

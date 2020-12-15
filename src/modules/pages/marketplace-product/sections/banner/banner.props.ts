@@ -1,3 +1,4 @@
+import { Pricing } from '@app/models';
 import { BookAuthor } from '@account/pages/library/models';
 
 /**
@@ -15,7 +16,7 @@ type BannerProps = {
     id: string;
     img: string;
     name: string;
-    price: number;
+    pricing: Pricing;
     inCart: boolean;
     isPreorder: boolean;
     preorderDate: string;

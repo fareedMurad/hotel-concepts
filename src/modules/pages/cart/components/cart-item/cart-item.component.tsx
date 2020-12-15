@@ -1,4 +1,5 @@
 import { removeProductFromCart, updateProductCart } from '@app/redux/cart';
+import { usePrice } from '@core/shared/hooks/use-price';
 import * as React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +13,7 @@ import * as styles from './cart-item.scss';
 const CartItem: React.FC<CartItemProps> = ({
   name,
   quantity,
-  price,
+  pricing,
   imageSource,
   id,
   isPreorder,
@@ -21,6 +22,14 @@ const CartItem: React.FC<CartItemProps> = ({
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [value, setValue] = useState(quantity.toString() || '1');
+
+  const procentDiscount = pricing?.quantityDiscounts
+    ? pricing.quantityDiscounts[1]
+    : null;
+
+  const price = pricing?.price.USD;
+
+  const { discountPrice } = usePrice(price, procentDiscount);
 
   return (
     <div className={styles.cartItem}>
@@ -62,8 +71,11 @@ const CartItem: React.FC<CartItemProps> = ({
               value={value}
             />
           </div>
-          <div className={styles.descriptionPrice}>
-            {/* {discount && <span>{discount}</span>} */}${price}
+          <div className={styles.price}>
+            <span className={discountPrice && styles.priceOld}>$ {price}</span>
+            {discountPrice && (
+              <span className={styles.priceNew}>$ {discountPrice}</span>
+            )}
           </div>
         </div>
       </div>

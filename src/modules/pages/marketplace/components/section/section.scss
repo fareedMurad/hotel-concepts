@@ -144,6 +144,15 @@
   font-family: $EBGaramond;
   border-radius: 6px;
   background: $white;
+
+  &--old {
+    text-decoration: line-through;
+    color: $light-grey;
+  }
+  &--new {
+    margin-left: 12px;
+    color: $primary-orange;
+  }
 }
 
 .name {
