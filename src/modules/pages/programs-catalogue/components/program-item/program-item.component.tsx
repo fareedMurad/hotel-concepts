@@ -22,7 +22,6 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
     name,
     slug,
     weeks,
-    price,
     sprints,
     category,
     description,
@@ -34,11 +33,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
     }
   } = program;
 
-  const discountProcent = pricing?.quantityDiscounts
-    ? pricing?.quantityDiscounts[1]
-    : null;
-
-  const { discountPrice } = usePrice(pricing?.price.USD, discountProcent);
+  const { discountPrice, price } = usePrice(pricing);
 
   const dispatch = useDispatch();
   const {

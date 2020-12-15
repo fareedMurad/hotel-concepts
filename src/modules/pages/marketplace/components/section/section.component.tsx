@@ -28,7 +28,6 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
   const {
     id,
     name,
-    price,
     productImage: {
       file: { url }
     },
@@ -37,11 +36,7 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
     pricing
   } = book || {};
 
-  const discountProcent = pricing?.quantityDiscounts
-    ? pricing?.quantityDiscounts[1]
-    : null;
-
-  const { discountPrice } = usePrice(price, discountProcent);
+  const { discountPrice, price } = usePrice(pricing);
 
   const oldSafari = browserName === 'Safari' && browserVersion <= '14';
   const imageSrc = oldSafari
@@ -73,9 +68,9 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
       </div>
       <div className={styles.divider} />
       <div className={styles.price}>
-        <span className={discountProcent && styles.priceOld}>$ {price}</span>
+        <span className={discountPrice && styles.priceOld}>$ {price}</span>
         <span className={styles.priceNew}>
-          {discountProcent && <span>$ {discountPrice}</span>}
+          {discountPrice && <span>$ {discountPrice}</span>}
         </span>
       </div>
       <div className={styles.name}>{name}</div>

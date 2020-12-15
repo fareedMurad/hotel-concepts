@@ -14,13 +14,10 @@ const useCartNotifierData = () => {
   );
 
   const prices = products.map(({ pricing, id: productId }) => {
-    const discountProcent = pricing.quantityDiscounts
-      ? pricing.quantityDiscounts[1]
-      : null;
-    const { discountPrice } = usePrice(pricing?.price.USD, discountProcent);
+    const { discountPrice, price } = usePrice(pricing);
     return {
       productId,
-      price: discountPrice || pricing.price.USD
+      price: discountPrice || price
     };
   });
 

@@ -44,13 +44,7 @@ const Preview: React.FC<PreviewProps> = ({ data, subscriptionStatus }) => {
     previewDescription
   } = data;
 
-  const price = pricing?.price.USD;
-
-  const discountProcent = pricing?.quantityDiscounts
-    ? pricing?.quantityDiscounts[1]
-    : null;
-
-  const { discountPrice } = usePrice(price, discountProcent);
+  const { discountPrice, price } = usePrice(pricing);
 
   return (
     <div className={styles.preview}>

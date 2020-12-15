@@ -1,9 +1,17 @@
+import { Pricing } from '@app/models';
 /**
  * Price hook
  */
 
-const usePrice = (price: number, discounProcent: number) => {
-  if (!discounProcent) return { discountPrice: null };
+const usePrice = (pricing: Pricing) => {
+  const price = pricing?.price.USD;
+  console.log(price);
+  debugger;
+
+  const discounProcent = pricing?.quantityDiscounts
+    ? pricing?.quantityDiscounts[1]
+    : null;
+  if (!discounProcent) return { price, discountPrice: null };
   /**
    * Calculate discount
    */
@@ -11,7 +19,10 @@ const usePrice = (price: number, discounProcent: number) => {
     (price - (price * discounProcent) / 100).toFixed(2)
   );
 
-  return { discountPrice };
+  return {
+    discountPrice,
+    price
+  };
 };
 
 export { usePrice };

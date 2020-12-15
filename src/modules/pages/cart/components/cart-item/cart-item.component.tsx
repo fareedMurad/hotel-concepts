@@ -23,13 +23,7 @@ const CartItem: React.FC<CartItemProps> = ({
   const { t } = useTranslation();
   const [value, setValue] = useState(quantity.toString() || '1');
 
-  const procentDiscount = pricing?.quantityDiscounts
-    ? pricing.quantityDiscounts[1]
-    : null;
-
-  const price = pricing?.price.USD;
-
-  const { discountPrice } = usePrice(price, procentDiscount);
+  const { discountPrice, price } = usePrice(pricing);
 
   return (
     <div className={styles.cartItem}>

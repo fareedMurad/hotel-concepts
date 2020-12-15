@@ -29,13 +29,7 @@ const Banner: React.FC<BannerProps> = ({ data, subscriptionStatus }) => {
   } = data;
   const dispatch = useDispatch();
 
-  const price = pricing?.price.USD;
-
-  const discountProcent = pricing?.quantityDiscounts
-    ? pricing?.quantityDiscounts[1]
-    : null;
-
-  const { discountPrice } = usePrice(price, discountProcent);
+  const { discountPrice, price } = usePrice(pricing);
 
   return (
     <div className={styles.banner}>

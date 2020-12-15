@@ -17,19 +17,14 @@ const CartNotifierItem: React.FC<{ className?: string }> = ({ className }) => {
   const url = productImage?.file?.url;
   const programImage = courseImage?.file?.url;
 
-  const discountProcent = pricing.quantityDiscounts
-    ? pricing.quantityDiscounts[1]
-    : null;
-  const { discountPrice } = usePrice(pricing.price.USD, discountProcent);
+  const { discountPrice, price } = usePrice(pricing);
 
   return (
     <div className={classNames(styles.item, className)}>
       <img className={styles.itemImage} src={isBook ? url : programImage} />
       <div className={styles.description}>
         <div className={styles.descriptionName}>{name}</div>
-        <div className={styles.descriptionPrice}>
-          ${discountPrice || pricing.price.USD}
-        </div>
+        <div className={styles.descriptionPrice}>${discountPrice || price}</div>
       </div>
     </div>
   );
