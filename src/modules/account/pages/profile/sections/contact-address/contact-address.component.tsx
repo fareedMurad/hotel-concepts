@@ -1,16 +1,16 @@
-import { Card } from '@account/components';
-import { countriesOptions } from '@app/dictionary/countries-options';
-import { editContactAddress } from '@app/redux/account';
+import * as React from 'react';
+import * as styles from './contact-address.scss';
 import { Button, Field, FormNew, Preloader } from '@core/components';
+import { Card } from '@account/components';
+import { ContactAddressProps } from './contact-address.props';
+import { Formik } from 'formik';
 import { Preloaders } from '@ui/models';
 import classNames from 'classnames';
-import { Formik } from 'formik';
-import * as React from 'react';
-import { useDispatch } from 'react-redux';
 import { contactAddressValidationSchema } from '../../models';
+import { countriesOptions } from '@app/dictionary/countries-options';
+import { editContactAddress } from '@app/redux/account';
 import { useContactAdressData } from './contact-address.hook';
-import { ContactAddressProps } from './contact-address.props';
-import * as styles from './contact-address.scss';
+import { useDispatch } from 'react-redux';
 
 /**
  * Renders ContactAddress
@@ -61,6 +61,7 @@ const ContactAddress: React.FC<ContactAddressProps> = ({ className }) => {
                 options={countriesOptions}
                 name='country'
                 label='Country'
+                allowSearch
               />
               <Field.Text name='phone' label='Phone' />
               <Button className={styles.submit} onClick={() => handleSubmit()}>

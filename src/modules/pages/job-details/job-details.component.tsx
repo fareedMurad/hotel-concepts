@@ -80,7 +80,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
     <React.Fragment>
       <ScrollToTop />
       <SEO
-        title={`Apply for Job ${job.name}`}
+        title={`Apply for Job ${job?.name}`}
         thumbnail={''}
         url={window.location.href}
       />
@@ -91,8 +91,8 @@ const JobDetails: React.FC<JobDetailsProps> = ({}) => {
 
       <div className={styles.jobPage}>
         <section className={styles.sectionA}>
-          <SectionTitle className={styles.title}>{job.name}</SectionTitle>
-          <PreCaption className={styles.preCaption}>{job.location}</PreCaption>
+          <SectionTitle className={styles.title}>{job?.name}</SectionTitle>
+          <PreCaption className={styles.preCaption}>{job?.location}</PreCaption>
           {/* <Paragraph className={styles.sectionADescription}>
             {job.description}
           </Paragraph> */}

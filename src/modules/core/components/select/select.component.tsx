@@ -151,18 +151,38 @@ const Select: React.FC<SelectProps> = ({
             <div className={styles.menu}>
               {isOptions ? (
                 <React.Fragment>
-                  {options.map(({ label, value }) => (
-                    <div
-                      className={styles.option}
-                      onClick={() => {
-                        onChange(value);
-                        setVisible(false);
-                      }}
-                      key={value}
-                    >
-                      {label}
-                    </div>
-                  ))}
+                  {!allowSearch
+                    ? options.map(({ label, value }, index) => (
+                        <div
+                          className={styles.option}
+                          onClick={() => {
+                            onChange(value);
+                            setVisible(false);
+                          }}
+                          key={index}
+                        >
+                          {label}
+                        </div>
+                      ))
+                    : options
+                        .filter(v =>
+                          v.label
+                            .toLowerCase()
+                            .includes(handledSearch.toLowerCase())
+                        )
+                        .map(({ label, value }) => (
+                          <div
+                            className={styles.option}
+                            onClick={() => {
+                              onChange(value);
+                              setVisible(false);
+                              setHandledSearch(label);
+                            }}
+                            key={value}
+                          >
+                            {label}
+                          </div>
+                        ))}
                 </React.Fragment>
               ) : (
                 <div className={styles.placeholder}>No options</div>
