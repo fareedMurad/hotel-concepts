@@ -1,3 +1,4 @@
+import { usePrice } from '@core/shared/hooks/use-price';
 import { useDispatch, useSelector } from 'react-redux';
 import { ContentType } from '@app/models/enum';
 import { Modals } from '@ui/models';
@@ -67,7 +68,7 @@ const useCartData = () => {
     return {
       id,
       name,
-      price,
+      pricing,
       author,
       quantity,
       isPreorder,
@@ -88,8 +89,9 @@ const useCartData = () => {
   const summaryData = {
     total: cartData
       ?.map(product => {
+        const { discountPrice, price } = usePrice(product?.pricing);
         return {
-          price: product.price,
+          price: discountPrice || price,
           amount: selectedProducts.find(one => one.path == product.id).quantity
         };
       })

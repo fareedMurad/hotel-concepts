@@ -11,6 +11,7 @@ import { ProgramItemProps } from './program-item.props';
 import { State } from '@app/redux/state';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
+import { usePrice } from '@core/shared/hooks/use-price';
 
 /**
  * Renders ProgramItem
@@ -21,16 +22,18 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
     name,
     slug,
     weeks,
-    price,
     sprints,
     category,
     description,
     complexityLevel,
     inWishlist,
+    pricing,
     courseImage: {
       file: { url }
     }
   } = program;
+
+  const { discountPrice, price } = usePrice(pricing);
 
   const dispatch = useDispatch();
   const {
@@ -55,11 +58,9 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
               <div className={styles.nameAndLike}>
                 <div
                   className={styles.name}
-                  onClick={
-                    () => {}
-                    // #non-clickable
-                    //dispatch(navigate(`/program/?programId=${id}`));
-                  }
+                  onClick={() => {
+                    dispatch(navigate(`/program/?programId=${id}`));
+                  }}
                 >
                   {name}
                 </div>
@@ -86,7 +87,14 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
                 <span className={styles.vhr}>|</span>
                 {sprints} sprints
                 <span className={styles.vhr}>|</span>
-                {price}$
+                <div className={styles.price}>
+                  <span className={discountPrice && styles.priceOld}>
+                    $ {price}
+                  </span>
+                  {discountPrice && (
+                    <span className={styles.priceNew}>$ {discountPrice}</span>
+                  )}
+                </div>
               </div>
               <div className={styles.description}>{description}</div>
             </div>
@@ -96,7 +104,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
           <Button
             onClick={() => {
               // #non-clickable
-              // dispatch(navigate(`/program/?programId=${id}`));
+              dispatch(navigate(`/program/?programId=${id}`));
             }}
             className={styles.button}
             children='Find out more'

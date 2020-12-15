@@ -9,7 +9,7 @@ type SsoProps = {
   /**
    * Is on login page
    */
-  isLogin: boolean;
+  usersAction: 'login' | 'register';
 };
 
 export { SsoProps };

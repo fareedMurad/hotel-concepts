@@ -8,6 +8,7 @@ import * as styles from './banner.scss';
 import { useDispatch } from 'react-redux';
 import { addProductToCart } from '@app/redux/cart';
 import classNames from 'classnames';
+import { usePrice } from '@core/shared/hooks/use-price';
 
 /**
  * Renders Banner
@@ -17,8 +18,8 @@ const Banner: React.FC<BannerProps> = ({ data, subscriptionStatus }) => {
     id,
     img,
     name,
-    price,
     inCart,
+    pricing,
     authors,
     languages,
     isPreorder,
@@ -27,6 +28,8 @@ const Banner: React.FC<BannerProps> = ({ data, subscriptionStatus }) => {
     previewDescription
   } = data;
   const dispatch = useDispatch();
+
+  const { discountPrice, price } = usePrice(pricing);
 
   return (
     <div className={styles.banner}>
@@ -64,7 +67,12 @@ const Banner: React.FC<BannerProps> = ({ data, subscriptionStatus }) => {
               </div>
             </div>
           </div>
-          <div className={styles.price}>${price}</div>
+          <div className={styles.price}>
+            <span className={discountPrice && styles.priceOld}>$ {price}</span>
+            {discountPrice && (
+              <span className={styles.priceNew}>$ {discountPrice}</span>
+            )}
+          </div>
           <div className={styles.controls}>
             <Button
               className={classNames(styles.checkout, {

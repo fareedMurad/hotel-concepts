@@ -11,7 +11,7 @@ type ModalHeaderProps = {
   /*
    * Current active modal
    */
-  avtiveModal: 'login' | 'register';
+  activeModal: 'login' | 'register';
 };
 
 export { ModalHeaderProps };

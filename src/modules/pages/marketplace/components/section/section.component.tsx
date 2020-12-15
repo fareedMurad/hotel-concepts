@@ -2,6 +2,7 @@ import { addBookToWishlist, removeBookFromWishlist } from '@app/redux/account';
 import { State } from '@app/redux/state';
 import { Icon } from '@core/components';
 import { useWindowSize } from '@core/shared';
+import { usePrice } from '@core/shared/hooks/use-price';
 import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
 import { Modals } from '@ui/models';
@@ -17,6 +18,7 @@ import * as styles from './section.scss';
  */
 const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
   const dispatch = useDispatch();
+
   const {
     auth: { authorized },
     general: {
@@ -26,13 +28,15 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
   const {
     id,
     name,
-    price,
     productImage: {
       file: { url }
     },
     inWishlist,
-    isPreorder
+    isPreorder,
+    pricing
   } = book || {};
+
+  const { discountPrice, price } = usePrice(pricing);
 
   const oldSafari = browserName === 'Safari' && browserVersion <= '14';
   const imageSrc = oldSafari
@@ -63,7 +67,12 @@ const Book: React.FC<BookProps> = ({ className, book, onClick }) => {
         </div>
       </div>
       <div className={styles.divider} />
-      <div className={styles.price}>${price}</div>
+      <div className={styles.price}>
+        <span className={discountPrice && styles.priceOld}>$ {price}</span>
+        <span className={styles.priceNew}>
+          {discountPrice && <span>$ {discountPrice}</span>}
+        </span>
+      </div>
       <div className={styles.name}>{name}</div>
     </div>
   );
@@ -110,7 +119,7 @@ const Section: React.FC<SectionProps> = ({
                 book={book}
                 onClick={() => {
                   // #non-clickable
-                  // dispatch(navigate(`/marketplace/${id}`));
+                  dispatch(navigate(`/marketplace/${id}`));
                 }}
                 key={id}
               />

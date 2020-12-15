@@ -1,7 +1,7 @@
-import { Sso } from '@auth/components';
 import * as React from 'react';
-import { ModalHeaderProps } from './modal-header.props';
 import * as styles from './modal-header.scss';
+import { ModalHeaderProps } from './modal-header.props';
+import { Sso } from '@auth/components';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { navigate } from '@router/store';
@@ -13,7 +13,7 @@ import { closeModal } from '@ui/modal';
  */
 const ModalHeader: React.FC<ModalHeaderProps> = ({
   setActiveModal,
-  avtiveModal
+  activeModal
 }) => {
   return (
     <div className={styles.modalHeader}>
@@ -23,14 +23,14 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
             setActiveModal('register');
           }}
           className={classNames(styles.link, {
-            [styles.linkActive]: avtiveModal === 'register'
+            [styles.linkActive]: activeModal === 'register'
           })}
         >
           Register
         </div>
         <div
           className={classNames(styles.link, {
-            [styles.linkActive]: avtiveModal === 'login'
+            [styles.linkActive]: activeModal === 'login'
           })}
           onClick={() => {
             setActiveModal('login');
@@ -44,7 +44,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
         Build skills for today, tomorrow, and beyond. Education to future-proof
         your career.
       </div>
-      <Sso className={styles.socials} isLogin />
+      <Sso className={styles.socials} usersAction={activeModal} />
       <div className={styles.separator}>
         <span className={styles.separatorLine} />
         <span className={styles.separatorCaption}>Or</span>

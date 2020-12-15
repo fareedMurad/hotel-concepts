@@ -1,5 +1,6 @@
 import { State } from '@app/redux/state';
 import { Spinner } from '@core/components';
+import { usePrice } from '@core/shared/hooks/use-price';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -15,8 +16,10 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
       file: { url }
     },
     name,
-    price
+    pricing
   } = book;
+
+  const { discountPrice, price } = usePrice(pricing);
 
   const [isLoaded, setIsLoaded] = useState(false);
   const {
@@ -47,11 +50,15 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
       )}
       <div className={styles.content}>
         <div className={styles.bookTitle}>{name}</div>
-        <div className={styles.bookPrice}>
-          {/* <div className={sale && styles.bookPriceOld}>${price}</div> */}
-          <div>${price}</div>
-          {/* {sale && <div className={styles.sale}>${sale}</div>} */}
+
+        {/* <div className={sale && styles.bookPriceOld}>${price}</div> */}
+        <div className={styles.price}>
+          <span className={discountPrice && styles.priceOld}>$ {price}</span>
+          {discountPrice && (
+            <span className={styles.priceNew}>$ {discountPrice}</span>
+          )}
         </div>
+        {/* {sale && <div className={styles.sale}>${sale}</div>} */}
       </div>
     </div>
   );

@@ -75,16 +75,6 @@
       }
     }
   }
-
-  &--price {
-    @include font($primary-gray, 24px, 400, 28px);
-    font-family: $EBGaramond;
-    & > span {
-      margin-right: 20px;
-      text-decoration: line-through;
-      color: #b1b8bd;
-    }
-  }
 }
 
 .remove {
@@ -98,4 +88,18 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.price {
+  @include font($primary-gray, 24px, 400, 28px);
+  font-family: $EBGaramond;
+  &--old {
+    margin-right: 20px;
+    text-decoration: line-through;
+    color: #b1b8bd;
+  }
+  &--new {
+    @include font($primary-orange, 24px, 400, 28px);
+    font-family: $EBGaramond;
+  }
 }

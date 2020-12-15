@@ -1,8 +1,8 @@
+import { ProductCategory } from './fastspring';
+import { Pricing } from './product';
 /**
  * Single program (online course) model
  */
-
-import { ProductCategory } from './fastspring';
 
 type SingleProgramModel = {
   id: string;
@@ -109,18 +109,7 @@ type SingleProgramModel = {
     };
   };
   price: number;
-  pricing: {
-    cancellation: {
-      interval: string;
-      intervalLength: number;
-    };
-    dateLimitsEnabled: boolean;
-    price: {
-      USD: number;
-    };
-    quantityBehavior: string;
-    quantityDefault: number;
-  };
+  pricing: Pricing;
   results: string[];
   showOnHomePage: boolean;
   slug: string;
