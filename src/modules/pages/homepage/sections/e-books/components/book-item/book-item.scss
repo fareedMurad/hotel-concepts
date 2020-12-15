@@ -39,21 +39,21 @@
     margin-top: 12px;
     font-family: $EBGaramond;
   }
-  &--price {
-    @include flex($justify: flex-end);
-    @include font($primary-gray, 18px, 600, 35px);
-    width: 100%;
-    padding-bottom: 4px;
-    font-family: $EBGaramond;
-    border-bottom: 2px solid $light-grey;
-    &--old {
-      text-decoration: line-through;
-      color: $light-grey;
-    }
-  }
 }
 
-.sale {
-  margin-left: 20px;
-  color: #ff3e3e;
+.price {
+  @include flex($justify: flex-end);
+  @include font($primary-gray, 18px, 600, 35px);
+  width: 100%;
+  padding-bottom: 4px;
+  font-family: $EBGaramond;
+  border-bottom: 2px solid $light-grey;
+  &--old {
+    text-decoration: line-through;
+    color: $light-grey;
+  }
+  &--new {
+    margin-left: 20px;
+    color: #ff3e3e;
+  }
 }
