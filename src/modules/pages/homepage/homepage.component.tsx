@@ -11,6 +11,7 @@ import * as styles from './homepage.scss';
 import {
   About,
   Impact,
+  InsightsBlock,
   Intro,
   OnlineCourses,
   Socials,
@@ -50,7 +51,7 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         />
         <Mentors contributors={contributors} loading={loading} url='mentor' />
         <FaqBlock showTitle />
-        {/* <InsightsBlock /> */}
+        <InsightsBlock />
         <Socials />
       </div>
     </React.Suspense>

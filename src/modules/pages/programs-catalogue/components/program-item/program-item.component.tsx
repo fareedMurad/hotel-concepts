@@ -58,11 +58,9 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
               <div className={styles.nameAndLike}>
                 <div
                   className={styles.name}
-                  onClick={
-                    () => {}
-                    // #non-clickable
-                    //dispatch(navigate(`/program/?programId=${id}`));
-                  }
+                  onClick={() => {
+                    dispatch(navigate(`/program/?programId=${id}`));
+                  }}
                 >
                   {name}
                 </div>
