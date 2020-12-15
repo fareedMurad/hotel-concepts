@@ -50,8 +50,10 @@ const CartItem: React.FC<CartItemProps> = ({
                 const {
                   target: { value }
                 } = e;
-                const filteredValue = value.replace(/\D+/g, '');
-
+                let filteredValue = value.replace(/\D+/g, '');
+                if (filteredValue === '0') {
+                  filteredValue = '1';
+                }
                 setValue(filteredValue);
                 dispatch(
                   updateProductCart({
