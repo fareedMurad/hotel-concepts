@@ -59,7 +59,8 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
                 <div
                   className={styles.name}
                   onClick={() => {
-                    dispatch(navigate(`/program/?programId=${id}`));
+                    // #non-clickable
+                    // dispatch(navigate(`/program/?programId=${id}`));
                   }}
                 >
                   {name}
@@ -104,7 +105,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
           <Button
             onClick={() => {
               // #non-clickable
-              dispatch(navigate(`/program/?programId=${id}`));
+              // dispatch(navigate(`/program/?programId=${id}`));
             }}
             className={styles.button}
             children='Find out more'
