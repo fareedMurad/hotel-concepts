@@ -20,7 +20,7 @@ const ExperiencedAssignment: React.FC<ExperiencedAssignmentProps> = ({}) => {
     from: { position: 'absolute', opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: { duration: 1000 }
+    config: { duration: 0 }
   });
 
   return (

@@ -147,12 +147,11 @@
   left: 20px;
   bottom: 40px;
   height: 44px;
-  width: 211px;
+  width: 204px;
 
   @include tablet() {
     left: 150px;
     bottom: 40px;
-    width: 241px;
   }
 
   @include desktop() {
