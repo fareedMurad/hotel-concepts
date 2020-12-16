@@ -16,7 +16,7 @@
   }
   & > div:nth-child(2) {
     @include font($primary-gray, 18px, 400, 28px);
-    margin: 24px 0px;
+    margin: 24px 0px 0px 0px;
     font-family: $IBMPlex;
     max-width: 440px;
   }
@@ -49,7 +49,9 @@
     border-radius: 6px;
     width: 205px;
     height: 47px;
-    margin-bottom: 12px;
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
     &:before {
       content: '■';
       padding: 0 15px;

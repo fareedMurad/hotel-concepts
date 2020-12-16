@@ -6,7 +6,6 @@ import { Pricing } from '@app/models';
 const usePrice = (pricing: Pricing) => {
   const price = pricing?.price.USD;
   console.log(price);
-  debugger;
 
   const discounProcent = pricing?.quantityDiscounts
     ? pricing?.quantityDiscounts[1]

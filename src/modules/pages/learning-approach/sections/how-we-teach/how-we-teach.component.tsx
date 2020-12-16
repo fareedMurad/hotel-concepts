@@ -30,12 +30,12 @@ const HowWeTeach: React.FC<HowWeTeachProps> = ({}) => {
       <SectionTitle className={styles.title}>
         {t('learning-approach.how-we-teach.title')}
       </SectionTitle>
-      <Cards />
       <Caption
         className={styles.captionWrapper}
         rate='1.0'
         title={t('learning-approach.word-class-cards.wcc1.title')}
       />
+      <Cards />
       <Caption
         rate='2.0'
         title={t('learning-approach.word-class-cards.wcc2.title')}

@@ -60,7 +60,7 @@ const Authors: React.FC<AuthorsProps> = ({ data }) => {
             <div className={styles.author} key={id}>
               <div className={styles.info}>
                 <div className={styles.work}>
-                  {workAt}, {position}
+                  {workAt} {position}
                 </div>
                 <div className={styles.name}>
                   {name} {surname}

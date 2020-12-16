@@ -8,19 +8,19 @@ const useProfileMenuData = () => {
   } = useSelector((state: State) => state);
   const links = [
     {
-      title: 'my Account',
+      title: 'My Account',
       to: '/account/profile'
     },
     {
-      title: 'my Subscription',
+      title: 'My Subscription',
       to: '/account/subscription'
     },
     {
-      title: 'my Library',
+      title: 'My Library',
       to: '/account/library/purchased'
     },
     {
-      title: 'my Programs',
+      title: 'My Programs',
       to: '/account/programs/purchased'
     }
   ];

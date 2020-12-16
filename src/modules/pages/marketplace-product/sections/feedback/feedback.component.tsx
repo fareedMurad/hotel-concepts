@@ -72,7 +72,7 @@ const Feedback: React.FC<FeedbackProps> = ({ data }) => {
   return (
     <div className={styles.feedback}>
       <div className={styles.label}>Feedback</div>
-      <Title className={styles.title}>Cordie Impact</Title>
+      <Title className={styles.title}>Kordie Impact</Title>
       <Slider
         className={styles.slider}
         itemClass={styles.sliderItem}
