@@ -7,6 +7,7 @@ type WatchButtonProps = {
   className?: string;
   onEnter?: () => void;
   onLeave?: () => void;
+  theme?: 'primary' | 'secondary';
 };
 
 export { WatchButtonProps };

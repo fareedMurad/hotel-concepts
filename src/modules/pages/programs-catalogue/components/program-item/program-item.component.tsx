@@ -129,7 +129,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
                   className={styles.name}
                   onClick={() => {
                     // #non-clickable
-                    //dispatch(navigate(`/program/?programId=${id}`));
+                    dispatch(navigate(`/program/?programId=${id}`));
                   }}
                 >
                   {name}

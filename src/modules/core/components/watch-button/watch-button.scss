@@ -1,7 +1,7 @@
-@import "core.scss";
+@import 'core.scss';
 
 .watch-button {
-	@include flex($align: center);
+  @include flex($align: center);
 }
 
 .container {
@@ -13,8 +13,14 @@
   }
   & > span:nth-child(2) {
     @include font($white, 12px, 500, 16px);
-    opacity: .5;
+    opacity: 0.5;
     font-family: $IBMPlex;
+  }
+
+  &--secondary {
+    span {
+      color: $primary-gray !important;
+    }
   }
 }
 
@@ -31,8 +37,15 @@
     margin-left: 2px;
     clip-path: polygon(100% 52%, 0 0, 0 100%);
     background: $primary-orange;
+    &--secondary {
+      background: $white;
+    }
   }
   &:hover {
     background-color: rgb(219, 219, 219);
+  }
+
+  &--secondary {
+    background: $primary-orange;
   }
 }

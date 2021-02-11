@@ -7,7 +7,7 @@
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  padding-left: $left-offset;
+  // padding-left: $left-offset;
   padding-right: $default-offset;
 
   @include ipad-p() {
@@ -39,28 +39,23 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.watch-button {
-  position: absolute;
-  z-index: 2;
-  bottom: 20px;
-
-  @include tablet() {
-    bottom: 150px;
-  }
-}
-
-.title {
+.content {
   z-index: 2;
   & > div:first-child {
-    @include font($white, 60px, 600, 70px);
+    @include font($primary-gray, 19px, 500, 27px);
+  }
+  & > div:nth-child(2) {
+    @include font($primary-gray, 43px, 600, 49px);
     max-width: 600px;
     font-family: $EBGaramond;
     letter-spacing: -0.48px;
+    margin-top: 10px;
   }
-  & > div:nth-child(2) {
-    @include font($white, 24px, 400, 34px);
+  & > div:nth-child(3) {
+    @include font($primary-gray, 19px, 400, 27px);
     max-width: 550px;
     margin-top: 16px;
+    margin-top: 20px;
   }
 }
 
@@ -69,17 +64,21 @@
   bottom: 15px;
 }
 
-.page-navigator {
-  @include flex($justify: space-between);
-  position: absolute;
-  z-index: 2;
-  bottom: 36px;
-  left: $default-offset;
-  right: $default-offset;
-  background-color: $white;
-  height: 84px;
-  border-radius: 6px;
-  padding: 20px 10px;
+// .page-navigator {
+//   @include flex($justify: space-between);
+//   position: absolute;
+//   z-index: 2;
+//   bottom: 36px;
+//   left: $default-offset;
+//   right: $default-offset;
+//   background-color: $white;
+//   height: 84px;
+//   border-radius: 6px;
+//   padding: 20px 10px;
+// }
+
+.watch-button {
+  justify-content: flex-end;
 }
 
 .button {
@@ -124,5 +123,53 @@
 @media screen and (max-width: 853px) {
   .page-navigator {
     display: none;
+  }
+}
+
+//new styles
+
+.content-overlay {
+  @include flex($align: center);
+
+  position: relative;
+  z-index: 2;
+  min-height: 720px;
+  max-width: 39%;
+  background: rgb(255, 242, 242);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 242, 242, 0.9) 74%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  padding: 100px 58px 0 58px;
+  height: 100vh;
+}
+
+.page-navigator {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 44px);
+  background-color: white;
+  padding: 20px;
+  gap: 20px;
+  border-radius: 4px;
+}
+
+.buttons {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 44px;
+  align-items: center;
+}
+
+.download {
+  background-color: #3e3e3e;
+  border-color: #3e3e3e;
+  width: 224px;
+  & > div {
+    @include flex(space-between);
+    width: 100%;
   }
 }
