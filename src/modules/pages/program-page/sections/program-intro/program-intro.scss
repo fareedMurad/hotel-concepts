@@ -42,7 +42,7 @@
 .content {
   z-index: 2;
   & > div:first-child {
-    @include font($primary-gray, 19px, 400, 27px);
+    @include font($primary-gray, 19px, 500, 27px);
   }
   & > div:nth-child(2) {
     @include font($primary-gray, 43px, 600, 49px);
@@ -130,6 +130,7 @@
 
 .content-overlay {
   @include flex($align: center);
+
   position: relative;
   z-index: 2;
   min-height: 720px;
@@ -140,7 +141,7 @@
     rgba(255, 242, 242, 0.9) 74%,
     rgba(255, 255, 255, 0.5) 100%
   );
-  padding: 0 58px;
+  padding: 100px 58px 0 58px;
   height: 100vh;
 }
 

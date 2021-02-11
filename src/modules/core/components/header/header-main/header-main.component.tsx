@@ -26,7 +26,7 @@ const HeaderMain: React.FC = () => {
     [styles.invertedHeader]: blackTheme
   });
   const { pathname } = useLocation();
-  const match = pathname === '/about-us' || '/program/:id';
+  const match = pathname === '/about-us' || pathname.includes('/program/');
 
   //remove in future
   const { mobile } = useMediaPoints();
