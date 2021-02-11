@@ -11,16 +11,29 @@ const WatchButton: React.FC<WatchButtonProps> = ({
   titleText,
   className,
   onEnter,
-  onLeave
+  onLeave,
+  theme = 'primary'
 }) => {
   return (
     <div className={classNames(styles.watchButton, className)}>
       <div onMouseEnter={onEnter} onMouseLeave={onLeave}>
-        <div className={styles.buttonPlay}>
-          <div className={styles.buttonPlayIcon} />
+        <div
+          className={classNames(styles.buttonPlay, {
+            [styles.buttonPlaySecondary]: theme === 'secondary'
+          })}
+        >
+          <div
+            className={classNames(styles.buttonPlayIcon, {
+              [styles.buttonPlayIconSecondary]: theme === 'secondary'
+            })}
+          />
         </div>
       </div>
-      <div className={styles.container}>
+      <div
+        className={classNames(styles.container, {
+          [styles.containerSecondary]: theme === 'secondary'
+        })}
+      >
         <span>{titleText}</span>
         <span>{time}</span>
       </div>

@@ -110,61 +110,70 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
         className={styles.programIntro}
         style={{ backgroundImage: `url(${image})` }}
       >
-        <BackButton className={styles.backButton} />
-        <div className={styles.title}>
-          <div>{data?.name}</div>
-          <div>{data?.description}</div>
-        </div>
-        <iframe
-          ref={videoPlayer}
-          src={`https://player.vimeo.com/video/${getVideoId(
-            data?.videoVimeoUrl
-          )}`}
-          allowFullScreen
-          hidden
-        />
-        <Popup
-          contentStyle={{
-            border: 'none',
-            background: 'transparent',
-            width: '100%'
-          }}
-          trigger={
-            <div className={styles.watchButton}>
-              <WatchButton
-                onEnter={playVideo}
-                onLeave={stopVideo}
-                time={`${minutes}: ${seconds}`}
-                titleText='Watch Trailer'
+        {/* <BackButton className={styles.backButton} /> */}
+        <div className={styles.contentOverlay}>
+          <div className={styles.content}>
+            <div className={styles.caption}>Online course</div>
+            <div>{data?.name}</div>
+            <div>{data?.description}</div>
+            <div className={styles.pageNavigator}>
+              {navButtons.map((button, index) => (
+                <ProgramNavButton
+                  anchor={button.anchor}
+                  name={button.name}
+                  index={index}
+                  key={index}
+                />
+              ))}
+              <Button
+                onClick={scrollToEnroll}
+                className={styles.button}
+                children='Enroll now'
+                arrow
+                width='inherit'
               />
             </div>
-          }
-          position='top center'
-          modal
-          lockScroll
-        >
-          <ReactPlayer
-            url={`${data?.videoVimeoUrl}`}
-            controls
-            style={{ margin: 'auto', maxWidth: '100%' }}
-          />
-        </Popup>
+            <div className={styles.buttons}>
+              <Button className={styles.download}>
+                <span>Download Syllabus</span>
+                <img src={require('img/dowmload.svg')} />
+              </Button>
+              <Popup
+                contentStyle={{
+                  border: 'none',
+                  background: 'transparent',
+                  width: '100%'
+                }}
+                trigger={
+                  <WatchButton
+                    onEnter={playVideo}
+                    onLeave={stopVideo}
+                    time={`${minutes}: ${seconds}`}
+                    titleText='Watch Trailer'
+                    theme='secondary'
+                    className={styles.watchButton}
+                  />
+                }
+                position='top center'
+                modal
+                lockScroll
+              >
+                <ReactPlayer
+                  url={`${data?.videoVimeoUrl}`}
+                  controls
+                  style={{ margin: 'auto', maxWidth: '100%' }}
+                />
+              </Popup>
+            </div>
+          </div>
 
-        <div className={styles.pageNavigator}>
-          {navButtons.map((button, index) => (
-            <ProgramNavButton
-              anchor={button.anchor}
-              name={button.name}
-              index={index}
-              key={index}
-            />
-          ))}
-          <Button
-            onClick={scrollToEnroll}
-            className={styles.button}
-            children='Enroll now'
-            arrow
-            width='inherit'
+          <iframe
+            ref={videoPlayer}
+            src={`https://player.vimeo.com/video/${getVideoId(
+              data?.videoVimeoUrl
+            )}`}
+            allowFullScreen
+            hidden
           />
         </div>
 
