@@ -9,9 +9,73 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { ProgramItemProps } from './program-item.props';
 import { State } from '@app/redux/state';
-import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
 import { usePrice } from '@core/shared/hooks/use-price';
+import Popup from 'reactjs-popup';
+import { WatchButton } from '@core/components/watch-button';
+import ReactPlayer from 'react-player';
+
+/**
+ * Program preview image
+ */
+
+const ProgramPreviewImage: React.FC<{
+  imageSrc: string;
+  previewVideo: any;
+}> = ({ imageSrc, previewVideo }) => {
+  const videoRef = React.useRef(null) as React.MutableRefObject<
+    HTMLVideoElement
+  >;
+  const [duration, setDuration] = React.useState(0);
+
+  /**
+   * convert duration
+   */
+  const minutes = Math.floor(duration / 60);
+  const seconds = Math.floor(duration - minutes * 60);
+  return (
+    <div
+      className={styles.image}
+      style={{ backgroundImage: `url(${imageSrc})` }}
+    >
+      <Popup
+        contentStyle={{
+          border: 'none',
+          background: 'transparent',
+          width: '100%'
+        }}
+        trigger={
+          <div className={styles.imageWatchButton}>
+            <WatchButton
+              time={`${minutes}:${seconds}`}
+              titleText='Play preview'
+            />
+          </div>
+        }
+        position='top center'
+        modal
+        lockScroll
+      >
+        <ReactPlayer
+          url={`${previewVideo?.file.url}`}
+          controls
+          style={{ margin: 'auto', maxWidth: '100%' }}
+          muted={true}
+          playing={true}
+        />
+      </Popup>
+      <video
+        ref={videoRef}
+        className={styles.video}
+        src={previewVideo?.file.url}
+        muted
+        onLoadedMetadata={({ currentTarget }) =>
+          setDuration(currentTarget.duration)
+        }
+      />
+    </div>
+  );
+};
 
 /**
  * Renders ProgramItem
@@ -28,6 +92,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
     complexityLevel,
     inWishlist,
     pricing,
+    previewVideo,
     courseImage: {
       file: { url }
     }
@@ -52,7 +117,11 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
       <div className={styles.programItem}>
         <div className={styles.container}>
           <Preloader id={Preloaders.programs}>
-            <img src={imageSrc} alt='' />
+            {/* <img src={imageSrc} alt='' /> */}
+            <ProgramPreviewImage
+              imageSrc={imageSrc}
+              previewVideo={previewVideo.video}
+            />
             <div className={styles.info}>
               <div className={styles.type}>{complexityLevel}</div>
               <div className={styles.nameAndLike}>
