@@ -14,6 +14,7 @@ import { usePrice } from '@core/shared/hooks/use-price';
 import Popup from 'reactjs-popup';
 import { WatchButton } from '@core/components/watch-button';
 import ReactPlayer from 'react-player';
+import { navigate } from '@router/store/actions';
 
 /**
  * Program preview image

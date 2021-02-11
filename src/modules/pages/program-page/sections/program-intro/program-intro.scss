@@ -42,20 +42,29 @@
 .content {
   z-index: 2;
   & > div:first-child {
-    @include font($primary-gray, 19px, 500, 27px);
+    @include font($white, 19px, 500, 27px);
+    @include desktop() {
+      color: $primary-gray;
+    }
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 43px, 600, 49px);
+    @include font($white, 43px, 600, 49px);
     max-width: 600px;
     font-family: $EBGaramond;
     letter-spacing: -0.48px;
     margin-top: 10px;
+    @include desktop() {
+      color: $primary-gray;
+    }
   }
   & > div:nth-child(3) {
-    @include font($primary-gray, 19px, 400, 27px);
+    @include font($white, 19px, 400, 27px);
     max-width: 550px;
     margin-top: 16px;
     margin-top: 20px;
+    @include desktop() {
+      color: $primary-gray;
+    }
   }
 }
 
@@ -129,20 +138,24 @@
 //new styles
 
 .content-overlay {
-  @include flex($align: center);
-
   position: relative;
   z-index: 2;
-  min-height: 720px;
-  max-width: 39%;
-  background: rgb(255, 242, 242);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 242, 242, 0.9) 74%,
-    rgba(255, 255, 255, 0.5) 100%
-  );
-  padding: 100px 58px 0 58px;
-  height: 100vh;
+  @include tablet() {
+    padding: 22px;
+  }
+  @include desktop() {
+    @include flex($align: center);
+    min-height: 720px;
+    max-width: 39%;
+    background: rgb(255, 242, 242);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 242, 242, 0.9) 74%,
+      rgba(255, 255, 255, 0.5) 100%
+    );
+    padding: 100px 58px 0 58px;
+    height: 100vh;
+  }
 }
 
 .page-navigator {
