@@ -42,29 +42,20 @@
 .content {
   z-index: 2;
   & > div:first-child {
-    @include font($white, 19px, 500, 27px);
-    @include desktop() {
-      color: $primary-gray;
-    }
+    @include font($primary-gray, 19px, 500, 27px);
   }
   & > div:nth-child(2) {
-    @include font($white, 43px, 600, 49px);
+    @include font($primary-gray, 43px, 600, 49px);
     max-width: 600px;
     font-family: $EBGaramond;
     letter-spacing: -0.48px;
     margin-top: 10px;
-    @include desktop() {
-      color: $primary-gray;
-    }
   }
   & > div:nth-child(3) {
-    @include font($white, 19px, 400, 27px);
+    @include font($primary-gray, 19px, 400, 27px);
     max-width: 550px;
     margin-top: 16px;
     margin-top: 20px;
-    @include desktop() {
-      color: $primary-gray;
-    }
   }
 }
 
@@ -87,7 +78,12 @@
 // }
 
 .watch-button {
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin-top: 8px;
+  @include desktop() {
+    margin-top: initial;
+    justify-content: flex-end;
+  }
 }
 
 .button {
@@ -138,43 +134,56 @@
 //new styles
 
 .content-overlay {
+  @include flex($align: flex-end);
   position: relative;
+  height: 100vh;
   z-index: 2;
+  padding: 34px;
+  padding-bottom: 87px;
   @include tablet() {
-    padding: 22px;
+    max-width: 60%;
+    padding-left: 88px;
+    padding-bottom: 87px;
   }
   @include desktop() {
-    @include flex($align: center);
+    align-items: center;
     min-height: 720px;
     max-width: 39%;
-    background: rgb(255, 242, 242);
-    background: linear-gradient(
-      0deg,
-      rgba(255, 242, 242, 0.9) 74%,
-      rgba(255, 255, 255, 0.5) 100%
-    );
+    // background: rgb(255, 242, 242);
+    // background: linear-gradient(
+    //   0deg,
+    //   rgba(255, 242, 242, 0.9) 74%,
+    //   rgba(255, 255, 255, 0.5) 100%
+    // );
     padding: 100px 58px 0 58px;
-    height: 100vh;
   }
 }
 
 .page-navigator {
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 44px);
-  background-color: white;
-  padding: 20px;
-  gap: 20px;
-  border-radius: 4px;
+  display: none;
+  @include desktop() {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 44px);
+    background-color: white;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 4px;
+  }
 }
 
 .buttons {
   margin-top: 24px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 44px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 44px 44px;
   align-items: center;
+  row-gap: 10px;
+  @include desktop() {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 44px;
+  }
 }
 
 .download {
@@ -185,4 +194,8 @@
     @include flex(space-between);
     width: 100%;
   }
+}
+
+.enroll-mobile {
+  width: 224px;
 }

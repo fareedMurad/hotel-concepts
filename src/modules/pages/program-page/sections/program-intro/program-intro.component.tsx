@@ -4,6 +4,7 @@ import { BackButton } from '@core/components/back-button';
 import { SEO } from '@core/components/seo/seo.component';
 import { WatchButton } from '@core/components/watch-button';
 import { scrollTo } from '@core/helpers/scroll-to.helper';
+import { useMediaPoints } from '@core/shared';
 import { ProgramNavButton } from '@pages/program-page/components/program-nav-button';
 import { Preloaders } from '@ui/models';
 import Player from '@vimeo/player';
@@ -19,6 +20,7 @@ import * as styles from './program-intro.scss';
  * Renders ProgramIntro
  */
 const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
+  const { tablet, mobile, desktop } = useMediaPoints();
   const {
     localization: { language },
     general: {
@@ -27,6 +29,11 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
   } = useSelector((state: State) => state);
   const { navButtons } = useProgramIntroData();
   const oldSafari = name === 'Safari' && version < '14';
+
+  const background =
+    (desktop && 'https://i.imgur.com/qBsBGcc.jpg') ||
+    (mobile && 'https://i.imgur.com/kkNPsrC.jpg') ||
+    (tablet && 'https://i.imgur.com/WPpEyNk.jpg');
 
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [previewVideo, setPreviewVideo] = React.useState('');
@@ -95,7 +102,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
    */
 
   const minutes = Math.floor(duration / 60);
-  const seconds = duration - minutes * 60;
+  const seconds = Math.floor(duration - minutes * 60);
 
   const previewUrl = data?.previewVideo.video.file.url;
 
@@ -108,7 +115,9 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
       />
       <section
         className={styles.programIntro}
-        style={{ backgroundImage: `url(${image})` }}
+        style={{
+          backgroundImage: `url(${background})`
+        }}
       >
         {/* <BackButton className={styles.backButton} /> */}
         <div className={styles.contentOverlay}>
@@ -134,6 +143,14 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
               />
             </div>
             <div className={styles.buttons}>
+              {!desktop && (
+                <Button
+                  onClick={scrollToEnroll}
+                  className={styles.enrollMobile}
+                  children='Enroll now'
+                  arrow
+                />
+              )}
               <Button className={styles.download}>
                 <span>Download Syllabus</span>
                 <img src={require('img/dowmload.svg')} />
@@ -146,7 +163,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
                 }}
                 trigger={
                   <WatchButton
-                    onEnter={playVideo}
+                    // onEnter={playVideo}
                     onLeave={stopVideo}
                     time={`${minutes}: ${seconds}`}
                     titleText='Watch Trailer'

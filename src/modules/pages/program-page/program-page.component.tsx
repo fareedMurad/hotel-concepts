@@ -3,11 +3,11 @@ import { State } from '@app/redux/state';
 import { Preloader } from '@core/components';
 import { FaqBlock, PartnerApply } from '@pages/components';
 import { Impact } from '@pages/homepage/sections';
-import { showModal } from '@ui/modal';
-import { Modals, Preloaders } from '@ui/models';
+import {} from '@ui/modal';
+import { Preloaders } from '@ui/models';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { ContactUsModal } from './components/contact-us-modal';
 import { useProgramData } from './hooks';
@@ -42,6 +42,8 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
   } = useSelector((state: State) => state);
 
   const { singleProgram } = useProgramData(language, programId);
+
+  console.log(singleProgram);
   const inCart = selectedProducts?.some(one => one.path == programId);
 
   return (
