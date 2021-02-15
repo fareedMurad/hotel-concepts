@@ -8,7 +8,7 @@ import * as styles from './faq.scss';
 const Faq: React.FC = () => (
   <div className={styles.faq}>
     <div className={styles.title}>Frequently Asked Questions</div>
-    <FaqBlock className={styles.content} />
+    <FaqBlock className={styles.content} page='marketplace' />
   </div>
 );
 

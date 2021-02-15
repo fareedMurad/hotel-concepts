@@ -25,25 +25,21 @@
 
 .indicator {
   @include size(34px);
+  @include flex(center, center);
   background-color: $background;
   border-radius: 50%;
   margin-right: 16px;
   min-width: 34px;
   transition: $transition;
 
-  &:after {
-    @include flex($align: center, $justify: center);
-    content: '+';
-    padding-top: 5px;
-    transition: transform 0.1s ease-in;
-    font-weight: 400;
+  &--icon {
     color: #cbd0d3;
-  }
-  &.opened {
-    &::after {
+    font-weight: 300 !important;
+    transition: transform 0.1s ease-in;
+    transform: rotate(0deg);
+    &--opened {
       transition: transform 0.1s ease-in;
       transform: rotate(45deg);
-      padding-left: 4px;
     }
   }
 }

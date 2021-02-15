@@ -9,9 +9,9 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { ProgramItemProps } from './program-item.props';
 import { State } from '@app/redux/state';
-import { navigate } from '@router/store';
 import { showModal } from '@ui/modal';
 import { usePrice } from '@core/shared/hooks/use-price';
+import { ProgramPreviewImage } from './components';
 
 /**
  * Renders ProgramItem
@@ -28,9 +28,11 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
     complexityLevel,
     inWishlist,
     pricing,
+    previewVideo,
     courseImage: {
       file: { url }
-    }
+    },
+    videoVimeoUrl
   } = program;
 
   const { discountPrice, price } = usePrice(pricing);
@@ -52,7 +54,11 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
       <div className={styles.programItem}>
         <div className={styles.container}>
           <Preloader id={Preloaders.programs}>
-            <img src={imageSrc} alt='' />
+            {/* <img src={imageSrc} alt='' /> */}
+            <ProgramPreviewImage
+              imageSrc={imageSrc}
+              previewVideo={videoVimeoUrl}
+            />
             <div className={styles.info}>
               <div className={styles.type}>{complexityLevel}</div>
               <div className={styles.nameAndLike}>
@@ -60,7 +66,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
                   className={styles.name}
                   onClick={() => {
                     // #non-clickable
-                    dispatch(navigate(`/program/?programId=${id}`));
+                    //dispatch(navigate(`/program/?programId=${id}`));
                   }}
                 >
                   {name}
@@ -105,7 +111,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
           <Button
             onClick={() => {
               // #non-clickable
-              dispatch(navigate(`/program/?programId=${id}`));
+              //dispatch(navigate(`/program/?programId=${id}`));
             }}
             className={styles.button}
             children='Find out more'

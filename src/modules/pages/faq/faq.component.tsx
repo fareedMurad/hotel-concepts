@@ -44,7 +44,7 @@ const Faq: React.FC<FaqProps> = ({}) => {
       <div className={styles.container}>
         <SectionTitle>{t('faq.title')}</SectionTitle>
       </div>
-      <FaqBlock className={styles.faqWrapper} showTitle={false} />
+      <FaqBlock className={styles.faqWrapper} showTitle={false} page='faq' />
       <footer className={styles.footer}>
         <Preloader id={Preloaders.sendForm} className={styles.preloader}>
           <div className={styles.footerContent}>
