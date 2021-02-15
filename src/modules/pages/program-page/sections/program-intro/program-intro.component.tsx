@@ -151,10 +151,12 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
                   arrow
                 />
               )}
-              <Button className={styles.download}>
-                <span>Download Syllabus</span>
-                <img src={require('img/dowmload.svg')} />
-              </Button>
+              <a href={data?.syllabus.file.url} target='_blank' download>
+                <Button className={styles.download}>
+                  <span>Download Syllabus</span>
+                  <img src={require('img/dowmload.svg')} />
+                </Button>
+              </a>
               <Popup
                 contentStyle={{
                   border: 'none',

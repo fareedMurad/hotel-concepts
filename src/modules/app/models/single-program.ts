@@ -143,6 +143,11 @@ type SingleProgramModel = {
       };
     }[];
   };
+  syllabus: {
+    file: {
+      url;
+    };
+  };
 };
 
 export { SingleProgramModel };

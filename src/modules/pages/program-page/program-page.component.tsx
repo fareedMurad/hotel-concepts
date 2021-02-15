@@ -43,7 +43,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
 
   const { singleProgram } = useProgramData(language, programId);
 
-  console.log(singleProgram);
   const inCart = selectedProducts?.some(one => one.path == programId);
 
   return (
