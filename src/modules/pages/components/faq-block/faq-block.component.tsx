@@ -12,14 +12,14 @@ import { useFaqData } from './faq.hook';
 /**
  * Renders FaqBlock
  */
-const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle }) => {
+const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle, page }) => {
   const [currentCategory, setCurrentCutegory] = React.useState('All');
   const { language } = useSelector((state: State) => state.localization);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const { faqData, faqDataLoading } = useFaqData(language);
+  const { faqData, faqDataLoading } = useFaqData(language, page);
 
   if (faqDataLoading) return <Spinner />;
 

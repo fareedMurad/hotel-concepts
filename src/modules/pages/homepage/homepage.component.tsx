@@ -50,8 +50,8 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
           loading={homepageTestimonialsLoading}
         />
         <Mentors contributors={contributors} loading={loading} url='mentor' />
-        <FaqBlock showTitle />
-        <InsightsBlock />
+        <FaqBlock showTitle page='home' />
+        {/* <InsightsBlock /> */}
         <Socials />
       </div>
     </React.Suspense>

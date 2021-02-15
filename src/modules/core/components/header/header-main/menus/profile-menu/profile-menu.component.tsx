@@ -72,19 +72,21 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ blackTheme }) => {
               </Button>
             </React.Fragment>
           )}
-          {links.map(({ to, title }) => (
-            <a
-              className={styles.link}
-              key={title}
-              onClick={() => {
-                !authorized
-                  ? dispatch(showModal(Modals.registration))
-                  : dispatch(navigate(to));
-              }}
-            >
-              {title}
-            </a>
-          ))}
+          <div className={styles.links}>
+            {links.map(({ to, title }) => (
+              <a
+                className={styles.link}
+                key={title}
+                onClick={() => {
+                  !authorized
+                    ? dispatch(showModal(Modals.registration))
+                    : dispatch(navigate(to));
+                }}
+              >
+                {title}
+              </a>
+            ))}
+          </div>
           {authorized && (
             <Button
               className={styles.logout}

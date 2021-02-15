@@ -77,7 +77,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({}) => {
           inCart={inCart}
         />
         <ProgramQuote data={singleProgram} />
-        <FaqBlock showTitle />
+        <FaqBlock showTitle page='program' />
         <PartnerApply
           title={t('program-page.partner-apply.title')}
           subtitle={t('program-page.partner-apply.sub-title')}
