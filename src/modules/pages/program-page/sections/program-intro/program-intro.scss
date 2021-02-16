@@ -82,7 +82,6 @@
   margin-top: 8px;
   @include desktop() {
     margin-top: initial;
-    justify-self: flex-end;
   }
 }
 
@@ -180,6 +179,7 @@
   grid-template-rows: 44px 44px;
   align-items: center;
   row-gap: 10px;
+  column-gap: 30px;
   @include desktop() {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 44px;
