@@ -48,7 +48,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
     if (videoRef.current) {
       setVideo(videoRef.current);
     }
-    if (data) {
+    if (data?.videoVimeoUrl) {
       const player = new Player(videoPlayer.current);
       player.getDuration().then(el => setDuration(el));
       setPreviewVideo(previewUrl);
@@ -75,7 +75,7 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
     }
   };
 
-  const url = data?.heroImage.file.url;
+  const url = data?.heroImage?.file.url;
 
   const imageSrc = oldSafari ? `${url}?h=900&w=1440` : `${url}?fm=webp`;
   const reducedImage = `${imageSrc}&h=500&w=500&q=60`;
@@ -116,11 +116,16 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
       <section
         className={styles.programIntro}
         style={{
-          backgroundImage: `url(${background})`
+          backgroundImage: `url(${image})`
         }}
       >
         {/* <BackButton className={styles.backButton} /> */}
-        <div className={styles.contentOverlay}>
+        <div
+          className={styles.contentOverlay}
+          style={{
+            backgroundImage: desktop && 'url(https://i.imgur.com/z3wiGik.png)'
+          }}
+        >
           <div className={styles.content}>
             <div className={styles.caption}>Online course</div>
             <div>{data?.name}</div>
@@ -151,49 +156,55 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
                   arrow
                 />
               )}
-              <a href={data?.syllabus.file.url} target='_blank' download>
-                <Button className={styles.download}>
-                  <span>Download Syllabus</span>
-                  <img src={require('img/dowmload.svg')} />
-                </Button>
-              </a>
-              <Popup
-                contentStyle={{
-                  border: 'none',
-                  background: 'transparent',
-                  width: '100%'
-                }}
-                trigger={
-                  <WatchButton
-                    // onEnter={playVideo}
-                    onLeave={stopVideo}
-                    time={`${minutes}: ${seconds}`}
-                    titleText='Watch Trailer'
-                    theme='secondary'
-                    className={styles.watchButton}
+              {data?.syllabus && (
+                <a href={data?.syllabus.file.url} target='_blank' download>
+                  <Button className={styles.download}>
+                    <span>Download Syllabus</span>
+                    <img src={require('img/dowmload.svg')} />
+                  </Button>
+                </a>
+              )}
+              {data?.videoVimeoUrl && (
+                <Popup
+                  contentStyle={{
+                    border: 'none',
+                    background: 'transparent',
+                    width: '100%'
+                  }}
+                  trigger={
+                    <div className={styles.watchButton}>
+                      <WatchButton
+                        time={`0${minutes}:${seconds === 0 ? '00' : seconds}`}
+                        titleText='Play preview'
+                      />
+                    </div>
+                  }
+                  position='top center'
+                  modal
+                  lockScroll
+                >
+                  <ReactPlayer
+                    url={`${data?.videoVimeoUrl}`}
+                    controls
+                    style={{ margin: 'auto', maxWidth: '100%' }}
+                    muted={true}
+                    playing={true}
                   />
-                }
-                position='top center'
-                modal
-                lockScroll
-              >
-                <ReactPlayer
-                  url={`${data?.videoVimeoUrl}`}
-                  controls
-                  style={{ margin: 'auto', maxWidth: '100%' }}
-                />
-              </Popup>
+                </Popup>
+              )}
             </div>
           </div>
 
-          <iframe
-            ref={videoPlayer}
-            src={`https://player.vimeo.com/video/${getVideoId(
-              data?.videoVimeoUrl
-            )}`}
-            allowFullScreen
-            hidden
-          />
+          {data?.videoVimeoUrl && (
+            <iframe
+              ref={videoPlayer}
+              src={`https://player.vimeo.com/video/${getVideoId(
+                data?.videoVimeoUrl
+              )}`}
+              allowFullScreen
+              hidden
+            />
+          )}
         </div>
 
         <video ref={videoRef} className={styles.video} src={previewUrl} muted />

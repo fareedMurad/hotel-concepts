@@ -12,6 +12,7 @@ import { State } from '@app/redux/state';
 import { showModal } from '@ui/modal';
 import { usePrice } from '@core/shared/hooks/use-price';
 import { ProgramPreviewImage } from './components';
+import { navigate } from '@router/store/actions';
 
 /**
  * Renders ProgramItem
@@ -66,7 +67,7 @@ const ProgramItem: React.FC<ProgramItemProps> = ({ program }) => {
                   className={styles.name}
                   onClick={() => {
                     // #non-clickable
-                    //dispatch(navigate(`/program/?programId=${id}`));
+                    dispatch(navigate(`/program/?programId=${id}`));
                   }}
                 >
                   {name}

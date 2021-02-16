@@ -82,7 +82,7 @@
   margin-top: 8px;
   @include desktop() {
     margin-top: initial;
-    justify-content: flex-end;
+    justify-self: flex-end;
   }
 }
 

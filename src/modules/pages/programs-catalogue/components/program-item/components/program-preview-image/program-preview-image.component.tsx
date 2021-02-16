@@ -44,38 +44,43 @@ const ProgramPreviewImage: React.FC<ProgramPreviewImageProps> = ({
       className={styles.image}
       style={{ backgroundImage: `url(${imageSrc})` }}
     >
-      <Popup
-        contentStyle={{
-          border: 'none',
-          background: 'transparent',
-          width: '100%'
-        }}
-        trigger={
-          <div className={styles.imageWatchButton}>
-            <WatchButton
-              time={`0${minutes}:${seconds === 0 ? '00' : seconds}`}
-              titleText='Play preview'
+      {previewVideo && (
+        <>
+          (
+          <Popup
+            contentStyle={{
+              border: 'none',
+              background: 'transparent',
+              width: '100%'
+            }}
+            trigger={
+              <div className={styles.imageWatchButton}>
+                <WatchButton
+                  time={`0${minutes}:${seconds === 0 ? '00' : seconds}`}
+                  titleText='Play preview'
+                />
+              </div>
+            }
+            position='top center'
+            modal
+            lockScroll
+          >
+            <ReactPlayer
+              url={`${previewVideo}`}
+              controls
+              style={{ margin: 'auto', maxWidth: '100%' }}
+              muted={true}
+              playing={true}
             />
-          </div>
-        }
-        position='top center'
-        modal
-        lockScroll
-      >
-        <ReactPlayer
-          url={`${previewVideo}`}
-          controls
-          style={{ margin: 'auto', maxWidth: '100%' }}
-          muted={true}
-          playing={true}
-        />
-      </Popup>
-      <iframe
-        src={`https://player.vimeo.com/video/${getVideoId(previewVideo)}`}
-        allowFullScreen
-        ref={videoRef}
-        hidden
-      />
+          </Popup>
+          <iframe
+            src={`https://player.vimeo.com/video/${getVideoId(previewVideo)}`}
+            allowFullScreen
+            ref={videoRef}
+            hidden
+          />
+        </>
+      )}
     </div>
   );
 };
