@@ -1,6 +1,7 @@
 import { State } from '@app/redux/state';
 import { ButtonFilter, H2 } from '@core/components';
 import { Spinner } from '@core/components/spinner';
+import { capitalize } from '@core/shared';
 import { FaqItem } from '@pages/homepage/components/faq-item';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -13,13 +14,20 @@ import { useFaqData } from './faq.hook';
  * Renders FaqBlock
  */
 const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle, page }) => {
-  const [currentCategory, setCurrentCutegory] = React.useState('All');
+  const [currentCategory, setCurrentCutegory] = React.useState('');
   const { language } = useSelector((state: State) => state.localization);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const { faqData, faqDataLoading } = useFaqData(language, page);
+
+  React.useEffect(() => {
+    if (faqData) {
+      setCurrentCutegory(faqData[0].category);
+    }
+  }, [faqData]);
 
   if (faqDataLoading) return <Spinner />;
 
@@ -28,16 +36,16 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle, page }) => {
   );
 
   const getCategories = () => {
-    return uniqueElements.map(name => ({
+    return uniqueElements.map((name: string) => ({
       name: name,
       count: faqData.filter(item => item.category === name).length
     }));
   };
   const categories = getCategories();
-  categories.unshift({ name: 'All', count: faqData.length });
+  // categories.unshift({ name: 'All', count: faqData.length });
 
   const currentItems = faqData.filter(
-    item => currentCategory === 'All' || item.category === currentCategory
+    item => item.category === currentCategory
   );
 
   const onFilterSelect = (name: string) => {
@@ -67,7 +75,7 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle, page }) => {
         })}
       </div>
       {currentItems
-        .filter((el, idx) => idx < 6)
+        .filter((el, idx) => idx < 8)
         .map((item, index) => (
           <FaqItem
             name={item.question}
