@@ -19,11 +19,15 @@ const FaqItem: React.FC<FaqItemProps> = ({ name, description }) => {
         onClick={openItem}
         className={classNames(styles.name, { [styles.opened]: isOpened })}
       >
-        <div
-          className={classNames(styles.indicator, {
-            [styles.opened]: isOpened
-          })}
-        />
+        <div className={styles.indicator}>
+          <div
+            className={classNames(styles.indicatorIcon, {
+              [styles.indicatorIconOpened]: isOpened
+            })}
+          >
+            +
+          </div>
+        </div>
         <span>{name}</span>
       </div>
       <div
