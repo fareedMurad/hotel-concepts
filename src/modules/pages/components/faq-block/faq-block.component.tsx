@@ -30,7 +30,7 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle, page }) => {
   }, [faqData]);
 
   if (faqDataLoading) return <Spinner />;
-
+  if (!faqData) return null;
   const uniqueElements = Array.from(
     new Set(faqData.map(item => item.category))
   );
