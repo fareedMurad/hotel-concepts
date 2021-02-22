@@ -28,7 +28,7 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
     price,
     weeks,
     sprints,
-    heroImage: {
+    courseImage: {
       file: { url }
     }
   } = program || {};
