@@ -33,6 +33,17 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
     }
   } = program || {};
 
+  const {
+    general: {
+      browserVersion: { name: browserName, version }
+    }
+  } = useSelector((state: State) => state);
+
+  const oldSafari = browserName === 'Safari' && version <= '14';
+  const imageSrc = oldSafari
+    ? `${url}?h=500&w=900`
+    : `${url}?q=80&fm=webp&h=500&w=900`;
+
   return (
     <div className={styles.program}>
       {fromWishlist && (
@@ -50,7 +61,7 @@ const Program: React.FC<ProgramProps> = ({ type, program, inCart }) => {
           }}
         />
       )}
-      <img className={styles.image} src={url} alt={url} />
+      <img className={styles.image} src={`${imageSrc}`} alt={url} />
       <div className={styles.container}>
         <div className={styles.complexity}>{complexityLevel}</div>
         <Link className={styles.title} to={`/program/?programId=${id}`}>
