@@ -46,7 +46,6 @@ const ProgramPreviewImage: React.FC<ProgramPreviewImageProps> = ({
     >
       {previewVideo && (
         <>
-          (
           <Popup
             contentStyle={{
               border: 'none',
