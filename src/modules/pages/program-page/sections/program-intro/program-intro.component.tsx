@@ -31,9 +31,10 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
   const oldSafari = name === 'Safari' && version < '14';
 
   const background =
-    (desktop && 'https://i.imgur.com/qBsBGcc.jpg') ||
-    (mobile && 'https://i.imgur.com/kkNPsrC.jpg') ||
-    (tablet && 'https://i.imgur.com/WPpEyNk.jpg');
+    (desktop && data?.heroImage?.file.url) ||
+    (tablet && data?.heroImageTablet?.file.url) ||
+    (mobile && data?.heroImageMobile?.file.url) ||
+    data?.heroImage?.file.url;
 
   const videoRef = React.useRef() as React.MutableRefObject<HTMLVideoElement>;
   const [previewVideo, setPreviewVideo] = React.useState('');
@@ -116,16 +117,11 @@ const ProgramIntro: React.FC<ProgramIntroProps> = ({ data }) => {
       <section
         className={styles.programIntro}
         style={{
-          backgroundImage: `url(${image})`
+          backgroundImage: `url(${background})`
         }}
       >
         {/* <BackButton className={styles.backButton} /> */}
-        <div
-          className={styles.contentOverlay}
-          style={{
-            backgroundImage: desktop && 'url(https://i.imgur.com/z3wiGik.png)'
-          }}
-        >
+        <div className={styles.contentOverlay}>
           <div className={styles.content}>
             <div className={styles.caption}>Online course</div>
             <div>{data?.name}</div>

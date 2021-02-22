@@ -47,6 +47,18 @@ type SingleProgramModel = {
     };
     title: string;
   };
+  heroImageTablet: {
+    file: {
+      url: string;
+    };
+    title: string;
+  };
+  heroImageMobile: {
+    file: {
+      url: string;
+    };
+    title: string;
+  };
   imageDivider: {
     title: string;
     file: {
