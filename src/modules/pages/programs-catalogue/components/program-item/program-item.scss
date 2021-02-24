@@ -18,7 +18,7 @@
   min-width: 40px;
   height: 40px;
   @include flex(center, center);
-  background-color: #ff6634;
+  background-color: #f5f1f0;
   border-radius: 50%;
   @include tablet() {
     @include size(40px);
@@ -32,10 +32,6 @@
   // right: 22px;
   @include desktop() {
     // top: 22px;
-  }
-  & > div > svg{
-    fill: #fff;
-    stroke: #fff
   }
 }
 

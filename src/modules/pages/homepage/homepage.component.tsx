@@ -31,7 +31,6 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
   const { homePageTestimonials, homepageTestimonialsLoading } = useHomePageData(
     language
   );
-
   return (
     <React.Suspense fallback={<Spinner />}>
       <div className={styles.homepage}>
