@@ -28,7 +28,6 @@ const ProgramPreviewImage: React.FC<ProgramPreviewImageProps> = ({
     if (videoRef.current) {
       const player = new Player(videoRef.current);
       player.setAutopause(false);
-      console.log(player);
       player.getDuration().then(el => setDuration(el));
     }
   }, [videoRef.current]);
