@@ -95,6 +95,7 @@
 }
 
 .icon {
+  margin-top: 3px;
   & > div {
     @include flex(center, center);
   }

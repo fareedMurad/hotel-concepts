@@ -6,6 +6,10 @@
 
 .container {
   padding: 0px 22px;
+
+  @include ipad-l() {
+    padding: 0px 154px 0px 154px;
+  }
   @include desktop() {
     @include flex($align: center);
     padding: initial;
@@ -49,11 +53,6 @@
     row-gap: 16px;
     column-gap: 18px;
   }
-  @include ipad-l() {
-    @include flex($justify: flex-end);
-  }
-  flex: 1;
-  flex-wrap: wrap;
 
   @include desktop() {
     max-width: 470px;
@@ -88,6 +87,9 @@
 
 .btnContainer {
   padding: 0px 22px;
+  @include ipad-l() {
+    padding: 0px 154px 0px 154px;
+  }
   @include desktop() {
     padding: 0;
   }
@@ -97,7 +99,15 @@
   height: 44px;
   margin: 22px auto 0 auto;
   width: 100%;
+  @include tablet() {
+    justify-content: center !important;
+
+    & > div {
+      margin-right: 10px;
+    }
+  }
   @include desktop() {
+    justify-content: space-between !important;
     margin-top: 24px;
     margin-left: 134px;
     width: 224px;
