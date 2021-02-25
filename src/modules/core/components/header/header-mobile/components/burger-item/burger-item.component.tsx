@@ -49,8 +49,8 @@ const BurgerItem: React.FC<BurgerItemProps> = ({
    */
 
   const expand = useSpring({
-    from: { height: 64 },
-    to: { height: showMenu === title ? height : 64 }
+    from: { height: 68 },
+    to: { height: showMenu === title ? height : 68 }
   });
 
   return (

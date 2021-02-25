@@ -8,6 +8,8 @@ import { navigate } from '@router/store';
 import { useDispatch } from 'react-redux';
 import { animated } from 'react-spring';
 import { unauthorize } from '@app/redux/auth';
+import { Icon } from '@core/components';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Renders Burger
@@ -19,7 +21,11 @@ const Burger: React.FC<any> = ({ transition }) => {
 
   return (
     <animated.div style={transition} className={styles.burger}>
-      {!authorized && (
+      <NavLink className={styles.logo} to={'/'}>
+        <Icon name='logo' />
+      </NavLink>
+      <div className={styles.burgerHeader} />
+      {/* {!authorized && (
         <Button
           className={styles.button}
           arrow
@@ -27,44 +33,46 @@ const Burger: React.FC<any> = ({ transition }) => {
         >
           Log in
         </Button>
-      )}
-      {menus.map(({ title, menuLinks, height }) => (
-        <BurgerItem
-          key={title}
-          title={title}
-          menuLinks={menuLinks}
-          showMenu={showMenu}
-          setShowMenu={setShowMenu}
-          height={height}
-        />
-      ))}
+      )} */}
+      <div className={styles.menu}>
+        {menus.map(({ title, menuLinks, height }) => (
+          <BurgerItem
+            key={title}
+            title={title}
+            menuLinks={menuLinks}
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+            height={height}
+          />
+        ))}
 
-      <div
-        className={styles.link}
-        onClick={() => dispatch(navigate('/contributors'))}
-      >
-        Mentors & Co-authors
-      </div>
-      {/* <div
+        <div
+          className={styles.link}
+          onClick={() => dispatch(navigate('/contributors'))}
+        >
+          Mentors & Co-authors
+        </div>
+        {/* <div
         className={styles.link}
         onClick={() => dispatch(navigate('/insights'))}
       >
         Insights
       </div> */}
-      <div
-        className={styles.link}
-        onClick={() => dispatch(navigate('/contact-us'))}
-      >
-        Contact
-      </div>
-      {authorized && (
-        <Button
-          onClick={() => dispatch(unauthorize())}
-          className={styles.button}
+        <div
+          className={styles.link}
+          onClick={() => dispatch(navigate('/contact-us'))}
         >
-          Log out
-        </Button>
-      )}
+          Contact
+        </div>
+        {authorized && (
+          <Button
+            onClick={() => dispatch(unauthorize())}
+            className={styles.button}
+          >
+            Log out
+          </Button>
+        )}
+      </div>
     </animated.div>
   );
 };

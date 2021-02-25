@@ -1,38 +1,57 @@
 @import 'core.scss';
 
 .burger-item {
-  padding: 22px 15px;
   overflow: hidden;
+  border-bottom: 4px solid white;
 }
 
 .title {
   @include flex($justify: space-between, $align: center);
-  @include font($primary-gray, 16px, 400, 22px);
+  @include font($primary-gray, 21px, 500, 29px);
+  padding: 17px 24px 17px 24px;
+  background-color: $background;
+
   &--indicator {
     @include font($primary-gray, 22px, 300, 22px);
     display: block;
   }
+  @include tablet() {
+    @include font($primary-gray, 27px, 500, 37px);
+    padding: 12px 24px 15px 24px;
+    &--indicator {
+      @include font($primary-gray, 34px, 300, 37px);
+    }
+  }
 }
 
 .menu {
-  background-color: $background;
-  margin: 0 15px;
-}
-
-.active {
-  font-weight: 600;
+  background-color: white;
 }
 
 .menu-item {
   @include flex($align: center);
-  margin-top: 22px;
-  padding: 20px 8px;
+  padding: 20px 24px;
   &:before {
     content: '';
     width: 3px;
     height: 3px;
     background-color: $primary-orange;
     margin-right: 8px;
+  }
+  &--title {
+    @include font(inherit, 20px, 400, 28px);
+  }
+
+  @include tablet() {
+    &:before {
+      width: 9px;
+      height: 9px;
+      margin-right: 22px;
+    }
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #70707026;
   }
 }
 
@@ -41,7 +60,7 @@
 }
 
 .arrow {
-  color: $primary-orange;
+  color: $primary-orange !important;
   flex: 1;
   text-align: right;
 }

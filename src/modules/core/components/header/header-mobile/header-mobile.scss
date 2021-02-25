@@ -1,13 +1,15 @@
 @import 'core.scss';
 
 .logo {
+  position: relative;
+  z-index: -1;
 }
 .header-mobile {
   @include flex($justify: space-between, $align: center);
   position: fixed;
   z-index: 99999;
   width: 100%;
-  padding: 15px 22px;
+  padding: 23px 22px;
   transition: $transition;
 
   //hide mobile header on desk-top

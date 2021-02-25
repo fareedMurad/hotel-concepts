@@ -68,7 +68,8 @@ const HeaderMobile: React.FC = () => {
         <CartMenu />
         <LocalizationMenu theme='secondary' />
         <Icon
-          name={showBurger ? 'close-modal' : 'burger'}
+          name={showBurger ? 'close-burger' : 'burger'}
+          fill='#fff'
           onClick={() => setShowBurger(!showBurger)}
         />
       </div>

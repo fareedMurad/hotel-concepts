@@ -43,7 +43,7 @@ const useBurgerData = () => {
     },
     {
       title: 'Programs',
-      height: 546,
+      height: 480,
       menuLinks: [
         ...programsLinks,
         {
@@ -75,7 +75,7 @@ const useBurgerData = () => {
     },
     {
       title: 'Corporate solutions',
-      height: 226,
+      height: 200,
       menuLinks: [
         {
           link: 'Online programs',
@@ -89,7 +89,7 @@ const useBurgerData = () => {
     },
     {
       title: 'About',
-      height: 226,
+      height: 200,
       menuLinks: [
         {
           link: 'About us',

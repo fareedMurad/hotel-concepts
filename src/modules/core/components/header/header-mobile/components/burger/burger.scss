@@ -8,15 +8,32 @@
   width: 100vw;
   background-color: white;
   min-height: 100vh;
-  // max-height: 100vh;
-  // overflow: auto;
-  padding-top: 70px;
+}
+
+.logo {
+  position: absolute;
+  top: 23px;
+  left: 22px;
+}
+
+.burger-header {
+  padding-top: 87px;
+  background-color: #707070;
+  width: 100%;
+  @include tablet() {
+    margin-bottom: 31px;
+  }
+}
+
+.menu {
+  @include tablet() {
+    padding: 0px 86px;
+  }
 }
 
 .link {
-  @include font($primary-gray, 14px, 600, 22px);
-  padding: 11px 15px;
-  background-color: $background;
+  @include font($primary-gray, 27px, 400, 37px);
+  padding: 12px 24px 15px 24px;
 }
 
 .button {
