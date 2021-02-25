@@ -33,7 +33,7 @@
 }
 
 .description-block {
-  height: 260px;
+  // height: 260px;
   padding: 15px;
   @include flex($justify: space-between, $direction: column);
   border-left: 1px solid #98a2a883;
@@ -42,6 +42,10 @@
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   margin-top: -3px;
+
+  @include tablet() {
+    height: 260px;
+  }
 }
 
 .description {
@@ -52,6 +56,7 @@
   text-overflow: ellipsis;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
+  max-width: 100%;
 }
 
 .bottom {
