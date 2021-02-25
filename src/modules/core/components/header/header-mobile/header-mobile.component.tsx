@@ -65,7 +65,7 @@ const HeaderMobile: React.FC = () => {
         <Icon name={blackTheme ? 'logo-b' : 'logo'} />
       </NavLink>
       <div className={styles.controll}>
-        <CartMenu />
+        <CartMenu isWhite={showBurger} />
         <LocalizationMenu theme='secondary' />
         <Icon
           name={showBurger ? 'close-burger' : 'burger'}

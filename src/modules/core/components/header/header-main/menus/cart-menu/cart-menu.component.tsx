@@ -15,7 +15,7 @@ import * as styles from './cart-menu.scss';
 /**
  * Renders CartMenu
  */
-const CartMenu: React.FC<CartMenuProps> = () => {
+const CartMenu: React.FC<CartMenuProps> = ({ isWhite }) => {
   const {
     cartQuantity,
     whiteHeader,
@@ -34,6 +34,14 @@ const CartMenu: React.FC<CartMenuProps> = () => {
   }, [location]);
 
   const isActive = showDropdown || isVisible;
+
+  const getIconColor = () => {
+    //rework this trash
+    if (isWhite) return 'shopping-cart-white';
+    else if (whiteHeader || stickyHeader || isVisible || showDropdown)
+      return 'shopping-cart';
+    else return 'shopping-cart-white';
+  };
 
   return (
     <div
@@ -57,11 +65,7 @@ const CartMenu: React.FC<CartMenuProps> = () => {
           className={classNames(styles.icon, {
             [styles.active]: isClicked
           })}
-          name={
-            whiteHeader || stickyHeader || isVisible || showDropdown
-              ? 'shopping-cart'
-              : 'shopping-cart-white'
-          }
+          name={getIconColor()}
         />
         {cartQuantity > 0 && (
           <div className={styles.indicator}>{cartQuantity}</div>

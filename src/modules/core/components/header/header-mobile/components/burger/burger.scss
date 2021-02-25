@@ -1,13 +1,14 @@
 @import 'core.scss';
 
 .burger {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: -1;
   width: 100vw;
   background-color: white;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .logo {

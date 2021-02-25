@@ -1,6 +1,8 @@
 /**
  * Props
  */
-type CartMenuProps = {};
+type CartMenuProps = {
+  isWhite?: boolean;
+};
 
 export { CartMenuProps };
