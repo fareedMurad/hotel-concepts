@@ -1,30 +1,27 @@
 import { Button } from '@core/components';
-import { useMediaPoints } from '@core/shared';
 import * as React from 'react';
 import * as styles from './slider-item.scss';
 
 /**
  * Renders SliderItem
  */
-const SliderItem: React.FC<any> = ({ item, isOldSafari }) => {
-  const { mobile } = useMediaPoints();
-  const mobileUrl = mobile && `url(${item.mobileImage.url})`;
-  const url = isOldSafari
-    ? `url(${item.image.url}?fm=png)`
-    : `url(${item.image.url})`;
-
+const SliderItem: React.FC<any> = ({ item }) => {
   return (
     <div className={styles.sliderItem}>
       <div
         className={styles.image}
-        style={{ backgroundImage: mobileUrl || url }}
+        style={{ backgroundImage: `url(${item.gradient.url})` }}
       />
       <div className={styles.info}>
-        <div className={styles.title}>{item.title}</div>
-        <div className={styles.description}>{item.description}</div>
-        <Button className={styles.button} theme='secondary'>
-          Shop now
-        </Button>
+        <div className={styles.main}>
+          <div className={styles.title}>{item.title}</div>
+          <div className={styles.description}>{item.description}</div>
+          <Button className={styles.button} theme='secondary'>
+            Shop now
+          </Button>
+        </div>
+
+        <img className={styles.books} src={item.booksImage.url} alt='books' />
       </div>
     </div>
   );

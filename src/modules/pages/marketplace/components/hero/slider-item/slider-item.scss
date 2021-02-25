@@ -1,14 +1,32 @@
 @import 'core.scss';
 
 .slider-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include desktop() {
+    height: 80%;
+  }
 }
 
 .image {
-  height: 150vh;
+  height: 160vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   @include tablet() {
+    height: 80vh;
+  }
+  @include ipad-l() {
+    height: 100vh;
+  }
+  @include desktop() {
     height: 100vh;
   }
 }
@@ -22,23 +40,37 @@
 }
 
 .info {
-  @include flex(center, center, column);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-30%);
-  //left: 20px;
-  //right: 20px;
   margin: 0 auto;
-  width: 100%;
+  width: 80%;
   text-align: center;
-  padding: 0 10%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 57px;
+  margin-top: 105px;
+  row-gap: 35px;
+  @include tablet() {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    width: 80%;
+    margin-top: 173px;
+  }
 
   @include desktop() {
-    padding: 0 14%;
-    left: 5%;
-    right: unset;
     width: 60%;
-    transform: translateY(-50%);
+    margin-top: 172px;
+    align-items: center;
+  }
+}
+
+.books {
+  grid-row: 1;
+  object-fit: contain;
+  width: 100%;
+
+  @include tablet() {
+    grid-row: initial;
   }
 }
 
@@ -47,8 +79,8 @@
   font-family: $EBGaramond;
 
   @include tablet() {
-    font-size: 60px;
-    line-height: 70px;
+    font-size: 44px;
+    line-height: 51px;
   }
 }
 
@@ -58,20 +90,26 @@
   margin-top: 16px;
 
   @include tablet() {
-    font-size: 24px;
-    line-height: 34px;
+    font-size: 17px;
+    line-height: 24px;
     max-width: 570px;
   }
 }
 
 .button {
   width: 207px;
-  color: white;
-  margin-top: 33px;
-  border-color: white;
-  &:hover {
-    color: $primary-gray;
-    background-color: white;
+  color: $white;
+  margin: 33px auto 0 auto;
+  border-color: $primary-orange;
+  background-color: $primary-orange;
+
+  @include desktop() {
+    color: white;
     border-color: white;
+    &:hover {
+      color: $primary-gray;
+      background-color: white;
+      border-color: white;
+    }
   }
 }

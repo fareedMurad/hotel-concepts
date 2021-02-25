@@ -32,10 +32,10 @@ const SLIDERDATA = gql`
       items {
         title
         description
-        image {
+        gradient {
           url
         }
-        mobileImage {
+        booksImage {
           url
         }
       }
@@ -56,10 +56,8 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
     }
   } = useSelector((state: State) => state);
 
-  const oldSafari = browserName === 'Safari' && browserVersion <= '14';
-
   if (loading) return <Spinner />;
-  const response = data?.marketplaceBackgroundCarouselCollection?.items;
+  const backgroundImages = data?.marketplaceBackgroundCarouselCollection?.items;
 
   return (
     <div className={styles.hero}>
@@ -73,8 +71,8 @@ const Hero: React.FC<HeroProps> = ({ className, categories, slider }) => {
         infinite
         transitionDuration={1000}
       >
-        {response?.map((item, index) => (
-          <SliderItem item={item} key={index} isOldSafari={oldSafari} />
+        {backgroundImages?.map((item, index) => (
+          <SliderItem item={item} key={index} />
         ))}
       </Slider>
       <div className={styles.overlay}>
