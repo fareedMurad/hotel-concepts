@@ -38,7 +38,10 @@ const LocalizationMenu: React.FC<LocalizationMenuProps> = ({ theme }) => {
       })}
       onMouseEnter={() => hideCartOnHover()}
       onMouseLeave={() => setShowMenu(false)}
-      onClick={() => hideCartOnHover()}
+      onClick={() => {
+        hideCartOnHover();
+        setShowMenu(!showMenu);
+      }}
     >
       {selectedLanguage.name}{' '}
       <Icon

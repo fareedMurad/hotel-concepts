@@ -50,10 +50,23 @@ const HeaderMobile: React.FC = () => {
     window.addEventListener('scroll', () =>
       window.pageYOffset > 0 ? setStickyHeader(true) : setStickyHeader(false)
     );
+
     return () => {
       setShowBurger(false);
+      // body[0].style.overflow = 'auto';
     };
   }, [pathname]);
+
+  useEffect(() => {
+    const body = document.getElementsByTagName('body');
+    if (showBurger) {
+      body[0].style.overflow = 'hidden';
+    }
+
+    return () => {
+      body[0].style.overflow = 'auto';
+    };
+  }, [showBurger]);
 
   return (
     <div
