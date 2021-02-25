@@ -59,7 +59,7 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
           </div>
         ))}
       </div>
-      {/* <SubscribeModal /> */}
+      <SubscribeModal />
     </section>
   );
 };
