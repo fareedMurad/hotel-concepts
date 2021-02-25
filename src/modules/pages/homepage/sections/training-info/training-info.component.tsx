@@ -23,13 +23,6 @@ const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
             <SectionTitle>{t('home.training-info.title')}</SectionTitle>
             <div>{t('home.training-info.description')}</div>
           </div>
-          <Button
-            className={styles.button}
-            children={t('home.training-info.button-text')}
-            arrow
-            width={224}
-            onClick={() => dispatch(navigate('/learning-approach'))}
-          />
         </div>
         <div className={styles.info}>
           {trainingData.map((info, index) => (
@@ -38,6 +31,14 @@ const TrainingInfo: React.FC<TrainingInfoProps> = ({}) => {
             </div>
           ))}
         </div>
+      </div>
+      <div className={styles.btnContainer}>
+        <Button
+          className={styles.button}
+          children={t('home.training-info.button-text')}
+          arrow
+          onClick={() => dispatch(navigate('/learning-approach'))}
+        />
       </div>
       <div
         className={styles.img}

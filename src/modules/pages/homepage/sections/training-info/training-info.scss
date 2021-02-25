@@ -5,13 +5,15 @@
 }
 
 .container {
-  @include flex($align: center);
-  padding-bottom: 48px;
+  padding: 0px 22px;
+  @include desktop() {
+    @include flex($align: center);
+    padding: initial;
+  }
 }
 
 .title {
   max-width: 700px;
-  padding-left: 22px;
   @include desktop() {
     width: 520px;
     margin-left: 134px;
@@ -24,8 +26,11 @@
   }
   & > div:nth-child(3) {
     @include font($primary-gray, 18px, 400, 28px);
-    max-width: 400px;
+    max-width: 100%;
     margin-top: 24px;
+    @include desktop() {
+      max-width: 400px;
+    }
   }
 }
 
@@ -40,7 +45,9 @@
   @include tablet() {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    margin-top: 0px;
+    margin-top: 26px;
+    row-gap: 16px;
+    column-gap: 18px;
   }
   @include ipad-l() {
     @include flex($justify: flex-end);
@@ -57,7 +64,7 @@
 
 .info-item {
   @include font($primary-gray, 18px, 400, 28px);
-  width: 224px;
+
   height: 47px;
   background-color: $white;
   border-radius: 8px;
@@ -70,14 +77,30 @@
     font-size: 15px;
     color: $primary-orange;
   }
+  @include tablet() {
+    width: 100%;
+  }
+
+  @include desktop() {
+    width: 224px;
+  }
+}
+
+.btnContainer {
+  padding: 0px 22px;
+  @include desktop() {
+    padding: 0;
+  }
 }
 
 .button {
   height: 44px;
-  margin: 24px auto 0 auto;
+  margin: 22px auto 0 auto;
+  width: 100%;
   @include desktop() {
     margin-top: 24px;
     margin-left: 134px;
+    width: 224px;
   }
 }
 
@@ -90,15 +113,16 @@
   @include heroImage();
   background-position: top;
   @include flex($justify: center, $direction: column);
+  margin-top: 22px;
+
+  @include desktop() {
+    margin-top: 48px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
-  }
-  .intro,
-  .title {
-    padding-left: $default-offset;
   }
 }
 
