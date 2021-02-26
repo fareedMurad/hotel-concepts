@@ -86,7 +86,7 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
   @include desktop-lg() {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1.1fr 1.1fr 1.1fr 0.7fr;
   }
 }
 
