@@ -48,7 +48,7 @@
   }
   @include desktop() {
     display: grid;
-    grid-template-columns: repeat(5, max-content);
+    grid-template-columns: repeat(7, max-content);
     padding: 40px 22px 50px 22px;
   }
 }
