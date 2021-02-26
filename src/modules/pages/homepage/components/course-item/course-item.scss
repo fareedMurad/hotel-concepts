@@ -44,12 +44,12 @@
   margin-top: -3px;
 
   @include tablet() {
-    height: 260px;
+    height: 266px;
   }
 }
 
 .description {
-  @include font($primary-gray, 16px, 400, 22px);
+  @include font($primary-gray, 14px, 400, 22px);
   margin-top: 17px;
   font-family: $IBMPlex;
   overflow: hidden;
