@@ -39,7 +39,7 @@
   padding-bottom: 10px;
 
   @include tablet() {
-    grid-template-columns: 1fr 0.9fr 0.9fr 1.2fr;
+    grid-template-columns: 1fr 0.9fr 1fr 1.1fr;
   }
   @include ipad-p() {
     grid-auto-flow: initial;
