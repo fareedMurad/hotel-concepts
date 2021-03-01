@@ -35,7 +35,7 @@ const ContributorCard: React.FC<ContributorCardProps> = ({
         </div>
       </div>
       <div className={styles.name}>
-        {name} {surname}
+        {name.trim()}&nbsp;{surname.trim()}
       </div>
       <div className={styles.role}>
         {workAt} {position}
