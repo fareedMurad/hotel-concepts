@@ -15,12 +15,12 @@ import * as styles from './kordie-difference.scss';
  */
 const responsive = {
   desktop: {
-    breakpoint: { max: 2000, min: 1025 },
+    breakpoint: { max: 2000, min: 1300 },
     items: 4,
     slidesToSlide: 1
   },
   tablet: {
-    breakpoint: { max: 1024, min: 601 },
+    breakpoint: { max: 1300, min: 601 },
     items: 2,
     slidesToSlide: 1
   },
