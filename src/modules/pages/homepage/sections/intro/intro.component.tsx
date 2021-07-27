@@ -146,7 +146,9 @@ const Intro: React.FC<IntroProps> = ({}) => {
         lockScroll
       >
         <ReactPlayer
-          url='https://vimeo.com/376809414'
+          // url='https://vimeo.com/376809414'
+          url={previewVideo}
+          playing
           controls
           style={{ margin: 'auto', maxWidth: '100%' }}
         />

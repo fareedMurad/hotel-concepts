@@ -48,7 +48,7 @@ const useFooterData = () => {
   const socials = [
     { id: 1, img: 'facebook', to: '/' },
     { id: 2, img: 'instagram', to: '/' },
-    { id: 3, img: 'linkedin', to: '/' }
+    { id: 3, img: 'linkedin', to: 'https://www.linkedin.com/company/kordie' }
   ];
 
   return { weprovideLinks, moreLinks, socials };

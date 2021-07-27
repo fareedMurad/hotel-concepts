@@ -87,14 +87,17 @@ const Navigation: React.FC<{
       })}
     </div>
     {socials &&
-      socials.map(item => (
-        // <a href={item.to} className={styles.social} key={item.id}>
-        //   <Icon className={styles.socialIcon} name={`socials/${item.img}`} />
-        // </a>
-        <div className={styles.social} key={item.id}>
-          <Icon className={styles.socialIcon} name={`socials/${item.img}`} />
-        </div>
-      ))}
+      socials.map(item =>
+        item.id === 3 ? (
+          <a href={item.to} className={styles.social} key={item.id}>
+            <Icon className={styles.socialIcon} name={`socials/${item.img}`} />
+          </a>
+        ) : (
+          <div className={styles.social} key={item.id}>
+            <Icon className={styles.socialIcon} name={`socials/${item.img}`} />
+          </div>
+        )
+      )}
   </div>
 );
 /**
