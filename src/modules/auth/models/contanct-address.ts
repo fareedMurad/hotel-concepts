@@ -19,9 +19,9 @@ type ContactAddressValues = {
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-const contactAddressValidationSchema = yup
+const contactAddressValidationSchema: yup.SchemaOf<ContactAddressValues> = yup
   .object()
-  .shape<ContactAddressValues>({
+  .shape({
     city: yup.string().label('City'),
     company: yup.string().label('Company'),
     country: yup.string().label('Country'),

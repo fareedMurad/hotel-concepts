@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 import { ContributorsApplyValues } from './../../../app/models/form';
 
-const contributorsApplyValidationSchema = yup
-  .object<ContributorsApplyValues>()
+const contributorsApplyValidationSchema: yup.SchemaOf<ContributorsApplyValues> = yup
+  .object()
   .shape({
     name: yup
       .string()

@@ -32,36 +32,38 @@ const defaultValues: ContactUsModalModel = {
  * Contact us modal validation schema
  */
 
-const ContactUsModalValidationSchema = yup.object().shape<ContactUsModalModel>({
-  name: yup
-    .string()
-    .required('Name is required')
-    .label('Your Name'),
-  email: yup
-    .string()
-    .required('Email is required')
-    .label('Contact E-mail')
-    .email(),
-  company: yup
-    .string()
-    .label('Property / Company Name')
-    .required(),
-  website: yup
-    .string()
-    .required()
-    .label('Website'),
-  teamSize: yup
-    .string()
-    .required()
-    .label('Team size'),
-  interests: yup
-    .string()
-    .required()
-    .label('Interests'),
-  comment: yup
-    .string()
-    .required()
-    .label('Comment')
-});
+const ContactUsModalValidationSchema: yup.SchemaOf<ContactUsModalModel> = yup
+  .object()
+  .shape({
+    name: yup
+      .string()
+      .required('Name is required')
+      .label('Your Name'),
+    email: yup
+      .string()
+      .required('Email is required')
+      .label('Contact E-mail')
+      .email(),
+    company: yup
+      .string()
+      .label('Property / Company Name')
+      .required(),
+    website: yup
+      .string()
+      .required()
+      .label('Website'),
+    teamSize: yup
+      .string()
+      .required()
+      .label('Team size'),
+    interests: yup
+      .string()
+      .required()
+      .label('Interests'),
+    comment: yup
+      .string()
+      .required()
+      .label('Comment')
+  });
 
 export { defaultValues, ContactUsModalValidationSchema };

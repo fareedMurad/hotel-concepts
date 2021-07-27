@@ -5,8 +5,8 @@ import { ConsultRequestFormValues } from '@app/models';
  * Program contact us validation schema
  */
 
-const ProgramContacUsValidationSchema = yup
-  .object<ConsultRequestFormValues>()
+const ProgramContacUsValidationSchema: yup.SchemaOf<ConsultRequestFormValues> = yup
+  .object()
   .shape({
     name: yup
       .string()

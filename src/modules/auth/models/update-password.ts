@@ -12,9 +12,9 @@ type UpdatePasswordValues = {
 /**
  * Update Password Validation Schema
  */
-const updatePasswordValidationSchema = yup
+const updatePasswordValidationSchema: yup.SchemaOf<UpdatePasswordValues> = yup
   .object()
-  .shape<UpdatePasswordValues>({
+  .shape({
     oldPassword: yup
       .string()
       .label('Current Password')

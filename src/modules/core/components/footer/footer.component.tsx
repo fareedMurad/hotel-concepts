@@ -21,7 +21,7 @@ import { SubscribeBetaSuccessModal } from '@pages/components/subscribe-beta-moda
  * validation schema
  */
 
-const validationSchema = yup.object<{ email: string }>().shape({
+const validationSchema: yup.SchemaOf<{ email: string }> = yup.object().shape({
   email: yup
     .string()
     .email()

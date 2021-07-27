@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
  * validation schema
  */
 
-const validationSchema = yup.object<{ email: string }>().shape({
+const validationSchema: yup.SchemaOf<{ email: string }> = yup.object().shape({
   email: yup
     .string()
     .email()

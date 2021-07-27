@@ -10,11 +10,13 @@ type LanguageModel = {
 /**
  * Language validation schema
  */
-const languageValidationSchema = yup.object().shape<LanguageModel>({
-  language: yup
-    .string()
-    .label('Language')
-    .required('Language is required')
-});
+const languageValidationSchema: yup.SchemaOf<LanguageModel> = yup
+  .object()
+  .shape({
+    language: yup
+      .string()
+      .label('Language')
+      .required('Language is required')
+  });
 
 export { LanguageModel, languageValidationSchema };

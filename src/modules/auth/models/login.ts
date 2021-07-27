@@ -12,7 +12,7 @@ type LoginValues = {
 /**
  * Login Validation Schema
  */
-const loginValidationSchema = yup.object().shape<LoginValues>({
+const loginValidationSchema: yup.SchemaOf<LoginValues> = yup.object().shape({
   email: yup
     .string()
     .email('Email is not valid')

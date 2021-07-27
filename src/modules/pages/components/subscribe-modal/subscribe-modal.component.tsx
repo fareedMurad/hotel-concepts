@@ -22,7 +22,7 @@ import { useTranslation } from 'react-i18next';
 import { useMediaPoints } from '@core/shared';
 import { gql, useQuery } from '@apollo/client';
 
-const validationSchema = yup.object<{ email: string }>().shape({
+const validationSchema: yup.SchemaOf<{ email: string }> = yup.object().shape({
   email: yup
     .string()
     .email()

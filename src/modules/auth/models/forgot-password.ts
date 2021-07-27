@@ -10,9 +10,9 @@ type ForgotPasswordValues = {
 /**
  * Reset Password Validation Schema
  */
-const forgotPasswordValidationSchema = yup
+const forgotPasswordValidationSchema: yup.SchemaOf<ForgotPasswordValues> = yup
   .object()
-  .shape<ForgotPasswordValues>({
+  .shape({
     email: yup
       .string()
       .email()
