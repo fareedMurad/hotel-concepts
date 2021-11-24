@@ -16,8 +16,8 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
   return (
     <div
       className={styles.corporateMenu}
-      onMouseOver={() => setShowMenu(true)}
-      onMouseLeave={() => setShowMenu(false)}
+      // onMouseOver={() => setShowMenu(true)}
+      // onMouseLeave={() => setShowMenu(false)}
     >
       <NavTitle
         showMenu={showMenu}

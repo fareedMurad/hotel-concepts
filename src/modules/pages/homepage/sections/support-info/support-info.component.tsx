@@ -31,13 +31,13 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
   } = useSelector((state: State) => state);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        !isSubscribed && dispatch(showModal(Modals.subscribe));
-      }, 3000);
-    });
-  }, []);
+  // React.useEffect(() => {
+  //   window.addEventListener('load', () => {
+  //     setTimeout(() => {
+  //       !isSubscribed && dispatch(showModal(Modals.subscribe));
+  //     }, 3000);
+  //   });
+  // }, []);
 
   return (
     <section className={styles.supportInfo}>

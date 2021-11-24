@@ -26,11 +26,7 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ className }) => {
           onMouseLeave={() => setShowMenu(false)}
         >
           {navigation.map(({ name, to }) => {
-            return name === 'About us' ? (
-              <div key={name} className={styles.link}>
-                {name}
-              </div>
-            ) : (
+            return (
               <NavLink
                 className={styles.link}
                 key={name}

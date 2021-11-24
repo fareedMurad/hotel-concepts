@@ -8,36 +8,27 @@ const useFooterData = () => {
       caption: t('footer.links.we-provide-links.company'),
       to: '/about-us'
     },
+
     {
       id: 2,
-      caption: t('footer.links.we-provide-links.education-system'),
-      to: '/contributors'
+      caption: t('footer.links.we-provide-links.jobs'),
+      to: '/course-partnership'
     },
     {
       id: 3,
-      caption: t('footer.links.we-provide-links.for-corporated-client'),
-      to: '/learning-approach'
+      caption: 'Careers',
+      to: '/careers'
     },
     {
       id: 4,
-      caption: t('footer.links.we-provide-links.programs-partnership'),
-      to: '/for-companies'
-    },
-    {
-      id: 5,
-      caption: t('footer.links.we-provide-links.jobs'),
-      to: '/course-partnership'
+      caption: 'Privacy Policy',
+      to: '/privacy-policy'
     }
   ];
 
   const moreLinks = [
     { id: 1, caption: t('footer.links.more-links.help'), to: '/faq' },
-    {
-      id: 3,
-      caption: t('footer.links.more-links.help-center'),
-      to: '',
-      target: 'https://kordie.zendesk.com/hc/en-us'
-    },
+
     {
       id: 2,
       caption: t('footer.links.more-links.contact-us'),

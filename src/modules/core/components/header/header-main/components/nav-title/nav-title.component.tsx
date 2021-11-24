@@ -25,12 +25,12 @@ const NavTitle: React.FC<NavTitleProps> = ({ className, title, showMenu }) => {
       onMouseOver={() => hideCartOnHover()}
     >
       {title}{' '}
-      <Icon
+      {/* <Icon
         className={classNames(styles.shape, {
           [styles.activeTriangel]: showMenu
         })}
         name={blackTheme ? 'triangle-arr-b' : 'triangle-arr'}
-      />
+      /> */}
     </div>
   );
 };

@@ -38,21 +38,24 @@ const HeaderMain: React.FC = () => {
       }}
       className={styles.headerMain}
     >
-      <NavLink className={styles.logo} to='/'>
+      {/* <NavLink className={styles.logo} to='/'>
         {mobile ? (
           <Icon name={blackTheme || match ? 'logo-b' : 'logo'} />
         ) : (
           <Icon name={blackTheme || match ? 'logo-b' : 'logo-copy'} />
         )}
+      </NavLink> */}
+      <NavLink className={styles.logo} to='/'>
+        {mobile ? <Icon name={'new-logo-b'} /> : <Icon name={'new-logo-b'} />}
       </NavLink>
       <div className={styles.headerMainNavigation}>
         <ProgramsMenu className={className} />
-        <LibraryMenu className={className} />
+        {/* <LibraryMenu className={className} /> */}
         <CorporateMenu className={className} />
         <AboutMenu className={className} />
         <ProfileMenu blackTheme={blackTheme} />
         <CartMenu />
-        <LocalizationMenu theme={blackTheme ? 'black' : 'primary'} />
+        {/* <LocalizationMenu theme={blackTheme ? 'black' : 'primary'} /> */}
       </div>
     </div>
   );

@@ -31,6 +31,8 @@ const LazyBackground: React.FC<LazyBackgroundProps> = ({
     };
   }, [fullImage, reducedImage]);
 
+  console.log(image, 'img test');
+
   return (
     <div
       className={className}
