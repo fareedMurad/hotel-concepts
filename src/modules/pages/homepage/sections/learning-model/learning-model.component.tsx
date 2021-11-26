@@ -1,4 +1,5 @@
 import { SectionTitle } from '@core/components';
+import { url } from 'inspector';
 import * as React from 'react';
 import { useLearningModelData } from './learning-model.hook';
 import { LearningModelProps } from './learning-model.props';
@@ -12,6 +13,16 @@ const LearningModel: React.FC<LearningModelProps> = ({}) => {
 
   return (
     <div className={styles.learningModel}>
+      <img
+        src={require('img/patterns/right-pattern-1.svg')}
+        alt={''}
+        className={styles.rightPattern}
+      />
+      <img
+        className={styles.leftPattern}
+        src={require('img/patterns/left-pattern-1.svg')}
+        alt=''
+      />
       <SectionTitle className={styles.title}>
         The perfected learning model
       </SectionTitle>
@@ -26,7 +37,13 @@ const LearningModel: React.FC<LearningModelProps> = ({}) => {
       <div
         className={styles.img}
         style={{ backgroundImage: `url(${imageUrl})` }}
-      />
+      >
+        <img
+          className={styles.leftPattern}
+          src={require('img/patterns/left-pattern-2.svg')}
+          alt=''
+        />
+      </div>
     </div>
   );
 };

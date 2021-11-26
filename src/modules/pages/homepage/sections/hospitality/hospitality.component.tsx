@@ -12,6 +12,11 @@ const Hospitality: React.FC<HospitalityProps> = ({}) => {
 
   return (
     <div className={styles.hospitality}>
+      <img
+        className={styles.rPattern}
+        src={require('img/patterns/right-p-3.svg')}
+        alt=''
+      />
       <SectionTitle className={styles.title}>
         We are powered by hospitality
       </SectionTitle>

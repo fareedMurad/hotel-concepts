@@ -1,6 +1,8 @@
 @import 'core.scss';
 
 .mentors {
+  position: relative;
+  overflow: hidden;
   padding: 70px $default-offset;
   &__modified {
     padding: 35px 22px 60px 22px;
@@ -8,6 +10,12 @@
   @include desktop() {
     padding: 70px $left-offset;
   }
+}
+
+.lPattern {
+  position: absolute;
+  left: -673px;
+  top: -211px;
 }
 
 .title {
@@ -41,6 +49,8 @@
 }
 
 .cards {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 20px;

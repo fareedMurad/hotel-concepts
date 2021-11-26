@@ -1,6 +1,8 @@
 @import 'core.scss';
 
 .faq-block {
+  position: relative;
+  overflow: hidden;
   @include flex($direction: column);
   padding: 40px $default-offset 60px;
   background: $background;
@@ -9,13 +11,23 @@
   }
 }
 
+.rPattern {
+  position: absolute;
+  right: -95px;
+  top: -478px;
+}
+
 .title {
   @include font($primary-gray, 36px, 500, 46px);
   width: 100%;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .filters {
+  position: relative;
+  z-index: 2;
   @include flex($align: stretch, $direction: column);
   margin: 40px auto 30px;
   width: 841px;

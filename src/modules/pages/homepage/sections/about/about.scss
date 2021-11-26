@@ -2,9 +2,19 @@
 
 .about {
   padding: 120px 0px 90px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rightPattern {
+  position: absolute;
+  top: -611px;
+  right: -150px;
 }
 
 .title {
+  position: relative;
+  z-index: 2;
   padding-left: 22px;
   text-align: center;
   @include desktop() {
@@ -25,6 +35,8 @@
 }
 
 .content {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;

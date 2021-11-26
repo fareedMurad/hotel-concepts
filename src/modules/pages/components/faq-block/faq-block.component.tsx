@@ -55,6 +55,12 @@ const FaqBlock: React.FC<FaqBlockProps> = ({ className, showTitle, page }) => {
 
   return (
     <section className={classNames(styles.faqBlock, className)}>
+      <img
+        className={styles.rPattern}
+        src={require('img/patterns/rp-4.svg')}
+        alt=''
+      />
+
       {showTitle && (
         <H2 className={styles.title}>Freaquently Asked Questions</H2>
       )}

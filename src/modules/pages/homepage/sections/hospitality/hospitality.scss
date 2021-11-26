@@ -3,9 +3,17 @@
 .hospitality {
   background: #f5f1f0;
   padding: 55px $default-offset 80px;
+  position: relative;
+  overflow: hidden;
   @include tablet() {
     padding: 55px 0 80px;
   }
+}
+
+.rPattern {
+  position: absolute;
+  bottom: -878px;
+  right: -335px;
 }
 
 .title {
@@ -25,7 +33,8 @@
   margin-top: 50px;
   grid-template-columns: 1fr;
   row-gap: 60px;
-
+  position: relative;
+  z-index: 2;
   @include tablet() {
     grid-template-columns: 1fr 1fr;
     padding: 0 $left-offset;

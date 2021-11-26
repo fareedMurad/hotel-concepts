@@ -12,12 +12,12 @@ import { State } from '@app/redux/state';
 const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
   const {
     name,
-    price,
-    weeks,
+    // price,
+    // weeks,
     sprints,
-    slug,
+    // slug,
     description,
-    id,
+    // id,
     courseImage: {
       file: { url }
     }
@@ -29,6 +29,8 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
   const imageSrc = oldSafari
     ? `${url}?h=500&w=900`
     : `${url}?q=80&fm=webp&h=500&w=900`;
+
+  console.log(url, 'urrll');
 
   return (
     // <div className={styles.courseItem}>
@@ -64,7 +66,12 @@ const CourseItem: React.FC<CourseItemProps> = ({ course }) => {
     // </div>
 
     <div className={styles.courseItem}>
-      <img className={styles.courseImg} src={imageSrc} alt='' />
+      {/* <img className={styles.courseImg} src={imageSrc} alt='' /> */}
+      <img
+        className={styles.courseImg}
+        src={require(`img/program/program-${url}.svg`)}
+        alt=''
+      />
       <div className={styles.content}>
         <div className={styles.tags}>
           <span>New</span> <span>Early Booking Rate</span>

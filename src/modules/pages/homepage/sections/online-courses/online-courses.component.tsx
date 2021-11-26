@@ -66,11 +66,8 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
         <Preloader id={Preloaders.programs}>
           <div className={styles.coursesWrapper}>
             <div className={styles.courses}>
-              {programs.map(program => (
-                <CourseItem key={program.id} course={program} />
-              ))}
-              {programs.map(program => (
-                <CourseItem key={program.id} course={program} />
+              {fetchPrograms.map((program, i) => (
+                <CourseItem key={i} course={program} />
               ))}
             </div>
           </div>

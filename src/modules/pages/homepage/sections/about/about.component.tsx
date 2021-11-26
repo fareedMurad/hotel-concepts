@@ -16,6 +16,11 @@ const About: React.FC = () => {
 
   return (
     <section className={styles.about}>
+      <img
+        className={styles.rightPattern}
+        src={require('img/patterns/right-pattern-2')}
+        alt=''
+      />
       <div className={styles.title}>
         <PreCaption>Achieve at every level</PreCaption>
         <SectionTitle>Who is it for?</SectionTitle>

@@ -77,6 +77,11 @@ const Mentors: React.FC<MentorsProps> = ({
           [styles.mentorsModified]: modifiedCaption
         })}
       >
+        <img
+          className={styles.lPattern}
+          src={require('img/patterns/lp-3')}
+          alt=''
+        />
         <div
           className={classNames(styles.title, {
             [styles.titleModified]: !modifiedCaption
