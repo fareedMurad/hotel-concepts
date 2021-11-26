@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as styles from './mentors.scss';
-import { SectionTitle, Hr, PreCaption } from '@core/components';
+import { SectionTitle, Hr, PreCaption, Button, Icon } from '@core/components';
 import { showModal, toogleContributorModal } from '@ui/modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { ContributorCard } from '@pages/components';
@@ -17,6 +17,7 @@ import { useHistory } from 'react-router';
 import { useMediaPoints } from '@core/shared';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const responsiveBreakpoints = {
   largeDesktop: {
@@ -81,6 +82,7 @@ const Mentors: React.FC<MentorsProps> = ({
             [styles.titleModified]: !modifiedCaption
           })}
         >
+          <PreCaption>Learn from the world’s best</PreCaption>
           <SectionTitle>
             {modifiedCaption && (
               <PreCaption className={styles.preCaption}>
@@ -89,10 +91,9 @@ const Mentors: React.FC<MentorsProps> = ({
             )}
             {t('home.mentors.title')}
           </SectionTitle>
-          <Hr className={styles.hr} />
           <div>{t('home.mentors.description')}</div>
         </div>
-        <Slider
+        {/* <Slider
           containerClass={styles.slider}
           draggable={false}
           swipeable={true}
@@ -105,17 +106,28 @@ const Mentors: React.FC<MentorsProps> = ({
               btnText={t('home.mentors.button-text')}
             />
           }
-        >
-          {contributors.map((contributor, index) => (
-            <ContributorCard
-              contributor={contributor}
-              key={index}
-              onClick={() => {
-                dispatch(toogleContributorModal(contributor.sys.id));
-              }}
-            />
-          ))}
-        </Slider>
+        > */}
+        <div className={styles.cards}>
+          {contributors.map(
+            (contributor, index) =>
+              index < 10 && (
+                <ContributorCard
+                  contributor={contributor}
+                  key={index}
+                  onClick={() => {
+                    dispatch(toogleContributorModal(contributor.sys.id));
+                  }}
+                />
+              )
+          )}
+        </div>
+        <Link to='/contributors'>
+          <Button className={styles.buttonExplore}>
+            <div>{t('home.online-courses.button-text')}</div>
+            <Icon name='arrows/arrow-right-primary' />
+          </Button>
+        </Link>
+        {/* </Slider> */}
         <MentorModal />
       </section>
     </React.Suspense>

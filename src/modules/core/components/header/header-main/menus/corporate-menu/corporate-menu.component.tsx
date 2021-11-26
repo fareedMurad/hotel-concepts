@@ -23,6 +23,7 @@ const CorporateMenu: React.FC<CorporateMenuProps> = ({ className }) => {
         showMenu={showMenu}
         className={className}
         title='Corporate Solutions'
+        hideDropdown={true}
       />
       {showMenu && (
         <CardDropdown

@@ -15,6 +15,8 @@ type LazyBackgroundProps = {
    * Main image
    */
   fullImageId: string;
+
+  bgColor?: string;
 };
 
 export { LazyBackgroundProps };

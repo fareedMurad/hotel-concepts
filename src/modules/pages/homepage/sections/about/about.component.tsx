@@ -17,17 +17,21 @@ const About: React.FC = () => {
   return (
     <section className={styles.about}>
       <div className={styles.title}>
-        <PreCaption>{t('home.about.pre-caption')}</PreCaption>
-        <SectionTitle>{t('home.about.title')}</SectionTitle>
-        <div>{t('home.about.sub-title')}</div>
-        <Button
+        <PreCaption>Achieve at every level</PreCaption>
+        <SectionTitle>Who is it for?</SectionTitle>
+        <div>
+          We combine our customised approach to hospitality learning with
+          handpicked experts and topics, designed to help busy, full-time
+          hospitality professionals level up.
+        </div>
+        {/* <Button
           className={styles.button}
           arrow
           // #non-clickable
           // onClick={() => dispatch(navigate('/about-us'))}
         >
           {t('home.about.button-text')}
-        </Button>
+        </Button> */}
       </div>
       <div className={styles.content}>
         {data.map((item, index) => (

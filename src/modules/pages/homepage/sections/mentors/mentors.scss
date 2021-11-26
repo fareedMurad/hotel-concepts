@@ -1,37 +1,32 @@
 @import 'core.scss';
 
 .mentors {
-  background-color: $background;
-  padding: 60px 22px;
+  padding: 70px $default-offset;
   &__modified {
     padding: 35px 22px 60px 22px;
+  }
+  @include desktop() {
+    padding: 70px $left-offset;
   }
 }
 
 .title {
-  padding-left: 112px;
-
   &--modified {
     & > div:first-child {
-      position: relative;
-      &::before {
-        content: url('../../../../../assets/img/text-decorator.svg');
-        position: absolute;
-        top: -56px;
-      }
+      text-align: center;
+      margin-top: 0;
     }
   }
   & > div:nth-child(2) {
-    max-width: 450px;
-    margin-top: 24px;
-    margin-bottom: 14px;
-    background-color: #cbd0d3;
+    margin-top: 10px;
+    margin-bottom: 26px;
+    text-align: center;
   }
   & > div:nth-child(3) {
     @include font($primary-gray, 18px, 400, 26px);
-    max-width: 450px;
-    margin-top: 15px;
-    margin-bottom: 48px;
+    max-width: 764px;
+    text-align: center;
+    margin: 0 auto 48px;
   }
 }
 
@@ -42,6 +37,20 @@
   overflow: hidden;
   ul {
     margin-bottom: 8px;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 20px;
+  row-gap: 60px;
+  @include tablet() {
+    grid-template-columns: repeat(2, 330px);
+    justify-content: center;
+  }
+  @include desktop() {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -73,4 +82,24 @@
 .no-mentors {
   width: 100%;
   text-align: center;
+}
+
+.button {
+  &--explore {
+    border: 1px solid $primary-orange;
+    & > div:first-child {
+      @include flex($align: center, $justify: space-between);
+      @include font($primary-orange, 16px, 500);
+
+      width: 100%;
+    }
+    margin: 31px auto 22px;
+    background: transparent;
+    height: 44px;
+    width: 85%;
+    @include tablet() {
+      width: 336px;
+      margin: 58px auto 0;
+    }
+  }
 }

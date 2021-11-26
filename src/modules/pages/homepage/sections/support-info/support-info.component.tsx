@@ -43,12 +43,22 @@ const SupportInfo: React.FC<SupportInfoProps> = ({}) => {
     <section className={styles.supportInfo}>
       <div className={styles.titleWrapper}>
         <div className={styles.title}>
-          <SectionTitle className={styles.caption}>
+          {/* <SectionTitle className={styles.caption}>
             {t('home.support-info.title')}
           </SectionTitle>
           <Hr className={styles.hr} />
           <div className={styles.subtitle}>
             {t('home.support-info.sub-title')}
+          </div> */}
+
+          <div className={styles.description}>
+            <span>Top hospitality experts</span> teaching the topics and skills
+            that actually matter in today’s digital economy. Access to and
+            emphasis on
+            <span>
+              relevant, quality (over quantity), industry-focused
+            </span>{' '}
+            content that is immediately applicable at work.
           </div>
         </div>
       </div>

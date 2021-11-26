@@ -56,8 +56,9 @@
 }
 
 .subtitle {
-  margin-top: 16px;
-  margin-bottom: 24px;
+  margin-top: 28px;
+
+  max-width: 536px;
 }
 
 .scroll-button {
@@ -74,6 +75,43 @@
 .title {
   width: auto;
   @include desktop() {
-    width: 40%;
+    max-width: 500px;
+  }
+}
+
+.introContent {
+  width: 100%;
+
+  position: relative;
+  z-index: 3;
+  @include desktop() {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+  .introText {
+    img {
+      display: none;
+      @include tablet() {
+        display: inline;
+      }
+    }
+  }
+  .introImg {
+    max-width: 100%;
+    width: 84%;
+    display: block;
+    margin: 10px auto 0;
+    @include tablet() {
+      width: 70%;
+      margin: 40px auto 0;
+    }
+    @include desktop() {
+      width: auto;
+      margin: 0;
+      display: inline;
+      max-width: 50%;
+    }
   }
 }

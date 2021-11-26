@@ -19,8 +19,8 @@ const ProgramsMenu: React.FC<ProgramsMenuProps> = ({ className }) => {
   return (
     <div
       className={styles.programsMenu}
-      // onMouseOver={() => setShowMenu(true)}
-      // onMouseLeave={() => setShowMenu(false)}
+      onMouseOver={() => setShowMenu(true)}
+      onMouseLeave={() => setShowMenu(false)}
     >
       <NavTitle
         showMenu={showMenu}

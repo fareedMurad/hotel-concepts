@@ -49,21 +49,21 @@
 }
 
 .hero-title {
-  @include font($white, 49px, 600, 57px);
+  @include font($primary-gray, 49px, 600, 57px);
   z-index: 2;
   font-family: $EBGaramond;
   letter-spacing: -0.48px;
   @include desktop() {
-    @include font($white, 49px, 600, 57px);
+    @include font($primary-gray, 85px, 600, 79px);
     width: 60%;
   }
 }
 
 .hero-subtitle {
-  @include font($white, 19px, 400, 27px);
+  @include font($primary-gray, 19px, 400, 27px);
   z-index: 2;
   @include desktop() {
-    @include font($white, 24px, 400, 34px);
+    @include font($primary-gray, 23px, 400, 32px);
   }
 }
 

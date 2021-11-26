@@ -31,15 +31,18 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
   return (
     <section className={styles.onlineCourses}>
       <div className={styles.title} id='online-courses'>
-        <SectionTitle>{t('home.online-courses.title')}</SectionTitle>
+        <SectionTitle className={styles.sTitle}>
+          <img src={require('img/orPattern.svg')} alt='' /> Our courses
+        </SectionTitle>
         <div className={styles.subtitle}>
-          {t('home.online-courses.sub-title')}
+          Intensive, real-world, and immediately applicable online courses to
+          help you level up in your hospitality career or business.
         </div>
       </div>
       <div className={styles.content}>
         <Preloader id={Preloaders.categories}>
           <div className={styles.filters}>
-            {categories.map(item => {
+            {/* {categories.map(item => {
               const { category, total } = item;
 
               return (
@@ -54,15 +57,18 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
                   className={styles.filterButton}
                 />
               );
-            })}
+            })} */}
           </div>
-          <div className={styles.info}>
+          {/* <div className={styles.info}>
             {selectedCategory && selectedCategory.category.description}
-          </div>
+          </div> */}
         </Preloader>
         <Preloader id={Preloaders.programs}>
           <div className={styles.coursesWrapper}>
             <div className={styles.courses}>
+              {programs.map(program => (
+                <CourseItem key={program.id} course={program} />
+              ))}
               {programs.map(program => (
                 <CourseItem key={program.id} course={program} />
               ))}
@@ -71,7 +77,7 @@ const OnlineCourses: React.FC<OnlineCoursesProps> = () => {
           <Link to='/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'>
             <Button className={styles.buttonExplore}>
               <div>{t('home.online-courses.button-text')}</div>
-              <Icon name='arrows/arrow-right-b' />
+              <Icon name='arrows/arrow-right-primary' />
             </Button>
           </Link>
         </Preloader>

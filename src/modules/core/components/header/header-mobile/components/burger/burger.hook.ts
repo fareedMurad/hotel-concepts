@@ -42,7 +42,7 @@ const useBurgerData = () => {
       ]
     },
     {
-      title: 'Programs',
+      title: 'Online Programs',
       height: 480,
       menuLinks: [
         ...programsLinks,
@@ -53,53 +53,35 @@ const useBurgerData = () => {
         }
       ]
     },
-    {
-      title: 'Digital Library',
-      height: 284,
-      menuLinks: [
-        {
-          link: 'Explore digital collections',
-          to: '/marketplace'
-        },
-        {
-          link: 'Individual Subscription',
-          to: '',
-          highlighted: true
-        },
-        {
-          link: 'Corporate Subscription',
-          to: '',
-          highlighted: true
-        }
-      ]
-    },
+    // {
+    //   title: 'Digital Library',
+    //   height: 284,
+    //   menuLinks: [
+    //     {
+    //       link: 'Explore digital collections',
+    //       to: '/marketplace'
+    //     },
+    //     {
+    //       link: 'Individual Subscription',
+    //       to: '',
+    //       highlighted: true
+    //     },
+    //     {
+    //       link: 'Corporate Subscription',
+    //       to: '',
+    //       highlighted: true
+    //     }
+    //   ]
+    // },
     {
       title: 'Corporate solutions',
-      height: 200,
-      menuLinks: [
-        {
-          link: 'Online programs',
-          to: '/programs-catalogue/2FLQCegBLgDC7z3wAFrc2h'
-        },
-        {
-          link: 'Digital Library Access',
-          to: '/marketplace'
-        }
-      ]
+      height: 63,
+      menuLinks: null
     },
     {
       title: 'About',
-      height: 200,
-      menuLinks: [
-        {
-          link: 'About us',
-          to: '/about-us'
-        },
-        {
-          link: 'Jobs',
-          to: '/jobs'
-        }
-      ]
+      height: 63,
+      menuLinks: null
     }
   ];
 

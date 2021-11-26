@@ -53,8 +53,8 @@ const HeaderMain: React.FC = () => {
         {/* <LibraryMenu className={className} /> */}
         <CorporateMenu className={className} />
         <AboutMenu className={className} />
-        <ProfileMenu blackTheme={blackTheme} />
-        <CartMenu />
+        {/* <ProfileMenu blackTheme={blackTheme} />
+        <CartMenu /> */}
         {/* <LocalizationMenu theme={blackTheme ? 'black' : 'primary'} /> */}
       </div>
     </div>

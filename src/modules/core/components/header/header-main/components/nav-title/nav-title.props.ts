@@ -14,6 +14,8 @@ type NavTitleProps = {
    * show menu
    */
   showMenu: boolean;
+
+  hideDropdown?: boolean;
 };
 
 export { NavTitleProps };

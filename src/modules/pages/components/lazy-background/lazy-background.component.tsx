@@ -8,7 +8,8 @@ const LazyBackground: React.FC<LazyBackgroundProps> = ({
   reducedImageId,
   fullImageId,
   className,
-  children
+  children,
+  bgColor
 }) => {
   const { fullImage, reducedImage } = useLazyBackgroundData(
     reducedImageId,
@@ -31,13 +32,15 @@ const LazyBackground: React.FC<LazyBackgroundProps> = ({
     };
   }, [fullImage, reducedImage]);
 
-  console.log(image, 'img test');
-
   return (
     <div
       className={className}
       style={
-        isImageLoaded
+        bgColor
+          ? {
+              background: `${bgColor}`
+            }
+          : isImageLoaded
           ? {
               backgroundImage: `url(${image})`
             }

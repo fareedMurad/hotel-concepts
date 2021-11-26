@@ -3,8 +3,8 @@
 .socials {
   display: flex;
   min-height: 580px;
-  background-color: $background;
-  margin-top: 20px;
+  // background-color: $background;
+
   padding-left: $left-offset;
 }
 
@@ -24,6 +24,7 @@
     @include font($primary-gray, 36px, 500, 46px);
     letter-spacing: -0.48px;
     font-family: $EBGaramond;
+    max-width: 190px;
   }
   & > div:nth-child(2) {
     height: 2px;

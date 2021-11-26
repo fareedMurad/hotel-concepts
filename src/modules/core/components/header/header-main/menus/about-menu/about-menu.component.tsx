@@ -16,10 +16,15 @@ const AboutMenu: React.FC<AboutMenuProps> = ({ className }) => {
   return (
     <div
       className={styles.aboutMenu}
-      onMouseOver={() => setShowMenu(true)}
-      onMouseLeave={() => setShowMenu(false)}
+      // onMouseOver={() => setShowMenu(true)}
+      // onMouseLeave={() => setShowMenu(false)}
     >
-      <NavTitle showMenu={showMenu} className={className} title='About' />
+      <NavTitle
+        showMenu={showMenu}
+        hideDropdown={true}
+        className={className}
+        title='About'
+      />
       {showMenu && (
         <CardDropdown
           className={styles.dropdown}

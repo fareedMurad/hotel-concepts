@@ -20,13 +20,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ name, description }) => {
         className={classNames(styles.name, { [styles.opened]: isOpened })}
       >
         <div className={styles.indicator}>
-          <div
-            className={classNames(styles.indicatorIcon, {
-              [styles.indicatorIconOpened]: isOpened
-            })}
-          >
-            +
-          </div>
+          <div className={styles.indicatorIcon}>{isOpened ? '-' : '+'}</div>
         </div>
         <span>{name}</span>
       </div>

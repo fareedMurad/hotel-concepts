@@ -4,16 +4,19 @@ const useAboutData = () => {
   const { t } = useTranslation();
   const data = [
     {
-      title: t('home.about.card-one.title'),
-      description: t('home.about.card-one.description')
+      title: 'Hospitality leaders who want to level up',
+      description:
+        'Course content like no other to help you see things differently and act strategically.'
     },
     {
-      title: t('home.about.card-two.title'),
-      description: t('home.about.card-two.description')
+      title: 'Busy, full-time hospitality professionals',
+      description:
+        'Designed specifically for full-time  professionals, each Sprint is contained to 2-3 weeks so that you don’t have to take time off.'
     },
     {
-      title: t('home.about.card-three.title'),
-      description: t('home.about.card-three.description')
+      title: 'Proactive go-getters',
+      description:
+        'Sprints are for those who not only think, but also do. Get inspired and informed to make strategic decisions that result in change.'
     }
   ];
 

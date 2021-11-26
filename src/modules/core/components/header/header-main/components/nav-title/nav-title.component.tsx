@@ -10,7 +10,12 @@ import { handleNotifierCart } from '@app/redux/cart';
 /**
  * Renders NavTitle
  */
-const NavTitle: React.FC<NavTitleProps> = ({ className, title, showMenu }) => {
+const NavTitle: React.FC<NavTitleProps> = ({
+  className,
+  title,
+  showMenu,
+  hideDropdown
+}) => {
   const { whiteHeader, stickyHeader, showDropdown } = useHeaderMainData();
   const blackTheme = whiteHeader || stickyHeader;
   const dispatch = useDispatch();
@@ -25,12 +30,14 @@ const NavTitle: React.FC<NavTitleProps> = ({ className, title, showMenu }) => {
       onMouseOver={() => hideCartOnHover()}
     >
       {title}{' '}
-      {/* <Icon
-        className={classNames(styles.shape, {
-          [styles.activeTriangel]: showMenu
-        })}
-        name={blackTheme ? 'triangle-arr-b' : 'triangle-arr'}
-      /> */}
+      {!hideDropdown && (
+        <Icon
+          className={classNames(styles.shape, {
+            [styles.activeTriangel]: showMenu
+          })}
+          name={'triangle-arr-b'}
+        />
+      )}
     </div>
   );
 };

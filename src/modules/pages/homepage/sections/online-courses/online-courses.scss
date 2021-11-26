@@ -1,7 +1,8 @@
 @import 'core.scss';
 
 .online-courses {
-  padding: 60px 0px 70px 0px;
+  padding: 60px 0px 47px 0px;
+  background: #f5f1f0;
 }
 
 .title {
@@ -15,8 +16,21 @@
   }
   & > div:nth-child(2) {
     @include font($primary-gray, 24px, 400, 34px);
-    max-width: 500px;
-    margin-top: 12px;
+    max-width: 900px;
+    text-align: center;
+    margin: 12px auto 0;
+  }
+}
+
+.sTitle {
+  margin: 0 auto;
+  width: fit-content;
+  position: relative;
+  img {
+    position: absolute;
+    top: -8px;
+    left: -19px;
+    width: 37px;
   }
 }
 
@@ -25,14 +39,16 @@
 }
 
 .content {
-  padding: 0 22px;
+  padding: 0 $default-offset;
+  @include tablet() {
+    padding: 0 $left-offset;
+  }
 }
 
 .filters {
   display: grid;
   width: fit-content;
-  margin-top: 49px;
-  margin-bottom: 20px;
+  margin-top: 38px;
   overflow-x: auto;
   overflow-y: hidden;
   gap: 10px;
@@ -53,6 +69,7 @@
   @include font($primary-gray, 18px, 400, 28px);
   max-width: 660px;
   margin-bottom: 39px;
+  text-align: center;
 }
 
 .footer {
@@ -76,18 +93,18 @@
 
 .courses {
   display: grid;
-  column-gap: 20px;
-  row-gap: 43px;
+  row-gap: 30px;
   grid-template-columns: 1fr;
-  @include tablet() {
-    grid-template-columns: 1fr 1fr;
-  }
-  @include desktop() {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  @include desktop-lg() {
-    grid-template-columns: 1.1fr 1.1fr 1.1fr 0.7fr;
-  }
+
+  // @include tablet() {
+  //   grid-template-columns: 1fr 1fr;
+  // }
+  // @include desktop() {
+  //   grid-template-columns: 1fr;
+  // }
+  // @include desktop-lg() {
+  //   grid-template-columns: 1fr;
+  // }
 }
 
 @media screen and (max-width: 728px) {
@@ -109,18 +126,20 @@
 
 .button {
   &--explore {
+    border: 1px solid $primary-orange;
     & > div:first-child {
       @include flex($align: center, $justify: space-between);
-      @include font($primary-gray, 16px, 500);
+      @include font($primary-orange, 16px, 500);
+
       width: 100%;
     }
-    margin: 31px 0px 0px 22px;
-    background: #f5f1f0;
+    margin: 31px auto 22px;
+    background: transparent;
     height: 44px;
     width: 85%;
     @include tablet() {
       width: 336px;
-      margin: 31px 0px 0px 113px;
+      margin: 58px auto 0;
     }
   }
 }

@@ -16,7 +16,7 @@ const ContributorCard: React.FC<ContributorCardProps> = ({
     from,
     position,
     workAt,
-    mentorPicture: { url }
+    mentorModalPicture: { url }
   } = contributor;
 
   return (
@@ -25,7 +25,7 @@ const ContributorCard: React.FC<ContributorCardProps> = ({
         {/* <img src={url} alt={name} className={styles.img} /> */}
         <Img
           //костиль з картинкою через різницю в респонсіі
-          src={contributorPicture ? contributorPicture : url}
+          src={url}
           alt='Person'
           placeholder={require('img/person-placeholder')}
           className={styles.img}

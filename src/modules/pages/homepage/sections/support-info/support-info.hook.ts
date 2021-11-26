@@ -1,11 +1,11 @@
 const useSupportInfoData = () => {
   const data = [
-    'Informed analysis',
-    'Foresight',
-    'Management',
-    'Skills',
-    'Experience',
-    'Perspective'
+    'Learn from world’s best',
+    'Condensed & Intensive',
+    'Real World & Real People',
+    'Immediately applicable',
+    'Management-focused',
+    'Proactive frameworks'
   ];
 
   return { data };
