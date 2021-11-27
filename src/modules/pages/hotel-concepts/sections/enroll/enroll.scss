@@ -1,0 +1,108 @@
+@import 'core.scss';
+
+.whoenroll {
+  height: 100%;
+  @include flex($justify: start, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+.innerbox {
+  @include desktop() {
+    width: 60%;
+  }
+}
+
+.bottombox {
+  @include flex($justify: center, $direction: column, $align: center);
+  width: 40%;
+  @include mobile() {
+    width: 100%;
+  }
+}
+.footerbox {
+  @include flex($justify: center, $direction: column, $align: center);
+  width: 60%;
+  @include mobile() {
+    width: 100%;
+  }
+}
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 40px);
+}
+.subtitle {
+  @include font($primary-gray, 16px, 400, 20px);
+}
+
+.boxtitle {
+  margin-top: 20px;
+  @include font($primary-gray, 32px, 500, 45px);
+  @include mobile() {
+    @include font($primary-gray, 32px, 500, 32px);
+  }
+}
+.cardWrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  //   @include flex($justify: center, $direction: row, $align: center);
+  @include mobile() {
+    grid-template-columns: 1fr !important;
+  }
+}
+.card {
+  //   width: calc(100% / 4);
+  min-height: 300px;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px 16px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(black, 0.16);
+  gap: 10px;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  h4 {
+    text-transform: uppercase;
+  }
+
+  @include mobile() {
+    width: 100%;
+  }
+}
+.img {
+  margin-bottom: 40px;
+}
+.paraText {
+  margin: 5px 0;
+  @include font($primary-gray, 16px, 400, 20px);
+}
+.footerText {
+  margin: 5px 0;
+  @include font($primary-gray, 16px, 400, 24px);
+}
+.bottomTextHeader {
+  margin-top: 30px;
+  @include font($primary-gray, 32px, 500, 64px);
+  @include mobile() {
+    @include font($primary-gray, 32px, 500, 30px);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardWrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}

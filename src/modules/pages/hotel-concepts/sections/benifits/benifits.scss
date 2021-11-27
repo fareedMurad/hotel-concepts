@@ -1,0 +1,78 @@
+@import 'core.scss';
+
+.benifits {
+  height: 100%;
+  @include flex($justify: start, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+.innerbox {
+  @include desktop() {
+    width: 60%;
+  }
+}
+
+.bottombox {
+  @include flex($justify: center, $direction: column, $align: center);
+  width: 40%;
+}
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 40px);
+}
+.subtitle {
+  @include font($primary-gray, 16px, 400, 20px);
+}
+
+.boxtitle {
+  margin-top: 20px;
+  @include font($primary-gray, 32px, 500, 45px);
+}
+.cardWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  width: calc(100% / 4);
+  min-height: 300px;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px 16px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(black, 0.16);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h4 {
+    text-transform: uppercase;
+  }
+}
+.paraText {
+  margin: 5px 0;
+  @include font($primary-gray, 16px, 400, 20px);
+}
+.bottomTextHeader {
+  margin-top: 30px;
+  @include font($primary-gray, 24px, 500, 20px);
+}
+
+.accordinWrapper {
+  width: 100%;
+}

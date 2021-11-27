@@ -1,0 +1,23 @@
+@import 'core.scss';
+
+.faq {
+  padding: 120px 0;
+  & > div:first-child {
+    @include font($primary-gray, 36px, 500, 46px);
+    letter-spacing: -0.48px;
+    font-family: $EBGaramond;
+    padding-left: $left-offset;
+    margin-bottom: 18px;
+  }
+  &-block {
+    padding: 0 $default-offset;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .faq {
+    & > div:first-child {
+      padding-left: $default-offset;
+    }
+  }
+}

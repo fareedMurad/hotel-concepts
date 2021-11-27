@@ -1,0 +1,76 @@
+@import 'core.scss';
+
+.keylearnings {
+  height: 100vh;
+  @include flex($justify: center, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+  //   @include ipad-p() {
+  //     height: calc(100vh - 30px);
+  //   }
+  //   @include ipad-l() {
+  //     height: calc(100vh - 30px);
+  //   }
+  // background-image: url('img/herosection.png');
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 0px);
+}
+.subtitle {
+  @include font($primary-gray, 16px, 400, 50px);
+}
+.boxwrapper {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  grid-gap: 80px;
+  width: 100%;
+  margin-top: 10px;
+  //   @include tablet() {
+  //     grid-template-columns: 1fr;
+  //     grid-gap: 20px;
+  //   }
+  @include mobile() {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+}
+.ulist {
+  display: grid;
+  gap: 12px;
+}
+.list {
+  @include font($primary-gray, 14px, 400, 16px);
+}
+.boldpara {
+  @include font($primary-gray, 14px, 600, 24px);
+}
+.footer {
+  text-align: center;
+  width: 100%;
+  margin-top: 35px;
+}
+
+@media (min-width: 768px) {
+  .keylearnings {
+    height: 75vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .boxwrapper {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+}

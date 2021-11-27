@@ -1,0 +1,51 @@
+@import 'core.scss';
+
+.image {
+  position: relative;
+  background-size: cover;
+  @include flex($justify: center, $direction: column, $align: center);
+  // width: 100%;
+  // height: 317px;
+  border-radius: 6px;
+  &--watch-button {
+    position: absolute;
+    // bottom: 20px;
+    left: 20px;
+    @include flex($justify: center, $align: center);
+    @include desktop() {
+      width: 100%;
+    }
+  }
+  background: $primary-light-gray;
+  @include desktop() {
+    width: 500px;
+    height: 280px;
+  }
+  @include mobile() {
+    width: 100%;
+    height: 280px;
+  }
+}
+// .watch-btn {
+//   &--button-play {
+//     width: 60px !important;
+//     height: 60px !important;
+//   }
+// }
+
+.image-watch-button {
+  @include mobile() {
+    left: unset;
+  }
+}
+
+.video {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .image {
+    width: 500px;
+    height: 280px;
+  }
+}

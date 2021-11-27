@@ -98,6 +98,11 @@ const CoursePartnership = lazy(() =>
     default: CoursePartnership
   }))
 );
+const HotelConcepts = lazy(() =>
+  import('src/modules/pages').then(({ HotelConcepts }) => ({
+    default: HotelConcepts
+  }))
+);
 const Homepage = lazy(() =>
   import('src/modules/pages').then(({ Homepage }) => ({
     default: Homepage
@@ -186,6 +191,7 @@ const Routes: React.FC = () => {
               <Route path='/marketplace' component={Marketplace} />
               <Route path='/program' component={ProgramPage} />
               <Route path='/course-partnership' component={CoursePartnership} />
+              <Route path='/hotel-concepts' component={HotelConcepts} />
               <Route path='/' component={Homepage} />
               <Route path='*' component={NotFound} />
             </Switch>

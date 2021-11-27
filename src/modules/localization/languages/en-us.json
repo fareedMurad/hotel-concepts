@@ -101,6 +101,761 @@
       "description": " Be the first to read useful articles and get information about latest promotions!"
     }
   },
+  "hotel-concepts": {
+    "hero": {
+      "pre-caption": "Online program",
+      "sub-title": "Developing Winning and Compelling",
+      "title": "HOTEL CONCEPTS",
+      "description": "Our quality curriculum is designed with top-tier industry partners, not academics, so you learn the high impact skills that are needed in today’s hospitality ecosystem.",
+      "fullImageId": "img/herosection.png",
+      "collaboration": {
+        "title": "In Collaboration With",
+        "discription": "world-leading hospitality consultant that evaluates award-winning clints around the globe"
+      }
+    },
+    "about-courses": {
+      "title": "About the Courses",
+      "sub-title": "Program Details",
+      "button-text": "Take a peek at the Hotel Concepts Program",
+      "paras": {
+        "para1": {
+          "bold-discription": " The decade ahead brings a number of industry-disrupting trends that are striking the hotel industry from all angles. ",
+          "discription": "The traditional model with rooms creating revenue is fading and whether your hotel is in the luxury, full-service, select-service, or lifestyle tier, today’s consumers want—and expect—much more from each stay. "
+        },
+        "para2": {
+          "bold-discription": " And, there is the vastness of the competition.",
+          "discription": "There are more (and bigger!) players in the space than ever, including not only traditional companies but also new lodging concepts and nontraditional market disruptors."
+        },
+        "para3": {
+          "bold-discription": " But with guest expectations higher than ever and previous “differentiators” now serving as the cost of entry, how can hotels continue to elevate their game?",
+          "discription": "How do successful hospitality companies create the irresistible brands that guests love and pursue?"
+        },
+        "para4": {
+          "bold-discription": " to deliver authentic hospitality and resist the need to be “everything to everyone”. ",
+          "discription": "The opportunity to differentiate lies beyond the basics. Hotels must focus on strategy, people and experiences —",
+          "discription2": "to deliver authentic hospitality and resist the need to be “everything to everyone”. Engaging guests meaningfully is the only path to win and retain their preference. "
+        },
+        "para5": {
+          "bold-discription": " In this intensive course we will focus on proven frameworks to create value through brand concept strategy and tackle the most pressing challenges facing hospitality leaders today."
+        }
+      },
+      "count": {
+        "count1": {
+          "title": "01",
+          "bold-discription": " So you learn the high impact.",
+          "discription": "and review 10+ unique case studies, that show the how and why behind most successful hospitality concepts."
+        },
+        "count2": {
+          "title": "02",
+          "bold-discription": " - a world-leading hospitality consultancy that elevates award-winning clients from world-renowned luxury resorts to small, independent boutique hotels around the globe.",
+          "discription": "Taught by Magdalena Rungaldier and Kelsi Kennedy, founder and strategist at MAp - "
+        },
+        "count3": {
+          "title": "03",
+          "bold-discription": "An interactive learning experience designed for busy ",
+          "discription": "hospitality business owners, top-management, HODs, working full-time."
+        }
+      }
+    },
+    "keylearnings": {
+      "title": "Key learnings",
+      "sub-title": "Join the Hotel Concepts programs to:",
+      "firstlist": {
+        "list1": {
+          "list-title": "Achieve the business growth",
+          "list-discription": "(think occupacy, revenue etc.)"
+        },
+        "list2": {
+          "list-title": "Position your property clearly",
+          "list-discription": "in the market and stand out from the crowd"
+        },
+        "list3": {
+          "list-title": "Use resource more efficently,",
+          "list-discription": "be it time, money, etc."
+        },
+        "list4": {
+          "list-title": "Provide unique and rewarding on-site experience",
+          "list-discription": "that are hard to replicate, be it by rival hotels of Airbnb-type plateform"
+        }
+      },
+      "secondlist": {
+        "list1": {
+          "list-title": "Achieve the business growth",
+          "list-discription": "(think occupacy, revenue etc.)"
+        },
+        "list2": {
+          "list-title": "Position your property clearly",
+          "list-discription": "in the market and stand out from the crowd"
+        },
+        "list3": {
+          "list-title": "Use resource more efficently,",
+          "list-discription": "be it time, money, etc."
+        },
+        "list4": {
+          "list-title": "Provide unique and rewarding on-site experience",
+          "list-discription": "that are hard to replicate, be it"
+        }
+      },
+      "footer": {
+        "list1": {
+          "list-title": "for smaller hotels and or chains",
+          "list-discription": "lear how to stand out against big  brands"
+        },
+        "list2": {
+          "list-title": "for big brands",
+          "list-discription": "learn how to enhance your guest experience"
+        }
+      }
+    },
+    "quoteshotels": {
+      "title": "Hotels with storng concepts are able to demand a premium price. privide  a cohrent  guest experience, sell and market thenselves smartly, recruit talented staff  and a community following."
+    },
+    "enroll": {
+      "title": "This course is perfect for:",
+      "sub-title": "Hospitality (including lifestyle & wellness) business owners, top-management, HODs",
+      "box-title": "Who should enroll",
+      "card1": {
+        "title": "Independents and Boutique Hotlers",
+        "para": "who wants to growth hotels and compititive positioning"
+      },
+      "card2": {
+        "title": "Aspiring Hoteliers",
+        "para": "who wants to get hotel preject of the ground and are in"
+      },
+      "card3": {
+        "title": "Small Hotel Chains",
+        "para": "who wants to growth hotels and compititive positioning"
+      },
+      "card4": {
+        "title": "big hotel comapines",
+        "para": "aming to improve their guest experince"
+      },
+      "bottom-text-title": "This course can be used",
+      "bottom-text": "to create or refine a hotel concept for both new  builds and  benchmarking  tool to validate or refine an existing  hotel concept."
+    },
+    "benifits": {
+      "title": "What are the benifits of having a strong hotel concept?",
+      "benifit1": {
+        "title": "Gives strategic direction.",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod debitis, ab eaque, tempora nobis eos esse aspernatur ipsum ad consectetur sint quos labore aperiam. Ipsa reiciendis corrupti quibusdam facere sequi?"
+      },
+      "benifit2": {
+        "title": "Sereves as day-to-day operational guide for you and your team.",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod debitis, ab eaque, tempora nobis eos esse aspernatur ipsum ad consectetur sint quos labore aperiam. Ipsa reiciendis corrupti quibusdam facere sequi?"
+      },
+      "benifit3": {
+        "title": "Ensures  that you  attract the rights guests",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod debitis, ab eaque, tempora nobis eos esse aspernatur ipsum ad consectetur sint quos labore aperiam. Ipsa reiciendis corrupti quibusdam facere sequi?"
+      },
+      "benifit4": {
+        "title": "Reduce PR and marketing cost ",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod debitis, ab eaque, tempora nobis eos esse aspernatur ipsum ad consectetur sint quos labore aperiam. Ipsa reiciendis corrupti quibusdam facere sequi?"
+      },
+      "benifit5": {
+        "title": "Gives you a strong HR  bound",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod debitis, ab eaque, tempora nobis eos esse aspernatur ipsum ad consectetur sint quos labore aperiam. Ipsa reiciendis corrupti quibusdam facere sequi?"
+      },
+      "benifit6": {
+        "title": "Gives you a competitive edge.",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod debitis, ab eaque, tempora nobis eos esse aspernatur ipsum ad consectetur sint quos labore aperiam. Ipsa reiciendis corrupti quibusdam facere sequi?"
+      },
+      "benifit7": {
+        "title": "Ensure personal - and financial - success",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod debitis, ab eaque, tempora nobis eos esse aspernatur ipsum ad consectetur sint quos labore aperiam. Ipsa reiciendis corrupti quibusdam facere sequi?"
+      },
+      "benifit8": {
+        "title": "Creates a better future for your  business people and the planet.",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod debitis, ab eaque, tempora nobis eos esse aspernatur ipsum ad consectetur sint quos labore aperiam. Ipsa reiciendis corrupti quibusdam facere sequi?"
+      }
+    },
+    "syllabus": {
+      "title": "What You Will Learn",
+      "sub-title": "Syllabus",
+      "sub-title2": "Additional Materials",
+      "discription": "You wouldn’t build a house without a plan, and you shouldn’t build a hotel without one either. In this course we’ll teach you all about hotel concepts – the foundation of every hotel project: what they are, why you need them, and how to create them. We’ll also go into depth on the trends shaping the hotel concepts of the future, with a particular focus on sustainable concepts that create better futures for people and the planet. ",
+      "syllabus1": {
+        "title": "Sprint 1: Introduction to hotel concepts",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "syllabus2": {
+        "title": "Sprint 2: Our roadMAp to hotel concept creation",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "syllabus3": {
+        "title": "Sprint 3: Continuing through the hotel concept creation roadMAp",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "syllabus4": {
+        "title": "Sprint 4: Creating your hotel concept - Purpose ",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "syllabus5": {
+        "title": "Sprint 5: Creating your hotel concept - People",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "syllabus6": {
+        "title": "Sprint 6: Creating your hotel concept - Positioning ",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "syllabus7": {
+        "title": "Sprint 7: Creating your hotel concept - Plot ",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "syllabus8": {
+        "title": "Sprint 8: Activating your hotel concept",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "syllabus9": {
+        "title": "Sprint 9: #onwards: achieving success for your hotel concept",
+        "content": {
+          "ul-a": {
+            "title": "Hotel project development – at a high level",
+            "li-a": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-b": {
+            "title": "Hotel project development – at a high level",
+            "li-b": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-c": {
+            "title": "Hotel project development – at a high level",
+            "li-c": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-d": {
+            "title": "Hotel project development – at a high level",
+            "li-d": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-e": {
+            "title": "Hotel project development – at a high level",
+            "li-e": {
+              "li1": "Hotel project lifecycle",
+              "li2": " A look at the hotel conceptualisation stage",
+              "li3": " Stakeholders involved in this stage",
+              "li4": "Re-conceptualisation for existing hotels – where to start"
+            }
+          },
+          "ul-f": {
+            "title": "Summary + Q&A"
+          }
+        }
+      },
+      "additional-materials": {
+        "card1": {
+          "title": "Course Workbook",
+          "para": "Summaries, infographics, tools"
+        },
+        "card2": {
+          "title": "Guest Behaviour Trends",
+          "para": "and their influence of hotel concepts"
+        },
+        "card3": {
+          "title": "Successful Hotel Concepts",
+          "para": "case studies book"
+        },
+        "card4": {
+          "title": "Conceptual Framework",
+          "para": "on developing a hotel concept"
+        }
+      }
+    },
+    "winning": {
+      "title": "Learn how to Build a Winning Hotel Concept",
+      "sub-title": {
+        "percent": "35%",
+        "text": "Early Booking discount available till",
+        "date": "01.01.2020"
+      }
+    },
+    "peek-program": {
+      "title": "Take a Peek at the Hotel Concepts Programs"
+    },
+    "course-special": {
+      "title": "What Make the Course Special",
+      "card1": {
+        "title": "Actionable frameworks",
+        "para": "8 deep dive video lessons. 8 video case studies. Step-by-step techniques to put knowledge into practice."
+      },
+      "card2": {
+        "title": "Designed for full-time professionals",
+        "para": "Real-world insights with 2 livestream sessions taught by mentors. Live Q&A, full connection, open communication, detailed elaboration of new approaches and techniques."
+      },
+      "card3": {
+        "title": "Condensed, intensive, real-world",
+        "para": "Intensive course done completely online. For busy leaders who need real-works, actionable  immediately applicable insights to drive growth."
+      },
+      "card4": {
+        "title": "Personal workbook",
+        "para": "To consolidate new practices in assignments and create a personal diary with tips that will always be at hand. "
+      }
+    },
+    "course-author": {
+      "title": "Learn from the world’s best",
+      "section-sub-title": "Course authors",
+      "sub-title": "About",
+      "discription": "This program is co-created with",
+      "bold-discription": "MAp - a world-leading, multi-faceted boutique hospitality consultancy based in Zurich, Switzerland and creating sustainable concepts, brands and strategies that elevate award-winning clients around the world, including",
+      "paragraph1": "Since 2014, MAp team has been putting hotels - from world-renowned luxury resorts to small, independent boutique hotels - on the global MAp. What unites their clients is their belief that they can achieve more success, and in turn, make a bigger impact in the world.",
+      "paragraph2": "As world leading hotel consultants and strategic advisors, MAp’s mission is to get to the heart of what drives clients and create winning strategies with this in mind. MAp provides guidance and supports clients through the full life cycle of the hotel development process: from concept creation through implementation, to hotel launch and beyond. For existing hotels, the MAp assists with hotel concept refinement and re-positioning for long-term, sustainable success."
+    },
+    "instructor-details": {
+      "title": "Meet your instructors",
+      "instructor": {
+        "info1": {
+          "name": "Magdalena Rungaldier",
+          "job-title": "MAp Principal",
+          "experience": "Vast experience in hospitality, marketing and in strategically developing brands and businesses. Passionate about people (and pineapples). Strong believer in moving businesses beyond profit to purpose and resilience.",
+          "btn-text": "More About Kelsi"
+        },
+        "info2": {
+          "name": "Kelsi Kennedy",
+          "job-title": "Consultant, Strategist",
+          "experience": "Experienced strategist. Ability to uncover and go after opportunities for success no matter the challenges. Motivated by good books, great podcasts, and the goal of creating concepts and brands that are rooted in innovation, creativity and sustainability.",
+          "btn-text": "More About Magdalena"
+        }
+      }
+    },
+    "learning-modal": {
+      "title": "The perfected learning model",
+      "modal1": {
+        "title": "Powered by industry.",
+        "content": "Individualized, line-by-line feedback on project work from mentors. Validate exactly which skills are successfully learned and identify opportunities for improvement."
+      },
+      "modal2": {
+        "title": "Individual feedback.",
+        "content": "Individualized, line-by-line feedback on project work from mentors. Validate exactly which skills are successfully learned and identify opportunities for improvement."
+      },
+      "modal3": {
+        "title": "Expert Instructors",
+        "content": "Individualized, line-by-line feedback on project work from mentors. Validate exactly which skills are successfully learned and identify opportunities for improvement."
+      },
+      "modal4": {
+        "title": "The help you need when you need it",
+        "content": "Individualized, line-by-line feedback on project work from mentors. Validate exactly which skills are successfully learned and identify opportunities for improvement."
+      },
+      "modal5": {
+        "title": "Relevant approach to education",
+        "content": "Individualized, line-by-line feedback on project work from mentors. Validate exactly which skills are successfully learned and identify opportunities for improvement."
+      }
+    },
+    "certificate": {
+      "title": "Certificate",
+      "paragraph": {
+        "para1": "Learning goals are different for everyone. We understand this very well. For those who want to confirm their training with a certificate, we have two types of them — about listening and about passing the course (this is if you also completed the final task and received feedback from the curator).",
+        "para2": "To obtain the status of a successful student of the course, you must study the material and pass the tests. And to receive a certificate of completion, you will also need to complete the final task."
+      }
+    }
+  },
   "faq": {
     "title": "Relax because we always be here for you.",
     "form": {

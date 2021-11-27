@@ -15,3 +15,4 @@ export * from './privacy-policy';
 export * from './programs-catalogue';
 export * from './story-mission';
 export * from './interests';
+export * from './hotel-concepts';

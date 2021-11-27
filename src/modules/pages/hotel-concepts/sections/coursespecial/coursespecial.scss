@@ -1,0 +1,72 @@
+@import 'core.scss';
+
+.course-special {
+  height: 100%;
+  @include flex($justify: start, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+.innerbox {
+  width: 75%;
+  @include mobile() {
+    width: 100%;
+  }
+}
+
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 82px);
+  @include mobile() {
+    @include font($primary-green, 48px, 600, 46px);
+  }
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+  @include mobile() {
+    grid-template-columns: 1fr;
+  }
+}
+
+.img {
+  width: 45px;
+}
+
+.card {
+  // width: 75%;
+  min-height: 150px;
+  text-align: center;
+  gap: 10px;
+  @include flex($direction: column, $align: center);
+}
+.card-text-box {
+  @include flex($justify: center, $direction: column, $align: center);
+}
+.card-special-title {
+  margin: 5px 0;
+  @include font($primary-orange, 22px, 500, 32px);
+}
+.card-special-text {
+  margin: 5px 0;
+  @include font($primary-gray, 14px, 400, 24px);
+  text-align: center;
+  width: 90%;
+  @include mobile() {
+    width: 100%;
+  }
+}

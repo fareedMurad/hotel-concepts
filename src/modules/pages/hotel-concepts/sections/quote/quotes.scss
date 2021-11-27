@@ -1,0 +1,28 @@
+@import 'core.scss';
+
+.quotes {
+  height: 100%;
+  @include flex($justify: center, $direction: column);
+  @include container();
+  min-height: 280px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: $primary-light-gray;
+}
+
+.quotestitle {
+  @include font($primary-orange, 32px, 500, 36px);
+  z-index: 2;
+  font-family: $EBGaramond;
+  text-align: center;
+  letter-spacing: -0.48px;
+  @include mobile() {
+    text-align: start;
+  }
+}
+
+// @media (min-width: 768px) {
+//   .quotes {
+//     height: 40vh;
+//   }
+// }

@@ -1,0 +1,200 @@
+@import 'core.scss';
+
+.aboutcourses {
+  height: 100%;
+  @include flex($justify: center, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+  // @include ipad-p() {
+  //   height: calc(100vh - 30px);
+  // }
+  // @include ipad-l() {
+  //   height: calc(100vh - 30px);
+  // }
+  // background-image: url('img/herosection.png');
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  line-height: 28px;
+
+  & > div:first-child {
+    position: relative;
+  }
+  & > div:nth-child(2) {
+    @include font($primary-orange, 18px, 400, 34px);
+    max-width: 100%;
+    margin-top: 12px;
+    text-align: end;
+  }
+  @include mobile() {
+    text-align: start;
+  }
+}
+.divsubtitle {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  gap: 20px;
+  line-height: 45px;
+  text-align: center;
+  padding-bottom: 10px;
+  @include font($primary-orange, 20px, 500, 24px);
+  z-index: 2;
+  font-family: $EBGaramond;
+  font-style: italic;
+  letter-spacing: -0.48px;
+  @include desktop() {
+    width: 100%;
+  }
+  // @include tablet() {
+  //   grid-template-columns: 1fr;
+  // }
+  @include mobile() {
+    grid-template-columns: 1fr;
+    text-align: start;
+  }
+}
+
+.paragraph {
+  @include font($primary-gray, 16px, 400, 20px);
+  margin-bottom: 12px;
+}
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 58px);
+}
+.content {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  gap: 20px;
+  @include desktop() {
+    width: 100%;
+  }
+  @include mobile() {
+    grid-template-columns: 1fr;
+  }
+}
+
+.button {
+  margin: 24px auto 0 auto;
+  @include desktop() {
+    margin: 24px 0 0 0;
+  }
+}
+
+.button {
+  &--peek {
+    & > div:first-child {
+      @include flex($align: center, $justify: space-between);
+      @include font($primary-orange, 16px, 500);
+      width: 100%;
+    }
+    background: #ffff;
+    border: 1px solid $primary-orange;
+    height: 44px;
+    width: 85%;
+    @include tablet() {
+      width: 385px;
+    }
+    @include mobile() {
+      width: 100%;
+    }
+  }
+
+  &--img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.name {
+  @include font($white, 36px, 600, 46px);
+  position: absolute;
+  //   bottom: 16px;
+  left: 16px;
+  max-width: 300px;
+  letter-spacing: -0.48px;
+  font-family: $EBGaramond;
+}
+
+.card {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 241px;
+    object-fit: cover;
+    filter: brightness(1);
+  }
+}
+
+.description-block {
+  height: 100%;
+  padding: 35px;
+  @include flex($justify: space-between, $direction: column);
+  border: 1px solid #98a2a883;
+  border-radius: 8px;
+
+  @include tablet() {
+    height: 100%;
+  }
+}
+.carddetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  padding: 5px 40px 5px;
+  gap: 24px;
+  @include mobile() {
+    padding: 5px 20px 5px;
+  }
+}
+.label {
+  @include font($primary-green, 14px, 500, 24px);
+}
+.value {
+  @include font($primary-gray, 14px, 500, 24px);
+}
+.hr {
+  border-radius: 1px solid $primary-gray;
+  width: 100%;
+}
+
+.descriptionbox {
+  @include flex($justify: space-between, $direction: row);
+  gap: 10px;
+}
+.count {
+  @include font($primary-orange, 20px, 500, 24px);
+  z-index: 2;
+  font-family: $EBGaramond;
+  letter-spacing: -0.48px;
+}
+.countdiscription {
+  @include font($primary-gray, 14px, 100, 24px);
+}
+.parabold {
+  font-weight: 500;
+}
+
+.bottom {
+  width: 100%;
+  @include flex($justify: space-between, $direction: column);
+}
+
+.button {
+  width: 100%;
+  margin-bottom: 9px;
+  @include flex($justify: center);
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}

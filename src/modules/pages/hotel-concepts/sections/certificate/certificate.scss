@@ -1,0 +1,52 @@
+@import 'core.scss';
+
+.certificate {
+  height: 100vh;
+  @include flex($justify: center, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  margin: 40px 0px;
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 0px);
+}
+
+.certificate-wrapper {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  //   gap: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.certificate-img {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.instruction-img-src {
+  width: 320px;
+}
+
+.about-certificate {
+  width: 100%;
+  @include flex($justify: center, $direction: column);
+  gap: 22px;
+  p {
+    @include font($primary-gray, 16px, 400, 22px);
+  }
+}

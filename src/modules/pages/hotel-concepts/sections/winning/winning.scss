@@ -1,0 +1,72 @@
+@import 'core.scss';
+
+.winning {
+  height: 100%;
+  @include flex($justify: start, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+.innerbox {
+  width: 75%;
+  @include mobile() {
+    width: 100%;
+  }
+}
+
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 40px);
+}
+.minicard {
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+}
+.description-block {
+  width: 34%;
+  @include mobile() {
+    width: 100%;
+  }
+}
+
+.early-booking {
+  @include font($primary-gray, 18px, 400, 85px);
+}
+.percent {
+  @include font($primary-gray, 18px, 500, 0px);
+}
+.date {
+  @include font($primary-orange, 18px, 500, 0px);
+}
+
+.carddetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  padding: 5px 30px 5px;
+  gap: 10px;
+  @include mobile() {
+    padding: 5px 10px 5px;
+  }
+}
+.label {
+  @include font($primary-green, 20px, 500, 32px);
+}
+.value {
+  @include font($primary-gray, 20px, 500, 32px);
+}
+.hr {
+  border-radius: 1px solid $primary-gray;
+  width: 100%;
+}

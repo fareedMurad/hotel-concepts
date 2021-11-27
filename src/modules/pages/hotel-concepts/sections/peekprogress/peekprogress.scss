@@ -1,0 +1,37 @@
+@import 'core.scss';
+
+.peek-progress {
+  height: 100%;
+  @include flex($justify: start, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+.innerbox {
+  width: 75%;
+  @include mobile() {
+    width: 100%;
+  }
+}
+
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 40px);
+}
+
+.video-content {
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+  // background: $primary-light-gray;
+}
