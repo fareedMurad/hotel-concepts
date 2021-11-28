@@ -1,0 +1,169 @@
+@import 'core.scss';
+
+.pricing {
+  height: 100%;
+  @include flex($justify: start, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 55px;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  margin: 40px 0px;
+
+  @include mobile() {
+    text-align: center;
+  }
+}
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 0px);
+}
+
+.cost-title {
+  @include font($primary-orange, 30px, 500, 0px);
+}
+.cost-price {
+  @include font($primary-gray, 54px, 500, 48px);
+}
+.cost-discription {
+  @include font($primary-gray, 16px, 500, 40px);
+  width: 206px;
+  text-align: center;
+}
+.cost-discription-bold {
+  @include font($primary-gray, 16px, 500, 40px);
+}
+.pricing-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  @include mobile() {
+    grid-template-columns: 1fr;
+  }
+}
+.offer-course-card {
+  @include flex($justify: center, $direction: column, $align: center);
+  gap: 31px;
+}
+.cost {
+  @include flex($justify: center, $direction: column, $align: center);
+  gap: 10px;
+}
+.offer {
+  @include flex($justify: center, $direction: column, $align: center);
+  gap: 10px;
+}
+.services {
+  @include flex($justify: center, $direction: column, $align: center);
+  gap: 10px;
+}
+.service-title {
+  @include font($primary-gray, 18px, 600, 40px);
+}
+.service-ul-list {
+  @include flex($justify: center, $direction: column, $align: center);
+  gap: 10px;
+}
+.service-list {
+  @include font($primary-gray, 16px, 400, 20px);
+}
+.payments {
+  @include flex($justify: center, $direction: column, $align: center);
+  gap: 10px;
+}
+.payments-discription {
+  @include font($primary-gray, 16px, 400, 20px);
+  text-align: center;
+}
+
+// ENROLL FORM
+
+.enroll-today-form {
+  //   min-height: 500px;
+  width: 100%;
+  text-align: center;
+  background-color: $primary-light-gray;
+  padding: 0px 50px;
+  border-radius: 8px;
+  //   box-shadow: 0px 4px 10px rgb(0 0 0 / 16%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  @include mobile() {
+    padding: 30px 30px;
+  }
+}
+.enroll-title {
+  @include font($primary-orange, 31px, 500, 22px);
+  z-index: 2;
+  font-family: 'EB Garamond', 'serif';
+  letter-spacing: -0.48px;
+  font-style: italic;
+}
+.payment-method-img {
+  @include flex($justify: center, $direction: row, $align: center);
+  gap: 14px;
+  margin-top: 10px;
+}
+.online-pay-checkbox {
+  width: 100%;
+  min-height: fit-content;
+  background-color: $white;
+  padding: 20px 16px;
+  border-radius: 8px;
+}
+.online-input-box {
+  @include flex($justify: center, $direction: row, $align: center);
+  gap: 27px;
+}
+.online-pay-label {
+  @include font($primary-gray, 16px, 400, 32px);
+}
+
+//
+.form-title {
+  @include font($primary-gray, 14px, 600, 32px);
+}
+.online-pay-details {
+  input {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: initial;
+    color: #222f08;
+    width: 100%;
+    padding: 10px 8px;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    outline: none;
+    transition: 0.25s;
+    -webkit-appearance: none;
+    &::placeholder {
+      text-align: center;
+      @include font($primary-gray, 14px, 400, 32px);
+    }
+  }
+}
+.box-input-wrapper {
+  @include flex($justify: center, $direction: column, $align: center);
+  gap: 20px;
+}
+.box-input-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.submit-it {
+  width: 100%;
+}
+.submit-btn {
+  width: 100%;
+  text-transform: uppercase;
+}

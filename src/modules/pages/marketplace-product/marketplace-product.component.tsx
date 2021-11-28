@@ -37,7 +37,6 @@ const MarketplaceProduct: React.FC = () => {
     bannerData,
     recommendedData
   } = useMarketplaceProductData();
-
   return (
     <div className={styles.marketplaceProduct}>
       <ScrollToTop />

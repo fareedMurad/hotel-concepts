@@ -1,13 +1,14 @@
 @import 'core.scss';
 
-.learningmodal {
+.ask-questions {
   height: 100vh;
-  @include flex($justify: start, $direction: column);
+  @include flex($justify: center, $direction: column);
   @include container();
 
   min-height: 500px;
   box-sizing: border-box;
   overflow: hidden;
+  background-color: $primary-light-gray;
 }
 
 .title {
@@ -21,7 +22,8 @@
 }
 .innerbox {
   @include desktop() {
-    width: 60%;
+    margin-top: 20px;
+    width: 100%;
   }
 }
 

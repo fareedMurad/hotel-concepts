@@ -11,3 +11,7 @@ export * from './syllabus';
 export * from './courseauthors';
 export * from './learningmodel';
 export * from './certificate';
+export * from './testimonials';
+export * from './pricing';
+export * from './askquestions';
+export * from './questionsleft';

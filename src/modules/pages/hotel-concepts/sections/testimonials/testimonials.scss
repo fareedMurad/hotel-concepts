@@ -1,0 +1,66 @@
+@import 'core.scss';
+
+.testimonials {
+  height: 50vh;
+  @include flex($justify: center, $direction: column);
+  @include container();
+
+  min-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+  @include mobile() {
+    height: 50vh;
+    @include flex($justify: start, $direction: column);
+  }
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  margin: 40px 0px;
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 0px);
+}
+.testimonials-discription {
+  @include font($primary-gray, 16px, 400, 20px);
+  word-spacing: 0.9px;
+}
+.testimonials-title {
+  @include font($primary-gray, 18px, 600, 25px);
+}
+.testimonials-location {
+  @include font($primary-gray, 18px, 400, 25px);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  padding: 10px 0px;
+  margin-top: 40px;
+  gap: 18px;
+  align-items: center;
+  @include desktop() {
+    width: 100%;
+  }
+  @include mobile() {
+    margin-top: 15px;
+  }
+}
+.img {
+  width: 80px;
+}
+.slider1 {
+  width: 100%;
+  padding: 10px;
+}
+.slider-wrapper {
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // gap: 50px;
+  width: 100%;
+}

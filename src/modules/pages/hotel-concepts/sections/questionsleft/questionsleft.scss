@@ -1,0 +1,59 @@
+@import 'core.scss';
+
+.questions-left {
+  height: 100%;
+  @include flex($justify: center, $direction: column);
+  @include container();
+
+  min-height: 345px;
+  box-sizing: border-box;
+  overflow: hidden;
+  @include mobile() {
+    min-height: 500px;
+  }
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  @include mobile() {
+    text-align: start;
+  }
+  h1 {
+    margin: 0px;
+  }
+}
+
+.sectiontitle {
+  @include font($primary-green, 48px, 600, 48px);
+}
+.subtitle {
+  @include font($primary-gray, 16px, 400, 50px);
+}
+
+.qleftbox {
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+  margin-top: 34px;
+  gap: 20px;
+  @include font($primary-gray, 16px, 400, 24px);
+}
+.qemailbox {
+  @include flex($justify: center, $direction: row, $align: center);
+  @include font($primary-gray, 16px, 400, 24px);
+  gap: 22px;
+}
+.bold-title {
+  @include font($primary-orange, 16px, 400, 24px);
+}
+
+.back-soon-text {
+  @include font($primary-orange, 31px, 400, 24px);
+  z-index: 2;
+  font-family: 'EB Garamond', 'serif';
+  letter-spacing: -0.48px;
+  font-style: italic;
+}

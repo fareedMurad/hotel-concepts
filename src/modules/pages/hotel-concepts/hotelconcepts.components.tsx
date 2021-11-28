@@ -19,7 +19,11 @@ import {
   Syllabus,
   CourseAuthors,
   LearningModal,
-  Certificate
+  Certificate,
+  Testimonials,
+  Pricing,
+  AskQuestions,
+  QuestionsLeft
 } from './sections';
 // import { Faq } from './sections/faq';
 /**
@@ -50,6 +54,10 @@ const HotelConcepts: React.FC<HotelConceptProps> = () => {
         <CourseAuthors />
         <LearningModal />
         <Certificate />
+        <Testimonials />
+        <Pricing />
+        <AskQuestions />
+        <QuestionsLeft />
       </div>
     </React.Suspense>
   );

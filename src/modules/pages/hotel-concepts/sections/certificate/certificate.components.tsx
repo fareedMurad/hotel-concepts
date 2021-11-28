@@ -3,7 +3,7 @@ import * as styles from './certificate.scss';
 import { useTranslation } from 'react-i18next';
 
 /**
- * Renders Learnings
+ * Renders Certificate
  */
 const Certificate = () => {
   const { t } = useTranslation();
