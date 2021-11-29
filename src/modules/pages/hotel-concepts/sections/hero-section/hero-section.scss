@@ -17,6 +17,12 @@
   // @include ipad-l() {
   //   height: calc(100vh - 30px);
   // }
+
+  background-image: url(`img/ValleMaira.png`);
+
+  @include mobile() {
+    height: 100%;
+  }
 }
 
 .hero-wrapper {
@@ -26,6 +32,7 @@
   gap: 10px;
   @include mobile() {
     grid-template-columns: 1fr;
+    margin-top: 80px;
   }
 }
 
@@ -91,6 +98,9 @@
 }
 .hero {
   width: 410px;
+  @include mobile() {
+    width: 100%;
+  }
 }
 .collaborationTitle {
   @include font($primary-green, 16px, 500, 16px);

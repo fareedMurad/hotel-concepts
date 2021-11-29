@@ -5,13 +5,23 @@ import { Button, Icon } from '@core/components';
 // import { Accordin } from '@pages/hotel-concepts/components/syllabus';
 import { useTranslation } from 'react-i18next';
 import { CourseAuthrosData } from './courseauthors.hook';
+import { AboutKelsiModal } from '../../hotelconceptsmodals/aboutkelsimodal';
+// import { AboutMagdalenaModal } from '../../modals/aboutmagdalenamodal';
+import { AboutMapsMvpModal } from '../../hotelconceptsmodals/mapsmodalexperience';
+import { State } from '@app/redux/state';
+import { useSelector } from 'react-redux';
+import { closeModal, showModal } from '@ui/modal';
+import { Modals } from '@ui/models';
+import { useDispatch } from 'react-redux';
 
 /**
  * Renders WhoEnroll
  */
 const CourseAuthors = () => {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const { data, instructor } = CourseAuthrosData();
+  const { active: activeModal } = useSelector((state: State) => state.ui.modal);
   return (
     <section className={styles.courseauthor}>
       <div className={styles.title}>
@@ -60,12 +70,16 @@ const CourseAuthors = () => {
       </div>
       <div className={styles.innerBox7}>
         <img className={styles.imgSrc} src={`img/Kandima.png`} alt='syllabus' />
-        <Button className={styles.control}>
-          <h4>Have a look at MAp’s notable projects</h4>
-          <div className={styles.icon}>
-            {/* <Icon name='arrow-right-primary' /> */}
+        <Button
+          className={styles.control}
+          onClick={() => dispatch(showModal(Modals.mapsModal))}
+        >
+          <div className={styles.boxBtnBox}>
+            <h4>Have a look at MAp’s notable projects</h4>
+            <Icon className={styles.btnIcon} name='modalbtnarrow' />
           </div>
         </Button>
+        <AboutMapsMvpModal />
       </div>
       <div className={styles.title}>
         <div className={styles.instructionTitle}>
@@ -85,9 +99,18 @@ const CourseAuthors = () => {
             <h1 className={styles.instructionTitle}>{item.name}</h1>
             <h1 className={styles.instructionJob}>{item.job}</h1>
             <p className={styles.instructionDiscription}>{item.experience}</p>
-            <Button className={styles.instructionBtnText} arrow>
-              <h4>{item.btnText}</h4>
+            <Button
+              className={styles.instructionBtnText}
+              arrow
+              onClick={() => dispatch(showModal(Modals.aboutKelsiModal))}
+            >
+              <div className={styles.boxBtnBox}>
+                <h4>{item.btnText}</h4>
+                <Icon className={styles.btnIcon1} name='authorsleftarrow' />
+              </div>
             </Button>
+            <AboutKelsiModal />
+            {/* <AboutMagdalenaModal /> */}
           </div>
         </div>
       ))}

@@ -24,6 +24,9 @@
     width: 60%;
     margin-top: 45px;
   }
+  @include mobile() {
+    margin: 20px 0px;
+  }
 }
 .discrptionbox {
   @include desktop() {

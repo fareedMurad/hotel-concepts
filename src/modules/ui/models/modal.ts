@@ -18,7 +18,11 @@ enum Modals {
   // Auth
   forgotPassword = 'forgot password',
   newEmail = 'new email',
-  passwordChanged = 'password changed'
+  passwordChanged = 'password changed',
+
+  // About Modals
+  aboutKelsiModal = 'about kelsi',
+  mapsModal = 'about maps'
 }
 
 export { Modals };

@@ -28,6 +28,9 @@
 
 .sectiontitle {
   @include font($primary-green, 48px, 600, 40px);
+  @include mobile() {
+    @include font($primary-green, 48px, 600, 52px);
+  }
 }
 
 .video-content {

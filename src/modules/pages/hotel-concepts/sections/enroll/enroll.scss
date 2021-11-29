@@ -41,6 +41,9 @@
 }
 .sectiontitle {
   @include font($primary-green, 48px, 600, 40px);
+  @include mobile() {
+    @include font($primary-green, 48px, 600, 52px);
+  }
 }
 .subtitle {
   @include font($primary-gray, 16px, 400, 20px);
@@ -51,6 +54,7 @@
   @include font($primary-gray, 32px, 500, 45px);
   @include mobile() {
     @include font($primary-gray, 32px, 500, 32px);
+    margin: 20px 0px;
   }
 }
 .cardWrapper {

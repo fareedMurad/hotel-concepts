@@ -36,6 +36,9 @@
   @include flex($justify: center, $direction: row, $align: center);
   gap: 20px;
   margin-top: 40px;
+  @include mobile() {
+    margin-top: 0px;
+  }
   //   }
 }
 .inner-box4 {
@@ -136,6 +139,9 @@
   margin-top: 75px;
   padding: 10px 0px;
   gap: 30px;
+  @include mobile() {
+    grid-template-columns: 1fr;
+  }
 }
 .instruction-section-title {
   @include font($primary-green, 38px, 500, 30px);
@@ -161,12 +167,19 @@
   border-radius: unset;
   text-transform: uppercase;
 }
+.box-btn-box {
+  @include flex($justify: space-around, $direction: row, $align: center);
+  gap: 12px;
+}
 
+.btn-icon {
+  padding-top: 10px !important;
+}
 @media (max-width: 768px) {
   .inner-box5 {
-    @include flex($justify: center, $direction: row, $align: center);
+    @include flex($justify: space-around, $direction: row, $align: center);
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 15px;
   }
   .control {
     @include font($primary-orange, 24px, 400, 40px);
@@ -183,4 +196,8 @@
 .instruction-details {
   @include flex($justify: start, $direction: column);
   gap: 12px;
+  @include mobile() {
+    @include flex($justify: center, $direction: column, $align: center);
+    text-align: center;
+  }
 }

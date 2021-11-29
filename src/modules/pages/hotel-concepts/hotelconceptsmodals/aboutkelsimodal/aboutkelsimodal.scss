@@ -1,0 +1,14 @@
+@import 'core.scss';
+
+.about-kelsi-modal {
+  position: relative;
+  width: 692px;
+  @include desktop() {
+    // padding: 6px 73px 20px 73px;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  right: 30px;
+}

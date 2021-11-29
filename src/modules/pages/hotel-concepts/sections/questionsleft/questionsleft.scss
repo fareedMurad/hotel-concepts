@@ -28,6 +28,9 @@
 
 .sectiontitle {
   @include font($primary-green, 48px, 600, 48px);
+  @include mobile() {
+    @include font($primary-green, 48px, 600, 52px);
+  }
 }
 .subtitle {
   @include font($primary-gray, 16px, 400, 50px);

@@ -1,0 +1,71 @@
+@import 'core.scss';
+
+.kelsimodal {
+  height: 100%;
+  //   @include flex($justify: start, $direction: row);
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: 45px;
+  margin-top: 40px;
+  //   @include container();
+
+  //   min-height: 500px;
+  //   box-sizing: border-box;
+  //   overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  @include mobile() {
+    text-align: start;
+  }
+}
+// .about-box-wrapper {
+//   @include flex($justify: start, $direction: column);
+//   gap: 6px;
+// }
+.about-box-name {
+  @include font($primary-gray, 16px, 600, 40px);
+  z-index: 2;
+  //   font-family: $EBGaramond;
+  letter-spacing: -0.48px;
+  //   font-style: italic;
+}
+.about-box-job {
+  @include font($primary-gray, 14px, 500, 20px);
+  z-index: 2;
+  letter-spacing: -0.48px;
+}
+.about-box-location {
+  @include font($primary-gray, 14px, 300, 20px);
+  z-index: 2;
+  letter-spacing: -0.48px;
+  font-style: italic;
+}
+.about-box-image {
+  margin-top: 14px;
+}
+
+.modalImg {
+  width: 100%;
+}
+.linkedinImg {
+  width: 10%;
+}
+
+.details-box-ul {
+  @include flex($justify: center, $direction: column);
+  gap: 12px;
+}
+.details-box-li {
+  @include font($primary-gray, 14px, 300, 20px);
+  z-index: 2;
+  letter-spacing: 0.2px;
+}
+
+.details-box-hash {
+  @include font($primary-gray, 14px, 500, 20px);
+}

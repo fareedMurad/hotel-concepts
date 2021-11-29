@@ -9,7 +9,7 @@ import {
 } from '@core/components';
 import { navigate } from '@router/store';
 import { useHeroSectionData } from './herosection.hook';
-// import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
+import { LazyBackground } from '@pages/components/lazy-background/lazy-background.component';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -23,11 +23,11 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className={styles.herosection}>
-      {/* <LazyBackground
+      <LazyBackground
         className={styles.background}
-        reducedImageId='img/herosection.png'
-        fullImageId='img/herosection.png'
-      /> */}
+        reducedImageId={'img/herosection.png'}
+        fullImageId={'img/herosection.png'}
+      />
       <div className={styles.heroWrapper}>
         <div>
           <PreCaption className={styles.precaption}>

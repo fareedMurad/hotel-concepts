@@ -1,0 +1,48 @@
+@import 'core.scss';
+
+.slider-controls {
+  display: none;
+  position: absolute;
+  left: -10px !important;
+  right: 10px !important;
+  bottom: 20%;
+  z-index: 2;
+
+  @include tablet() {
+    bottom: 15%;
+  }
+
+  @include desktop() {
+    @include flex(space-between, center);
+    top: 41%;
+    left: 54px;
+    right: 54px;
+    bottom: unset;
+  }
+}
+
+.control {
+  @include flex(center, center);
+  @include size(60px);
+  @include min-size(60px);
+  border-radius: 50%;
+  background: rgba($white, 0.36);
+  cursor: pointer;
+
+  &--disabled {
+    cursor: not-allowed;
+
+    & > div {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.arrow {
+  & > div {
+    @include flex(center, center);
+  }
+  &--right {
+    transform: scaleX(-1) translateX(-1px);
+  }
+}

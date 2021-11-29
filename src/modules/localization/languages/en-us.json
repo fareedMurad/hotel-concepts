@@ -808,20 +808,545 @@
       "paragraph1": "Since 2014, MAp team has been putting hotels - from world-renowned luxury resorts to small, independent boutique hotels - on the global MAp. What unites their clients is their belief that they can achieve more success, and in turn, make a bigger impact in the world.",
       "paragraph2": "As world leading hotel consultants and strategic advisors, MAp’s mission is to get to the heart of what drives clients and create winning strategies with this in mind. MAp provides guidance and supports clients through the full life cycle of the hotel development process: from concept creation through implementation, to hotel launch and beyond. For existing hotels, the MAp assists with hotel concept refinement and re-positioning for long-term, sustainable success."
     },
+    "about-maps-modals-data": {
+      "maps-modal1": {
+        "title": "Learn about MAp’s experience",
+        "discription": "with diverse properties from luxury resorts to small, independent boutique hotels",
+        "hotal-maldives": {
+          "title": "Kandima Maldives",
+          "discription": "Creating a game-changing resort concept for the NEW Maldives",
+          "hash-tag": "#OhSoKool",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "Republic of Maldives"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": "Lifestyle resort"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To change the game 272 rooms, 10 FnB outlets"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Resort Concept Development;",
+                "achieve2": "Resort Brand Creation, Brand Design;",
+                "achieve3": " Sales, Marketing + Social Media Strategy; ",
+                "achieve4": "Trend Reports, Workshops, Agency Partner Search"
+              }
+            },
+            "awards": {
+              "title": "Awards + Accolades",
+              "lists": {
+                "li1": {
+                  "label": "Member ",
+                  "value": "of HIP HOTELS"
+                },
+                "li2": {
+                  "label": "Agoda –",
+                  "value": "Gold Circle Award"
+                },
+                "li3": {
+                  "label": "Luxury Lifestyle Magazine Readers’ Travel Awards 2019 – ",
+                  "value": "Runner-up: The Best Hotel In Asia category"
+                },
+                "li4": {
+                  "label": "South Asian Travel Awards 2019 – ",
+                  "value": "Leading F&B Resort – Maldives"
+                },
+                "li5": {
+                  "label": "Maldives Travel Awards 2019 – ",
+                  "value": "Leading Designer Resort"
+                },
+                "li6": {
+                  "label": "2018 World Luxury Restaurant Awards – ",
+                  "value": "Smoked Restaurant – Indian Ocean Top Luxury Steakhouse"
+                },
+                "li7": {
+                  "label": "2018 World Luxury Restaurant Awards – ",
+                  "value": "Sea Dragon Restaurant – Indian Ocean Top Chinese Cuisine Restaurant"
+                },
+                "li8": {
+                  "label": "LUX Global Excellence Awards 2018 – ",
+                  "value": "Best Luxury Holiday Resort – Maldives"
+                },
+                "li9": {
+                  "label": "LUX Global Excellence Awards 2018 – ",
+                  "value": "LUX Customers Choice Award 2018 – Maldives"
+                },
+                "li10": {
+                  "label": "LUX Global Excellence Awards 2018 –",
+                  "value": "Best Authentic Fine Dining Asian Restaurant 2018 – Sea Dragon Asian Restaurant"
+                }
+              }
+            }
+          }
+        },
+        "map-hotal": {
+          "title": "MAP Hotel",
+          "discription": "Empowering a city hotel and brand for global success.",
+          "hash-tag": "#EmpoweredByMAP",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "Cyprus"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": "Smart design hotel + brand"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To empower people to live their best lives 30 rooms"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Resort Hotel Brand Creation, Brand Activation",
+                "achieve2": "Hotel Concept Development",
+                "achieve3": " Sales + Marketing Strategy",
+                "achieve4": "Resource Management, Restaurant Consulting"
+              }
+            },
+            "distinations": {
+              "title": "Destination",
+              "lists": {
+                "li1": {
+                  "value": "Compelling hotel brand that can be scaled internationally"
+                },
+                "li2": {
+                  "value": "Emotional storytelling hook that connects with MAP Hotel’s target audience and emphasises sustainability"
+                },
+                "li3": {
+                  "value": "Strong positioning and differentiation in the market along hotel’s USPs"
+                },
+                "li4": {
+                  "value": "Insights and guidance on how to translate the hotel concept into operations"
+                },
+                "li5": {
+                  "value": "Defined sales + marketing activities and direction on how team can effectively execute"
+                }
+              }
+            }
+          }
+        },
+        "haritha-villas": {
+          "title": "Haritha Villas + SPA",
+          "discription": "Redefining luxury in Sri Lanka",
+          "hash-tag": "#LuxuryLifestyle",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "Hikkaduwa, Sri Lanka"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": "Luxury boutique hotel"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To deliver the finest levels of luxury in Sri Lanka 7 villas + 2 mansions"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Boutique Hotel Concept Development",
+                "achieve2": "Sales + Marketing Strategy, Hotel Launch",
+                "achieve3": " Audits, Trainings"
+              }
+            },
+            "awards": {
+              "title": "Awards + Accolades",
+              "lists": {
+                "li1": {
+                  "label": "World Luxury Hotel Awards 2020 – Winner"
+                },
+                "li2": {
+                  "label": "World Luxury Spa Awards 2020 – Winner"
+                },
+                "li3": {
+                  "label": "Condè Nast Traveller – 20 Best Places to Go in 2020"
+                },
+                "li4": {
+                  "label": "Travel & Style – The TOP 50 Luxury Hotel Openings worldwide of 2019"
+                },
+                "li5": {
+                  "label": "Connoisseur Circle Hospitality Awards 2019 – Nominated"
+                },
+                "li6": {
+                  "label": "Travel + Leisure – The 50 Best Places to Travel in 2020"
+                }
+              }
+            }
+          }
+        },
+        "valle-maira": {
+          "title": "Valle Maira",
+          "discription": "Transforming a forgotten jewel into a sustainable destination",
+          "hash-tag": "#SimplyValleMaira",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "Valle Maira, Italy"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": "Destination"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To invite conscious travellers and eco-adventurers to experience the unspoiled Valle Maira while protecting its nature and local ecosystem"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Destination Concept Development; ",
+                "achieve2": "Destination Brand Development; ",
+                "achieve3": " Sales + Marketing Support + Strategy; ",
+                "achieve4": "Trend Reports, Workshops, Agency Partner Search"
+              }
+            },
+            "awards": {
+              "title": "Awards + Accolades",
+              "lists": {
+                "li1": {
+                  "value": "Trend and field analysis to clearly define strengths, opportunities and market potential"
+                },
+                "li2": {
+                  "value": "Definition of destination concept, positioning and long-term strategy"
+                },
+                "li3": {
+                  "value": "Activation of the newly-defined destination concept through brand, sales and marketing activities"
+                },
+                "li4": {
+                  "value": "Support in MApping out, creating and activating the new Valle Maira brand and website"
+                }
+              }
+            }
+          }
+        },
+        "clink-hostals": {
+          "title": "Clink Hostels",
+          "discription": "Sharpening a hostel brand that changes your life",
+          "hash-tag": "#ChangeMyWorld",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "London, Amsterdam, Dublin, Lisbon"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": " Hostel"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To enable a journey that changes YOU"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Hostel Brand Creation, Brand Activationt"
+              }
+            },
+            "awards": {
+              "title": "Awards + Accolades",
+              "lists": {
+                "li1": {
+                  "label": "‘Amsterdam’s Most Popular Hostel’, Hostelworld"
+                },
+                "li2": {
+                  "label": "‘Best Accommodation’, BETA Award"
+                },
+                "li3": {
+                  "label": "‘Most Popular Hostel’, Hostelbookers"
+                }
+              }
+            }
+          }
+        },
+        "felderer-boutique-hotel": {
+          "title": "Felderer Boutiquehotel",
+          "discription": "Developing a boutique hotel and brand with style and soul",
+          "hash-tag": "#StyleAndSoul",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "South Tyrol, Italy"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": "Boutique hotel"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To create a stylish oasis of tranquillity and peace for the modern traveller 22 rooms"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Boutique Hotel Concept Development; ",
+                "achieve2": "Boutique Hotel Brand Creation, Brand Design, Brand Activation, Brand Implementation;",
+                "achieve3": "Website Development, Sales + Marketing Strategy, Hotel Launch;"
+              }
+            },
+            "awards": {
+              "title": "Destination",
+              "lists": {
+                "li1": {
+                  "value": "New and authentic boutique hotel concept based on trends and market potential"
+                },
+                "li2": {
+                  "value": "Stylish brand identity including logo and design"
+                },
+                "li3": {
+                  "value": "New Felderer Boutiquehotel website that matched defined aesthetic"
+                },
+                "li4": {
+                  "value": "Successful launch of the new boutique hotel concept and brand"
+                }
+              }
+            }
+          }
+        },
+        "milhaidoo-island": {
+          "title": "Milhaidoo Island",
+          "discription": "Opening up a new chapter of barefoot island living",
+          "hash-tag": "#StoryOfASmallIsland",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "Republic of Maldives"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": " Boutique luxury resort"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To tell the unique story of a small island 50 rooms"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Resort Concept Development;",
+                "achieve2": "Resort Brand Creation, Brand Activation;",
+                "achieve3": "Sales + Marketing Strategy, Hotel Launch"
+              }
+            },
+            "awards": {
+              "title": "Awards + Accolades",
+              "lists": {
+                "li1": {
+                  "label": "TripAdvisor Travellers Choice 2020: Best of the Best"
+                },
+                "li2": {
+                  "label": "Member of Small Luxury Hotels of the World"
+                },
+                "li3": {
+                  "label": "Golden Panther Award 2018: Best Beach Resort"
+                },
+
+                "li4": {
+                  "label": "Connoisseur Circle Hospitality Awards 2018: Best Hospitality Resort in the Indian Ocean"
+                },
+                "li5": {
+                  "label": "Harper’s Bazaar - Bazaar Travel Guide 2018: The Best Islands"
+                },
+                "li6": {
+                  "label": "Condé Nast Johansens Luxury Hotels Award: Winner 2018"
+                },
+
+                "li7": {
+                  "label": "Elle UK: The 13 Most Beautiful Overwater Bungalows in the World"
+                }
+              }
+            }
+          }
+        },
+        "locanda-mistral": {
+          "title": "Locanda Mistral",
+          "discription": "Taking a sustainable, family-run hotel to the next level",
+          "hash-tag": "#EnjoyTheSilence",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "Valle Maira, Italy"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": " Sustainable, family-run hotel"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To enable guests to experience nature at its best and in the most authentic way 14 rooms"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Sustainable Hotel Concept Development",
+                "achieve2": "Sales + Marketing Strategy, Hotel Website Development",
+                "achieve3": "Ongoing Consulting"
+              }
+            },
+            "awards": {
+              "title": "Awards + Accolades",
+              "lists": {
+                "li1": {
+                  "label": "Member of Green Pearls"
+                }
+              }
+            }
+          }
+        },
+        "paloria-apartments": {
+          "title": "Paloria apartments + sport",
+          "discription": "Setting up a next-generation hotelier for success with a sporty new concept",
+          "hash-tag": "#UpUpUp",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "South Tyrol, Italy"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": "Aparthotel"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": " To enable people to live their peak life 14 rooms"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Aparthotel Concept Development ",
+                "achieve2": "Aparthotel Brand Creation, Brand Activation, Brand Design, Brand Implementation",
+                "achieve3": "Sales + Marketing Strategy, Hotel Website Development, Hotel Launch"
+              }
+            },
+            "distination": {
+              "title": "Awards + Accolades",
+              "lists": {
+                "li1": {
+                  "value": "Fresh and cool aparthotel concept fitting for a new generation of travellers and athletes"
+                },
+                "li2": {
+                  "value": "New aparthotel brand identity and collateral in keeping with the concept"
+                },
+                "li3": {
+                  "value": "New-and-improved hotel website"
+                },
+                "li4": {
+                  "value": "Sustainable initiatives that create real impact"
+                },
+                "li5": {
+                  "value": "Successful launch of new paloria with support of Map"
+                }
+              }
+            }
+          }
+        },
+        "koncept-hotels": {
+          "title": "Koncept Hotels",
+          "discription": "Developing the hotels of the future: digital, fair, local",
+          "hash-tag": "#KonceptHotels",
+          "about": {
+            "details": {
+              "location": {
+                "labal": "Location:",
+                "value": "Location: Germany, Switzerland, Austria"
+              },
+              "type": {
+                "labal": "Type:",
+                "value": "Innovative, digital + sustainable hotel brand"
+              },
+              "purpose": {
+                "labal": " Purpose: ",
+                "value": "To redefine the hotel"
+              }
+            },
+            "achievments": {
+              "title": "What was done: ",
+              "type": {
+                "achieve1": "Sustainable Hotel Concept Development",
+                "achieve2": "Sales + Marketing Strategy, Hotel Website Development",
+                "achieve3": "Ongoing Consulting"
+              }
+            },
+            "awards": {
+              "title": "Awards + Accolades",
+              "lists": {
+                "li1": {
+                  "label": "Breakthrough Award 2020 - Nominated"
+                },
+                "li2": {
+                  "label": "Digital Leader Award 2018"
+                }
+              }
+            },
+            "distination": {
+              "title": "Distination",
+              "type": {
+                "dist1": "Helpful insights into latest trends and market through comprehensive analysis",
+                "dist2": "Innovative hotel concepts with focus on emotional storytelling and sustainability"
+              }
+            }
+          }
+        }
+      }
+    },
     "instructor-details": {
       "title": "Meet your instructors",
       "instructor": {
         "info1": {
-          "name": "Magdalena Rungaldier",
-          "job-title": "MAp Principal",
-          "experience": "Vast experience in hospitality, marketing and in strategically developing brands and businesses. Passionate about people (and pineapples). Strong believer in moving businesses beyond profit to purpose and resilience.",
-          "btn-text": "More About Kelsi"
-        },
-        "info2": {
           "name": "Kelsi Kennedy",
           "job-title": "Consultant, Strategist",
           "experience": "Experienced strategist. Ability to uncover and go after opportunities for success no matter the challenges. Motivated by good books, great podcasts, and the goal of creating concepts and brands that are rooted in innovation, creativity and sustainability.",
-          "btn-text": "More About Magdalena"
+          "btn-text": "More About Kelsi",
+          "location": "Based in Zurich, Switzerland",
+          "detail-experience": {
+            "li1": "Magdalena is the principal of MAp Boutique Consultancy, running the day-to-day operations and overseeing client engagements.",
+            "li2": "She co-founded MAp in 2014, with the strong belief that the hospitality industry needed a fresh, human and sustainable approach, along with innovative ideas and services.",
+            "li3": "Magdalena was born in South Tyrol, Italy, and got (and stayed) drunk on travelling, marketing and breath-taking design.",
+            "li4": "Following her studies, she began her wanderlust tour – living and working in Europe, New Zealand, America and the Maldives. Magdalena holds a BA Honours degree in Tourism Management and has many years’ experience in tourism, marketing and in strategically developing brands and businesses.",
+            "li5": "She also serves as a lecturer on the topic of hotel concept development and activation at various universities and hotel schools.",
+            "li6": "Before co-founding MAp, Magdalena held a variety of senior operational and management positions at a boutique design agency, a tourism research institute, and a number of high-end boutique luxury resorts and hotels."
+          },
+          "hash-tag": "#Onwards"
+        },
+        "info2": {
+          "name": "Magdalena Rungaldier",
+          "job-title": "MAp Principal",
+          "experience": "Vast experience in hospitality, marketing and in strategically developing brands and businesses. Passionate about people (and pineapples). Strong believer in moving businesses beyond profit to purpose and resilience.",
+          "btn-text": "More About Magdalena",
+          "location": "Based in Zurich, Switzerland",
+          "detail-experience": {
+            "li1": "Kelsi Kennedy is an experienced strategy consultant. At MAp, Kelsi works as a strategist, guiding boutique hotel clients through the creation of sustainable, innovative and creative hotel concepts and brands.",
+            "li2": "SKelsi brings extensive experience in project management and client service to the role. Prior to joining MAp, she worked as an innovation consultant, delivering innovation and startup support to corporate clients in the hospitality and tourism industries.",
+            "li3": "Additionally, she worked as a strategic communications consultant, advising some of the world’s biggest organisations on how to navigate high-profile and fast-moving crisis situations, M&As and bankruptcies.",
+            "li4": "Originally from Chicago, she has called Vienna home for the past four years. In addition to consulting, Kelsi invests in real estate in Vienna and the alpine region."
+          },
+          "hash-tag": "##Dothedamnthing"
         }
       }
     },
