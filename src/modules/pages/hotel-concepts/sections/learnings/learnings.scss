@@ -16,6 +16,9 @@
   @include tablet() {
     background-color: initial;
   }
+  @include mobile() {
+    height: 100%;
+  }
 }
 
 .title {
