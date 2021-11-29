@@ -8,7 +8,15 @@
   min-height: 500px;
   box-sizing: border-box;
   overflow: hidden;
-  background: $primary-light-gray;
+
+  background-image: url('../../../../../assets/backgrounds/Section13.png');
+  // @include imageOverlay();
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  @include tablet() {
+    background-color: initial;
+  }
   @include mobile() {
     height: 100vh;
   }

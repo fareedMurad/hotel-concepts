@@ -15,6 +15,18 @@
   //   height: calc(100vh - 30px);
   // }
   // background-image: url('img/herosection.png');
+
+  background-image: url('../../../../../assets/backgrounds/Section2.png');
+  // @include imageOverlay();
+  background-repeat: no-repeat;
+  background-position: inherit;
+  background-size: cover;
+  @include tablet() {
+    background-color: initial;
+  }
+  @include mobile() {
+    margin-bottom: 45px;
+  }
 }
 
 .title {
@@ -139,6 +151,7 @@
   @include flex($justify: space-between, $direction: column);
   border: 1px solid #98a2a883;
   border-radius: 8px;
+  background: $white;
 
   @include tablet() {
     height: 100%;

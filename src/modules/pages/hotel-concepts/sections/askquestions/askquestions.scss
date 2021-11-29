@@ -9,6 +9,14 @@
   box-sizing: border-box;
   overflow: hidden;
   background-color: $primary-light-gray;
+
+  // background-image: url('../../../../../assets/backgrounds/Section15.png');
+  // background-repeat: no-repeat;
+  // background-position: bottom;
+  // background-size: cover;
+  // @include tablet() {
+  //   background-color: initial;
+  // }
 }
 
 .title {

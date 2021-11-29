@@ -8,6 +8,15 @@
   min-height: 500px;
   box-sizing: border-box;
   overflow: hidden;
+
+  background-image: url('../../../../../assets/backgrounds/Section14.png');
+  // @include imageOverlay();
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  @include tablet() {
+    background-color: initial;
+  }
   @include mobile() {
     height: 50vh;
     @include flex($justify: start, $direction: column);

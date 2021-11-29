@@ -7,7 +7,16 @@
   min-height: 280px;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: $primary-light-gray;
+  // background-color: $primary-light-gray;
+
+  background-image: url('../../../../../assets/backgrounds/Section4.png');
+  // @include imageOverlay();
+  background-repeat: no-repeat;
+  background-position: inherit;
+  background-size: cover;
+  @include tablet() {
+    background-color: initial;
+  }
 }
 
 .quotestitle {

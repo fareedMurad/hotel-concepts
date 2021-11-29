@@ -26,6 +26,7 @@ const LearningModal = () => {
       <div className={styles.accordinWrapper}>
         {data.map((item, id) => (
           <Accordin
+            classes={'learningModal'}
             name={item.title}
             description={item.content}
             key={item.id}

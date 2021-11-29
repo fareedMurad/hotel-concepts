@@ -26,6 +26,7 @@ const AskQuestions = () => {
       <div className={styles.accordinWrapper}>
         {data.map((item, id) => (
           <Accordin
+            classes={'class'}
             name={item.title}
             description={item.content}
             key={item.id}

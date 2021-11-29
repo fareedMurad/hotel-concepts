@@ -18,11 +18,18 @@
   //   height: calc(100vh - 30px);
   // }
 
-  background-image: url(`img/ValleMaira.png`);
-
-  @include mobile() {
-    height: 100%;
+  background-image: url('../../../../../assets/backgrounds/Section1.png');
+  // @include imageOverlay();
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include tablet() {
+    background-color: initial;
   }
+
+  // @include mobile() {
+  //   height: 100%;
+  // }
 }
 
 .hero-wrapper {

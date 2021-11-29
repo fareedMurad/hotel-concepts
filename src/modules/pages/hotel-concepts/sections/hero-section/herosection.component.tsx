@@ -23,11 +23,11 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className={styles.herosection}>
-      <LazyBackground
+      {/* <LazyBackground
         className={styles.background}
         reducedImageId={'img/herosection.png'}
         fullImageId={'img/herosection.png'}
-      />
+      /> */}
       <div className={styles.heroWrapper}>
         <div>
           <PreCaption className={styles.precaption}>
@@ -61,11 +61,11 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         <div>
-          <img
+          {/* <img
             className={styles.hero}
             src={require(`img/hero.png`)}
             alt='mvp'
-          />
+          /> */}
         </div>
       </div>
     </section>

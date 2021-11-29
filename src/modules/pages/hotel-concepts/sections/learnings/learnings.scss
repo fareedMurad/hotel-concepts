@@ -8,13 +8,14 @@
   min-height: 500px;
   box-sizing: border-box;
   overflow: hidden;
-  //   @include ipad-p() {
-  //     height: calc(100vh - 30px);
-  //   }
-  //   @include ipad-l() {
-  //     height: calc(100vh - 30px);
-  //   }
-  // background-image: url('img/herosection.png');
+  background-image: url('../../../../../assets/backgrounds/Section3.png');
+  // @include imageOverlay();
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  @include tablet() {
+    background-color: initial;
+  }
 }
 
 .title {

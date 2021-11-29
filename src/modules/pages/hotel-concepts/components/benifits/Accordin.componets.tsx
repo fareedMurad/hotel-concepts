@@ -6,7 +6,7 @@ import classNames from 'classnames';
 /**
  * Renders FaqItem
  */
-const Accordin: React.FC<AccordinProps> = ({ name, description }) => {
+const Accordin: React.FC<AccordinProps> = ({ classes, name, description }) => {
   const [isOpened, setOpened] = React.useState(false);
 
   const openItem = () => {
@@ -14,7 +14,7 @@ const Accordin: React.FC<AccordinProps> = ({ name, description }) => {
   };
 
   return (
-    <div className={styles.accordin}>
+    <div className={classes ? styles[classes] : styles.accordin}>
       <div
         onClick={openItem}
         className={classNames(styles.name, { [styles.opened]: isOpened })}

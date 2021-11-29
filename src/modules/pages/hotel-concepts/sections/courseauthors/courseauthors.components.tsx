@@ -101,7 +101,6 @@ const CourseAuthors = () => {
             <p className={styles.instructionDiscription}>{item.experience}</p>
             <Button
               className={styles.instructionBtnText}
-              arrow
               onClick={() => dispatch(showModal(Modals.aboutKelsiModal))}
             >
               <div className={styles.boxBtnBox}>

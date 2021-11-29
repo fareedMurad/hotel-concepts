@@ -9,6 +9,15 @@
   box-sizing: border-box;
   overflow: hidden;
   margin-bottom: 55px;
+
+  background-image: url('../../../../../assets/backgrounds/Section14.png');
+  // @include imageOverlay();
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  @include tablet() {
+    background-color: initial;
+  }
 }
 
 .title {
