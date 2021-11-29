@@ -82,11 +82,13 @@
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
   gap: 20px;
+  padding-bottom: 52px;
   @include desktop() {
     width: 100%;
   }
   @include mobile() {
     grid-template-columns: 1fr;
+    padding-bottom: 32px;
   }
 }
 
@@ -168,7 +170,7 @@
   }
 }
 .label {
-  @include font($primary-green, 14px, 500, 24px);
+  @include font($primary-green, 14px, 600, 24px);
 }
 .value {
   @include font($primary-gray, 14px, 500, 24px);

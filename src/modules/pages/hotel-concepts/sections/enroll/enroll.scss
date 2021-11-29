@@ -12,7 +12,7 @@
   background-image: url('../../../../../assets/backgrounds/section5.png');
   // @include imageOverlay();
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: center;
   background-size: cover;
   @include tablet() {
     background-color: initial;
@@ -23,9 +23,23 @@
   text-align: center;
   width: 100%;
   @include flex($justify: center, $direction: column, $align: center);
+  padding-top: 14px;
 
   @include mobile() {
     text-align: start;
+    padding-top: 7px;
+  }
+}
+
+.title1 {
+  padding-bottom: 114px;
+  text-align: center;
+  width: 100%;
+  @include flex($justify: center, $direction: column, $align: center);
+
+  @include mobile() {
+    text-align: start;
+    padding-bottom: 40px;
   }
 }
 .innerbox {

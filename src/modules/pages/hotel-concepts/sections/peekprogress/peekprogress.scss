@@ -36,7 +36,7 @@
 }
 
 .sectiontitle {
-  @include font($primary-green, 48px, 600, 40px);
+  @include font($primary-green, 48px, 600, 52px);
   @include mobile() {
     @include font($primary-green, 48px, 600, 52px);
   }

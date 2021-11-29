@@ -1319,10 +1319,10 @@
       "title": "Meet your instructors",
       "instructor": {
         "info1": {
-          "name": "Kelsi Kennedy",
-          "job-title": "Consultant, Strategist",
+          "name": "Magdalena Rungaldier",
+          "job-title": "MAp Principal",
           "experience": "Experienced strategist. Ability to uncover and go after opportunities for success no matter the challenges. Motivated by good books, great podcasts, and the goal of creating concepts and brands that are rooted in innovation, creativity and sustainability.",
-          "btn-text": "More About Kelsi",
+          "btn-text": "More About Magdalena",
           "location": "Based in Zurich, Switzerland",
           "detail-experience": {
             "li1": "Magdalena is the principal of MAp Boutique Consultancy, running the day-to-day operations and overseeing client engagements.",
@@ -1335,10 +1335,11 @@
           "hash-tag": "#Onwards"
         },
         "info2": {
-          "name": "Magdalena Rungaldier",
-          "job-title": "MAp Principal",
+          "name": "Kelsi Kennedy",
+          "job-title": "Consultant, Strategist",
           "experience": "Vast experience in hospitality, marketing and in strategically developing brands and businesses. Passionate about people (and pineapples). Strong believer in moving businesses beyond profit to purpose and resilience.",
-          "btn-text": "More About Magdalena",
+          "btn-text": "More About Kelsi",
+
           "location": "Based in Zurich, Switzerland",
           "detail-experience": {
             "li1": "Kelsi Kennedy is an experienced strategy consultant. At MAp, Kelsi works as a strategist, guiding boutique hotel clients through the creation of sustainable, innovative and creative hotel concepts and brands.",

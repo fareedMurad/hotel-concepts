@@ -2,9 +2,9 @@
 
 .nav-title {
   @include flex($align: center, $justify: center);
-  @include font(white, 16px, 500, 24px);
+  @include font(#3e3e3e, 16px, 500, 24px);
   position: relative;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #3e3e3e;
   padding-bottom: 4px;
   cursor: pointer;
   transition: $transition;

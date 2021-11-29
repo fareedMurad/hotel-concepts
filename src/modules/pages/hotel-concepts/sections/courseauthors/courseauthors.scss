@@ -145,15 +145,16 @@
   // width: 100%;
   display: grid;
   grid-template-columns: 0.3fr 1fr;
-  margin-top: 75px;
-  padding: 10px 0px;
+  // margin-top: 52px;
+  padding: 30px 0px;
+  margin: 0 auto;
   gap: 30px;
   @include mobile() {
     grid-template-columns: 1fr;
   }
 }
 .instruction-section-title {
-  @include font($primary-green, 38px, 500, 30px);
+  @include font($primary-orange, 38px, 600, 30px);
 }
 
 .instruction-title {

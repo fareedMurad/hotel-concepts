@@ -40,20 +40,13 @@ const AboutKelsiModal: React.FC = () => {
       className={styles.aboutKelsiModal}
       noReset={preventAnimationReset}
     >
-      {/* <Preloader id={Preloaders.login}>
-        <Preloader id={Preloaders.register}> */}
       <Icon
         name='close-modal'
         className={styles.closeModal}
         onClick={() => dispatch(closeModal(Modals.aboutKelsiModal))}
       />
-      {/* <ModalHeader
-            setActiveModal={setActiveModal}
-            activeModal={activeModal}
-          /> */}
+
       {activeModal === 'user1' ? <KelsiModal /> : <MagdalenaModal />}
-      {/* </Preloader>
-      </Preloader> */}
     </Modal>
   );
 };

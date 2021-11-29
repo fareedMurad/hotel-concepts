@@ -3,12 +3,16 @@
 .maps-modal {
   position: relative;
   width: 85%;
-  @include desktop() {
-    padding: 6px 73px 20px 73px;
-  }
+  // @include desktop() {
+  //   padding: 6px 73px 20px 73px;
+  // }
 }
 
 .close-modal {
   position: absolute;
   right: 30px;
+}
+
+.slider {
+  padding: 0px 68px;
 }

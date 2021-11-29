@@ -17,17 +17,10 @@ const AskQuestionsData = () => {
       title: t('hotel-concepts.ask-questions.modal3.title'),
       content: t('hotel-concepts.ask-questions.modal3.content')
     },
-
     {
       id: 4,
       title: t('hotel-concepts.ask-questions.modal4.title'),
       content: t('hotel-concepts.ask-questions.modal4.content')
-    },
-
-    {
-      id: 5,
-      title: t('hotel-concepts.ask-questions.modal5.title'),
-      content: t('hotel-concepts.ask-questions.modal5.content')
     }
   ];
 

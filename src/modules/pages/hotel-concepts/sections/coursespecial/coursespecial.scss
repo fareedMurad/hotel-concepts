@@ -47,8 +47,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   width: 100%;
+  padding-bottom: 52px;
   @include mobile() {
     grid-template-columns: 1fr;
+    padding-bottom: 32px;
   }
 }
 

@@ -66,7 +66,7 @@ const WhoEnroll = () => {
         ))}
       </div>
 
-      <div className={styles.title}>
+      <div className={styles.title1}>
         <div className={styles.innerbox}>
           <h3 className={styles.bottomTextHeader}>
             {t('hotel-concepts.enroll.bottom-text-title')}
