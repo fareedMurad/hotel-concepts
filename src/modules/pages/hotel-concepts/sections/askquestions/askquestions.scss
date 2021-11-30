@@ -10,6 +10,10 @@
   overflow: hidden;
   background-color: $primary-light-gray;
 
+  @include mobile() {
+    height: 100%;
+  }
+
   // background-image: url('../../../../../assets/backgrounds/Section15.png');
   // background-repeat: no-repeat;
   // background-position: bottom;

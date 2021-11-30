@@ -3,6 +3,9 @@
 .maps-modal {
   position: relative;
   width: 85%;
+  @include mobile() {
+    width: 100%;
+  }
   // @include desktop() {
   //   padding: 6px 73px 20px 73px;
   // }
@@ -15,4 +18,7 @@
 
 .slider {
   padding: 0px 68px;
+  @include mobile() {
+    padding: 0px;
+  }
 }
