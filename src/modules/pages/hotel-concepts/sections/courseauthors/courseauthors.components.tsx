@@ -21,7 +21,9 @@ const CourseAuthors = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { data, instructor } = CourseAuthrosData();
+  const [user, setUser] = React.useState('');
   const { active: activeModal } = useSelector((state: State) => state.ui.modal);
+  console.log(user, 'user');
   return (
     <section className={styles.courseauthor}>
       <div className={styles.title}>
@@ -101,14 +103,17 @@ const CourseAuthors = () => {
             <p className={styles.instructionDiscription}>{item.experience}</p>
             <Button
               className={styles.instructionBtnText}
-              onClick={() => dispatch(showModal(Modals.aboutKelsiModal))}
+              onClick={() => {
+                dispatch(showModal(Modals.aboutKelsiModal));
+                setUser(item.user);
+              }}
             >
               <div className={styles.boxBtnBox}>
                 <h4>{item.btnText}</h4>
                 <Icon className={styles.btnIcon1} name='authorsleftarrow' />
               </div>
             </Button>
-            <AboutKelsiModal />
+            <AboutKelsiModal modalId={user} />
             {/* <AboutMagdalenaModal /> */}
           </div>
         </div>

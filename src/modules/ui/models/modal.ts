@@ -22,7 +22,8 @@ enum Modals {
 
   // About Modals
   aboutKelsiModal = 'about kelsi',
-  mapsModal = 'about maps'
+  mapsModal = 'about maps',
+  aboutMagema = 'about magma'
 }
 
 export { Modals };

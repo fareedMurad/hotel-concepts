@@ -28,7 +28,7 @@
   margin-bottom: 40px;
 
   @include mobile() {
-    text-align: start;
+    text-align: center;
   }
 }
 .sectiontitle {
@@ -55,6 +55,9 @@
 }
 .instruction-img-src {
   width: 320px;
+  @include mobile() {
+    width: 100%;
+  }
 }
 
 .about-certificate {

@@ -5,7 +5,7 @@ import { CourseAuthrosModalData } from './magdalenamodal.hook';
 import { useTranslation } from 'react-i18next';
 
 /**
- * Renders KelsiModal
+ * Renders MagdalenaModal
  */
 const MagdalenaModal = () => {
   const dispatch = useDispatch();

@@ -16,18 +16,18 @@
   @include tablet() {
     background-color: initial;
   }
-  @include mobile() {
-    height: 100%;
-  }
+  // @include mobile() {
+  //   height: 100%;
+  // }
 }
 
 .title {
   text-align: center;
   width: 100%;
 
-  @include mobile() {
-    text-align: start;
-  }
+  // @include mobile() {
+  //   text-align: start;
+  // }
 }
 .sectiontitle {
   @include font($primary-green, 48px, 600, 0px);
@@ -45,6 +45,9 @@
   //     grid-template-columns: 1fr;
   //     grid-gap: 20px;
   //   }
+  @include tablet() {
+    margin: 1rem;
+  }
   @include mobile() {
     grid-template-columns: 1fr;
     grid-gap: 20px;

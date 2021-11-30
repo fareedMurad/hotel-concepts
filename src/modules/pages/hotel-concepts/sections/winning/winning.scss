@@ -17,6 +17,12 @@
   @include tablet() {
     background-color: initial;
   }
+  @include mobile() {
+    height: 100vh;
+    @include flex($justify: center, $direction: column, $align: center);
+    background-repeat: no-repeat;
+    background-position: unset;
+  }
 }
 
 .title {
@@ -29,7 +35,9 @@
   }
 }
 .innerbox {
-  width: 75%;
+  @include desktop() {
+    width: 75%;
+  }
   @include mobile() {
     width: 100%;
   }
@@ -39,6 +47,7 @@
   @include font($primary-green, 48px, 600, 52px);
   @include mobile() {
     @include font($primary-green, 48px, 600, 52px);
+    text-align: center;
   }
 }
 .minicard {
@@ -46,7 +55,9 @@
   @include flex($justify: center, $direction: column, $align: center);
 }
 .description-block {
-  width: 34%;
+  @include desktop() {
+    width: 34%;
+  }
   @include mobile() {
     width: 100%;
   }
@@ -57,6 +68,7 @@
   @include mobile() {
     @include font($primary-gray, 18px, 400, 30px);
     margin: 20px 0px;
+    text-align: center;
   }
 }
 .percent {

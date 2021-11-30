@@ -9,36 +9,22 @@ import { State } from '@app/redux/state';
 import { KelsiModal } from '../components/kelsimodal';
 import { MagdalenaModal } from '../components/magdalenamodal';
 
+interface Props {
+  modalId: string;
+}
+
 /**
  * Renders aboutKelsiModal
  */
-const AboutKelsiModal: React.FC = () => {
+const AboutKelsiModal: React.FC<Props> = ({ modalId }) => {
   const dispatch = useDispatch();
-  const [activeModal, setActiveModal] = useState<'user1' | 'user2'>('user1');
   const { active } = useSelector((state: State) => state.ui.modal);
-  /**
-   * SUPER
-   */
-  const [handleAnim, setHandleAnim] = useState(false);
-  React.useEffect(() => {
-    if (activeModal === 'user1') {
-      setHandleAnim(true);
-    }
-    if (!active.includes('aboutKelsiModal')) {
-      setHandleAnim(false);
-    }
-  }, [activeModal, active]);
-  const isRegisterModalActive = activeModal === 'user1';
-  const preventAnimationReset =
-    isRegisterModalActive || handleAnim || !active.includes('aboutKelsiModal');
-  /**
-   * COSTILE
-   */
+
   return (
     <Modal
       id={Modals.aboutKelsiModal}
       className={styles.aboutKelsiModal}
-      noReset={preventAnimationReset}
+      // noReset={activeUser ? prev : preventAnimationReset}
     >
       <Icon
         name='close-modal'
@@ -46,7 +32,7 @@ const AboutKelsiModal: React.FC = () => {
         onClick={() => dispatch(closeModal(Modals.aboutKelsiModal))}
       />
 
-      {activeModal === 'user1' ? <KelsiModal /> : <MagdalenaModal />}
+      {modalId === 'user1' ? <MagdalenaModal /> : <KelsiModal />}
     </Modal>
   );
 };

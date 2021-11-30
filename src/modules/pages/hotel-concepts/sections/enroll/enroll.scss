@@ -26,7 +26,7 @@
   padding-top: 14px;
 
   @include mobile() {
-    text-align: start;
+    // text-align: start;
     padding-top: 7px;
   }
 }
@@ -50,16 +50,22 @@
 
 .bottombox {
   @include flex($justify: center, $direction: column, $align: center);
-  width: 40%;
+  @include desktop() {
+    width: 40%;
+  }
   @include mobile() {
     width: 100%;
+    text-align: center;
   }
 }
 .footerbox {
   @include flex($justify: center, $direction: column, $align: center);
-  width: 60%;
+  @include desktop() {
+    width: 60%;
+  }
   @include mobile() {
     width: 100%;
+    text-align: center;
   }
 }
 .sectiontitle {
@@ -96,14 +102,15 @@
   min-height: 300px;
   text-align: center;
   background-color: #ffffff;
-  padding: 20px 50px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(black, 0.16);
   gap: 10px;
   @include flex($justify: center, $direction: column, $align: center);
-
   h4 {
     text-transform: uppercase;
+  }
+  @include desktop() {
+    padding: 20px 31px;
   }
 
   @include mobile() {
@@ -114,7 +121,7 @@
   margin-bottom: 40px;
 }
 .paraText {
-  margin: 5px 0;
+  margin: 5px 5px;
   @include font($primary-gray, 16px, 400, 27px);
 }
 .titled {
@@ -130,6 +137,7 @@
   @include font($primary-gray, 32px, 500, 64px);
   @include mobile() {
     @include font($primary-gray, 32px, 500, 30px);
+    text-align: center;
   }
 }
 

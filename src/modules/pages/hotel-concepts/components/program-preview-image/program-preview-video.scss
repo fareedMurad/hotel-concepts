@@ -17,6 +17,8 @@
     }
   }
   background: $primary-light-gray;
+  width: 500px;
+  height: 280px;
   @include desktop() {
     width: 500px;
     height: 280px;

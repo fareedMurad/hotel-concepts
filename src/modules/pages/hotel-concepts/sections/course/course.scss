@@ -26,6 +26,7 @@
   }
   @include mobile() {
     margin-bottom: 45px;
+    background-position: bottom;
   }
 }
 
@@ -67,7 +68,8 @@
   // }
   @include mobile() {
     grid-template-columns: 1fr;
-    text-align: start;
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -77,6 +79,9 @@
 }
 .sectiontitle {
   @include font($primary-green, 48px, 600, 58px);
+  @include mobile() {
+    text-align: center;
+  }
 }
 .content {
   display: grid;
@@ -116,6 +121,7 @@
     }
     @include mobile() {
       width: 100%;
+      height: 50px;
     }
   }
 
@@ -159,6 +165,9 @@
   @include tablet() {
     height: 100%;
   }
+  @include mobile() {
+    padding: 20px;
+  }
 }
 .carddetails {
   display: grid;
@@ -167,14 +176,24 @@
   padding: 5px 40px 5px;
   gap: 24px;
   @include mobile() {
-    padding: 5px 20px 5px;
+    // padding: 5px 20px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
   }
 }
 .label {
   @include font($primary-green, 18px, 600, 24px);
+  // @include mobile() {
+  //   text-align: center;
+  // }
 }
 .value {
   @include font($primary-gray, 18px, 500, 24px);
+  // @include mobile() {
+  //   text-align: center;
+  // }
 }
 .hr {
   border-radius: 1px solid $primary-gray;

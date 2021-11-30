@@ -17,16 +17,15 @@
   @include tablet() {
     background-color: initial;
   }
+  @include mobile() {
+    background-position: bottom;
+  }
 }
 
 .title {
   text-align: center;
   width: 100%;
   @include flex($justify: center, $direction: column, $align: center);
-
-  @include mobile() {
-    text-align: start;
-  }
 }
 .innerbox {
   @include desktop() {

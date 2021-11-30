@@ -24,9 +24,9 @@
   width: 100%;
   @include flex($justify: center, $direction: column, $align: center);
 
-  @include mobile() {
-    text-align: start;
-  }
+  // @include mobile() {
+  //   text-align: start;
+  // }
 }
 .innerbox {
   @include desktop() {
@@ -42,6 +42,7 @@
   @include font($primary-green, 48px, 600, 52px);
   @include mobile() {
     @include font($primary-green, 48px, 600, 52px);
+    text-align: center;
   }
 }
 .subtitle {

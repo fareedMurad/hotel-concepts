@@ -17,6 +17,9 @@
   @include tablet() {
     background-color: initial;
   }
+  @include mobile() {
+    background-position: right;
+  }
 }
 
 .title {
@@ -56,6 +59,9 @@
 }
 .sectiontitle {
   @include font($primary-green, 48px, 600, 40px);
+  @include mobile() {
+    text-align: center;
+  }
 }
 .subtitle {
   @include font($primary-orange, 38px, 500, 24px);

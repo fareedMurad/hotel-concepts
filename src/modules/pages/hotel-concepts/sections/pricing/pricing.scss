@@ -122,6 +122,10 @@
 .acceptPolicy {
   width: 20px;
   height: 20px;
+  @include mobile() {
+    width: 6%;
+    height: 6%;
+  }
 }
 
 .enroll-title {

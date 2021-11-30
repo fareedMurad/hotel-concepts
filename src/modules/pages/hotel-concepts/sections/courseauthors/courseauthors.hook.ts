@@ -48,7 +48,8 @@ const CourseAuthrosData = () => {
       experience: t(
         'hotel-concepts.instructor-details.instructor.info1.experience'
       ),
-      btnText: t('hotel-concepts.instructor-details.instructor.info1.btn-text')
+      btnText: t('hotel-concepts.instructor-details.instructor.info1.btn-text'),
+      user: 'user1'
     },
     {
       id: 2,
@@ -58,7 +59,8 @@ const CourseAuthrosData = () => {
       experience: t(
         'hotel-concepts.instructor-details.instructor.info2.experience'
       ),
-      btnText: t('hotel-concepts.instructor-details.instructor.info2.btn-text')
+      btnText: t('hotel-concepts.instructor-details.instructor.info2.btn-text'),
+      user: 'user2'
     }
   ];
 

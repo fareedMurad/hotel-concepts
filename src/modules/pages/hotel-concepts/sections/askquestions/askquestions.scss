@@ -10,9 +10,9 @@
   overflow: hidden;
   background-color: $primary-light-gray;
 
-  @include mobile() {
-    height: 100%;
-  }
+  // @include mobile() {
+  //   height: 100%;
+  // }
 
   // background-image: url('../../../../../assets/backgrounds/Section15.png');
   // background-repeat: no-repeat;
@@ -28,9 +28,9 @@
   width: 100%;
   @include flex($justify: center, $direction: column, $align: center);
 
-  @include mobile() {
-    text-align: start;
-  }
+  // @include mobile() {
+  //   text-align: start;
+  // }
 }
 .innerbox {
   @include desktop() {
@@ -47,6 +47,7 @@
   @include font($primary-green, 48px, 600, 40px);
   @include mobile() {
     @include font($primary-green, 48px, 600, 52px);
+    text-align: center;
   }
 }
 .subtitle {

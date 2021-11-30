@@ -2,7 +2,7 @@
 
 .peek-progress {
   height: 100%;
-  @include flex($justify: start, $direction: column);
+  @include flex($justify: center, $direction: column);
   @include container();
 
   min-height: 500px;
@@ -17,6 +17,10 @@
   @include tablet() {
     background-color: initial;
   }
+  @include mobile() {
+    height: 100vh;
+    @include flex($justify: center, $direction: column, $align: center);
+  }
 }
 
 .title {
@@ -29,7 +33,9 @@
   }
 }
 .innerbox {
-  width: 75%;
+  @include desktop() {
+    width: 75%;
+  }
   @include mobile() {
     width: 100%;
   }
@@ -39,6 +45,7 @@
   @include font($primary-green, 48px, 600, 52px);
   @include mobile() {
     @include font($primary-green, 48px, 600, 52px);
+    text-align: center;
   }
 }
 

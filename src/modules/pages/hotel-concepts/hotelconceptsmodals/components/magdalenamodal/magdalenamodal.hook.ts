@@ -6,10 +6,10 @@ const CourseAuthrosModalData = () => {
     {
       id: 1,
       imgSrc: `img/MagdalenaRungaldier.png`,
-      name: t('hotel-concepts.instructor-details.instructor.info2.name'),
-      job: t('hotel-concepts.instructor-details.instructor.info2.job-title'),
+      name: t('hotel-concepts.instructor-details.instructor.info1.name'),
+      job: t('hotel-concepts.instructor-details.instructor.info1.job-title'),
       location: t(
-        'hotel-concepts.instructor-details.instructor.info2.location'
+        'hotel-concepts.instructor-details.instructor.info1.location'
       ),
       linkedin: `img/linkedin.svg`
     }
@@ -28,37 +28,37 @@ const CourseAuthrosModalData = () => {
     {
       id: 1,
       details: t(
-        'hotel-concepts.instructor-details.instructor.info2.detail-experience.li1'
+        'hotel-concepts.instructor-details.instructor.info1.detail-experience.li1'
       )
     },
     {
       id: 2,
       details: t(
-        'hotel-concepts.instructor-details.instructor.info2.detail-experience.li2'
+        'hotel-concepts.instructor-details.instructor.info1.detail-experience.li2'
       )
     },
     {
       id: 3,
       details: t(
-        'hotel-concepts.instructor-details.instructor.info2.detail-experience.li3'
+        'hotel-concepts.instructor-details.instructor.info1.detail-experience.li3'
       )
     },
     {
       id: 4,
       details: t(
-        'hotel-concepts.instructor-details.instructor.info2.detail-experience.li4'
+        'hotel-concepts.instructor-details.instructor.info1.detail-experience.li4'
       )
     },
     {
       id: 5,
       details: t(
-        'hotel-concepts.instructor-details.instructor.info2.detail-experience.li5'
+        'hotel-concepts.instructor-details.instructor.info1.detail-experience.li5'
       )
     },
     {
       id: 6,
       details: t(
-        'hotel-concepts.instructor-details.instructor.info2.detail-experience.li6'
+        'hotel-concepts.instructor-details.instructor.info1.detail-experience.li6'
       )
     }
   ];

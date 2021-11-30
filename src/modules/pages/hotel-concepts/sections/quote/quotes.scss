@@ -26,9 +26,9 @@
   text-align: center;
   font-style: italic;
   letter-spacing: -0.48px;
-  @include mobile() {
-    text-align: start;
-  }
+  // @include mobile() {
+  //   text-align: start;
+  // }
 }
 
 // @media (min-width: 768px) {

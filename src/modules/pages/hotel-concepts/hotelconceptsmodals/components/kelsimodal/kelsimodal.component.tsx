@@ -42,7 +42,7 @@ const KelsiModal = () => {
             </li>
           ))}
           <p className={styles.detailsBoxHash}>
-            {t('hotel-concepts.instructor-details.instructor.info1.hash-tag')}
+            {t('hotel-concepts.instructor-details.instructor.info2.hash-tag')}
           </p>
         </ul>
       </div>

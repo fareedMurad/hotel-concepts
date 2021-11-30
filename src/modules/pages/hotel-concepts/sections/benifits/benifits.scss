@@ -16,6 +16,9 @@
   @include tablet() {
     background-color: initial;
   }
+  @include mobile() {
+    background-position: top;
+  }
 
   margin-bottom: 36px;
 }
@@ -43,6 +46,7 @@
   @include font($primary-green, 48px, 600, 52px);
   @include mobile() {
     @include font($primary-green, 48px, 600, 52px);
+    text-align: center;
   }
 }
 .subtitle {
