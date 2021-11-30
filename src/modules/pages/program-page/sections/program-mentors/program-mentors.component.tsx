@@ -70,7 +70,7 @@ const ProgramMentors: React.FC<ProgramMentorsProps> = ({
                 Meet the faculty
               </PreCaption>
             )}
-            Meet mentors & Coauthors
+            Meet Your Instructors
           </SectionTitle>
           <Hr className={styles.hr} />
           <div>

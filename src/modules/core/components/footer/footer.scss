@@ -14,13 +14,13 @@
 
 .title {
   & > div:first-child {
-    @include font($primary-gray, 36px, 600, 46px);
+    @include font($primary-gray, 36px, 600, 42px);
     letter-spacing: -0.48px;
     font-family: $EBGaramond;
   }
   & > div:nth-child(2) {
-    @include font($primary-gray, 16px, 400, 22px);
-    margin-top: 24px;
+    @include font($primary-gray, 16px, 400, 23px);
+    margin-top: 13px;
   }
   @include desktop() {
     width: 60%;
@@ -31,7 +31,7 @@
 }
 
 .content {
-  padding: 24px 0px 16px 0px;
+  padding: 24px 0px 30px 0px;
   @include flex($justify: space-between);
 }
 
@@ -44,7 +44,7 @@
   @include flex($justify: space-between);
   width: 100%;
   &--caption {
-    @include font($primary-gray, 18px, 500, 28px);
+    @include font($primary-gray, 18px, 500, 23px);
   }
   &-item {
     width: 33%;
@@ -52,12 +52,16 @@
   &__links {
     @include flex($align: stretch, $direction: column);
     width: 33%;
-    margin-top: 13px;
+    margin-top: 18px;
     & > * {
       @include font($primary-gray, 16px, 400, 22px);
       width: 180px;
-      margin-bottom: 13px;
+      margin-bottom: 12px;
+
       cursor: pointer;
+      // &:last-child {
+      //   margin-bottom: 0;
+      // }
       &:hover {
         text-decoration: underline;
         color: $primary-orange;
@@ -87,9 +91,33 @@
   }
 }
 
+.securePayment {
+  display: flex;
+  margin-top: 22px;
+  align-items: flex-end;
+  .lock {
+    margin-right: 6px;
+    width: 34px;
+    height: 41px;
+  }
+  .secureContent {
+    .text {
+      // margin-bottom: 6px;
+      font-size: 12px;
+      line-height: 15px;
+      color: #3e3e3e;
+      font-weight: 600;
+      padding: 4px 7px;
+    }
+    img {
+      display: block;
+    }
+  }
+}
+
 .policy,
 .terms {
-  @include font($primary-gray, 12px, 500, 16px);
+  @include font($primary-gray, 13px, 500, 16px);
   font-family: $IBMPlex;
   text-decoration: underline;
   cursor: pointer;
@@ -110,7 +138,7 @@
   position: relative;
   width: 100%;
   max-width: 420px;
-  margin-top: 12px;
+  margin-top: 22px;
   margin-right: 10px;
 }
 
@@ -147,7 +175,7 @@
 }
 
 .copyright-info {
-  @include font($primary-gray, 12px, 500, 16px);
+  @include font($primary-gray, 13px, 500, 16px);
   width: 80%;
   font-family: $IBMPlex;
 }
@@ -203,6 +231,8 @@
   }
   .copyright-info {
     width: auto;
+    text-align: center;
+    margin-top: 5px;
   }
   .footer {
     position: relative;

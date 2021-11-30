@@ -2,8 +2,9 @@
  * Props
  */
 type ScrollButtonProps = {
-  text: string;
+  text?: string;
   className?: string;
+  orangeType?: boolean;
 };
 
 export { ScrollButtonProps };

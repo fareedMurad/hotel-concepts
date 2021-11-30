@@ -31,10 +31,13 @@ const validationSchema: yup.SchemaOf<{ email: string }> = yup.object().shape({
 /**
  * query categories of programs
  */
+
+//limit should be 5
+
 const CATEGORIES = gql`
   {
     courseCategoryCollection(
-      limit: 5
+      limit: 4
       order: sys_firstPublishedAt_DESC
       locale: "en-US"
     ) {
@@ -52,7 +55,8 @@ const Navigation: React.FC<{
   caption: string;
   navigation: any[];
   socials?: any[];
-}> = ({ caption, navigation, socials }) => (
+  secureInfo?: boolean;
+}> = ({ caption, navigation, socials, secureInfo }) => (
   <div className={styles.navigationItem}>
     <div className={styles.navigationCaption}>{caption}</div>
     <div className={styles.navigationLinks}>
@@ -98,6 +102,15 @@ const Navigation: React.FC<{
           </div>
         )
       )}
+    {secureInfo && (
+      <div className={styles.securePayment}>
+        <img className={styles.lock} src={require('img/lockIcon.svg')} alt='' />
+        <div className={styles.secureContent}>
+          <div className={styles.text}>Secure Payment</div>
+          <img src={require('img/powered.svg')} alt='' />
+        </div>
+      </div>
+    )}
   </div>
 );
 /**
@@ -141,8 +154,9 @@ const Footer: React.FC<FooterProps> = ({}) => {
                     <div className={styles.submitForm}>
                       <Field.Text
                         name='email'
-                        label='E-mail'
+                        // label='E-mail'
                         type='email'
+                        placeholder='E-mail'
                         className={styles.formInput}
                       />
                       <Button
@@ -172,6 +186,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
               caption={t('footer.navigation.support')}
               navigation={moreLinks}
               socials={socials}
+              secureInfo={true}
             />
           </section>
         </div>
@@ -192,6 +207,9 @@ const Footer: React.FC<FooterProps> = ({}) => {
 
             <div className={styles.policy}>{t('footer.copyrights.p-p')}</div>
             <div className={styles.terms}>{t('footer.copyrights.terms')}</div>
+            {/* <div className={styles.secured}>
+            <img src='' alt='' /> Secured with SSL
+          </div> */}
           </div>
         </footer>
       </div>

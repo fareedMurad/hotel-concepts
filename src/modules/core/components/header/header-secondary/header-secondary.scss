@@ -2,13 +2,13 @@
 
 .header-secondary {
   display: none;
-  border-bottom: 1px solid #f5f1f060;
-  background-color: #f5f1f010;
+  border-bottom: 1px solid $primary-gray;
+  // background-color: #f5f1f010;
   width: 100%;
   padding: 10px 34px;
 
   &--link {
-    @include font(white, 12px, 500, 20px);
+    @include font($primary-gray, 12px, 500, 20px);
     font-family: $IBMPlex;
     min-width: fit-content;
     cursor: pointer;

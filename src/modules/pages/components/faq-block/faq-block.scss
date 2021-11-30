@@ -1,25 +1,36 @@
 @import 'core.scss';
 
 .faq-block {
+  position: relative;
+  overflow: hidden;
   @include flex($direction: column);
-  padding: 120px $default-offset;
-  padding-bottom: 100px;
+  padding: 40px $default-offset 60px;
+  background: $background;
+  @include tablet() {
+    padding: 70px $left-offset 100px;
+  }
+}
+
+.rPattern {
+  position: absolute;
+  right: -95px;
+  top: -478px;
 }
 
 .title {
   @include font($primary-gray, 36px, 500, 46px);
   width: 100%;
   text-align: center;
-  @include tablet() {
-    padding-left: 112px;
-    text-align: initial;
-  }
+  position: relative;
+  z-index: 2;
 }
 
 .filters {
+  position: relative;
+  z-index: 2;
   @include flex($align: stretch, $direction: column);
-  margin: 30px 0px;
-  margin-top: 40px;
+  margin: 40px auto 30px;
+  width: 841px;
   @include tablet() {
     flex-direction: row;
     flex-wrap: wrap;

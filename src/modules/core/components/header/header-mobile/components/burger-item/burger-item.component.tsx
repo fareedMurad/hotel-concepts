@@ -57,14 +57,17 @@ const BurgerItem: React.FC<BurgerItemProps> = ({
     <animated.div style={expand} className={styles.burgerItem}>
       <div
         className={styles.title}
-        onClick={() => setShowMenu(showMenu === title ? '' : title)}
+        onClick={() =>
+          menuLinks && setShowMenu(showMenu === title ? '' : title)
+        }
       >
         <div className={showMenu === title && styles.active}>{title}</div>
         <div className={styles.titleIndicator}>
-          {showMenu === title ? '-' : '+'}
+          {menuLinks ? (showMenu === title ? '-' : '+') : null}
         </div>
       </div>
-      {showMenu === title && (
+
+      {menuLinks && showMenu === title && (
         <div className={styles.menu}>
           {menuLinks.map(el => (
             <MenuItem

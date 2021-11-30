@@ -16,17 +16,56 @@ const useProgramsData = () => {
     dispatch(getCategories(language));
   }, []);
 
-  const fetchPrograms = item => {
-    const params = {
-      category: item.category.id,
-      limit: 3,
-      skip: 0,
-      locale: language,
-      subfilters: OnlineCourseSubfilter.all
-    };
-    dispatch(selectCategory(item));
-    dispatch(getPrograms(params));
-  };
+  // const fetchPrograms = item => {
+  //   const params = {
+  //     category: item.category.id,
+  //     limit: 3,
+  //     skip: 0,
+  //     locale: language,
+  //     subfilters: OnlineCourseSubfilter.all
+  //   };
+  //   dispatch(selectCategory(item));
+  //   dispatch(getPrograms(params));
+  // };
+
+  const fetchPrograms = [
+    {
+      name: 'Developing Winning and Compelling Hotel Concepts',
+      sprints: 9,
+      description:
+        'A practical, hands-on course for hoteliers aiming to boost their hotel’s perceived value, reach a more qualitative audience and increase direct reservations',
+      courseImage: {
+        file: { url: 1 }
+      }
+    },
+    {
+      name: 'Developing Winning and Compelling Hotel Concepts',
+      sprints: 9,
+      description:
+        'A practical, hands-on course for hoteliers aiming to boost their hotel’s perceived value, reach a more qualitative audience and increase direct reservations',
+      courseImage: {
+        file: { url: 2 }
+      }
+    },
+    {
+      name: 'Developing Winning and Compelling Hotel Concepts',
+      sprints: 9,
+      description:
+        'A practical, hands-on course for hoteliers aiming to boost their hotel’s perceived value, reach a more qualitative audience and increase direct reservations',
+      courseImage: {
+        file: { url: 3 }
+      }
+    },
+    {
+      name: 'Developing Winning and Compelling Hotel Concepts',
+      sprints: 9,
+      description:
+        'A practical, hands-on course for hoteliers aiming to boost their hotel’s perceived value, reach a more qualitative audience and increase direct reservations',
+      courseImage: {
+        file: { url: 4 }
+      }
+    }
+  ];
   return {
     fetchPrograms
   };

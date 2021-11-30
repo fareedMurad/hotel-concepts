@@ -15,8 +15,11 @@
   },
   "home": {
     "hero": {
-      "hero-title": "Cutting edge online education for hospitality",
-      "hero-subtitle": "Bridging the skills gap for hotel managers",
+      "hero-title": {
+        "first-part": "Online education",
+        "second-part": "for hospitality"
+      },
+      "hero-subtitle": "Intensive, real-world, and immediately applicable online courses to help you level up in your hospitality career or business.",
       "button-text": "Find the program",
       "video": "Watch Trailer",
       "scroll": "Scroll"
@@ -87,8 +90,8 @@
       "title": "Kordie Impact"
     },
     "mentors": {
-      "title": "Meet mentors & Coauthors",
-      "description": "World-class faculty introduce you to the very latest in hospitality business knowledge and provide you with the tools and skills to overcome challenges and find solutions.",
+      "title": "Meet Your Instructors",
+      "description": "Award-winning hospitality experts who teach applicable, relevant topics that will actually matter to your work and life.",
       "button-text": "See All Contributors"
     },
     "cordie-insights": {
@@ -302,12 +305,12 @@
   "footer": {
     "form": {
       "title": "Sign up to newsletter",
-      "description": "Get fresh ideas and opinion from our worldleading hospitality experts",
+      "description": "We are adding more Experts, Programs, and Livestreams every month.",
       "notification-message": "Your subscription request had been sent, please check email to verify your account",
       "button-text": "Subscribe"
     },
     "copyrights": {
-      "info": "© 2021 Kordie. All rights reserved.",
+      "info": "© 2021 Hospitality Digital Hub Limited. Registered in England. All rights reserved.",
       "p-p": "Privacy Policy",
       "terms": "Terms and Conditions"
     },

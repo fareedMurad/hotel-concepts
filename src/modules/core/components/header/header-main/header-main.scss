@@ -9,6 +9,7 @@
   &_navigation {
     @include flex($justify: flex-end, $align: center);
     width: 100%;
+    color: $primary-gray;
     &--item:hover {
       color: $primary-orange !important;
       border-color: $primary-orange !important;

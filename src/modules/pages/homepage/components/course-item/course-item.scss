@@ -1,90 +1,175 @@
 @import 'core.scss';
 
 .course-item {
-  position: relative;
-  box-sizing: border-box;
-}
-
-.header {
-  position: relative;
-}
-
-.name {
-  @include font($white, 36px, 600, 46px);
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  max-width: 300px;
-  letter-spacing: -0.48px;
-  font-family: $EBGaramond;
-}
-
-.card {
+  // position: relative;
+  // box-sizing: border-box;
+  background: $white;
   border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  img {
-    width: 100%;
-    height: 241px;
-    object-fit: cover;
-    filter: brightness(1);
+  padding: 25px 25px;
+  display: grid;
+
+  @include desktop() {
+    grid-template-columns: 280px 1fr 180px;
+    column-gap: 60px;
+    padding: 30px 40px;
+    align-items: center;
+  }
+  .courseImg {
+    width: auto;
+    display: block;
+    max-width: 100%;
+    // height: 244px;
+    object-fit: contain;
+  }
+  .tags {
+    margin: 20px 0 15px;
+    @include desktop() {
+      margin: 0 0 15px;
+    }
+    span {
+      @include font($primary-orange, 12px, 500, 21px);
+      font-family: $IBMPlex;
+      padding: 3px 7px;
+      border-radius: 10px;
+
+      border: 1px solid $primary-orange;
+      margin-right: 12px;
+      &:last-child {
+        color: #0ba7e1;
+        border: 1px solid #0ba7e1;
+      }
+    }
+  }
+  .name {
+    @include font($primary-gray, 30px, 600, 30px);
+    font-family: $EBGaramond;
+    margin-bottom: 14px;
+  }
+  .description {
+    @include font($primary-gray, 15px, 400, 23px);
+    margin-bottom: 20px;
+  }
+  // .buttonD {
+  //   width: fit-content;
+  // }
+  .buttonExplore {
+    & > div:first-child {
+      @include flex($align: center, $justify: space-between);
+      width: 100%;
+      div {
+        margin-left: 7px;
+      }
+    }
+  }
+  .detail {
+    margin-top: 20px;
+
+    border-left: 1px solid #989898;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+    align-content: space-between;
+    padding: 10px 0px 10px 20px;
+    @include desktop() {
+      row-gap: 0;
+      margin-top: 0;
+      height: 100%;
+      padding: 18px 0px 18px 22px;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 14px;
+      }
+      .options {
+        @include font(#5f5f5f, 15px, 500, 29px);
+      }
+    }
   }
 }
 
-.description-block {
-  height: 264px;
-  padding: 15px;
-  @include flex($justify: space-between, $direction: column);
-  border-left: 1px solid #98a2a883;
-  border-right: 1px solid #98a2a883;
-  border-bottom: 1px solid #98a2a883;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  margin-top: -3px;
+// .header {
+//   position: relative;
+// }
 
-  @include tablet() {
-    height: 266px;
-  }
-}
+// .name {
+//   @include font($white, 36px, 600, 46px);
+//   position: absolute;
+//   bottom: 16px;
+//   left: 16px;
+//   max-width: 300px;
+//   letter-spacing: -0.48px;
+//   font-family: $EBGaramond;
+// }
 
-.description {
-  @include font($primary-gray, 14px, 400, 22px);
-  margin-top: 17px;
-  font-family: $IBMPlex;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  max-width: 100%;
-}
+// .card {
+//   border-radius: 8px;
+//   width: 100%;
+//   height: 100%;
+//   overflow: hidden;
+//   img {
+//     width: 100%;
+//     max-width: 235px;
+//     max-height: 235px;
+//     object-fit: cover;
+//     filter: brightness(1);
+//   }
+// }
 
-.bottom {
-  width: 100%;
-  @include flex($justify: space-between, $direction: column);
-}
+// .description-block {
+//   height: 264px;
+//   padding: 15px;
+//   @include flex($justify: space-between, $direction: column);
+//   border-left: 1px solid #98a2a883;
+//   border-right: 1px solid #98a2a883;
+//   border-bottom: 1px solid #98a2a883;
+//   border-bottom-left-radius: 8px;
+//   border-bottom-right-radius: 8px;
+//   margin-top: -3px;
 
-.info {
-  @include font($primary-gray, 18px, 600, 58px);
-  @include flex($justify: space-between);
-  width: 100%;
-  font-family: $EBGaramond;
-}
+//   @include tablet() {
+//     height: 266px;
+//   }
+// }
 
-.button {
-  width: 100%;
-  margin-bottom: 9px;
-  @include flex($justify: space-between);
-}
+// .description {
+//   @include font($primary-gray, 14px, 400, 22px);
+//   margin-top: 17px;
+//   font-family: $IBMPlex;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   -webkit-line-clamp: 5;
+//   -webkit-box-orient: vertical;
+//   max-width: 100%;
+// }
 
-@media screen and (max-width: 1308px) {
-  .course-item {
-    flex-basis: 50%;
-  }
-}
+// .bottom {
+//   width: 100%;
+//   @include flex($justify: space-between, $direction: column);
+// }
 
-@media screen and (max-width: 828px) {
-  .course-item {
-    flex-basis: 100%;
-  }
-}
+// .info {
+//   @include font($primary-gray, 18px, 600, 58px);
+//   @include flex($justify: space-between);
+//   width: 100%;
+//   font-family: $EBGaramond;
+// }
+
+// .button {
+//   width: 100%;
+//   margin-bottom: 9px;
+//   @include flex($justify: space-between);
+// }
+
+// @media screen and (max-width: 1308px) {
+//   .course-item {
+//     flex-basis: 50%;
+//   }
+// }
+
+// @media screen and (max-width: 828px) {
+//   .course-item {
+//     flex-basis: 100%;
+//   }
+// }

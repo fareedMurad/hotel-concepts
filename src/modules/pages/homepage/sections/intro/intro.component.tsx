@@ -62,16 +62,16 @@ const Intro: React.FC<IntroProps> = ({}) => {
   /**
    * Handle video
    */
-  React.useEffect(() => {
-    if (videoRef.current) {
-      setVideo(videoRef.current);
-    }
-    if (!loading) {
-      const previewVideoUrl =
-        data?.homePagePreviewVideoCollection?.items[0].video.url;
-      setPreviewVideo(previewVideoUrl);
-    }
-  }, [videoRef, data, loading]);
+  // React.useEffect(() => {
+  //   if (videoRef.current) {
+  //     setVideo(videoRef.current);
+  //   }
+  //   if (!loading) {
+  //     const previewVideoUrl =
+  //       data?.homePagePreviewVideoCollection?.items[0].video.url;
+  //     setPreviewVideo(previewVideoUrl);
+  //   }
+  // }, [videoRef, data, loading]);
 
   // Hero images ids
   const mobileImageId =
@@ -80,25 +80,25 @@ const Intro: React.FC<IntroProps> = ({}) => {
   const reducedImageId =
     data?.heroImagesCollection?.items[0].reducedImage.sys.id;
 
-  const playVideo = () => {
-    if (video) {
-      video.play();
-      video.style.opacity = '1';
-      video.style.visibility = 'visible';
-      setVideoPromise(video.play());
-    }
-  };
+  // const playVideo = () => {
+  //   if (video) {
+  //     video.play();
+  //     video.style.opacity = '1';
+  //     video.style.visibility = 'visible';
+  //     setVideoPromise(video.play());
+  //   }
+  // };
 
-  const stopVideo = async () => {
-    if (video) {
-      await videoPromise;
-      video.pause();
-      video.currentTime = 0;
-      video.style.opacity = '0';
-      video.style.visibility = 'hidden';
-      setVideoPromise(null);
-    }
-  };
+  // const stopVideo = async () => {
+  //   if (video) {
+  //     await videoPromise;
+  //     video.pause();
+  //     video.currentTime = 0;
+  //     video.style.opacity = '0';
+  //     video.style.visibility = 'hidden';
+  //     setVideoPromise(null);
+  //   }
+  // };
 
   const scrollToEnroll = () => {
     scrollTo('online-courses');
@@ -109,23 +109,35 @@ const Intro: React.FC<IntroProps> = ({}) => {
         className={styles.background}
         reducedImageId={reducedImageId}
         fullImageId={mobileImageId || fullImageId}
+        bgColor={'#F5F1F0'}
       />
+      <div className={styles.introContent}>
+        <div className={styles.introText}>
+          <img src={require('img/orPattern.svg')} alt='' />
+          <HeroTitle className={styles.title}>
+            <div>{t('home.hero.hero-title.first-part')}</div>
+            <div>{t('home.hero.hero-title.second-part')}</div>
+          </HeroTitle>
+          <HeroSubtitle className={styles.subtitle}>
+            {t('home.hero.hero-subtitle')}
+          </HeroSubtitle>
+        </div>
+        <img
+          className={styles.introImg}
+          src={require('img/intro-pattern.png')}
+          alt=''
+        />
+      </div>
 
-      <HeroTitle className={styles.title}>
-        {t('home.hero.hero-title')}
-      </HeroTitle>
-      <HeroSubtitle className={styles.subtitle}>
-        {t('home.hero.hero-subtitle')}
-      </HeroSubtitle>
-      <Button
+      {/* <Button
         className={styles.findButton}
         onClick={scrollToEnroll}
         children={t('home.hero.button-text')}
         arrow
         width={230}
-      />
+      /> */}
 
-      <Popup
+      {/* <Popup
         contentStyle={{
           border: 'none',
           background: 'transparent',
@@ -152,13 +164,14 @@ const Intro: React.FC<IntroProps> = ({}) => {
           controls
           style={{ margin: 'auto', maxWidth: '100%' }}
         />
-      </Popup>
+      </Popup> */}
 
-      <video ref={videoRef} className={styles.video} src={previewVideo} muted />
+      {/* <video ref={videoRef} className={styles.video} src={previewVideo} muted /> */}
 
       <ScrollButton
-        text={t('home.hero.scroll')}
+        // text={t('home.hero.scroll')}
         className={styles.scrollButton}
+        orangeType={true}
       />
     </section>
   );

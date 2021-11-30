@@ -3,7 +3,6 @@
 .e-books {
   padding: 60px 0px 50px 0px;
   background-color: $background;
-  margin-top: 45px;
 
   @include ipad-l() {
     padding: 60px 154px 50px 154px;
@@ -11,7 +10,6 @@
 
   @include desktop() {
     padding: 60px 0px 50px 0px;
-    margin-top: 80px;
   }
 }
 

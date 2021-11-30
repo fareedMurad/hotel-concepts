@@ -20,6 +20,8 @@ import {
   UnlimitedAccessBooks
 } from './sections';
 import { EBooks } from './sections/e-books';
+import { Hospitality } from './sections/hospitality';
+import { LearningModel } from './sections/learning-model';
 /**
  * Renders Homepage
  */
@@ -37,17 +39,19 @@ const Homepage: React.FC<HomepageProps> = ({}) => {
         <Intro />
         <SupportInfo />
         <OnlineCourses />
-        <TrainingInfo />
-        <EBooks />
-        <UnlimitedAccessBooks />
+        {/* <TrainingInfo /> */}
+        <LearningModel />
+        {/* <EBooks /> */}
+        {/* <UnlimitedAccessBooks /> */}
         {/* <UnlimitedAccess />
          */}
         {/* <Quote /> */}
         <About />
-        <Impact
+        {/* <Impact
           testimonials={homePageTestimonials}
           loading={homepageTestimonialsLoading}
-        />
+        /> */}
+        <Hospitality />
         <Mentors contributors={contributors} loading={loading} url='mentor' />
         <FaqBlock showTitle page='home' />
         {/* <InsightsBlock /> */}
