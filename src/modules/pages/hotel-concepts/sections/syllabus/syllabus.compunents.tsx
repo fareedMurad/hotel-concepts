@@ -15,7 +15,7 @@ const Syllabus = () => {
   return (
     <section className={styles.syllabus}>
       <div className={styles.title}>
-        <div className={styles.innerbox}>
+        <div className={styles.innerboxes}>
           <h1 className={styles.sectiontitle}>
             {t('hotel-concepts.syllabus.title')}
           </h1>

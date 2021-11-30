@@ -31,16 +31,22 @@
 .innerbox {
   @include desktop() {
     width: 60%;
-    margin-top: 45px;
-    margin-bottom: 20px;
+    // margin-top: 45px;
+    // margin-bottom: 20px;
   }
   @include mobile() {
     margin: 20px 0px;
   }
 }
+
 .discrptionbox {
   @include desktop() {
-    width: 85%;
+    width: 70%;
+    margin-bottom: 20px;
+  }
+  @include mobile() {
+    margin-bottom: 10px;
+    width: 100%;
   }
 }
 
@@ -59,7 +65,7 @@
   font-style: italic;
 }
 .subdiscription_ {
-  @include font($primary-gray, 16px, 400, 24px);
+  @include font($primary-gray, 16px, 400, 28px);
   letter-spacing: -0.52px;
 }
 
@@ -67,6 +73,11 @@
   @include flex($justify: center, $direction: column, $align: center);
   gap: 30px;
   width: 100%;
+  margin-bottom: 50px;
+
+  @include mobile() {
+    margin-bottom: 25px;
+  }
 }
 
 .cardWrapper {
@@ -74,10 +85,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
-  margin-bottom: 52px;
+  margin-top: 20px;
+  margin-bottom: 80px;
   //   @include flex($justify: center, $direction: row, $align: center);
   @include mobile() {
     grid-template-columns: 1fr !important;
+    margin-top: 10px;
     margin-bottom: 32px;
   }
 }

@@ -114,7 +114,7 @@
       }
     },
     "about-courses": {
-      "title": "About the Courses",
+      "title": "About the course",
       "sub-title": "Program Details",
       "button-text": "Take a peek at the Hotel Concepts Program",
       "paras": {
@@ -781,7 +781,7 @@
       "title": "Take a Peek at the Hotel Concepts Programs"
     },
     "course-special": {
-      "title": "What Make the Course Special",
+      "title": "What make the course special",
       "card1": {
         "title": "Actionable frameworks",
         "para": "8 deep dive video lessons. 8 video case studies. Step-by-step techniques to put knowledge into practice."

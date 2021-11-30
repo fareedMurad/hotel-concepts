@@ -44,15 +44,16 @@
 }
 
 .title {
-  @include font($primary-orange, 58px, 600, 58px);
+  @include font($primary-orange, 66px, 500, 64px);
   margin: 18px 0px;
+  font-family: $Gilroy;
 }
 .precaption {
-  @include font($primary-gray, 16px, 500, 28px);
+  @include font($primary-gray, 18px, 500, 28px);
 }
 
 .subtitle {
-  @include font($primary-orange, 18px, 500, 28px);
+  @include font($primary-orange, 23px, 500, 28px);
   margin: 7px 0px;
 }
 // .herotitle {
@@ -60,7 +61,7 @@
 // }
 
 .discription {
-  @include font($primary-gray, 18px, 400, 28px);
+  @include font($primary-gray, 19px, 400, 28px);
   @include desktop() {
     width: 100%;
   }
@@ -68,7 +69,7 @@
 
 .sm {
   margin: 2px 0;
-  @include font($primary-gray, 16px, 400, 28px);
+  @include font($primary-gray, 14px, 400, 28px);
 }
 
 .background {
@@ -110,7 +111,8 @@
   }
 }
 .collaborationTitle {
-  @include font($primary-green, 16px, 500, 16px);
+  @include font($primary-green, 14px, 500, 16px);
+  text-transform: uppercase;
 }
 
 // @media (max-width: 768px) {

@@ -20,10 +20,11 @@
 }
 
 .quotestitle {
-  @include font($primary-orange, 32px, 500, 36px);
+  @include font($primary-orange, 35px, 500, 36px);
   z-index: 2;
   font-family: $EBGaramond;
   text-align: center;
+  font-style: italic;
   letter-spacing: -0.48px;
   @include mobile() {
     text-align: start;

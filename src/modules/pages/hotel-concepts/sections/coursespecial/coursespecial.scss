@@ -30,8 +30,10 @@
 }
 .innerbox {
   width: 75%;
+  margin-bottom: 20px;
   @include mobile() {
     width: 100%;
+    margin-bottom: 10px;
   }
 }
 
@@ -47,7 +49,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   width: 100%;
-  padding-bottom: 52px;
+  @include desktop() {
+    padding-bottom: 52px;
+  }
   @include mobile() {
     grid-template-columns: 1fr;
     padding-bottom: 32px;
@@ -55,7 +59,7 @@
 }
 
 .img {
-  width: 45px;
+  width: 100%;
 }
 
 .card {
@@ -64,17 +68,23 @@
   text-align: center;
   gap: 10px;
   @include flex($direction: column, $align: center);
+  @include desktop() {
+    padding: 0px 66px;
+  }
+  @include mobile() {
+    padding: 0px;
+  }
 }
 .card-text-box {
   @include flex($justify: center, $direction: column, $align: center);
 }
 .card-special-title {
   margin: 5px 0;
-  @include font($primary-orange, 22px, 500, 32px);
+  @include font($primary-orange, 25px, 600, 32px);
 }
 .card-special-text {
   margin: 5px 0;
-  @include font($primary-gray, 14px, 400, 24px);
+  @include font($primary-gray, 16px, 400, 24px);
   text-align: center;
   width: 90%;
   @include mobile() {

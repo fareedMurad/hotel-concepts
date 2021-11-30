@@ -54,7 +54,7 @@
   line-height: 45px;
   text-align: center;
   padding-bottom: 10px;
-  @include font($primary-orange, 20px, 500, 24px);
+  @include font($primary-orange, 26px, 500, 42px);
   z-index: 2;
   font-family: $EBGaramond;
   font-style: italic;
@@ -81,7 +81,7 @@
 .content {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  gap: 20px;
+  gap: 55px;
   padding-bottom: 52px;
   @include desktop() {
     width: 100%;
@@ -89,6 +89,7 @@
   @include mobile() {
     grid-template-columns: 1fr;
     padding-bottom: 32px;
+    gap: 20px;
   }
 }
 
@@ -170,10 +171,10 @@
   }
 }
 .label {
-  @include font($primary-green, 14px, 600, 24px);
+  @include font($primary-green, 18px, 600, 24px);
 }
 .value {
-  @include font($primary-gray, 14px, 500, 24px);
+  @include font($primary-gray, 18px, 500, 24px);
 }
 .hr {
   border-radius: 1px solid $primary-gray;
@@ -183,6 +184,7 @@
 .descriptionbox {
   @include flex($justify: space-between, $direction: row);
   gap: 10px;
+  padding: 10px 0px;
 }
 .count {
   @include font($primary-orange, 20px, 500, 24px);
@@ -191,7 +193,7 @@
   letter-spacing: -0.48px;
 }
 .countdiscription {
-  @include font($primary-gray, 14px, 100, 24px);
+  @include font($primary-gray, 16px, 100, 24px);
 }
 .parabold {
   font-weight: 500;
@@ -206,6 +208,12 @@
   width: 100%;
   margin-bottom: 9px;
   @include flex($justify: center);
+}
+
+.course-item {
+  @include desktop() {
+    margin: 0px 30px;
+  }
 }
 
 @media screen and (max-width: 768px) {

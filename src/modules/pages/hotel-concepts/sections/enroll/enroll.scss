@@ -73,18 +73,19 @@
 }
 
 .boxtitle {
-  margin-top: 20px;
+  margin-top: 10px;
   @include font($primary-gray, 32px, 500, 45px);
+  padding: 20px 0px;
   @include mobile() {
     @include font($primary-gray, 32px, 500, 32px);
-    margin: 20px 0px;
+    margin: 10px 0px;
   }
 }
 .cardWrapper {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 26px;
   //   @include flex($justify: center, $direction: row, $align: center);
   @include mobile() {
     grid-template-columns: 1fr !important;
@@ -95,7 +96,7 @@
   min-height: 300px;
   text-align: center;
   background-color: #ffffff;
-  padding: 20px 16px;
+  padding: 20px 50px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(black, 0.16);
   gap: 10px;
@@ -114,7 +115,11 @@
 }
 .paraText {
   margin: 5px 0;
-  @include font($primary-gray, 16px, 400, 20px);
+  @include font($primary-gray, 16px, 400, 27px);
+}
+.titled {
+  @include font($primary-gray, 16px, 500, 27px);
+  text-align: center;
 }
 .footerText {
   margin: 5px 0;

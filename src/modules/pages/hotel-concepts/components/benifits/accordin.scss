@@ -49,7 +49,7 @@
 .name {
   cursor: pointer;
   @include flex($align: center);
-  @include font($primary-gray, 18px, 500, 22px);
+  @include font($primary-gray, 20px, 500, 22px);
   user-select: none;
   margin-top: 32px;
   padding-bottom: 21px;

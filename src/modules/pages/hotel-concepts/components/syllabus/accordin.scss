@@ -69,17 +69,21 @@
 }
 
 .h3-title {
-  @include font($primary-gray, 14px, 600, 22px);
+  @include font($primary-gray, 16px, 600, 22px);
 }
 .li-title {
-  @include font($primary-gray, 14px, 400, 22px);
+  @include font($primary-gray, 16px, 400, 22px);
 }
 .ol-list {
   list-style-type: lower-latin;
 }
 .imagesrcbox {
+  @include font($primary-green, 25px, 600, 22px);
   @include flex($align: center, $justify: center);
   gap: 22px;
+  @include mobile() {
+    @include font($primary-green, 18px, 600, 22px);
+  }
 }
 
 .imgsrc {

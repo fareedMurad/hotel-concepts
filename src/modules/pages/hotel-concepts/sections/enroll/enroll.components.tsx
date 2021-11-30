@@ -59,7 +59,7 @@ const WhoEnroll = () => {
             {/* <img src={require(`img/peek.png`)} alt='as' /> */}
             <img className={styles.img} src={item.imgSrc} alt='mvp' />
 
-            <h4>{item.title}</h4>
+            <h4 className={styles.titled}>{item.title}</h4>
 
             <p className={styles.paraText}>{item.para}</p>
           </div>

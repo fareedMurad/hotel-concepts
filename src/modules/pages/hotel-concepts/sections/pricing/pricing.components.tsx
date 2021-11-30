@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import * as styles from './pricing.scss';
 import { useTranslation } from 'react-i18next';
 import { PricingData } from './pricing.hook';
@@ -10,6 +11,7 @@ import { Button, Icon } from '@core/components';
 const Pricing = () => {
   const { t } = useTranslation();
   const { data } = PricingData();
+  const [checkedValue, setCheckedValue] = useState(false);
 
   return (
     <section className={styles.pricing}>
@@ -71,7 +73,16 @@ const Pricing = () => {
           <h1 className={styles.enrollTitle}>Enroll today</h1>
           <div className={styles.onlinePayCheckbox}>
             <div className={styles.onlineInputBox}>
-              <input className={styles.accept} type='checkbox' />
+              {/* <input className={styles.accept} type='checkbox' /> */}
+
+              <img
+                className={styles.accept}
+                src={
+                  checkedValue ? `img/checkfilled.png` : `img/checkedempty.png`
+                }
+                alt='checked'
+                onClick={() => setCheckedValue(true)}
+              />
               <label className={styles.onlinePayLabel}>
                 Pay online <b>with discount</b>
               </label>
@@ -84,7 +95,15 @@ const Pricing = () => {
           </div>
           <div className={styles.onlinePayCheckbox}>
             <div className={styles.onlineInputBox}>
-              <input className={styles.accept} type='checkbox' />
+              {/* <input className={styles.accept} type='checkbox' /> */}
+              <img
+                className={styles.accept}
+                src={
+                  checkedValue ? `img/checkfilled.png` : `img/checkedempty.png`
+                }
+                alt='checked'
+                onClick={() => setCheckedValue(true)}
+              />
               <label className={styles.onlinePayLabel}>Request Invoice</label>
             </div>
           </div>
@@ -106,7 +125,15 @@ const Pricing = () => {
           </div>
           <div className={styles.privacyBox}>
             <div className={styles.onlineInputBox}>
-              <input className={styles.accept} type='checkbox' />
+              {/* <input className={styles.accept} type='checkbox' /> */}
+              <img
+                className={styles.acceptPolicy}
+                src={
+                  checkedValue ? `img/checkfilled.png` : `img/checkedempty.png`
+                }
+                alt='checked'
+                onClick={() => setCheckedValue(true)}
+              />
               <label className={styles.onlinePayLabel}>
                 I Agree to Privacy Policy
               </label>

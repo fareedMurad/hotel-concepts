@@ -58,6 +58,10 @@
 .offer-course-card {
   @include flex($justify: center, $direction: column, $align: center);
   gap: 31px;
+  padding: 0px 66px;
+  @include mobile() {
+    padding: 0px;
+  }
 }
 .cost {
   @include flex($justify: center, $direction: column, $align: center);
@@ -109,6 +113,17 @@
     padding: 30px 30px;
   }
 }
+
+.accept {
+  width: 6%;
+  height: 6%;
+}
+
+.acceptPolicy {
+  width: 20px;
+  height: 20px;
+}
+
 .enroll-title {
   @include font($primary-orange, 31px, 500, 22px);
   z-index: 2;

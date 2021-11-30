@@ -2,7 +2,7 @@
 
 .learningmodal {
   height: 100vh;
-  @include flex($justify: start, $direction: column);
+  @include flex($justify: center, $direction: column, $align: center);
   @include container();
 
   min-height: 500px;
