@@ -6,12 +6,12 @@ import { Preloaders } from '@ui/models';
 import { ProgramPreviewImage } from '../../components/program-preview-image';
 import { State } from '@app/redux/state';
 import { useDispatch, useSelector } from 'react-redux';
-import { PeekProgressVideoProps } from './peekprogress.props';
+// import { PeekProgressVideoProps } from './peekprogress.props';
 
 /**
  * Renders WhoEnroll
  */
-const PeekProgressVideo: React.FC<PeekProgressVideoProps> = () => {
+const PeekProgressVideo = () => {
   const { t } = useTranslation();
   const {
     auth: { authorized },
@@ -34,14 +34,14 @@ const PeekProgressVideo: React.FC<PeekProgressVideoProps> = () => {
             </h1>
           </div>
         </div>
-        <Preloader id={Preloaders.programs}>
-          <div className={styles.videoContent}>
-            <ProgramPreviewImage
-              imageSrc={imageSrc}
-              previewVideo={'https://www.youtube.com/watch?v=RgzLnmTaCAU'}
-            />
-          </div>
-        </Preloader>
+        {/* <Preloader id={Preloaders.programs}> */}
+        <div className={styles.videoContent}>
+          <ProgramPreviewImage
+            imageSrc={imageSrc}
+            previewVideo={'https://www.youtube.com/watch?v=RgzLnmTaCAU'}
+          />
+        </div>
+        {/* </Preloader> */}
       </section>
     </React.Fragment>
   );
